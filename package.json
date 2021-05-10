@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token 7296afeee821"
   },
   "author": "Yei Linux",
   "license": "ISC",
@@ -25,6 +26,7 @@
     "@types/marked": "^2.0.2",
     "@types/react-dom": "^17.0.3",
     "babel-loader": "^8.2.1",
+    "chromatic": "^5.8.0",
     "react-docgen-typescript-plugin": "^0.6.2"
   },
   "dependencies": {
