@@ -204,8 +204,8 @@ export const spacing = {
 export const typography = {
   type: {
     primary: "Patrick Hand, cursive",
-    secondary: "Avotte",
-    terciary: "Rude1",
+    secondary: "'Itim', cursive",
+    terciary: "'Quicksand', sans-serif"
   },
   weight: {
     regular: "400",
