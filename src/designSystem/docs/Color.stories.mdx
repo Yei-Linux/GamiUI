@@ -1,0 +1,51 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+import { palette } from "../../styles/theme";
+
+<Meta title="Colors" />
+
+# Colors Light Mode
+
+<ColorPalette>
+  <ColorItem
+    title="palette.light.color.primary"
+    subtitle="Primary Colors"
+    colors={[
+      palette.light.color.primary.one,
+      palette.light.color.primary.two,
+    ]}
+  />
+  <ColorItem
+    title="palette.light.color.secondary"
+    subtitle="Secondary Colors"
+    colors={[
+      palette.light.color.secondary.one,
+      palette.light.color.secondary.two,
+      palette.light.color.secondary.three,
+    ]}
+  />
+  <ColorItem
+    title="palette.light.color.neutral"
+    subtitle="Neutral Colors"
+    colors={[
+      palette.light.color.neutral.one,
+      palette.light.color.neutral.two,
+      palette.light.color.neutral.three,
+      palette.light.color.neutral.four,
+      palette.light.color.neutral.five,
+      palette.light.color.neutral.six,
+      palette.light.color.neutral.seven,
+      palette.light.color.neutral.eight,
+    ]}
+  />
+  <ColorItem
+    title="palette.light.color.semantic"
+    subtitle="Semantic colors"
+    colors={[
+      palette.light.color.semantic.success,
+      palette.light.color.semantic.warning,
+      palette.light.color.semantic.danger,
+      palette.light.color.semantic.info,
+    ]}
+  />
+</ColorPalette>
