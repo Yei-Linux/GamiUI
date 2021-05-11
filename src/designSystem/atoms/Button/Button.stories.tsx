@@ -23,8 +23,6 @@ TypesButton.args = {
   field: 'type',
   children: 'Text',
   width: 'MEDIUM',
-  heigth: 'SMALL',
-  shadow: '',
   border: 'ROUNDED',
 }
 
@@ -33,8 +31,6 @@ WidthButton.args = {
   items: optionsStyles.width.map((width) => ({ width })),
   field: 'width',
   children: 'Text',
-  heigth: 'SMALL',
-  shadow: '',
   border: 'ROUNDED',
 }
 WidthButton.storyName = 'Width Sizes'
