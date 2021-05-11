@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/Floating Bottom 1`] = `
+<div
+  className="css-1vk7518-FloatingWrapper ehobp2h0"
+  direction="bottom"
+>
+  <div
+    className="css-1dhy0qo-FloatingHeader ehobp2h1"
+  >
+    <i
+      className="css-6tw2qr-IconWrapper e1cr9qb30"
+      onClick={[Function]}
+    >
+      <svg
+        fill="#7868e6"
+        height="15px"
+        viewBox="0 0 329.26933 329"
+        width="15px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+        />
+      </svg>
+    </i>
+  </div>
+  <div
+    className="css-v95ugg-GuideMessageWrapper ewha4wa0"
+    direction="right"
+  >
+    <div
+      className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
+    />
+    <div
+      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      direction="right"
+      style={
+        Object {
+          "marginTop": "15px",
+        }
+      }
+    >
+      Toma un descanso!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Molecules/Floating Left 1`] = `
+<div
+  className="css-115g4fk-FloatingWrapper ehobp2h0"
+  direction="left"
+>
+  <div
+    className="css-1dhy0qo-FloatingHeader ehobp2h1"
+  >
+    <i
+      className="css-6tw2qr-IconWrapper e1cr9qb30"
+      onClick={[Function]}
+    >
+      <svg
+        fill="#7868e6"
+        height="15px"
+        viewBox="0 0 329.26933 329"
+        width="15px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+        />
+      </svg>
+    </i>
+  </div>
+  <div
+    className="css-v95ugg-GuideMessageWrapper ewha4wa0"
+    direction="right"
+  >
+    <div
+      className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
+    />
+    <div
+      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      direction="right"
+      style={
+        Object {
+          "marginTop": "15px",
+        }
+      }
+    >
+      Toma un descanso!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Molecules/Floating Right 1`] = `
+<div
+  className="css-1u13wgd-FloatingWrapper ehobp2h0"
+  direction="right"
+>
+  <div
+    className="css-1dhy0qo-FloatingHeader ehobp2h1"
+  >
+    <i
+      className="css-6tw2qr-IconWrapper e1cr9qb30"
+      onClick={[Function]}
+    >
+      <svg
+        fill="#7868e6"
+        height="15px"
+        viewBox="0 0 329.26933 329"
+        width="15px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+        />
+      </svg>
+    </i>
+  </div>
+  <div
+    className="css-v95ugg-GuideMessageWrapper ewha4wa0"
+    direction="right"
+  >
+    <div
+      className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
+    />
+    <div
+      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      direction="right"
+      style={
+        Object {
+          "marginTop": "15px",
+        }
+      }
+    >
+      Toma un descanso!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Molecules/Floating Top 1`] = `
+<div
+  className="css-16nb2re-FloatingWrapper ehobp2h0"
+  direction="top"
+>
+  <div
+    className="css-1dhy0qo-FloatingHeader ehobp2h1"
+  >
+    <i
+      className="css-6tw2qr-IconWrapper e1cr9qb30"
+      onClick={[Function]}
+    >
+      <svg
+        fill="#7868e6"
+        height="15px"
+        viewBox="0 0 329.26933 329"
+        width="15px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+        />
+      </svg>
+    </i>
+  </div>
+  <div
+    className="css-v95ugg-GuideMessageWrapper ewha4wa0"
+    direction="right"
+  >
+    <div
+      className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
+    />
+    <div
+      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      direction="right"
+      style={
+        Object {
+          "marginTop": "15px",
+        }
+      }
+    >
+      Toma un descanso!
+    </div>
+  </div>
+</div>
+`;

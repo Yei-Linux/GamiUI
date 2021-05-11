@@ -1,9 +1,9 @@
-import React from "react";
-import { ThemeProvider } from "@emotion/react";
-import GlobalStyles from "../../styles/GlobalStyles";
+import React from 'react'
+import { ThemeProvider } from '@emotion/react'
+import GlobalStyles from '../../styles/GlobalStyles'
 
 export interface ThemeGamificationProps {
-  children: any;
+  children: any
 }
 
 const ThemeGamification = ({ children }: ThemeGamificationProps) => {
@@ -12,7 +12,7 @@ const ThemeGamification = ({ children }: ThemeGamificationProps) => {
       <GlobalStyles />
       {children}
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default ThemeGamification;
+export default ThemeGamification

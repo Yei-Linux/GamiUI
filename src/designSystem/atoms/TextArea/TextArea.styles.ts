@@ -1,17 +1,17 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import {
   inputBasicStyle,
   inputGeneralStyle,
-} from "../../../styles/utilities/input";
-import { twinStyles } from "../../../styles/utilities/twinStyles";
+} from '../../../styles/utilities/input'
+import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const TextAreaWrapper = styled.textarea<{
-  border?: string;
-  shadow?: string;
-  width?: string;
-  heigth?: string;
-  textAlign?: string;
-  fontWeight?: string;
+  border?: string
+  shadow?: string
+  width?: string
+  heigth?: string
+  textAlign?: string
+  fontWeight?: string
 }>`
   margin: 0px;
   height: 69px;
@@ -25,4 +25,4 @@ export const TextAreaWrapper = styled.textarea<{
   ${inputBasicStyle()};
   ${inputGeneralStyle()};
   ${(props: any) => twinStyles(props)};
-`;
+`

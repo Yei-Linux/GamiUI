@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react'
 
-import { Meta } from "@storybook/react";
-import { stylesControl } from "../../../core/helpers/storybook";
+import { Meta } from '@storybook/react'
+import { stylesControl } from '../../../core/helpers/storybook'
 
-import Pulse from ".";
+import Pulse from '.'
 
 export default {
-  title: "Atoms/Pulse",
+  title: 'Atoms/Pulse',
   component: Pulse,
   args: { ...Pulse.defaultProps },
   argTypes: {
-    borderColor: { control: "color" },
-    isBloqued: { control: "boolean" },
-    isActive: { control: "boolean" },
+    borderColor: { control: 'color' },
+    isBloqued: { control: 'boolean' },
+    isActive: { control: 'boolean' },
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
 export const Basic = (args: any) => {
   return (
@@ -27,12 +27,12 @@ export const Basic = (args: any) => {
         alt="roundLogo"
       />
     </Pulse>
-  );
-};
+  )
+}
 
 Basic.args = {
-  borderColor: "#e0522d",
-};
+  borderColor: '#e0522d',
+}
 
 export const Active = (args: any) => {
   return (
@@ -44,13 +44,13 @@ export const Active = (args: any) => {
         alt="roundLogo"
       />
     </Pulse>
-  );
-};
+  )
+}
 
 Active.args = {
-  borderColor: "#e0522d",
+  borderColor: '#e0522d',
   isActive: true,
-};
+}
 
 export const Bloqued = (args: any) => {
   return (
@@ -62,10 +62,10 @@ export const Bloqued = (args: any) => {
         alt="roundLogo"
       />
     </Pulse>
-  );
-};
+  )
+}
 
 Bloqued.args = {
-  borderColor: "#e0522d",
+  borderColor: '#e0522d',
   isBloqued: true,
-};
+}

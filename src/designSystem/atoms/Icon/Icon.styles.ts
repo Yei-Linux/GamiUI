@@ -1,9 +1,9 @@
-import styled from "@emotion/styled";
-import { twinStyles } from "../../../styles/utilities/twinStyles";
+import styled from '@emotion/styled'
+import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const IconWrapper = styled.i<{
-  border?: string;
-  shadow?: string;
+  border?: string
+  shadow?: string
 }>`
   border: none;
   outline: none;
@@ -14,4 +14,4 @@ export const IconWrapper = styled.i<{
   align-items: center;
 
   ${(props: any) => twinStyles(props)};
-`;
+`

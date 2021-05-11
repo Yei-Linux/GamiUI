@@ -1,4 +1,3 @@
 export const options = {
-    type: [] as const,
-  };
-  
+  type: [] as const,
+}

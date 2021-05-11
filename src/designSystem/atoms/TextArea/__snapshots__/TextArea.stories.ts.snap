@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/TextArea Basic Text Area 1`] = `
+<textarea
+  className="css-155tpye-TextAreaWrapper eieaaae0"
+  cols={5}
+  name="gamification"
+  onChange={[Function]}
+  placeholder="Type your text"
+  rows={5}
+  width="NORMAL"
+/>
+`;

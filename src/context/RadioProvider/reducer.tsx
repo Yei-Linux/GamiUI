@@ -1,9 +1,8 @@
-import { SET_RADIO_SELECTED } from "./types";
-
+import { SET_RADIO_SELECTED } from './types'
 
 interface IAction {
-  type: string;
-  payload: any;
+  type: string
+  payload: any
 }
 
 export default (state: any, action: IAction) => {
@@ -12,8 +11,8 @@ export default (state: any, action: IAction) => {
       return {
         ...state,
         radioSelected: action.payload,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

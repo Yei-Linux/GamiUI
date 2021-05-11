@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import RadioProvider from "../../../context/RadioProvider";
-import context from "../../../context/RadioProvider/context";
-import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
+import React, { useContext, useEffect } from 'react'
+import RadioProvider from '../../../context/RadioProvider'
+import context from '../../../context/RadioProvider/context'
+import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import {
   RadioCheck,
   RadioContainer,
@@ -9,59 +9,67 @@ import {
   RadioInner,
   RadioInput,
   RadioText,
-} from "./Radio.styles";
+} from './Radio.styles'
 
 interface IRadioItem {
-  children: string;
-  value: string;
-  isChecked?: boolean;
+  children: string
+  value: string
+  isChecked?: boolean
 }
 
 export interface IRadio extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: any;
+  onChangeFormItem?: (value: any) => any
   /**
    * Children Element
    */
-  children: React.ReactNode[];
+  children: React.ReactNode[]
   /**
    * Function to detect changes
    */
-  name?: any;
+  name?: any
   /**
    * Function to detect changes
    */
-  value?: any;
+  value?: any
 }
 
-const RadioContent = ({ children, onChangeFormItem, ...args }: IRadio) => {
-  const { radioSelected } = useContext(context);
+const RadioContent = ({
+  children,
+  onChangeFormItem = () => {
+    return
+  },
+  ...args
+}: IRadio) => {
+  const { radioSelected } = useContext(context)
 
   useEffect(() => {
-    onChangeFormItem(radioSelected);
-  }, [radioSelected]);
+    onChangeFormItem(radioSelected)
+  }, [radioSelected])
 
-  return <RadioGroupWrapper {...args}>{children}</RadioGroupWrapper>;
-};
+  return <RadioGroupWrapper {...args}>{children}</RadioGroupWrapper>
+}
 
-const Radio = ({ children, ...args }: IRadio) => {
+const Radio = ({ children, onChangeFormItem, ...args }: IRadio) => {
   return (
     <RadioProvider>
-      <RadioContent {...args}>{children}</RadioContent>
+      <RadioContent onChangeFormItem={onChangeFormItem} {...args}>
+        {children}
+      </RadioContent>
     </RadioProvider>
-  );
-};
+  )
+}
 
 Radio.Item = ({ children, value, isChecked = false }: IRadioItem) => {
-  const { radioSelected, setRadioSelected } = useContext(context);
+  const { radioSelected, setRadioSelected } = useContext(context)
 
   useEffect(() => {
-    isChecked && handleRadioChange();
-  }, []);
+    isChecked && handleRadioChange()
+  }, [])
 
-  const handleRadioChange = () => setRadioSelected({ text: children, value });
+  const handleRadioChange = () => setRadioSelected({ text: children, value })
 
   return (
     <RadioContainer>
@@ -71,13 +79,13 @@ Radio.Item = ({ children, value, isChecked = false }: IRadioItem) => {
       </RadioCheck>
       <RadioText>{children}</RadioText>
     </RadioContainer>
-  );
-};
+  )
+}
 
 Radio.defaultProps = {
-  width: "NORMAL",
-  heigth: "SMALL",
-  border: "MEDIUM",
-};
+  width: 'NORMAL',
+  heigth: 'SMALL',
+  border: 'MEDIUM',
+}
 
-export default Radio;
+export default Radio

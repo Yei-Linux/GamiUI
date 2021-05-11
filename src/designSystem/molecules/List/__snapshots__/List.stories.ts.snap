@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/List Basic 1`] = `
+<ul
+  className="css-1j30tb2-ListWrapper e4ps6kk0"
+>
+  <p
+    style={
+      Object {
+        "padding": "1rem",
+      }
+    }
+  >
+    Hola como estas
+  </p>
+</ul>
+`;
+
+exports[`Storyshots Molecules/List Common 1`] = `
+<ul
+  className="css-1j30tb2-ListWrapper e4ps6kk0"
+>
+  <li
+    className="css-12ytzxr-ListItemWrapper e4ps6kk1"
+  >
+    <div
+      className="css-a72bgn-Left e1skj02x0"
+    >
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <img
+          height="25px"
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          width="25px"
+        />
+      </div>
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <div
+          className="css-y29r7q-TitleContainer etn7vk90"
+        >
+          Main title
+        </div>
+        <div
+          className="css-1kp6zvx-SubtitleContainer etn7vk91"
+        >
+          Description
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-mgn85a-Right e1skj02x1"
+    >
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Molecules/List Custom Content 1`] = `
+<ul
+  className="css-1j30tb2-ListWrapper e4ps6kk0"
+>
+  <li
+    className="css-12ytzxr-ListItemWrapper e4ps6kk1"
+  >
+    <div
+      className="css-a72bgn-Left e1skj02x0"
+    >
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <img
+          height="25px"
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          width="25px"
+        />
+      </div>
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <div
+          className="css-y29r7q-TitleContainer etn7vk90"
+        >
+          Main title
+        </div>
+        <div
+          className="css-1kp6zvx-SubtitleContainer etn7vk91"
+        >
+          Description
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-mgn85a-Right e1skj02x1"
+    >
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <p>
+          Ir
+        </p>
+      </div>
+    </div>
+  </li>
+  <li
+    className="css-12ytzxr-ListItemWrapper e4ps6kk1"
+  >
+    <div
+      className="css-a72bgn-Left e1skj02x0"
+    >
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <img
+          height="25px"
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          width="25px"
+        />
+      </div>
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <div
+          className="css-y29r7q-TitleContainer etn7vk90"
+        >
+          Main title
+        </div>
+        <div
+          className="css-1kp6zvx-SubtitleContainer etn7vk91"
+        >
+          Description
+        </div>
+      </div>
+    </div>
+    <div
+      className="css-mgn85a-Right e1skj02x1"
+    >
+      <div
+        className="css-iu1hhi-ListItemChild e4ps6kk2"
+      >
+        <p>
+          Ir
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
+`;

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Radio Basic 1`] = `
+<div
+  className="css-k89t9i-RadioGroupWrapper eldjpxi0"
+  width="NORMAL"
+>
+  <label
+    className="css-1ur0gxt-RadioContainer eldjpxi1"
+  >
+    <span
+      className="css-1c1trwd-RadioCheck eldjpxi2"
+    >
+      <input
+        className="css-uckndt-RadioInput eldjpxi3"
+        onClick={[Function]}
+      />
+      <span
+        className="css-1drglhc-RadioInner eldjpxi4"
+      />
+    </span>
+    <span
+      className="css-26doda-RadioText eldjpxi5"
+    >
+      A
+    </span>
+  </label>
+  <label
+    className="css-1ur0gxt-RadioContainer eldjpxi1"
+  >
+    <span
+      className="css-1c1trwd-RadioCheck eldjpxi2"
+    >
+      <input
+        className="css-uckndt-RadioInput eldjpxi3"
+        onClick={[Function]}
+      />
+      <span
+        className="css-1drglhc-RadioInner eldjpxi4"
+      />
+    </span>
+    <span
+      className="css-26doda-RadioText eldjpxi5"
+    >
+      B
+    </span>
+  </label>
+  <label
+    className="css-1ur0gxt-RadioContainer eldjpxi1"
+  >
+    <span
+      className="css-1c1trwd-RadioCheck eldjpxi2"
+    >
+      <input
+        className="css-uckndt-RadioInput eldjpxi3"
+        onClick={[Function]}
+      />
+      <span
+        className="css-1drglhc-RadioInner eldjpxi4"
+      />
+    </span>
+    <span
+      className="css-26doda-RadioText eldjpxi5"
+    >
+      C
+    </span>
+  </label>
+</div>
+`;

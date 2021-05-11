@@ -1,4 +1,4 @@
-import { keyframes } from "@emotion/react";
+import { keyframes } from '@emotion/react'
 
 export const fadeCenterIn = keyframes`
   from {
@@ -10,7 +10,7 @@ export const fadeCenterIn = keyframes`
     transform: scale(1);
     opacity: 1;
   }
-`;
+`
 
 export const fadeCenterOut = keyframes`
   from {
@@ -22,7 +22,7 @@ export const fadeCenterOut = keyframes`
     transform: scale(.25);
     opacity: 0;
   }
-`;
+`
 
 export const fadeTopIn = keyframes`
   0% {
@@ -35,7 +35,7 @@ export const fadeTopIn = keyframes`
     transform: translateY(0px);
     z-index: 1;
   }
-`;
+`
 
 export const fadeTopOut = keyframes`
   0% {
@@ -46,4 +46,4 @@ export const fadeTopOut = keyframes`
     -webkit-transform: translateY(-250px);
     transform: translateY(-250px);
   } 
-`;
+`

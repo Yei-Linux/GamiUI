@@ -1,2 +1,2 @@
-export { default } from "./TrafficLight";
-export { options } from "./constants";
+export { default } from './TrafficLight'
+export { options } from './constants'

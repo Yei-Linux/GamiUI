@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Select Basic Select 1`] = `
+<div
+  className="css-htg7a1-SelectWrapper ee0eyh30"
+>
+  <div
+    className="css-1dhedq7-Selectinput ee0eyh31"
+    onClick={[Function]}
+  >
+    <input
+      autoComplete="off"
+      className="css-gwomp1-InputContainer e7vlt9n1"
+      name="gamification"
+      onChange={[Function]}
+      placeholder="Type your option"
+      prefix={null}
+      readOnly={true}
+      type="input"
+      value=""
+      width="NORMAL"
+    />
+  </div>
+  <div
+    className="css-ae753p-SelectOptionsWrapper ee0eyh32"
+  >
+    <div
+      className="css-u0k5sv-OptionWrapper ee0eyh33"
+      onClick={[Function]}
+    >
+      Option1
+    </div>
+    <div
+      className="css-u0k5sv-OptionWrapper ee0eyh33"
+      onClick={[Function]}
+    >
+      Option2
+    </div>
+    <div
+      className="css-u0k5sv-OptionWrapper ee0eyh33"
+      onClick={[Function]}
+    >
+      Option3
+    </div>
+  </div>
+</div>
+`;

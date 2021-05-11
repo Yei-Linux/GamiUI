@@ -1,40 +1,40 @@
-import React, { useReducer } from "react";
-import context from "./context";
-import reducer from "./reducer";
-import { SET_CALLBACKS, SET_FORM_VALUES } from "./types";
+import React, { useReducer } from 'react'
+import context from './context'
+import reducer from './reducer'
+import { SET_CALLBACKS, SET_FORM_VALUES } from './types'
 
 interface ISetFormSelected {
-  name: string;
-  value: string;
+  name: string
+  value: string
 }
 
 const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
     formValue: null,
     callbacks: null,
-  };
+  }
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   const setFormValues = (data: ISetFormSelected) => {
     dispatch({
       type: SET_FORM_VALUES,
       payload: data,
-    });
-  };
+    })
+  }
 
   const setCallbacks = (data: any) => {
     dispatch({
       type: SET_CALLBACKS,
       payload: data,
-    });
-  };
+    })
+  }
 
   const onClickSubmit = (values: any) => {
     if (state.callbacks) {
-      state.callbacks?.onFinish(values);
+      state.callbacks?.onFinish(values)
     }
-  };
+  }
 
   return (
     <context.Provider
@@ -48,7 +48,7 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
     >
       {children}
     </context.Provider>
-  );
-};
+  )
+}
 
-export default FormProvider;
+export default FormProvider

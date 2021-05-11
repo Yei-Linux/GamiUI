@@ -1,41 +1,41 @@
-import React, { JSXElementConstructor, ReactElement } from "react";
+import React, { JSXElementConstructor, ReactElement } from 'react'
 
 interface IPropsOfElement {
-  childrenConditionTypes: any[];
-  props: any;
+  childrenConditionTypes: any[]
+  props: any
 }
 
 interface IAdvancedOptions {
-  propsOfElement: IPropsOfElement[];
+  propsOfElement: IPropsOfElement[]
 }
 
 export interface IUseCloneElement {
   /**
    * Childrens to validate and clone
    */
-  children: React.ReactNode;
+  children: React.ReactNode
   /**
    * Childrens's props to add on CloneElement
    */
-  propsElement: any;
+  propsElement: any
   /**
    * Max number childrens to validate
    */
-  maxChildrenNumber: Number;
+  maxChildrenNumber: number
   /**
    * Max number childrens to validate
    */
-  advancedOptions?: IAdvancedOptions;
+  advancedOptions?: IAdvancedOptions
   /**
    * Childrens's types to validate
    */
-  childrenTypes: any[];
+  childrenTypes: any[]
 }
 
 type childrenWithPropType =
   | ReactElement<any, string | JSXElementConstructor<any>>[]
   | null
-  | undefined;
+  | undefined
 
 const useCloneElement = ({
   children,
@@ -45,44 +45,44 @@ const useCloneElement = ({
   childrenTypes,
 }: IUseCloneElement | any) => {
   const validators = (child: any, childrenTypes: any[]) =>
-    React.isValidElement(child) && validatorChildrenTypes(child, childrenTypes);
+    React.isValidElement(child) && validatorChildrenTypes(child, childrenTypes)
 
   const configureAdvancedOptions = (child: any) => {
     if (advancedOptions) {
       const propsFound = advancedOptions?.propsOfElement.find((props: any) =>
         validators(child, props?.childrenConditionTypes)
-      );
-      return propsFound?.props ?? propsElement;
+      )
+      return propsFound?.props ?? propsElement
     }
-    return propsElement;
-  };
+    return propsElement
+  }
 
   const validatorChildren = (child: any) => {
     if (validators(child, childrenTypes))
-      return React.cloneElement(child, configureAdvancedOptions(child));
-  };
+      return React.cloneElement(child, configureAdvancedOptions(child))
+  }
 
   const validatorChildrenTypes = (child: any, childrenTypes: any[]): boolean =>
-    childrenTypes.includes(child.type);
+    childrenTypes.includes(child.type)
 
   const validatorChildrenLength = () =>
-    childrenWithProps!?.length > maxChildrenNumber;
+    childrenWithProps?.length > maxChildrenNumber
 
   const runningChildrensAndShouldBeTypeOf = (
     children: any,
     childrenTypes: any[]
-  ): any => children?.some((child: any) => validators(child, childrenTypes));
+  ): any => children?.some((child: any) => validators(child, childrenTypes))
 
   const childrenWithProps: childrenWithPropType = React.Children.map(
     children,
     validatorChildren
-  );
+  )
 
   return {
     runningChildrensAndShouldBeTypeOf,
     validatorChildrenLength,
     childrenWithProps,
-  };
-};
+  }
+}
 
-export default useCloneElement;
+export default useCloneElement

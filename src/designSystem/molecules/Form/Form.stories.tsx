@@ -1,30 +1,30 @@
-import { Meta } from "@storybook/react";
-import { stylesControl } from "../../../core/helpers/storybook";
+import { Meta } from '@storybook/react'
+import { stylesControl } from '../../../core/helpers/storybook'
 
-import Form from ".";
-import React from "react";
-import Input from "../../atoms/Input";
-import Password from "../../atoms/Password";
-import Number from "../../atoms/Number";
-import TextArea from "../../atoms/TextArea";
-import Switch from "../../atoms/Switch";
-import Select from "../../atoms/Select";
-import Radio from "../../atoms/Radio";
-import Button from "../../atoms/Button";
+import Form from '.'
+import React from 'react'
+import Input from '../../atoms/Input'
+import Password from '../../atoms/Password'
+import Number from '../../atoms/Number'
+import TextArea from '../../atoms/TextArea'
+import Switch from '../../atoms/Switch'
+import Select from '../../atoms/Select'
+import Radio from '../../atoms/Radio'
+import Button from '../../atoms/Button'
 
 export default {
-  title: "Molecules/Form",
+  title: 'Molecules/Form',
   component: Form,
   args: { ...Form.defaultProps },
   argTypes: {
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
 export const Basic = () => (
   <Form
     onSubmitForm={(values: any) => {
-      console.log(values);
+      console.log(values)
     }}
   >
     <Form.Item label="Nombres" name="names">
@@ -62,4 +62,4 @@ export const Basic = () => (
       <Button type="secondary">Submit</Button>
     </Form.Item>
   </Form>
-);
+)

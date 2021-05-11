@@ -1,28 +1,28 @@
-import { Meta } from "@storybook/react";
-import { getTemplate, stylesControl } from "../../../core/helpers/storybook";
+import { Meta } from '@storybook/react'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
 
-import Switch from ".";
+import Switch from '.'
 
-const Template = getTemplate(Switch);
+const Template = getTemplate(Switch)
 
 export default {
-  title: "Atoms/Switch",
+  title: 'Atoms/Switch',
   component: Switch,
   args: { ...Switch.defaultProps },
   argTypes: {
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
-export const BasicActiveSwitch = Template.bind({});
+export const BasicActiveSwitch = Template.bind({})
 BasicActiveSwitch.args = {
-  width: "NORMAL",
-  shadow: "",
-};
+  width: 'NORMAL',
+  shadow: '',
+}
 
-export const BasicInactiveSwitch = Template.bind({});
+export const BasicInactiveSwitch = Template.bind({})
 BasicInactiveSwitch.args = {
-  width: "NORMAL",
-  shadow: "",
+  width: 'NORMAL',
+  shadow: '',
   defaultChecked: false,
-};
+}

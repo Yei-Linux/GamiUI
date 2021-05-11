@@ -1,24 +1,24 @@
-import { Meta } from "@storybook/react";
-import { getTemplate, stylesControl } from "../../../core/helpers/storybook";
+import { Meta } from '@storybook/react'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
 
-import Icon from ".";
-import { options as optionsIcon } from "./constants";
+import Icon from '.'
+import { options as optionsIcon } from './constants'
 
-const Template = getTemplate(Icon);
+const Template = getTemplate(Icon)
 
 export default {
-  title: "Atoms/Icon",
+  title: 'Atoms/Icon',
   component: Icon,
   argTypes: {
-    children: { control: "text" },
-    name: { control: { type: "select", options: optionsIcon.names } },
+    children: { control: 'text' },
+    name: { control: { type: 'select', options: optionsIcon.names } },
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
-export const BasicIcon = Template.bind({});
+export const BasicIcon = Template.bind({})
 BasicIcon.args = {
-  fill: "red",
-  size: "25px",
-  name: "facebook",
-};
+  fill: 'red',
+  size: '25px',
+  name: 'facebook',
+}

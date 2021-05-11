@@ -1,59 +1,59 @@
-import { Meta } from "@storybook/react";
+import { Meta } from '@storybook/react'
 
-import RichText from "./RichText";
-import { getTemplate, stylesControl } from "../../../core/helpers/storybook";
+import RichText from './RichText'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
 
-const Template = getTemplate(RichText);
+const Template = getTemplate(RichText)
 
 export default {
-  title: "Atoms/RichText",
+  title: 'Atoms/RichText',
   component: RichText,
   argTypes: {
-    text: { control: "text" },
+    text: { control: 'text' },
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
-export const BasicRichText = Template.bind({});
+export const BasicRichText = Template.bind({})
 BasicRichText.args = {
-  text: "This is a basic text",
-  width: "NONE",
-  heigth: "NORMAL",
-  shadow: "",
-  border: "NONE",
-};
+  text: 'This is a basic text',
+  width: 'NONE',
+  heigth: 'NORMAL',
+  shadow: '',
+  border: 'NONE',
+}
 
-BasicRichText.storyName = "Basic";
+BasicRichText.storyName = 'Basic'
 
-export const RichTextLink = Template.bind({});
+export const RichTextLink = Template.bind({})
 RichTextLink.args = {
-  text: "This is a link [help](https://google.com).",
-  width: "NONE",
-  heigth: "NORMAL",
-  shadow: "",
-  border: "NONE",
-};
+  text: 'This is a link [help](https://google.com).',
+  width: 'NONE',
+  heigth: 'NORMAL',
+  shadow: '',
+  border: 'NONE',
+}
 
-RichTextLink.storyName = "Link";
+RichTextLink.storyName = 'Link'
 
-export const RichTextItalic = Template.bind({});
+export const RichTextItalic = Template.bind({})
 RichTextItalic.args = {
-  text: "*Be italic*.",
-  width: "NONE",
-  heigth: "NORMAL",
-  shadow: "",
-  border: "NONE",
-};
+  text: '*Be italic*.',
+  width: 'NONE',
+  heigth: 'NORMAL',
+  shadow: '',
+  border: 'NONE',
+}
 
-RichTextItalic.storyName = "Italic";
+RichTextItalic.storyName = 'Italic'
 
-export const RichTextBold = Template.bind({});
+export const RichTextBold = Template.bind({})
 RichTextBold.args = {
-  text: "**Im bold**",
-  width: "NONE",
-  heigth: "NORMAL",
-  shadow: "",
-  border: "NONE",
-};
+  text: '**Im bold**',
+  width: 'NONE',
+  heigth: 'NORMAL',
+  shadow: '',
+  border: 'NONE',
+}
 
-RichTextBold.storyName = "Bold";
+RichTextBold.storyName = 'Bold'

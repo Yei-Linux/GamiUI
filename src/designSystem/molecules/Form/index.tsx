@@ -1,2 +1,2 @@
-export { default } from "./Form";
-export { options } from "./constants";
+export { default } from './Form'
+export { options } from './constants'

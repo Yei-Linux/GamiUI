@@ -1,18 +1,18 @@
-import { Meta } from "@storybook/react";
-import { stylesControl } from "../../../core/helpers/storybook";
+import { Meta } from '@storybook/react'
+import { stylesControl } from '../../../core/helpers/storybook'
 
-import Floating from ".";
-import React from "react";
-import GuideMessage from "../GuideMessage";
+import Floating from '.'
+import React from 'react'
+import GuideMessage from '../GuideMessage'
 
 export default {
-  title: "Molecules/Floating",
+  title: 'Molecules/Floating',
   component: Floating,
   args: { ...Floating.defaultProps },
   argTypes: {
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
 export const Right = (args: any) => (
   <Floating {...args}>
@@ -23,11 +23,11 @@ export const Right = (args: any) => (
       background="#ff75a0"
     />
   </Floating>
-);
+)
 
 Right.args = {
-  direction: "right",
-};
+  direction: 'right',
+}
 
 export const Left = (args: any) => (
   <Floating {...args}>
@@ -38,11 +38,11 @@ export const Left = (args: any) => (
       background="#ff75a0"
     />
   </Floating>
-);
+)
 
 Left.args = {
-  direction: "left",
-};
+  direction: 'left',
+}
 
 export const Top = (args: any) => (
   <Floating {...args}>
@@ -53,11 +53,11 @@ export const Top = (args: any) => (
       background="#ff75a0"
     />
   </Floating>
-);
+)
 
 Top.args = {
-  direction: "top",
-};
+  direction: 'top',
+}
 
 export const Bottom = (args: any) => (
   <Floating {...args}>
@@ -68,8 +68,8 @@ export const Bottom = (args: any) => (
       background="#ff75a0"
     />
   </Floating>
-);
+)
 
 Bottom.args = {
-  direction: "bottom",
-};
+  direction: 'bottom',
+}

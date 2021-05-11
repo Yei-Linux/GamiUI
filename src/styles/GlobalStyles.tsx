@@ -1,8 +1,8 @@
-import React from "react";
-import { Global, css } from "@emotion/core";
-import { normalize } from "polished";
-import { typography } from "./theme";
-import { fonts } from "./utilities/fonts";
+import React from 'react'
+import { Global, css } from '@emotion/core'
+import { normalize } from 'polished'
+import { typography } from './theme'
+import { fonts } from './utilities/fonts'
 
 const GlobalStyles: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const GlobalStyles: React.FC = () => {
         }
       `}
     />
-  );
-};
+  )
+}
 
-export default GlobalStyles;
+export default GlobalStyles

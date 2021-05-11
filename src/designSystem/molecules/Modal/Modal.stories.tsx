@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { Meta } from "@storybook/react";
-import { stylesControl } from "../../../core/helpers/storybook";
+import React, { useState } from 'react'
+import { Meta } from '@storybook/react'
+import { stylesControl } from '../../../core/helpers/storybook'
 
-import Modal from ".";
-import Button from "../../atoms/Button";
+import Modal from '.'
+import Button from '../../atoms/Button'
 
 export default {
-  title: "Molecules/Modal",
+  title: 'Molecules/Modal',
   component: Modal,
   args: { ...Modal.defaultProps },
   argTypes: {
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
 export const Basic = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false)
 
-  const onOpen = () => setVisible(true);
+  const onOpen = () => setVisible(true)
 
-  const onClose = () => setVisible(false);
+  const onClose = () => setVisible(false)
 
   return (
     <div>
@@ -33,8 +33,8 @@ export const Basic = () => {
         Show Modal
       </Button>
       <Modal visible={visible} onClose={onClose} title="Title">
-        <p style={{ padding: "1rem" }}>Hola como estas</p>
+        <p style={{ padding: '1rem' }}>Hola como estas</p>
       </Modal>
     </div>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react'
 import {
   generateShadowProps,
   generateBorderTypeProps,
@@ -6,7 +6,7 @@ import {
   generateHeightTypeProps,
   generateTextAlignProps,
   generateFontWeightProps,
-} from "../../core/utils/twin.util";
+} from '../../core/utils/twin.util'
 
 export const twinStyles = (props: any) => css`
   ${generateShadowProps(props.shadow)};
@@ -15,4 +15,4 @@ export const twinStyles = (props: any) => css`
   ${generateHeightTypeProps(props.heigth)};
   ${generateTextAlignProps(props.textAlign)};
   ${generateFontWeightProps(props.fontWeight)};
-`;
+`

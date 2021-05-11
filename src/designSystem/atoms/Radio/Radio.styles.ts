@@ -1,21 +1,21 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { twinStyles } from "../../../styles/utilities/twinStyles";
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const RadioGroupWrapper = styled.div<{
-  border?: string;
-  shadow?: string;
-  width?: string;
-  heigth?: string;
-  textAlign?: string;
-  fontWeight?: string;
+  border?: string
+  shadow?: string
+  width?: string
+  heigth?: string
+  textAlign?: string
+  fontWeight?: string
 }>`
   margin: 0;
   padding: 0;
   font-size: 14px;
 
   ${(props: any) => twinStyles(props)};
-`;
+`
 
 export const RadioContainer = styled.label`
   padding: 0;
@@ -23,7 +23,7 @@ export const RadioContainer = styled.label`
   display: inline-flex;
   margin: 0 8px 0 0;
   cursor: pointer;
-`;
+`
 
 export const RadioCheck = styled.span`
   margin: 0;
@@ -32,7 +32,7 @@ export const RadioCheck = styled.span`
   display: inline-block;
   outline: none;
   cursor: pointer;
-`;
+`
 
 export const RadioInput = styled.input`
   position: absolute;
@@ -43,7 +43,7 @@ export const RadioInput = styled.input`
   z-index: 1;
   cursor: pointer;
   opacity: 0;
-`;
+`
 
 export const RadioInner = styled.span<{ isChecked: boolean }>`
   position: relative;
@@ -77,7 +77,7 @@ export const RadioInner = styled.span<{ isChecked: boolean }>`
     transform: scale(0);
     opacity: 0;
     transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-    content: " ";
+    content: ' ';
 
     ${(props) =>
       props.isChecked &&
@@ -86,8 +86,8 @@ export const RadioInner = styled.span<{ isChecked: boolean }>`
         opacity: 1;
       `}
   }
-`;
+`
 
 export const RadioText = styled.span`
   margin: 0 10px;
-`;
+`

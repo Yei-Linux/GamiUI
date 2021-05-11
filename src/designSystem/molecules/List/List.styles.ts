@@ -1,16 +1,16 @@
-import styled from "@emotion/styled";
-import { colorLight } from "../../../styles/theme";
-import { twinStyles } from "../../../styles/utilities/twinStyles";
+import styled from '@emotion/styled'
+import { colorLight } from '../../../styles/theme'
+import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const ListWrapper = styled.ul<{
-  border?: string;
-  shadow?: string;
-  width?: string;
-  heigth?: string;
+  border?: string
+  shadow?: string
+  width?: string
+  heigth?: string
 }>`
   width: fit-content;
   ${(props: any) => twinStyles(props)};
-`;
+`
 
 export const ListItemWrapper = styled.li`
   display: flex;
@@ -21,7 +21,7 @@ export const ListItemWrapper = styled.li`
   list-style: none;
   width: 100%;
   min-width: 250px;
-`;
+`
 export const ListItemChild = styled.div`
   margin-right: 1rem;
-`;
+`

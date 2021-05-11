@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 interface IuseClickOutside {
   /**
    * Element's Ref whose musnt apply click outside
    */
-  ref: any;
+  ref: any
   /**
    * Element's Class whose musnt apply click outside
    */
-  elementsDontApplyClickOutside?: string[];
+  elementsDontApplyClickOutside?: string[]
   /**
    * Function to do actions on Click outside
    */
-  handleDoAction: () => void;
+  handleDoAction: () => void
 }
 
 const useClickOutside = ({
@@ -20,47 +20,47 @@ const useClickOutside = ({
   elementsDontApplyClickOutside = [],
   handleDoAction,
 }: IuseClickOutside) => {
-  const [isClickOutside, setIsClickOutside] = useState(false);
+  const [isClickOutside, setIsClickOutside] = useState(false)
 
   const targetClassListArray = (target: any): any[] =>
-    Array.from(target?.classList);
+    Array.from(target?.classList)
 
   const isClickOnOtherElementOfConditions = (target: any): boolean =>
     targetClassListArray(target).some((elementClass: any) =>
       elementsDontApplyClickOutside?.includes(elementClass)
-    );
+    )
 
   const isClickOnSelfElement = (target: any): boolean =>
-    ref?.current?.contains(target);
+    ref?.current?.contains(target)
 
   const handleClickOutside = (e: any): void => {
     if (
       !isClickOnSelfElement(e.target) &&
       !isClickOnOtherElementOfConditions(e.target)
     ) {
-      setIsClickOutside(true);
+      setIsClickOutside(true)
     }
-  };
+  }
 
   useEffect(() => {
     if (isClickOutside) {
-      handleDoAction();
-      setIsClickOutside(false);
+      handleDoAction()
+      setIsClickOutside(false)
     }
-  }, [isClickOutside]);
+  }, [isClickOutside])
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref])
 
   return {
     isClickOutside,
     setIsClickOutside,
-  };
-};
+  }
+}
 
-export default useClickOutside;
+export default useClickOutside

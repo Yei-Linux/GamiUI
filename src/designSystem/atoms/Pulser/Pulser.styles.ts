@@ -1,11 +1,11 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { colorLight } from "../../../styles/theme";
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+import { colorLight } from '../../../styles/theme'
 import {
   PulseOneAnimation,
   PulseTwoAnimation,
-} from "../../../styles/utilities/transitions";
-import { twinStyles } from "../../../styles/utilities/twinStyles";
+} from '../../../styles/utilities/transitions'
+import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 const PulseCommon = css`
   width: 130px;
@@ -16,21 +16,21 @@ const PulseCommon = css`
   bottom: 0;
   right: 0;
   border-radius: 999px;
-`;
+`
 
 export const Pulse = styled.div`
   width: fit-content;
-`;
+`
 
-export const PulseWrapper = styled.div<{}>`
+export const PulseWrapper = styled.div`
   position: relative;
   width: fit-content;
-`;
+`
 
 export const PulseContainer = styled.div<{
-  isBloqued: boolean;
-  shadow?: string;
-  borderColor: string;
+  isBloqued: boolean
+  shadow?: string
+  borderColor: string
 }>`
   filter: ${(props: any) => (props.isBloqued ? `opacity(0.5);` : `none`)};
   display: flex;
@@ -43,7 +43,7 @@ export const PulseContainer = styled.div<{
   ${PulseCommon}
   border: 5px solid ${(props) => props.borderColor};
   ${(props: any) => twinStyles(props)};
-`;
+`
 
 export const PulseTransitions = styled.div<{ type: string }>`
   position: absolute;
@@ -51,8 +51,8 @@ export const PulseTransitions = styled.div<{ type: string }>`
   box-sizing: border-box;
 
   ${PulseCommon}
-  ${(props) => (props.type == "one" ? PulseOneAnimation : PulseTwoAnimation)}
-`;
+  ${(props) => (props.type == 'one' ? PulseOneAnimation : PulseTwoAnimation)}
+`
 
 export const PulseLock = styled.div`
   position: absolute;
@@ -62,7 +62,7 @@ export const PulseLock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 export const PulseProgress = styled.div`
   border-radius: 2em;
@@ -73,4 +73,4 @@ export const PulseProgress = styled.div`
   width: fit-content;
   padding: 5px 1rem;
   margin: 10px auto;
-`;
+`

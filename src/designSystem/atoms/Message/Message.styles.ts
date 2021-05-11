@@ -1,18 +1,18 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 import {
   messageDirectionLeft,
   messageDirectionRight,
-} from "../../../styles/utilities/message";
-import { twinStyles } from "../../../styles/utilities/twinStyles";
+} from '../../../styles/utilities/message'
+import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const MessageWrapper = styled.div<{
-  direction: string;
-  background: string;
-  shadow?: string;
-  width?: string;
-  heigth?: string;
-  textAlign?: string;
-  fontWeight?: string;
+  direction: string
+  background: string
+  shadow?: string
+  width?: string
+  heigth?: string
+  textAlign?: string
+  fontWeight?: string
 }>`
   position: relative;
   padding: 10px;
@@ -28,7 +28,7 @@ export const MessageWrapper = styled.div<{
 
   &::after,
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 0;
     height: 0;
@@ -39,17 +39,17 @@ export const MessageWrapper = styled.div<{
 
   &::before {
     ${(props) =>
-      props.direction == "left" && messageDirectionLeft(props, "before")}
+      props.direction == 'left' && messageDirectionLeft(props, 'before')}
 
     ${(props) =>
-      props.direction == "right" && messageDirectionRight(props, "before")}
+      props.direction == 'right' && messageDirectionRight(props, 'before')}
   }
 
   &::after {
     ${(props) =>
-      props.direction == "left" && messageDirectionLeft(props, "after")}
+      props.direction == 'left' && messageDirectionLeft(props, 'after')}
 
     ${(props) =>
-      props.direction == "right" && messageDirectionRight(props, "after")}
+      props.direction == 'right' && messageDirectionRight(props, 'after')}
   }
-`;
+`

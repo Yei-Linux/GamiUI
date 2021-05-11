@@ -1,0 +1,395 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/Form Basic 1`] = `
+<div
+  className="css-b40ng6-FormWrapper enokt0p0"
+>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-yckgou-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Nombres</p>
+",
+        }
+      }
+      width="NONE"
+    />
+    <input
+      autoComplete="off"
+      className="css-gwomp1-InputContainer e7vlt9n1"
+      name="names"
+      onChange={[Function]}
+      placeholder="Ingresa tus nombres"
+      prefix={null}
+      readOnly={false}
+      type="input"
+      value=""
+      width="NORMAL"
+    />
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-yckgou-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Contraseña</p>
+",
+        }
+      }
+      width="NONE"
+    />
+    <div
+      autoComplete="off"
+      className="css-11c3v5m-InputWrapper e7vlt9n0"
+      name="password"
+      placeholder="Ingresa tu contraseña"
+      prefix={
+        <div
+          onClick={[Function]}
+        >
+          <Icon
+            fill="blue"
+            name="closeeye"
+            size="30px"
+          />
+        </div>
+      }
+      readOnly={false}
+      type="password"
+      value=""
+      width="NORMAL"
+    >
+      <div
+        onClick={[Function]}
+      >
+        <i
+          className="css-6tw2qr-IconWrapper e1cr9qb30"
+        >
+          <svg
+            fill="blue"
+            height="30px"
+            viewBox="0 0 512.52 512.52"
+            width="30px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g>
+              <g>
+                <path
+                  d="m512.52 187.167-3.34 6.69c-.71 1.45-18.07 35.74-57.99 69.95-23.36 20.02-49.72 35.97-78.35 47.4-35.65 14.24-74.87 21.46-116.58 21.46s-80.93-7.22-116.58-21.46c-28.63-11.43-54.99-27.38-78.35-47.4-39.92-34.21-57.28-68.5-57.99-69.95l-3.34-6.69 3.34-6.69c.71-1.44 18.07-35.74 57.99-69.95 23.36-20.01 49.72-35.96 78.35-47.4 35.65-14.24 74.87-21.46 116.58-21.46s80.93 7.22 116.58 21.46c28.63 11.44 54.99 27.39 78.35 47.4 39.92 34.21 57.28 68.51 57.99 69.95z"
+                  fill="#fbf3f3"
+                />
+                <path
+                  d="m512.52 187.167-3.34 6.69c-.71 1.45-18.07 35.74-57.99 69.95-23.36 20.02-49.72 35.97-78.35 47.4-35.65 14.24-74.87 21.46-116.58 21.46v-291c41.71 0 80.93 7.22 116.58 21.46 28.63 11.44 54.99 27.39 78.35 47.4 39.92 34.21 57.28 68.51 57.99 69.95z"
+                  fill="#e8e3f0"
+                />
+                <ellipse
+                  cx="256.26"
+                  cy="187.167"
+                  fill="#adcfff"
+                  rx="114.12"
+                  ry="114.12"
+                  transform="matrix(.707 -.707 .707 .707 -57.291 236.023)"
+                />
+                <path
+                  d="m370.38 187.167c0 63.03-51.09 114.12-114.12 114.12v-228.24c63.03 0 114.12 51.101 114.12 114.12z"
+                  fill="#6aa8ff"
+                />
+                <ellipse
+                  cx="256.26"
+                  cy="189.437"
+                  fill="#363671"
+                  rx="59.42"
+                  ry="59.42"
+                  transform="matrix(.257 -.967 .967 .257 7.395 388.49)"
+                />
+                <path
+                  d="m315.68 189.437c0 32.82-26.6 59.42-59.42 59.42v-118.84c32.82 0 59.42 26.6 59.42 59.42z"
+                  fill="#16164d"
+                />
+                <circle
+                  cx="298.311"
+                  cy="151.391"
+                  fill="#fbf3f3"
+                  r="28.877"
+                />
+              </g>
+              <ellipse
+                cx="412.11"
+                cy="370.703"
+                fill="#ff7c48"
+                rx="100.15"
+                ry="100.15"
+                transform="matrix(.707 -.707 .707 .707 -141.422 399.982)"
+              />
+              <path
+                d="m512.26 370.703c0 55.22-44.93 100.15-100.15 100.15v-200.3c55.22 0 100.15 44.92 100.15 100.15z"
+                fill="#ff3939"
+              />
+              <path
+                d="m412.11 355.707 10 14.996-10 15.004h-41.48v-30z"
+                fill="#fbf3f3"
+              />
+              <path
+                d="m412.11 355.707h41.48v30h-41.48z"
+                fill="#e8e3f0"
+              />
+            </g>
+          </svg>
+        </i>
+      </div>
+      <input
+        autoComplete="off"
+        className="css-7dwcir-InputContainer e7vlt9n1"
+        name="password"
+        onChange={[Function]}
+        placeholder="Ingresa tu contraseña"
+        prefix={
+          <div
+            onClick={[Function]}
+          >
+            <Icon
+              fill="blue"
+              name="closeeye"
+              size="30px"
+            />
+          </div>
+        }
+        readOnly={false}
+        type="password"
+        value=""
+        width="NORMAL"
+      />
+    </div>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-yckgou-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Celular</p>
+",
+        }
+      }
+      width="NONE"
+    />
+    <input
+      autoComplete="off"
+      className="css-gwomp1-InputContainer e7vlt9n1"
+      name="phone"
+      onChange={[Function]}
+      placeholder="Ingresa tu celular"
+      prefix={null}
+      readOnly={false}
+      type="input"
+      value=""
+      width="NORMAL"
+    />
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-yckgou-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Comentario</p>
+",
+        }
+      }
+      width="NONE"
+    />
+    <textarea
+      className="css-155tpye-TextAreaWrapper eieaaae0"
+      cols={5}
+      name="comment"
+      onChange={[Function]}
+      placeholder="Ingresa tu comentario"
+      rows={5}
+      value=""
+      width="NORMAL"
+    />
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-yckgou-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Activar Notificaciones</p>
+",
+        }
+      }
+      width="NONE"
+    />
+    <button
+      className="css-13kjyr7-SwitchWrapper egh0tog0"
+      name="isActive"
+      onClick={[Function]}
+      value=""
+      width="NORMAL"
+    >
+      <div
+        className="css-1lmkk7b-SwitchBall egh0tog1"
+      />
+    </button>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-yckgou-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Elige un pais</p>
+",
+        }
+      }
+      width="NONE"
+    />
+    <div
+      className="css-htg7a1-SelectWrapper ee0eyh30"
+    >
+      <div
+        className="css-1dhedq7-Selectinput ee0eyh31"
+        onClick={[Function]}
+      >
+        <input
+          autoComplete="off"
+          className="css-gwomp1-InputContainer e7vlt9n1"
+          name="country"
+          onChange={[Function]}
+          placeholder="Type your option"
+          prefix={null}
+          readOnly={true}
+          type="input"
+          value=""
+          width="NORMAL"
+        />
+      </div>
+      <div
+        className="css-ae753p-SelectOptionsWrapper ee0eyh32"
+      >
+        <div
+          className="css-u0k5sv-OptionWrapper ee0eyh33"
+          onClick={[Function]}
+        >
+          Option1
+        </div>
+        <div
+          className="css-u0k5sv-OptionWrapper ee0eyh33"
+          onClick={[Function]}
+        >
+          Option2
+        </div>
+        <div
+          className="css-u0k5sv-OptionWrapper ee0eyh33"
+          onClick={[Function]}
+        >
+          Option3
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-yckgou-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Elige tu genero</p>
+",
+        }
+      }
+      width="NONE"
+    />
+    <div
+      className="css-k89t9i-RadioGroupWrapper eldjpxi0"
+      name="gender"
+      value=""
+      width="NORMAL"
+    >
+      <label
+        className="css-1ur0gxt-RadioContainer eldjpxi1"
+      >
+        <span
+          className="css-1c1trwd-RadioCheck eldjpxi2"
+        >
+          <input
+            className="css-uckndt-RadioInput eldjpxi3"
+            onClick={[Function]}
+          />
+          <span
+            className="css-1drglhc-RadioInner eldjpxi4"
+          />
+        </span>
+        <span
+          className="css-26doda-RadioText eldjpxi5"
+        >
+          A
+        </span>
+      </label>
+      <label
+        className="css-1ur0gxt-RadioContainer eldjpxi1"
+      >
+        <span
+          className="css-1c1trwd-RadioCheck eldjpxi2"
+        >
+          <input
+            className="css-uckndt-RadioInput eldjpxi3"
+            onClick={[Function]}
+          />
+          <span
+            className="css-1drglhc-RadioInner eldjpxi4"
+          />
+        </span>
+        <span
+          className="css-26doda-RadioText eldjpxi5"
+        >
+          B
+        </span>
+      </label>
+      <label
+        className="css-1ur0gxt-RadioContainer eldjpxi1"
+      >
+        <span
+          className="css-1c1trwd-RadioCheck eldjpxi2"
+        >
+          <input
+            className="css-uckndt-RadioInput eldjpxi3"
+            onClick={[Function]}
+          />
+          <span
+            className="css-1drglhc-RadioInner eldjpxi4"
+          />
+        </span>
+        <span
+          className="css-26doda-RadioText eldjpxi5"
+        >
+          C
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <button
+      className="css-yan4dl-ButtonWrapper ekfoxpm0"
+      onClick={[Function]}
+      type="submit"
+      width="SMALL"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;

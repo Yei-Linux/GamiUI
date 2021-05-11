@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/RichText Basic 1`] = `
+<div
+  className="css-qblon6-RichTextWrapper e17e5g740"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p>This is a basic text</p>
+",
+    }
+  }
+  width="NONE"
+/>
+`;
+
+exports[`Storyshots Atoms/RichText Bold 1`] = `
+<div
+  className="css-qblon6-RichTextWrapper e17e5g740"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p><strong>Im bold</strong></p>
+",
+    }
+  }
+  width="NONE"
+/>
+`;
+
+exports[`Storyshots Atoms/RichText Italic 1`] = `
+<div
+  className="css-qblon6-RichTextWrapper e17e5g740"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p><em>Be italic</em>.</p>
+",
+    }
+  }
+  width="NONE"
+/>
+`;
+
+exports[`Storyshots Atoms/RichText Link 1`] = `
+<div
+  className="css-qblon6-RichTextWrapper e17e5g740"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p>This is a link <a href=\\"https://google.com\\">help</a>.</p>
+",
+    }
+  }
+  width="NONE"
+/>
+`;

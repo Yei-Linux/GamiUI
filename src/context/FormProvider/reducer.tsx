@@ -1,8 +1,8 @@
-import { SET_CALLBACKS, SET_FORM_VALUES } from "./types";
+import { SET_CALLBACKS, SET_FORM_VALUES } from './types'
 
 interface IAction {
-  type: string;
-  payload: any;
+  type: string
+  payload: any
 }
 
 export default (state: any, action: IAction) => {
@@ -14,13 +14,13 @@ export default (state: any, action: IAction) => {
           ...state.formValue,
           [action.payload.name]: action.payload.value,
         },
-      };
+      }
     case SET_CALLBACKS:
       return {
         ...state,
         callbacks: action.payload,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}

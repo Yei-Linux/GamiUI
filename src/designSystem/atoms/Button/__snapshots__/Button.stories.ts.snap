@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Button Types Button 1`] = `
+Array [
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        primary
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-r0r5pw-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        secondary
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-czun26-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        tertiary
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-3zre3d-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        cuaternary
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-1slklvl-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        text
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-4ukf5l-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        link
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-4ukf5l-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        success
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-myz7n3-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        warning
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-16ov8di-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        danger
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-idn3m0-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        info
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-19jr0hz-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots Atoms/Button Width Sizes 1`] = `
+Array [
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        NONE
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-1laelah-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="NONE"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        SMALL
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-139zgec-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="SMALL"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        NORMAL
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-egiayo-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="NORMAL"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        MEDIUM
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-r0r5pw-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="MEDIUM"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        LARGE
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-h91d55-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="LARGE"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+  <div
+    className="css-1pnd932-WrapperStories e1kw3nsx0"
+  >
+    <div
+      className="css-12sqrlu-TypeColumn-FirstColumn e1kw3nsx2"
+    >
+      <p>
+        FULL
+      </p>
+    </div>
+    <div
+      className="css-qtyufk-TypeColumn-SecondColumn e1kw3nsx3"
+    >
+      <button
+        className="css-1fzx7yv-ButtonWrapper ekfoxpm0"
+        type="submit"
+        width="FULL"
+      >
+        Text
+      </button>
+    </div>
+  </div>,
+]
+`;

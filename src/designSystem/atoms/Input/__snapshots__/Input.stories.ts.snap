@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Input Basic Input 1`] = `
+<input
+  autoComplete="off"
+  className="css-gwomp1-InputContainer e7vlt9n1"
+  name="gamification"
+  onChange={[Function]}
+  placeholder="Type your name"
+  prefix={null}
+  readOnly={false}
+  type="input"
+  width="NORMAL"
+/>
+`;
+
+exports[`Storyshots Atoms/Input Icon Input 1`] = `
+<div
+  autoComplete="off"
+  className="css-1hwl8w3-InputWrapper e7vlt9n0"
+  name="gamification"
+  placeholder="Type your name"
+  prefix={
+    <Icon
+      fill="#374a54"
+      name="facebook"
+      size="16px"
+    />
+  }
+  readOnly={false}
+  type="input"
+  width="NORMAL"
+>
+  <i
+    className="css-6tw2qr-IconWrapper e1cr9qb30"
+  >
+    <svg
+      fill="#374a54"
+      height="16px"
+      viewBox="0 0 20 20"
+      width="16px"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.46 18H11.39V10.7H13.84L14.21 7.86H11.39V6.04C11.39 5.22 11.62 4.66 12.8 4.66H14.31V2.11C14.05 2.08 13.16 2 12.12 2C9.94 2 8.46 3.33 8.46 5.76V7.86H6V10.7H8.46V18Z"
+      />
+    </svg>
+  </i>
+  <input
+    autoComplete="off"
+    className="css-7dwcir-InputContainer e7vlt9n1"
+    name="gamification"
+    onChange={[Function]}
+    placeholder="Type your name"
+    prefix={
+      <Icon
+        fill="#374a54"
+        name="facebook"
+        size="16px"
+      />
+    }
+    readOnly={false}
+    type="input"
+    width="NORMAL"
+  />
+</div>
+`;

@@ -1,1 +1,1 @@
-export { default } from "./ThemeGamification";
+export { default } from './ThemeGamification'

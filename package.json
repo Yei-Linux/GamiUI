@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint --fix ./src",
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token 7296afeee821"
+    "chromatic": "npx chromatic --project-token 7296afeee821",
+    "prepare": "husky install"
   },
   "author": "Yei Linux",
   "license": "ISC",
@@ -21,21 +24,37 @@
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-controls": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-jest": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
+    "@storybook/addon-storyshots": "^6.2.9",
     "@storybook/react": "^6.2.9",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@types/jest": "^26.0.23",
     "@types/marked": "^2.0.2",
     "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.1",
     "chromatic": "^5.8.0",
-    "react-docgen-typescript-plugin": "^0.6.2"
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "jest-svg-transformer": "^1.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "react-docgen-typescript-plugin": "^0.6.2",
+    "ts-jest": "^26.5.6",
+    "ts-node": "^9.1.1"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.12.7",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
-    "@storybook/addon-jest": "^6.2.9",
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
     "autoprefixer": "^10.0.4",
     "babel-plugin-preval": "^5.0.0",
     "babel-polyfill": "^6.26.0",
@@ -43,15 +62,12 @@
     "file-loader": "^6.2.0",
     "fs": "^0.0.1-security",
     "gsap": "^3.6.1",
-    "jest": "^26.6.3",
-    "jest-svg-transformer": "^1.0.0",
     "marked": "^2.0.3",
     "module": "^1.2.5",
     "postcss-cli": "^8.3.0",
     "postcss-import": "^13.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-singleton-hook": "^3.1.1",
     "storybook-addon-react-docgen": "^1.2.42",
     "style-loader": "^2.0.0",
     "svg-sprite-loader": "^6.0.5",
@@ -60,11 +76,12 @@
     "typescript": "^4.1.2",
     "url-loader": "^4.1.1"
   },
-  "bit": {
-    "env": {
-      "compiler": "bit.envs/compilers/react@1.0.23"
-    },
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }

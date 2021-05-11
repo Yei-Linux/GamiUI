@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/TrafficLight Basic 1`] = `
+<div
+  className="css-1fm3r8h-TrafficLightWrapper e4ce4rr0"
+>
+  <div
+    className="css-7ya29i-TrafficLightContainer e4ce4rr1"
+  >
+    <div
+      className="css-15iids2-Balls e4ce4rr2"
+      color="#c33"
+    />
+    <div
+      className="css-pha6og-Balls e4ce4rr2"
+      color="#9e6d1d"
+    />
+    <div
+      className="css-1vo0czq-Balls e4ce4rr2"
+      color="#4c751e"
+    />
+  </div>
+  <div
+    className="css-9sid66-TextCounter e4ce4rr3"
+  >
+    <p>
+      10
+    </p>
+  </div>
+</div>
+`;

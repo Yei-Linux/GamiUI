@@ -1,34 +1,34 @@
-import React, { useState } from "react";
-import { IGeneralProps } from "../../../core/domain/interfaces/IGeneralProps";
-import { SwitchBall, SwitchWrapper } from "./Switch.styles";
+import React, { useState } from 'react'
+import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
+import { SwitchBall, SwitchWrapper } from './Switch.styles'
 
 export interface ISwitch extends IGeneralProps {
-  defaultChecked: boolean;
+  defaultChecked: boolean
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: any;
+  onChangeFormItem?: any
 }
 
 const Switch = ({ onChangeFormItem, defaultChecked, ...args }: ISwitch) => {
-  const [isChecked, setIsChecked] = useState(defaultChecked);
+  const [isChecked, setIsChecked] = useState(defaultChecked)
 
   const toggle = () => {
-    onChangeFormItem(!isChecked);
-    setIsChecked(!isChecked);
-  };
+    onChangeFormItem(!isChecked)
+    setIsChecked(!isChecked)
+  }
 
   return (
     <SwitchWrapper isChecked={isChecked} {...args} onClick={() => toggle()}>
       <SwitchBall isChecked={isChecked} />
     </SwitchWrapper>
-  );
-};
+  )
+}
 
 Switch.defaultProps = {
   defaultChecked: true,
-  border: "ROUNDED",
-  width: "NORMAL",
-};
+  border: 'ROUNDED',
+  width: 'NORMAL',
+}
 
-export default Switch;
+export default Switch

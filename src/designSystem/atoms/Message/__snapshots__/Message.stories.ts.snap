@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Message Basic Message Left 1`] = `
+<div
+  className="css-a851pe-MessageWrapper e6z3dsf0"
+  direction="left"
+  width="NORMAL"
+>
+  Hola Bienvenido a nuestra app!
+</div>
+`;
+
+exports[`Storyshots Atoms/Message Basic Message Right 1`] = `
+<div
+  className="css-1wat2xn-MessageWrapper e6z3dsf0"
+  direction="right"
+  width="NORMAL"
+>
+  Hola Bienvenido a nuestra app!
+</div>
+`;

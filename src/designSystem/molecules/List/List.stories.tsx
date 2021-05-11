@@ -1,25 +1,25 @@
-import React from "react";
-import { Meta } from "@storybook/react";
-import { stylesControl } from "../../../core/helpers/storybook";
+import React from 'react'
+import { Meta } from '@storybook/react'
+import { stylesControl } from '../../../core/helpers/storybook'
 
-import List from ".";
+import List from '.'
 
 export default {
-  title: "Molecules/List",
+  title: 'Molecules/List',
   component: List,
   args: { ...List.defaultProps },
   argTypes: {
     ...stylesControl,
   },
-} as Meta;
+} as Meta
 
 export const Basic = (args: any) => (
   <List {...args}>
-    <p style={{ padding: "1rem" }}>Hola como estas</p>
+    <p style={{ padding: '1rem' }}>Hola como estas</p>
   </List>
-);
+)
 
-Basic.args = {};
+Basic.args = {}
 
 export const Common = (args: any) => (
   <List {...args}>
@@ -35,9 +35,9 @@ export const Common = (args: any) => (
       description="Description"
     />
   </List>
-);
+)
 
-Common.args = {};
+Common.args = {}
 
 export const CustomContent = (args: any) => (
   <List {...args}>
@@ -68,6 +68,6 @@ export const CustomContent = (args: any) => (
       <p>Ir</p>
     </List.Item>
   </List>
-);
+)
 
-CustomContent.args = {};
+CustomContent.args = {}

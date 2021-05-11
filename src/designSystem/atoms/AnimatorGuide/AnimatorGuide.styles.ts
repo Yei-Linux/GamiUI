@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
-import { twinStyles } from "../../../styles/utilities/twinStyles";
+import styled from '@emotion/styled'
+import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const AnimatorGuideImg = styled.div<{
-  imageProps: any;
-  border?: string;
-  shadow?: string;
+  imageProps: any
+  border?: string
+  shadow?: string
 }>`
   width: ${(props) => props.imageProps.dimensions.width};
   height: ${(props) => props.imageProps.dimensions.height};
@@ -12,4 +12,4 @@ export const AnimatorGuideImg = styled.div<{
     `url(${props.imageProps.source}) ${props.imageProps.position.x} ${props.imageProps.position.y}`};
 
   ${(props: any) => twinStyles(props)};
-`;
+`

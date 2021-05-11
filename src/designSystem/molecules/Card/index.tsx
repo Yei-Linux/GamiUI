@@ -1,2 +1,2 @@
-export { default } from "./Card";
-export { options } from "./constants";
+export { default } from './Card'
+export { options } from './constants'
