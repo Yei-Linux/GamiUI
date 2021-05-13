@@ -199,6 +199,7 @@ export const spacing = {
     small: 5,
     default: 10,
   },
+  margin: {},
 }
 
 export const typography = {
