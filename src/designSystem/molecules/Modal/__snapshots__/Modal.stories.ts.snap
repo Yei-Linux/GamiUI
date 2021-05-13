@@ -3,7 +3,7 @@
 exports[`Storyshots Molecules/Modal Basic 1`] = `
 <div>
   <button
-    className="css-yan4dl-ButtonWrapper ekfoxpm0"
+    className="css-1ysm1ze-ButtonWrapper ekfoxpm0"
     onClick={[Function]}
     type="submit"
     width="SMALL"

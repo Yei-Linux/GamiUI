@@ -33,7 +33,7 @@ exports[`Storyshots Molecules/Floating Bottom 1`] = `
       className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
     />
     <div
-      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      className="css-1gz3umw-MessageWrapper e6z3dsf0"
       direction="right"
       style={
         Object {
@@ -80,7 +80,7 @@ exports[`Storyshots Molecules/Floating Left 1`] = `
       className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
     />
     <div
-      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      className="css-1gz3umw-MessageWrapper e6z3dsf0"
       direction="right"
       style={
         Object {
@@ -127,7 +127,7 @@ exports[`Storyshots Molecules/Floating Right 1`] = `
       className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
     />
     <div
-      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      className="css-1gz3umw-MessageWrapper e6z3dsf0"
       direction="right"
       style={
         Object {
@@ -174,7 +174,7 @@ exports[`Storyshots Molecules/Floating Top 1`] = `
       className="css-fhxv9x-AnimatorGuideImg e9zrumb0"
     />
     <div
-      className="css-15xp5fn-MessageWrapper e6z3dsf0"
+      className="css-1gz3umw-MessageWrapper e6z3dsf0"
       direction="right"
       style={
         Object {

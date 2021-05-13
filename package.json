@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:snapshot-update": "test --u",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
