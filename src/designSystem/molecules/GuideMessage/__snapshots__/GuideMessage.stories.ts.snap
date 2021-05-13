@@ -9,7 +9,7 @@ exports[`Storyshots Molecules/GuideMessage Left 1`] = `
     className="css-zh1rva-AnimatorGuideImg e9zrumb0"
   />
   <div
-    className="css-u4pnil-MessageWrapper e6z3dsf0"
+    className="css-16p81sx-MessageWrapper e6z3dsf0"
     direction="left"
     style={
       Object {
@@ -31,7 +31,7 @@ exports[`Storyshots Molecules/GuideMessage Right 1`] = `
     className="css-u6s7mk-AnimatorGuideImg e9zrumb0"
   />
   <div
-    className="css-skiuio-MessageWrapper e6z3dsf0"
+    className="css-j0rdok-MessageWrapper e6z3dsf0"
     direction="right"
     style={
       Object {

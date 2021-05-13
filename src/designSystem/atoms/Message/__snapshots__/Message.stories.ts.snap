@@ -2,7 +2,7 @@
 
 exports[`Storyshots Atoms/Message Basic Message Left 1`] = `
 <div
-  className="css-a851pe-MessageWrapper e6z3dsf0"
+  className="css-1tfozn8-MessageWrapper e6z3dsf0"
   direction="left"
   width="NORMAL"
 >
@@ -12,7 +12,7 @@ exports[`Storyshots Atoms/Message Basic Message Left 1`] = `
 
 exports[`Storyshots Atoms/Message Basic Message Right 1`] = `
 <div
-  className="css-1wat2xn-MessageWrapper e6z3dsf0"
+  className="css-yqmcn-MessageWrapper e6z3dsf0"
   direction="right"
   width="NORMAL"
 >

@@ -2,7 +2,7 @@
 
 exports[`Storyshots Molecules/Form Basic 1`] = `
 <div
-  className="css-b40ng6-FormWrapper enokt0p0"
+  className="css-pnvx7p-FormWrapper enokt0p0"
 >
   <div
     className="css-o5sgrd-FormItemWrapper enokt0p1"
@@ -328,7 +328,7 @@ exports[`Storyshots Molecules/Form Basic 1`] = `
             onClick={[Function]}
           />
           <span
-            className="css-1drglhc-RadioInner eldjpxi4"
+            className="css-egwf0x-RadioInner eldjpxi4"
           />
         </span>
         <span
@@ -348,7 +348,7 @@ exports[`Storyshots Molecules/Form Basic 1`] = `
             onClick={[Function]}
           />
           <span
-            className="css-1drglhc-RadioInner eldjpxi4"
+            className="css-egwf0x-RadioInner eldjpxi4"
           />
         </span>
         <span
@@ -368,7 +368,7 @@ exports[`Storyshots Molecules/Form Basic 1`] = `
             onClick={[Function]}
           />
           <span
-            className="css-1drglhc-RadioInner eldjpxi4"
+            className="css-egwf0x-RadioInner eldjpxi4"
           />
         </span>
         <span
@@ -383,7 +383,7 @@ exports[`Storyshots Molecules/Form Basic 1`] = `
     className="css-o5sgrd-FormItemWrapper enokt0p1"
   >
     <button
-      className="css-yan4dl-ButtonWrapper ekfoxpm0"
+      className="css-1ysm1ze-ButtonWrapper ekfoxpm0"
       onClick={[Function]}
       type="submit"
       width="SMALL"
