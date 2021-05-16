@@ -1,20 +1,19 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Icon from '.'
+import Gradient from '.'
 import Card from '../../molecules/Card'
-import Gradient from './Gradient'
 import { options as optionsGradient } from './constants'
 
 export default {
   title: 'Styled/Gradient',
-  component: Icon,
+  component: Gradient,
   argTypes: {
     name: { control: { type: 'select', options: optionsGradient.names } },
   },
 } as Meta
 
-export const Basic = () => (
+export const Basic = (args: any) => (
   <div
     style={{
       width: '100%',
@@ -27,7 +26,7 @@ export const Basic = () => (
       flexWrap: 'wrap',
     }}
   >
-    <Gradient>
+    <Gradient {...args}>
       <Card>
         <p style={{ padding: '1rem' }}>Hola como estas</p>
       </Card>

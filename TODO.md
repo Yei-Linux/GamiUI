@@ -26,9 +26,7 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create Image/Background component
 - [ ] Create Slider component
-- [ ] Create Banner Wave component
 
 ### Done ✓
 
@@ -44,3 +42,6 @@ My tasks to TODO
 - [x] Improve Rich Text
 - [x] Create gradient utility
 - [x] Improve list component
+
+- [x] Create Image/Background component
+- [x] Create Banner Wave component
