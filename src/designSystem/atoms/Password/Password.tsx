@@ -30,5 +30,4 @@ Password.defaultProps = {
   iconHide: <Icon fill="blue" size="30px" name="closeeye" />,
   width: 'NORMAL',
   heigth: 'SMALL',
-  border: 'MEDIUM',
 }

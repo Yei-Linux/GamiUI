@@ -71,9 +71,11 @@ Input.defaultProps = {
   type: 'input',
   autoComplete: 'off',
   readOnly: false,
+  shadow: 'SMALL',
   width: 'NORMAL',
   heigth: 'SMALL',
-  border: 'MEDIUM',
+  border: 'ROUNDED',
+  fontWeight: 'BOLD',
 }
 
 export default Input

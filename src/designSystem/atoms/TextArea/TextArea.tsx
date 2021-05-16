@@ -58,6 +58,8 @@ TextArea.defaultProps = {
   width: 'NORMAL',
   heigth: 'SMALL',
   border: 'MEDIUM',
+  fontWeight: 'BOLD',
+  shadow: 'SMALL',
 }
 
 export default TextArea

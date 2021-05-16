@@ -39,7 +39,7 @@ Card.Footer = ({ children }: { children: React.ReactNode }) => (
 )
 
 Card.defaultProps = {
-  shadow: 'SMALL',
+  shadow: 'MEDIUM',
   border: 'MEDIUM',
   width: 'NORMAL',
   height: 'NORMAL',

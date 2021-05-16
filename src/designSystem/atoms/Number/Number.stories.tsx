@@ -40,7 +40,5 @@ Basic.args = {
   placeholder: 'Type your phone',
   width: 'NORMAL',
   heigth: 'SMALL',
-  shadow: '',
-  border: 'MEDIUM',
   prefix: <Icon fill="#374a54" />,
 }

@@ -93,7 +93,7 @@ export const colorLight = {
   primary: {
     one: '#7f9cf5',
     two: '#ffffff',
-    oneLight: 'rgb(24 144 255 / 20%)',
+    oneLight: 'rgb(24 144 255 / 30%)',
   },
   secondary: {
     one: '#ffc75f',
@@ -204,9 +204,10 @@ export const spacing = {
 
 export const typography = {
   type: {
-    primary: 'Patrick Hand, cursive',
-    secondary: "'Itim', cursive",
-    terciary: "'Quicksand', sans-serif",
+    primary: "'Source Sans Pro', sans-serif",
+    secondary: 'Patrick Hand, cursive',
+    terciary: "'Itim', cursive",
+    cuaternary: "'Quicksand', sans-serif",
   },
   weight: {
     regular: '400',

@@ -28,5 +28,4 @@ Basic.args = {
   width: 'NORMAL',
   heigth: 'SMALL',
   shadow: '',
-  border: 'MEDIUM',
 }

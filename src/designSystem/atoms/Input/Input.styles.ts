@@ -16,13 +16,15 @@ export const InputWrapper = styled.div<{
 }>`
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  overflow: hidden;
 
   flex-direction: ${(props) =>
     props.positionPrefix == 'left' ? 'row' : 'row-reverse'};
   input {
     border: none;
   }
+  padding: ${(props) =>
+    props.positionPrefix == 'left' ? '0 0 0 1rem' : '0 1rem 0 0'};
 
   ${inputGeneralStyle()};
   ${(props: any) => twinStyles(props)};
@@ -39,5 +41,8 @@ export const InputContainer = styled.input<{
 }>`
   ${inputBasicStyle()};
   ${(props: any) => !props.hasIcon && inputGeneralStyle()};
-  ${(props: any) => !props.hasIcon && twinStyles(props)};
+  ${(props: any) =>
+    !props.hasIcon
+      ? twinStyles(props)
+      : twinStyles({ fontWeight: props.fontWeight })};
 `

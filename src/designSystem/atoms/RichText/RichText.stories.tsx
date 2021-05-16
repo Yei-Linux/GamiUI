@@ -36,6 +36,17 @@ RichTextLink.args = {
 
 RichTextLink.storyName = 'Link'
 
+export const RichTextTargetLink = Template.bind({})
+RichTextTargetLink.args = {
+  text: 'This is an external link [help](https://google.com?target=_blank).',
+  width: 'NONE',
+  heigth: 'NORMAL',
+  shadow: '',
+  border: 'NONE',
+}
+
+RichTextTargetLink.storyName = 'External Link'
+
 export const RichTextItalic = Template.bind({})
 RichTextItalic.args = {
   text: '*Be italic*.',

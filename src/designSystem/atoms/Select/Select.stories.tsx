@@ -27,6 +27,4 @@ BasicSelect.args = {
   placeholder: 'Type your option',
   width: 'NORMAL',
   heigth: 'SMALL',
-  shadow: '',
-  border: 'MEDIUM',
 }

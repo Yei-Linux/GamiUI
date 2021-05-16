@@ -86,6 +86,7 @@ Radio.defaultProps = {
   width: 'NORMAL',
   heigth: 'SMALL',
   border: 'MEDIUM',
+  fontWeight: 'BOLD',
 }
 
 export default Radio

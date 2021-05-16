@@ -19,6 +19,9 @@ export const ButtonWrapper = styled.button<{
   textAlign?: string
   fontWeight?: string
 }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   outline: none;
   cursor: pointer;

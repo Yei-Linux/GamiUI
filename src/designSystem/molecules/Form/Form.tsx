@@ -85,14 +85,20 @@ Form.Item = ({
     ],
   })
 
-  if (validatorChildrenLength()) {
+  if (validatorChildrenLength(childrenWithProps)) {
     return null
   }
 
   return (
     <FormItemWrapper>
       {label != '' && (
-        <FormLabel text={label} width="NONE" heigth="NORMAL" border="NONE" />
+        <FormLabel
+          fontWeight="BOLD"
+          text={label}
+          width="NONE"
+          heigth="NORMAL"
+          border="NONE"
+        />
       )}
       {childrenWithProps}
     </FormItemWrapper>

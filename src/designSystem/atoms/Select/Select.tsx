@@ -87,7 +87,6 @@ Select.defaultProps = {
   isBasic: true,
   width: 'NORMAL',
   heigth: 'SMALL',
-  border: 'MEDIUM',
 }
 
 export default Select

@@ -40,6 +40,4 @@ BasicPassword.args = {
   placeholder: 'Type your password',
   width: 'NORMAL',
   heigth: 'SMALL',
-  shadow: '',
-  border: 'MEDIUM',
 }

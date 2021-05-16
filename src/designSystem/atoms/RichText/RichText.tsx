@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useMemo, useRef } from 'react'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import { RichTextWrapper } from './RichText.styles'
 
-import marked from 'marked'
+import marked, { Renderer } from 'marked'
+import useIsMounted from '../../../hooks/useIsMounted'
+import { sanitizeLink } from './helper'
 
 export interface IRichText extends IGeneralProps {
   /**
@@ -12,16 +14,27 @@ export interface IRichText extends IGeneralProps {
 }
 
 const RichText = ({ text, ...args }: IRichText) => {
-  const getMarkdownText = (text: string) => {
-    const rawMarkup = marked(text)
-    return { __html: rawMarkup }
+  const renderer: any = useRef<Renderer>()
+  const { isMounted } = useIsMounted()
+
+  if (!isMounted) {
+    renderer.current = new Renderer()
+    renderer.current.link = sanitizeLink
   }
 
+  const html = useMemo(() => {
+    marked.setOptions({
+      gfm: true,
+      breaks: true,
+      sanitize: false,
+      renderer: renderer.current,
+    })
+
+    return marked(text)
+  }, [text])
+
   return (
-    <RichTextWrapper
-      {...args}
-      dangerouslySetInnerHTML={getMarkdownText(text)}
-    />
+    <RichTextWrapper {...args} dangerouslySetInnerHTML={{ __html: html }} />
   )
 }
 
