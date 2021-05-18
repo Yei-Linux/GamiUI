@@ -10,13 +10,14 @@ export interface ImageProps {
   children?: React.ReactNode
   src: string
   alt?: string
-  maxWidth: string
-  maxHeight: string
-  minWidth: string
-  minHeight: string
-  width: string
-  height: string
+  maxWidth?: string
+  maxHeight?: string
+  minWidth?: string
+  minHeight?: string
+  width?: string
+  height?: string
   link?: ImageLink | null
+  className?: string
 }
 
 const Image = ({
@@ -30,6 +31,7 @@ const Image = ({
   width,
   height,
   link,
+  className,
 }: ImageProps) => {
   const imageCommonsProps = {
     src,
@@ -40,14 +42,19 @@ const Image = ({
     width,
     height,
   }
+  const ImageClassName = link ? {} : { className }
+  const ImageLinkClassName = link ? { className } : {}
   const shouldOpenLinkInNewTab = link?.newTab
   const imageElement = children ? (
-    <BackgroundImg {...imageCommonsProps}>{children}</BackgroundImg>
+    <BackgroundImg {...ImageClassName} {...imageCommonsProps}>
+      {children}
+    </BackgroundImg>
   ) : (
-    <Img {...imageCommonsProps} alt={alt} />
+    <Img {...ImageClassName} {...imageCommonsProps} alt={alt} />
   )
   const maybeLink = link ? (
     <a
+      {...ImageLinkClassName}
       href={link?.url}
       target={shouldOpenLinkInNewTab ? '_blank' : undefined}
       rel="noreferrer"
@@ -67,6 +74,10 @@ Image.defaultProps = {
   link: null,
   width: 'auto',
   height: 'auto',
+  maxHeight: '',
+  maxWidth: '',
+  minWidth: '',
+  minHeight: '',
 }
 
 export default Image

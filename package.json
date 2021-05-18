@@ -65,6 +65,7 @@
     "file-loader": "^6.2.0",
     "fs": "^0.0.1-security",
     "gsap": "^3.6.1",
+    "keen-slider": "^5.4.1",
     "marked": "^2.0.3",
     "module": "^1.2.5",
     "postcss-cli": "^8.3.0",

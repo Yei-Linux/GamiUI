@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
 
 export const Img = styled.img<{
-  maxWidth: string
-  maxHeight: string
-  minWidth: string
-  minHeight: string
-  width: string
-  height: string
+  maxWidth?: string
+  maxHeight?: string
+  minWidth?: string
+  minHeight?: string
+  width?: string
+  height?: string
 }>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
@@ -18,12 +18,12 @@ export const Img = styled.img<{
 
 export const BackgroundImg = styled.div<{
   src: string
-  maxWidth: string
-  maxHeight: string
-  minWidth: string
-  minHeight: string
-  width: string
-  height: string
+  maxWidth?: string
+  maxHeight?: string
+  minWidth?: string
+  minHeight?: string
+  width?: string
+  height?: string
 }>`
   background-image: url(${(props) => props.src});
   background-size: contain;

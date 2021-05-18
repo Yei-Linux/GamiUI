@@ -37,4 +37,8 @@ export interface IStyles {
    * Height Component
    */
   fontWeight?: FontWeightType
+  /**
+   * Height Component
+   */
+  className?: string
 }
