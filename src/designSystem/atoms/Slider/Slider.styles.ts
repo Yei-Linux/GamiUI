@@ -7,7 +7,7 @@ export const SliderWrapper = styled.div`
   position: relative;
 `
 
-export const KeenSlider = styled.div`
+export const KeenSlider = styled.div<{ isVertical?: boolean }>`
   display: flex;
   overflow: hidden;
   position: relative;
@@ -17,6 +17,13 @@ export const KeenSlider = styled.div`
   -ms-touch-action: pan-y;
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
+
+  ${(props) =>
+    props.isVertical &&
+    css`
+      flex-wrap: wrap;
+      height: 300px;
+    `}
 
   .keenslider__slide {
     min-width: calc(100% - 0px);

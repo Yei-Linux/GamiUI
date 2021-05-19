@@ -4,10 +4,6 @@ My tasks to TODO
 
 ### Todo
 
-- [ ] Create Avatar component
-- [ ] Create Badge component
-- [ ] Create Tag component
-
 - [ ] Create Space Layout
 - [ ] Create Row Layout
 - [ ] Create Column Layout
@@ -26,7 +22,9 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create Slider component
+- [ ] Create Avatar component
+- [ ] Create Badge component
+- [ ] Create Tag component
 
 ### Done ✓
 
@@ -45,3 +43,4 @@ My tasks to TODO
 
 - [x] Create Image/Background component
 - [x] Create Banner Wave component
+- [x] Create Slider component
