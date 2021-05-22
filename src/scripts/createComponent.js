@@ -77,6 +77,7 @@ const writeFile = (route, dataToWrite) => {
  */
 const createComponent = () => {
   const [, , atomicType, componentName] = process.argv
+  validateArguments(atomicType, componentName)
 
   const routeComponent = path.join(
     __dirname,
@@ -86,7 +87,6 @@ const createComponent = () => {
     componentName
   )
 
-  validateArguments(atomicType, componentName)
   const isFolderExists = validateFolderExist(routeComponent)
 
   if (!isFolderExists) {
