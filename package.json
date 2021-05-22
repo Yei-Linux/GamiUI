@@ -12,7 +12,8 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token 7296afeee821",
     "prepare": "husky install",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "create-component": "node ./src/scripts/createComponent.js"
   },
   "author": "Yei Linux",
   "license": "ISC",
