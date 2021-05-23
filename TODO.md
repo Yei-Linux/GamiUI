@@ -4,10 +4,6 @@ My tasks to TODO
 
 ### Todo
 
-- [ ] Create LeaderBoard(Molecule)
-- [ ] Create Adds(Molecule)
-- [ ] Create ProgressBar component
-
 - [ ] Create RoadMap component
 - [ ] Create Drawer component
 - [ ] Create Menu Layout
@@ -18,9 +14,9 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create Row Layout
-- [ ] Create Column Layout
-
+- [ ] Create ProgressBar component
+- [ ] Create LeaderBoard(Molecule)
+- [ ] Create Adds(Molecule)
 ### Done ✓
 
 - [x] Create first version of atoms, molecules and storybook
@@ -43,3 +39,5 @@ My tasks to TODO
 - [x] Create Avatar component
 - [x] Create Tag component
 - [x] Create Spacer Layout
+- [x] Create Row Layout
+- [x] Create Column Layout
