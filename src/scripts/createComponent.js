@@ -4,8 +4,8 @@ const fs = require('fs')
 const path = require('path')
 
 const ATOMIC_TYPES = {
-  ATOM: { folder: 'atoms', nameToReplace: 'Atom' },
-  MOLECULE: { folder: 'molecules', nameToReplace: 'Molecule' },
+  ATOM: { folder: 'atoms', nameToReplace: 'Atoms' },
+  MOLECULE: { folder: 'molecules', nameToReplace: 'Molecules' },
   LAYOUT: { folder: 'layouts', nameToReplace: 'Layout' },
   STYLED: { folder: 'styled', nameToReplace: 'Styled' },
 }

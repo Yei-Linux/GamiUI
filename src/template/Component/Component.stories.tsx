@@ -10,5 +10,5 @@ export default {
   argTypes: {},
 } as Meta
 
-export const Basic = () => <Component />
+export const Basic = (args: any) => <Component {...args} />
 Basic.args = {}

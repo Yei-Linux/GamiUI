@@ -4,10 +4,6 @@ My tasks to TODO
 
 ### Todo
 
-- [ ] Create Space Layout
-- [ ] Create Row Layout
-- [ ] Create Column Layout
-
 - [ ] Create LeaderBoard(Molecule)
 - [ ] Create Adds(Molecule)
 - [ ] Create ProgressBar component
@@ -22,9 +18,8 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create Avatar component
-- [ ] Create Badge component
-- [ ] Create Tag component
+- [ ] Create Row Layout
+- [ ] Create Column Layout
 
 ### Done ✓
 
@@ -44,3 +39,7 @@ My tasks to TODO
 - [x] Create Image/Background component
 - [x] Create Banner Wave component
 - [x] Create Slider component
+- [x] Create Script to create component files
+- [x] Create Avatar component
+- [x] Create Tag component
+- [x] Create Spacer Layout
