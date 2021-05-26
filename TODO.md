@@ -14,7 +14,6 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create ProgressBar component
 - [ ] Create LeaderBoard(Molecule)
 - [ ] Create Adds(Molecule)
 ### Done ✓
@@ -41,3 +40,4 @@ My tasks to TODO
 - [x] Create Spacer Layout
 - [x] Create Row Layout
 - [x] Create Column Layout
+- [x] Create ProgressBar component
