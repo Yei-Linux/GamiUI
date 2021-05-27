@@ -4,18 +4,15 @@ My tasks to TODO
 
 ### Todo
 
-- [ ] Create RoadMap component
-- [ ] Create Drawer component
-- [ ] Create Menu Layout
-
 - [ ] Refactor all atoms, molecules, utilities, typyings, docs and styles
 
 ### In Progress
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create LeaderBoard(Molecule)
-- [ ] Create Adds(Molecule)
+- [ ] Create RoadMap component
+- [ ] Create Menu Layout
+
 ### Done ✓
 
 - [x] Create first version of atoms, molecules and storybook
@@ -41,3 +38,4 @@ My tasks to TODO
 - [x] Create Row Layout
 - [x] Create Column Layout
 - [x] Create ProgressBar component
+- [x] Create Table LeaderBoard(Molecule)
