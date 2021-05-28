@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import { colorLight } from '../../../styles/theme'
 import Icon from '../Icon'
@@ -23,7 +23,7 @@ interface IPulser extends IGeneralProps {
   /**
    * Is bloqued Pulser
    */
-  isBloqued: boolean
+  isBloqued?: boolean
   /**
    * Border Pulser
    */
@@ -32,6 +32,10 @@ interface IPulser extends IGeneralProps {
    * Progress Text
    */
   progress: string
+  /**
+   * Background color
+   */
+  backgroundColor?: string
 }
 
 const Pulser = ({
@@ -40,16 +44,19 @@ const Pulser = ({
   isBloqued,
   borderColor,
   progress,
+  backgroundColor,
+  style,
   ...args
 }: IPulser) => {
   return (
-    <Pulse>
+    <Pulse style={style}>
       <PulseWrapper>
         {isActive && <PulseTransitions type="one" />}
         {isActive && <PulseTransitions type="two" />}
 
         <PulseContainer
           {...args}
+          backgroundColor={backgroundColor}
           borderColor={borderColor}
           isBloqued={isBloqued}
         >
@@ -71,6 +78,7 @@ Pulser.defaultProps = {
   isActive: false,
   isBloqued: false,
   borderColor: colorLight.primary.one,
+  backgroundColor: colorLight.neutral.nine,
   shadow: 'LARGE',
   progress: '100%',
 }

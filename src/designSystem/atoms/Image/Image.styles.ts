@@ -24,9 +24,10 @@ export const BackgroundImg = styled.div<{
   minHeight?: string
   width?: string
   height?: string
+  backgroundSize?: 'cover' | 'contain'
 }>`
   background-image: url(${(props) => props.src});
-  background-size: contain;
+  background-size: ${props => props.backgroundSize};
   background-repeat: no-repeat;
   background-position: center center;
   width: ${(props) => props.width};

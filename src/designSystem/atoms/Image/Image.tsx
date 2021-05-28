@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { CSSProperties, Fragment } from 'react'
 import { BackgroundImg, Img } from './Image.styles'
 
 interface ImageLink {
@@ -18,6 +18,8 @@ export interface ImageProps {
   height?: string
   link?: ImageLink | null
   className?: string
+  backgroundSize?: 'cover' | 'contain'
+  style?: CSSProperties
 }
 
 const Image = ({
@@ -32,6 +34,8 @@ const Image = ({
   height,
   link,
   className,
+  backgroundSize,
+  style,
 }: ImageProps) => {
   const imageCommonsProps = {
     src,
@@ -41,6 +45,8 @@ const Image = ({
     minHeight,
     width,
     height,
+    backgroundSize,
+    style,
   }
   const ImageClassName = link ? {} : { className }
   const ImageLinkClassName = link ? { className } : {}
@@ -78,6 +84,7 @@ Image.defaultProps = {
   maxWidth: '',
   minWidth: '',
   minHeight: '',
+  backgroundSize: 'contain',
 }
 
 export default Image

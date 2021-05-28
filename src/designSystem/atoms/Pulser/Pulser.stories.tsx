@@ -21,8 +21,8 @@ export const Basic = (args: any) => {
   return (
     <Pulse {...args}>
       <img
-        width="70%"
-        height="70%"
+        width="50px"
+        height="50px"
         src="https://i.ibb.co/MVLDD4K/angular.png"
         alt="roundLogo"
       />
@@ -38,8 +38,8 @@ export const Active = (args: any) => {
   return (
     <Pulse {...args}>
       <img
-        width="70%"
-        height="70%"
+        width="50px"
+        height="50px"
         src="https://i.ibb.co/MVLDD4K/angular.png"
         alt="roundLogo"
       />
@@ -56,8 +56,8 @@ export const Bloqued = (args: any) => {
   return (
     <Pulse {...args}>
       <img
-        width="70%"
-        height="70%"
+        width="50px"
+        height="50px"
         src="https://i.ibb.co/MVLDD4K/angular.png"
         alt="roundLogo"
       />

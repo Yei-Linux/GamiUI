@@ -4,6 +4,7 @@ import { options as optionsGuides } from '../../../designSystem/atoms/AnimatorGu
 import { options as optionsStyle } from '../../utils/constants'
 import { options as optionsGradient } from '../../../designSystem/styled/Gradient'
 import { options as optionsWave } from '../../../designSystem/styled/Wave'
+import { options as optionsRoadmap } from '../../../designSystem/molecules/Roadmap'
 
 export type WidthType = typeof optionsStyle.width[number]
 export type HeightType = typeof optionsStyle.height[number]
@@ -21,6 +22,8 @@ export type GuidesNames = typeof optionsGuides.type[number]
 export type GradientsNames = typeof optionsGradient.names[number]
 
 export type WavessNames = typeof optionsWave.names[number]
+
+export type RoadMapNames = typeof optionsRoadmap.names[number]
 
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'
