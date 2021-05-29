@@ -1,4 +1,4 @@
-import { SET_CANVAS_VALUE, SET_IS_VISIBLE } from './types'
+import { SET_CANVAS_VALUE } from './types'
 
 interface IAction {
   type: string
@@ -11,11 +11,6 @@ export default (state: any, action: IAction) => {
       return {
         ...state,
         canvasValue: action.payload,
-      }
-    case SET_IS_VISIBLE:
-      return {
-        ...state,
-        isVisible: action.payload,
       }
     default:
       return state

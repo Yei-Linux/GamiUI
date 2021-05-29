@@ -11,6 +11,7 @@ My tasks to TODO
 - [ ] Fixing warning of eslint  
 
 - [ ] Create RoadMap component
+- [ ] Create Survey
 - [ ] Create Menu Layout
 
 ### Done ✓

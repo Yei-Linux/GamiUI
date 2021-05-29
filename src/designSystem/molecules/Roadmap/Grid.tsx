@@ -25,9 +25,11 @@ const Grid = ({ width, height, children }: GridProps) => {
   }
 
   useEffect(() => {
-    drawOnCanvasForYandX(height, 'y')
-    drawOnCanvasForYandX(width, 'x')
-  }, [canvasValue, height, width])
+    setTimeout(() => {
+      drawOnCanvasForYandX(height, 'y')
+      drawOnCanvasForYandX(width, 'x')
+    }, 100)
+  }, [])
 
   return <Fragment>{children}</Fragment>
 }

@@ -4,7 +4,6 @@ import context from '../../../context/CanvasProvider/context'
 import { RoadMapNames } from '../../../core/domain/types'
 import { MAP_DIMENSIONS, TILE_SIZE } from '../../../core/utils/constants'
 import Grid from './Grid'
-import ImageBuffer from './ImageBuffer'
 import Map from './Map'
 
 export interface IRoadmap {
@@ -19,11 +18,10 @@ const MapContent = () => {
 
   useEffect(() => {
     canvasValue?.clearRect(0, 0, canvasValue.width, canvasValue.height)
-  }, [canvasValue])
+  }, [])
 
   return (
     <Fragment>
-      {canvasValue && <ImageBuffer />}
       {canvasValue && (
         <Grid width={width} height={height}>
           <Map />
