@@ -1,2 +1,2 @@
-export { default } from './Roadmap'
+export { default } from './Character'
 export { options } from './constants'

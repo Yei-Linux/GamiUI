@@ -33,6 +33,19 @@ export const MAP_TILE_IMAGES: any = {
   5: `${BASE_PATH}stone_2_brown1.png`,
 }
 
+export const MOVE_DIRECTIONS: any = {
+  ArrowUp: [0, -1],
+  ArrowLeft: [-1, 0],
+  ArrowDown: [0, 1],
+  ArrowRight: [1, 0],
+}
+
+export const CHARACTERS: any = {
+  charone: 'https://i.ibb.co/HCc3tpS/char1.png',
+}
+
+export const HERO_IMAGE_SIZE = 40
+
 export const LAYERS = [
   [
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],

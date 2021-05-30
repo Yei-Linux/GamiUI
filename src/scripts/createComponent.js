@@ -8,6 +8,7 @@ const ATOMIC_TYPES = {
   MOLECULE: { folder: 'molecules', nameToReplace: 'Molecules' },
   LAYOUT: { folder: 'layouts', nameToReplace: 'Layout' },
   STYLED: { folder: 'styled', nameToReplace: 'Styled' },
+  GAME: { folder: 'game', nameToReplace: 'Game' },
 }
 
 const getFileTypes = (componentName = 'Component') => {

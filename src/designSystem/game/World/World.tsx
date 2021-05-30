@@ -1,19 +1,15 @@
 import React, { Fragment, useContext, useEffect } from 'react'
 import CanvasProvider from '../../../context/CanvasProvider'
 import context from '../../../context/CanvasProvider/context'
-import { RoadMapNames } from '../../../core/domain/types'
 import { MAP_DIMENSIONS, TILE_SIZE } from '../../../core/utils/constants'
-import Grid from './Grid'
-import Map from './Map'
-
-export interface IRoadmap {
-  type?: RoadMapNames
-}
+import Character from '../Character'
+import Grid from '../Grid'
+import Map from '../Map'
 
 const width = MAP_DIMENSIONS.COLS * TILE_SIZE
 const height = MAP_DIMENSIONS.ROWS * TILE_SIZE
 
-const MapContent = () => {
+const WorldContent = () => {
   const { canvasValue } = useContext(context)
 
   useEffect(() => {
@@ -23,22 +19,26 @@ const MapContent = () => {
   return (
     <Fragment>
       {canvasValue && (
-        <Grid width={width} height={height}>
-          <Map />
-        </Grid>
+        <Fragment>
+          <Character />
+
+          <Grid width={width} height={height}>
+            <Map />
+          </Grid>
+        </Fragment>
       )}
     </Fragment>
   )
 }
 
-const Roadmap = () => {
+const World = () => {
   return (
     <CanvasProvider>
-      <MapContent />
+      <WorldContent />
     </CanvasProvider>
   )
 }
 
-Roadmap.defaultProps = {}
+World.defaultProps = {}
 
-export default Roadmap
+export default World
