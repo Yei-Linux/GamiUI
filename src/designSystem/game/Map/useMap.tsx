@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import context from '../../../context/CanvasProvider/context'
 import {
   LAYERS,
@@ -11,10 +11,10 @@ import useAssetLoad from '../../../hooks/useAssetLoad'
 const { COLS, ROWS } = MAP_DIMENSIONS
 
 export interface IMap {
-  prop?: any
+  children?: any
 }
 
-const Map = () => {
+const useMap = () => {
   const { canvasValue } = useContext(context)
 
   const drawPixelBlock = (image: string, j: number, i: number) => {
@@ -32,7 +32,6 @@ const Map = () => {
       TILE_SIZE
     )
   }
-
   const { onLoadAsset } = useAssetLoad({
     action: drawPixelBlock,
   })
@@ -49,14 +48,12 @@ const Map = () => {
     }
   }
 
-  useEffect(() => {
+  const drawLayers = () => {
     drawLayerOnLoop(LAYERS[0])
     drawLayerOnLoop(LAYERS[1])
-  }, [])
+  }
 
-  return <Fragment />
+  return { drawLayers }
 }
 
-Map.defaultProps = {}
-
-export default Map
+export default useMap

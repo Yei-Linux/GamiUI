@@ -1,2 +1,2 @@
-export { default } from './Map'
+export { default } from './useMap'
 export { options } from './constants'

@@ -5,9 +5,13 @@ export interface IUseGameLoopProps {
    * Callback to do on any render loop
    */
   action: (props?: any) => any
+  /**
+   * Callback to do on any render loop
+   */
+  dependenciesEffect: any[]
 }
 
-const useGameLoop = ({ action }: IUseGameLoopProps) => {
+const useGameLoop = ({ action, dependenciesEffect }: IUseGameLoopProps) => {
   const loopRef: any = useRef()
 
   const tick = () => {
@@ -18,7 +22,7 @@ const useGameLoop = ({ action }: IUseGameLoopProps) => {
   useEffect(() => {
     loopRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(loopRef.current)
-  }, [])
+  }, [dependenciesEffect])
 
   return {}
 }

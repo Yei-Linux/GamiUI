@@ -9,9 +9,8 @@ const useAssetLoad = ({ action }: IUseAssetLoadProps) => {
   const onLoadAsset = (src: string, ...props: any) => {
     const image: any = new Image()
     image.src = src
-    image.onload = () => {
-      action(image, ...props)
-    }
+
+    action(image, ...props)
   }
 
   return { onLoadAsset }

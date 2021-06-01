@@ -1,4 +1,4 @@
-import { SET_CANVAS_VALUE, SET_POSITION_X, SET_POSITION_Y } from './types'
+import { SET_CALLBACKS_CANVAS, SET_CANVAS_VALUE, SET_POSITION_X, SET_POSITION_Y } from './types'
 
 interface IAction {
   type: string
@@ -22,6 +22,11 @@ export default (state: any, action: IAction) => {
       return {
         ...state,
         positionY: state.positionY + action.payload,
+      }
+    case SET_CALLBACKS_CANVAS:
+      return {
+        ...state,
+        callbacks: action.payload,
       }
     default:
       return state

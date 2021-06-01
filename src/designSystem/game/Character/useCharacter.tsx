@@ -1,18 +1,27 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import context from '../../../context/CanvasProvider/context'
 import {
   CHARACTERS,
   HERO_IMAGE_SIZE,
+  MOVE_DIRECTIONS,
   TILE_SIZE,
 } from '../../../core/utils/constants'
 import useAssetLoad from '../../../hooks/useAssetLoad'
+import useKeyDown from '../../../hooks/useKeyDown'
 
 export interface ICharacter {
   prop?: any
 }
 
-const Character = () => {
-  const { canvasValue, positionX, positionY } = useContext(context)
+const useCharacter = () => {
+  const { canvasValue, setPositionX, setPositionY, positionX, positionY } =
+    useContext(context)
+
+  const moveCharacter = (key: any) => {
+    const [x, y] = MOVE_DIRECTIONS[key]
+    setPositionX(x)
+    setPositionY(y)
+  }
 
   const drawCharacter = (image: any) => {
     canvasValue.drawImage(
@@ -28,17 +37,20 @@ const Character = () => {
     )
   }
 
+  useKeyDown({
+    keys: Object.keys(MOVE_DIRECTIONS),
+    action: moveCharacter,
+  })
+
   const { onLoadAsset } = useAssetLoad({
     action: drawCharacter,
   })
 
-  useEffect(() => {
+  const drawCharacterPixel = () => {
     onLoadAsset(CHARACTERS.charone)
-  }, [positionX, positionY])
+  }
 
-  return <Fragment />
+  return { drawCharacterPixel }
 }
 
-Character.defaultProps = {}
-
-export default Character
+export default useCharacter

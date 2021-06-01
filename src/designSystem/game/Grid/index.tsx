@@ -1,2 +1,2 @@
-export { default } from './Grid'
+export { default } from './useGrid'
 export { options } from './constants'

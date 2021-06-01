@@ -1,34 +1,40 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { Fragment, useContext } from 'react'
 import CanvasProvider from '../../../context/CanvasProvider'
 import context from '../../../context/CanvasProvider/context'
 import { MAP_DIMENSIONS, TILE_SIZE } from '../../../core/utils/constants'
-import Character from '../Character'
-import Grid from '../Grid'
-import Map from '../Map'
+import useGameLoop from '../../../hooks/useGameLoop'
+import useCharacter from '../Character'
+import useGrid from '../Grid'
+import useMap from '../Map'
 
 const width = MAP_DIMENSIONS.COLS * TILE_SIZE
 const height = MAP_DIMENSIONS.ROWS * TILE_SIZE
 
+const WorldInstante = () => {
+  const { canvasValue } = useContext(context)
+  const { drawXandYAxis } = useGrid()
+  const { drawLayers } = useMap()
+  const { drawCharacterPixel } = useCharacter()
+
+  const drawWorld = () => {
+    canvasValue.clearRect(0, 0, width, height)
+    drawLayers()
+    drawXandYAxis()
+    drawCharacterPixel()
+  }
+
+  useGameLoop({
+    action: drawWorld,
+    dependenciesEffect: [canvasValue],
+  })
+
+  return <Fragment />
+}
+
 const WorldContent = () => {
   const { canvasValue } = useContext(context)
 
-  useEffect(() => {
-    canvasValue?.clearRect(0, 0, canvasValue.width, canvasValue.height)
-  }, [])
-
-  return (
-    <Fragment>
-      {canvasValue && (
-        <Fragment>
-          <Character />
-
-          <Grid width={width} height={height}>
-            <Map />
-          </Grid>
-        </Fragment>
-      )}
-    </Fragment>
-  )
+  return <Fragment>{canvasValue && <WorldInstante />}</Fragment>
 }
 
 const World = () => {

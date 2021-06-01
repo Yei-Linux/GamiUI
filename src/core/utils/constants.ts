@@ -19,7 +19,7 @@ export const TILE_SIZE = 32
 export const MAP_DIMENSIONS = {
   COLS: 12,
   ROWS: 12,
-  TILE_SIZE,
+  TILE_SIZE: 12,
 }
 
 const BASE_PATH =

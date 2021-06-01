@@ -1,2 +1,2 @@
-export { default } from './Character'
+export { default } from './useCharacter'
 export { options } from './constants'

@@ -1,6 +1,6 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import context from '../../../context/CanvasProvider/context'
-import { TILE_SIZE } from '../../../core/utils/constants'
+import { MAP_DIMENSIONS, TILE_SIZE } from '../../../core/utils/constants'
 
 export interface IGrid {
   width: number
@@ -8,7 +8,10 @@ export interface IGrid {
   children?: React.ReactNode
 }
 
-const Grid = ({ width, height, children }: IGrid) => {
+const width = MAP_DIMENSIONS.COLS * TILE_SIZE
+const height = MAP_DIMENSIONS.ROWS * TILE_SIZE
+
+const useGrid = () => {
   const { canvasValue } = useContext(context)
 
   const drawOnCanvasForYandXAxis = (maxValue: number, axis = 'y') => {
@@ -24,14 +27,12 @@ const Grid = ({ width, height, children }: IGrid) => {
     }
   }
 
-  useEffect(() => {
+  const drawXandYAxis = () => {
     drawOnCanvasForYandXAxis(height, 'y')
     drawOnCanvasForYandXAxis(width, 'x')
-  }, [])
+  }
 
-  return <Fragment>{children}</Fragment>
+  return { drawXandYAxis }
 }
 
-Grid.defaultProps = {}
-
-export default Grid
+export default useGrid
