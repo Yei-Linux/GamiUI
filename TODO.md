@@ -10,7 +10,11 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create RoadMap component
+- [ ] Improve character component
+- [ ] Adding collision detect algorithm on useCharacer
+- [ ] Adding more maps to types
+- [ ] Improve performance game map components
+
 - [ ] Create Survey
 - [ ] Create Menu Layout
 
@@ -40,3 +44,7 @@ My tasks to TODO
 - [x] Create Column Layout
 - [x] Create ProgressBar component
 - [x] Create Table LeaderBoard(Molecule)
+
+- [x] Create Game Map Components
+- [x] Refactor Game Map Components
+- [x] Do GameMap components full customize

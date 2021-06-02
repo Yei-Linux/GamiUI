@@ -1,56 +1,60 @@
 import { useContext } from 'react'
 import context from '../../../context/CanvasProvider/context'
-import {
-  LAYERS,
-  MAP_DIMENSIONS,
-  MAP_TILE_IMAGES,
-  TILE_SIZE,
-} from '../../../core/utils/constants'
+import { ITileImage } from '../../../core/domain/interfaces/ICanvas'
 import useAssetLoad from '../../../hooks/useAssetLoad'
-
-const { COLS, ROWS } = MAP_DIMENSIONS
 
 export interface IMap {
   children?: any
 }
 
 const useMap = () => {
-  const { canvasValue } = useContext(context)
+  const {
+    canvasValue,
+    mapConfig: { pixelSize, cols, rows },
+    layersConfig: { tileImages, layers },
+  } = useContext(context)
 
   const drawPixelBlock = (image: string, j: number, i: number) => {
-    const x = j * TILE_SIZE
-    const y = i * TILE_SIZE
+    const x = j * pixelSize
+    const y = i * pixelSize
     canvasValue.drawImage(
       image,
       0,
       0,
-      TILE_SIZE,
-      TILE_SIZE,
+      pixelSize,
+      pixelSize,
       x,
       y,
-      TILE_SIZE,
-      TILE_SIZE
+      pixelSize,
+      pixelSize
     )
   }
   const { onLoadAsset } = useAssetLoad({
     action: drawPixelBlock,
   })
 
+  const findTileSrc = (tileKey: number) => {
+    return tileImages.find(
+      (tileImage: ITileImage) => tileImage.tileKey == tileKey
+    )?.tileSrc
+  }
+
   const drawLayerOnLoop = (grid: any) => {
-    for (let i = 0; i < ROWS; i++) {
-      for (let j = 0; j < COLS; j++) {
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
         const item = grid[i][j]
         if (!item) {
           continue
         }
-        onLoadAsset(MAP_TILE_IMAGES[item], j, i)
+        onLoadAsset(findTileSrc(item), j, i)
       }
     }
   }
 
   const drawLayers = () => {
-    drawLayerOnLoop(LAYERS[0])
-    drawLayerOnLoop(LAYERS[1])
+    layers.map((layer: any) => {
+      drawLayerOnLoop(layer)
+    })
   }
 
   return { drawLayers }
