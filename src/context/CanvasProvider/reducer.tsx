@@ -2,6 +2,7 @@ import {
   SET_CALLBACKS_CANVAS,
   SET_CANVAS_VALUE,
   SET_CURRENT_DIRECTION,
+  SET_DIRS,
   SET_POSITION_X,
   SET_POSITION_Y,
 } from './types'
@@ -39,6 +40,18 @@ export default (state: any, action: IAction) => {
       return {
         ...state,
         currentDirection: action.payload,
+      }
+
+    case SET_DIRS:
+      return {
+        ...state,
+        dirs: {
+          ...state.dirs,
+          [action.payload.currentDirection]: {
+            x: action.payload.x,
+            y: state.dirs[action.payload.currentDirection].y,
+          },
+        },
       }
     default:
       return state

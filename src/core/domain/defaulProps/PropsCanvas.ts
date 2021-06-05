@@ -4,7 +4,8 @@ const BASE_PATH =
 export const PropsCanvas = {
   heroSprite: {
     type: 'charone',
-    pixelSize: 40,
+    pixelSize: 32,
+    animation: [2, 3, 1, 2],
   },
   layersConfig: {
     tileImages: [

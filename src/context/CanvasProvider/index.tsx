@@ -7,6 +7,7 @@ import {
   SET_CALLBACKS_CANVAS,
   SET_CANVAS_VALUE,
   SET_CURRENT_DIRECTION,
+  SET_DIRS,
   SET_POSITION_X,
   SET_POSITION_Y,
 } from './types'
@@ -30,6 +31,24 @@ const CanvasProvider = ({
     positionX: 0,
     positionY: 0,
     currentDirection: 'bottomDir',
+    dirs: {
+      topDir: {
+        x: 2,
+        y: 4,
+      },
+      bottomDir: {
+        x: 2,
+        y: 1,
+      },
+      leftDir: {
+        x: 2,
+        y: 2,
+      },
+      rightDir: {
+        x: 2,
+        y: 3,
+      },
+    },
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -69,6 +88,13 @@ const CanvasProvider = ({
     })
   }
 
+  const setDirs = (data: any) => {
+    dispatch({
+      type: SET_DIRS,
+      payload: data,
+    })
+  }
+
   useEffect(() => {
     setCanvasValue(canvasRef.current.getContext('2d'))
   }, [])
@@ -76,6 +102,7 @@ const CanvasProvider = ({
   return (
     <context.Provider
       value={{
+        dirs: state.dirs,
         canvasValue: state.canvasValue,
         positionX: state.positionX,
         positionY: state.positionY,
@@ -91,6 +118,7 @@ const CanvasProvider = ({
         setPositionY,
         setCanvasValue,
         setCallbacks,
+        setDirs,
       }}
     >
       <canvas ref={canvasRef} width={width} height={height} />

@@ -12,6 +12,7 @@ My tasks to TODO
 
 - [ ] Improve character component
 - [ ] Adding collision detect algorithm on useCharacer
+
 - [ ] Adding more maps to types
 - [ ] Improve performance game map components
 

@@ -22,6 +22,7 @@ export interface IKeysDirection {
 export interface IHeroSprite {
   type: HeroNames
   pixelSize: number
+  animation: number[]
 }
 
 export interface ITileImage {
