@@ -10,7 +10,6 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Improve character component
 - [ ] Adding collision detect algorithm on useCharacer
 
 - [ ] Adding more maps to types
@@ -49,3 +48,8 @@ My tasks to TODO
 - [x] Create Game Map Components
 - [x] Refactor Game Map Components
 - [x] Do GameMap components full customize
+
+
+- [x] Improve character component
+- [x] Adding useAudio hook
+- [x] Improve useKeyDown validations

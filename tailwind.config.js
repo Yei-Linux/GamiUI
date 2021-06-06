@@ -1,4 +1,4 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   ...defaultTheme,
@@ -8,20 +8,20 @@ module.exports = {
     },
     extend: {
       fontWeight: {
-        extralight: "200",
+        extralight: '200',
       },
       borderRadius: {
-        circle: "7em",
+        circle: '7em',
       },
       width: {
-        small: "8rem",
-        normal: "auto",
-        fit: "fit-content",
+        small: '8rem',
+        normal: 'auto',
+        fit: 'fit-content',
       },
       height: {
-        small: "3rem",
-        normal: "auto",
+        small: '3rem',
+        normal: 'auto',
       },
     },
   },
-};
+}

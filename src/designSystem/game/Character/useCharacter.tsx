@@ -1,12 +1,15 @@
 import 'regenerator-runtime/runtime'
 import { useContext } from 'react'
+
 import context from '../../../context/CanvasProvider/context'
+
 import useAssetLoad from '../../../hooks/useAssetLoad'
 import useKeyDown from '../../../hooks/useKeyDown'
+import useAudio from '../../../hooks/useAudio'
+
 import { HeroTypes } from './constants'
 
 import steps from '../../../audio/grass.mp3'
-import useSound from 'use-sound'
 
 const useCharacter = () => {
   const {
@@ -23,7 +26,7 @@ const useCharacter = () => {
     currentDirection,
     setCurrentDirection,
   } = useContext(context)
-  const [play, { stop }] = useSound(steps)
+  const { playAudio } = useAudio({ audioImported: steps })
   const { topDir, bottomDir, leftDir, rightDir } = keysDirection
   const keys = [topDir, bottomDir, leftDir, rightDir]
 
@@ -63,7 +66,8 @@ const useCharacter = () => {
 
     setCurrentDirection(direction)
 
-    play()
+    await playAudio()
+
     for (const dirGif of heroSprite.animation) {
       await doingActionsOnMoveCharacter(
         xPixelValue,
@@ -72,7 +76,6 @@ const useCharacter = () => {
         direction
       )
     }
-    stop()
   }
 
   const chooseCharacterOnSpriteByDirection = (

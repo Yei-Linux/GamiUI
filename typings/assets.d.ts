@@ -22,9 +22,6 @@ declare module '*.json' {
 }
 
 declare module '*.mp3' {
-  import React = require('react')
-
-  export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>
-  const src: string
-  export default src
+  const value: any
+  export default value
 }
