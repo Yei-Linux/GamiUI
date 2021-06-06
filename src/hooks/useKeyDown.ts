@@ -9,9 +9,13 @@ export interface IUseKeyDownProps {
    * Arrays of keys
    */
   action: (props?: any) => any
+  /**
+   * Arrays of keys
+   */
+  dependencies: any[]
 }
 
-const useKeyDown = ({ keys, action }: IUseKeyDownProps) => {
+const useKeyDown = ({ keys, action, dependencies = [] }: IUseKeyDownProps) => {
   let down = false
   let isAllowAgainPressKey = true
 
@@ -38,7 +42,7 @@ const useKeyDown = ({ keys, action }: IUseKeyDownProps) => {
     window.addEventListener('keyup', () => (down = false))
 
     return () => window.removeEventListener('keydown', validateDontKeepPressKey)
-  }, [])
+  }, dependencies)
 
   return { moveCharacter }
 }

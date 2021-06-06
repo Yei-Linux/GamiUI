@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useRef } from 'react'
 import { PropsCanvas } from '../../core/domain/defaulProps/PropsCanvas'
 import { ICanvasProviderInterface } from '../../core/domain/interfaces/ICanvas'
+import useReferredState from '../../hooks/useReferredState'
 import context from './context'
 import reducer from './reducer'
 import {
@@ -8,8 +9,6 @@ import {
   SET_CANVAS_VALUE,
   SET_CURRENT_DIRECTION,
   SET_DIRS,
-  SET_POSITION_X,
-  SET_POSITION_Y,
 } from './types'
 
 const CanvasProvider = ({
@@ -24,12 +23,12 @@ const CanvasProvider = ({
   const height = pixelSize * rows
 
   const canvasRef: any = useRef(null)
+  const [positionX, setPositionX] = useReferredState(0)
+  const [positionY, setPositionY] = useReferredState(0)
 
   const initialState = {
     canvasValue: null,
     callbacks: null,
-    positionX: 0,
-    positionY: 0,
     currentDirection: 'bottomDir',
     dirs: {
       topDir: {
@@ -51,25 +50,19 @@ const CanvasProvider = ({
     },
   }
 
+  const changePositionX = (value: number) => {
+    setPositionX(positionX.current + value)
+  }
+
+  const changePositionY = (value: number) => {
+    setPositionY(positionY.current + value)
+  }
+
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const setCanvasValue = (data: any) => {
     dispatch({
       type: SET_CANVAS_VALUE,
-      payload: data,
-    })
-  }
-
-  const setPositionX = (data: any) => {
-    dispatch({
-      type: SET_POSITION_X,
-      payload: data,
-    })
-  }
-
-  const setPositionY = (data: any) => {
-    dispatch({
-      type: SET_POSITION_Y,
       payload: data,
     })
   }
@@ -104,9 +97,9 @@ const CanvasProvider = ({
       value={{
         dirs: state.dirs,
         canvasValue: state.canvasValue,
-        positionX: state.positionX,
-        positionY: state.positionY,
         currentDirection: state.currentDirection,
+        positionX: positionX,
+        positionY: positionY,
         keysDirection,
         heroSprite,
         mapConfig,
@@ -114,8 +107,8 @@ const CanvasProvider = ({
         width,
         height,
         setCurrentDirection,
-        setPositionX,
-        setPositionY,
+        setPositionX: changePositionX,
+        setPositionY: changePositionY,
         setCanvasValue,
         setCallbacks,
         setDirs,

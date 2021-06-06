@@ -10,6 +10,7 @@ import useAudio from '../../../hooks/useAudio'
 import { HeroTypes } from './constants'
 
 import steps from '../../../audio/grass.mp3'
+import useCollision from '../../../hooks/useCollision'
 
 const useCharacter = () => {
   const {
@@ -26,6 +27,7 @@ const useCharacter = () => {
     currentDirection,
     setCurrentDirection,
   } = useContext(context)
+  const { isInFrontOfAnyBlock } = useCollision()
   const { playAudio } = useAudio({ audioImported: steps })
   const { topDir, bottomDir, leftDir, rightDir } = keysDirection
   const keys = [topDir, bottomDir, leftDir, rightDir]
@@ -59,10 +61,20 @@ const useCharacter = () => {
   }
 
   const moveCharacter = async (key: any) => {
+    const axisPositionX = getAxisPositionXorY(positionX.current)
+    const axisPositionY = getAxisPositionXorY(positionY.current)
+
     const { xPixelValue, yPixelValue }: any = keys.find(
       (keyItem) => keyItem.keyCode == key
     )
     const direction = findDirection(key)
+
+    const currentIndexOnMap = {
+      x: axisPositionX / mapConfig.pixelSize,
+      y: axisPositionY / mapConfig.pixelSize,
+    }
+
+    isInFrontOfAnyBlock(currentIndexOnMap, direction)
 
     setCurrentDirection(direction)
 
@@ -78,6 +90,10 @@ const useCharacter = () => {
     }
   }
 
+  const getAxisPositionXorY = (positionAxis: number) => {
+    return positionAxis * (mapConfig.pixelSize / 4)
+  }
+
   const chooseCharacterOnSpriteByDirection = (
     positionSpriteX = 1,
     positionSpriteY = 1
@@ -91,6 +107,9 @@ const useCharacter = () => {
   }
 
   const drawCharacter = (image: any) => {
+    const axisPositionX = getAxisPositionXorY(positionX.current)
+    const axisPositionY = getAxisPositionXorY(positionY.current)
+
     const { x, y } = chooseCharacterOnSpriteByDirection(
       dirs[currentDirection].x,
       dirs[currentDirection].y
@@ -102,8 +121,8 @@ const useCharacter = () => {
       y,
       heroSprite.pixelSize,
       heroSprite.pixelSize,
-      positionX * (mapConfig.pixelSize / 4),
-      positionY * (mapConfig.pixelSize / 4),
+      axisPositionX,
+      axisPositionY,
       mapConfig.pixelSize,
       mapConfig.pixelSize
     )
@@ -112,6 +131,7 @@ const useCharacter = () => {
   useKeyDown({
     keys: keys.map((key) => key.keyCode),
     action: moveCharacter,
+    dependencies: [],
   })
 
   const { onLoadAsset } = useAssetLoad({
