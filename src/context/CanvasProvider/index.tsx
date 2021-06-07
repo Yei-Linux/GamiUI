@@ -23,8 +23,8 @@ const CanvasProvider = ({
   const height = pixelSize * rows
 
   const canvasRef: any = useRef(null)
-  const [positionX, setPositionX] = useReferredState(0)
-  const [positionY, setPositionY] = useReferredState(0)
+  const [positionX, setPositionX] = useReferredState(4)
+  const [positionY, setPositionY] = useReferredState(4)
 
   const initialState = {
     canvasValue: null,

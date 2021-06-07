@@ -1,4 +1,4 @@
-import { HeroNames } from "../types";
+import { HeroNames } from '../types'
 
 export interface IMap {
   cols: number
@@ -25,9 +25,12 @@ export interface IHeroSprite {
   animation: number[]
 }
 
+export type TileType = 'OBSTACULE' | 'FLOOR'
+
 export interface ITileImage {
   tileKey: number
   tileSrc: string
+  tileType: TileType
 }
 
 export interface ILayersConfig {

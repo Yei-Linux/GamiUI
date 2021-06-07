@@ -12,22 +12,27 @@ export const PropsCanvas = {
       {
         tileKey: 1,
         tileSrc: `${BASE_PATH}floor_sand_stone_1.png`,
+        tileType: 'FLOOR',
       },
       {
         tileKey: 2,
         tileSrc: `${BASE_PATH}floor_sand_rock_1.png`,
+        tileType: 'FLOOR',
       },
       {
         tileKey: 3,
         tileSrc: `${BASE_PATH}floor_sand_stone_5.png`,
+        tileType: 'FLOOR',
       },
       {
         tileKey: 4,
         tileSrc: `${BASE_PATH}tree_1_yellow.png`,
+        tileType: 'OBSTACULE',
       },
       {
         tileKey: 5,
         tileSrc: `${BASE_PATH}stone_2_brown1.png`,
+        tileType: 'OBSTACULE',
       },
     ],
     layers: [

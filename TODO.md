@@ -10,8 +10,6 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Adding collision detect algorithm on useCharacer
-
 - [ ] Adding more maps to types
 - [ ] Improve performance game map components
 
@@ -53,3 +51,4 @@ My tasks to TODO
 - [x] Improve character component
 - [x] Adding useAudio hook
 - [x] Improve useKeyDown validations
+- [x] Adding collision detect algorithm on useCharacer

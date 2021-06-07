@@ -6,31 +6,27 @@ interface IndexMap {
   y: number
 }
 
-const dirsIndex: any = {}
-
-export interface IUseCollisionProps {
-  /**
-   * Audio Source Imported
-   */
-  currentIndexOnMap?: IndexMap
-  /**
-   * Audio Source Imported
-   */
-  direction: string
-}
-
 const useCollision = () => {
   const {
-    layersConfig: { layers },
+    layersConfig: { tileImages, layers },
     keysDirection,
   } = useContext(context)
 
   const blockLayer = layers[1]
 
+  const findTileType = (tileKey: any) =>
+    tileImages.find((tile: any) => tile.tileKey == tileKey)
+
   const isInFrontOfAnyBlock = ({ x, y }: IndexMap, direction: string) => {
     const xValue = keysDirection[direction].xPixelValue + x
     const yValue = keysDirection[direction].yPixelValue + y
-    console.log(blockLayer[xValue < 0 ? 0 : xValue][yValue < 0 ? 0 : yValue])
+    const nextBlockValue =
+      blockLayer[yValue < 0 ? 0 : yValue][xValue < 0 ? 0 : xValue]
+    const tile = findTileType(nextBlockValue)
+
+    if (tile?.tileType == 'OBSTACULE') return true
+
+    return false
   }
 
   return { isInFrontOfAnyBlock }

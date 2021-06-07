@@ -74,7 +74,12 @@ const useCharacter = () => {
       y: axisPositionY / mapConfig.pixelSize,
     }
 
-    isInFrontOfAnyBlock(currentIndexOnMap, direction)
+    const isNextBlockObstacule = isInFrontOfAnyBlock(
+      currentIndexOnMap,
+      direction
+    )
+
+    if (isNextBlockObstacule) return
 
     setCurrentDirection(direction)
 
