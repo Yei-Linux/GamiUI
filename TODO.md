@@ -10,11 +10,14 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
+- [ ] Create Options
+- [ ] Create Survey
+
+- [ ] Create Drawer
+- [ ] Create Menu Layout
+
 - [ ] Adding more maps to types
 - [ ] Improve performance game map components
-
-- [ ] Create Survey
-- [ ] Create Menu Layout
 
 ### Done ✓
 
@@ -52,3 +55,6 @@ My tasks to TODO
 - [x] Adding useAudio hook
 - [x] Improve useKeyDown validations
 - [x] Adding collision detect algorithm on useCharacer
+
+- [x] Create Title
+- [x] Create Question
