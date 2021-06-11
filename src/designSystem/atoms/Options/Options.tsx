@@ -1,12 +1,33 @@
 import React from 'react'
+import Alternatives, { IAlternative } from './Alternatives'
 import { OptionsWrapper } from './Options.styles'
+import TextAreaToWrite, { ITextAreaToWriteProps } from './TextAreaToWrite'
 
-export interface IOptions {
-  prop?: any
+interface ICode {
+  codeExercise: string
+  editor: any
 }
 
-const Options = ({ prop }: IOptions) => {
-  return <OptionsWrapper />
+export interface IOptions {
+  type?: 'ALTENATIVES' | 'TEXTAREA' | 'CODE'
+  alternatives?: IAlternative[]
+  code?: ICode
+  textarea?: ITextAreaToWriteProps
+}
+
+const Options = ({ type, alternatives, textarea, code }: IOptions) => {
+  return (
+    <OptionsWrapper>
+      {type == 'ALTENATIVES' && <Alternatives alternatives={alternatives} />}
+      {type == 'TEXTAREA' && (
+        <TextAreaToWrite
+          value={textarea?.value}
+          placeholder={textarea?.placeholder}
+        />
+      )}
+      {type == 'CODE' && null}
+    </OptionsWrapper>
+  )
 }
 
 Options.defaultProps = {}

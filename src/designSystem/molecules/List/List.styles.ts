@@ -1,3 +1,4 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { colorLight } from '../../../styles/theme'
 import { twinStyles } from '../../../styles/utilities/twinStyles'
@@ -12,15 +13,38 @@ export const ListWrapper = styled.ul<{
   ${(props: any) => twinStyles(props)};
 `
 
-export const ListItemWrapper = styled.li`
+export const ListItemWrapper = styled.li<{ allBorder?: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid ${colorLight.neutral.six};
+
   padding: 1rem;
   list-style: none;
   width: 100%;
   min-width: 250px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  ${(props) =>
+    props.allBorder
+      ? css`
+          border: 1px solid ${colorLight.neutral.six};
+          border-radius: 0.4em;
+          &:hover {
+            background-color: ${colorLight.primary.one};
+          }
+          &:hover div {
+            color: ${colorLight.neutral.nine};
+          }
+          &:hover svg {
+            fill: ${colorLight.neutral.nine};
+          }
+        `
+      : css`
+          border-bottom: 1px solid ${colorLight.neutral.six};
+        `}
 `
 export const ListItemChild = styled.div`
   margin-right: 1rem;

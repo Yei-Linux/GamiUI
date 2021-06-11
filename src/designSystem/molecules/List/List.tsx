@@ -11,7 +11,7 @@ export interface IList extends IGeneralProps {
   /**
    * Content
    */
-  children: React.ReactNode
+  children: React.ReactNode[]
 }
 
 const List = ({ children, ...args }: IList) => {
@@ -23,13 +23,15 @@ List.Item = ({
   avatar,
   title,
   description,
+  hasAllBorder,
 }: {
   children?: React.ReactNode
   avatar?: React.ReactNode
   title?: React.ReactNode
   description?: React.ReactNode
+  hasAllBorder?: boolean
 }) => (
-  <ListItemWrapper>
+  <ListItemWrapper allBorder={hasAllBorder}>
     <Left>
       <ListItemChild>{avatar}</ListItemChild>
       <ListItemChild>
