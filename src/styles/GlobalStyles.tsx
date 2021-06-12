@@ -11,7 +11,7 @@ const GlobalStyles: React.FC = () => {
         ${normalize()}
         ${fonts()}
 
-        * {
+        body {
           font-family: ${typography.type.primary};
           box-sizing: border-box;
           margin: 0px;

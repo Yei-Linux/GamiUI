@@ -1,39 +1,44 @@
-"use strict";
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
+'use strict'
 
-const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
-const webpack = require("webpack");
-const path = require("path");
+const webpack = require('webpack')
+const path = require('path')
+
+const APP_DIR = path.resolve(__dirname, './src')
 
 module.exports = {
   module: {
     loaders: [
       {
         test: /.jsx?$/,
-        loader: "babel-loader",
+        include: APP_DIR,
+        loader: 'babel-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader",
-      },
-      {
-        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-        loader: "url-loader?limit=100000",
-      },
-      {
-        test: /\.svg$/,
-        include: /.*iconpack\.svg/,
+        include: APP_DIR,
         use: [
           {
-            loader: "svg-sprite-loader",
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
             options: {
-              publicPath: "",
+              modules: true,
+              namedExport: true,
             },
           },
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        include: APP_DIR,
+        loader: 'url-loader?limit=100000',
+      },
     ],
   },
 
-  plugins: [new SpriteLoaderPlugin()],
-};
+  plugins: [],
+}

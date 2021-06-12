@@ -17,7 +17,6 @@ const TypeColumn = styled.div`
 `
 
 const FirstColumn = styled(TypeColumn)`
-  font-family: 'Atlanta Corner Demo';
   width: 10%;
   padding-left: 15px;
 

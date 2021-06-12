@@ -1,5 +1,6 @@
 import React from 'react'
 import Alternatives, { IAlternative } from './Alternatives'
+import CodeAlternative from './Code'
 import { OptionsWrapper } from './Options.styles'
 import TextAreaToWrite, { ITextAreaToWriteProps } from './TextAreaToWrite'
 
@@ -25,7 +26,12 @@ const Options = ({ type, alternatives, textarea, code }: IOptions) => {
           placeholder={textarea?.placeholder}
         />
       )}
-      {type == 'CODE' && null}
+      {type == 'CODE' && (
+        <CodeAlternative
+          question={code?.codeExercise}
+          initialCode={code?.editor}
+        />
+      )}
     </OptionsWrapper>
   )
 }
