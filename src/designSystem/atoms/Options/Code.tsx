@@ -13,18 +13,18 @@ import {
   QuestionCodeContainer,
 } from './Options.styles'
 
-export interface CodeAlternativeProps {
+export interface ICodeAlternativeProps {
   question: string
   initialCode?: string
 }
 
-const CodeAlternative = ({ question, initialCode }: CodeAlternativeProps) => {
+const CodeAlternative = ({ question, initialCode }: ICodeAlternativeProps) => {
   return (
     <Row alignItems="normal">
       <Col spacing="sm" xs={12} sm={4} md={4} lg={4}>
         <CodeHeader>
           <Row justifyContent="space-between">
-            <Title level="h3">Exercise: Print Hello</Title>
+            <Title level="h3">Exercise:</Title>
           </Row>
         </CodeHeader>
         <QuestionCodeContainer dangerouslySetInnerHTML={{ __html: question }} />

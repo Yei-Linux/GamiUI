@@ -11,11 +11,19 @@ export interface IRow {
     | 'space-between'
     | 'space-around'
   alignItems: 'center' | 'flex-start' | 'flex-end' | 'normal'
+  height?: string
 }
 
-const Row = ({ children, justifyContent, alignItems, style = {} }: IRow) => {
+const Row = ({
+  children,
+  justifyContent,
+  alignItems,
+  style = {},
+  height = '100%',
+}: IRow) => {
   return (
     <RowWrapper
+      height={height}
       justifyContent={justifyContent}
       alignItems={alignItems}
       style={style}

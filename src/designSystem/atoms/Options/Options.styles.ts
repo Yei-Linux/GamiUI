@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
 import { colorLight } from '../../../styles/theme'
 
-export const OptionsWrapper = styled.div``
+export const OptionsWrapper = styled.div`
+  width: 100%;
+`
 
 export const QuestionCodeContainer = styled.div`
   box-sizing: border-box;

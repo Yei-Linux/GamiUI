@@ -1,18 +1,13 @@
 import React from 'react'
 import Alternatives, { IAlternative } from './Alternatives'
-import CodeAlternative from './Code'
+import CodeAlternative, { ICodeAlternativeProps } from './Code'
 import { OptionsWrapper } from './Options.styles'
 import TextAreaToWrite, { ITextAreaToWriteProps } from './TextAreaToWrite'
-
-interface ICode {
-  codeExercise: string
-  editor: any
-}
 
 export interface IOptions {
   type?: 'ALTENATIVES' | 'TEXTAREA' | 'CODE'
   alternatives?: IAlternative[]
-  code?: ICode
+  code?: ICodeAlternativeProps
   textarea?: ITextAreaToWriteProps
 }
 
@@ -28,8 +23,8 @@ const Options = ({ type, alternatives, textarea, code }: IOptions) => {
       )}
       {type == 'CODE' && (
         <CodeAlternative
-          question={code?.codeExercise}
-          initialCode={code?.editor}
+          question={code?.question}
+          initialCode={code?.initialCode}
         />
       )}
     </OptionsWrapper>
