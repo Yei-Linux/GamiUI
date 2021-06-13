@@ -1,14 +1,29 @@
 import styled from '@emotion/styled'
+import { colorLight } from '../../../styles/theme'
 
 export const OptionsWrapper = styled.div``
 
 export const QuestionCodeContainer = styled.div`
-  box-shadow: 0 6px 16px 0 rgb(0 0 0 / 20%);
   box-sizing: border-box;
   width: 100%;
   outline-offset: -1px;
   background-color: #fff;
   padding: 1rem;
+  height: 550px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #ffffff8a;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${colorLight.primary.oneLight};
+    border-radius: 20px;
+  }
 
   a,
   abbr,
@@ -128,4 +143,20 @@ export const QuestionCodeContainer = styled.div`
   }
 `
 
-export const CodeContainer = styled.div``
+export const CodeContainer = styled.div`
+  height: 100%;
+`
+
+export const CodeHeader = styled.div`
+  width: 100%;
+  padding: 1rem;
+  color: ${colorLight.primary.two};
+  background-color: ${colorLight.secondary.three};
+`
+
+export const CodeFooter = styled.div`
+  width: 100%;
+  padding: 1rem;
+  color: ${colorLight.primary.two};
+  background-color: ${colorLight.secondary.three};
+`

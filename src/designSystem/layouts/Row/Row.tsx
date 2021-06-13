@@ -10,7 +10,7 @@ export interface IRow {
     | 'flex-end'
     | 'space-between'
     | 'space-around'
-  alignItems: 'center' | 'flex-start' | 'flex-end'
+  alignItems: 'center' | 'flex-start' | 'flex-end' | 'normal'
 }
 
 const Row = ({ children, justifyContent, alignItems, style = {} }: IRow) => {
