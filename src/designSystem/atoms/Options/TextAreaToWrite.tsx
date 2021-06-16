@@ -12,7 +12,7 @@ const TextAreaToWrite = ({ value, placeholder }: ITextAreaToWriteProps) => {
       value={value}
       placeholder={placeholder}
       width="NORMAL"
-      heigth="SMALL"
+      heigth="MEDIUM"
       border="MEDIUM"
     />
   )

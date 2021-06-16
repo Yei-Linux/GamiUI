@@ -1,14 +1,7 @@
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { ButtonType } from '../../../core/domain/types'
-import { colorLight } from '../../../styles/theme'
+import { themeTypes } from '../../../styles/utilities/color'
 import { twinStyles } from '../../../styles/utilities/twinStyles'
-
-const ButtonTypes = (typeStyle: ButtonType) => css`
-  background: ${colorLight.button[typeStyle].bg};
-  color: ${colorLight.button[typeStyle].color};
-  border: ${colorLight.button[typeStyle].border};
-`
 
 export const ButtonWrapper = styled.button<{
   typeStyle?: ButtonType
@@ -29,5 +22,5 @@ export const ButtonWrapper = styled.button<{
   padding: 10px;
 
   ${(props: any) => twinStyles(props)};
-  ${(props: any) => ButtonTypes(props.typeStyle)};
+  ${(props: any) => themeTypes(props.typeStyle)};
 `

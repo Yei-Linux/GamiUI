@@ -5,6 +5,7 @@ import { options as optionsStyle } from '../../utils/constants'
 import { options as optionsGradient } from '../../../designSystem/styled/Gradient'
 import { options as optionsWave } from '../../../designSystem/styled/Wave'
 import { options as optionsHeroes } from '../../../designSystem/game/Character'
+import { options } from '../../../designSystem/atoms/Link'
 
 export type WidthType = typeof optionsStyle.width[number]
 export type HeightType = typeof optionsStyle.height[number]
@@ -14,6 +15,7 @@ export type TextAlignType = typeof optionsStyle.textAlign[number]
 export type FontWeightType = typeof optionsStyle.fontWeight[number]
 
 export type ButtonType = typeof optionsButton.type[number]
+export type LinkType = typeof options.type[number]
 
 export type IconNames = typeof optionsIcon.names[number]
 

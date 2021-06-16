@@ -20,6 +20,7 @@ export const Basic = (args: any) => {
     <Survey>
       {questions.map((question: IQuestionSurvey, index: number) => (
         <Survey.Item
+          questionIndex={index}
           question={question.question}
           option={question.option}
           key={index}

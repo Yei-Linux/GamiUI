@@ -10,7 +10,7 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create Survey
+- [ ] Manage Data of Survey
 
 - [ ] Create Drawer
 - [ ] Create Menu Layout
@@ -58,3 +58,5 @@ My tasks to TODO
 - [x] Create Title
 - [x] Create Question
 - [x] Create Options
+- [x] Create Layout
+- [x] Create Survey
