@@ -19,31 +19,48 @@ const List = ({ children, ...args }: IList) => {
 }
 
 List.Item = ({
+  id,
   children,
   avatar,
   title,
   description,
   hasAllBorder,
+  onClick,
+  isSelected = false,
 }: {
+  id?: any
   children?: React.ReactNode
   avatar?: React.ReactNode
   title?: React.ReactNode
   description?: React.ReactNode
   hasAllBorder?: boolean
-}) => (
-  <ListItemWrapper allBorder={hasAllBorder}>
-    <Left>
-      <ListItemChild>{avatar}</ListItemChild>
-      <ListItemChild>
-        <TitleContainer>{title}</TitleContainer>
-        <SubtitleContainer>{description}</SubtitleContainer>
-      </ListItemChild>
-    </Left>
-    <Right>
-      <ListItemChild>{children}</ListItemChild>
-    </Right>
-  </ListItemWrapper>
-)
+  onClick?: (value: any) => any
+  isSelected?: boolean
+}) => {
+  const handleClickItem = () => {
+    onClick &&
+      onClick(id)
+  }
+
+  return (
+    <ListItemWrapper
+      isSelected={isSelected}
+      onClick={handleClickItem}
+      allBorder={hasAllBorder}
+    >
+      <Left>
+        <ListItemChild>{avatar}</ListItemChild>
+        <ListItemChild>
+          <TitleContainer>{title}</TitleContainer>
+          <SubtitleContainer>{description}</SubtitleContainer>
+        </ListItemChild>
+      </Left>
+      <Right>
+        <ListItemChild>{children}</ListItemChild>
+      </Right>
+    </ListItemWrapper>
+  )
+}
 
 List.defaultProps = {
   shadow: 'SMALL',

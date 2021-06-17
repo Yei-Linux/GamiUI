@@ -16,15 +16,24 @@ export interface IAlternative {
 }
 
 export interface IAlternativesProps {
+  answer: any
   alternatives?: IAlternative[]
+  onChangeFormItem?: (value: any) => any
 }
 
-const Alternatives = ({ alternatives = [] }: IAlternativesProps) => {
+const Alternatives = ({
+  answer,
+  alternatives = [],
+  onChangeFormItem,
+}: IAlternativesProps) => {
   return (
     <List shadow="NONE">
       {alternatives?.map((alternative: IAlternative, index: number) => (
         <Fragment key={index}>
           <List.Item
+            id={index}
+            isSelected={answer == index}
+            onClick={onChangeFormItem}
             hasAllBorder
             avatar={
               <Icon

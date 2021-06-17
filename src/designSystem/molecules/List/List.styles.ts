@@ -13,7 +13,10 @@ export const ListWrapper = styled.ul<{
   ${(props: any) => twinStyles(props)};
 `
 
-export const ListItemWrapper = styled.li<{ allBorder?: boolean }>`
+export const ListItemWrapper = styled.li<{
+  isSelected: boolean
+  allBorder?: boolean
+}>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,6 +29,22 @@ export const ListItemWrapper = styled.li<{ allBorder?: boolean }>`
   &:hover {
     cursor: pointer;
   }
+
+  ${(props) =>
+    props.isSelected &&
+    css`
+      border: 1px solid ${colorLight.neutral.six};
+      border-radius: 0.4em;
+
+      background-color: ${colorLight.primary.one};
+
+      div {
+        color: ${colorLight.neutral.nine};
+      }
+      svg {
+        fill: ${colorLight.neutral.nine};
+      }
+    `}
 
   ${(props) =>
     props.allBorder

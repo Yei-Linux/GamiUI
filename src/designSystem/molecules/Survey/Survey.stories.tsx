@@ -16,14 +16,19 @@ export default {
 export const Basic = (args: any) => {
   const { questions } = args
 
+  const onFinishSurvey = (value: any) => {
+    console.log(value)
+  }
+
   return (
-    <Survey>
+    <Survey onFinish={onFinishSurvey}>
       {questions.map((question: IQuestionSurvey, index: number) => (
         <Survey.Item
           questionIndex={index}
           question={question.question}
           option={question.option}
           key={index}
+          isLastQuestion={index === questions.length - 1}
         />
       ))}
     </Survey>

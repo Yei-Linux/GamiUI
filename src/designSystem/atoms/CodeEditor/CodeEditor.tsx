@@ -4,6 +4,7 @@ import { CodeEditorWrapper } from './CodeEditor.styles'
 import { CodeCustomTheme, codeOptions } from './constants'
 
 export interface ICodeEditor {
+  value?: string
   defaultValueCode?: string
   onChange?: (value: any) => any
   width?: string
@@ -11,6 +12,7 @@ export interface ICodeEditor {
 }
 
 const CodeEditor = ({
+  value,
   defaultValueCode,
   onChange,
   width,
@@ -26,6 +28,7 @@ const CodeEditor = ({
         beforeMount={handleEditorWillMount}
         height={height}
         width={width}
+        value={value}
         defaultLanguage="javascript"
         defaultValue={defaultValueCode}
         onChange={onChange}

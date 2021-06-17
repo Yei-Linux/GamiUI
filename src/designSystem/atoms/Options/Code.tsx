@@ -14,11 +14,18 @@ import {
 } from './Options.styles'
 
 export interface ICodeAlternativeProps {
+  answer: any
   question: string
   initialCode?: string
+  onChangeFormItem?: (value: any) => any
 }
 
-const CodeAlternative = ({ question, initialCode }: ICodeAlternativeProps) => {
+const CodeAlternative = ({
+  answer,
+  question,
+  initialCode,
+  onChangeFormItem,
+}: ICodeAlternativeProps) => {
   return (
     <Row alignItems="normal">
       <Col spacing="sm" xs={12} sm={4} md={4} lg={4}>
@@ -40,7 +47,9 @@ const CodeAlternative = ({ question, initialCode }: ICodeAlternativeProps) => {
           <CodeEditor
             width={'100%'}
             height={'450px'}
+            value={answer}
             defaultValueCode={initialCode}
+            onChange={onChangeFormItem}
           />
           <CodeFooter>
             <Row justifyContent="flex-end">

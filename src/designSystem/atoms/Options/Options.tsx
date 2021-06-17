@@ -9,22 +9,40 @@ export interface IOptions {
   alternatives?: IAlternative[]
   code?: ICodeAlternativeProps
   textarea?: ITextAreaToWriteProps
+  handleChangeOption: (value: any) => any
+  answer: any
 }
 
-const Options = ({ type, alternatives, textarea, code }: IOptions) => {
+const Options = ({
+  answer,
+  type,
+  alternatives,
+  textarea,
+  code,
+  handleChangeOption,
+}: IOptions) => {
   return (
     <OptionsWrapper>
-      {type == 'ALTENATIVES' && <Alternatives alternatives={alternatives} />}
+      {type == 'ALTENATIVES' && (
+        <Alternatives
+          answer={answer}
+          alternatives={alternatives}
+          onChangeFormItem={handleChangeOption}
+        />
+      )}
       {type == 'TEXTAREA' && (
         <TextAreaToWrite
-          value={textarea?.value}
+          value={answer}
           placeholder={textarea?.placeholder}
+          onChangeFormItem={handleChangeOption}
         />
       )}
       {type == 'CODE' && (
         <CodeAlternative
+          answer={answer || code?.initialCode}
           question={code?.question}
           initialCode={code?.initialCode}
+          onChangeFormItem={handleChangeOption}
         />
       )}
     </OptionsWrapper>
