@@ -9,11 +9,11 @@ import {
   ModalDialog,
   ModalFooter,
   ModalHeader,
-  ModalMask,
   ModalWrapper,
 } from './Modal.styles'
 
 import { gsap } from 'gsap'
+import Mask from '../../atoms/Mask'
 
 interface IModal extends IGeneralProps {
   /**
@@ -94,7 +94,7 @@ const Modal = ({
 
   return (
     <ModalWrapper visible={visible}>
-      <ModalMask />
+      <Mask />
       <ModalDialog ref={(e) => (refDialog = e)}>
         <ModalContainer {...args} ref={(e) => (refContent = e)}>
           <Header title={title} handleClose={handleCloseGsap} />

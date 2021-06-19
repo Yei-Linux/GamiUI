@@ -12,14 +12,16 @@ export default {
 } as Meta
 
 export const Basic = (args: any) => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
+
+  const toggle = () => setOpen(!open)
 
   return (
     <div>
-      <Button width="SMALL" onClick={() => setOpen(!open)}>
+      <Button width="SMALL" onClick={toggle}>
         Open Drawer
       </Button>
-      <Drawer open={open} {...args}>
+      <Drawer {...args} onClose={toggle} open={open}>
         <p>Hey, whats up</p>
       </Drawer>
     </div>
