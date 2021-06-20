@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useRef } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import useCloneElement from '../../../hooks/useCloneElements'
 import { gsap } from 'gsap'
 
 interface IPosition {
-  axis: 'x' | 'y' | 'xPercent' | 'yPercent'
+  axis: 'x' | 'y' | 'xPercent' | 'yPercent' | string
   value: number
 }
 
@@ -19,8 +19,8 @@ interface ITransitionProp {
 export interface ITransition {
   isReadyToInitAnimation: boolean
 
-  from?: ITransitionProp
-  to?: ITransitionProp
+  from?: ITransitionProp | null
+  to?: ITransitionProp | null
 
   children: any
 }
@@ -33,6 +33,7 @@ const Transition = ({
 
   children,
 }: ITransition) => {
+  const [timeline] = useState(gsap.timeline())
   const containerRef: any = useRef(null)
 
   const { validatorChildrenLength, childrenWithProps } = useCloneElement({
@@ -66,14 +67,13 @@ const Transition = ({
   const buildingTimeLine = () => {
     if (!from && !to) return
 
-    const timeline = gsap.timeline()
-
     if (from) timeline.from(containerRef?.current, buildingGsapProps(from))
     if (to) timeline.to(containerRef?.current, buildingGsapProps(to))
   }
 
   useEffect(() => {
-    isReadyToInitAnimation && buildingTimeLine()
+    timeline.clear()
+    buildingTimeLine()
   }, [isReadyToInitAnimation])
 
   if (validatorChildrenLength(childrenWithProps)) {

@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react'
+import 'regenerator-runtime/runtime'
+import React, { Fragment, useEffect, useState } from 'react'
 import Mask from '../../atoms/Mask'
 import Transition from '../../styled/Transition'
+import { drawerTranstionByStates } from './constants'
 import { DrawerWrapper } from './Drawer.styles'
 
 export interface IDrawer {
@@ -13,18 +15,39 @@ export interface IDrawer {
 }
 
 const Drawer = ({ children, open, onClose }: IDrawer) => {
+  const [isFirstTime, setIsFirstTime] = useState(!open)
+  const [isOpen, setIsOpen] = useState(open)
+
+  const timeout = (t: number): Promise<any> => {
+    return new Promise((resolve, _reject) => {
+      setTimeout(resolve, t)
+    })
+  }
+
+  const updateIsOpen = async () => {
+    if (open) {
+      isFirstTime && setIsFirstTime(false)
+      setIsOpen(true)
+      return
+    }
+
+    if (!isFirstTime) {
+      await timeout(300)
+      setIsOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    updateIsOpen()
+  }, [open])
+
   return (
     <Fragment>
-      {open && (
+      {isOpen && (
         <Fragment>
           <Transition
-            from={{
-              duration: 1.5,
-              opacity: 0.3,
-            }}
-            to={{
-              opacity: 1,
-            }}
+            from={drawerTranstionByStates.mask[open ? 'open' : 'close']?.from}
+            to={drawerTranstionByStates.mask[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
             <div>
@@ -33,11 +56,7 @@ const Drawer = ({ children, open, onClose }: IDrawer) => {
           </Transition>
 
           <Transition
-            to={{
-              duration: 0.8,
-              delay: 0,
-              position: { axis: 'xPercent', value: 100 },
-            }}
+            to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
             <DrawerWrapper>{children}</DrawerWrapper>

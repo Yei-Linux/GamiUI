@@ -10,8 +10,7 @@ My tasks to TODO
 
 - [ ] Fixing warning of eslint  
 
-- [ ] Create Transition Component
-- [ ] Create Drawer
+- [ ] Create Sider Layout
 - [ ] Create Menu Layout
 
 - [ ] Adding more maps to types
@@ -60,3 +59,5 @@ My tasks to TODO
 - [x] Create Layout
 - [x] Create Survey
 - [x] Manage Data of Survey
+- [x] Create Transition Component
+- [x] Create Drawer

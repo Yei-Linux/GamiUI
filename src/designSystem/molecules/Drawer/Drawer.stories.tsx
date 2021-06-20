@@ -12,7 +12,7 @@ export default {
 } as Meta
 
 export const Basic = (args: any) => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   const toggle = () => setOpen(!open)
 
