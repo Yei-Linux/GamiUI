@@ -27,6 +27,7 @@ List.Item = ({
   hasAllBorder,
   onClick,
   isSelected = false,
+  noBorder = false,
 }: {
   id?: any
   children?: React.ReactNode
@@ -36,6 +37,7 @@ List.Item = ({
   hasAllBorder?: boolean
   onClick?: (value: any) => any
   isSelected?: boolean
+  noBorder?: boolean
 }) => {
   const handleClickItem = () => {
     onClick &&
@@ -47,6 +49,7 @@ List.Item = ({
       isSelected={isSelected}
       onClick={handleClickItem}
       allBorder={hasAllBorder}
+      noBorder={noBorder}
     >
       <Left>
         <ListItemChild>{avatar}</ListItemChild>

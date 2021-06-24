@@ -16,6 +16,7 @@ export const ListWrapper = styled.ul<{
 export const ListItemWrapper = styled.li<{
   isSelected: boolean
   allBorder?: boolean
+  noBorder?: boolean
 }>`
   display: flex;
   justify-content: space-between;
@@ -64,6 +65,12 @@ export const ListItemWrapper = styled.li<{
       : css`
           border-bottom: 1px solid ${colorLight.neutral.six};
         `}
+
+    ${(props) =>
+    props.noBorder &&
+    css`
+      border: none;
+    `}
 `
 export const ListItemChild = styled.div`
   margin-right: 1rem;

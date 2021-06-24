@@ -4,17 +4,13 @@ My tasks to TODO
 
 ### Todo
 
-- [ ] Refactor all atoms, molecules, utilities, typyings, docs and styles
-
 ### In Progress
-
-- [ ] Fixing warning of eslint  
-
-- [ ] Create Sider Layout
-- [ ] Create Menu Layout
 
 - [ ] Adding more maps to types
 - [ ] Improve performance game map components
+
+- [ ] Refactor all atoms, molecules, utilities, typyings, docs and styles
+- [ ] Fixing warning of eslint  
 
 ### Done ✓
 
@@ -61,3 +57,6 @@ My tasks to TODO
 - [x] Manage Data of Survey
 - [x] Create Transition Component
 - [x] Create Drawer
+
+- [x] Create Basic Sider Layout 
+- [x] Create Basic Menu Layout

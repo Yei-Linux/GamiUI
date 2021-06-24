@@ -17,7 +17,6 @@ const Content = ({children}: IHeader) => {
   return <ContentWrapper>{children}</ContentWrapper>
 }
 
-
 const Footer = ({children}: IHeader) => {
   return <FooterWrapper>{children}</FooterWrapper>
 }

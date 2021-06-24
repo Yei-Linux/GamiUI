@@ -2,11 +2,11 @@ import React from 'react'
 import { SiderWrapper } from './Sider.styles'
 
 export interface ISider {
-  prop?: any
+  children: React.ReactNode
 }
 
-const Sider = ({ prop }: ISider) => {
-  return <SiderWrapper />
+const Sider = ({ children }: ISider) => {
+  return <SiderWrapper>{children}</SiderWrapper>
 }
 
 Sider.defaultProps = {}
