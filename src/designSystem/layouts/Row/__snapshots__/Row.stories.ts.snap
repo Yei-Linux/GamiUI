@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Layout/Row Basic 1`] = `
+<div
+  className="css-1e6xljk-RowWrapper e1y7zrl70"
+  height="100%"
+  style={Object {}}
+>
+  <div
+    className="css-1b5jsj2-ColWrapper e17m19uc0"
+    spacing="8px"
+  >
+    <p
+      style={
+        Object {
+          "background": "#7f9cf5",
+          "color": "#FFFFFF",
+          "padding": "16px",
+        }
+      }
+    >
+      1
+    </p>
+  </div>
+  <div
+    className="css-1b5jsj2-ColWrapper e17m19uc0"
+    spacing="8px"
+  >
+    <p
+      style={
+        Object {
+          "background": "#7f9cf5",
+          "color": "#FFFFFF",
+          "padding": "16px",
+        }
+      }
+    >
+      2
+    </p>
+  </div>
+  <div
+    className="css-1b5jsj2-ColWrapper e17m19uc0"
+    spacing="8px"
+  >
+    <p
+      style={
+        Object {
+          "background": "#7f9cf5",
+          "color": "#FFFFFF",
+          "padding": "16px",
+        }
+      }
+    >
+      3
+    </p>
+  </div>
+  <div
+    className="css-1b5jsj2-ColWrapper e17m19uc0"
+    spacing="8px"
+  >
+    <p
+      style={
+        Object {
+          "background": "#7f9cf5",
+          "color": "#FFFFFF",
+          "padding": "16px",
+        }
+      }
+    >
+      4
+    </p>
+  </div>
+</div>
+`;

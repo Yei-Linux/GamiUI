@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Slider Autoplay 1`] = `
+<div
+  className="css-g1apgy-SliderWrapper etxlari0"
+>
+  <div
+    className="keen-slider css-xuu3ag-KeenSlider etxlari1"
+  >
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Atoms/Slider Basic 1`] = `
+<div
+  className="css-g1apgy-SliderWrapper etxlari0"
+>
+  <div
+    className="keen-slider css-xuu3ag-KeenSlider etxlari1"
+  >
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Atoms/Slider Vertical 1`] = `
+<div
+  className="css-g1apgy-SliderWrapper etxlari0"
+>
+  <div
+    className="keen-slider css-ullxii-KeenSlider etxlari1"
+  >
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+    <img
+      alt=""
+      className="keen-slider__slide css-pkaxp9-Img efl6h300"
+      height="350px"
+      src="https://pixnio.com/free-images/2017/03/01/2017-03-01-07-11-56.jpg"
+      width="100%"
+    />
+  </div>
+</div>
+`;

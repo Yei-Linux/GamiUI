@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react'
-import { stylesControl } from '../../../core/helpers/storybook'
+import { stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Form from '.'
 import React from 'react'
@@ -11,6 +11,7 @@ import Switch from '../../atoms/Switch'
 import Select from '../../atoms/Select'
 import Radio from '../../atoms/Radio'
 import Button from '../../atoms/Button'
+import Icon from '../../atoms/Icon'
 
 export default {
   title: 'Molecules/Form',
@@ -59,7 +60,9 @@ export const Basic = () => (
       </Radio>
     </Form.Item>
     <Form.Item name="isActive">
-      <Button type="secondary">Submit</Button>
+      <Button type="primary" border="ROUNDED" preffix={<Icon name="submit" />}>
+        Submit
+      </Button>
     </Form.Item>
   </Form>
 )

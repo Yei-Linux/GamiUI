@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/ProgressBar Basic 1`] = `
+<div
+  className="css-1e6xljk-RowWrapper e1y7zrl70"
+  height="100%"
+  style={
+    Object {
+      "maxWidth": "250px",
+    }
+  }
+>
+  <div
+    className="css-11fj8yx-ProgressBarWrapper e1s95mmn0"
+  >
+    <div
+      className="css-oxhdf4-ProgressPercent e1s95mmn1"
+    />
+  </div>
+</div>
+`;

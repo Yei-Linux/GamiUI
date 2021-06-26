@@ -93,7 +93,7 @@ export const colorLight = {
   primary: {
     one: '#7f9cf5',
     two: '#ffffff',
-    oneLight: 'rgb(24 144 255 / 20%)',
+    oneLight: 'rgb(24 144 255 / 30%)',
   },
   secondary: {
     one: '#ffc75f',
@@ -125,6 +125,58 @@ export const colorLight = {
     ocean: '#b8b5ff',
     oceanStrong: '#7868e6',
     gray: '#E5E5E5',
+  },
+  link: {
+    primary: {
+      bg: '#7f9cf5',
+      color: 'white',
+      border: 'none',
+    },
+    secondary: {
+      bg: '#ffffff',
+      color: '#7f9cf5',
+      border: 'none',
+    },
+    tertiary: {
+      bg: '#374a54',
+      color: 'white',
+      border: 'none',
+    },
+    cuaternary: {
+      bg: '#ffffff',
+      color: '#374a54',
+      border: 'none',
+    },
+    text: {
+      bg: 'transparent',
+      color: '#454545',
+      border: 'none',
+    },
+    link: {
+      bg: 'transparent',
+      color: '#454545',
+      border: 'none',
+    },
+    success: {
+      bg: '#ffffff',
+      color: '#16c79a',
+      border: 'none',
+    },
+    warning: {
+      bg: '#ffffff',
+      color: '#ffd66b',
+      border: 'none',
+    },
+    danger: {
+      bg: '#ffffff',
+      color: '#ff4646',
+      border: 'none',
+    },
+    info: {
+      bg: '#ffffff',
+      color: '#a7c5eb',
+      border: 'none',
+    },
   },
   button: {
     primary: {
@@ -204,9 +256,10 @@ export const spacing = {
 
 export const typography = {
   type: {
-    primary: 'Patrick Hand, cursive',
-    secondary: "'Itim', cursive",
-    terciary: "'Quicksand', sans-serif",
+    primary: 'Source Sans Pro, sans-serif',
+    secondary: 'Patrick Hand, cursive',
+    terciary: "'Itim', cursive",
+    cuaternary: "'Quicksand', sans-serif",
   },
   weight: {
     regular: '400',

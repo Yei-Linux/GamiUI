@@ -8,8 +8,9 @@ import {
 import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 const PulseCommon = css`
-  width: 130px;
-  height: 130px;
+  width: fit-content;
+  height: fit-content;
+  padding: 6px;
   margin: auto;
   top: 0;
   left: 0;
@@ -28,9 +29,10 @@ export const PulseWrapper = styled.div`
 `
 
 export const PulseContainer = styled.div<{
-  isBloqued: boolean
+  isBloqued?: boolean
   shadow?: string
   borderColor: string
+  backgroundColor?: string
 }>`
   filter: ${(props: any) => (props.isBloqued ? `opacity(0.5);` : `none`)};
   display: flex;
@@ -41,6 +43,7 @@ export const PulseContainer = styled.div<{
   overflow: hidden;
 
   ${PulseCommon}
+  background-color: ${(props) => props.backgroundColor};
   border: 5px solid ${(props) => props.borderColor};
   ${(props: any) => twinStyles(props)};
 `

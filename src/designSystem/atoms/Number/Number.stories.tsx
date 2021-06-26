@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Number from '.'
 import React from 'react'
@@ -40,7 +40,5 @@ Basic.args = {
   placeholder: 'Type your phone',
   width: 'NORMAL',
   heigth: 'SMALL',
-  shadow: '',
-  border: 'MEDIUM',
   prefix: <Icon fill="#374a54" />,
 }

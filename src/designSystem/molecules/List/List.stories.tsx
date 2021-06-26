@@ -1,8 +1,10 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { stylesControl } from '../../../core/helpers/storybook'
+import { stylesControl } from '../../../core/helpers/storybook.helper'
 
 import List from '.'
+import Button from '../../atoms/Button'
+import Icon from '../../atoms/Icon'
 
 export default {
   title: 'Molecules/List',
@@ -42,30 +44,22 @@ Common.args = {}
 export const CustomContent = (args: any) => (
   <List {...args}>
     <List.Item
-      avatar={
-        <img
-          width="25px"
-          height="25px"
-          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        />
-      }
+      avatar={<Icon size="25px" name="book" />}
       title="Main title"
       description="Description"
     >
-      <p>Ir</p>
+      <Button width="NORMAL" border="ROUNDED">
+        Go!!
+      </Button>
     </List.Item>
     <List.Item
-      avatar={
-        <img
-          width="25px"
-          height="25px"
-          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        />
-      }
+      avatar={<Icon size="25px" name="book" />}
       title="Main title"
       description="Description"
     >
-      <p>Ir</p>
+      <Button width="NORMAL" border="ROUNDED">
+        Go!!
+      </Button>
     </List.Item>
   </List>
 )

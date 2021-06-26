@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SelectProvider from '../../../context/SelectProvider'
 import context from '../../../context/SelectProvider/context'
 import useClickOutside from '../../../hooks/useClickOutside'
+import useStore from '../../../hooks/useStore'
 import Input from '../Input'
 import { IInput } from '../Input/Input'
 import {
@@ -33,7 +34,7 @@ const SelectContent = ({
   const selectReference: any = useRef()
   const [isToggle, setIsToggle] = useState(false)
 
-  const { optionSelected } = useContext(context)
+  const { optionSelected } = useStore({ context })
 
   useClickOutside({
     ref: selectReference,
@@ -78,7 +79,7 @@ const Select = ({
 }
 
 Select.Option = ({ children, value }: { children: string; value: string }) => {
-  const { setOptionSelected } = useContext(context)
+  const { setOptionSelected } = useStore({ context })
   const handleClickOption = () => setOptionSelected({ value, text: children })
   return <OptionWrapper onClick={handleClickOption}>{children}</OptionWrapper>
 }
@@ -87,7 +88,6 @@ Select.defaultProps = {
   isBasic: true,
   width: 'NORMAL',
   heigth: 'SMALL',
-  border: 'MEDIUM',
 }
 
 export default Select

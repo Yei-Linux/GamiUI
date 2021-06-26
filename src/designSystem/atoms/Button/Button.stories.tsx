@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react'
-import { getListTemplate, stylesControl } from '../../../core/helpers/storybook'
+import { getListTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Button from '.'
 import { options as optionsButton } from './constants'

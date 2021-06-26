@@ -42,10 +42,10 @@ const useCloneElement = ({
   propsElement,
   maxChildrenNumber,
   advancedOptions = null,
-  childrenTypes,
+  childrenTypes = [],
 }: IUseCloneElement | any) => {
   const validators = (child: any, childrenTypes: any[]) =>
-    React.isValidElement(child) && validatorChildrenTypes(child, childrenTypes)
+    React.isValidElement(child) && childrenTypes.length == 0 ? true : validatorChildrenTypes(child, childrenTypes)
 
   const configureAdvancedOptions = (child: any) => {
     if (advancedOptions) {
@@ -65,7 +65,7 @@ const useCloneElement = ({
   const validatorChildrenTypes = (child: any, childrenTypes: any[]): boolean =>
     childrenTypes.includes(child.type)
 
-  const validatorChildrenLength = () =>
+  const validatorChildrenLength = (childrenWithProps: any) =>
     childrenWithProps?.length > maxChildrenNumber
 
   const runningChildrensAndShouldBeTypeOf = (

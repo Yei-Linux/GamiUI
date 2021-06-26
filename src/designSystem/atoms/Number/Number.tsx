@@ -6,7 +6,12 @@ const REGEX__NUMBER = /^[0-9]+$/
 
 export type INumber = IInput
 
-const Number = ({ onChangeFormItem, ...args }: INumber) => {
+const Number = ({
+  onChangeFormItem = () => {
+    return
+  },
+  ...args
+}: INumber) => {
   const handleTypying = (value: any) => {
     if (REGEX__NUMBER.test(value)) {
       onChangeFormItem(value)
@@ -19,7 +24,6 @@ const Number = ({ onChangeFormItem, ...args }: INumber) => {
 Number.defaultProps = {
   width: 'NORMAL',
   heigth: 'SMALL',
-  border: 'MEDIUM',
 }
 
 export default Number

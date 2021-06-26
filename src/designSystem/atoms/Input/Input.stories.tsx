@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Input from '.'
 import Icon from '../Icon'
@@ -40,8 +40,6 @@ BasicInput.args = {
   placeholder: 'Type your name',
   width: 'NORMAL',
   heigth: 'SMALL',
-  shadow: '',
-  border: 'MEDIUM',
   prefix: null,
 }
 
@@ -50,7 +48,5 @@ IconInput.args = {
   placeholder: 'Type your name',
   width: 'NORMAL',
   heigth: 'SMALL',
-  shadow: '',
-  border: 'MEDIUM',
   prefix: <Icon fill="#374a54" />,
 }

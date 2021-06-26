@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/CodeEditor Basic 1`] = `
+<div
+  className="css-skx89y-CodeEditorWrapper ekljk1b0"
+>
+  <section
+    style={
+      Object {
+        "display": "flex",
+        "height": "100vh",
+        "position": "relative",
+        "textAlign": "initial",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100%",
+          "justifyContent": "center",
+          "width": "100%",
+        }
+      }
+    >
+      Loading...
+    </div>
+    <div
+      style={
+        Object {
+          "display": "none",
+          "width": "100%",
+        }
+      }
+    />
+  </section>
+</div>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Tag With Marker 1`] = `
+<div
+  className="css-g8smug-TagWrapper ecq9i40"
+  color="#A4A4A4"
+  fontWeight="BOLD"
+>
+  <span
+    className="css-p5qp9n-BallMarker ecq9i41"
+  />
+  Online
+</div>
+`;
+
+exports[`Storyshots Atoms/Tag With Only Text 1`] = `
+<div
+  className="css-ujihpl-TagWrapper ecq9i40"
+  color="#A4A4A4"
+  fontWeight="BOLD"
+>
+  Multiplayer
+</div>
+`;

@@ -8,21 +8,21 @@ exports[`Storyshots Atoms/Pulse Active 1`] = `
     className="css-fb7v6f-PulseWrapper ea0y28j1"
   >
     <div
-      className="css-u2nktr-PulseTransitions ea0y28j3"
+      className="css-ygm0j6-PulseTransitions ea0y28j3"
       type="one"
     />
     <div
-      className="css-1w2oevb-PulseTransitions ea0y28j3"
+      className="css-1lz6m7f-PulseTransitions ea0y28j3"
       type="two"
     />
     <div
-      className="css-1m0ykap-PulseContainer ea0y28j2"
+      className="css-1ym69e3-PulseContainer ea0y28j2"
     >
       <img
         alt="roundLogo"
-        height="70%"
+        height="50px"
         src="https://i.ibb.co/MVLDD4K/angular.png"
-        width="70%"
+        width="50px"
       />
     </div>
   </div>
@@ -42,13 +42,13 @@ exports[`Storyshots Atoms/Pulse Basic 1`] = `
     className="css-fb7v6f-PulseWrapper ea0y28j1"
   >
     <div
-      className="css-1m0ykap-PulseContainer ea0y28j2"
+      className="css-1ym69e3-PulseContainer ea0y28j2"
     >
       <img
         alt="roundLogo"
-        height="70%"
+        height="50px"
         src="https://i.ibb.co/MVLDD4K/angular.png"
-        width="70%"
+        width="50px"
       />
     </div>
   </div>
@@ -68,13 +68,13 @@ exports[`Storyshots Atoms/Pulse Bloqued 1`] = `
     className="css-fb7v6f-PulseWrapper ea0y28j1"
   >
     <div
-      className="css-yfe2ox-PulseContainer ea0y28j2"
+      className="css-bixwne-PulseContainer ea0y28j2"
     >
       <img
         alt="roundLogo"
-        height="70%"
+        height="50px"
         src="https://i.ibb.co/MVLDD4K/angular.png"
-        width="70%"
+        width="50px"
       />
     </div>
     <div

@@ -26,6 +26,19 @@ exports[`Storyshots Atoms/RichText Bold 1`] = `
 />
 `;
 
+exports[`Storyshots Atoms/RichText External Link 1`] = `
+<div
+  className="css-qblon6-RichTextWrapper e17e5g740"
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p>This is an external link <a style=\\"font-weight: bold;color: black;\\" href=\\"https://google.com\\" target=_blank>help</a>.</p>
+",
+    }
+  }
+  width="NONE"
+/>
+`;
+
 exports[`Storyshots Atoms/RichText Italic 1`] = `
 <div
   className="css-qblon6-RichTextWrapper e17e5g740"
@@ -44,7 +57,7 @@ exports[`Storyshots Atoms/RichText Link 1`] = `
   className="css-qblon6-RichTextWrapper e17e5g740"
   dangerouslySetInnerHTML={
     Object {
-      "__html": "<p>This is a link <a href=\\"https://google.com\\">help</a>.</p>
+      "__html": "<p>This is a link <a style=\\"font-weight: bold;color: black;\\" href=\\"https://google.com\\">help</a>.</p>
 ",
     }
   }

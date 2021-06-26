@@ -10,7 +10,8 @@ exports[`Storyshots Atoms/Select Basic Select 1`] = `
   >
     <input
       autoComplete="off"
-      className="css-gwomp1-InputContainer e7vlt9n1"
+      className="css-5uckb6-InputContainer e7vlt9n1"
+      fontWeight="BOLD"
       name="gamification"
       onChange={[Function]}
       placeholder="Type your option"

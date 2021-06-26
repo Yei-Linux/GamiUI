@@ -3,7 +3,8 @@
 exports[`Storyshots Atoms/Input Basic Input 1`] = `
 <input
   autoComplete="off"
-  className="css-gwomp1-InputContainer e7vlt9n1"
+  className="css-5uckb6-InputContainer e7vlt9n1"
+  fontWeight="BOLD"
   name="gamification"
   onChange={[Function]}
   placeholder="Type your name"
@@ -17,7 +18,8 @@ exports[`Storyshots Atoms/Input Basic Input 1`] = `
 exports[`Storyshots Atoms/Input Icon Input 1`] = `
 <div
   autoComplete="off"
-  className="css-1hwl8w3-InputWrapper e7vlt9n0"
+  className="css-1kgloxl-InputWrapper e7vlt9n0"
+  fontWeight="BOLD"
   name="gamification"
   placeholder="Type your name"
   prefix={
@@ -48,7 +50,8 @@ exports[`Storyshots Atoms/Input Icon Input 1`] = `
   </i>
   <input
     autoComplete="off"
-    className="css-7dwcir-InputContainer e7vlt9n1"
+    className="css-1w4ltwo-InputContainer e7vlt9n1"
+    fontWeight="BOLD"
     name="gamification"
     onChange={[Function]}
     placeholder="Type your name"

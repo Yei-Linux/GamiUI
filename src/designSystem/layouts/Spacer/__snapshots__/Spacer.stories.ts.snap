@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Layout/Spacer Basic 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+    }
+  }
+>
+  <div
+    className="css-1e6xljk-RowWrapper e1y7zrl70"
+    height="100%"
+    style={Object {}}
+  >
+    <div
+      className="css-i0h58x-ColWrapper e17m19uc0"
+      spacing="0px"
+    >
+      <div
+        className="css-psf7un-AvatarWrapper eklgmvl0"
+        fontWeight="BOLD"
+      >
+        <img
+          alt="Avatar"
+          className="css-1moa472-Img efl6h300"
+          height="40px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPegjNNBzO3-k5t6hTm1htv1kxyWSOtCRr3A&usqp=CAU"
+          width="40px"
+        />
+      </div>
+    </div>
+    <div
+      className="css-1c3s0wr-SpacerWrapper e1h4jglc0"
+      direction="right"
+      size={1}
+    />
+    <div
+      className="css-i0h58x-ColWrapper e17m19uc0"
+      spacing="0px"
+    >
+      <div
+        className="css-psf7un-AvatarWrapper eklgmvl0"
+        fontWeight="BOLD"
+      >
+        <img
+          alt="Avatar"
+          className="css-1moa472-Img efl6h300"
+          height="40px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPegjNNBzO3-k5t6hTm1htv1kxyWSOtCRr3A&usqp=CAU"
+          width="40px"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

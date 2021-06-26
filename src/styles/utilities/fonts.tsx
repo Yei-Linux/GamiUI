@@ -13,4 +13,5 @@ export const fonts = () => css`
   @import url('https://fonts.googleapis.com/css2?family=Itim&family=Quicksand&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 `

@@ -12,11 +12,16 @@ export interface IButton extends IGeneralProps {
    * Button Type
    */
   type: ButtonType
+  /**
+   * Button Preffix
+   */
+  preffix?: React.ReactNode
 }
 
-const Button = ({ children, type, ...args }: IButton) => {
+const Button = ({ children, type, preffix, ...args }: IButton) => {
   return (
     <ButtonWrapper {...args} typeStyle={type} type="submit">
+      {preffix && preffix}
       {children}
     </ButtonWrapper>
   )

@@ -11,7 +11,7 @@ export interface IList extends IGeneralProps {
   /**
    * Content
    */
-  children: React.ReactNode
+  children: React.ReactNode[]
 }
 
 const List = ({ children, ...args }: IList) => {
@@ -19,29 +19,51 @@ const List = ({ children, ...args }: IList) => {
 }
 
 List.Item = ({
+  id,
   children,
   avatar,
   title,
   description,
+  hasAllBorder,
+  onClick,
+  isSelected = false,
+  noBorder = false,
 }: {
+  id?: any
   children?: React.ReactNode
   avatar?: React.ReactNode
   title?: React.ReactNode
   description?: React.ReactNode
-}) => (
-  <ListItemWrapper>
-    <Left>
-      <ListItemChild>{avatar}</ListItemChild>
-      <ListItemChild>
-        <TitleContainer>{title}</TitleContainer>
-        <SubtitleContainer>{description}</SubtitleContainer>
-      </ListItemChild>
-    </Left>
-    <Right>
-      <ListItemChild>{children}</ListItemChild>
-    </Right>
-  </ListItemWrapper>
-)
+  hasAllBorder?: boolean
+  onClick?: (value: any) => any
+  isSelected?: boolean
+  noBorder?: boolean
+}) => {
+  const handleClickItem = () => {
+    onClick &&
+      onClick(id)
+  }
+
+  return (
+    <ListItemWrapper
+      isSelected={isSelected}
+      onClick={handleClickItem}
+      allBorder={hasAllBorder}
+      noBorder={noBorder}
+    >
+      <Left>
+        <ListItemChild>{avatar}</ListItemChild>
+        <ListItemChild>
+          <TitleContainer>{title}</TitleContainer>
+          <SubtitleContainer>{description}</SubtitleContainer>
+        </ListItemChild>
+      </Left>
+      <Right>
+        <ListItemChild>{children}</ListItemChild>
+      </Right>
+    </ListItemWrapper>
+  )
+}
 
 List.defaultProps = {
   shadow: 'SMALL',

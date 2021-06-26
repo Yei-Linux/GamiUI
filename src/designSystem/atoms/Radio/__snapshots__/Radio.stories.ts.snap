@@ -2,7 +2,8 @@
 
 exports[`Storyshots Atoms/Radio Basic 1`] = `
 <div
-  className="css-k89t9i-RadioGroupWrapper eldjpxi0"
+  className="css-7taf9n-RadioGroupWrapper eldjpxi0"
+  fontWeight="BOLD"
   width="NORMAL"
 >
   <label
