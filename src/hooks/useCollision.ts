@@ -1,5 +1,5 @@
-import { useContext } from 'react'
 import context from '../context/CanvasProvider/context'
+import useStore from './useStore'
 
 interface IndexMap {
   x: number
@@ -10,7 +10,7 @@ const useCollision = () => {
   const {
     layersConfig: { tileImages, layers },
     keysDirection,
-  } = useContext(context)
+  } = useStore({ context })
 
   const blockLayer = layers[1]
 

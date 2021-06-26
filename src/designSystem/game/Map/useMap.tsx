@@ -1,7 +1,7 @@
-import { useContext } from 'react'
 import context from '../../../context/CanvasProvider/context'
 import { ITileImage } from '../../../core/domain/interfaces/ICanvas'
 import useAssetLoad from '../../../hooks/useAssetLoad'
+import useStore from '../../../hooks/useStore'
 
 export interface IMap {
   children?: any
@@ -12,7 +12,7 @@ const useMap = () => {
     canvasValue,
     mapConfig: { pixelSize, cols, rows },
     layersConfig: { tileImages, layers },
-  } = useContext(context)
+  }  = useStore({context})
 
   const drawPixelBlock = (image: string, j: number, i: number) => {
     const x = j * pixelSize

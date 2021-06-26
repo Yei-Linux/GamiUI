@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import RadioProvider from '../../../context/RadioProvider'
 import context from '../../../context/RadioProvider/context'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
+import useStore from '../../../hooks/useStore'
 import {
   RadioCheck,
   RadioContainer,
@@ -43,7 +44,7 @@ const RadioContent = ({
   },
   ...args
 }: IRadio) => {
-  const { radioSelected } = useContext(context)
+  const { radioSelected } = useStore({context})
 
   useEffect(() => {
     onChangeFormItem(radioSelected)
@@ -63,7 +64,7 @@ const Radio = ({ children, onChangeFormItem, ...args }: IRadio) => {
 }
 
 Radio.Item = ({ children, value, isChecked = false }: IRadioItem) => {
-  const { radioSelected, setRadioSelected } = useContext(context)
+  const { radioSelected, setRadioSelected } = useStore({context})
 
   useEffect(() => {
     isChecked && handleRadioChange()

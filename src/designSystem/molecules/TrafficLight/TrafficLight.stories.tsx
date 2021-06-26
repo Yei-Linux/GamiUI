@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
 
 import TrafficLight from '.'
 

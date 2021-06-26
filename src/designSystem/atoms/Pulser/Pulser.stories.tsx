@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Meta } from '@storybook/react'
-import { stylesControl } from '../../../core/helpers/storybook'
+import { stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Pulse from '.'
 

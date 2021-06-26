@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import context from '../../../context/CanvasProvider/context'
+import useStore from '../../../hooks/useStore'
 export interface IGrid {
   width: number
   height: number
@@ -7,7 +8,7 @@ export interface IGrid {
 }
 
 const useGrid = () => {
-  const { canvasValue, width, height, mapConfig } = useContext(context)
+  const { canvasValue, width, height, mapConfig } = useStore({ context })
 
   const drawOnCanvasForYandXAxis = (maxValue: number, axis = 'y') => {
     for (let i = 0; i < maxValue; i++) {

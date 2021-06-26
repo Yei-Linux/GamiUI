@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import FormProvider from '../../../context/FormProvider'
 import context from '../../../context/FormProvider/context'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import useCloneElement from '../../../hooks/useCloneElements'
+import useStore from '../../../hooks/useStore'
 import Button from '../../atoms/Button'
 import Input from '../../atoms/Input'
 import Number from '../../atoms/Number'
@@ -20,7 +21,7 @@ export interface FormProps extends IGeneralProps {
 }
 
 const FormContent = ({ children, onSubmitForm = null, ...args }: FormProps) => {
-  const { setCallbacks } = useContext(context)
+  const { setCallbacks } = useStore({context})
 
   useEffect(() => {
     setCallbacks({
@@ -52,7 +53,7 @@ Form.Item = ({
   name: string
   children: React.ReactNode
 }) => {
-  const { formValue, setFormValues, onClickSubmit } = useContext(context)
+  const { formValue, setFormValues, onClickSubmit } = useStore({context})
 
   const handleChangeValue = (value: any): void => {
     setFormValues({ name, value })

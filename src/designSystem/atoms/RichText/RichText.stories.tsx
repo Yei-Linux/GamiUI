@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react'
 
 import RichText from './RichText'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
 
 const Template = getTemplate(RichText)
 

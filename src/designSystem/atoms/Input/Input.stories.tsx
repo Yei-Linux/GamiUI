@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook'
+import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Input from '.'
 import Icon from '../Icon'

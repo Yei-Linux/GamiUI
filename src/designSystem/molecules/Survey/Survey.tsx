@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import SurveyProvider from '../../../context/SurveyProvider'
 import context from '../../../context/SurveyProvider/context'
+import useStore from '../../../hooks/useStore'
 import Button from '../../atoms/Button'
 import Link from '../../atoms/Link'
 import Options, { IOptions } from '../../atoms/Options/Options'
@@ -31,7 +32,7 @@ const Survey = ({ children, onFinish }: ISurvey) => {
 }
 
 const SurveyContent = ({ children, onFinish }: ISurvey) => {
-  const { setCallbacks } = useContext(context)
+  const { setCallbacks } = useStore({context})
 
   useEffect(() => {
     setCallbacks({
@@ -50,8 +51,7 @@ const Item = ({
   questionIndex,
   isLastQuestion,
 }: IQuestionSurvey) => {
-  const { answers, setSurveyOptionSelected, onClickSubmit } =
-    useContext(context)
+  const { answers, setSurveyOptionSelected, onClickSubmit } = useStore({context})
   const handleChangeOption = (value: any) => {
     setSurveyOptionSelected({ [`question-${questionIndex}`]: value })
   }

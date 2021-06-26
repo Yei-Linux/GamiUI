@@ -1,5 +1,4 @@
 import 'regenerator-runtime/runtime'
-import { useContext } from 'react'
 
 import context from '../../../context/CanvasProvider/context'
 
@@ -11,6 +10,7 @@ import { HeroTypes } from './constants'
 
 import steps from '../../../audio/grass.mp3'
 import useCollision from '../../../hooks/useCollision'
+import useStore from '../../../hooks/useStore'
 
 const useCharacter = () => {
   const {
@@ -26,7 +26,8 @@ const useCharacter = () => {
     keysDirection,
     currentDirection,
     setCurrentDirection,
-  } = useContext(context)
+  } = useStore({ context })
+
   const { isInFrontOfAnyBlock } = useCollision()
   const { playAudio } = useAudio({ audioImported: steps })
   const { topDir, bottomDir, leftDir, rightDir } = keysDirection

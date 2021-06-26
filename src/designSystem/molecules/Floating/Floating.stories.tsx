@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react'
-import { stylesControl } from '../../../core/helpers/storybook'
+import { stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Floating from '.'
 import React from 'react'
