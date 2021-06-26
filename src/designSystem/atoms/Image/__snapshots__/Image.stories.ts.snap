@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Image Background 1`] = `
+<div
+  className="css-9u37f7-BackgroundImg efl6h301"
+  height="200px"
+  src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1e0d62f445e6448af1e125f5702c8227/reactjs-development-services.png"
+  width="fit-content"
+>
+  <div
+    className="css-cbj4y6-RichTextWrapper e17e5g740"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>Hola Como estas</p>
+",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Atoms/Image Basic 1`] = `
+<img
+  alt="Example Image"
+  className="css-rgrjmf-Img efl6h300"
+  height="auto"
+  src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1e0d62f445e6448af1e125f5702c8227/reactjs-development-services.png"
+  width="auto"
+/>
+`;
+
+exports[`Storyshots Atoms/Image Link 1`] = `
+<a
+  href="https://www.google.com/"
+  rel="noreferrer"
+  target="_blank"
+>
+  <div
+    className="css-9u37f7-BackgroundImg efl6h301"
+    height="200px"
+    src="https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1e0d62f445e6448af1e125f5702c8227/reactjs-development-services.png"
+    width="fit-content"
+  >
+    <div
+      className="css-cbj4y6-RichTextWrapper e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Hola Como estas</p>
+",
+        }
+      }
+    />
+  </div>
+</a>
+`;

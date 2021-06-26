@@ -2,7 +2,7 @@
 
 exports[`Storyshots Molecules/Card Basic 1`] = `
 <div
-  className="css-1s5pqm1-CardWrapper e1ft0i6y0"
+  className="css-1ohc8tn-CardWrapper e1ft0i6y0"
   height="NORMAL"
   width="NORMAL"
 >
@@ -20,7 +20,7 @@ exports[`Storyshots Molecules/Card Basic 1`] = `
 
 exports[`Storyshots Molecules/Card Content 1`] = `
 <div
-  className="css-1s5pqm1-CardWrapper e1ft0i6y0"
+  className="css-1ohc8tn-CardWrapper e1ft0i6y0"
   height="NORMAL"
   width="NORMAL"
 >
@@ -28,12 +28,12 @@ exports[`Storyshots Molecules/Card Content 1`] = `
     className="css-1keji-CardContent e1ft0i6y2"
   >
     <div
-      className="css-y29r7q-TitleContainer etn7vk90"
+      className="css-144j0q-TitleContainer etn7vk90"
     >
       Hi this is title
     </div>
     <div
-      className="css-1kp6zvx-SubtitleContainer etn7vk91"
+      className="css-92onx5-SubtitleContainer etn7vk91"
     >
       Hi this is description
     </div>
@@ -43,7 +43,7 @@ exports[`Storyshots Molecules/Card Content 1`] = `
 
 exports[`Storyshots Molecules/Card Cover 1`] = `
 <div
-  className="css-1s5pqm1-CardWrapper e1ft0i6y0"
+  className="css-1ohc8tn-CardWrapper e1ft0i6y0"
   height="NORMAL"
   width="NORMAL"
 >
@@ -59,12 +59,12 @@ exports[`Storyshots Molecules/Card Cover 1`] = `
     className="css-1keji-CardContent e1ft0i6y2"
   >
     <div
-      className="css-y29r7q-TitleContainer etn7vk90"
+      className="css-144j0q-TitleContainer etn7vk90"
     >
       Hi this is title
     </div>
     <div
-      className="css-1kp6zvx-SubtitleContainer etn7vk91"
+      className="css-92onx5-SubtitleContainer etn7vk91"
     >
       Hi this is description
     </div>
@@ -74,7 +74,7 @@ exports[`Storyshots Molecules/Card Cover 1`] = `
 
 exports[`Storyshots Molecules/Card Footer 1`] = `
 <div
-  className="css-1s5pqm1-CardWrapper e1ft0i6y0"
+  className="css-1ohc8tn-CardWrapper e1ft0i6y0"
   height="NORMAL"
   width="NORMAL"
 >
@@ -90,12 +90,12 @@ exports[`Storyshots Molecules/Card Footer 1`] = `
     className="css-1keji-CardContent e1ft0i6y2"
   >
     <div
-      className="css-y29r7q-TitleContainer etn7vk90"
+      className="css-144j0q-TitleContainer etn7vk90"
     >
       Hi this is title
     </div>
     <div
-      className="css-1kp6zvx-SubtitleContainer etn7vk91"
+      className="css-92onx5-SubtitleContainer etn7vk91"
     >
       Hi this is description
     </div>
@@ -104,7 +104,7 @@ exports[`Storyshots Molecules/Card Footer 1`] = `
     className="css-ykbte7-CardFooter e1ft0i6y3"
   >
     <button
-      className="css-1ysm1ze-ButtonWrapper ekfoxpm0"
+      className="css-1ru1eiv-ButtonWrapper ekfoxpm0"
       type="submit"
       width="SMALL"
     >

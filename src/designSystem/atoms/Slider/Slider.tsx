@@ -55,10 +55,10 @@ const Slider = ({
   })
 
   const handleAutoplay = () => {
-    sliderRef.current.addEventListener('mouseover', () => {
+    sliderRef?.current?.addEventListener('mouseover', () => {
       setPause(true)
     })
-    sliderRef.current.addEventListener('mouseout', () => {
+    sliderRef?.current?.addEventListener('mouseout', () => {
       setPause(false)
     })
   }

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Link Basic 1`] = `
+<a
+  className="css-1izq23z-RichTextLink enepada0"
+  href="www.google.com"
+  target="self"
+>
+  Im link
+</a>
+`;

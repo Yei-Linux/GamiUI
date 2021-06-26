@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/Table Basic 1`] = `
+<div
+  className="css-197ljk5-TableWrapper ejhrnoo0"
+>
+  <table
+    className="css-1v7co3z-TableContainer ejhrnoo1"
+  >
+    <thead
+      className="css-1aolgnl-TableHeader ejhrnoo2"
+    >
+      <tr
+        className="css-1o444mx-TableHeaderRow ejhrnoo3"
+      >
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Nombres
+        </th>
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Edad
+        </th>
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Direccion
+        </th>
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Pais
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="css-r22c21-TableBody ejhrnoo5"
+    >
+      <tr
+        className="css-1xm5vfz-TableBodyRow ejhrnoo6"
+      >
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          Pedro
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          12
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          Jr Junior
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          USA
+        </td>
+      </tr>
+      <tr
+        className="css-1xm5vfz-TableBodyRow ejhrnoo6"
+      >
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          Pedro
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          12
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          Jr Junior
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          USA
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Storyshots Molecules/Table With Render 1`] = `
+<div
+  className="css-197ljk5-TableWrapper ejhrnoo0"
+>
+  <table
+    className="css-1v7co3z-TableContainer ejhrnoo1"
+  >
+    <thead
+      className="css-1aolgnl-TableHeader ejhrnoo2"
+    >
+      <tr
+        className="css-1o444mx-TableHeaderRow ejhrnoo3"
+      >
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Nombres
+        </th>
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Edad
+        </th>
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Direccion
+        </th>
+        <th
+          className="css-1aw9a9f-TableHeaderColumn ejhrnoo4"
+        >
+          Pais
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="css-r22c21-TableBody ejhrnoo5"
+    >
+      <tr
+        className="css-1xm5vfz-TableBodyRow ejhrnoo6"
+      >
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          <div
+            className="css-cbj4y6-RichTextWrapper e17e5g740"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p><a style=\\"font-weight: bold;color: black;\\" href=\\"https://google.com\\" target=_blank>Pedro</a></p>
+",
+              }
+            }
+          />
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          12
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          Jr Junior
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          USA
+        </td>
+      </tr>
+      <tr
+        className="css-1xm5vfz-TableBodyRow ejhrnoo6"
+      >
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          <div
+            className="css-cbj4y6-RichTextWrapper e17e5g740"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p><a style=\\"font-weight: bold;color: black;\\" href=\\"https://google.com\\" target=_blank>Pedro</a></p>
+",
+              }
+            }
+          />
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          12
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          Jr Junior
+        </td>
+        <td
+          className="css-29fhvk-TableBodyColumn ejhrnoo7"
+        >
+          USA
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Layout/Layout Basic 1`] = `
+<div
+  className="css-12vir8y-LayoutWrapper ekukc8c3"
+>
+  <div
+    className="css-1t11vu1-HeaderWrapper ekukc8c0"
+  >
+    This is my header
+  </div>
+  <div
+    className="css-3r48xr-ContentWrapper ekukc8c1"
+  >
+    <div>
+      This is my content
+    </div>
+  </div>
+  <div
+    className="css-1attujp-FooterWrapper ekukc8c2"
+  >
+    This is my footer
+  </div>
+</div>
+`;

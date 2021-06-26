@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Styled/Transition Ease 1`] = `
+<p
+  style={
+    Object {
+      "position": "absolute",
+    }
+  }
+>
+  Hi, this a test
+</p>
+`;
+
+exports[`Storyshots Styled/Transition Opacity 1`] = `
+<div>
+  <div
+    className="css-1528g5q-MaskWrapper e1qqpb1u0"
+  />
+</div>
+`;

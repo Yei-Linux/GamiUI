@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Question Basic 1`] = `
+<div
+  className="css-12zcv01-QuestionWrapper e1cynmli0"
+>
+  <div
+    className="css-1e6xljk-RowWrapper e1y7zrl70"
+    height="100%"
+    style={Object {}}
+  >
+    <div
+      className="css-e3hbgm-ColWrapper e17m19uc0"
+      spacing="8px"
+    >
+      <i
+        className="css-6tw2qr-IconWrapper e1cr9qb30"
+      >
+        <svg
+          fill="none"
+          height="30px"
+          viewBox="0 0 512 512"
+          width="30px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <g>
+              <path
+                d="m241 168.904v31.867c0 13.545 5.782 25.76 15 34.324l10-42.095-10-24.096z"
+                fill="#b56a37"
+              />
+              <path
+                d="m287.867 217.638c-9.301 0-16.867-7.566-16.867-16.867v-31.867h-15v66.191c8.369 7.776 19.569 12.543 31.867 12.543h37.32v-30z"
+                fill="#8f532b"
+              />
+            </g>
+            <g>
+              <path
+                d="m421.851 293.752h-86.06v-30h86.06c9.301 0 16.867-7.566 16.867-16.867v-106.189h30v106.189c0 25.843-21.025 46.867-46.867 46.867z"
+                fill="#8f532b"
+              />
+            </g>
+            <g>
+              <path
+                d="m177.621 278.482h-102.693c-25.843 0-46.867-21.024-46.867-46.867v-64.782h30v64.782c0 9.301 7.566 16.867 16.867 16.867h102.693z"
+                fill="#b56a37"
+              />
+            </g>
+            <path
+              d="m175.935 212.807c-5.976-5.976-9.334-14.082-9.334-22.533v-42.615h-63.734v42.614c0 25.355 10.072 49.672 28.001 67.601l93.265 93.265v114.877h31.867l20-52.516-20-120.628z"
+              fill="#c98353"
+            />
+            <path
+              d="m324.521 144.966v66.185c0 8.452-3.357 16.557-9.334 22.534l-59.187 59.187v173.144h31.867v-114.877l72.387-72.387c17.929-17.929 28.001-42.245 28.001-67.601v-66.185z"
+              fill="#b56a37"
+            />
+            <g>
+              <path
+                d="m256 31.867c0-17.6-14.267-31.867-31.867-31.867h-160.399c-35.199 0-63.734 28.535-63.734 63.734v22.387h77.178c-35.2 0-63.734 28.535-63.734 63.734v26.978h242.556l10-73.833-10-63.203z"
+                fill="#9ce77a"
+              />
+              <path
+                d="m512 82.287c0-35.2-28.535-74.357-63.734-74.357h-160.399c-17.6 0-31.867 14.268-31.867 31.867v137.036h53.521l15-26.137h151.781v-22.406c0-17.6-14.267-31.867-31.867-31.867h67.565z"
+                fill="#66be61"
+              />
+            </g>
+            <g>
+              <g>
+                <path
+                  d="m339.521 176.833h-30v-31.867c0-9.301-7.566-16.867-16.867-16.867h-22.845v-30h22.845c25.843 0 46.867 21.024 46.867 46.867z"
+                  fill="#009859"
+                />
+              </g>
+            </g>
+            <path
+              d="m237.392 417.806c-15.76-6.693-32.706-10.143-49.829-10.143h-187.563v104.337h256l10-36.855-10-49.436z"
+              fill="#ffe48d"
+            />
+            <path
+              d="m512 448.266h-176.941c-17.122 0-34.069-3.45-49.829-10.143l-29.23-12.414v86.291h256z"
+              fill="#f9cc74"
+            />
+          </g>
+        </svg>
+      </i>
+    </div>
+    <div
+      className="css-e3hbgm-ColWrapper e17m19uc0"
+      spacing="8px"
+    >
+      <div
+        className="css-142at1c-TitleWrapper e5aka180"
+        fontWeight="BOLD"
+      >
+        <h2
+          style={
+            Object {
+              "color": "#7f9cf5",
+            }
+          }
+        >
+          What type of stay did you choose?
+        </h2>
+      </div>
+    </div>
+    <div
+      className="css-e3hbgm-ColWrapper e17m19uc0"
+      spacing="8px"
+    >
+      <div
+        className="css-qczwi2-TitleWrapper e5aka180"
+        fontWeight="LIGHT"
+      >
+        <h3
+          style={
+            Object {
+              "color": "#7f9cf5",
+            }
+          }
+        >
+          This question is about test reality work
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
+`;

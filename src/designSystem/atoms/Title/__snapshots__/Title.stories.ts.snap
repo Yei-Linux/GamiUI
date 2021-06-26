@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Title Basic 1`] = `
+<div
+  className="css-1ejwpna-TitleWrapper e5aka180"
+>
+  <h1>
+    Titulo h1
+  </h1>
+</div>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/Drawer Basic 1`] = `
+<div>
+  <button
+    className="css-18i0sof-ButtonWrapper ekfoxpm0"
+    onClick={[Function]}
+    type="submit"
+    width="SMALL"
+  >
+    Open Drawer
+  </button>
+  <div>
+    <div
+      className="css-1528g5q-MaskWrapper e1qqpb1u0"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="css-ursirt-DrawerWrapper evpjr7q0"
+  >
+    <p>
+      Hey, whats up
+    </p>
+  </div>
+</div>
+`;

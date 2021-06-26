@@ -2,8 +2,9 @@
 
 exports[`Storyshots Atoms/TextArea Basic Text Area 1`] = `
 <textarea
-  className="css-155tpye-TextAreaWrapper eieaaae0"
+  className="css-1iivwc3-TextAreaWrapper eieaaae0"
   cols={5}
+  fontWeight="BOLD"
   name="gamification"
   onChange={[Function]}
   placeholder="Type your text"

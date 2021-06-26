@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Atoms/Mask Basic 1`] = `
+<div
+  className="css-1528g5q-MaskWrapper e1qqpb1u0"
+/>
+`;
