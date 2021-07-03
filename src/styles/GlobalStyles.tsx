@@ -1,15 +1,15 @@
 import React from 'react'
-import { Global, css } from '@emotion/core'
 import { normalize } from 'polished'
 import { typography } from './theme'
 import { fonts } from './utilities/fonts'
+import { css, Global } from '@emotion/react'
 
 const GlobalStyles: React.FC = () => {
   return (
     <Global
       styles={() => css`
-        ${normalize()}
         ${fonts()}
+        ${normalize()}
 
         html {
           height: 100%;

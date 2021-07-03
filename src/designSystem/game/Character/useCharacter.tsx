@@ -8,7 +8,6 @@ import useAudio from '../../../hooks/useAudio'
 
 import { HeroTypes } from './constants'
 
-import steps from '../../../audio/grass.mp3'
 import useCollision from '../../../hooks/useCollision'
 import useStore from '../../../hooks/useStore'
 
@@ -29,7 +28,10 @@ const useCharacter = () => {
   } = useStore({ context })
 
   const { isInFrontOfAnyBlock } = useCollision()
-  const { playAudio } = useAudio({ audioImported: steps })
+  const { playAudio } = useAudio({
+    audioImported:
+      'https://storage.googleapis.com/cinetask.appspot.com/grass.mp3',
+  })
   const { topDir, bottomDir, leftDir, rightDir } = keysDirection
   const keys = [topDir, bottomDir, leftDir, rightDir]
 
