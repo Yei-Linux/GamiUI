@@ -15,5 +15,5 @@
     "plugins": [{ "transform": "typescript-transform-macros" }],
     "esModuleInterop": true
   },
-  "include": ["src/**/*", "src/typings/*.d.ts"]
+  "include": ["src/**/*", "typings/*.d.ts"]
 }
