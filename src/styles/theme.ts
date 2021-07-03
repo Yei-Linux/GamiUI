@@ -280,3 +280,31 @@ export const typography = {
     code: 90,
   },
 } as const
+
+export const twinTheme = (defaultTheme: any) => {
+  return {
+    ...defaultTheme,
+    theme: {
+      flex: {
+        ...defaultTheme.flex,
+      },
+      extend: {
+        fontWeight: {
+          extralight: '200',
+        },
+        borderRadius: {
+          circle: '7em',
+        },
+        width: {
+          small: '8rem',
+          normal: 'auto',
+          fit: 'fit-content',
+        },
+        height: {
+          small: '3rem',
+          normal: 'auto',
+        },
+      },
+    },
+  }
+}

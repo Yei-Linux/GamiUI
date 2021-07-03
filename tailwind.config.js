@@ -1,27 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const defaultTheme = require('tailwindcss/defaultTheme')
+const { twinTheme } = require('./src/styles/theme')
 
-module.exports = {
-  ...defaultTheme,
-  theme: {
-    flex: {
-      ...defaultTheme.flex,
-    },
-    extend: {
-      fontWeight: {
-        extralight: '200',
-      },
-      borderRadius: {
-        circle: '7em',
-      },
-      width: {
-        small: '8rem',
-        normal: 'auto',
-        fit: 'fit-content',
-      },
-      height: {
-        small: '3rem',
-        normal: 'auto',
-      },
-    },
-  },
-}
+module.exports = twinTheme(defaultTheme)
