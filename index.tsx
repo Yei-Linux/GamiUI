@@ -18,6 +18,7 @@ export { default as Question } from './src/designSystem/atoms/Question'
 export { default as Radio } from './src/designSystem/atoms/Radio'
 export { default as RichText } from './src/designSystem/atoms/RichText'
 export { default as Select } from './src/designSystem/atoms/Select'
+export { default as Slider } from './src/designSystem/atoms/Slider'
 export { default as Switch } from './src/designSystem/atoms/Switch'
 export { default as Tag } from './src/designSystem/atoms/Tag'
 export { default as TextArea } from './src/designSystem/atoms/TextArea'
@@ -50,7 +51,7 @@ export { default as TrafficLight } from './src/designSystem/molecules/TrafficLig
 // Styled
 export { default as Gradient } from './src/designSystem/styled/Gradient'
 export { default as Transition } from './src/designSystem/styled/Transition'
-export { default as Wave } from './src/designSystem/styled/Transition'
+export { default as Wave } from './src/designSystem/styled/Wave'
 
 //Config Theme
 export { default as ThemeGamification } from './src/providers/ThemeGamification'

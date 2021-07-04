@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const WaveWrapper = styled.div`
-  width: min-content;
 `
 
 export const SvgWave = styled.svg<{
