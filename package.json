@@ -1,6 +1,6 @@
 {
   "name": "gamification-library",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Library of custom components",
   "main": "index.js",
   "scripts": {

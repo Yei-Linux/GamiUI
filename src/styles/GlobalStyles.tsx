@@ -15,12 +15,14 @@ const GlobalStyles: React.FC = () => {
           height: 100%;
         }
 
-        body {
-          font-family: ${typography.type.primary};
+        * {
           box-sizing: border-box;
           margin: 0px;
           padding: 0px;
+        }
 
+        body {
+          font-family: ${typography.type.primary};
           min-height: 100%;
         }
 
