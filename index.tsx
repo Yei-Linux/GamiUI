@@ -55,3 +55,4 @@ export { default as Wave } from './src/designSystem/styled/Transition'
 //Config Theme
 export { default as ThemeGamification } from './src/providers/ThemeGamification'
 export { twinTheme, palette } from './src/styles/theme'
+export { mediaQuery } from './src/styles/utilities/breakpoints'
