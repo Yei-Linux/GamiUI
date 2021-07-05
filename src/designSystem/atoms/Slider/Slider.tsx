@@ -9,15 +9,23 @@ import {
   SliderWrapper,
 } from './Slider.styles'
 import { colorLight } from '../../../styles/theme'
+import useDevice from '../../../hooks/useDevice'
 
 export interface SliderProps {
   children: React.ReactNode
-  slidesPerView: number
+  slidesPerView: ISliderPerView
   spacing: number
   initial: number
   isLoop: boolean
   vertical?: boolean
   isAutoplay?: boolean
+}
+
+interface ISliderPerView {
+  phone: number
+  tablet: number
+  laptop: number
+  desktop: number
 }
 
 const Slider = ({
@@ -29,13 +37,14 @@ const Slider = ({
   vertical,
   isAutoplay,
 }: SliderProps) => {
+  const { device } = useDevice()
   const [pause, setPause] = useState(false)
   const timer: any = useRef()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [sliderRef, slider]: any = useKeenSlider({
     initial,
     loop: isLoop,
-    slidesPerView,
+    slidesPerView: device ? slidesPerView?.[device] : 1,
     spacing,
 
     vertical,
@@ -84,7 +93,7 @@ const Slider = ({
 
   return (
     <Fragment>
-      <SliderWrapper>
+      <SliderWrapper className="slider__wrapper">
         <KeenSlider
           isVertical={vertical}
           ref={sliderRef}
@@ -117,7 +126,7 @@ const Slider = ({
       </SliderWrapper>
 
       {slider && !vertical && (
-        <Dots>
+        <Dots className="slider__dots__wrapper">
           {[...Array(slider.details().size).keys()].map((idx) => (
             <Dot
               key={idx}

@@ -12,8 +12,8 @@ export const CardWrapper = styled.div<{
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  min-width: 300px;
-  min-height: 150px;
+  min-width: min-content;
+  min-height: min-content;
 
   ${(props: any) => twinStyles(props)};
 `
