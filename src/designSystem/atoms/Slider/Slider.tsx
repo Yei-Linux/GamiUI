@@ -145,7 +145,12 @@ const Slider = ({
 Slider.defaultProps = {
   initial: 0,
   isLoop: true,
-  slidesPerView: 1,
+  slidesPerView: {
+    phone: 1,
+    tablet: 3,
+    laptop: 5,
+    desktop: 6,
+  },
   spacing: 0,
   vertical: false,
   isAutoplay: false,
