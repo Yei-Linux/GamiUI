@@ -13,15 +13,27 @@ export interface ISubMenu {
   icon: React.ReactNode
   title: string
   href: string
+  isExternal?: boolean
 }
 
-const SubMenu = ({ icon, title, href, isOpen }: ISubMenu) => {
+const SubMenu = ({
+  icon,
+  title,
+  href,
+  isOpen,
+  isExternal = false,
+}: ISubMenu) => {
   return (
     <SubMenuWrapper
       noBorder
       avatar={icon}
       title={
-        <Link type={isOpen ? 'secondary' : 'text'} href={href} text={title} />
+        <Link
+          isExternal={isExternal}
+          type={isOpen ? 'secondary' : 'text'}
+          href={href}
+          text={title}
+        />
       }
     >
       <Icon

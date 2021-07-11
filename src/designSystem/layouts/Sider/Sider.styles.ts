@@ -1,8 +1,13 @@
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
 
 export const SiderWrapper = styled.div`
   width: auto;
   height: 100%;
-  border-right: 1px solid ${colorLight.neutral.seven};
+  padding: 20px;
 `
+
+export const SiderHeader = styled.div`
+  margin-bottom: 2rem;
+`
+
+export const SiderContent = styled.div``

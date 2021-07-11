@@ -11,10 +11,11 @@ export interface IDrawer {
   placement?: string
   width?: string
   height?: string
+  withMask?: boolean
   onClose?: () => any
 }
 
-const Drawer = ({ children, open, onClose }: IDrawer) => {
+const Drawer = ({ children, open, onClose, withMask }: IDrawer) => {
   const [isFirstTime, setIsFirstTime] = useState(!open)
   const [isOpen, setIsOpen] = useState(open)
 
@@ -51,7 +52,10 @@ const Drawer = ({ children, open, onClose }: IDrawer) => {
             isReadyToInitAnimation={open}
           >
             <div>
-              <Mask onClick={onClose} />
+              <Mask
+                onClick={onClose}
+                background={withMask ? 'rgba(0, 0, 0, 0.45)' : 'transparent'}
+              />
             </div>
           </Transition>
 
@@ -69,6 +73,7 @@ const Drawer = ({ children, open, onClose }: IDrawer) => {
 
 Drawer.defaultProps = {
   placement: 'left',
+  withMask: true,
 }
 
 export default Drawer
