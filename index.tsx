@@ -37,6 +37,7 @@ export { default as Spacer } from './src/designSystem/layouts/Spacer'
 
 //Molecules
 export { default as Card } from './src/designSystem/molecules/Card'
+export { default as FeaturedCard } from './src/designSystem/molecules/FeaturedCard'
 export { default as Drawer } from './src/designSystem/molecules/Drawer'
 export { default as Floating } from './src/designSystem/molecules/Floating'
 export { default as Form } from './src/designSystem/molecules/Form'
