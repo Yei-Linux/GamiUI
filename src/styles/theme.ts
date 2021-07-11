@@ -247,7 +247,7 @@ export const colorLight = {
       border: 'none',
     },
     secondary: {
-      bg: '#ffffff',
+      bg: 'transparent',
       color: '#7f9cf5',
       border: 'none',
     },

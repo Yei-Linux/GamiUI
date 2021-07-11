@@ -3,6 +3,10 @@ export const GradientTypes: any = {
     backgroundColor: 'rgb(255 255 255 / 44%)',
     backdropFilter: 'blur(5px) saturate(100%) contrast(65%)',
   },
+  glassLight: {
+    backgroundColor: 'rgba( 255, 255, 255, 0.55 )',
+    backdropFilter: 'blur( 14.5px )',
+  },
   fog: {
     background:
       'linear-gradient(to right, rgb(185, 147, 214), rgb(140, 166, 219))',

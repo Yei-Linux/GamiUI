@@ -6,6 +6,7 @@ import { drawerTranstionByStates } from './constants'
 import { DrawerWrapper } from './Drawer.styles'
 
 export interface IDrawer {
+  style?: React.CSSProperties
   children?: React.ReactNode
   open?: boolean
   placement?: string
@@ -15,7 +16,7 @@ export interface IDrawer {
   onClose?: () => any
 }
 
-const Drawer = ({ children, open, onClose, withMask }: IDrawer) => {
+const Drawer = ({ children, open, onClose, withMask, style = {} }: IDrawer) => {
   const [isFirstTime, setIsFirstTime] = useState(!open)
   const [isOpen, setIsOpen] = useState(open)
 
@@ -63,7 +64,7 @@ const Drawer = ({ children, open, onClose, withMask }: IDrawer) => {
             to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
-            <DrawerWrapper>{children}</DrawerWrapper>
+            <DrawerWrapper style={style}>{children}</DrawerWrapper>
           </Transition>
         </Fragment>
       )}
