@@ -5,6 +5,7 @@ import { options as optionsStyle } from '../../utils/constants'
 import { options as optionsGradient } from '../../../designSystem/styled/Gradient'
 import { options as optionsWave } from '../../../designSystem/styled/Wave'
 import { options as optionsHeroes } from '../../../designSystem/game/Character'
+import { options as optionsFeatureCard } from '../../../designSystem/molecules/FeaturedCard'
 import { options } from '../../../designSystem/atoms/Link'
 
 export type WidthType = typeof optionsStyle.width[number]
@@ -26,6 +27,8 @@ export type GradientsNames = typeof optionsGradient.names[number]
 export type WavessNames = typeof optionsWave.names[number]
 
 export type HeroNames = typeof optionsHeroes.names[number]
+
+export type FeatureCardThemeTypes = typeof optionsFeatureCard.type[number]
 
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'

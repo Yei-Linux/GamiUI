@@ -35,6 +35,28 @@ export const colorDark = {
     oceanStrong: '#7868e6',
     gray: '#E5E5E5',
   },
+  card: {
+    sky: {
+      bg: '#96BAFF',
+      color: 'white',
+      border: 'none',
+    },
+    skin: {
+      bg: '#F2C0FF',
+      color: 'white',
+      border: 'none',
+    },
+    earth: {
+      bg: '#A6F0C6',
+      color: 'white',
+      border: 'none',
+    },
+    spring: {
+      bg: '#8FD9A8',
+      color: 'white',
+      border: 'none',
+    },
+  },
   button: {
     primary: {
       bg: '#7f9cf5',
@@ -126,7 +148,99 @@ export const colorLight = {
     oceanStrong: '#7868e6',
     gray: '#E5E5E5',
   },
+  card: {
+    primary: {
+      bg: '#7f9cf5',
+      color: 'white',
+      border: 'none',
+    },
+    secondary: {
+      bg: '#ffffff',
+      color: '#7f9cf5',
+      border: '2px solid #7f9cf5',
+    },
+    tertiary: {
+      bg: '#374a54',
+      color: 'white',
+      border: 'none',
+    },
+    cuaternary: {
+      bg: '#ffffff',
+      color: '#374a54',
+      border: '2px solid #374a54',
+    },
+    text: {
+      bg: 'transparent',
+      color: '#454545',
+      border: 'none',
+    },
+    link: {
+      bg: 'transparent',
+      color: '#454545',
+      border: 'none',
+    },
+    success: {
+      bg: '#ffffff',
+      color: '#16c79a',
+      border: '2px solid #16c79a',
+    },
+    warning: {
+      bg: '#ffffff',
+      color: '#ffd66b',
+      border: '2px solid #ffd66b',
+    },
+    danger: {
+      bg: '#ffffff',
+      color: '#ff4646',
+      border: '2px solid #ff4646',
+    },
+    info: {
+      bg: '#ffffff',
+      color: '#a7c5eb',
+      border: '2px solid #a7c5eb',
+    },
+    sky: {
+      bg: '#96BAFF',
+      color: 'white',
+      border: 'none',
+    },
+    skin: {
+      bg: '#F2C0FF',
+      color: 'white',
+      border: 'none',
+    },
+    earth: {
+      bg: '#A6F0C6',
+      color: 'white',
+      border: 'none',
+    },
+    spring: {
+      bg: '#8FD9A8',
+      color: 'white',
+      border: 'none',
+    },
+  },
   link: {
+    sky: {
+      bg: '#96BAFF',
+      color: 'white',
+      border: 'none',
+    },
+    skin: {
+      bg: '#F2C0FF',
+      color: 'white',
+      border: 'none',
+    },
+    earth: {
+      bg: '#A6F0C6',
+      color: 'white',
+      border: 'none',
+    },
+    spring: {
+      bg: '#8FD9A8',
+      color: 'white',
+      border: 'none',
+    },
     primary: {
       bg: '#7f9cf5',
       color: 'white',
@@ -179,6 +293,26 @@ export const colorLight = {
     },
   },
   button: {
+    sky: {
+      bg: '#96BAFF',
+      color: 'white',
+      border: 'none',
+    },
+    skin: {
+      bg: '#F2C0FF',
+      color: 'white',
+      border: 'none',
+    },
+    earth: {
+      bg: '#A6F0C6',
+      color: 'white',
+      border: 'none',
+    },
+    spring: {
+      bg: '#8FD9A8',
+      color: 'white',
+      border: 'none',
+    },
     primary: {
       bg: '#7f9cf5',
       color: 'white',
