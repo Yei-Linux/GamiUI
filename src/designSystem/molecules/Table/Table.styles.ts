@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { colorLight } from '../../../styles/theme'
+import { mediaQuery } from '../../../styles/utilities/breakpoints'
 import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const TableWrapper = styled.div<{
@@ -28,7 +29,10 @@ export const TableHeader = styled.thead`
 export const TableHeaderRow = styled.tr``
 
 export const TableHeaderColumn = styled.th`
-  padding: 16px;
+  ${mediaQuery('lg')} {
+    padding: 16px;
+  }
+  padding: 10px;
 `
 
 export const TableBody = styled.tbody``
@@ -36,6 +40,8 @@ export const TableBody = styled.tbody``
 export const TableBodyRow = styled.tr``
 
 export const TableBodyColumn = styled.td`
-  padding: 16px;
-  border-bottom: 1px solid ${colorLight.neutral.seven};
+  ${mediaQuery('lg')} {
+    padding: 16px;
+  }
+  padding: 10px;
 `

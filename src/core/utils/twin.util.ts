@@ -95,6 +95,8 @@ export const generateHeightTypeProps = (twinProp: any) => {
       return tw`h-48`
     case 'LARGE':
       return tw`h-64`
+    case 'FULL':
+      return tw`h-full`
     default:
       return ''
   }
