@@ -13,6 +13,7 @@ export interface IRow {
   alignItems: 'center' | 'flex-start' | 'flex-end' | 'normal'
   height?: string
   isWrap?: boolean
+  flexDirection?: 'row' | 'column'
 }
 
 const Row = ({
@@ -22,6 +23,7 @@ const Row = ({
   style = {},
   height = '100%',
   isWrap = true,
+  flexDirection = 'row',
 }: IRow) => {
   return (
     <RowWrapper
@@ -30,6 +32,7 @@ const Row = ({
       alignItems={alignItems}
       style={style}
       isWrap={isWrap}
+      flexDirection={flexDirection}
     >
       {children}
     </RowWrapper>

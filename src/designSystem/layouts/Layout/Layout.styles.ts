@@ -15,6 +15,7 @@ export const FooterWrapper = styled.div`
 export const LayoutWrapper = styled.div`
   width: 100%;
   height: 100%;
+  min-height: 100vh;
 
   display: grid;
 

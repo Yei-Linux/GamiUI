@@ -219,6 +219,11 @@ export const colorLight = {
       color: 'white',
       border: 'none',
     },
+    warm: {
+      bg: "#F8F8F8",
+      color: 'black',
+      border: 'none',
+    },
   },
   link: {
     sky: {
@@ -289,6 +294,11 @@ export const colorLight = {
     info: {
       bg: '#ffffff',
       color: '#a7c5eb',
+      border: 'none',
+    },
+    warm: {
+      bg: "#F8F8F8",
+      color: 'black',
       border: 'none',
     },
   },
@@ -362,6 +372,11 @@ export const colorLight = {
       bg: '#ffffff',
       color: '#a7c5eb',
       border: '2px solid #a7c5eb',
+    },
+    warm: {
+      bg: "#F8F8F8",
+      color: 'black',
+      border: 'none',
     },
   },
 }

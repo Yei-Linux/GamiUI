@@ -6,21 +6,37 @@ import Title from '../../atoms/Title'
 import Row from '../../layouts/Row'
 import Spacer from '../../layouts/Spacer'
 import Card from '../Card'
+import { FeatureCardDirection } from './constants'
 import { FeaturedCardContent, FeaturedCardWrapper } from './FeaturedCard.styles'
 
 export interface IFeaturedCard {
   themeType: FeatureCardThemeTypes
   iconId: string
   text: React.ReactNode
+  direction?: 'horizontal' | 'vertical'
+  iconSize?: string
 }
 
-const FeaturedCard = ({ iconId, text, themeType }: IFeaturedCard) => {
+const FeaturedCard = ({
+  iconId,
+  text,
+  themeType,
+  direction = 'horizontal',
+  iconSize = '20px',
+}: IFeaturedCard) => {
   return (
     <Card>
-      <FeaturedCardWrapper themeType={themeType}>
-        <Row justifyContent="flex-start">
-          <Icon size="20px" name={iconId} />
-          <Spacer direction="right" />
+      <FeaturedCardWrapper
+        minWidth={FeatureCardDirection[direction].minWidth}
+        themeType={themeType}
+      >
+        <Row
+          flexDirection={FeatureCardDirection[direction].rowDirection}
+          justifyContent={FeatureCardDirection[direction].rowJustify}
+          alignItems="center"
+        >
+          <Icon size={iconSize} name={iconId} />
+          <Spacer direction={FeatureCardDirection[direction].spacerDirection} />
           <FeaturedCardContent>{text}</FeaturedCardContent>
         </Row>
       </FeaturedCardWrapper>

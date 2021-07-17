@@ -5,8 +5,10 @@ export const RowWrapper = styled.div<{
   justifyContent: string
   alignItems: string
   isWrap?: boolean
+  flexDirection?: string
 }>`
   display: flex;
+  flex-direction: ${(props) => props.flexDirection};
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
   flex-wrap: ${(props) => (props.isWrap ? 'wrap' : 'nowrap')};

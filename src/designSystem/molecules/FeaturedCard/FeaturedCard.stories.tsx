@@ -10,5 +10,13 @@ export default {
   argTypes: {},
 } as Meta
 
-export const Basic = (args: any) => <FeaturedCard {...args} />
-Basic.args = {}
+export const BasicVertical = (args: any) => <FeaturedCard {...args} />
+BasicVertical.args = {}
+
+export const BasicHorizontal = (args: any) => <FeaturedCard {...args} />
+BasicHorizontal.args = {
+  themeType: 'warm',
+  iconId: 'eye',
+  direction: 'vertical',
+  iconSize: '40px',
+}
