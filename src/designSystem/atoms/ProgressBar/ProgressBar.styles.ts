@@ -17,6 +17,8 @@ export const ProgressPercent = styled.div<{
   percent: number
   backgroundProgress: string
 }>`
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
   z-index: 2;
   height: 15px;
   position: absolute;

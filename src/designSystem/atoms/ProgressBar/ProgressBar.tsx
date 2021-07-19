@@ -6,15 +6,29 @@ export interface IProgressBar {
   backgroundProgressBar: string
   backgroundProgress: string
   percent: number
+  onMouseDown?: (prop: any) => any
+  onMouseUp?: (prop: any) => any
+  onMouseLeave?: (prop: any) => any
+  onMouseMove?: (prop: any) => any
 }
 
 const ProgressBar = ({
   backgroundProgressBar,
   backgroundProgress,
   percent,
+  onMouseDown,
+  onMouseUp,
+  onMouseLeave,
+  onMouseMove,
 }: IProgressBar) => {
   return (
-    <ProgressBarWrapper backgroundProgressBar={backgroundProgressBar}>
+    <ProgressBarWrapper
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseLeave}
+      onMouseMove={onMouseMove}
+      backgroundProgressBar={backgroundProgressBar}
+    >
       <ProgressPercent
         percent={percent}
         backgroundProgress={backgroundProgress}

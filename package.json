@@ -1,6 +1,6 @@
 {
   "name": "gamification-library",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "description": "Library of custom components",
   "main": "index.js",
   "scripts": {
@@ -75,6 +75,8 @@
     "postcss-import": "^13.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-player": "^2.9.0",
+    "react-range": "^1.8.9",
     "storybook-addon-react-docgen": "^1.2.42",
     "style-loader": "^2.0.0",
     "tailwindcss": "^2.0.1",
