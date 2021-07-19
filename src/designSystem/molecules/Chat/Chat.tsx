@@ -5,7 +5,7 @@ export interface IChat {
   prop?: any
 }
 
-const Chat = ({ prop }: IChat) => {
+const Chat = () => {
   return <ChatWrapper />
 }
 
