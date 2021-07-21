@@ -23,7 +23,7 @@ export const TableContainer = styled.table`
 
 export const TableHeader = styled.thead`
   background-color: ${colorLight.neutral.eight};
-  color: ${colorLight.neutral.four};
+  color: ${colorLight.neutral.one};
 `
 
 export const TableHeaderRow = styled.tr``

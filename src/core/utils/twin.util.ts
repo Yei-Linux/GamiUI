@@ -57,6 +57,8 @@ export const generateBorderTypeProps = (twinProp: any) => {
       return tw`rounded`
     case 'MEDIUM':
       return tw`rounded-md`
+    case 'LARGE':
+      return tw`rounded-xl`
     case 'ROUNDED':
       return tw`rounded-full`
     case 'FULL':

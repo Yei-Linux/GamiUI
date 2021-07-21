@@ -11,8 +11,12 @@ const getDirectionSpace = ({
 `
 
 export const SpacerWrapper = styled.div<{
+  customSize?: string
   direction: 'left' | 'right' | 'top' | 'bottom'
   size: 1 | 2 | 3 | 4 | 5
 }>`
-  ${(props) => getDirectionSpace({ [props.direction]: `${props.size}rem` })}
+  ${(props) =>
+    getDirectionSpace({
+      [props.direction]: `${props.customSize || `${props.size}rem`}`,
+    })}
 `

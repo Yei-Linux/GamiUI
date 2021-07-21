@@ -15,10 +15,39 @@ export interface MessageProps extends IGeneralProps {
    * Background
    */
   background: string
+  /**
+   * Has Marker
+   */
+  hasMarker?: boolean
+
+  /**
+   * Color
+   */
+  color: string
+
+  /**
+   * Max Width
+   */
+  maxWidth: string
 }
 
-const Message = ({ text, direction, background, ...args }: MessageProps) => (
-  <MessageWrapper background={background} direction={direction} {...args}>
+const Message = ({
+  text,
+  direction,
+  background,
+  hasMarker,
+  color,
+  maxWidth,
+  ...args
+}: MessageProps) => (
+  <MessageWrapper
+    color={color}
+    maxWidth={maxWidth}
+    background={background}
+    hasMarker={hasMarker}
+    direction={direction}
+    {...args}
+  >
     {text}
   </MessageWrapper>
 )
@@ -27,6 +56,9 @@ Message.defaultProps = {
   text: 'Hola Bienvenido a nuestra app!',
   direction: 'left',
   background: '#7868e6',
+  hasMarker: true,
+  color: 'white',
+  maxWidth: '250px',
 }
 
 export default Message

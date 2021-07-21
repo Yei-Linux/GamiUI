@@ -17,6 +17,7 @@ export const InputWrapper = styled.div<{
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: white;
 
   flex-direction: ${(props) =>
     props.positionPrefix == 'left' ? 'row' : 'row-reverse'};

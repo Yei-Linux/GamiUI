@@ -220,7 +220,7 @@ export const colorLight = {
       border: 'none',
     },
     warm: {
-      bg: "#F8F8F8",
+      bg: '#F8F8F8',
       color: 'black',
       border: 'none',
     },
@@ -297,7 +297,7 @@ export const colorLight = {
       border: 'none',
     },
     warm: {
-      bg: "#F8F8F8",
+      bg: '#F8F8F8',
       color: 'black',
       border: 'none',
     },
@@ -374,7 +374,7 @@ export const colorLight = {
       border: '2px solid #a7c5eb',
     },
     warm: {
-      bg: "#F8F8F8",
+      bg: '#F8F8F8',
       color: 'black',
       border: 'none',
     },
@@ -405,6 +405,7 @@ export const spacing = {
 
 export const typography = {
   type: {
+    main: "'Mali', cursive",
     primary: 'Source Sans Pro, sans-serif',
     secondary: 'Patrick Hand, cursive',
     terciary: "'Itim', cursive",

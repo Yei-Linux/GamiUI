@@ -74,8 +74,8 @@ Input.defaultProps = {
   shadow: 'SMALL',
   width: 'NORMAL',
   heigth: 'SMALL',
-  border: 'ROUNDED',
-  fontWeight: 'BOLD',
+  border: 'LARGE',
+  fontWeight: 'NORMAL',
 }
 
 export default Input

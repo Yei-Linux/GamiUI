@@ -94,9 +94,9 @@ Form.Item = ({
     <FormItemWrapper>
       {label != '' && (
         <FormLabel
-          fontWeight="BOLD"
+          fontWeight="SEMIBOLD"
           text={label}
-          width="NONE"
+          width="NONE"  
           heigth="NORMAL"
           border="NONE"
         />

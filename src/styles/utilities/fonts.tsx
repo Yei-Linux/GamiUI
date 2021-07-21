@@ -6,7 +6,9 @@ export const fonts = () => css`
   @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+  @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
   @font-face {
     font-family: 'segment7';
     src: url('https://lichess1.org/assets/_1FzRvx/font/Segment7.woff2')

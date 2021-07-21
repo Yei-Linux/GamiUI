@@ -22,7 +22,7 @@ const GlobalStyles: React.FC = () => {
         }
 
         body {
-          font-family: ${typography.type.primary};
+          font-family: ${typography.type.main};
           min-height: 100%;
         }
 
