@@ -27,6 +27,7 @@ export interface INote extends IGeneralProps {
   onChange: IOnChange
   onSave?: IAction
   onEdit?: IAction
+  onDelete?: IAction
   isEditDefault?: boolean
   background?: string
 }
@@ -37,6 +38,7 @@ const Note = ({
   isEditDefault,
   onSave,
   onEdit,
+  onDelete,
   onChange,
   onChangeTitle,
   background,
@@ -82,7 +84,7 @@ const Note = ({
         </NoteContainer>
       </NoteBody>
       <NoteFooter>
-        <Row justifyContent="center">
+        <Row justifyContent="space-around">
           <Button
             border="ROUNDED"
             shadow="MEDIUM"
@@ -90,6 +92,15 @@ const Note = ({
             onClick={handleActionClick}
           >
             <Icon size="25px" name={!isEdit ? 'edit' : 'check'} />
+          </Button>
+          <Button
+            type="tertiary"
+            border="ROUNDED"
+            shadow="MEDIUM"
+            width="NORMAL"
+            onClick={onDelete}
+          >
+            <Icon size="25px" name="delete__white" />
           </Button>
         </Row>
       </NoteFooter>

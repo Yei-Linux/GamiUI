@@ -12,7 +12,7 @@ export const NotesLayoutWrapper = styled.div<{
   padding: 1rem 0;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
   max-height: ${(props) => props.maxHeight};
   overflow: auto;

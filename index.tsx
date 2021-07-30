@@ -25,6 +25,7 @@ export { default as Tag } from './src/designSystem/atoms/Tag'
 export { default as TextArea } from './src/designSystem/atoms/TextArea'
 export { default as Title } from './src/designSystem/atoms/Title'
 export { default as Range } from './src/designSystem/atoms/Range'
+export { default as TextEditor } from './src/designSystem/atoms/TextEditor'
 
 // Game
 export { default as World } from './src/designSystem/game/World'
@@ -52,6 +53,7 @@ export { default as Table } from './src/designSystem/molecules/Table'
 export { default as TrafficLight } from './src/designSystem/molecules/TrafficLight'
 export { default as Video } from './src/designSystem/molecules/Video'
 export { default as Chat } from './src/designSystem/molecules/Chat'
+export { default as Note } from './src/designSystem/molecules/Note'
 
 // Styled
 export { default as Gradient } from './src/designSystem/styled/Gradient'
