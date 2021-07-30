@@ -27,7 +27,6 @@ export const TextEditorWrapper = styled.div`
     height: auto;
     box-sizing: border-box;
     font-family: ${typography.type.main};
-    background-color: #fff;
     color: #000;
     user-select: none;
     -o-user-select: none;
@@ -382,7 +381,6 @@ export const TextEditorWrapper = styled.div`
     overflow: visible;
     padding: 0;
     margin: 0;
-    background-color: white;
     z-index: 5;
   }
   .sun-editor .se-toolbar-cover {
@@ -419,11 +417,9 @@ export const TextEditorWrapper = styled.div`
     width: auto;
   }
   .sun-editor .se-toolbar.se-toolbar-sticky {
-    position: fixed;
-    top: 0;
   }
   .sun-editor .se-toolbar-sticky-dummy {
-    display: none;
+    display: none !important;
     position: static;
     z-index: -1;
   }
@@ -852,7 +848,7 @@ export const TextEditorWrapper = styled.div`
   }
   .sun-editor .se-wrapper .se-wrapper-inner {
     width: 100%;
-    height: 100%;
+    height: 180px !important;
     min-height: 65px;
     overflow-y: auto;
     overflow-x: auto;
@@ -877,7 +873,6 @@ export const TextEditorWrapper = styled.div`
     resize: none !important;
   }
   .sun-editor .se-wrapper .se-wrapper-wysiwyg {
-    background-color: #fff;
     display: block;
   }
   .sun-editor .se-wrapper .se-wrapper-code-mirror {
@@ -2004,7 +1999,6 @@ export const TextEditorWrapper = styled.div`
     font-size: 13px;
     color: #333;
     line-height: 1.5;
-    background-color: #fff;
     word-break: normal;
     word-wrap: break-word;
     padding: 16px;

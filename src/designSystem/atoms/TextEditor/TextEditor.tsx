@@ -4,7 +4,7 @@ import { TextEditorWrapper } from './TextEditor.styles'
 import ReactDOMServer from 'react-dom/server'
 import Icon from '../Icon'
 
-type IOnChange = (content: string) => void
+export type IOnChange = (content: string) => void
 
 export interface ITextEditor {
   placeholder?: string
@@ -21,7 +21,6 @@ const TextEditor = ({
 }: ITextEditor) => {
   return (
     <TextEditorWrapper>
-      <div id="someContainer" className="sun-editor" />
       <SunEditor
         placeholder={placeholder}
         lang="es"
@@ -59,7 +58,6 @@ const TextEditor = ({
               <Icon size="30px" name="table" />
             ),
           },
-          toolbarContainer: '#someContainer',
           buttonList: [
             ['undo', 'redo'],
             ['blockquote', 'bold', 'underline', 'italic'],

@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { colorLight } from '../theme'
 
 export const inputGeneralStyle = () => css`
-  border: 1px solid ${colorLight.neutral.nine};
+  border: none;
   transition: all 0.1s ease-in-out;
 `
 
