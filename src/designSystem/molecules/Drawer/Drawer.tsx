@@ -1,9 +1,10 @@
 import 'regenerator-runtime/runtime'
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment } from 'react'
 import Mask from '../../atoms/Mask'
 import Transition from '../../styled/Transition'
 import { drawerTranstionByStates } from './constants'
 import { DrawerWrapper } from './Drawer.styles'
+import useOpen from '../../../hooks/useOpen'
 
 export interface IDrawer {
   style?: React.CSSProperties
@@ -17,31 +18,7 @@ export interface IDrawer {
 }
 
 const Drawer = ({ children, open, onClose, withMask, style = {} }: IDrawer) => {
-  const [isFirstTime, setIsFirstTime] = useState(!open)
-  const [isOpen, setIsOpen] = useState(open)
-
-  const timeout = (t: number): Promise<any> => {
-    return new Promise((resolve, _reject) => {
-      setTimeout(resolve, t)
-    })
-  }
-
-  const updateIsOpen = async () => {
-    if (open) {
-      isFirstTime && setIsFirstTime(false)
-      setIsOpen(true)
-      return
-    }
-
-    if (!isFirstTime) {
-      await timeout(300)
-      setIsOpen(false)
-    }
-  }
-
-  useEffect(() => {
-    updateIsOpen()
-  }, [open])
+  const { isOpen } = useOpen({ open })
 
   return (
     <Fragment>

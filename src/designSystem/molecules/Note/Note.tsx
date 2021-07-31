@@ -50,7 +50,7 @@ const Note = ({
   const toggle = () => setIsEdit(!isEdit)
 
   const handleActionClick = () => {
-    isEdit ? onEdit?.() : onSave?.()
+    isEdit ? onSave?.() : onEdit?.()
     toggle()
   }
 

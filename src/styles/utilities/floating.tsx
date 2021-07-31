@@ -1,21 +1,38 @@
 import { css } from '@emotion/react'
+import { mediaQuery } from './breakpoints'
 
-export const floatingRight = (props: any) => css`
-  top: 30%;
-  right: ${props.position};
+export const floatingRight = () => css`
+  margin: auto;
+  right: 10px;
+
+  ${mediaQuery('md')} {
+    top: 40%;
+  }
 `
 
-export const floatingLeft = (props: any) => css`
-  top: 30%;
-  left: ${props.position};
+export const floatingLeft = () => css`
+  margin: auto;
+  left: 10px;
+
+  ${mediaQuery('md')} {
+    top: 40%;
+  }
 `
 
-export const floatingTop = (props: any) => css`
-  left: 30%;
-  top: ${props.position};
+export const floatingTop = () => css`
+  margin: auto;
+  top: 10px;
+
+  ${mediaQuery('md')} {
+    left: 40%;
+  }
 `
 
-export const floatingBottom = (props: any) => css`
-  left: 30%;
-  bottom: ${props.position};
+export const floatingBottom = () => css`
+  margin: auto;
+  bottom: 10px;
+
+  ${mediaQuery('md')} {
+    left: 40%;
+  }
 `

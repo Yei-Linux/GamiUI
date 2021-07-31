@@ -8,4 +8,5 @@ export const SlidingWrapper = styled.div`
   right: 0px;
   width: 100%;
   height: 100%;
+  z-index: 999;
 `
