@@ -26,6 +26,7 @@ export { default as TextArea } from './src/designSystem/atoms/TextArea'
 export { default as Title } from './src/designSystem/atoms/Title'
 export { default as Range } from './src/designSystem/atoms/Range'
 export { default as TextEditor } from './src/designSystem/atoms/TextEditor'
+export { default as Empty } from './src/designSystem/atoms/Empty'
 
 // Game
 export { default as World } from './src/designSystem/game/World'
