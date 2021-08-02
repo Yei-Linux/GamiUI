@@ -3,13 +3,18 @@ import SurveyProvider from '../../../context/SurveyProvider'
 import context from '../../../context/SurveyProvider/context'
 import useStore from '../../../hooks/useStore'
 import Button from '../../atoms/Button'
-import Link from '../../atoms/Link'
 import Options, { IOptions } from '../../atoms/Options/Options'
+import ProgressBar from '../../atoms/ProgressBar'
 import Question, { IQuestion } from '../../atoms/Question/Question'
+import Col from '../../layouts/Col'
 import Layout from '../../layouts/Layout'
 import Row from '../../layouts/Row'
-import Spacer from '../../layouts/Spacer'
-import { SurveyContainer, SurveyOption, SurveyWrapper } from './Survey.styles'
+import {
+  SurveyContainer,
+  SurveyContentBox,
+  SurveyOption,
+  SurveyWrapper,
+} from './Survey.styles'
 
 export interface IQuestionSurvey {
   question: IQuestion
@@ -32,9 +37,10 @@ const Survey = ({ children, onFinish }: ISurvey) => {
 }
 
 const SurveyContent = ({ children, onFinish }: ISurvey) => {
-  const { setCallbacks } = useStore({context})
+  const { percent, setCallbacks, setTotalQuestions } = useStore({ context })
 
   useEffect(() => {
+    setTotalQuestions(React.Children.map(children, (child) => child)?.length)
     setCallbacks({
       onFinish: (values: any) => {
         onFinish && onFinish(values)
@@ -42,7 +48,12 @@ const SurveyContent = ({ children, onFinish }: ISurvey) => {
     })
   }, [])
 
-  return <SurveyWrapper>{children}</SurveyWrapper>
+  return (
+    <SurveyContentBox>
+      <ProgressBar percent={percent} backgroundProgressBar="#e0e6f7" />
+      <SurveyWrapper>{children}</SurveyWrapper>
+    </SurveyContentBox>
+  )
 }
 
 const Item = ({
@@ -51,13 +62,34 @@ const Item = ({
   questionIndex,
   isLastQuestion,
 }: IQuestionSurvey) => {
-  const { answers, setSurveyOptionSelected, onClickSubmit } = useStore({context})
+  const {
+    answers,
+    currentQuestion,
+    setCurrentQuesion,
+    totalQuestions,
+    setPercent,
+    setSurveyOptionSelected,
+    onClickSubmit,
+  } = useStore({
+    context,
+  })
   const handleChangeOption = (value: any) => {
     setSurveyOptionSelected({ [`question-${questionIndex}`]: value })
   }
 
+  const handleChangeQuestion = (questionPosition: number) => {
+    setCurrentQuesion(questionPosition)
+    const percentCalculated = Number((questionPosition / totalQuestions) * 100)
+    setPercent(percentCalculated)
+  }
+
+  const calculateMarginWithQuestionPosition = () => `-${currentQuestion * 100}%`
+
   return (
-    <SurveyContainer id={`question-${questionIndex}`}>
+    <SurveyContainer
+      isFirstQuestion={questionIndex == 0}
+      marginLeft={calculateMarginWithQuestionPosition()}
+    >
       <Layout>
         <Layout.Header>
           <Question
@@ -68,7 +100,7 @@ const Item = ({
         </Layout.Header>
         <Layout.Content>
           <Row justifyContent="center">
-            <SurveyOption width={option.type == 'TEXTAREA' ? '50%' : 'auto'}>
+            <SurveyOption width={option.type == 'TEXTAREA' ? '80%' : 'auto'}>
               <Options
                 answer={answers?.[`question-${questionIndex}`]}
                 handleChangeOption={handleChangeOption}
@@ -81,28 +113,44 @@ const Item = ({
           </Row>
         </Layout.Content>
         <Layout.Footer>
-          <Row justifyContent="center">
-            <Button width="MEDIUM" border="MEDIUM" type="secondary">
-              <Link text="Previous" href={`#question-${questionIndex - 1}`} />
-            </Button>
-            <Spacer direction="right" />
-            {isLastQuestion ? (
-              <Button
-                width="MEDIUM"
-                border="MEDIUM"
-                onClick={() => onClickSubmit(answers)}
-              >
-                Finish
-              </Button>
-            ) : (
-              <Button width="MEDIUM" border="MEDIUM">
-                <Link
-                  type="primary"
-                  text="Next"
-                  href={`#question-${questionIndex + 1}`}
-                />
-              </Button>
-            )}
+          <Row
+            style={{ margin: 'auto', padding: '1rem' }}
+            width="fit-content"
+            justifyContent="center"
+          >
+            <Col spacing="sm" xs={12} sm={6} md={6} lg={6}>
+              <Row>
+                <Button
+                  width="MEDIUM"
+                  border="MEDIUM"
+                  type="secondary"
+                  onClick={() => handleChangeQuestion(questionIndex - 1)}
+                >
+                  Previous
+                </Button>
+              </Row>
+            </Col>
+            <Col spacing="sm" xs={12} sm={6} md={6} lg={6}>
+              <Row>
+                {isLastQuestion ? (
+                  <Button
+                    width="MEDIUM"
+                    border="MEDIUM"
+                    onClick={() => onClickSubmit(answers)}
+                  >
+                    Finish
+                  </Button>
+                ) : (
+                  <Button
+                    width="MEDIUM"
+                    border="MEDIUM"
+                    onClick={() => handleChangeQuestion(questionIndex + 1)}
+                  >
+                    Next
+                  </Button>
+                )}
+              </Row>
+            </Col>
           </Row>
         </Layout.Footer>
       </Layout>

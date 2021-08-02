@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react'
 import { RowWrapper } from './Row.styles'
 
 export interface IRow {
+  width?: string
   style?: CSSProperties
   children: React.ReactNode
   justifyContent:
@@ -21,12 +22,14 @@ const Row = ({
   justifyContent,
   alignItems,
   style = {},
+  width = 'auto',
   height = '100%',
   isWrap = true,
   flexDirection = 'row',
 }: IRow) => {
   return (
     <RowWrapper
+      width={width}
       height={height}
       justifyContent={justifyContent}
       alignItems={alignItems}

@@ -1,7 +1,6 @@
 import React from 'react'
 import Col from '../../layouts/Col'
 import Row from '../../layouts/Row'
-import Spacer from '../../layouts/Spacer'
 import Button from '../Button'
 import CodeEditor from '../CodeEditor'
 import RichText from '../RichText'
@@ -53,13 +52,20 @@ const CodeAlternative = ({
           />
           <CodeFooter>
             <Row justifyContent="flex-end">
-              <Button width="MEDIUM" border="ROUNDED">
-                Run code ⚡
-              </Button>
-              <Spacer direction="right" />
-              <Button width="MEDIUM" border="ROUNDED">
-                Submit 🔥
-              </Button>
+              <Col spacing="sm" xs={12} sm={6} md={6} lg={6}>
+                <Row>
+                  <Button width="MEDIUM" border="ROUNDED">
+                    Run code ⚡
+                  </Button>
+                </Row>
+              </Col>
+              <Col spacing="sm" xs={12} sm={6} md={6} lg={6}>
+                <Row>
+                  <Button width="MEDIUM" border="ROUNDED">
+                    Submit 🔥
+                  </Button>
+                </Row>
+              </Col>
             </Row>
           </CodeFooter>
         </CodeContainer>

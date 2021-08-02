@@ -10,21 +10,34 @@ export interface WaveProps {
   children?: React.ReactNode
   color: string
   background: string
+  isWaveLikeBackground: boolean
 }
 
-const Wave = ({ name, direction, children, color, background }: WaveProps) => {
+const Wave = ({
+  name,
+  direction,
+  children,
+  color,
+  background,
+  isWaveLikeBackground,
+}: WaveProps) => {
   return (
-    <WaveWrapper>
-      {direction == 'bottom' && children}
+    <WaveWrapper isWaveLikeBackground={isWaveLikeBackground}>
+      {!isWaveLikeBackground && direction == 'bottom' && children}
       <SvgWave
-        background={ direction == 'bottom' ? color : background}
+        isWaveLikeBackground={isWaveLikeBackground}
+        background={direction == 'bottom' ? color : background}
         direction={direction}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
-        <path fill={direction == 'bottom' ? background : color} d={WaveTypes[name]}></path>
+        <path
+          fill={direction == 'bottom' ? background : color}
+          d={WaveTypes[name]}
+        ></path>
       </SvgWave>
-      {direction == 'top' && children}
+      {isWaveLikeBackground && children}
+      {!isWaveLikeBackground && direction == 'top' && children}
     </WaveWrapper>
   )
 }
@@ -34,6 +47,7 @@ Wave.defaultProps = {
   direction: 'top',
   color: colorLight.primary.one,
   background: colorLight.neutral.nine,
+  isWaveLikeBackground: false,
 }
 
 export default Wave

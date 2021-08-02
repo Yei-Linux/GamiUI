@@ -1,7 +1,9 @@
 import React from 'react'
+import { Backgrounds } from './Backgrounds'
 import { DrawkitIcons } from './DrawkitIcons'
 
 export const IconsPack: any = {
+  ...Backgrounds,
   ...DrawkitIcons,
   delete__white: {
     viewBox: '0 0 348.333 348.334',

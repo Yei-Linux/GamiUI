@@ -1,24 +1,32 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import tw from 'twin.macro'
 
 export const SurveyWrapper = styled.div`
   ${tw`w-full flex`}
   overflow: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  transition: margin-left 800ms cubic-bezier(0.77, 0, 0.175, 1);
 `
 
-export const SurveyContainer = styled.div`
-  scroll-snap-align: start;
+export const SurveyContainer = styled.div<{
+  isFirstQuestion: boolean
+  marginLeft: string
+}>`
+  background-color: white;
   flex-shrink: 0;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
   position: relative;
   width: 100%;
+  height: min-content;
+  transition: 0.6s;
+
+  ${(props) =>
+    props.isFirstQuestion &&
+    css`
+      margin-left: ${props.marginLeft};
+    `}
 `
 
 export const SurveyOption = styled.div<{ width: string }>`
   width: ${(props) => props.width};
 `
+export const SurveyContentBox = styled.div``

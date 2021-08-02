@@ -10,6 +10,7 @@ export interface IQuestion {
   question: string
   description?: string
   iconId?: string
+  hasWave?: boolean
 }
 
 const Question = ({ question, description, iconId }: IQuestion) => {
@@ -46,6 +47,8 @@ const Question = ({ question, description, iconId }: IQuestion) => {
   )
 }
 
-Question.defaultProps = {}
+Question.defaultProps = {
+  hasWave: true,
+}
 
 export default Question

@@ -131,6 +131,7 @@ export const QuestionCodeContainer = styled.div`
     color: #0e141e;
     font-size: 14px;
     line-height: 20px;
+    white-space: break-spaces;
   }
 
   blockquote,
@@ -152,13 +153,17 @@ export const CodeContainer = styled.div`
 export const CodeHeader = styled.div`
   width: 100%;
   padding: 1rem;
-  color: ${colorLight.primary.two};
-  background-color: ${colorLight.secondary.three};
+  color: ${colorLight.neutral.two};
+  background-color: ${colorLight.neutral.seven};
+  border-top-left-radius: 0.8em;
+  border-top-right-radius: 0.8em;
 `
 
 export const CodeFooter = styled.div`
   width: 100%;
   padding: 1rem;
-  color: ${colorLight.primary.two};
-  background-color: ${colorLight.secondary.three};
+  color: ${colorLight.neutral.two};
+  background-color: ${colorLight.neutral.seven};
+  border-bottom-left-radius: 0.8em;
+  border-bottom-right-radius: 0.8em;
 `

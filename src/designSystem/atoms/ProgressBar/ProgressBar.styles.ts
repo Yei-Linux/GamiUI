@@ -26,4 +26,5 @@ export const ProgressPercent = styled.div<{
   left: 0px;
   width: ${(props) => `${props.percent}%`};
   background-color: ${(props) => props.backgroundProgress};
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 `
