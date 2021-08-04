@@ -39,7 +39,7 @@ const Sticky = ({ shadow, stickyItems }: ISticky) => {
     if (item?.hasHideContent) {
       setStickyContent(item?.stickyHidden)
 
-      await timeout(500)
+      await timeout(100)
 
       setIsCollapse(true)
     }

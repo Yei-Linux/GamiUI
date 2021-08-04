@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { colorLight } from '../../../styles/theme'
 import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const StickyHideHeader = styled.div`
@@ -13,6 +14,8 @@ export const StickyWrapper = styled.div<{ shadow?: string; right: string }>`
   padding: 1rem;
   position: fixed;
   top: 45%;
+  z-index: 2;
+  background-color: ${colorLight.neutral.nine};
 
   right: ${(props) => props.right};
   transition: all 0.3s;
@@ -32,6 +35,8 @@ export const StickyHideContainer = styled.div<{
   shadow?: string
   right: string
 }>`
+  background-color: ${colorLight.neutral.nine};
+  z-index: 2;
   position: relative;
   width: auto;
   height: auto;

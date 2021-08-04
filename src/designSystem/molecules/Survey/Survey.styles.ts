@@ -30,3 +30,9 @@ export const SurveyOption = styled.div<{ width: string }>`
   width: ${(props) => props.width};
 `
 export const SurveyContentBox = styled.div``
+
+export const SurveyControlsItem = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+`
