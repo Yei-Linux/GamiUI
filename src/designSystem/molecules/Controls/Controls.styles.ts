@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
 import { colorLight } from '../../../styles/theme'
 
-export const ControlsWrapper = styled.div`
+export const ControlsWrapper = styled.div<{ maxWidth?: string }>`
   padding: 1rem;
   width: fit-content;
+  max-width: ${(props) => props.maxWidth};
 `
 
 export const ControlsItemContainer = styled.div`

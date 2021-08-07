@@ -10,11 +10,16 @@ import {
 export interface IControls {
   controlItems: React.ReactNode[]
   controlTitle: string
+  maxWidth?: string
 }
 
-const Controls = ({ controlItems, controlTitle }: IControls) => {
+const Controls = ({
+  controlItems,
+  controlTitle,
+  maxWidth = 'none',
+}: IControls) => {
   return (
-    <ControlsWrapper>
+    <ControlsWrapper maxWidth={maxWidth}>
       <ControlsTitle>
         <Title textAlign="CENTER" level="h3">
           {controlTitle}

@@ -32,17 +32,20 @@ export interface IQuestionSurvey {
 export interface ISurvey {
   children: React.ReactNode
   onFinish?: (value: any) => any
+  onClickMenu?: () => void
 }
 
-const Survey = ({ children, onFinish }: ISurvey) => {
+const Survey = ({ children, onFinish, onClickMenu }: ISurvey) => {
   return (
     <SurveyProvider>
-      <SurveyContent onFinish={onFinish}>{children}</SurveyContent>
+      <SurveyContent onClickMenu={onClickMenu} onFinish={onFinish}>
+        {children}
+      </SurveyContent>
     </SurveyProvider>
   )
 }
 
-const SurveyContent = ({ children, onFinish }: ISurvey) => {
+const SurveyContent = ({ children, onFinish, onClickMenu }: ISurvey) => {
   const {
     setCurrentQuesion,
     totalQuestions,
@@ -76,7 +79,7 @@ const SurveyContent = ({ children, onFinish }: ISurvey) => {
           {
             stickyContent: (
               <Fragment>
-                <Icon name="menu" size="20px" />
+                <Icon name="menu" size="20px" onClick={onClickMenu} />
                 <Spacer direction="bottom" />
               </Fragment>
             ),
@@ -92,6 +95,7 @@ const SurveyContent = ({ children, onFinish }: ISurvey) => {
             hasHideContent: true,
             stickyHidden: (
               <Controls
+                maxWidth="204px"
                 controlItems={Array.from(new Array(totalQuestions))?.map(
                   (_questionItem: any, index: number) => (
                     <SurveyControlsItem
