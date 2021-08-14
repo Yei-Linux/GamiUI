@@ -7,7 +7,7 @@ export const FormWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   background: 'white';
-  width: 450px;
+  width: auto;
   padding: 25px;
   border-radius: 25px;
 `
