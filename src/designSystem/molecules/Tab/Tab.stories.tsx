@@ -2,7 +2,6 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import Tab from '.'
-import TabContentItem from './TabContentItem'
 
 export default {
   title: 'Molecules/Tab',
@@ -18,12 +17,12 @@ export const Basic = () => (
       <Tab.ListItem label="Second Tab" tabId="second" />
     </Tab.List>
     <Tab.Content>
-      <TabContentItem tabId="first">
+      <Tab.ContentItem tabId="first">
         <p>Hola1</p>
-      </TabContentItem>
-      <TabContentItem tabId="second">
+      </Tab.ContentItem>
+      <Tab.ContentItem tabId="second">
         <p>Hola2</p>
-      </TabContentItem>
+      </Tab.ContentItem>
     </Tab.Content>
   </Tab>
 )

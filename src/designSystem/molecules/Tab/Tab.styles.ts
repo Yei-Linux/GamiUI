@@ -6,6 +6,7 @@ export const Tab = styled.div`
 `
 
 export const TabList = styled.ul`
+  margin: auto;
   display: flex;
   width: auto;
   list-style: none;

@@ -17,6 +17,8 @@ export const SurveyContainer = styled.div<{
   position: relative;
   width: 100%;
   height: min-content;
+
+  
   transition: 0.6s;
 
   ${(props) =>

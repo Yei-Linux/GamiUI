@@ -1,12 +1,12 @@
 import { IAction } from '../../core/domain/interfaces/IContext'
-import { SET_TAB_ID_SELECT } from './types'
+import { SET_CURRENT_STEP } from './types'
 
 export default (state: any, { type, payload }: IAction) => {
   switch (type) {
-    case SET_TAB_ID_SELECT:
+    case SET_CURRENT_STEP:
       return {
         ...state,
-        tabIdSelected: payload,
+        currentStep: payload,
       }
 
     default:
