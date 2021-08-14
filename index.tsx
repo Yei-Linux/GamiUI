@@ -55,6 +55,7 @@ export { default as TrafficLight } from './src/designSystem/molecules/TrafficLig
 export { default as Video } from './src/designSystem/molecules/Video'
 export { default as Chat } from './src/designSystem/molecules/Chat'
 export { default as Note } from './src/designSystem/molecules/Note'
+export { default as Tab } from './src/designSystem/molecules/Tab'
 
 // Styled
 export { default as Gradient } from './src/designSystem/styled/Gradient'
