@@ -1,6 +1,5 @@
 import {
   SET_CALLBACKS,
-  SET_CURRENT_QUESTION,
   SET_PERCENT,
   SET_SURVEY_OPTION_SELECTED,
   SET_TOTAL_QUESTIONS,
@@ -32,12 +31,6 @@ export default (state: any, action: IAction) => {
       return {
         ...state,
         totalQuestions: action.payload,
-      }
-
-    case SET_CURRENT_QUESTION:
-      return {
-        ...state,
-        currentQuestion: action.payload,
       }
     default:
       return state

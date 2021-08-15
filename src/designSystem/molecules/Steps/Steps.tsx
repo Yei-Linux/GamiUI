@@ -6,29 +6,29 @@ import * as S from './Steps.styles'
 
 export interface ISteps {
   children?: any
+  addIndexOnItemAsProp?: boolean
 }
 
-const StepsContent = ({ children }: ISteps) => {
+const StepsContent = ({ children, addIndexOnItemAsProp = true }: ISteps) => {
   const { childrenWithProps } = useCloneElement({
     children,
-    childrenTypes: [StepItem],
-    addIndexPropOnItem: {
-      hasConfig: true,
-      fieldPropName: 'itemIndex',
-    },
+    childrenTypes: [],
+    addIndexPropOnItem: addIndexOnItemAsProp
+      ? {
+          hasConfig: true,
+          fieldPropName: 'itemIndex',
+        }
+      : null,
   })
 
   return <S.Steps>{childrenWithProps}</S.Steps>
 }
 
 const Steps = ({ children }: ISteps) => {
-  return (
-    <StepsProvider>
-      <StepsContent>{children}</StepsContent>
-    </StepsProvider>
-  )
+  return <StepsProvider>{children}</StepsProvider>
 }
 
 Steps.Item = StepItem
+Steps.Body = StepsContent
 
 export default Steps

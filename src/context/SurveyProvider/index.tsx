@@ -3,7 +3,6 @@ import context from './context'
 import reducer from './reducer'
 import {
   SET_CALLBACKS,
-  SET_CURRENT_QUESTION,
   SET_PERCENT,
   SET_SURVEY_OPTION_SELECTED,
   SET_TOTAL_QUESTIONS,
@@ -20,7 +19,6 @@ const SurveyProvider = ({ children }: { children: React.ReactNode }) => {
     answers: null,
     callbacks: null,
     percent: 0,
-    currentQuestion: 0,
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -35,13 +33,6 @@ const SurveyProvider = ({ children }: { children: React.ReactNode }) => {
   const setPercent = (data: any) => {
     dispatch({
       type: SET_PERCENT,
-      payload: data,
-    })
-  }
-
-  const setCurrentQuesion = (data: any) => {
-    dispatch({
-      type: SET_CURRENT_QUESTION,
       payload: data,
     })
   }
@@ -78,7 +69,6 @@ const SurveyProvider = ({ children }: { children: React.ReactNode }) => {
         setCallbacks,
         setTotalQuestions,
         onClickSubmit,
-        setCurrentQuesion,
       }}
     >
       {children}

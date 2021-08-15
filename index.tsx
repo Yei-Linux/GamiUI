@@ -56,6 +56,7 @@ export { default as Video } from './src/designSystem/molecules/Video'
 export { default as Chat } from './src/designSystem/molecules/Chat'
 export { default as Note } from './src/designSystem/molecules/Note'
 export { default as Tab } from './src/designSystem/molecules/Tab'
+export { default as Steps } from './src/designSystem/molecules/Steps'
 
 // Styled
 export { default as Gradient } from './src/designSystem/styled/Gradient'
@@ -66,3 +67,6 @@ export { default as Wave } from './src/designSystem/styled/Wave'
 export { default as ThemeGamification } from './src/providers/ThemeGamification'
 export { twinTheme, palette } from './src/styles/theme'
 export { mediaQuery } from './src/styles/utilities/breakpoints'
+
+//Hooks
+export { useSurveyStore, useStepStore } from './src/hooks'
