@@ -44,11 +44,14 @@ export const Basic = () => (
       <Switch defaultChecked={false} />
     </Form.Item>
     <Form.Item label="Elige un pais" name="country">
-      <Select placeholder="Type your option">
-        <Select.Option value="one">Option1</Select.Option>
-        <Select.Option value="two">Option2</Select.Option>
-        <Select.Option value="three">Option3</Select.Option>
-      </Select>
+      <Select
+        placeholder="Type your option"
+        options={[
+          { value: 'chocolate', label: 'Chocolate' },
+          { value: 'strawberry', label: 'Strawberry' },
+          { value: 'vanilla', label: 'Vanilla' },
+        ]}
+      />
     </Form.Item>
     <Form.Item label="Elige tu genero" name="gender">
       <Radio>

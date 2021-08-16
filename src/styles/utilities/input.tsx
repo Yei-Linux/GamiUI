@@ -4,6 +4,10 @@ import { colorLight } from '../theme'
 export const inputGeneralStyle = () => css`
   border: none;
   transition: all 0.1s ease-in-out;
+
+  input[type='password'] {
+    font-family: system-ui;
+  }
 `
 
 export const inputBasicStyle = () => css`

@@ -1,36 +1,27 @@
 import styled from '@emotion/styled'
-import {
-  SlideTopAnimation,
-  SlideBottomAnimation,
-} from '../../../styles/utilities/transitions'
+import Select from 'react-select'
+import { colorLight } from '../../../styles/theme'
 
-export const SelectWrapper = styled.div`
-  position: relative;
-  width: fit-content;
-`
+export const ReactSelect = styled(Select)`
+  max-width: 300px;
 
-export const Selectinput = styled.div`
-  width: fit-content;
-`
+  .Select__control {
+    padding: 5px;
+    border-radius: 0.7em;
+    border: none;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
+  }
 
-export const SelectOptionsWrapper = styled.div<{ isToggle: boolean }>`
-  z-index: 99;
-  overflow-y: auto;
-  max-height: 200px;
-  top: 50px;
-  position: absolute;
-  background: #fafafa;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.12);
-  border-radius: 5px;
-  padding: 0px 20px;
-  width: 100%;
+  .Select__multi-value {
+    border-radius: 15px;
+  }
 
-  ${(props) => (props.isToggle ? SlideTopAnimation : SlideBottomAnimation)}
-`
+  .Select__multi-value__remove:hover {
+    background-color: ${colorLight.primary.oneLight};
+    color: ${colorLight.neutral.nine};
+  }
 
-export const OptionWrapper = styled.div`
-  padding: 10px 0px;
-  &:hover {
-    cursor: pointer;
+  .Select__placeholder {
+    color: ${colorLight.neutral.five};
   }
 `

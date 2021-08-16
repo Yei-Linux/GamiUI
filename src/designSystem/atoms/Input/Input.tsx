@@ -34,7 +34,7 @@ export interface IInput extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: (value: any) => any
+  onChangeFormItem?: (value: any, ...props: any) => any
   /**
    * Is Readonly input
    */

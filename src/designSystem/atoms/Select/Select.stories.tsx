@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 import { stylesControl } from '../../../core/helpers/storybook.helper'
 
@@ -14,17 +14,47 @@ export default {
   },
 } as Meta
 
-export const BasicSelect = (args: any) => {
+export const Basic = () => {
+  const [value, setValue] = useState('one')
+
+  const changeValue = (value: any) => {
+    console.log(value)
+    setValue(value)
+  }
+
   return (
-    <Select {...args}>
-      <Select.Option value="one">Option1</Select.Option>
-      <Select.Option value="two">Option2</Select.Option>
-      <Select.Option value="three">Option3</Select.Option>
-    </Select>
+    <Select
+      placeholder="Type your option"
+      value={value}
+      onChangeFormItem={changeValue}
+      options={[
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' },
+      ]}
+    />
   )
 }
-BasicSelect.args = {
-  placeholder: 'Type your option',
-  width: 'NORMAL',
-  heigth: 'SMALL',
+
+export const Multiple = () => {
+  const [value, setValue] = useState('one')
+
+  const changeValue = (value: any) => {
+    console.log(value)
+    setValue(value)
+  }
+
+  return (
+    <Select
+      isMultiple
+      placeholder="Type your option"
+      value={value}
+      onChangeFormItem={changeValue}
+      options={[
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' },
+      ]}
+    />
+  )
 }

@@ -58,7 +58,7 @@ TextArea.defaultProps = {
   width: 'NORMAL',
   heigth: 'SMALL',
   border: 'MEDIUM',
-  fontWeight: 'BOLD',
+  fontWeight: 'NORMAL',
   shadow: 'SMALL',
 }
 
