@@ -87,7 +87,8 @@
     "tailwindcss": "^2.0.1",
     "twin.macro": "^1.12.1",
     "typescript": "^4.1.2",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "yup": "^0.32.9"
   },
   "husky": {
     "hooks": {

@@ -28,22 +28,46 @@ export const Basic = () => (
       console.log(values)
     }}
   >
-    <Form.Item label="Nombres" name="names">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Nombres"
+      name="names"
+    >
       <Input placeholder="Ingresa tus nombres" />
     </Form.Item>
-    <Form.Item label="Contraseña" name="password">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Contraseña"
+      name="password"
+    >
       <Password placeholder="Ingresa tu contraseña" />
     </Form.Item>
-    <Form.Item label="Celular" name="phone">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Celular"
+      name="phone"
+    >
       <Number placeholder="Ingresa tu celular" />
     </Form.Item>
-    <Form.Item label="Comentario" name="comment">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Comentario"
+      name="comment"
+    >
       <TextArea placeholder="Ingresa tu comentario" />
     </Form.Item>
-    <Form.Item label="Activar Notificaciones" name="isActive">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Activar Notificaciones"
+      name="isActive"
+    >
       <Switch defaultChecked={false} />
     </Form.Item>
-    <Form.Item label="Elige un pais" name="country">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Elige un pais"
+      name="country"
+    >
       <Select
         placeholder="Type your option"
         options={[
@@ -53,7 +77,11 @@ export const Basic = () => (
         ]}
       />
     </Form.Item>
-    <Form.Item label="Elige tu genero" name="gender">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Elige tu genero"
+      name="gender"
+    >
       <Radio>
         <Radio.Item isChecked value="one">
           A

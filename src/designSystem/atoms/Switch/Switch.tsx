@@ -19,7 +19,12 @@ const Switch = ({ onChangeFormItem, defaultChecked, ...args }: ISwitch) => {
   }
 
   return (
-    <SwitchWrapper isChecked={isChecked} {...args} onClick={() => toggle()}>
+    <SwitchWrapper
+      type="button"
+      isChecked={isChecked}
+      {...args}
+      onClick={() => toggle()}
+    >
       <SwitchBall isChecked={isChecked} />
     </SwitchWrapper>
   )

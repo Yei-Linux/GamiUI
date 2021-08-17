@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import RichText from '../../atoms/RichText'
 
-export const FormWrapper = styled.div`
+export const Form = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ export const FormWrapper = styled.div`
   border-radius: 25px;
 `
 
-export const FormItemWrapper = styled.div`
+export const FormItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
