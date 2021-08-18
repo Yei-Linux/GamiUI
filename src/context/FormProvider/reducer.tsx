@@ -1,4 +1,9 @@
-import { SET_CALLBACKS, SET_FORM_VALUES } from './types'
+import {
+  SET_CALLBACKS,
+  SET_FORM_VALUES,
+  SET_YUP_ERRORS,
+  SET_YUP_SCHEMA,
+} from './types'
 
 interface IAction {
   type: string
@@ -19,6 +24,17 @@ export default (state: any, action: IAction) => {
       return {
         ...state,
         callbacks: action.payload,
+      }
+    case SET_YUP_SCHEMA:
+      return {
+        ...state,
+        yupSchema: action.payload,
+      }
+
+    case SET_YUP_ERRORS:
+      return {
+        ...state,
+        yupErrors: action.payload,
       }
     default:
       return state

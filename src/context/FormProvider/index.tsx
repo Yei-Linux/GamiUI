@@ -1,7 +1,12 @@
 import React, { useReducer } from 'react'
 import context from './context'
 import reducer from './reducer'
-import { SET_CALLBACKS, SET_FORM_VALUES } from './types'
+import {
+  SET_CALLBACKS,
+  SET_FORM_VALUES,
+  SET_YUP_ERRORS,
+  SET_YUP_SCHEMA,
+} from './types'
 
 interface ISetFormSelected {
   name: string
@@ -12,6 +17,8 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
     formValue: null,
     callbacks: null,
+    yupSchema: null,
+    yupErrors: null,
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -30,6 +37,20 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
     })
   }
 
+  const setYupSchema = (data: any) => {
+    dispatch({
+      type: SET_YUP_SCHEMA,
+      payload: data,
+    })
+  }
+
+  const setYupErrors = (data: any) => {
+    dispatch({
+      type: SET_YUP_ERRORS,
+      payload: data,
+    })
+  }
+
   const onClickSubmit = (values: any) => {
     if (state.callbacks) {
       state.callbacks?.onFinish(values)
@@ -41,6 +62,10 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         formValue: state.formValue,
         clickSubmit: state.clickSubmit,
+        yupSchema: state.yupSchema,
+        yupErrors: state.yupErrors,
+        setYupErrors,
+        setYupSchema,
         setFormValues,
         setCallbacks,
         onClickSubmit,

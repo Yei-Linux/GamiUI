@@ -90,7 +90,7 @@ export const Basic = () => (
         <Radio.Item value="three">C</Radio.Item>
       </Radio>
     </Form.Item>
-    <Form.Item name="isActive">
+    <Form.Item name="submit">
       <Button type="primary" border="ROUNDED" preffix={<Icon name="submit" />}>
         Submit
       </Button>

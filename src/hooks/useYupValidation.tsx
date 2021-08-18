@@ -1,116 +1,58 @@
-import React from 'react'
-import Input from '../designSystem/atoms/Input'
-import Switch from '../designSystem/atoms/Switch'
-import Number from '../designSystem/atoms/Number'
-import Password from '../designSystem/atoms/Password'
-import TextArea from '../designSystem/atoms/TextArea'
-import { IFormItem, IRules } from '../designSystem/molecules/Form/Form'
+import { ObjectSchema } from 'yup'
+import { Assign, TypeOfShape } from 'yup/lib/object'
+import { Optionals } from 'yup/lib/types'
+import useFormStore from './store/useFormStore'
 
-import * as Yup from 'yup'
-import Select from '../designSystem/atoms/Select'
-import Radio from '../designSystem/atoms/Radio'
-import { BooleanSchema, NumberSchema, ObjectSchema, StringSchema } from 'yup'
+export type TYupSchema = ObjectSchema<
+  Assign<any, any>,
+  any,
+  TypeOfShape<Assign<any, any>> | Optionals<any>
+>
 
-interface IYupSchema {
+export interface IUseYupValidation {
+  schema: TYupSchema
+}
+
+export interface IDynamicObject {
   [key: string]: any
 }
 
-const REGEX__EMAIL =
-  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+const useYupValidation = ({ schema }: IUseYupValidation) => {
+  const { setYupErrors } = useFormStore()
 
-type TStringSchema = StringSchema<
-  string | undefined,
-  Record<string, any>,
-  string | undefined
->
-type TNumberSchema = NumberSchema<
-  number | undefined,
-  Record<string, any>,
-  number | undefined
->
-type TBooleanSchema = BooleanSchema<
-  boolean | undefined,
-  Record<string, any>,
-  boolean | undefined
->
-type TObjectSchema = ObjectSchema<any, any, any, any>
-type TRulesInstance =
-  | TStringSchema
-  | TNumberSchema
-  | TBooleanSchema
-  | TObjectSchema
+  const mapErrors = (yupErrors: any[]) => {
+    const errors: IDynamicObject = {}
 
-const useYupValidation = () => {
-  const checkRules = (rules: IRules[], ruleInstance: TRulesInstance) => {
-    let ruleInstanceToModify = ruleInstance
-
-    rules.map(({ type, message, value = 0 }: IRules) => {
-      if (type == 'required') {
-        ruleInstanceToModify = ruleInstanceToModify.required(message)
-      }
-      if (type == 'email') {
-        ruleInstanceToModify = (ruleInstanceToModify as TStringSchema).matches(
-          REGEX__EMAIL
-        )
-      }
-      if (type == 'maxNumber') {
-        ruleInstanceToModify = (ruleInstanceToModify as TNumberSchema).max(
-          value,
-          message
-        )
-      }
-
-      if (type == 'minNumber') {
-        ruleInstanceToModify = (ruleInstanceToModify as TNumberSchema).min(
-          value,
-          message
-        )
-      }
+    yupErrors.map(({ path, message }) => {
+      errors[path] = message
     })
 
-    return ruleInstanceToModify
+    return errors
   }
 
-  const buildingYupSchema = (children: React.ReactNode) => {
-    const yupSchema: IYupSchema = {}
-
-    React.Children.map(children, (child: React.ReactNode) => {
-      const childrenCast = child as React.ReactElement
-      const childrenTypeOfChildren = childrenCast.props.children.type
-
-      const { rules, name } = childrenCast.props as IFormItem
-
-      if (!rules || rules == undefined) return
-
-      let rule: TRulesInstance | null = null
-
-      if ([Input, Password, TextArea, Radio].includes(childrenTypeOfChildren)) {
-        rule = Yup.string()
-      }
-
-      if ([Number].includes(childrenTypeOfChildren)) {
-        rule = Yup.number()
-      }
-
-      if ([Switch].includes(childrenTypeOfChildren)) {
-        rule = Yup.boolean()
-      }
-
-      if ([Select].includes(childrenTypeOfChildren)) {
-        rule = Yup.object()
-      }
-
-      if (!rule) return
-
-      rule = checkRules(rules, rule)
-
-      if (rule) yupSchema[name] = rule
-    })
-
-    return Yup.object().shape(yupSchema)
+  const onSucces = () => {
+    setYupErrors(null)
+    return null
   }
 
-  return { buildingYupSchema }
+  const onError = (error: any) => {
+    const errorsFormated = mapErrors(error)
+    setYupErrors(errorsFormated)
+    return errorsFormated
+  }
+
+  const validate = (data: any) => {
+    try {
+      schema.validateSync(data, { abortEarly: false })
+      return onSucces()
+    } catch (e) {
+      return onError(e.inner)
+    }
+  }
+
+  return {
+    validate,
+  }
 }
 
 export default useYupValidation
