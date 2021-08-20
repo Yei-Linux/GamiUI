@@ -1,7 +1,9 @@
-const breakPoints: any = {
-  sm: 600, //TABLET
-  md: 960, //LAPTOP
-  lg: 1280, //PC
+import { breakspointSizes } from 'styles/tokens/breakpoints'
+
+const breakPoints = {
+  sm: breakspointSizes.sm, //TABLET
+  md: breakspointSizes.md, //LAPTOP
+  lg: breakspointSizes.lg, //PC
 }
 
 export const mediaQuery = (sizeName: 'sm' | 'md' | 'lg') => {

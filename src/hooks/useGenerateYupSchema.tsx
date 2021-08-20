@@ -4,12 +4,12 @@ import Switch from '../designSystem/atoms/Switch'
 import Number from '../designSystem/atoms/Number'
 import Password from '../designSystem/atoms/Password'
 import TextArea from '../designSystem/atoms/TextArea'
-import { IFormItem, IRules } from '../designSystem/molecules/Form/Form'
 
 import * as Yup from 'yup'
 import Select from '../designSystem/atoms/Select'
 import Radio from '../designSystem/atoms/Radio'
 import { BooleanSchema, NumberSchema, ObjectSchema, StringSchema } from 'yup'
+import { IFormItem, IRules } from '../designSystem/molecules/Form/FormItem'
 
 interface IYupSchema {
   [key: string]: any

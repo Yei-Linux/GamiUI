@@ -1,12 +1,13 @@
-import { options as optionsButton } from '../../../designSystem/atoms/Button/constants'
-import { options as optionsIcon } from '../../../designSystem/atoms/Icon'
-import { options as optionsGuides } from '../../../designSystem/atoms/AnimatorGuide'
-import { options as optionsStyle } from '../../utils/constants'
-import { options as optionsGradient } from '../../../designSystem/styled/Gradient'
-import { options as optionsWave } from '../../../designSystem/styled/Wave'
-import { options as optionsHeroes } from '../../../designSystem/game/Character'
-import { options as optionsFeatureCard } from '../../../designSystem/molecules/FeaturedCard'
-import { options } from '../../../designSystem/atoms/Link'
+import { options as optionsButton } from 'designSystem/atoms/Button/constants'
+import { options as optionsIcon } from 'designSystem/atoms/Icon'
+import { options as optionsGuides } from 'designSystem/atoms/AnimatorGuide'
+import { options as optionsGradient } from 'designSystem/styled/Gradient'
+import { options as optionsWave } from 'designSystem/styled/Wave'
+import { options as optionsHeroes } from 'designSystem/game/Character'
+import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCard'
+import { options } from 'designSystem/atoms/Link'
+
+import { options as optionsStyle } from 'core/utils/constants'
 
 export type WidthType = typeof optionsStyle.width[number]
 export type HeightType = typeof optionsStyle.height[number]

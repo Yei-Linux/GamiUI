@@ -6,7 +6,7 @@ import {
   HeightType,
   TextAlignType,
   FontWeightType,
-} from '../types'
+} from 'core/domain/types'
 
 export interface IStyles {
   /**

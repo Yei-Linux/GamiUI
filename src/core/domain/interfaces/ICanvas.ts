@@ -1,4 +1,4 @@
-import { HeroNames } from '../types'
+import { HeroNames } from 'core/domain/types'
 
 export interface IMap {
   cols: number
