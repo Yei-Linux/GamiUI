@@ -13,3 +13,7 @@ export const options = {
     'BOLD',
   ] as const,
 }
+
+export const REGEX_RULES = {
+  CATCH_FIRST_LETTERS: /\b(\w)/g,
+}

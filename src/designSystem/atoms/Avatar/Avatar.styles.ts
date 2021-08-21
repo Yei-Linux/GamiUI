@@ -1,19 +1,28 @@
 import styled from '@emotion/styled'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import { BorderType, FontWeightType, ShadowType } from 'core/domain/types'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { sizes } from 'styles/tokens/sizes'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const AvatarWrapper = styled.div<{
-  background?: string
-  border?: string
-  shadow?: string
-  fontWeight?: string
+export const Avatar = styled.div<{
+  $background?: string
+  $border?: BorderType
+  $shadow?: ShadowType
+  $fontWeight?: FontWeightType
 }>`
-  width: 40px;
-  height: 40px;
-  background: ${(props) => props.background};
+  width: ${sizes.avatar.width};
+  height: ${sizes.avatar.height};
+
+  background: ${({ $background }) => $background};
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  ${(props: any) => twinStyles(props)};
+
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
+
+  ${({ $border, $shadow, $fontWeight }) =>
+    setGenericPropStyles({
+      border: $border || 'ROUNDED',
+      shadow: $shadow,
+      fontWeight: $fontWeight || 'BOLD',
+      textAlign: 'CENTER',
+    })};
 `

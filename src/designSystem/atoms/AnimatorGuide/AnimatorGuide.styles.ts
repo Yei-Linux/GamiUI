@@ -1,15 +1,19 @@
 import styled from '@emotion/styled'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import { BorderType, ShadowType } from 'core/domain/types'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { IGuide } from './constants'
 
 export const AnimatorGuideImg = styled.div<{
-  imageProps: any
-  border?: string
-  shadow?: string
+  $imageProps: IGuide
+  $border?: BorderType
+  $shadow?: ShadowType
 }>`
-  width: ${(props) => props.imageProps.dimensions.width};
-  height: ${(props) => props.imageProps.dimensions.height};
-  background: ${(props) =>
-    `url(${props.imageProps.source}) ${props.imageProps.position.x} ${props.imageProps.position.y}`};
+  width: ${({ $imageProps: { dimensions } }) => dimensions.width};
+  height: ${({ $imageProps: { dimensions } }) => dimensions.height};
 
-  ${(props: any) => twinStyles(props)};
+  background: ${({ $imageProps: { source, position } }) =>
+    `url(${source}) ${position.x} ${position.y}`};
+
+  ${({ $border, $shadow }) =>
+    setGenericPropStyles({ border: $border, shadow: $shadow })};
 `

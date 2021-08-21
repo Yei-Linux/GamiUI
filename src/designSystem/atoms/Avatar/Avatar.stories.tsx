@@ -7,7 +7,7 @@ import Icon from '../Icon'
 export default {
   title: 'Atoms/Avatar',
   component: Avatar,
-  args: { ...Avatar.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

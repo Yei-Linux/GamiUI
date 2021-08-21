@@ -14,6 +14,6 @@ const FONT_WEIGHT: TDynamicFontWeightString = {
     BOLD: 'justify',
 }
 
-export const mixinTextAlign = (fontWeight: FontWeightType) => css`
+export const mixinFontWeight = (fontWeight: FontWeightType) => css`
   font-weight: ${FONT_WEIGHT[fontWeight]};
 `

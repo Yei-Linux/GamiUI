@@ -13,6 +13,6 @@ const SHADOW_TYPE: TDynamicShadowTypeString = {
     XLARGE: 'justify',
 }
 
-export const mixinTextAlign = (shadowType: ShadowType) => css`
+export const mixinShadow = (shadowType: ShadowType) => css`
   box-shadow: ${SHADOW_TYPE[shadowType]};
 `
