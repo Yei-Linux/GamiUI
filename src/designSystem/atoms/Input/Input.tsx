@@ -14,17 +14,17 @@ export interface IInput extends IGeneralProps {
   /**
    * Value Input
    */
-  value?: any
+  value?: string
   /**
    * Prefix Content Input
    */
-  prefix?: any
+  prefix?: React.ReactNode
   /**
    * Prefix Position
    */
   positionPrefix?: 'left' | 'right'
   /**
-   * Prefix Position
+   * Input Type
    */
   type?: 'password' | 'input'
   /**
@@ -34,11 +34,11 @@ export interface IInput extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: (value: any, ...props: any) => any
+  onChangeFormItem?: (value: unknown, ...props: unknown[]) => unknown | void
   /**
    * Is Readonly input
    */
-  readOnly?: any
+  readOnly?: boolean
 }
 
 const Text = ({ onChangeFormItem, ...args }: any) => (

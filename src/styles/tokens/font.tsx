@@ -21,4 +21,10 @@ export const font = {
     lg: '1.8rem',
     xl: '2.2rem',
   },
+  textAlign: {
+    left: 'left',
+    center: 'center',
+    right: 'right',
+    justify: 'justify',
+  },
 }

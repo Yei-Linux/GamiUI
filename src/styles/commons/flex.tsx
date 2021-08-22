@@ -41,7 +41,7 @@ const flexWrap = css`
   }
 `
 
-export const flex = css`
+export const flex = () => css`
   ${flexAlignItems}
   ${flexJustifyContent}
   ${flexWrap}

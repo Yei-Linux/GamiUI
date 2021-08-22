@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { themeTypes } from '../../../styles/utilities/color'
+import { themeTypes } from '../../../styles/mixins/componentsTypes'
 
 export const FeaturedCardWrapper = styled.div<{ themeType: string , minWidth: string}>`
   width: 100%;

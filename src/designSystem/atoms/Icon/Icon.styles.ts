@@ -1,17 +1,30 @@
 import styled from '@emotion/styled'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import { BorderType, ShadowType } from 'core/domain/types'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { spacing } from 'styles/tokens'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const IconWrapper = styled.i<{
-  border?: string
-  shadow?: string
+export const Icon = styled.i<{
+  $border?: BorderType
+  $shadow?: ShadowType
 }>`
-  border: none;
   outline: none;
-  cursor: pointer;
   appearance: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: ${spacing.border.none};
 
-  ${(props: any) => twinStyles(props)};
+  &.hoverIcon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+
+  ${({ $border, $shadow }) =>
+    setGenericPropStyles({
+      border: $border || 'md',
+      shadow: $shadow || 'md',
+    })};
 `
+
+export const Svg = styled.svg``

@@ -6,7 +6,7 @@ import Empty from '.'
 export default {
   title: 'Atoms/Empty',
   component: Empty,
-  args: { ...Empty.defaultProps },
+  args: {  },
   argTypes: {},
 } as Meta
 

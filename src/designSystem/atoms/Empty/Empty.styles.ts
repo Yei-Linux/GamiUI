@@ -1,5 +1,12 @@
 import styled from '@emotion/styled'
+import { mixinDescription } from 'styles/mixins/fonts'
+import { mixinWidth } from 'styles/mixins/width'
+import RichText from '../RichText'
 
-export const EmptyWrapper = styled.div`
-  width: 100%;
+export const Empty = styled.div`
+  ${mixinWidth('full')}
+`
+
+export const Text = styled(RichText)`
+  ${mixinDescription('light')}
 `

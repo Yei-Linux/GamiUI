@@ -1,3 +1,7 @@
+export const iconsEmpty = {
+  balloon: "drawkit__empty"
+}
+
 export const options = {
-  type: [] as const,
+  type: ["balloon"] as const,
 }

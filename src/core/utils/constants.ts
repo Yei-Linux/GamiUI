@@ -1,19 +1,21 @@
-export const options = {
-  width: ['NONE', 'SMALL', 'NORMAL', 'MEDIUM', 'LARGE', 'FULL'] as const,
-  height: ['NONE', 'SMALL', 'NORMAL', 'MEDIUM', 'LARGE', 'FULL'] as const,
-  border: ['NONE', 'SMALL', 'MEDIUM', 'LARGE', 'ROUNDED', 'FULL'] as const,
-  shadow: ['NONE', 'SMALL', 'MEDIUM', 'LARGE', 'XLARGE'] as const,
-  textAlign: ['LEFT', 'CENTER', 'RIGHT', 'JUSTIFY'] as const,
+export const DESIGN_TYPES = {
+  width: ['auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
+  height: ['auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
+  border: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
+  shadow: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
+  textAlign: ['left', 'center', 'right', 'justify'] as const,
   fontWeight: [
-    'EXTRALIGHT',
-    'LIGHT',
-    'NORMAL',
-    'MEDIUM',
-    'SEMIBOLD',
-    'BOLD',
+    'light',
+    'normal',
+    'medium',
+    'semibold',
+    'bold',
+    'extrabold',
+    'black',
   ] as const,
 }
 
 export const REGEX_RULES = {
   CATCH_FIRST_LETTERS: /\b(\w)/g,
+  FIND_CAPITAL_LETTERS: /(?=[A-Z])/,
 }

@@ -114,6 +114,8 @@ export const codeOptions = {
   wrappingIndent: 'none',
 }
 
+export const codeTheme = 'myTheme'
+
 export const options = {
   type: [] as const,
 }

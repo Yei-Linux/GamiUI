@@ -1,6 +1,6 @@
 export const spacing = {
   padding: {
-    none: '0',
+    none: '0px',
     xs: '.25rem',
     sm: '.5rem',
     md: '1rem',
@@ -8,7 +8,7 @@ export const spacing = {
     xl: '4rem',
   },
   margin: {
-    none: '0',
+    none: '0px',
     xs: '.25rem',
     sm: '.5rem',
     md: '1rem',
@@ -16,7 +16,7 @@ export const spacing = {
     xl: '4rem',
   },
   border: {
-    none: '0',
+    none: '0px',
     xs: '.25rem',
     sm: '.5rem',
     md: '1rem',

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { themeTypes } from '../../../styles/utilities/color'
+import { themeTypes } from '../../../styles/mixins/componentsTypes'
 import { twinStyles } from '../../../styles/utilities/twinStyles'
 
 export const RichTextLink = styled.a<{

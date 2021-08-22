@@ -2,10 +2,9 @@ import { css } from '@emotion/react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
 import { mixinBorder } from 'styles/mixins/border'
-import { mixinFontWeight } from 'styles/mixins/fontWeight'
+import { mixinFontWeight, mixinTextAlign } from 'styles/mixins/fonts'
 import { mixinHeight } from 'styles/mixins/height'
 import { mixinShadow } from 'styles/mixins/shadow'
-import { mixinTextAlign } from 'styles/mixins/textAlign'
 import { mixinWidth } from 'styles/mixins/width'
 
 export const setGenericPropStyles = ({

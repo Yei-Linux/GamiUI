@@ -1,4 +1,22 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import { IImagePropStyles } from './Image'
+
+const imagePropsStyles = ({
+  width,
+  height,
+  maxWidth,
+  minWidth,
+  maxHeight,
+  minHeight,
+}: IImagePropStyles) => css`
+  width: ${width};
+  height: ${height};
+  max-width: ${maxWidth};
+  min-width: ${minWidth};
+  max-height: ${maxHeight};
+  min-height: ${minHeight};
+`
 
 export const Img = styled.img<{
   maxWidth?: string
@@ -8,12 +26,15 @@ export const Img = styled.img<{
   width?: string
   height?: string
 }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  max-width: ${(props) => props.maxWidth};
-  min-width: ${(props) => props.minWidth};
-  max-height: ${(props) => props.maxHeight};
-  min-height: ${(props) => props.minHeight};
+  ${({ maxHeight, maxWidth, minHeight, minWidth, width, height }) =>
+    imagePropsStyles({
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+      width,
+      height,
+    })};
 `
 
 export const BackgroundImg = styled.div<{
@@ -26,14 +47,18 @@ export const BackgroundImg = styled.div<{
   height?: string
   backgroundSize?: 'cover' | 'contain'
 }>`
-  background-image: url(${(props) => props.src});
-  background-size: ${props => props.backgroundSize};
   background-repeat: no-repeat;
   background-position: center center;
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  max-width: ${(props) => props.maxWidth};
-  min-width: ${(props) => props.minWidth};
-  max-height: ${(props) => props.maxHeight};
-  min-height: ${(props) => props.minHeight};
+  background-image: url(${({ src }) => src});
+  background-size: ${({ backgroundSize }) => backgroundSize};
+
+  ${({ maxHeight, maxWidth, minHeight, minWidth, width, height }) =>
+    imagePropsStyles({
+      maxHeight,
+      maxWidth,
+      minHeight,
+      minWidth,
+      width,
+      height,
+    })};
 `

@@ -1,6 +1,5 @@
 import React from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { colorLight } from 'styles/theme'
 import Image from '../Image'
 import * as S from './Avatar.styles'
 
@@ -31,7 +30,7 @@ const Avatar = ({
   src,
   icon,
   text,
-  background = colorLight.neutral.three,
+  background,
   ...genericsProps
 }: IAvatar) => {
   const showOnlyFirstLettersOnText = (text: string): string => {

@@ -1,24 +1,40 @@
+import { EmptyTypes } from 'core/domain/types'
 import React from 'react'
 import Row from '../../layouts/Row'
 import Icon from '../Icon'
-import { EmptyWrapper } from './Empty.styles'
+import { iconsEmpty } from './constants'
+import * as S from './Empty.styles'
 
 export interface IEmpty {
-  size?: any
+  /**
+   * Size of empty
+   */
+  size?: string
+
+  /**
+   * Empty Text
+   */
+  text?: string
+
+  /**
+   * Empty Icon Type
+   */
+  type?: EmptyTypes
 }
 
-const Empty = ({ size }: IEmpty) => {
+const Empty = ({ size = '150px', text, type = 'balloon' }: IEmpty) => {
   return (
-    <EmptyWrapper>
+    <S.Empty>
       <Row>
-        <Icon name="drawkit__empty" size={size} />
+        <Icon name={iconsEmpty[type]} size={size} />
       </Row>
-    </EmptyWrapper>
+      {text && (
+        <Row>
+          <S.Text text={text} />
+        </Row>
+      )}
+    </S.Empty>
   )
-}
-
-Empty.defaultProps = {
-  size: '150px',
 }
 
 export default Empty
