@@ -10,7 +10,7 @@ const Template = getTemplate(Input)
 export default {
   title: 'Atoms/Input',
   component: Input,
-  args: { ...Input.defaultProps },
+  args: { },
   argTypes: {
     positionPrefix: {
       control: 'select',
@@ -38,15 +38,15 @@ export default {
 export const BasicInput = Template.bind({})
 BasicInput.args = {
   placeholder: 'Type your name',
-  width: 'NORMAL',
-  heigth: 'SMALL',
+  width: 'auto',
+  heigth: 'sm',
   prefix: null,
 }
 
 export const IconInput = Template.bind({})
 IconInput.args = {
   placeholder: 'Type your name',
-  width: 'NORMAL',
-  heigth: 'SMALL',
+  width: 'auto',
+  heigth: 'sm',
   prefix: <Icon fill="#374a54" />,
 }

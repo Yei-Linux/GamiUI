@@ -31,7 +31,7 @@ interface IPulser extends IGeneralProps {
   /**
    * Progress Text
    */
-  progress: string
+  progressText: string
   /**
    * Background color
    */
@@ -43,7 +43,7 @@ const Pulser = ({
   isActive,
   isBloqued,
   borderColor,
-  progress,
+  progressText,
   backgroundColor,
   style,
   ...args
@@ -69,7 +69,7 @@ const Pulser = ({
           </PulseLock>
         )}
       </PulseWrapper>
-      <PulseProgress>{progress}</PulseProgress>
+      <PulseProgress>{progressText}</PulseProgress>
     </Pulse>
   )
 }

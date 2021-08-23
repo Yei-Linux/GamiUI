@@ -6,7 +6,7 @@ import Question from '.'
 export default {
   title: 'Atoms/Question',
   component: Question,
-  args: { ...Question.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

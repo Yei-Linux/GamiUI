@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
-import { mixinBorder } from 'styles/mixins/border'
+import { mixinBorderRadius } from 'styles/mixins/border'
 import { mixinFontWeight, mixinTextAlign } from 'styles/mixins/fonts'
 import { mixinHeight } from 'styles/mixins/height'
 import { mixinShadow } from 'styles/mixins/shadow'
@@ -16,7 +16,7 @@ export const setGenericPropStyles = ({
   fontWeight,
 }: IGenericPropStyles) => css`
   ${shadow && mixinShadow(shadow)}
-  ${border && mixinBorder(border)}
+  ${border && mixinBorderRadius(border)}
     ${width && mixinWidth(width)}
     ${heigth && mixinHeight(heigth)}
     ${textAlign && mixinTextAlign(textAlign)}
@@ -50,7 +50,7 @@ export const getGenericPropStyles = ({
   if (heigth) propStyles['$heigth'] = heigth
   if (textAlign) propStyles['$textAlign'] = textAlign
   if (fontWeight) propStyles['$fontWeight'] = fontWeight
-  
+
   if (style) propStyles['style'] = style
   if (className) propStyles['className'] = className
 

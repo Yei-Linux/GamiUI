@@ -2,13 +2,13 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import Options from '.'
-import { colorLight } from '../../../styles/theme'
-import { SAMPLE_CODE } from '../../molecules/Survey/constants'
+import { SAMPLE_CODE } from '../Survey/constants'
+import { theme } from 'styles/tokens'
 
 export default {
-  title: 'Atoms/Options',
+  title: 'Molecules/Options',
   component: Options,
-  args: { ...Options.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -21,7 +21,7 @@ Basic.args = {
       value: 'one',
       icon: {
         name: 'facebook',
-        fill: colorLight.primary.one,
+        fill: theme.light.primary.jordyBlue,
       },
     },
     {
@@ -29,7 +29,7 @@ Basic.args = {
       value: 'two',
       icon: {
         name: 'facebook',
-        fill: colorLight.primary.one,
+        fill: theme.light.primary.jordyBlue,
       },
     },
     {
@@ -37,7 +37,7 @@ Basic.args = {
       value: 'three',
       icon: {
         name: 'facebook',
-        fill: colorLight.primary.one,
+        fill: theme.light.primary.jordyBlue,
       },
     },
   ],

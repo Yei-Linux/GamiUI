@@ -7,7 +7,7 @@ import Row from '../../layouts/Row'
 export default {
   title: 'Atoms/ProgressBar',
   component: ProgressBar,
-  args: { ...ProgressBar.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

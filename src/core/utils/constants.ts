@@ -18,4 +18,5 @@ export const DESIGN_TYPES = {
 export const REGEX_RULES = {
   CATCH_FIRST_LETTERS: /\b(\w)/g,
   FIND_CAPITAL_LETTERS: /(?=[A-Z])/,
+  ONLY_NUMBERS: /^[0-9]+$/,
 }

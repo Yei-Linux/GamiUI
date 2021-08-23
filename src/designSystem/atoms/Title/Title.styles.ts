@@ -1,19 +1,26 @@
 import styled from '@emotion/styled'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import {
+  FontWeightType,
+  HeightType,
+  ShadowType,
+  TextAlignType,
+  WidthType,
+} from 'core/domain/types'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const TitleWrapper = styled.div<{
-  shadow?: string
-  width?: string
-  heigth?: string
-  textAlign?: string
-  fontWeight?: string
+export const Title = styled.div<{
+  $shadow?: ShadowType
+  $width?: WidthType
+  $heigth?: HeightType
+  $textAlign?: TextAlignType
+  $fontWeight?: FontWeightType
 }>`
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    ${(props: any) => twinStyles(props)};
-  }
+  ${({ $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
+    setGenericPropStyles({
+      shadow: $shadow || 'md',
+      width: $width || 'xs',
+      heigth: $heigth || 'xs',
+      fontWeight: $fontWeight,
+      textAlign: $textAlign,
+    })};
 `

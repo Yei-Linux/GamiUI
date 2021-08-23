@@ -6,20 +6,22 @@ import { IconsPack } from './constants'
 import * as S from './Icon.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-interface IIcon extends IGeneralProps {
+export interface IOnlyIcon {
   /**
    * Fill Icon
    */
-  fill: string
+  fill?: string
   /**
    * Name
    */
-  name: IconNames
+  name?: IconNames
   /**
    * Size icon
    */
-  size: string
+  size?: string
 }
+
+interface IIcon extends IOnlyIcon, IGeneralProps {}
 
 const Icon = ({
   fill = 'none',
@@ -34,9 +36,12 @@ const Icon = ({
   }, [name])
 
   return (
-    <S.Icon className={classNames({
-      "hoverIcon": [genericsProps.onClick]
-    })} {...getGenericPropStyles(genericsProps)}>
+    <S.Icon
+      className={classNames({
+        hoverIcon: [genericsProps.onClick],
+      })}
+      {...getGenericPropStyles(genericsProps)}
+    >
       <S.Svg fill={fill} width={size} height={size} viewBox={icon.viewBox}>
         {icon.svg}
       </S.Svg>

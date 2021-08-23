@@ -1,32 +1,48 @@
 import React from 'react'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import { LinkType } from '../../../core/domain/types'
-import { RichTextLink } from './Link.styles'
+import * as S from './Link.styles'
 
 export interface ILink extends IGeneralProps {
+  /**
+   * Text Link
+   */
   text: string
+
+  /**
+   * Url
+   */
   href: string
-  type: LinkType
-  isExternal: boolean
+
+  /**
+   * Link Type
+   */
+  type?: LinkType
+
+  /**
+   * Is External
+   */
+  isExternal?: boolean
 }
 
-const Link = ({ text, href, type, isExternal, width, heigth }: ILink) => {
+const Link = ({
+  text,
+  href,
+  type = 'secondary',
+  isExternal = false,
+  ...genericsProps
+}: ILink) => {
   return (
-    <RichTextLink
-      width={width}
-      heigth={heigth}
+    <S.Link
       href={href}
       target={isExternal ? '_blank' : '_self'}
-      typeStyle={type}
+      $linkType={type}
+      {...getGenericPropStyles(genericsProps)}
     >
       {text}
-    </RichTextLink>
+    </S.Link>
   )
-}
-
-Link.defaultProps = {
-  type: 'secondary',
-  isExternal: false,
 }
 
 export default Link

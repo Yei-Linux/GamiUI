@@ -20,9 +20,9 @@ export const Avatar = styled.div<{
 
   ${({ $border, $shadow, $fontWeight }) =>
     setGenericPropStyles({
-      border: $border || 'ROUNDED',
+      border: $border || 'full',
       shadow: $shadow,
-      fontWeight: $fontWeight || 'BOLD',
-      textAlign: 'CENTER',
+      fontWeight: $fontWeight || 'bold',
+      textAlign: 'center',
     })};
 `

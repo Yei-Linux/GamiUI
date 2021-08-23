@@ -1,6 +1,6 @@
 import React from 'react'
 import SunEditor from 'suneditor-react'
-import { TextEditorWrapper } from './TextEditor.styles'
+import * as S from './TextEditor.styles'
 import ReactDOMServer from 'react-dom/server'
 import Icon from '../Icon'
 
@@ -20,7 +20,7 @@ const TextEditor = ({
   onChange,
 }: ITextEditor) => {
   return (
-    <TextEditorWrapper>
+    <S.TextEditorLib>
       <SunEditor
         placeholder={placeholder}
         lang="es"
@@ -65,7 +65,7 @@ const TextEditor = ({
           ],
         }}
       />
-    </TextEditorWrapper>
+    </S.TextEditorLib>
   )
 }
 

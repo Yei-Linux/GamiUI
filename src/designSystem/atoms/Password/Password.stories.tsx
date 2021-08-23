@@ -1,6 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import {
+  getTemplate,
+  stylesControl,
+} from '../../../core/helpers/storybook.helper'
 
 import Password from '.'
 import Icon from '../Icon'
@@ -10,7 +13,7 @@ const Template = getTemplate(Password)
 export default {
   title: 'Atoms/Password',
   component: Password,
-  args: { ...Password.defaultProps },
+  args: {},
   argTypes: {
     positionPrefix: {
       control: 'select',

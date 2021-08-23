@@ -1,8 +1,12 @@
+import classNames from 'classnames'
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { MessageWrapper } from './Message.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import * as S from './Message.styles'
 
-export interface MessageProps extends IGeneralProps {
+export type TDirection = 'left' | 'right'
+
+export interface IMessage extends IGeneralProps {
   /**
    * Message Text
    */
@@ -10,7 +14,7 @@ export interface MessageProps extends IGeneralProps {
   /**
    * Message Direction
    */
-  direction: 'left' | 'right'
+  direction: TDirection
   /**
    * Background
    */
@@ -19,12 +23,10 @@ export interface MessageProps extends IGeneralProps {
    * Has Marker
    */
   hasMarker?: boolean
-
   /**
    * Color
    */
   color: string
-
   /**
    * Max Width
    */
@@ -32,33 +34,28 @@ export interface MessageProps extends IGeneralProps {
 }
 
 const Message = ({
-  text,
-  direction,
+  text = 'Hi, Welcome to our app',
+  direction = 'left',
   background,
-  hasMarker,
+  hasMarker = true,
   color,
-  maxWidth,
-  ...args
-}: MessageProps) => (
-  <MessageWrapper
-    color={color}
-    maxWidth={maxWidth}
-    background={background}
-    hasMarker={hasMarker}
-    direction={direction}
-    {...args}
+  maxWidth = '250px',
+  ...genericsProps
+}: IMessage) => (
+  <S.Message
+    $direction={direction}
+    $background={background}
+    $color={color}
+    $maxWidth={maxWidth}
+    className={classNames({
+      marker: hasMarker,
+      directionLeft: hasMarker && direction == 'left',
+      directionRight: hasMarker && direction == 'right',
+    })}
+    {...getGenericPropStyles(genericsProps)}
   >
     {text}
-  </MessageWrapper>
+  </S.Message>
 )
-
-Message.defaultProps = {
-  text: 'Hola Bienvenido a nuestra app!',
-  direction: 'left',
-  background: '#7868e6',
-  hasMarker: true,
-  color: 'white',
-  maxWidth: '250px',
-}
 
 export default Message

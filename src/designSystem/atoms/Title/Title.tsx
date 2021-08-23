@@ -1,25 +1,26 @@
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { TitleWrapper } from './Title.styles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import * as S from './Title.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export interface ITitle extends IGeneralProps {
+  /**
+   * Tag Title
+   */
   level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+
+  /**
+   * Title Text Content
+   */
   children: React.ReactNode
 }
 
-const Title = ({ level, children, style, onClick, ...props }: ITitle) => {
-  const Component = level as any
+const Title = ({ level = 'h1', children, ...genericsProps }: ITitle) => {
   return (
-    <TitleWrapper {...props}>
-      <Component style={style} onClick={onClick}>
-        {children}
-      </Component>
-    </TitleWrapper>
+    <S.Title as={level} {...getGenericPropStyles(genericsProps)}>
+      {children}
+    </S.Title>
   )
-}
-
-Title.defaultProps = {
-  level: 'h1',
 }
 
 export default Title

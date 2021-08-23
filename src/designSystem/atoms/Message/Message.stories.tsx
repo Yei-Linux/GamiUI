@@ -1,5 +1,8 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import {
+  getTemplate,
+  stylesControl,
+} from 'core/helpers/storybook.helper'
 
 import Message from '.'
 
@@ -8,7 +11,7 @@ const Template = getTemplate(Message)
 export default {
   title: 'Atoms/Message',
   component: Message,
-  args: { ...Message.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },
@@ -16,13 +19,13 @@ export default {
 
 export const BasicMessageLeft = Template.bind({})
 BasicMessageLeft.args = {
-  width: 'NORMAL',
-  shadow: '',
+  width: 'auto',
+  shadow: 'none',
 }
 
 export const BasicMessageRight = Template.bind({})
 BasicMessageRight.args = {
-  width: 'NORMAL',
+  width: 'auto',
   direction: 'right',
-  shadow: '',
+  shadow: 'none',
 }

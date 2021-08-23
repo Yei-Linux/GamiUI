@@ -9,15 +9,23 @@ type TJustifyContent =
 type TAlignItems = 'center' | 'flex-start' | 'flex-end'
 
 interface IMixinFlexVariant {
-  justifyContent: TJustifyContent
-  alignItems: TAlignItems
+  justifyContent?: TJustifyContent | null
+  alignItems?: TAlignItems | null
 }
 
 export const mixinFlexVariants = ({
-  justifyContent,
-  alignItems,
+  justifyContent = null,
+  alignItems = null,
 }: IMixinFlexVariant) => css`
   display: flex;
-  justify-content: ${justifyContent};
-  align-items: ${alignItems};
+
+  ${justifyContent &&
+  css`
+    justify-content: ${justifyContent};
+  `}
+
+  ${alignItems &&
+  css`
+    align-items: ${alignItems};
+  `}
 `

@@ -6,7 +6,7 @@ import Mask from '.'
 export default {
   title: 'Atoms/Mask',
   component: Mask,
-  args: { ...Mask.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

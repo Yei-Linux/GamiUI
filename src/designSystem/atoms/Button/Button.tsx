@@ -2,6 +2,7 @@ import React from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { ButtonType } from 'core/domain/types'
 import * as S from './Button.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export type TButton = 'button' | 'reset' | 'submit'
 
@@ -13,7 +14,7 @@ export interface IButton extends IGeneralProps {
   /**
    * Button Variant
    */
-  variant: ButtonType
+  variant?: ButtonType
   /**
    * Button Preffix
    */
@@ -32,7 +33,11 @@ const Button = ({
   ...genericsProps
 }: IButton) => {
   return (
-    <S.Button {...genericsProps} $variant={variant} type={type}>
+    <S.Button
+      {...getGenericPropStyles(genericsProps)}
+      $variant={variant}
+      type={type}
+    >
       {preffix}
       {children}
     </S.Button>

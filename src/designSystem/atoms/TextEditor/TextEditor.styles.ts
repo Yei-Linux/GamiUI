@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { typography } from '../../../styles/theme'
 
-export const TextEditorWrapper = styled.div`
+export const TextEditorLib = styled.div`
   .sun-editor .se-selector-table .se-table-size-highlighted {
     position: absolute !important;
     z-index: 2;

@@ -1,31 +1,23 @@
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
+import { mixinFontWeight } from 'styles/mixins/fonts'
+import { mixinScroll } from 'styles/mixins/scroll'
+import { sizes, spacing, theme } from 'styles/tokens'
 
-export const OptionsWrapper = styled.div`
-  width: 100%;
+export const Options = styled.div`
+  width: ${sizes.width.full};
 `
 
-export const QuestionCodeContainer = styled.div`
+export const QuestionCode = styled.div`
   box-sizing: border-box;
-  width: 100%;
-  outline-offset: -1px;
-  background-color: #fff;
-  padding: 1rem;
-  height: 550px;
+  background-color: ${theme.light.neutral[800]};
   overflow: auto;
 
-  &::-webkit-scrollbar {
-    width: 12px;
-  }
+  padding: ${spacing.padding.md};
 
-  &::-webkit-scrollbar-track {
-    background: #ffffff8a;
-  }
+  width: ${sizes.width.full};
+  height: 550px;
 
-  &::-webkit-scrollbar-thumb {
-    background-color: ${colorLight.primary.oneLight};
-    border-radius: 20px;
-  }
+  ${mixinScroll('light')}
 
   a,
   abbr,
@@ -142,28 +134,25 @@ export const QuestionCodeContainer = styled.div`
 
   b,
   strong {
-    font-weight: bolder;
+    ${mixinFontWeight('bold')}
   }
 `
 
-export const CodeContainer = styled.div`
-  height: 100%;
+export const Code = styled.div`
+  height: ${sizes.height.full};
 `
 
-export const CodeHeader = styled.div`
-  width: 100%;
-  padding: 1rem;
-  color: ${colorLight.neutral.two};
-  background-color: ${colorLight.neutral.seven};
+const CodeBlockLayout = styled.div`
+  width: ${sizes.width.full};
+  padding: ${spacing.padding.md};
+
+  color: ${theme.light.neutral[200]};
+  background-color: ${theme.light.neutral[700]};
+
   border-top-left-radius: 0.8em;
   border-top-right-radius: 0.8em;
 `
 
-export const CodeFooter = styled.div`
-  width: 100%;
-  padding: 1rem;
-  color: ${colorLight.neutral.two};
-  background-color: ${colorLight.neutral.seven};
-  border-bottom-left-radius: 0.8em;
-  border-bottom-right-radius: 0.8em;
-`
+export const CodeHeader = styled(CodeBlockLayout)``
+
+export const CodeFooter = styled(CodeBlockLayout)``

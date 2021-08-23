@@ -1,7 +1,7 @@
 import React from 'react'
 import useSurveyStore from '../../../hooks/store/useSurveyStore'
 import Button from '../../atoms/Button'
-import Options, { IOptions } from '../../atoms/Options/Options'
+import Options, { IOptions } from '../Options/Options'
 import Question, { IQuestion } from '../../atoms/Question/Question'
 import Col from '../../layouts/Col'
 import Layout from '../../layouts/Layout'
