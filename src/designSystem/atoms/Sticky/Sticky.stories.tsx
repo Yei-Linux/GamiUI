@@ -6,7 +6,7 @@ import Sticky from '.'
 export default {
   title: 'Atoms/Sticky',
   component: Sticky,
-  args: { ...Sticky.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

@@ -1,28 +1,40 @@
 import styled from '@emotion/styled'
 import {
-  inputBasicStyle,
-  inputGeneralStyle,
-} from '../../../styles/utilities/input'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+  BorderType,
+  FontWeightType,
+  HeightType,
+  ShadowType,
+  TextAlignType,
+  WidthType,
+} from 'core/domain/types'
+import { mixinInput } from 'styles/mixins/input'
+import { spacing } from 'styles/tokens'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const TextAreaWrapper = styled.textarea<{
-  border?: string
-  shadow?: string
-  width?: string
-  heigth?: string
-  textAlign?: string
-  fontWeight?: string
+export const TextArea = styled.textarea<{
+  $border?: BorderType
+  $shadow?: ShadowType
+  $width?: WidthType
+  $heigth?: HeightType
+  $textAlign?: TextAlignType
+  $fontWeight?: FontWeightType
 }>`
-  margin: 0px;
   height: 69px;
   min-height: 75px;
   max-height: 225px;
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  padding-top: 1rem;
 
-  ${inputBasicStyle()};
-  ${inputGeneralStyle()};
-  ${(props: any) => twinStyles(props)};
+  margin: ${spacing.margin.none};
+  padding-top: ${spacing.padding.md};
+
+  ${mixinInput('light')};
+
+  ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
+    setGenericPropStyles({
+      border: $border || 'lg',
+      shadow: $shadow || 'sm',
+      width: $width || 'auto',
+      heigth: $heigth || 'sm',
+      fontWeight: $fontWeight,
+      textAlign: $textAlign,
+    })};
 `

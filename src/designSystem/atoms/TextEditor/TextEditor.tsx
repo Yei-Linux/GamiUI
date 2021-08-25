@@ -7,18 +7,33 @@ import Icon from '../Icon'
 export type IOnChange = (content: string) => void
 
 export interface ITextEditor {
+  /**
+   * Placeholder on editor
+   */
   placeholder?: string
+  /**
+   * Height on editor
+   */
   height?: string
+  /**
+   * Default value
+   */
   defaultValue?: string
+  /**
+   * On change event
+   */
   onChange: IOnChange
 }
 
 const TextEditor = ({
-  placeholder,
-  height,
-  defaultValue,
+  placeholder = 'Type your note here',
+  height = '300px',
+  defaultValue = '',
   onChange,
 }: ITextEditor) => {
+  const getStringIconOfToolbar = (iconId: string): string =>
+    ReactDOMServer.renderToString(<Icon size="30px" name={iconId} />)
+
   return (
     <S.TextEditorLib>
       <SunEditor
@@ -30,33 +45,15 @@ const TextEditor = ({
         hideToolbar={false}
         setOptions={{
           icons: {
-            undo: ReactDOMServer.renderToString(
-              <Icon size="30px" name="undo" />
-            ),
-            redo: ReactDOMServer.renderToString(
-              <Icon size="30px" name="redo" />
-            ),
-            blockquote: ReactDOMServer.renderToString(
-              <Icon size="30px" name="quote" />
-            ),
-            bold: ReactDOMServer.renderToString(
-              <Icon size="30px" name="bold" />
-            ),
-            underline: ReactDOMServer.renderToString(
-              <Icon size="30px" name="underline" />
-            ),
-            italic: ReactDOMServer.renderToString(
-              <Icon size="30px" name="italic" />
-            ),
-            list_number: ReactDOMServer.renderToString(
-              <Icon size="30px" name="list" />
-            ),
-            list_dot: ReactDOMServer.renderToString(
-              <Icon size="30px" name="list" />
-            ),
-            table: ReactDOMServer.renderToString(
-              <Icon size="30px" name="table" />
-            ),
+            undo: getStringIconOfToolbar('undo'),
+            redo: getStringIconOfToolbar('redo'),
+            blockquote: getStringIconOfToolbar('quote'),
+            bold: getStringIconOfToolbar('bold'),
+            underline: getStringIconOfToolbar('underline'),
+            italic: getStringIconOfToolbar('italic'),
+            list_number: getStringIconOfToolbar('list'),
+            list_dot: getStringIconOfToolbar('list'),
+            table: getStringIconOfToolbar('table'),
           },
           buttonList: [
             ['undo', 'redo'],
@@ -67,12 +64,6 @@ const TextEditor = ({
       />
     </S.TextEditorLib>
   )
-}
-
-TextEditor.defaultProps = {
-  placeholder: 'Type your note here',
-  height: '300px',
-  defaultValue: '',
 }
 
 export default TextEditor

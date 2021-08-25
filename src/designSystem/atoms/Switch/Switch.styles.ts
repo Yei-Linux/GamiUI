@@ -1,41 +1,69 @@
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import {
+  BorderType,
+  HeightType,
+  ShadowType,
+  WidthType,
+} from 'core/domain/types'
+import { borderRadius, spacing, theme } from 'styles/tokens'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const SwitchWrapper = styled.button<{
-  isChecked?: boolean
-  border?: string
-  shadow?: string
-  width?: string
-  heigth?: string
-  textAlign?: string
-  fontWeight?: string
+export const Switch = styled.button<{
+  $border?: BorderType
+  $shadow?: ShadowType
+  $width?: WidthType
+  $heigth?: HeightType
 }>`
   position: relative;
 
-  margin: 0;
-  padding: 0px 3px;
   min-width: 44px;
   height: 22px;
-  border: 0;
-  cursor: pointer;
-  transition: all 0.2s;
+
+  margin: ${spacing.margin.none};
+  padding: 0px 3px;
+  border: ${spacing.border.none};
+
+  transition: button 0.2s;
   user-select: none;
 
-  background: ${(props: any) =>
-    props.isChecked ? colorLight.primary.one : colorLight.neutral.four};
+  &:hover {
+    cursor: pointer;
+  }
 
-  ${(props: any) => twinStyles(props)};
+  &.checked {
+    background: ${theme.light.primary.jordyBlue};
+  }
+
+  &.notChecked {
+    background: ${theme.light.neutral[400]};
+  }
+
+  ${({ $border, $shadow, $width, $heigth }) =>
+    setGenericPropStyles({
+      border: $border || 'lg',
+      shadow: $shadow || 'sm',
+      width: $width,
+      heigth: $heigth,
+    })};
 `
 
-export const SwitchBall = styled.div<{ isChecked?: boolean }>`
+export const SwitchBall = styled.div`
   position: absolute;
   top: 8%;
-  left: ${(props: any) => (props.isChecked ? 'calc(100% - 20px)' : '5%')};
 
   width: 18px;
   height: 18px;
-  border-radius: 15px;
-  transition: all 0.2s ease-in-out;
-  background: white;
+
+  border-radius: ${borderRadius.md};
+
+  background: ${theme.light.neutral[800]};
+  transition: div 0.2s ease-in-out;
+
+  &.checked {
+    left: calc(100% - 20px);
+  }
+
+  &.notChecked {
+    left: 5%;
+  }
 `

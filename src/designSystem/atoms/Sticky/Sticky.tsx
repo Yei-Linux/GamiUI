@@ -1,83 +1,95 @@
 import 'regenerator-runtime/runtime'
 import React, { Fragment, useState, useRef } from 'react'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import {
-  StickyContainer,
-  StickyHideContainer,
-  StickyHideHeader,
-  StickyItemWrapper,
-  StickyWrapper,
-} from './Sticky.styles'
+import * as S from './Sticky.styles'
 import Icon from '../Icon'
+import useToggle from 'hooks/useToggle'
+import { TUseRefDiv, TUseRefDivParams } from 'core/domain/types'
+import { timeout } from 'core/helpers/utilities.helper'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-interface StickyItem {
-  stickyContent: React.ReactNode | React.ReactNode[]
+type TStickyContentOrHidden = React.ReactNode | React.ReactNode[]
+
+interface IStickyItem {
+  /**
+   * Sticky Item Content
+   */
+  stickyContent: TStickyContentOrHidden
+  /**
+   * Has Sticky Item Hide Content
+   */
   hasHideContent: boolean
-  stickyHidden?: React.ReactNode | React.ReactNode[]
+  /**
+   * Sticky Item HideContent if has
+   */
+  stickyHidden?: TStickyContentOrHidden
 }
 
 export interface ISticky extends IGeneralProps {
-  stickyItems: StickyItem[]
+  /**
+   * Sticky Item
+   */
+  stickyItems: IStickyItem[]
 }
 
-const Sticky = ({ shadow, stickyItems }: ISticky) => {
-  const [stickyContent, setStickyContent] = useState<any>(null)
-  const refSticky: any = useRef()
-  const [isCollapse, setIsCollapse] = useState(false)
+const Sticky = ({ stickyItems, ...genericsProps }: ISticky) => {
+  const { isVisible: isCollapse, handleToggle } = useToggle({
+    defaultVisible: false,
+  })
 
-  const getWidth = (ref: any) => {
-    return `${ref?.current?.clientWidth?.toString()}px`
-  }
+  const [stickyContent, setStickyContent] =
+    useState<TStickyContentOrHidden>(null)
+  const refSticky: TUseRefDiv = useRef<TUseRefDivParams>(null)
 
-  const timeout = (t: number): Promise<any> => {
-    return new Promise((resolve, _reject) => {
-      setTimeout(resolve, t)
-    })
-  }
+  const getWidth = (ref: TUseRefDiv) =>
+    `${ref?.current?.clientWidth?.toString()}px`
 
-  const handleClick = async (item: StickyItem) => {
-    if (item?.hasHideContent) {
-      setStickyContent(item?.stickyHidden)
+  const handleClick = async ({
+    hasHideContent,
+    stickyHidden,
+  }: IStickyItem): Promise<void> => {
+    if (hasHideContent) {
+      setStickyContent(stickyHidden)
 
       await timeout(100)
 
-      setIsCollapse(true)
+      handleToggle(true)
     }
   }
 
-  const handleClose = () => setIsCollapse(false)
+  const getRightOnStickyHide = () => (!isCollapse ? '100%' : '0%')
+
+  const getRightOnSticky = () => (!isCollapse ? '0px' : getWidth(refSticky))
+
+  const handleClose = () => handleToggle(false)
 
   return (
     <Fragment>
-      <StickyHideContainer
-        shadow={shadow}
+      <S.StickyHideContainer
         ref={refSticky}
-        right={!isCollapse ? '100%' : '0%'}
+        $right={getRightOnStickyHide()}
+        {...getGenericPropStyles(genericsProps)}
       >
-        <StickyHideHeader>
+        <S.StickyHideHeader>
           <Icon fill="#7868e6" name="close" size="15px" onClick={handleClose} />
-        </StickyHideHeader>
+        </S.StickyHideHeader>
         {stickyContent}
-      </StickyHideContainer>
+      </S.StickyHideContainer>
 
-      <StickyWrapper
-        right={!isCollapse ? '0px' : getWidth(refSticky)}
-        shadow={shadow}
+      <S.Sticky
+        $right={getRightOnSticky()}
+        {...getGenericPropStyles(genericsProps)}
       >
-        <StickyContainer>
-          {stickyItems.map((item: StickyItem, index: number) => (
-            <StickyItemWrapper key={index} onClick={() => handleClick(item)}>
+        <S.StickyContainer>
+          {stickyItems.map((item: IStickyItem, index: number) => (
+            <S.StickyItem key={index} onClick={() => handleClick(item)}>
               {item.stickyContent}
-            </StickyItemWrapper>
+            </S.StickyItem>
           ))}
-        </StickyContainer>
-      </StickyWrapper>
+        </S.StickyContainer>
+      </S.Sticky>
     </Fragment>
   )
-}
-
-Sticky.defaultProps = {
-  shadow: 'MEDIUM',
 }
 
 export default Sticky

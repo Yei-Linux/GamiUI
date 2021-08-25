@@ -1,39 +1,52 @@
-import React, { useState } from 'react'
+import classNames from 'classnames'
+import useToggle from 'hooks/useToggle'
+import React from 'react'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { SwitchBall, SwitchWrapper } from './Switch.styles'
+import { TOnChangeFormItem } from '../Input/Input'
+import * as S from './Switch.styles'
 
 export interface ISwitch extends IGeneralProps {
+  /**
+   * Default checked value
+   */
   defaultChecked: boolean
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: any
+  onChangeFormItem?: TOnChangeFormItem
 }
 
-const Switch = ({ onChangeFormItem, defaultChecked, ...args }: ISwitch) => {
-  const [isChecked, setIsChecked] = useState(defaultChecked)
+const Switch = ({
+  onChangeFormItem,
+  defaultChecked,
+  ...genericsProps
+}: ISwitch) => {
+  const { isVisible: isChecked, handleToggle } = useToggle({
+    defaultVisible: defaultChecked,
+  })
 
-  const toggle = () => {
-    onChangeFormItem(!isChecked)
-    setIsChecked(!isChecked)
+  const toggleSwitch = (): void => {
+    onChangeFormItem?.(!isChecked)
+    handleToggle()
   }
 
   return (
-    <SwitchWrapper
+    <S.Switch
       type="button"
-      isChecked={isChecked}
-      {...args}
-      onClick={() => toggle()}
+      onClick={toggleSwitch}
+      className={classNames({
+        checked: isChecked,
+      })}
+      {...getGenericPropStyles(genericsProps)}
     >
-      <SwitchBall isChecked={isChecked} />
-    </SwitchWrapper>
+      <S.SwitchBall
+        className={classNames({
+          checked: isChecked,
+        })}
+      />
+    </S.Switch>
   )
-}
-
-Switch.defaultProps = {
-  defaultChecked: true,
-  border: 'ROUNDED',
-  width: 'NORMAL',
 }
 
 export default Switch

@@ -1,6 +1,20 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import { ShadowType } from 'core/domain/types'
+import { theme } from 'styles/tokens'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+
+const stickyCommon = ({ $shadow }: { $shadow: ShadowType }) => css`
+  background-color: ${theme.light.neutral[800]};
+  z-index: 2;
+  transition: all 0.3s;
+  position: fixed;
+  padding: 1rem;
+
+  ${setGenericPropStyles({
+    shadow: $shadow,
+  })};
+`
 
 export const StickyHideHeader = styled.div`
   position: absolute;
@@ -8,46 +22,35 @@ export const StickyHideHeader = styled.div`
   left: 10px;
 `
 
-export const StickyWrapper = styled.div<{ shadow?: string; right: string }>`
+export const StickyHideContainer = styled.div<{
+  $shadow?: ShadowType
+  $right: string
+}>`
+  ${({ $shadow }) => stickyCommon({ $shadow: $shadow || 'sm' })}
+
+  width: auto;
+  height: auto;
+  min-height: 200px;
+
+  padding-top: 25px;
+  top: 40%;
+  right: 0px;
+
+  transform: ${({ $right }) => `translate(${$right}, 0px)`};
+`
+
+export const Sticky = styled.div<{ $shadow?: ShadowType; $right: string }>`
+  ${({ $shadow }) => stickyCommon({ $shadow: $shadow || 'sm' })}
+
   width: min-content;
   height: min-content;
-  padding: 1rem;
-  position: fixed;
   top: 45%;
-  z-index: 2;
-  background-color: ${colorLight.neutral.nine};
-
-  right: ${(props) => props.right};
-  transition: all 0.3s;
-
-  ${(props: any) => twinStyles(props)};
 `
 
 export const StickyContainer = styled.div``
 
-export const StickyItemWrapper = styled.div`
+export const StickyItem = styled.div`
   &:hover {
     cursor: pointer;
   }
-`
-
-export const StickyHideContainer = styled.div<{
-  shadow?: string
-  right: string
-}>`
-  background-color: ${colorLight.neutral.nine};
-  z-index: 2;
-  position: relative;
-  width: auto;
-  height: auto;
-  min-height: 200px;
-  padding: 1rem;
-  padding-top: 25px;
-  position: fixed;
-  top: 40%;
-  right: 0px;
-  transition: all 0.3s;
-  transform: ${(props) => `translate(${props.right}, 0px)`};
-
-  ${(props: any) => twinStyles(props)};
 `

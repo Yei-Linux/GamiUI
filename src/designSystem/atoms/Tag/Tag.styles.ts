@@ -1,30 +1,43 @@
 import styled from '@emotion/styled'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import { BorderType, FontWeightType, ShadowType } from 'core/domain/types'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { borderRadius, spacing, theme } from 'styles/tokens'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const TagWrapper = styled.div<{
-  background?: string
-  color?: string
-  border?: string
-  shadow?: string
-  fontWeight?: string
+export const Tag = styled.div<{
+  $background?: string
+  $color?: string
+  $border?: BorderType
+  $shadow?: ShadowType
+  $fontWeight?: FontWeightType
 }>`
   padding: 5px 10px;
   width: fit-content;
-  cursor: pointer;
-  display: block;
-  display: flex;
-  align-items: center;
 
-  background: ${(props) => props.background};
-  color: ${(props) => props.color};
-  ${(props: any) => twinStyles(props)};
+  &:hover {
+    cursor: pointer;
+  }
+
+  background: ${({ $background }) => $background || theme.light.neutral[600]};
+  color: ${({ $color }) => $color || theme.light.neutral[400]};
+
+  ${mixinFlexVariants({ alignItems: 'center' })}
+
+  ${({ $border, $shadow, $fontWeight }) =>
+    setGenericPropStyles({
+      border: $border || 'lg',
+      shadow: $shadow || 'sm',
+      fontWeight: $fontWeight,
+    })};
 `
-export const BallMarker = styled.span<{ background?: string }>`
-  border-radius: 4em;
+export const BallMarker = styled.span<{ $background?: string }>`
   display: block;
+
   width: 10px;
   height: 10px;
-  margin-right: 5px;
 
-  background: ${(props) => props.background};
+  border-radius: ${borderRadius.lg};
+  margin-right: ${spacing.margin.sm};
+
+  background: ${({ $background }) => $background};
 `

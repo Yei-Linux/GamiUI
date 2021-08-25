@@ -9,6 +9,7 @@ import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCa
 import { options } from 'designSystem/atoms/Link'
 
 import { DESIGN_TYPES } from 'core/utils/constants'
+import { MutableRefObject } from 'react'
 
 export type WidthType = typeof DESIGN_TYPES.width[number]
 export type HeightType = typeof DESIGN_TYPES.height[number]
@@ -36,3 +37,6 @@ export type FeatureCardThemeTypes = typeof optionsFeatureCard.type[number]
 
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'
+
+export type TUseRefDivParams = null | HTMLDivElement
+export type TUseRefDiv = MutableRefObject<TUseRefDivParams>

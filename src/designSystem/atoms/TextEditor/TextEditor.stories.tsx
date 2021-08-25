@@ -6,7 +6,7 @@ import TextEditor from '.'
 export default {
   title: 'Atoms/TextEditor',
   component: TextEditor,
-  args: { ...TextEditor.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

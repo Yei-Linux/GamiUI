@@ -6,6 +6,8 @@ import * as S from './Input.styles'
 
 export type TPositionPrefix = 'left' | 'right'
 
+export type TOnChangeFormItem = (value: unknown, ...props: unknown[]) => unknown | void
+
 export interface IInput extends IGeneralProps {
   /**
    * Placeholder Input to show
@@ -38,7 +40,7 @@ export interface IInput extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: (value: unknown, ...props: unknown[]) => unknown | void
+  onChangeFormItem?: TOnChangeFormItem
   /**
    * Is Readonly input
    */

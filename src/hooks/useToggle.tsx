@@ -1,18 +1,19 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 interface IUseToggle {
-    defaultVisible?: boolean
+  defaultVisible?: boolean
 }
 
-const useToggle = ({defaultVisible = false}: IUseToggle) => {
-    const [isVisible, setIsVisible] = useState(defaultVisible)
+const useToggle = ({ defaultVisible = false }: IUseToggle) => {
+  const [isVisible, setIsVisible] = useState(defaultVisible)
 
-    const handleToggle = () => setIsVisible(!isVisible)
+  const handleToggle = (optionalVisible: boolean | null = null) =>
+    setIsVisible(optionalVisible ?? !isVisible)
 
-    return {
-        isVisible, 
-        handleToggle
-    }
+  return {
+    isVisible,
+    handleToggle,
+  }
 }
 
 export default useToggle

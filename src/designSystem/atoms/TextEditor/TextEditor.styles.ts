@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { typography } from '../../../styles/theme'
+import { font } from 'styles/tokens'
 
 export const TextEditorLib = styled.div`
   .sun-editor .se-selector-table .se-table-size-highlighted {
@@ -26,7 +26,7 @@ export const TextEditorLib = styled.div`
     width: auto;
     height: auto;
     box-sizing: border-box;
-    font-family: ${typography.type.main};
+    font-family: ${font.family.mali};
     color: #000;
     user-select: none;
     -o-user-select: none;
@@ -1281,7 +1281,7 @@ export const TextEditorLib = styled.div`
     max-height: 18px;
     font-size: 13px;
     font-weight: 400;
-    font-family: ${typography.type.main};
+    font-family: ${font.family.mali};
     color: #666;
     background-color: transparent;
     overflow: hidden;
@@ -1995,7 +1995,7 @@ export const TextEditorLib = styled.div`
     }
   }
   .sun-editor-editable {
-    font-family: ${typography.type.main};
+    font-family: ${font.family.mali};
     font-size: 13px;
     color: #333;
     line-height: 1.5;
@@ -2008,7 +2008,7 @@ export const TextEditorLib = styled.div`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: ${typography.type.main};
+    font-family: ${font.family.mali};
     font-size: inherit;
     color: inherit;
   }
@@ -2067,7 +2067,7 @@ export const TextEditorLib = styled.div`
     display: block;
     padding: 8px;
     margin: 0 0 10px;
-    font-family: ${typography.type.main};
+    font-family: ${font.family.mali};
     color: #666;
     line-height: 1.45;
     background-color: #f9f9f9;
@@ -2144,7 +2144,7 @@ export const TextEditorLib = styled.div`
   }
   .sun-editor-editable blockquote {
     display: block;
-    font-family: ${typography.type.main};
+    font-family: ${font.family.mali};
     font-size: inherit;
     color: #999;
     margin-block-start: 1em;
@@ -2467,7 +2467,7 @@ export const TextEditorLib = styled.div`
   }
   .sun-editor-editable .__se__t-code,
   .sun-editor .__se__t-code {
-    font-family: ${typography.type.main};
+    font-family: ${font.family.mali};
     color: #666;
     background-color: rgba(27, 31, 35, 0.05);
     border-radius: 6px;
