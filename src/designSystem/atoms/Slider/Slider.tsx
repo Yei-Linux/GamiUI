@@ -1,25 +1,11 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react'
-import { useKeenSlider } from 'keen-slider/react'
-import {
-  ArrowLeft,
-  ArrowRight,
-  Dot,
-  Dots,
-  KeenSlider,
-  SliderWrapper,
-} from './Slider.styles'
-import { colorLight } from '../../../styles/theme'
-import useDevice from '../../../hooks/useDevice'
-
-export interface SliderProps {
-  children: React.ReactNode
-  slidesPerView: ISliderPerView
-  spacing: number
-  initial: number
-  isLoop: boolean
-  vertical?: boolean
-  isAutoplay?: boolean
-}
+import React, { Fragment, useState } from 'react'
+import classNames from 'classnames'
+import KeenSlider, { useKeenSlider } from 'keen-slider/react'
+import * as S from './Slider.styles'
+import useDevice from 'hooks/useDevice'
+import useAutoplaySlider from 'hooks/useAutoplaySlider'
+import Arrows from './Arrows'
+import Dots from './Dots'
 
 interface ISliderPerView {
   phone: number
@@ -28,20 +14,57 @@ interface ISliderPerView {
   desktop: number
 }
 
+export interface ISlider {
+  /**
+   * Slider content
+   */
+  children: React.ReactNode
+  /**
+   * Sliders per layout
+   */
+  slidesPerView: ISliderPerView
+  /**
+   * Spacing beetwen item
+   */
+  spacing: number
+  /**
+   * Initial item
+   */
+  initial: number
+  /**
+   * Is Infinite
+   */
+  isLoop: boolean
+  /**
+   * Is Vertical
+   */
+  vertical?: boolean
+  /**
+   * Is Autoplay
+   */
+  isAutoplay?: boolean
+}
+
+type TKeenSlider = [React.LegacyRef<HTMLDivElement>, KeenSlider]
+
 const Slider = ({
   children,
-  slidesPerView,
-  spacing,
-  initial,
-  isLoop,
-  vertical,
-  isAutoplay,
-}: SliderProps) => {
+  slidesPerView = {
+    phone: 1,
+    tablet: 3,
+    laptop: 5,
+    desktop: 6,
+  },
+  spacing = 0,
+  initial = 0,
+  isLoop = true,
+  vertical = false,
+  isAutoplay = false,
+}: ISlider) => {
   const { device } = useDevice()
   const [pause, setPause] = useState(false)
-  const timer: any = useRef()
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [sliderRef, slider]: any = useKeenSlider({
+  const [sliderRef, slider]: TKeenSlider = useKeenSlider({
     initial,
     loop: isLoop,
     slidesPerView: device ? slidesPerView?.[device] : 1,
@@ -62,98 +85,30 @@ const Slider = ({
       setCurrentSlide(s.details().relativeSlide)
     },
   })
-
-  const handleAutoplay = () => {
-    sliderRef?.current?.addEventListener('mouseover', () => {
-      setPause(true)
-    })
-    sliderRef?.current?.addEventListener('mouseout', () => {
-      setPause(false)
-    })
-  }
-
-  const handleIntervalOnAutoplay = () => {
-    timer.current = setInterval(() => {
-      if (!pause && slider) {
-        slider.next()
-      }
-    }, 2000)
-    return () => {
-      clearInterval(timer.current)
-    }
-  }
-
-  useEffect(() => {
-    isAutoplay && handleAutoplay()
-  }, [sliderRef])
-
-  useEffect(() => {
-    if (isAutoplay) return handleIntervalOnAutoplay()
-  }, [pause, slider])
+  useAutoplaySlider({ isAutoplay, slider, sliderRef, pause, setPause })
 
   return (
     <Fragment>
-      <SliderWrapper className="slider__wrapper">
-        <KeenSlider
-          isVertical={vertical}
+      <S.Slider>
+        <S.KeenSliderLib
           ref={sliderRef}
-          className="keen-slider"
+          className={classNames('keen-slider', {
+            vertical: vertical,
+          })}
         >
           {children}
-        </KeenSlider>
-        {slider && !vertical && (
-          <>
-            <ArrowLeft
-              onClick={(e: any) => e.stopPropagation() || slider.prev()}
-              fill={
-                currentSlide === 0
-                  ? colorLight.neutral.five
-                  : colorLight.primary.one
-              }
-              name="arrowLeft"
-            />
-            <ArrowRight
-              onClick={(e: any) => e.stopPropagation() || slider.next()}
-              fill={
-                currentSlide === slider.details().size - 1
-                  ? colorLight.neutral.five
-                  : colorLight.primary.one
-              }
-              name="arrowRight"
-            />
-          </>
-        )}
-      </SliderWrapper>
+        </S.KeenSliderLib>
 
-      {slider && !vertical && (
-        <Dots className="slider__dots__wrapper">
-          {[...Array(slider.details().size).keys()].map((idx) => (
-            <Dot
-              key={idx}
-              onClick={() => {
-                slider.moveToSlideRelative(idx)
-              }}
-              isActive={currentSlide === idx}
-            />
-          ))}
-        </Dots>
-      )}
+        <Arrows
+          slider={slider}
+          vertical={vertical}
+          currentSlide={currentSlide}
+        />
+      </S.Slider>
+
+      <Dots slider={slider} vertical={vertical} currentSlide={currentSlide} />
     </Fragment>
   )
-}
-
-Slider.defaultProps = {
-  initial: 0,
-  isLoop: true,
-  slidesPerView: {
-    phone: 1,
-    tablet: 3,
-    laptop: 5,
-    desktop: 6,
-  },
-  spacing: 0,
-  vertical: false,
-  isAutoplay: false,
 }
 
 export default Slider

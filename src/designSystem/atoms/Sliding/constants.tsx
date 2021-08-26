@@ -1,4 +1,4 @@
-export type TPlacementAnimationType = 'left' | 'right' | 'top' | 'bottom'
+import { TPlacementAnimationType } from './Sliding'
 
 const positionSliding = {
   left: { axis: 'xPercent', value: -100 },

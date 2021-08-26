@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import Select from 'react-select'
-import { colorLight } from '../../../styles/theme'
+import { theme } from 'styles/tokens'
 
 export const ReactSelect = styled(Select)`
   max-width: 300px;
@@ -17,11 +17,11 @@ export const ReactSelect = styled(Select)`
   }
 
   .Select__multi-value__remove:hover {
-    background-color: ${colorLight.primary.oneLight};
-    color: ${colorLight.neutral.nine};
+    background-color: ${theme.light.primary.selago};
+    color: ${theme.light.neutral[800]};
   }
 
   .Select__placeholder {
-    color: ${colorLight.neutral.five};
+    color: ${theme.light.neutral[400]};
   }
 `

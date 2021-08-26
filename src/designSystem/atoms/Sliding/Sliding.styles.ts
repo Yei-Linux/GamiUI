@@ -1,12 +1,16 @@
 import styled from '@emotion/styled'
+import { mixinHeight } from 'styles/mixins/height'
+import { mixinWidth } from 'styles/mixins/width'
+import { zIndex } from 'styles/tokens'
 
-export const SlidingWrapper = styled.div`
+export const Sliding = styled.div`
   position: fixed;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
+
+  ${mixinWidth('full')}
+  ${mixinHeight('full')}
+  z-index: ${zIndex[5]};
 `

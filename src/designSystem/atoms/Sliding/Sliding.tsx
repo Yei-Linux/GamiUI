@@ -1,17 +1,28 @@
 import React from 'react'
-import Transition from '../../styled/Transition'
-import { SlidingTransition, TPlacementAnimationType } from './constants'
-import { SlidingWrapper } from './Sliding.styles'
+import Transition from 'designSystem/styled/Transition'
+import { SlidingTransition } from './constants'
+import * as S from './Sliding.styles'
+
+export type TPlacementAnimationType = 'left' | 'right' | 'top' | 'bottom'
 
 export interface ISliding {
+  /**
+   * Sliding Content
+   */
   children: React.ReactNode
+  /**
+   * Is to init Animation
+   */
   initAnimationToClose?: boolean
+  /**
+   * PlaceAnimation
+   */
   placementAnimation?: TPlacementAnimationType
 }
 
 const Sliding = ({
   children,
-  initAnimationToClose,
+  initAnimationToClose = false,
   placementAnimation = 'left',
 }: ISliding) => {
   return (
@@ -19,13 +30,9 @@ const Sliding = ({
       to={initAnimationToClose ? SlidingTransition(placementAnimation) : null}
       isReadyToInitAnimation={initAnimationToClose}
     >
-      <SlidingWrapper>{children}</SlidingWrapper>
+      <S.Sliding>{children}</S.Sliding>
     </Transition>
   )
-}
-
-Sliding.defaultProps = {
-  initAnimation: false,
 }
 
 export default Sliding

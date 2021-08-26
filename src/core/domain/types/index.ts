@@ -38,5 +38,10 @@ export type FeatureCardThemeTypes = typeof optionsFeatureCard.type[number]
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'
 
+export type TOnClick = React.MouseEvent
+
+export type TUseRefTimeParams = null | NodeJS.Timeout
+export type TUseRefTime = null | MutableRefObject<TUseRefTimeParams>
+
 export type TUseRefDivParams = null | HTMLDivElement
 export type TUseRefDiv = MutableRefObject<TUseRefDivParams>

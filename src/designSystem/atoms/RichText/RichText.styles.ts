@@ -1,12 +1,26 @@
 import styled from '@emotion/styled'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import {
+  FontWeightType,
+  HeightType,
+  ShadowType,
+  TextAlignType,
+  WidthType,
+} from 'core/domain/types'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const RichTextWrapper = styled.div<{
-  shadow?: string
-  width?: string
-  heigth?: string
-  textAlign?: string
-  fontWeight?: string
+export const RichText = styled.div<{
+  $shadow?: ShadowType
+  $width?: WidthType
+  $heigth?: HeightType
+  $textAlign?: TextAlignType
+  $fontWeight?: FontWeightType
 }>`
-  ${(props: any) => twinStyles(props)};
+  ${({ $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
+    setGenericPropStyles({
+      shadow: $shadow || 'sm',
+      width: $width || 'auto',
+      heigth: $heigth || 'sm',
+      fontWeight: $fontWeight,
+      textAlign: $textAlign,
+    })};
 `

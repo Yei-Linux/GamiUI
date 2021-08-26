@@ -8,7 +8,7 @@ import Title from '../Title'
 export default {
   title: 'Atoms/Sliding',
   component: Sliding,
-  args: { ...Sliding.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -31,7 +31,9 @@ const SlidingStory = ({ placementAnimation }: any) => {
         }}
       >
         <Title>Preparado para escuchar la clase</Title>
-        <Button onClick={() => setIsCloseSliding(true)}>Empezar</Button>
+        <Button type="button" onClick={() => setIsCloseSliding(true)}>
+          Empezar
+        </Button>
       </div>
     </Sliding>
   )

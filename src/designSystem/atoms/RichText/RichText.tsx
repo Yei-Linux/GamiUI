@@ -1,10 +1,11 @@
 import React, { useMemo, useRef } from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { RichTextWrapper } from './RichText.styles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import * as S from './RichText.styles'
 
 import marked, { Renderer } from 'marked'
-import useIsMounted from '../../../hooks/useIsMounted'
+import useIsMounted from 'hooks/useIsMounted'
 import { sanitizeLink } from './helper'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export interface IRichText extends IGeneralProps {
   /**
@@ -13,8 +14,11 @@ export interface IRichText extends IGeneralProps {
   text: string
 }
 
-const RichText = ({ text, ...args }: IRichText) => {
-  const renderer: any = useRef<Renderer>()
+export type TMarkedRenderRefParams = Renderer<never> | undefined
+export type TMarkedRenderRef = React.MutableRefObject<TMarkedRenderRefParams>
+
+const RichText = ({ text, ...genericsProps }: IRichText) => {
+  const renderer: TMarkedRenderRef = useRef<TMarkedRenderRefParams>()
   const { isMounted } = useIsMounted()
 
   if (!isMounted) {
@@ -27,17 +31,18 @@ const RichText = ({ text, ...args }: IRichText) => {
       gfm: true,
       breaks: true,
       sanitize: false,
-      renderer: renderer.current,
+      renderer: renderer?.current,
     })
 
     return marked(text)
   }, [text])
 
   return (
-    <RichTextWrapper {...args} dangerouslySetInnerHTML={{ __html: html }} />
+    <S.RichText
+      {...getGenericPropStyles(genericsProps)}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   )
 }
-
-RichText.defaultProps = {}
 
 export default RichText

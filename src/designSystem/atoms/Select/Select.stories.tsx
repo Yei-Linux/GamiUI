@@ -7,7 +7,7 @@ import Select from '.'
 export default {
   title: 'Atoms/Select',
   component: Select,
-  args: { ...Select.defaultProps },
+  args: {},
   argTypes: {
     placeholder: { control: 'text' },
     ...stylesControl,

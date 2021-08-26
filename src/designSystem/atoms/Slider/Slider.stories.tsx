@@ -7,7 +7,7 @@ import Image from '../Image'
 export default {
   title: 'Atoms/Slider',
   component: Slider,
-  args: { ...Slider.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import Col from '../../layouts/Col'
-import Row from '../../layouts/Row'
-import Icon from '../Icon'
+import Col from 'designSystem/layouts/Col'
+import Row from 'designSystem/layouts/Row'
 import * as S from './Question.styles'
+import Icon from '../Icon'
 
 export interface IQuestion {
   /**
