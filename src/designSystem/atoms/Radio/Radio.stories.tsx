@@ -7,7 +7,7 @@ import Radio from '.'
 export default {
   title: 'Atoms/Radio',
   component: Radio,
-  args: { ...Radio.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },
@@ -25,7 +25,7 @@ export const Basic = (args: any) => {
   )
 }
 Basic.args = {
-  width: 'NORMAL',
-  heigth: 'SMALL',
-  shadow: '',
+  width: 'md',
+  heigth: 'sm',
+  shadow: 'none',
 }

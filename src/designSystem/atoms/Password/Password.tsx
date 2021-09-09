@@ -24,7 +24,7 @@ const Password = ({
   const toggleIconType = isVisible ? iconVisible : iconHide
 
   const renderIconPass = () => (
-    <div onClick={handleToggle}>{toggleIconType}</div>
+    <div onClick={() => handleToggle()}>{toggleIconType}</div>
   )
 
   return (

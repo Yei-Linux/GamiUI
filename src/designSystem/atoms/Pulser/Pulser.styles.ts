@@ -1,13 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
-import {
-  PulseOneAnimation,
-  PulseTwoAnimation,
-} from '../../../styles/utilities/transitions'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import { ShadowType } from 'core/domain/types'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { opacity, sizes, theme, zIndex } from 'styles/tokens'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-const PulseCommon = css`
+const PulserCommon = css`
   width: fit-content;
   height: fit-content;
   padding: 6px;
@@ -19,61 +17,75 @@ const PulseCommon = css`
   border-radius: 999px;
 `
 
-export const Pulse = styled.div`
+export const Pulser = styled.div`
   width: fit-content;
 `
 
-export const PulseWrapper = styled.div`
+export const PulseTransition = styled.div`
+  position: absolute;
+  box-sizing: border-box;
+
+  opacity: ${opacity[0]};
+
+  ${PulserCommon}
+
+  &.one {
+  }
+
+  &.two {
+  }
+`
+
+export const PulserLock = styled.div`
+  position: absolute;
+  top: 0px;
+  width: ${sizes.width.full};
+  height: ${sizes.height.full};
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+`
+
+export const PulserContent = styled.div`
   position: relative;
   width: fit-content;
 `
 
-export const PulseContainer = styled.div<{
-  isBloqued?: boolean
-  shadow?: string
-  borderColor: string
-  backgroundColor?: string
-}>`
-  filter: ${(props: any) => (props.isBloqued ? `opacity(0.5);` : `none`)};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  overflow: hidden;
-
-  ${PulseCommon}
-  background-color: ${(props) => props.backgroundColor};
-  border: 5px solid ${(props) => props.borderColor};
-  ${(props: any) => twinStyles(props)};
-`
-
-export const PulseTransitions = styled.div<{ type: string }>`
-  position: absolute;
-  opacity: 0;
-  box-sizing: border-box;
-
-  ${PulseCommon}
-  ${(props) => (props.type == 'one' ? PulseOneAnimation : PulseTwoAnimation)}
-`
-
-export const PulseLock = styled.div`
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-export const PulseProgress = styled.div`
-  border-radius: 2em;
-  background-color: ${colorLight.primary.one};
-  color: ${colorLight.neutral.seven};
+export const PulserProgress = styled.div`
   font-weight: bold;
   text-align: center;
   width: fit-content;
+
   padding: 5px 1rem;
   margin: 10px auto;
+  border-radius: 2em;
+
+  background-color: ${theme.light.primary.jordyBlue};
+  color: ${theme.light.neutral[700]};
+`
+
+export const PulserBody = styled.div<{
+  $shadow?: ShadowType
+  $borderColor: string
+  $backgroundColor?: string
+}>`
+  &.bloqued {
+    filter: opacity(0.5);
+  }
+  &.unbloqued {
+    filter: none;
+  }
+
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+
+  flex-direction: column;
+  z-index: ${zIndex[3]};
+  overflow: hidden;
+
+  ${PulserCommon}
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  border: 5px solid ${({ $borderColor }) => $borderColor};
+
+  ${({ $shadow }) =>
+    setGenericPropStyles({
+      shadow: $shadow || 'lg',
+    })};
 `
