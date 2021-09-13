@@ -28,7 +28,7 @@ export interface IFormItem {
   children: React.ReactNode
   rules?: IRules[]
 }
- 
+  
 const FormItem = ({ label = '', name, children }: IFormItem) => {
     const { formValue, setFormValues } = useFormStore()
   

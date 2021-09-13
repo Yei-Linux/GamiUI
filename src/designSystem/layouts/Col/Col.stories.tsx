@@ -3,12 +3,11 @@ import { Meta } from '@storybook/react'
 
 import Col from '.'
 import Row from '../Row'
-import { colorLight } from '../../../styles/theme'
-
+import { theme } from 'styles/tokens'
 export default {
   title: 'Layout/Col',
   component: Col,
-  args: { ...Col.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -17,8 +16,8 @@ export const Basic = (args: any) => (
     <Col {...args}>
       <p
         style={{
-          background: colorLight.primary.one,
-          color: colorLight.neutral.nine,
+          background: theme.light.primary.jordyBlue,
+          color: theme.light.neutral[800],
           padding: '16px',
         }}
       >
@@ -29,8 +28,8 @@ export const Basic = (args: any) => (
     <Col {...args}>
       <p
         style={{
-          background: colorLight.primary.one,
-          color: colorLight.neutral.nine,
+          background: theme.light.primary.jordyBlue,
+          color: theme.light.neutral[800],
           padding: '16px',
         }}
       >
@@ -41,8 +40,8 @@ export const Basic = (args: any) => (
     <Col {...args}>
       <p
         style={{
-          background: colorLight.primary.one,
-          color: colorLight.neutral.nine,
+          background: theme.light.primary.jordyBlue,
+          color: theme.light.neutral[800],
           padding: '16px',
         }}
       >
@@ -53,8 +52,8 @@ export const Basic = (args: any) => (
     <Col {...args}>
       <p
         style={{
-          background: colorLight.primary.one,
-          color: colorLight.neutral.nine,
+          background: theme.light.primary.jordyBlue,
+          color: theme.light.neutral[800],
           padding: '16px',
         }}
       >

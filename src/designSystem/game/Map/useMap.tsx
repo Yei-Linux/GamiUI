@@ -1,5 +1,5 @@
 import context from '../../../context/CanvasProvider/context'
-import { ITileImage } from '../../../core/domain/interfaces/ICanvas'
+import { ITileImage } from '../../../core/domain/interfaces/ICanvasContext'
 import useAssetLoad from '../../../hooks/useAssetLoad'
 import useStore from '../../../hooks/useStore'
 

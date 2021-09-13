@@ -1,3 +1,5 @@
+import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
+import { ISetOptionSelected } from 'core/domain/interfaces/ISurveyContext'
 import React, { useReducer } from 'react'
 import context from './context'
 import reducer from './reducer'
@@ -7,11 +9,6 @@ import {
   SET_SURVEY_OPTION_SELECTED,
   SET_TOTAL_QUESTIONS,
 } from './types'
-
-interface ISetOptionSelected {
-  questionId: string
-  response: any
-}
 
 const SurveyProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
@@ -30,7 +27,7 @@ const SurveyProvider = ({ children }: { children: React.ReactNode }) => {
     })
   }
 
-  const setPercent = (data: any) => {
+  const setPercent = (data: number) => {
     dispatch({
       type: SET_PERCENT,
       payload: data,
@@ -44,14 +41,14 @@ const SurveyProvider = ({ children }: { children: React.ReactNode }) => {
     })
   }
 
-  const setCallbacks = (data: any) => {
+  const setCallbacks = (data: IDynamicObjectWithField) => {
     dispatch({
       type: SET_CALLBACKS,
       payload: data,
     })
   }
 
-  const onClickSubmit = (values: any) => {
+  const onClickSubmit = (values: IDynamicObjectWithField) => {
     if (state.callbacks) {
       state.callbacks?.onFinish(values)
     }
@@ -63,7 +60,6 @@ const SurveyProvider = ({ children }: { children: React.ReactNode }) => {
         totalQuestions: state.totalQuestions,
         answers: state.answers,
         percent: state.percent,
-        currentQuestion: state.currentQuestion,
         setPercent,
         setSurveyOptionSelected,
         setCallbacks,

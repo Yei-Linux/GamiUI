@@ -45,3 +45,6 @@ export type TUseRefTime = null | MutableRefObject<TUseRefTimeParams>
 
 export type TUseRefDivParams = null | HTMLDivElement
 export type TUseRefDiv = MutableRefObject<TUseRefDivParams>
+
+export type TUseRefCanvasParams = null | HTMLCanvasElement
+export type TUseRefCanvas = MutableRefObject<TUseRefCanvasParams>

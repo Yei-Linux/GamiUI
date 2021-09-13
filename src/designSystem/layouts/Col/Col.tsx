@@ -1,43 +1,56 @@
 import React from 'react'
-import { ColWrapper } from './Col.styles'
+import * as S from './Col.styles'
 
 const spacingValues = {
   sm: '8px',
   md: '16px',
   lg: '24px',
-  none: '0px'
+  none: '0px',
 }
 
-type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+type TCols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+
+type TSpacing = 'none' | 'sm' | 'md' | 'lg'
 
 export interface ICol {
+  /**
+   * Children Prop
+   */
   children: React.ReactNode
-  spacing: 'none' | 'sm' | 'md' | 'lg'
-  xs: Cols
-  sm: Cols
-  md: Cols
-  lg: Cols
+  /**
+   * Spacing Prop
+   */
+  spacing: TSpacing
+  /**
+   * Extra Small Size
+   */
+  xs: TCols
+  /**
+   * Small Size
+   */
+  sm: TCols
+  /**
+   * Medium Size
+   */
+  md: TCols
+  /**
+   * Large Size
+   */
+  lg: TCols
 }
 
-const Col = ({ children, spacing, xs, sm, md, lg }: ICol) => {
+const Col = ({ children, spacing, xs = 12, sm = 6, md = 4, lg = 3 }: ICol) => {
   return (
-    <ColWrapper
-      xs={xs}
-      sm={sm}
-      md={md}
-      lg={lg}
-      spacing={spacingValues[spacing]}
+    <S.Col
+      $xs={xs}
+      $sm={sm}
+      $md={md}
+      $lg={lg}
+      $spacing={spacingValues[spacing]}
     >
       {children}
-    </ColWrapper>
+    </S.Col>
   )
-}
-
-Col.defaultProps = {
-  xs: 12,
-  sm: 6,
-  md: 4,
-  lg: 3,
 }
 
 export default Col

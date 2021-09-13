@@ -1,3 +1,4 @@
+import { IFormCommmonsContext } from 'core/domain/interfaces/IFormContext'
 import {
   SET_CALLBACKS,
   SET_FORM_VALUES,
@@ -5,38 +6,37 @@ import {
   SET_YUP_SCHEMA,
 } from './types'
 
+type TTypes = typeof SET_FORM_VALUES | typeof SET_CALLBACKS | typeof SET_YUP_SCHEMA | typeof SET_YUP_ERRORS
+
 interface IAction {
-  type: string
+  type: TTypes
   payload: any
 }
 
-export default (state: any, action: IAction) => {
-  switch (action.type) {
-    case SET_FORM_VALUES:
-      return {
-        ...state,
-        formValue: {
-          ...state.formValue,
-          [action.payload.name]: action.payload.value,
-        },
-      }
-    case SET_CALLBACKS:
-      return {
-        ...state,
-        callbacks: action.payload,
-      }
-    case SET_YUP_SCHEMA:
-      return {
-        ...state,
-        yupSchema: action.payload,
-      }
+const reducer = (state: IFormCommmonsContext, action: IAction) => {
+  const switcher = {
+    SET_FORM_VALUES: {
+      ...state,
+      formValue: {
+        ...state.formValue,
+        [action.payload.name]: action.payload.value,
+      },
+    },
+    SET_CALLBACKS: {
+      ...state,
+      callbacks: action.payload,
+    },
+    SET_YUP_SCHEMA: {
+      ...state,
+      yupSchema: action.payload,
+    },
+    SET_YUP_ERRORS: {
+      ...state,
+      yupErrors: action.payload,
+    }
+  } as const
 
-    case SET_YUP_ERRORS:
-      return {
-        ...state,
-        yupErrors: action.payload,
-      }
-    default:
-      return state
-  }
+  return switcher[action.type]
 }
+
+export default reducer

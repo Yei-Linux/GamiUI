@@ -10,13 +10,13 @@ const getDirectionSpace = ({
   margin: ${`${top} ${right} ${bottom} ${left}`};
 `
 
-export const SpacerWrapper = styled.div<{
-  customSize?: string
-  direction: 'left' | 'right' | 'top' | 'bottom'
-  size: 1 | 2 | 3 | 4 | 5
+export const Spacer = styled.div<{
+  $customSize?: string
+  $direction: 'left' | 'right' | 'top' | 'bottom'
+  $size: 1 | 2 | 3 | 4 | 5
 }>`
-  ${(props) =>
+  ${({$direction, $size, $customSize}) =>
     getDirectionSpace({
-      [props.direction]: `${props.customSize || `${props.size}rem`}`,
+      [$direction]: `${$customSize || `${$size}rem`}`,
     })}
 `

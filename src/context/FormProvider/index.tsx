@@ -1,4 +1,7 @@
+import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
+import { IFormValueItem } from 'core/domain/interfaces/IFormContext'
 import React, { useReducer } from 'react'
+import { ObjectSchema } from 'yup'
 import context from './context'
 import reducer from './reducer'
 import {
@@ -8,50 +11,45 @@ import {
   SET_YUP_SCHEMA,
 } from './types'
 
-interface ISetFormSelected {
-  name: string
-  value: string
-}
-
 const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
     formValue: null,
     callbacks: null,
     yupSchema: null,
     yupErrors: null,
-  }
+  } as const
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const setFormValues = (data: ISetFormSelected) => {
+  const setFormValues = (data: IFormValueItem) => {
     dispatch({
       type: SET_FORM_VALUES,
       payload: data,
     })
   }
 
-  const setCallbacks = (data: any) => {
+  const setCallbacks = (data: IDynamicObjectWithField) => {
     dispatch({
       type: SET_CALLBACKS,
       payload: data,
     })
   }
 
-  const setYupSchema = (data: any) => {
+  const setYupSchema = (data: ObjectSchema<any, any, any>) => {
     dispatch({
       type: SET_YUP_SCHEMA,
       payload: data,
     })
   }
 
-  const setYupErrors = (data: any) => {
+  const setYupErrors = (data: IDynamicObjectWithField) => {
     dispatch({
       type: SET_YUP_ERRORS,
       payload: data,
     })
   }
 
-  const onClickSubmit = (values: any) => {
+  const onClickSubmit = (values: IDynamicObjectWithField) => {
     if (state.callbacks) {
       state.callbacks?.onFinish(values)
     }
@@ -61,7 +59,6 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
     <context.Provider
       value={{
         formValue: state.formValue,
-        clickSubmit: state.clickSubmit,
         yupSchema: state.yupSchema,
         yupErrors: state.yupErrors,
         setYupErrors,

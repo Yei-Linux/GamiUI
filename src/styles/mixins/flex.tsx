@@ -1,12 +1,5 @@
 import { css } from '@emotion/react'
-
-type TJustifyContent =
-  | 'center'
-  | 'flex-start'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around'
-type TAlignItems = 'center' | 'flex-start' | 'flex-end'
+import { TJustifyContent, TAlignItems } from 'designSystem/layouts/Row/Row'
 
 interface IMixinFlexVariant {
   justifyContent?: TJustifyContent | null

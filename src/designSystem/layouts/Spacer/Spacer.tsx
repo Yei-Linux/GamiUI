@@ -1,21 +1,29 @@
 import React from 'react'
-import { SpacerWrapper } from './Spacer.styles'
+import * as S from './Spacer.styles'
+
+export type TDirection = 'left' | 'right' | 'top' | 'bottom'
+
+export type TSize = 1 | 2 | 3 | 4 | 5
 
 export interface ISpacer {
-  direction: 'left' | 'right' | 'top' | 'bottom'
-  size: 1 | 2 | 3 | 4 | 5
+  /**
+   * Spacer Direction
+   */
+  direction: TDirection
+  /**
+   * Size of spacer
+   */
+  size: TSize
+  /**
+   * Custom Size
+   */
   customSize?: string
 }
 
-const Spacer = ({ direction, size, customSize }: ISpacer) => {
+const Spacer = ({ direction, size = 1, customSize }: ISpacer) => {
   return (
-    <SpacerWrapper direction={direction} size={size} customSize={customSize} />
+    <S.Spacer $direction={direction} $size={size} $customSize={customSize} />
   )
-}
-
-Spacer.defaultProps = {
-  size: 1,
-  customSize: null,
 }
 
 export default Spacer

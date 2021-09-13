@@ -1,5 +1,6 @@
-import { Context, createContext } from 'react'
+import { ISurveyContext } from 'core/domain/interfaces/ISurveyContext'
+import { createContext } from 'react'
 
-const context: Context<any> = createContext(null)
+const context = createContext<ISurveyContext | null>(null)
 
 export default context

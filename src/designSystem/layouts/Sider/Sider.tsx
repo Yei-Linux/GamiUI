@@ -1,12 +1,25 @@
 import React from 'react'
 import Drawer from '../../molecules/Drawer'
 import Gradient from '../../styled/Gradient'
-import { SiderContent, SiderHeader, SiderWrapper } from './Sider.styles'
+import * as S from './Sider.styles'
 
 export interface ISider {
+  /**
+   * Header Container
+   */
   header: React.ReactNode
+
+  /**
+   * Children Prop
+   */
   children: React.ReactNode
-  onClose?: () => any
+  /**
+   * On close
+   */
+  onClose?: () => void
+  /**
+   * Open
+   */
   open?: boolean
 }
 
@@ -20,15 +33,13 @@ const Sider = ({ header, children, onClose, open }: ISider) => {
         open={open}
         withMask={false}
       >
-        <SiderWrapper>
-          <SiderHeader>{header}</SiderHeader>
-          <SiderContent>{children}</SiderContent>
-        </SiderWrapper>
+        <S.Sider>
+          <S.Header>{header}</S.Header>
+          <S.Body>{children}</S.Body>
+        </S.Sider>
       </Drawer>
     </Gradient>
   )
 }
-
-Sider.defaultProps = {}
 
 export default Sider

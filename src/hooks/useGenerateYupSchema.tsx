@@ -75,7 +75,7 @@ const useGenerateYupSchema = ({ children }: IUseGenerateYupSchema) => {
     return ruleInstanceToModify
   }
 
-  const buildingYupSchema = () => {
+  const buildingYupSchema = (): ObjectSchema<any, any, any> => {
     const yupSchema: IYupSchema = {}
 
     React.Children.map(children, (child: React.ReactNode) => {

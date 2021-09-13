@@ -14,7 +14,7 @@ export interface IInitialState {
 const StepsProvider = ({ children }: IStepsProvider) => {
   const initialState: IInitialState = {
     currentStep: 0,
-  }
+  } as const
 
   const [state, dispatch] = useReducer(reducer, initialState)
 

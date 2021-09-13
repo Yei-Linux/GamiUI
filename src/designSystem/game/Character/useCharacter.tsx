@@ -1,15 +1,12 @@
 import 'regenerator-runtime/runtime'
 
-import context from '../../../context/CanvasProvider/context'
-
-import useAssetLoad from '../../../hooks/useAssetLoad'
-import useKeyDown from '../../../hooks/useKeyDown'
-import useAudio from '../../../hooks/useAudio'
+import useAssetLoad from 'hooks/useAssetLoad'
+import useKeyDown from 'hooks/useKeyDown'
+import useAudio from 'hooks/useAudio'
+import useCollision from 'hooks/useCollision'
+import useGameStore from 'hooks/store/useGameStore'
 
 import { HeroTypes } from './constants'
-
-import useCollision from '../../../hooks/useCollision'
-import useStore from '../../../hooks/useStore'
 
 const useCharacter = () => {
   const {
@@ -25,7 +22,7 @@ const useCharacter = () => {
     keysDirection,
     currentDirection,
     setCurrentDirection,
-  } = useStore({ context })
+  } = useGameStore()
 
   const { isInFrontOfAnyBlock } = useCollision()
   const { playAudio } = useAudio({
@@ -46,7 +43,7 @@ const useCharacter = () => {
   }
 
   const timeout = (t: number): Promise<any> => {
-    return new Promise((resolve, _reject) => {
+    return new Promise((resolve) => {
       setTimeout(resolve, t)
     })
   }
@@ -98,9 +95,7 @@ const useCharacter = () => {
     }
   }
 
-  const getAxisPositionXorY = (positionAxis: number) => {
-    return positionAxis * (mapConfig.pixelSize / 4)
-  }
+  const getAxisPositionXorY = (positionAxis: number) => positionAxis * (mapConfig.pixelSize / 4)
 
   const chooseCharacterOnSpriteByDirection = (
     positionSpriteX = 1,

@@ -1,18 +1,18 @@
 import styled from '@emotion/styled'
 
-export const HeaderWrapper = styled.div`
+export const Header = styled.div`
   grid-area: header;
 `
 
-export const ContentWrapper = styled.div`
+export const Content = styled.div`
   grid-area: main;
 `
 
-export const FooterWrapper = styled.div`
+export const Footer = styled.div`
   grid-area: footer;
 `
 
-export const LayoutWrapper = styled.div`
+export const Layout = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;

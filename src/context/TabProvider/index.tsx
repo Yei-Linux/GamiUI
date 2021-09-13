@@ -3,10 +3,6 @@ import context from './context'
 import reducer from './reducer'
 import { SET_TAB_ID_SELECT } from './types'
 
-interface ITabInitialState {
-  tabIdSelected: string | null
-}
-
 const TabProvider = ({
   children,
   defaultActiveTab,
@@ -14,9 +10,9 @@ const TabProvider = ({
   children: React.ReactNode
   defaultActiveTab: string
 }) => {
-  const initialState: ITabInitialState = {
+  const initialState = {
     tabIdSelected: defaultActiveTab,
-  }
+  } as const
 
   const [state, dispatch] = useReducer(reducer, initialState)
 

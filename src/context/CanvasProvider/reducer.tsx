@@ -1,46 +1,39 @@
 import {
-  SET_CALLBACKS_CANVAS,
-  SET_CANVAS_VALUE,
-  SET_CURRENT_DIRECTION,
-  SET_DIRS,
-} from './types'
+  ICanvasInitialState,
+  IDirPayload,
+} from 'core/domain/interfaces/ICanvasContext'
+import { SET_CANVAS_VALUE, SET_CURRENT_DIRECTION, SET_DIRS } from './types'
+
+type TTypes = typeof SET_CANVAS_VALUE | typeof SET_CURRENT_DIRECTION | typeof SET_DIRS
 
 interface IAction {
-  type: string
+  type: TTypes
   payload: any
 }
 
-export default (state: any, action: IAction) => {
-  switch (action.type) {
-    case SET_CANVAS_VALUE:
-      return {
-        ...state,
-        canvasValue: action.payload,
-      }
-    case SET_CALLBACKS_CANVAS:
-      return {
-        ...state,
-        callbacks: action.payload,
-      }
-
-    case SET_CURRENT_DIRECTION:
-      return {
-        ...state,
-        currentDirection: action.payload,
-      }
-
-    case SET_DIRS:
-      return {
-        ...state,
-        dirs: {
-          ...state.dirs,
-          [action.payload.currentDirection]: {
-            x: action.payload.x,
-            y: state.dirs[action.payload.currentDirection].y,
-          },
+const reducer = (state: ICanvasInitialState, action: IAction) => {
+  const switcher = {
+    SET_CANVAS_VALUE: {
+      ...state,
+      canvasValue: action.payload,
+    },
+    SET_CURRENT_DIRECTION: {
+      ...state,
+      currentDirection: action.payload,
+    },
+    SET_DIRS: {
+      ...state,
+      dirs: {
+        ...state.dirs,
+        [(action.payload as IDirPayload).currentDirection]: {
+          x: (action.payload as IDirPayload).x,
+          y: state.dirs[(action.payload as IDirPayload).currentDirection].y,
         },
-      }
-    default:
-      return state
-  }
+      },
+    },
+  } as const
+
+  return switcher[action.type]
 }
+
+export default reducer

@@ -1,15 +1,19 @@
-import { IAction } from '../../core/domain/interfaces/IContext'
 import { SET_CURRENT_STEP } from './types'
 
-export default (state: any, { type, payload }: IAction) => {
-  switch (type) {
-    case SET_CURRENT_STEP:
-      return {
-        ...state,
-        currentStep: payload,
-      }
-
-    default:
-      return state
-  }
+interface IAction {
+  type: typeof SET_CURRENT_STEP
+  payload: any
 }
+
+const reducer = (state: any, { type, payload }: IAction) => {
+  const switcher = {
+    SET_CURRENT_STEP: {
+      ...state,
+      currentStep: payload,
+    },
+  }
+
+  return switcher[type]
+}
+
+export default reducer

@@ -1,3 +1,4 @@
+import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
 import React, { useEffect } from 'react'
 
 import useFormStore from '../../../hooks/store/useFormStore'
@@ -20,7 +21,7 @@ const FormContent = ({
 
   useEffect(() => {
     setCallbacks({
-      onFinish: (values: any) => {
+      onFinish: (values: IDynamicObjectWithField) => {
         onSubmitForm(values)
       },
     })

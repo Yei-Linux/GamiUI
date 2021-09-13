@@ -1,15 +1,22 @@
-import { IAction } from '../../core/domain/interfaces/IContext'
+import { ITabInitialState } from 'core/domain/interfaces/ITabContext'
 import { SET_TAB_ID_SELECT } from './types'
 
-export default (state: any, { type, payload }: IAction) => {
-  switch (type) {
-    case SET_TAB_ID_SELECT:
-      return {
-        ...state,
-        tabIdSelected: payload,
-      }
+type TType = typeof SET_TAB_ID_SELECT
 
-    default:
-      return state
-  }
+interface IAction {
+  payload: any
+  type: TType
 }
+
+const reducer = (state: ITabInitialState, { type, payload }: IAction) => {
+  const switcher = {
+    SET_TAB_ID_SELECT: {
+      ...state,
+      tabIdSelected: payload,
+    },
+  }
+
+  return switcher[type]
+}
+
+export default reducer
