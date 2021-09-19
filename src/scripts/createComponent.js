@@ -15,7 +15,7 @@ const getFileTypes = (componentName = 'Component') => {
   return {
     COMPONENT: { nameFile: `${componentName}.tsx` },
     STORY: { nameFile: `${componentName}.stories.tsx` },
-    STYLED: { nameFile: `${componentName}.styles.ts` },
+    STYLED: { nameFile: `${componentName}.styles.tsx` },
     CONSTANTS: { nameFile: 'constants.tsx' },
     INDEX: { nameFile: 'index.tsx' },
   }
