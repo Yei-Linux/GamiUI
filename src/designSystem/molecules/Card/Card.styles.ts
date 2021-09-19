@@ -1,12 +1,19 @@
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import {
+  BorderType,
+  ShadowType,
+  WidthType,
+  HeightType,
+} from 'core/domain/types'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { sizes, spacing, theme } from 'styles/tokens'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const CardWrapper = styled.div<{
-  border?: string
-  shadow?: string
-  width?: string
-  heigth?: string
+export const Card = styled.div<{
+  $border?: BorderType
+  $shadow?: ShadowType
+  $width?: WidthType
+  $heigth?: HeightType
 }>`
   width: auto;
   display: flex;
@@ -15,24 +22,31 @@ export const CardWrapper = styled.div<{
   min-width: min-content;
   min-height: min-content;
 
-  ${(props: any) => twinStyles(props)};
+  ${({ $border, $shadow, $width, $heigth }) =>
+    setGenericPropStyles({
+      border: $border || 'lg',
+      shadow: $shadow || 'sm',
+      width: $width || 'auto',
+      heigth: $heigth || 'sm',
+    })};
 `
 
-export const CardCover = styled.div`
-  width: 100%;
+export const Cover = styled.div`
+  width: ${sizes.width.full};
   margin: 0px;
   border-radius: 0;
-  display: flex;
-  justify-content: center;
+
+  ${mixinFlexVariants({ justifyContent: 'center' })}
 `
 
-export const CardContent = styled.div`
-  padding: 1rem;
+export const Content = styled.div`
+  padding: ${spacing.padding.md};
 `
 
-export const CardFooter = styled.div`
-  padding: 1rem;
-  width: 100%;
+export const Footer = styled.div`
+  padding: ${spacing.padding.md};
   margin: 0px;
-  border: 1px solid ${colorLight.neutral.seven};
+
+  width: ${sizes.width.full};
+  border: 1px solid ${theme.light.neutral[800]};
 `

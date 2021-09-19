@@ -1,10 +1,11 @@
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import {
   SubtitleContainer,
   TitleContainer,
-} from '../../../styles/utilities/text'
-import { CardContent, CardCover, CardFooter, CardWrapper } from './Card.styles'
+} from 'styles/utilities/commonComponent'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import * as S from './Card.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export interface ICard extends IGeneralProps {
   /**
@@ -13,12 +14,12 @@ export interface ICard extends IGeneralProps {
   children: React.ReactNode
 }
 
-export const Card = ({ children, ...args }: ICard) => (
-  <CardWrapper {...args}>{children}</CardWrapper>
+export const Card = ({ children, ...genericsProps }: ICard) => (
+  <S.Card {...getGenericPropStyles(genericsProps)}>{children}</S.Card>
 )
 
 Card.Cover = ({ children }: { children: React.ReactNode }) => (
-  <CardCover>{children}</CardCover>
+  <S.Cover>{children}</S.Cover>
 )
 
 Card.Content = ({
@@ -28,21 +29,14 @@ Card.Content = ({
   title: React.ReactNode
   description: React.ReactNode
 }) => (
-  <CardContent>
+  <S.Content>
     <TitleContainer>{title}</TitleContainer>
     <SubtitleContainer>{description}</SubtitleContainer>
-  </CardContent>
+  </S.Content>
 )
 
 Card.Footer = ({ children }: { children: React.ReactNode }) => (
-  <CardFooter>{children}</CardFooter>
+  <S.Footer>{children}</S.Footer>
 )
-
-Card.defaultProps = {
-  shadow: 'MEDIUM',
-  border: 'MEDIUM',
-  width: 'NORMAL',
-  height: 'NORMAL',
-}
 
 export default Card

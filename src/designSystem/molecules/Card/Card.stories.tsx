@@ -8,7 +8,7 @@ import Button from '../../atoms/Button'
 export default {
   title: 'Molecules/Card',
   component: Card,
-  args: { ...Card.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },
@@ -63,7 +63,13 @@ export const Footer = (args: any) => (
       description="Hi this is description"
     />
     <Card.Footer>
-      <Button border="MEDIUM" heigth="SMALL" type="secondary" width="SMALL">
+      <Button
+        type="button"
+        border="md"
+        heigth="sm"
+        variant="secondary"
+        width="sm"
+      >
         Text
       </Button>
     </Card.Footer>
