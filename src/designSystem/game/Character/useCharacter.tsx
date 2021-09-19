@@ -7,6 +7,8 @@ import useCollision from 'hooks/useCollision'
 import useGameStore from 'hooks/store/useGameStore'
 
 import { HeroTypes } from './constants'
+import { IKeysDirection } from 'core/domain/interfaces/ICanvasContext'
+import { timeout } from 'core/helpers/utilities.helper'
 
 const useCharacter = () => {
   const {
@@ -29,24 +31,13 @@ const useCharacter = () => {
     audioImported:
       'https://storage.googleapis.com/cinetask.appspot.com/grass.mp3',
   })
-  const { topDir, bottomDir, leftDir, rightDir } = keysDirection
+  const { topDir, bottomDir, leftDir, rightDir }: IKeysDirection = keysDirection
   const keys = [topDir, bottomDir, leftDir, rightDir]
 
-  const findDirection = (key: any): any => {
-    let direction
-    Object.keys(keysDirection).map((keyObject) => {
-      if (keysDirection[keyObject].keyCode == key) {
-        direction = keyObject
-      }
-    })
-    return direction
-  }
-
-  const timeout = (t: number): Promise<any> => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, t)
-    })
-  }
+  const findDirection = (key: string): string | undefined =>
+    Object.keys(keysDirection).find(
+      (keyObject: string) => keysDirection[keyObject].keyCode == key
+    )
 
   const doingActionsOnMoveCharacter = async (
     xPixelValue: number,
@@ -60,7 +51,7 @@ const useCharacter = () => {
     await timeout(200)
   }
 
-  const moveCharacter = async (key: any) => {
+  const moveCharacter = async (key: string) => {
     const axisPositionX = getAxisPositionXorY(positionX.current)
     const axisPositionY = getAxisPositionXorY(positionY.current)
 
@@ -76,7 +67,7 @@ const useCharacter = () => {
 
     const isNextBlockObstacule = isInFrontOfAnyBlock(
       currentIndexOnMap,
-      direction
+      direction ?? ''
     )
 
     if (isNextBlockObstacule) return
@@ -90,12 +81,13 @@ const useCharacter = () => {
         xPixelValue,
         yPixelValue,
         dirGif,
-        direction
+        direction ?? ''
       )
     }
   }
 
-  const getAxisPositionXorY = (positionAxis: number) => positionAxis * (mapConfig.pixelSize / 4)
+  const getAxisPositionXorY = (positionAxis: number) =>
+    positionAxis * (mapConfig.pixelSize / 4)
 
   const chooseCharacterOnSpriteByDirection = (
     positionSpriteX = 1,
@@ -109,7 +101,7 @@ const useCharacter = () => {
     }
   }
 
-  const drawCharacter = (image: any) => {
+  const drawCharacter = (image: HTMLImageElement) => {
     const axisPositionX = getAxisPositionXorY(positionX.current)
     const axisPositionY = getAxisPositionXorY(positionY.current)
 

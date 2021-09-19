@@ -1,3 +1,4 @@
+import { IInitialState } from '.'
 import { SET_CURRENT_STEP } from './types'
 
 interface IAction {
@@ -5,7 +6,7 @@ interface IAction {
   payload: any
 }
 
-const reducer = (state: any, { type, payload }: IAction) => {
+const reducer = (state: IInitialState, { type, payload }: IAction) => {
   const switcher = {
     SET_CURRENT_STEP: {
       ...state,

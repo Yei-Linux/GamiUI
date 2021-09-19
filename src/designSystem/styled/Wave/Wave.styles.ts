@@ -1,26 +1,28 @@
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import { sizes } from 'styles/tokens'
 
-export const WaveWrapper = styled.div<{ isWaveLikeBackground: boolean }>`
-  position: ${(props) => (props.isWaveLikeBackground ? 'relative' : 'static')};
+export const Wave = styled.div`
+  &.waveLikeBackground {
+    position: relative;
+  }
+
+  &.notWaveLikeBackground {
+    position: static;
+  }
 `
 
 export const SvgWave = styled.svg<{
-  direction: string
-  background: string
-  isWaveLikeBackground: boolean
+  $background: string
 }>`
-  background: ${(props) => props.background};
-  position: ${(props) => (props.isWaveLikeBackground ? 'absolute' : 'static')};
-  width: 100%;
-  height: auto;
+  width: ${sizes.width.full};
+  height: ${sizes.height.auto};
   display: block;
 
-  ${(props) =>
-    props.isWaveLikeBackground &&
-    css`
-      top: 0px;
-      left: 0px;
-      z-index: -1;
-    `}
+  background: ${({$background}) => $background};
+
+  &.waveLikeBackground {
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+  }
 `

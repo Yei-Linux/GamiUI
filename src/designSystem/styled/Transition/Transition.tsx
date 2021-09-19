@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
-import useCloneElement from '../../../hooks/useCloneElements'
+import useCloneElement from 'hooks/useCloneElements'
 import { gsap } from 'gsap'
+import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
 
 interface IPosition {
   axis: 'x' | 'y' | 'xPercent' | 'yPercent' | string
@@ -17,24 +18,32 @@ interface ITransitionProp {
 }
 
 export interface ITransition {
+  /**
+   * Component will be has animation
+   */
   isReadyToInitAnimation: boolean
-
+  /**
+   * Component will be has from animation
+   */
   from?: ITransitionProp | null
+  /**
+   * Component will be has to animation
+   */
   to?: ITransitionProp | null
-
-  children: any
+  /**
+   * Component
+   */
+  children: React.ReactNode
 }
 
 const Transition = ({
-  isReadyToInitAnimation,
-
-  from,
-  to,
-
+  isReadyToInitAnimation = false,
+  from = null,
+  to = null,
   children,
 }: ITransition) => {
   const [timeline] = useState(gsap.timeline())
-  const containerRef: any = useRef(null)
+  const containerRef = useRef(null)
 
   const { validatorChildrenLength, childrenWithProps } = useCloneElement({
     children,
@@ -52,7 +61,7 @@ const Transition = ({
     position = null,
     delay = null,
   }: ITransitionProp) => {
-    const gsapProps: any = {}
+    const gsapProps: IDynamicObjectWithField = {}
 
     if (scale) gsapProps['scale'] = scale
     if (ease) gsapProps['ease'] = ease
@@ -81,12 +90,6 @@ const Transition = ({
   }
 
   return <Fragment>{childrenWithProps}</Fragment>
-}
-
-Transition.defaultProps = {
-  isReadyToInitAnimation: false,
-  from: null,
-  to: null,
 }
 
 export default Transition

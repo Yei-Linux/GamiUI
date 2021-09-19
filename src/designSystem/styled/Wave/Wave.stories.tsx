@@ -7,7 +7,7 @@ import { options as optionsWave } from './constants'
 export default {
   title: 'Styled/Wave',
   component: Wave,
-  args: { ...Wave.defaultProps },
+  args: {},
   argTypes: {
     name: { control: { type: 'select', options: optionsWave.names } },
   },

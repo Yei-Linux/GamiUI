@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { GradientsNames } from '../../../core/domain/types'
-import useCloneElement from '../../../hooks/useCloneElements'
+import { GradientsNames } from 'core/domain/types'
+import useCloneElement from 'hooks/useCloneElements'
 import { GradientTypes } from './constants'
 import { makeGradient } from './helper'
 
@@ -10,12 +10,25 @@ interface CustomGradientColors {
 }
 
 export interface GradientProps {
+  /**
+   * Component will be modified
+   */
   children: React.ReactNode
+  /**
+   * Gradient Name
+   */
   name: GradientsNames
-  colors: CustomGradientColors
+  /**
+   * Gradient custom colors in case not use gradient name
+   */
+  colors?: CustomGradientColors | null
 }
 
-const Gradient = ({ children, name, colors }: GradientProps) => {
+const Gradient = ({
+  children,
+  name = 'almost',
+  colors = null,
+}: GradientProps) => {
   const makeStyleGradient = () =>
     !colors
       ? GradientTypes[name]
@@ -35,11 +48,6 @@ const Gradient = ({ children, name, colors }: GradientProps) => {
   }
 
   return <Fragment>{childrenWithProps}</Fragment>
-}
-
-Gradient.defaultProps = {
-  name: 'almost',
-  colors: null,
 }
 
 export default Gradient

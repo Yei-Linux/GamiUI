@@ -1,4 +1,6 @@
-export const GradientTypes: any = {
+import { IDynamicObjectWithField } from "core/domain/interfaces/common"
+
+export const GradientTypes: IDynamicObjectWithField = {
   glass: {
     backgroundColor: 'rgb(255 255 255 / 44%)',
     backdropFilter: 'blur(5px) saturate(100%) contrast(65%)',

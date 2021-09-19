@@ -1,20 +1,15 @@
-import context from '../../../context/CanvasProvider/context'
-import { ITileImage } from '../../../core/domain/interfaces/ICanvasContext'
-import useAssetLoad from '../../../hooks/useAssetLoad'
-import useStore from '../../../hooks/useStore'
-
-export interface IMap {
-  children?: any
-}
+import { ITileImage } from 'core/domain/interfaces/ICanvasContext'
+import useGameStore from 'hooks/store/useGameStore'
+import useAssetLoad from 'hooks/useAssetLoad'
 
 const useMap = () => {
   const {
     canvasValue,
     mapConfig: { pixelSize, cols, rows },
     layersConfig: { tileImages, layers },
-  }  = useStore({context})
+  } = useGameStore()
 
-  const drawPixelBlock = (image: string, j: number, i: number) => {
+  const drawPixelBlock = (image: HTMLImageElement, j: number, i: number) => {
     const x = j * pixelSize
     const y = i * pixelSize
     canvasValue.drawImage(
@@ -29,6 +24,7 @@ const useMap = () => {
       pixelSize
     )
   }
+
   const { onLoadAsset } = useAssetLoad({
     action: drawPixelBlock,
   })
@@ -39,7 +35,7 @@ const useMap = () => {
     )?.tileSrc
   }
 
-  const drawLayerOnLoop = (grid: any) => {
+  const drawLayerOnLoop = (grid: number[][]) => {
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
         const item = grid[i][j]
@@ -52,7 +48,7 @@ const useMap = () => {
   }
 
   const drawLayers = () => {
-    layers.map((layer: any) => {
+    layers.map((layer: number[][]) => {
       drawLayerOnLoop(layer)
     })
   }
