@@ -16,7 +16,7 @@ import Icon from '../../atoms/Icon'
 export default {
   title: 'Molecules/Form',
   component: Form,
-  args: { ...Form.defaultProps },
+  args: {  },
   argTypes: {
     ...stylesControl,
   },
@@ -91,7 +91,7 @@ export const Basic = () => (
       </Radio>
     </Form.Item>
     <Form.Item name="submit">
-      <Button type="primary" border="ROUNDED" preffix={<Icon name="submit" />}>
+      <Button variant="primary" border="lg" preffix={<Icon name="submit" />}>
         Submit
       </Button>
     </Form.Item>

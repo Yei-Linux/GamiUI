@@ -1,18 +1,15 @@
 import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
 import React, { useEffect } from 'react'
 
-import useFormStore from '../../../hooks/store/useFormStore'
-import useGenerateYupSchema from '../../../hooks/useGenerateYupSchema'
-import useYupValidation, { TYupSchema } from '../../../hooks/useYupValidation'
+import useFormStore from 'hooks/store/useFormStore'
+import useGenerateYupSchema from 'hooks/useGenerateYupSchema'
+import useYupValidation, { TYupSchema } from 'hooks/useYupValidation'
+
 import { IFormProps } from './Form'
 
 import * as S from './Form.styles'
 
-const FormContent = ({
-  children,
-  onSubmitForm = null,
-  ...args
-}: IFormProps) => {
+const FormContent = ({ children, onSubmitForm, ...args }: IFormProps) => {
   const { yupSchema, formValue, setCallbacks, setYupSchema, onClickSubmit } =
     useFormStore()
   const { buildingYupSchema } = useGenerateYupSchema({ children })
@@ -22,7 +19,7 @@ const FormContent = ({
   useEffect(() => {
     setCallbacks({
       onFinish: (values: IDynamicObjectWithField) => {
-        onSubmitForm(values)
+        onSubmitForm?.(values)
       },
     })
 

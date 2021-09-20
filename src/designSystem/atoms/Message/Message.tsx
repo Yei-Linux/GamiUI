@@ -14,7 +14,7 @@ export interface IMessage extends IGeneralProps {
   /**
    * Message Direction
    */
-  direction: TDirection
+  direction?: TDirection
   /**
    * Background
    */

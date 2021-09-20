@@ -1,17 +1,15 @@
 import React, { Fragment } from 'react'
-import { isLastOne } from '../../../core/helpers/validations.helper'
-import { colorLight } from '../../../styles/theme'
-import Avatar from '../../atoms/Avatar'
-import Message from '../../atoms/Message'
-import Row from '../../layouts/Row'
-import Spacer from '../../layouts/Spacer'
+
+import { isLastOne } from 'core/helpers/validations.helper'
+
+import Avatar from 'designSystem/atoms/Avatar'
+import Message from 'designSystem/atoms/Message'
+import Row from 'designSystem/layouts/Row'
+import Spacer from 'designSystem/layouts/Spacer'
+
 import { IMessage, ITextDetail } from './Chat'
-import {
-  ChatUserContainer,
-  ChatUserAvatar,
-  ChatUserMessages,
-  ChatUserMessageContainer,
-} from './Chat.styles'
+import * as S from './Chat.styles'
+import { theme } from 'styles/tokens'
 
 export interface ChatUserMessageProps {
   message: IMessage
@@ -19,41 +17,43 @@ export interface ChatUserMessageProps {
 
 const ChatUserMessage = ({ message }: ChatUserMessageProps) => {
   return (
-    <ChatUserContainer>
+    <S.ChatUser>
       <Row
         alignItems="flex-end"
         justifyContent={message?.isMe ? 'flex-end' : 'flex-start'}
         isWrap={false}
       >
         {message?.author && (
-          <ChatUserAvatar>
+          <S.ChatUserAvatar>
             <Avatar src={message?.author?.avatarUrl} />
-          </ChatUserAvatar>
+          </S.ChatUserAvatar>
         )}
 
-        <ChatUserMessages>
+        <S.ChatUserMessages>
           {message?.textDetail?.map(
             (textDetail: ITextDetail, index: number) => (
               <Fragment key={index}>
-                <ChatUserMessageContainer
-                  direction={message?.isMe ? 'flex-end' : 'flex-start'}
+                <S.ChatUserMessageContent
+                  $direction={message?.isMe ? 'flex-end' : 'flex-start'}
                 >
                   <Message
                     color={
-                      !message?.isMe ? colorLight.secondary.three : 'white'
+                      !message?.isMe
+                        ? theme.light.secondary.oxfordBlue
+                        : 'white'
                     }
                     maxWidth="none"
                     background={
-                      message?.isMe ? colorLight.secondary.three : 'white'
+                      message?.isMe ? theme.light.secondary.oxfordBlue : 'white'
                     }
-                    heigth="NORMAL"
-                    width="NORMAL"
+                    heigth="auto"
+                    width="auto"
                     text={textDetail?.text}
-                    border="MEDIUM"
+                    border="md"
                     hasMarker={false}
-                    shadow="MEDIUM"
+                    shadow="md"
                   />
-                </ChatUserMessageContainer>
+                </S.ChatUserMessageContent>
 
                 {!isLastOne(message?.textDetail?.length, index) && (
                   <Spacer customSize="5px" direction="bottom" />
@@ -61,9 +61,9 @@ const ChatUserMessage = ({ message }: ChatUserMessageProps) => {
               </Fragment>
             )
           )}
-        </ChatUserMessages>
+        </S.ChatUserMessages>
       </Row>
-    </ChatUserContainer>
+    </S.ChatUser>
   )
 }
 

@@ -1,23 +1,56 @@
 import 'regenerator-runtime/runtime'
+
 import React, { Fragment } from 'react'
-import Mask from '../../atoms/Mask'
-import Transition from '../../styled/Transition'
+
 import { drawerTranstionByStates } from './constants'
-import { DrawerWrapper } from './Drawer.styles'
-import useOpen from '../../../hooks/useOpen'
+import * as S from './Drawer.styles'
+import useOpen from 'hooks/useOpen'
+
+import Mask from 'designSystem/atoms/Mask'
+import Transition from 'designSystem/styled/Transition'
 
 export interface IDrawer {
+  /**
+   * Custom Styles for drawer
+   */
   style?: React.CSSProperties
+  /**
+   * Children Content
+   */
   children?: React.ReactNode
+  /**
+   * Open or not of drawer
+   */
   open?: boolean
+  /**
+   * Placement of drawer
+   */
   placement?: string
+  /**
+   * Width
+   */
   width?: string
+  /**
+   * Height
+   */
   height?: string
+  /**
+   * Has Mask
+   */
   withMask?: boolean
-  onClose?: () => any
+  /**
+   * Action on close drawer
+   */
+  onClose?: () => void
 }
 
-const Drawer = ({ children, open, onClose, withMask, style = {} }: IDrawer) => {
+const Drawer = ({
+  children,
+  open,
+  onClose,
+  withMask = true,
+  style = {},
+}: IDrawer) => {
   const { isOpen } = useOpen({ open })
 
   return (
@@ -41,17 +74,12 @@ const Drawer = ({ children, open, onClose, withMask, style = {} }: IDrawer) => {
             to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
-            <DrawerWrapper style={style}>{children}</DrawerWrapper>
+            <S.Drawer style={style}>{children}</S.Drawer>
           </Transition>
         </Fragment>
       )}
     </Fragment>
   )
-}
-
-Drawer.defaultProps = {
-  placement: 'left',
-  withMask: true,
 }
 
 export default Drawer

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const DrawerWrapper = styled.div`
+export const Drawer = styled.div`
   background: #fff;
   box-shadow: 0 -2px 8px rgb(0 0 0 / 15%);
   border-top-right-radius: 2em;

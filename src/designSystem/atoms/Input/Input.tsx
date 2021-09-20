@@ -6,7 +6,7 @@ import * as S from './Input.styles'
 
 export type TPositionPrefix = 'left' | 'right'
 
-export type TOnChangeFormItem = (value: unknown, ...props: unknown[]) => unknown | void
+export type TOnChangeFormItem = (value: any, ...props: unknown[]) => unknown | void
 
 export interface IInput extends IGeneralProps {
   /**

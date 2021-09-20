@@ -1,26 +1,41 @@
 import React, { Fragment } from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import useOpen from '../../../hooks/useOpen'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import useOpen from 'hooks/useOpen'
+
 import Icon from '../../atoms/Icon'
 import Transition from '../../styled/Transition'
+
 import { positionFloating } from './constants'
-import { FloatingHeader, FloatingWrapper } from './Floating.styles'
+import * as S from './Floating.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 type IOnClose = () => void
 
 export interface FloatingProps extends IGeneralProps {
+  /**
+   * Is visible or not floating
+   */
   visible?: boolean
+  /**
+   * Content
+   */
   children: React.ReactNode
+  /**
+   * Floating direction
+   */
   direction: 'left' | 'top' | 'right' | 'bottom'
+  /**
+   * Action on close floating message
+   */
   onClose: IOnClose
 }
 
 const Floating = ({
   onClose,
-  visible,
+  visible = false,
+  direction = 'right',
   children,
-  direction,
-  ...args
+  ...genericsProps
 }: FloatingProps) => {
   const { isOpen } = useOpen({ open: visible })
 
@@ -32,24 +47,20 @@ const Floating = ({
           to={positionFloating[direction][visible ? 'open' : 'close'].to}
           isReadyToInitAnimation={visible}
         >
-          <FloatingWrapper direction={direction} {...args}>
-            <FloatingHeader>
+          <S.Floating
+            $direction={direction}
+            {...getGenericPropStyles(genericsProps)}
+          >
+            <S.FloatingHeader>
               <Icon fill="#7868e6" name="close" size="15px" onClick={onClose} />
-            </FloatingHeader>
+            </S.FloatingHeader>
 
             {children}
-          </FloatingWrapper>
+          </S.Floating>
         </Transition>
       )}
     </Fragment>
   )
-}
-
-Floating.defaultProps = {
-  visible: false,
-  direction: 'right',
-  shadow: 'MEDIUM',
-  border: 'LARGE',
 }
 
 export default Floating

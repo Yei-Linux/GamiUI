@@ -6,7 +6,7 @@ import Controls from '.'
 export default {
   title: 'Molecules/Controls',
   component: Controls,
-  args: { ...Controls.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

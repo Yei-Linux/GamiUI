@@ -6,7 +6,7 @@ import FeaturedCard from '.'
 export default {
   title: 'Molecules/FeaturedCard',
   component: FeaturedCard,
-  args: { ...FeaturedCard.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

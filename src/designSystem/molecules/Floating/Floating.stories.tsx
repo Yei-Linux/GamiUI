@@ -9,7 +9,7 @@ import Button from '../../atoms/Button'
 export default {
   title: 'Molecules/Floating',
   component: Floating,
-  args: { ...Floating.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },

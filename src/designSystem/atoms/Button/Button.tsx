@@ -22,14 +22,14 @@ export interface IButton extends IGeneralProps {
   /**
    * Button Type Action
    */
-  type: TButton
+  type?: TButton
 }
 
 const Button = ({
   children,
   variant = 'primary',
   preffix,
-  type,
+  type = 'button',
   ...genericsProps
 }: IButton) => {
   return (

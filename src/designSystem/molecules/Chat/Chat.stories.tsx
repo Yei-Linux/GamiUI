@@ -6,7 +6,7 @@ import Chat from '.'
 export default {
   title: 'Molecules/Chat',
   component: Chat,
-  args: { ...Chat.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

@@ -7,11 +7,11 @@ export interface IPassword extends IInput {
   /**
    * Icon for visible action
    */
-  iconVisible: React.ReactNode
+  iconVisible?: React.ReactNode
   /**
    * Icon for hide action
    */
-  iconHide: React.ReactNode
+  iconHide?: React.ReactNode
 }
 const Password = ({
   iconHide = <Icon fill="blue" size="30px" name="closeeye" />,

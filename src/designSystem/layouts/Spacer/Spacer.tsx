@@ -13,7 +13,7 @@ export interface ISpacer {
   /**
    * Size of spacer
    */
-  size: TSize
+  size?: TSize
   /**
    * Custom Size
    */

@@ -1,28 +1,29 @@
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { spacing, theme } from 'styles/tokens'
 
-export const ControlsWrapper = styled.div<{ maxWidth?: string }>`
-  padding: 1rem;
+export const Controls = styled.div<{ $maxWidth?: string }>`
+  padding: ${spacing.padding.md};
   width: fit-content;
-  max-width: ${(props) => props.maxWidth};
-`
-
-export const ControlsItemContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 1rem;
+  max-width: ${({ $maxWidth }) => $maxWidth};
 `
 
 export const ControlsTitle = styled.div``
 
-export const ControlsItemBox = styled.div`
-  background-color: ${colorLight.secondary.three};
+export const ControlsItemGroup = styled.div`
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+
+  flex-wrap: wrap;
+  padding: ${spacing.padding.md};
+`
+
+export const ControlsItem = styled.div`
+  background-color: ${theme.light.primary.hawkesBlue};
   border-radius: 15em;
+
   padding: 5px;
-  width: fit-content;
   margin: 3px;
 
+  width: fit-content;
   min-width: 30px;
 `

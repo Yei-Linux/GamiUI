@@ -1,15 +1,19 @@
 import React from 'react'
 import Title from '../../atoms/Title'
-import {
-  ControlsItemBox,
-  ControlsItemContainer,
-  ControlsTitle,
-  ControlsWrapper,
-} from './Controls.styles'
+import * as S from './Controls.styles'
 
 export interface IControls {
+  /**
+   * Options to change
+   */
   controlItems: React.ReactNode[]
+  /**
+   * Title of options group
+   */
   controlTitle: string
+  /**
+   * Max width
+   */
   maxWidth?: string
 }
 
@@ -19,21 +23,20 @@ const Controls = ({
   maxWidth = 'none',
 }: IControls) => {
   return (
-    <ControlsWrapper maxWidth={maxWidth}>
-      <ControlsTitle>
-        <Title textAlign="CENTER" level="h3">
+    <S.Controls $maxWidth={maxWidth}>
+      <S.ControlsTitle>
+        <Title textAlign="center" level="h3">
           {controlTitle}
         </Title>
-      </ControlsTitle>
-      <ControlsItemContainer>
+      </S.ControlsTitle>
+
+      <S.ControlsItemGroup>
         {controlItems?.map((item: React.ReactNode, index: number) => (
-          <ControlsItemBox key={index}>{item}</ControlsItemBox>
+          <S.ControlsItem key={index}>{item}</S.ControlsItem>
         ))}
-      </ControlsItemContainer>
-    </ControlsWrapper>
+      </S.ControlsItemGroup>
+    </S.Controls>
   )
 }
-
-Controls.defaultProps = {}
 
 export default Controls

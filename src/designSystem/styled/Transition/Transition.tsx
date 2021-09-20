@@ -21,7 +21,7 @@ export interface ITransition {
   /**
    * Component will be has animation
    */
-  isReadyToInitAnimation: boolean
+  isReadyToInitAnimation?: boolean
   /**
    * Component will be has from animation
    */
