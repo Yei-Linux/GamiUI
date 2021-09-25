@@ -9,7 +9,7 @@ import Icon from '../../atoms/Icon'
 export default {
   title: 'Molecules/List',
   component: List,
-  args: { ...List.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },
@@ -48,7 +48,7 @@ export const CustomContent = (args: any) => (
       title="Main title"
       description="Description"
     >
-      <Button width="NORMAL" border="ROUNDED">
+      <Button width="md" border="md">
         Go!!
       </Button>
     </List.Item>
@@ -57,7 +57,7 @@ export const CustomContent = (args: any) => (
       title="Main title"
       description="Description"
     >
-      <Button width="NORMAL" border="ROUNDED">
+      <Button width="md" border="md">
         Go!!
       </Button>
     </List.Item>

@@ -7,7 +7,7 @@ import Icon from '../../atoms/Icon'
 export default {
   title: 'Molecules/Menu',
   component: Menu,
-  args: { ...Menu.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

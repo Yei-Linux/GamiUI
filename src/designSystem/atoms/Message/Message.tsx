@@ -26,11 +26,11 @@ export interface IMessage extends IGeneralProps {
   /**
    * Color
    */
-  color: string
+  color?: string
   /**
    * Max Width
    */
-  maxWidth: string
+  maxWidth?: string
 }
 
 const Message = ({

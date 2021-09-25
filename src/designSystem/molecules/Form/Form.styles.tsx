@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
+import RichText from 'designSystem/atoms/RichText'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import RichText from '../../atoms/RichText'
 
 export const Form = styled.form`
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
