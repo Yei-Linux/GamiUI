@@ -12,7 +12,7 @@ export default {
 } as Meta
 
 export const Basic = (args: any) => (
-  <Row style={{ maxWidth: '250px' }}>
+  <Row height="auto" style={{ maxWidth: '250px' }}>
     <ProgressBar {...args} />
   </Row>
 )

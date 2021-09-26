@@ -41,6 +41,7 @@ export const StickyHideContainer = styled.div<{
 
 export const Sticky = styled.div<{ $shadow?: ShadowType; $right: string }>`
   ${({ $shadow }) => stickyCommon({ $shadow: $shadow || 'sm' })}
+  right: ${({ $right }) => $right};
 
   width: min-content;
   height: min-content;

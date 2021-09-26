@@ -38,9 +38,6 @@ export const getGenericPropStyles = ({
   className,
   onClick,
   onChange,
-  onMouseEnter,
-  onMouseLeave,
-  onMouseMove,
 }: IGeneralProps) => {
   const propStyles: IDynamicPropStyles = {}
 
@@ -56,9 +53,6 @@ export const getGenericPropStyles = ({
 
   if (onClick) propStyles['onClick'] = onClick
   if (onChange) propStyles['onChange'] = onChange
-  if (onMouseEnter) propStyles['onMouseEnter'] = onMouseEnter
-  if (onMouseLeave) propStyles['onMouseLeave'] = onMouseLeave
-  if (onMouseMove) propStyles['onMouseMove'] = onMouseMove
 
   return propStyles
 }

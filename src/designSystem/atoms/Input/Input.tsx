@@ -1,12 +1,16 @@
 import classNames from 'classnames'
-import React from 'react'
+import Spacer from 'designSystem/layouts/Spacer'
+import React, { Fragment } from 'react'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import * as S from './Input.styles'
 
 export type TPositionPrefix = 'left' | 'right'
 
-export type TOnChangeFormItem = (value: any, ...props: unknown[]) => unknown | void
+export type TOnChangeFormItem = (
+  value: any,
+  ...props: unknown[]
+) => unknown | void
 
 export interface IInput extends IGeneralProps {
   /**
@@ -74,7 +78,12 @@ const Input = ({
       })}
       {...getGenericPropStyles(genericsProps)}
     >
-      {prefix}
+      {prefix && (
+        <Fragment>
+          {prefix}
+          <Spacer direction="left" />
+        </Fragment>
+      )}
       {
         <S.Input
           readOnly={readOnly}

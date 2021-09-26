@@ -8,7 +8,7 @@ import {
   WidthType,
 } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { theme } from 'styles/tokens'
+import { spacing } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { TDirection } from './Message'
 
@@ -44,14 +44,13 @@ export const Message = styled.div<{
 }>`
   position: relative;
 
-  color: ${({ $color }) => $color || theme.light.neutral[800]};
-  background-color: ${({ $background }) =>
-    $background || theme.light.primary.jordyBlue};
-  border: 1px solid
-    ${({ $background }) => $background || theme.light.primary.jordyBlue};
+  color: ${({ $color }) => $color};
+  background-color: ${({ $background }) => $background};
+  border: 1px solid ${({ $background }) => $background};
 
   max-width: ${({ $maxWidth }) => $maxWidth};
-  min-height: 20px;
+  min-height: 50px;
+  padding: ${spacing.padding.md};
 
   ${mixinFlexVariants({ alignItems: 'center' })}
 
@@ -89,9 +88,9 @@ export const Message = styled.div<{
   ${({ $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
     setGenericPropStyles({
       border: 'sm',
-      shadow: $shadow || 'md',
-      width: $width || 'xs',
-      heigth: $heigth || 'xs',
+      shadow: $shadow || 'none',
+      width: $width || 'auto',
+      heigth: $heigth || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign || 'left',
     })};

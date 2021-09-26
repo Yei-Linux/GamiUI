@@ -35,7 +35,9 @@ const Tag = ({
       $color={color}
       {...getGenericPropStyles(genericsProps)}
     >
-      {ballMarkerColor != '' && <S.BallMarker $background={ballMarkerColor} />}
+      {ballMarkerColor != '' && ballMarkerColor && (
+        <S.BallMarker $background={ballMarkerColor} />
+      )}
       {text}
     </S.Tag>
   )

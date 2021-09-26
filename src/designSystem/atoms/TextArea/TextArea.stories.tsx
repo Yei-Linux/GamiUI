@@ -21,8 +21,5 @@ export default {
 export const BasicTextArea = Template.bind({})
 BasicTextArea.args = {
   placeholder: 'Type your text',
-  width: 'NORMAL',
-  heigth: 'SMALL',
-  shadow: '',
-  border: 'MEDIUM',
+  width: 'full',
 }

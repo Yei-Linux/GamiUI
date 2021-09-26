@@ -11,7 +11,7 @@ export const Tag = styled.div<{
   $shadow?: ShadowType
   $fontWeight?: FontWeightType
 }>`
-  padding: 5px 10px;
+  padding: 10px 1rem;
   width: fit-content;
 
   &:hover {

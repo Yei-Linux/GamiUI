@@ -39,10 +39,10 @@ export const Button = styled.button<{
 
   ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
     setGenericPropStyles({
-      border: $border || 'md',
+      border: $border || 'sm',
       shadow: $shadow || 'md',
-      width: $width || 'xs',
-      heigth: $heigth || 'xs',
+      width: $width || 'auto',
+      heigth: $heigth || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign,
     })};

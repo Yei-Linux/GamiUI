@@ -17,9 +17,9 @@ export const Title = styled.div<{
 }>`
   ${({ $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
     setGenericPropStyles({
-      shadow: $shadow || 'md',
-      width: $width || 'xs',
-      heigth: $heigth || 'xs',
+      shadow: $shadow || 'none',
+      width: $width || 'auto',
+      heigth: $heigth || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign,
     })};

@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
+    "paths": {
+      "styles/*": ["styles/*"]
+    },
+
     "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",

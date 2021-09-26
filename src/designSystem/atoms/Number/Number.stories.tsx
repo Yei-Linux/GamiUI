@@ -1,5 +1,8 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import {
+  getTemplate,
+  stylesControl,
+} from '../../../core/helpers/storybook.helper'
 
 import Number from '.'
 import React from 'react'
@@ -10,7 +13,7 @@ const Template = getTemplate(Number)
 export default {
   title: 'Atoms/Number',
   component: Number,
-  args: { ...Number.defaultProps },
+  args: {},
   argTypes: {
     positionPrefix: {
       control: 'select',
@@ -38,7 +41,7 @@ export default {
 export const Basic = Template.bind({})
 Basic.args = {
   placeholder: 'Type your phone',
-  width: 'NORMAL',
-  heigth: 'SMALL',
-  prefix: <Icon fill="#374a54" />,
+  width: 'auto',
+  heigth: 'auto',
+  prefix: <Icon fill="#374a54" name="table" />,
 }

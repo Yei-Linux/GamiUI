@@ -13,8 +13,4 @@ export const mixinInput = (themeType: 'light' | 'dark') => css`
   &::placeholder {
     color: ${theme[themeType].neutral[500]};
   }
-
-  input[type='password'] {
-    font-family: system-ui;
-  }
 `

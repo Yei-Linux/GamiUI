@@ -22,8 +22,8 @@ export const Icon = styled.i<{
 
   ${({ $border, $shadow }) =>
     setGenericPropStyles({
-      border: $border || 'md',
-      shadow: $shadow || 'md',
+      border: $border || 'none',
+      shadow: $shadow || 'none',
     })};
 `
 

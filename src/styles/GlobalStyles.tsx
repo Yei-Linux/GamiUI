@@ -5,14 +5,9 @@ import { font, sizes, spacing } from './tokens'
 import { allCommonsClasses } from './commons'
 
 const fonts = () => css`
-  @import url('https://fonts.googleapis.com/css2?family=Itim&family=Quicksand&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-  @import url('https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Mali:wght@300;400;600;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 `
 
 const GlobalStyles = () => {

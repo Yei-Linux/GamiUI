@@ -17,9 +17,9 @@ export const RichText = styled.div<{
 }>`
   ${({ $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
     setGenericPropStyles({
-      shadow: $shadow || 'sm',
+      shadow: $shadow || 'none',
       width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      heigth: $heigth || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign,
     })};

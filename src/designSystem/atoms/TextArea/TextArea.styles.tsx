@@ -24,16 +24,16 @@ export const TextArea = styled.textarea<{
   max-height: 225px;
 
   margin: ${spacing.margin.none};
-  padding-top: ${spacing.padding.md};
+  padding: ${spacing.padding.md};
 
   ${mixinInput('light')};
 
   ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
     setGenericPropStyles({
-      border: $border || 'lg',
+      border: $border || 'sm',
       shadow: $shadow || 'sm',
       width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      heigth: $heigth || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign,
     })};

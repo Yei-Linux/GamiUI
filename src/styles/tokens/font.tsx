@@ -1,17 +1,17 @@
 export const font = {
   family: {
     mali: "'Mali', cursive",
-    sanspro: 'Source Sans Pro, sans-serif',
-    sans: 'Quicksand, Arial, sans-serif',
+    sanspro: "'Source Sans Pro', sans-serif",
+    sans: "'Quicksand', sans-serif",
   },
   weight: {
-    light: '300',
-    normal: '400',
-    medium: '500',
-    semibold: '600',
-    bold: '700',
-    extrabold: '800',
-    black: '900',
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900,
   },
   size: {
     base: '1rem',

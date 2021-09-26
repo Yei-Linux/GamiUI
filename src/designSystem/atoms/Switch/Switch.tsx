@@ -34,11 +34,11 @@ const Switch = ({
   return (
     <S.Switch
       type="button"
-      onClick={toggleSwitch}
       className={classNames({
         checked: isChecked,
       })}
       {...getGenericPropStyles(genericsProps)}
+      onClick={toggleSwitch}
     >
       <S.SwitchBall
         className={classNames({

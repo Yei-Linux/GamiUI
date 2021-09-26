@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react'
 import {
   getTemplate,
   stylesControl,
-} from '../../../core/helpers/storybook.helper'
+} from 'core/helpers/storybook.helper'
 import { options as optionsGuide } from './constants'
 
 import AnimatorGuide from '.'

@@ -23,24 +23,29 @@ export const InputBox = styled.div<{
   overflow: hidden;
   background: ${theme.light.neutral[800]};
   ${mixinFlexVariants({ alignItems: 'center' })}
+  max-width: 300px;
+
+  input[type='password'] {
+    font-family: system-ui !important;
+  }
 
   &.positionPrefixRight {
     flex-direction: row-reverse;
     justify-content: space-between;
-    padding: 0 1rem 0 0;
   }
 
   &.positionPrefixLeft {
     flex-direction: row;
-    padding: 0 0 0 1rem;
   }
+
+  padding: 1rem;
 
   ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
     setGenericPropStyles({
-      border: $border || 'lg',
+      border: $border || 'sm',
       shadow: $shadow || 'sm',
       width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      heigth: $heigth || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign,
     })};

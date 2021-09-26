@@ -10,7 +10,6 @@ export { default as Link } from './src/designSystem/atoms/Link'
 export { default as Mask } from './src/designSystem/atoms/Mask'
 export { default as Message } from './src/designSystem/atoms/Message'
 export { default as Number } from './src/designSystem/atoms/Number'
-export { default as Options } from './src/designSystem/atoms/Options'
 export { default as Password } from './src/designSystem/atoms/Password'
 export { default as ProgressBar } from './src/designSystem/atoms/ProgressBar'
 export { default as Pulser } from './src/designSystem/atoms/Pulser'
@@ -55,6 +54,7 @@ export { default as TrafficLight } from './src/designSystem/molecules/TrafficLig
 export { default as Video } from './src/designSystem/molecules/Video'
 export { default as Chat } from './src/designSystem/molecules/Chat'
 export { default as Note } from './src/designSystem/molecules/Note'
+export { default as Options } from './src/designSystem/molecules/Options'
 export { default as Tab } from './src/designSystem/molecules/Tab'
 export { default as Steps } from './src/designSystem/molecules/Steps'
 
@@ -65,7 +65,17 @@ export { default as Wave } from './src/designSystem/styled/Wave'
 
 //Config Theme
 export { default as ThemeGamification } from './src/providers/ThemeGamification'
-export { twinTheme, palette } from './src/styles/theme'
+export {
+  theme,
+  borderRadius,
+  breakspointSizes,
+  sizes,
+  spacing,
+  boxShadow,
+  zIndex,
+  font,
+  opacity,
+} from './src/styles/tokens'
 export { mediaQuery } from './src/styles/utilities/breakpoints'
 
 //Hooks

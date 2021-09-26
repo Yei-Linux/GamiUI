@@ -23,7 +23,7 @@ export const Switch = styled.button<{
   padding: 0px 3px;
   border: ${spacing.border.none};
 
-  transition: button 0.2s;
+  transition: all 0.1s;
   user-select: none;
 
   &:hover {
@@ -57,7 +57,8 @@ export const SwitchBall = styled.div`
   border-radius: ${borderRadius.md};
 
   background: ${theme.light.neutral[800]};
-  transition: div 0.2s ease-in-out;
+
+  transition: all 0.2s ease-in-out;
 
   &.checked {
     left: calc(100% - 20px);

@@ -114,13 +114,13 @@ export const componentsTheme = (currentTheme: 'light' | 'dark') => {
         border: spacing.border.none,
       },
       tertiary: {
-        bg: themeSelected.secondary.oxfordBlue,
+        bg: themeSelected.secondary.nepal,
         color: themeSelected.neutral[800],
         border: spacing.border.none,
       },
       cuaternary: {
         bg: themeSelected.neutral[800],
-        color: themeSelected.secondary.oxfordBlue,
+        color: themeSelected.secondary.nepal,
         border: spacing.border.none,
       },
       text: {

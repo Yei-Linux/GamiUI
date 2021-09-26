@@ -7,9 +7,10 @@ export const colorDark = {
     selago: '#EFF1FD',
   },
   secondary: {
-    goldenTainoi: '#ffc75f',
-    riptide: '#94ebcd',
-    oxfordBlue: '#374a54',
+    nepal: '#93B5C6',
+    linkWater: '#cdd8f7',
+    prim: '#E4D8DC',
+    tutu: '#FFE3E3',
   },
   neutral: {
     0: '#000000',

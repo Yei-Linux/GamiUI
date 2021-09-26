@@ -24,19 +24,19 @@ export interface ICol {
   /**
    * Extra Small Size
    */
-  xs: TCols
+  xs?: TCols
   /**
    * Small Size
    */
-  sm: TCols
+  sm?: TCols
   /**
    * Medium Size
    */
-  md: TCols
+  md?: TCols
   /**
    * Large Size
    */
-  lg: TCols
+  lg?: TCols
 }
 
 const Col = ({ children, spacing, xs = 12, sm = 6, md = 4, lg = 3 }: ICol) => {

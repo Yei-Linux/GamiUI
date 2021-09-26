@@ -22,7 +22,7 @@ export const KeenSliderLib = styled.div`
 
   &.vertical {
     flex-wrap: wrap;
-    height: 300px;
+    height: 450px;
   }
 
   &.keenslider__slide {

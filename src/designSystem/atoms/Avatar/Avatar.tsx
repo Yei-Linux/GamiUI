@@ -30,7 +30,7 @@ const Avatar = ({
   src,
   icon,
   text,
-  background,
+  background = 'rgb(97, 104, 106)',
   ...genericsProps
 }: IAvatar) => {
   const showOnlyFirstLettersOnText = (text: string): string => {

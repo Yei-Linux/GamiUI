@@ -3,7 +3,7 @@ import { ThemeProvider } from '@emotion/react'
 import GlobalStyles from '../../styles/GlobalStyles'
 
 export interface ThemeGamificationProps {
-  children: any
+  children: React.ReactNode
 }
 
 const ThemeGamification = ({ children }: ThemeGamificationProps) => {

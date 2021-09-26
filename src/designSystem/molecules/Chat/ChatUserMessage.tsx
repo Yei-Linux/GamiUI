@@ -39,12 +39,12 @@ const ChatUserMessage = ({ message }: ChatUserMessageProps) => {
                   <Message
                     color={
                       !message?.isMe
-                        ? theme.light.secondary.oxfordBlue
+                        ? theme.light.secondary.nepal
                         : 'white'
                     }
                     maxWidth="none"
                     background={
-                      message?.isMe ? theme.light.secondary.oxfordBlue : 'white'
+                      message?.isMe ? theme.light.secondary.nepal : 'white'
                     }
                     heigth="auto"
                     width="auto"
