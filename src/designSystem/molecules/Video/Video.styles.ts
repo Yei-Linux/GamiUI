@@ -1,14 +1,14 @@
 import styled from '@emotion/styled'
+import { mixinFlexVariants } from 'styles/mixins/flex'
 
-export const VideoWrapper = styled.div``
+export const Video = styled.div``
 
 export const VideoControlsContainer = styled.div``
 
 export const VideDurationProgressBar = styled.div``
 
 export const VideoReproduceButton = styled.div`
-  display: flex;
-  justify-content: center;
+  ${mixinFlexVariants({ justifyContent: 'center' })}
 `
 
 export const VideoOptionContainer = styled.div<{ align: string }>`
@@ -27,13 +27,9 @@ export const VideoVelocityRange = styled.div`
 `
 
 export const CurrentVideoTime = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
 `
 
 export const DurationVideoTime = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
 `

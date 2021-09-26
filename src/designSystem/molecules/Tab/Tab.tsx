@@ -7,7 +7,13 @@ import TabList from './TabList'
 import TabListItem from './TabListItem'
 
 export interface ITab {
+  /**
+   * Tab Content
+   */
   children: React.ReactNode
+  /**
+   * Active tab by default
+   */
   defaultActiveTab: string
 }
 
@@ -23,7 +29,5 @@ Tab.List = TabList
 Tab.ListItem = TabListItem
 Tab.Content = TabContent
 Tab.ContentItem = TabContentItem
-
-Tab.defaultProps = {}
 
 export default Tab

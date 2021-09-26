@@ -6,7 +6,7 @@ import Video from '.'
 export default {
   title: 'Molecules/Video',
   component: Video,
-  args: { ...Video.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

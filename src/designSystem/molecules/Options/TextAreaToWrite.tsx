@@ -1,5 +1,5 @@
 import React from 'react'
-import TextArea from '../../atoms/TextArea'
+import TextArea from 'designSystem/atoms/TextArea'
 import { THandleChangeOption } from './Options'
 
 export interface ITextAreaToWrite {

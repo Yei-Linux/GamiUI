@@ -1,5 +1,5 @@
 import React from 'react'
-import { NotesLayoutWrapper } from './Note.styles'
+import * as S from './Note.styles'
 
 export interface NotesLayoutProps {
   maxHeight?: string
@@ -7,9 +7,7 @@ export interface NotesLayoutProps {
 }
 
 const NotesLayout = ({ maxHeight = '500px', children }: NotesLayoutProps) => {
-  return (
-    <NotesLayoutWrapper maxHeight={maxHeight}>{children}</NotesLayoutWrapper>
-  )
+  return <S.NotesLayout $maxHeight={maxHeight}>{children}</S.NotesLayout>
 }
 
 export default NotesLayout

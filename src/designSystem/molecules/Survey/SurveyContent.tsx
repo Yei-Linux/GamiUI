@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
-import useSurveyStore from '../../../hooks/store/useSurveyStore'
+import useSurveyStore from 'hooks/store/useSurveyStore'
 
-import ProgressBar from '../../atoms/ProgressBar'
+import ProgressBar from 'designSystem/atoms/ProgressBar'
+
 import Steps from '../Steps'
 import { ISurvey } from './Survey'
-import { SurveyContentBox } from './Survey.styles'
+
+import * as S from './Survey.styles'
 import SurveyContentBody from './SurveyContentBody'
 
 const SurveyContent = ({ children, onFinish, onClickMenu }: ISurvey) => {
@@ -20,7 +22,7 @@ const SurveyContent = ({ children, onFinish, onClickMenu }: ISurvey) => {
   }, [])
 
   return (
-    <SurveyContentBox>
+    <S.SurveyContentBox>
       <ProgressBar percent={percent} backgroundProgressBar="#e0e6f7" />
 
       <Steps>
@@ -28,7 +30,7 @@ const SurveyContent = ({ children, onFinish, onClickMenu }: ISurvey) => {
           {children}
         </SurveyContentBody>
       </Steps>
-    </SurveyContentBox>
+    </S.SurveyContentBox>
   )
 }
 

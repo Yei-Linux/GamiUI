@@ -6,7 +6,7 @@ import Tab from '.'
 export default {
   title: 'Molecules/Tab',
   component: Tab,
-  args: { ...Tab.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

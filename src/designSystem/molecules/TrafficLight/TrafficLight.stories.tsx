@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import { getTemplate, stylesControl } from 'core/helpers/storybook.helper'
 
 import TrafficLight from '.'
 
@@ -8,7 +8,7 @@ const Template = getTemplate(TrafficLight)
 export default {
   title: 'Molecules/TrafficLight',
   component: TrafficLight,
-  args: { ...TrafficLight.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },

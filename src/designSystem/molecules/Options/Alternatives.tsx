@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react'
+
 import Spacer from 'designSystem/layouts/Spacer'
 import List from 'designSystem/molecules/List'
-import Icon from '../../atoms/Icon'
+import { IOnlyIcon } from 'designSystem/atoms/Icon/Icon'
+import Icon from 'designSystem/atoms/Icon'
+
 import { THandleChangeOption } from './Options'
-import { IOnlyIcon } from '../../atoms/Icon/Icon'
 
 export interface IAlternative {
   label: string

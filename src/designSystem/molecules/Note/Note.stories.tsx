@@ -6,7 +6,7 @@ import Note from '.'
 export default {
   title: 'Molecules/Note',
   component: Note,
-  args: { ...Note.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

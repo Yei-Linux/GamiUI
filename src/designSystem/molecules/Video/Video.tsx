@@ -1,19 +1,13 @@
 import React, { useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
-import Icon from '../../atoms/Icon'
-import Range from '../../atoms/Range'
-import Col from '../../layouts/Col'
-import Row from '../../layouts/Row'
-import Spacer from '../../layouts/Spacer'
-import {
-  VideDurationProgressBar,
-  VideoControlsContainer,
-  VideoOptionContainer,
-  VideoReproduceButton,
-  VideoVelocityRange,
-  VideoVolume,
-  VideoWrapper,
-} from './Video.styles'
+
+import Icon from 'designSystem/atoms/Icon'
+import Range from 'designSystem/atoms/Range'
+import Col from 'designSystem/layouts/Col'
+import Row from 'designSystem/layouts/Row'
+import Spacer from 'designSystem/layouts/Spacer'
+
+import * as S from './Video.styles'
 
 export interface IVideo {
   width?: string
@@ -22,7 +16,12 @@ export interface IVideo {
   url: string
 }
 
-const Video = ({ width, height, loop, url }: IVideo) => {
+const Video = ({
+  width = '100%',
+  height = '100%',
+  loop = true,
+  url = 'https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164',
+}: IVideo) => {
   const [velocity, setVelocity] = useState(1)
   const [play, setPlay] = useState(false)
   const [volume, setVolume] = useState(0.5)
@@ -51,7 +50,12 @@ const Video = ({ width, height, loop, url }: IVideo) => {
     }
   }
 
-  const handleChangeDurationVideo = (state: any) => {
+  const handleChangeDurationVideo = (state: {
+    played: number
+    playedSeconds: number
+    loaded: number
+    loadedSeconds: number
+  }) => {
     if (player?.current) {
       const videoPercent = calculateVideoTimeToPercent(
         state?.playedSeconds,
@@ -89,7 +93,7 @@ const Video = ({ width, height, loop, url }: IVideo) => {
   }
 
   return (
-    <VideoWrapper>
+    <S.Video>
       <ReactPlayer
         playbackRate={velocity}
         width={width}
@@ -103,69 +107,62 @@ const Video = ({ width, height, loop, url }: IVideo) => {
         controls={false}
         onProgress={handleChangeDurationVideo}
       />
-      <VideoControlsContainer>
-        <VideDurationProgressBar>
+      <S.VideoControlsContainer>
+        <S.VideDurationProgressBar>
           <Range
             value={valueVideo}
             onChangeFormItem={handleChangeRangeDurationVideo}
             heightRange="10px"
             sizeScrollRange="15px"
           />
-        </VideDurationProgressBar>
+        </S.VideDurationProgressBar>
         <Row isWrap={false}>
           <Col spacing="sm" xs={4} sm={4} md={4} lg={4}>
-            <VideoOptionContainer align="flex-end">
-              <VideoVolume>
+            <S.VideoOptionContainer align="flex-end">
+              <S.VideoVolume>
                 <Range
                   iconId="volume"
                   value={valueVolume}
                   onChangeFormItem={handleChangeVolume}
                 />
-              </VideoVolume>
-            </VideoOptionContainer>
+              </S.VideoVolume>
+            </S.VideoOptionContainer>
           </Col>
 
           <Col spacing="sm" xs={4} sm={4} md={4} lg={4}>
-            <VideoReproduceButton>
-              <Icon name={'prevskip'} size="20px" width="NORMAL" />
+            <S.VideoReproduceButton>
+              <Icon name={'prevskip'} size="20px" width="auto" />
               <Spacer direction="left" />
 
               <Icon
                 name={!play ? 'play' : 'pause'}
                 size="40px"
                 onClick={handleTogglePlay}
-                shadow="LARGE"
-                border="FULL"
-                width="NORMAL"
+                shadow="lg"
+                border="lg"
+                width="auto"
               />
 
               <Spacer direction="right" />
-              <Icon name={'nextskip'} size="20px" width="NORMAL" />
-            </VideoReproduceButton>
+              <Icon name={'nextskip'} size="20px" width="auto" />
+            </S.VideoReproduceButton>
           </Col>
 
           <Col spacing="sm" xs={4} sm={4} md={4} lg={4}>
-            <VideoOptionContainer align="flex-start">
-              <VideoVelocityRange>
+            <S.VideoOptionContainer align="flex-start">
+              <S.VideoVelocityRange>
                 <Range
                   iconId="options"
                   value={valueVelocity}
                   onChangeFormItem={handleChangeVelocity}
                 />
-              </VideoVelocityRange>
-            </VideoOptionContainer>
+              </S.VideoVelocityRange>
+            </S.VideoOptionContainer>
           </Col>
         </Row>
-      </VideoControlsContainer>
-    </VideoWrapper>
+      </S.VideoControlsContainer>
+    </S.Video>
   )
-}
-
-Video.defaultProps = {
-  width: '100%',
-  height: '100%',
-  loop: true,
-  url: 'https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164',
 }
 
 export default Video

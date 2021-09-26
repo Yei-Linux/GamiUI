@@ -1,11 +1,13 @@
 import classNames from 'classnames'
 import React from 'react'
-import Col from '../../layouts/Col'
-import Row from '../../layouts/Row'
-import Button from '../../atoms/Button'
-import CodeEditor from '../../atoms/CodeEditor'
-import RichText from '../../atoms/RichText'
-import Title from '../../atoms/Title'
+
+import Col from 'designSystem/layouts/Col'
+import Row from 'designSystem/layouts/Row'
+import Button from 'designSystem/atoms/Button'
+import CodeEditor from 'designSystem/atoms/CodeEditor'
+import RichText from 'designSystem/atoms/RichText'
+import Title from 'designSystem/atoms/Title'
+
 import { THandleChangeOption } from './Options'
 import * as S from './Options.styles'
 

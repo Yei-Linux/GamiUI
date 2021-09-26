@@ -1,62 +1,56 @@
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import {
-  TableBody,
-  TableBodyColumn,
-  TableBodyRow,
-  TableContainer,
-  TableHeader,
-  TableHeaderColumn,
-  TableHeaderRow,
-  TableWrapper,
-} from './Table.styles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+
+import * as S from './Table.styles'
 
 interface IColumn {
   title: string
   dataIndex: string
-  render?: (props: any) => any
+  render?: (props: string) => React.ReactNode
 }
 
 export interface ITable extends IGeneralProps {
   columns: IColumn[]
-  data: any[]
+  data: IDynamicObjectWithField[]
 }
 
-const Table = ({ columns, data, ...props }: ITable) => {
+const Table = ({ columns, data, ...genericsProps }: ITable) => {
   const findRenderByColumn = (key: string, value: string) => {
-    const column: any = columns.find((column) => column.dataIndex == key)
+    const column: IColumn | undefined = columns.find(
+      ({ dataIndex }) => dataIndex == key
+    )
     return column?.render ? column?.render(value) : value
   }
 
   return (
-    <TableWrapper {...props}>
-      <TableContainer>
-        <TableHeader>
-          <TableHeaderRow>
+    <S.Table {...getGenericPropStyles(genericsProps)}>
+      <S.TableContainer>
+        <S.TableHeader>
+          <S.TableHeaderRow>
             {columns.map((column: IColumn, index: number) => (
-              <TableHeaderColumn key={index}>{column.title}</TableHeaderColumn>
+              <S.TableHeaderColumn key={index}>
+                {column.title}
+              </S.TableHeaderColumn>
             ))}
-          </TableHeaderRow>
-        </TableHeader>
+          </S.TableHeaderRow>
+        </S.TableHeader>
 
-        <TableBody>
+        <S.TableBody>
           {data.map((row: any, index: number) => (
-            <TableBodyRow key={index}>
+            <S.TableBodyRow key={index}>
               {Object.keys(row).map((column: any, index: number) => (
-                <TableBodyColumn key={index}>
+                <S.TableBodyColumn key={index}>
                   {findRenderByColumn(column, row[column])}
-                </TableBodyColumn>
+                </S.TableBodyColumn>
               ))}
-            </TableBodyRow>
+            </S.TableBodyRow>
           ))}
-        </TableBody>
-      </TableContainer>
-    </TableWrapper>
+        </S.TableBody>
+      </S.TableContainer>
+    </S.Table>
   )
-}
-
-Table.defaultProps = {
-  shadow: 'SMALL',
 }
 
 export default Table

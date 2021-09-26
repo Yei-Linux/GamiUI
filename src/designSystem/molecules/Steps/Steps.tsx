@@ -5,7 +5,7 @@ import StepItem from './StepItem'
 import * as S from './Steps.styles'
 
 export interface ISteps {
-  children?: any
+  children?: React.ReactNode
   addIndexOnItemAsProp?: boolean
 }
 

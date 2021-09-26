@@ -1,12 +1,14 @@
 import React from 'react'
-import useSurveyStore from '../../../hooks/store/useSurveyStore'
-import Button from '../../atoms/Button'
+import useSurveyStore from 'hooks/store/useSurveyStore'
+
+import Button from 'designSystem/atoms/Button'
+import Question, { IQuestion } from 'designSystem/atoms/Question/Question'
+import Col from 'designSystem/layouts/Col'
+import Layout from 'designSystem/layouts/Layout'
+import Row from 'designSystem/layouts/Row'
+
 import Options, { IOptions } from '../Options/Options'
-import Question, { IQuestion } from '../../atoms/Question/Question'
-import Col from '../../layouts/Col'
-import Layout from '../../layouts/Layout'
-import Row from '../../layouts/Row'
-import { SurveyContainer, SurveyOption } from './Survey.styles'
+import * as S from './Survey.styles'
 
 export interface IQuestionSurvey {
   question: IQuestion
@@ -42,7 +44,7 @@ const SurveyItem = ({
   }
 
   return (
-    <SurveyContainer
+    <S.SurveyContainer
       itemIndex={questionIndex}
       render={({ setCurrentStep }) => (
         <Layout>
@@ -55,7 +57,7 @@ const SurveyItem = ({
           </Layout.Header>
           <Layout.Content>
             <Row justifyContent="center">
-              <SurveyOption width={option.type == 'TEXTAREA' ? '80%' : 'auto'}>
+              <S.SurveyOption $width={option.type == 'TEXTAREA' ? '80%' : 'auto'}>
                 <Options
                   answer={answers?.[`question-${questionIndex}`]}
                   handleChangeOption={handleChangeOption}
@@ -64,7 +66,7 @@ const SurveyItem = ({
                   textarea={option.textarea}
                   code={option.code}
                 />
-              </SurveyOption>
+              </S.SurveyOption>
             </Row>
           </Layout.Content>
           <Layout.Footer>
@@ -76,9 +78,9 @@ const SurveyItem = ({
               <Col spacing="sm" xs={12} sm={6} md={6} lg={6}>
                 <Row>
                   <Button
-                    width="MEDIUM"
-                    border="MEDIUM"
-                    type="secondary"
+                    width="md"
+                    border="md"
+                    variant="secondary"
                     onClick={() =>
                       handleChangeQuestion(questionIndex - 1, setCurrentStep)
                     }
@@ -91,16 +93,16 @@ const SurveyItem = ({
                 <Row>
                   {isLastQuestion ? (
                     <Button
-                      width="MEDIUM"
-                      border="MEDIUM"
+                      width="md"
+                      border="md"
                       onClick={() => onClickSubmit(answers)}
                     >
                       Finish
                     </Button>
                   ) : (
                     <Button
-                      width="MEDIUM"
-                      border="MEDIUM"
+                      width="md"
+                      border="md"
                       onClick={() =>
                         handleChangeQuestion(questionIndex + 1, setCurrentStep)
                       }

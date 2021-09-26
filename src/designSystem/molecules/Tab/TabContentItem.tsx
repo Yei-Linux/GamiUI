@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
-import context from '../../../context/TabProvider/context'
-import useStore from '../../../hooks/useStore'
+
+import context from 'context/TabProvider/context'
+import useStore from 'hooks/useStore'
+
 import * as S from './Tab.styles'
 
 export interface ITabContentItem {

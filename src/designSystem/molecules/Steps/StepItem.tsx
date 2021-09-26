@@ -5,12 +5,12 @@ import * as S from './Steps.styles'
 
 interface IRender {
   currentStep: number
-  setCurrentStep: (data: any) => void
+  setCurrentStep: (data: number) => void
 }
 
 export interface IStepItem {
   itemIndex?: number
-  render: (data: IRender) => any
+  render: (data: IRender) => React.ReactNode
 }
 
 const StepItem = ({ itemIndex, render }: IStepItem) => {

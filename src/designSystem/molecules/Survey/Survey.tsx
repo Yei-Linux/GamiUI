@@ -1,12 +1,12 @@
 import React from 'react'
-import SurveyProvider from '../../../context/SurveyProvider'
-import SurveyContent from './SurveyContent'
+import SurveyProvider from 'context/SurveyProvider'
 
+import SurveyContent from './SurveyContent'
 import SurveyItem from './SurveyItem'
 
 export interface ISurvey {
   children: React.ReactNode
-  onFinish?: (value: any) => any
+  onFinish?: (value: any) => void
   onClickMenu?: () => void
 }
 
@@ -21,6 +21,5 @@ const Survey = ({ children, onFinish, onClickMenu }: ISurvey) => {
 }
 
 Survey.Item = SurveyItem
-Survey.defaultProps = {}
 
 export default Survey

@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react'
-import useStepStore from '../../../hooks/store/useStepStore'
-import useSurveyStore from '../../../hooks/store/useSurveyStore'
-import Icon from '../../atoms/Icon'
-import RichText from '../../atoms/RichText'
-import Sticky from '../../atoms/Sticky'
-import Spacer from '../../layouts/Spacer'
+import useStepStore from 'hooks/store/useStepStore'
+import useSurveyStore from 'hooks/store/useSurveyStore'
+
+import Icon from 'designSystem/atoms/Icon'
+import RichText from 'designSystem/atoms/RichText'
+import Sticky from 'designSystem/atoms/Sticky'
+import Spacer from 'designSystem/layouts/Spacer'
+
 import Controls from '../Controls'
-import { SurveyControlsItem, SurveyWrapper } from './Survey.styles'
+import * as S from './Survey.styles'
 
 interface ISurveyContentBody {
   children: React.ReactNode
@@ -50,16 +52,16 @@ const SurveyContentBody = ({ children, onClickMenu }: ISurveyContentBody) => {
                 maxWidth="204px"
                 controlItems={Array.from(new Array(totalQuestions))?.map(
                   (_questionItem: any, index: number) => (
-                    <SurveyControlsItem
+                    <S.SurveyControlsItem
                       key={index}
                       onClick={() => handleChangeQuestion(index)}
                     >
                       <RichText
                         style={{ color: 'white' }}
                         text={`${index + 1}`}
-                        textAlign="CENTER"
+                        textAlign="center"
                       />
-                    </SurveyControlsItem>
+                    </S.SurveyControlsItem>
                   )
                 )}
                 controlTitle="My questions"
@@ -69,7 +71,7 @@ const SurveyContentBody = ({ children, onClickMenu }: ISurveyContentBody) => {
         ]}
       />
 
-      <SurveyWrapper addIndexOnItemAsProp={false}>{children}</SurveyWrapper>
+      <S.Survey addIndexOnItemAsProp={false}>{children}</S.Survey>
     </Fragment>
   )
 }

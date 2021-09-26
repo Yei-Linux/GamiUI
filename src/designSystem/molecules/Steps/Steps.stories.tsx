@@ -3,8 +3,8 @@ import { Meta } from '@storybook/react'
 
 import Steps from '.'
 import Button from '../../atoms/Button'
-import { colorLight } from '../../../styles/theme'
 import Icon from '../../atoms/Icon'
+import { theme } from 'styles/tokens'
 
 export default {
   title: 'Molecules/Steps',
@@ -28,7 +28,7 @@ export const Basic = () => (
           <div>
             <Icon
               onClick={() => setCurrentStep(0)}
-              fill={colorLight.primary.one}
+              fill={theme.light.primary.jordyBlue}
               name="arrowLeft"
             />
             <p>Hola1</p>
@@ -41,7 +41,7 @@ export const Basic = () => (
           <div>
             <Icon
               onClick={() => setCurrentStep(1)}
-              fill={colorLight.primary.one}
+              fill={theme.light.primary.jordyBlue}
               name="arrowLeft"
             />
             <p>Hola1</p>

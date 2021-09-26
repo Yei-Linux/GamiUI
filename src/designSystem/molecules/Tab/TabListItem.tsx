@@ -1,7 +1,9 @@
 import classNames from 'classnames'
 import React from 'react'
-import context from '../../../context/TabProvider/context'
-import useStore from '../../../hooks/useStore'
+
+import context from 'context/TabProvider/context'
+import useStore from 'hooks/useStore'
+
 import * as S from './Tab.styles'
 
 export interface ITabListItem {

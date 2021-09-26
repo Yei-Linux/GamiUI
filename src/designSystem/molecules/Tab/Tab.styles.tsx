@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { palette } from '../../../styles/theme'
+import { spacing, theme } from 'styles/tokens'
 
 export const Tab = styled.div`
   width: fit-content;
@@ -17,10 +17,10 @@ export const TabList = styled.ul`
 `
 
 export const TabItem = styled.li`
-  padding: 1rem;
+  padding: ${spacing.padding.md};
   &.active {
-    background-color: ${palette.light.color.primary.one};
-    color: ${palette.light.color.neutral.nine};
+    background-color: ${theme.light.primary.jordyBlue};
+    color: ${theme.light.neutral[800]};
   }
   &:hover {
     cursor: pointer;

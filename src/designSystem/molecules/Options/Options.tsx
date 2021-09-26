@@ -23,7 +23,6 @@ export interface IOptions {
    * TextArea for this type of question
    */
   textarea?: ITextAreaToWrite
-
   /**
    * Question Type
    */

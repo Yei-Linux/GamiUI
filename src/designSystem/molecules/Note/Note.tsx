@@ -1,49 +1,73 @@
 import React, { useState } from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { colorLight } from '../../../styles/theme'
-import Button from '../../atoms/Button'
-import Icon from '../../atoms/Icon'
-import Input from '../../atoms/Input'
-import TextEditor from '../../atoms/TextEditor'
-import { IOnChange } from '../../atoms/TextEditor/TextEditor'
-import Title from '../../atoms/Title'
-import Row from '../../layouts/Row'
-import {
-  NoteBody,
-  NoteContainer,
-  NoteFooter,
-  NoteTitle,
-  NoteWrapper,
-} from './Note.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+
+import * as S from './Note.styles'
 import NoteAdd from './NoteAdd'
 import NotesLayout from './NotesLayout'
+
+import { theme } from 'styles/tokens'
+import Button from 'designSystem/atoms/Button'
+import Icon from 'designSystem/atoms/Icon'
+import Input from 'designSystem/atoms/Input'
+import Title from 'designSystem/atoms/Title'
+import TextEditor from 'designSystem/atoms/TextEditor'
+import { IOnChange } from '../../atoms/TextEditor/TextEditor'
+
+import Row from 'designSystem/layouts/Row'
 
 type IAction = () => void
 
 export interface INote extends IGeneralProps {
+  /**
+   * Note Title default
+   */
   titleDefaultValue: string
+  /**
+   * Note Text default
+   */
   defaultValue?: string
+  /**
+   * On Change Title
+   */
   onChangeTitle: IOnChange
+  /**
+   * On change
+   */
   onChange: IOnChange
+  /**
+   * On Save note
+   */
   onSave?: IAction
+  /**
+   * On Edit note
+   */
   onEdit?: IAction
+  /**
+   * On Delete note
+   */
   onDelete?: IAction
+  /**
+   * is Edit default note behavior
+   */
   isEditDefault?: boolean
+  /**
+   * Background color for note
+   */
   background?: string
 }
 
 const Note = ({
-  titleDefaultValue,
-  defaultValue,
-  isEditDefault,
+  titleDefaultValue = 'My first note',
+  defaultValue = 'Nice section of course',
+  isEditDefault = true,
   onSave,
   onEdit,
   onDelete,
   onChange,
   onChangeTitle,
-  background,
-  border,
-  shadow,
+  background = theme.light.neutral[700],
+  ...genericsProps
 }: INote) => {
   const [isEdit, setIsEdit] = useState(isEditDefault)
 
@@ -55,23 +79,27 @@ const Note = ({
   }
 
   return (
-    <NoteWrapper background={background} border={border} shadow={shadow}>
-      <NoteBody>
-        <NoteTitle background={background} padding={isEdit ? '0px' : '1rem'}>
+    <S.Note $background={background} {...getGenericPropStyles(genericsProps)}>
+      <S.NoteBody>
+        <S.NoteTitle
+          $background={background}
+          $padding={isEdit ? '0px' : '1rem'}
+        >
           {!isEdit ? (
             <Title level="h3">{titleDefaultValue}</Title>
           ) : (
             <Input
-              border="NONE"
-              shadow="NONE"
+              border="none"
+              shadow="none"
               placeholder="Type your note title"
               value={titleDefaultValue}
               name="text__note"
               onChangeFormItem={onChangeTitle}
             />
           )}
-        </NoteTitle>
-        <NoteContainer padding={isEdit ? '0px' : '1rem'}>
+        </S.NoteTitle>
+
+        <S.NoteContainer $padding={isEdit ? '0px' : '1rem'}>
           {!isEdit ? (
             <div
               dangerouslySetInnerHTML={{
@@ -81,40 +109,32 @@ const Note = ({
           ) : (
             <TextEditor defaultValue={defaultValue} onChange={onChange} />
           )}
-        </NoteContainer>
-      </NoteBody>
-      <NoteFooter>
+        </S.NoteContainer>
+      </S.NoteBody>
+
+      <S.NoteFooter>
         <Row justifyContent="space-around">
           <Button
-            border="ROUNDED"
-            shadow="MEDIUM"
-            width="NORMAL"
+            border="lg"
+            shadow="md"
+            width="auto"
             onClick={handleActionClick}
           >
             <Icon size="25px" name={!isEdit ? 'edit' : 'check'} />
           </Button>
           <Button
-            type="tertiary"
-            border="ROUNDED"
-            shadow="MEDIUM"
-            width="NORMAL"
+            variant="tertiary"
+            border="lg"
+            shadow="md"
+            width="auto"
             onClick={onDelete}
           >
             <Icon size="25px" name="delete__white" />
           </Button>
         </Row>
-      </NoteFooter>
-    </NoteWrapper>
+      </S.NoteFooter>
+    </S.Note>
   )
-}
-
-Note.defaultProps = {
-  border: 'LARGE',
-  shadow: 'MEDIUM',
-  defaultValue: 'Nice section of course',
-  titleDefaultValue: 'My first note',
-  isEditDefault: true,
-  background: colorLight.neutral.eight,
 }
 
 Note.NoteAdd = NoteAdd

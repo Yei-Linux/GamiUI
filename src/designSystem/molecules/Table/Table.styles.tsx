@@ -1,16 +1,21 @@
 import styled from '@emotion/styled'
-import { colorLight } from '../../../styles/theme'
-import { mediaQuery } from '../../../styles/utilities/breakpoints'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import { ShadowType } from 'core/domain/types'
+import { theme } from 'styles/tokens'
+import { mediaQuery } from 'styles/utilities/breakpoints'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const TableWrapper = styled.div<{
-  shadow?: string
+export const Table = styled.div<{
+  $shadow?: ShadowType
 }>`
   overflow: hidden;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
   width: fit-content;
-  ${(props: any) => twinStyles(props)};
+
+  ${({ $shadow }) =>
+    setGenericPropStyles({
+      shadow: $shadow || 'sm',
+    })};
 `
 
 export const TableContainer = styled.table`
@@ -22,8 +27,8 @@ export const TableContainer = styled.table`
 `
 
 export const TableHeader = styled.thead`
-  background-color: ${colorLight.neutral.eight};
-  color: ${colorLight.neutral.one};
+  background-color: ${theme.light.neutral[700]};
+  color: ${theme.light.neutral[0]};
 `
 
 export const TableHeaderRow = styled.tr``
