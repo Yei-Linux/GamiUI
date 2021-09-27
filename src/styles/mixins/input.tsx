@@ -1,12 +1,14 @@
 import { css } from '@emotion/react'
-import { theme } from 'styles/tokens'
+import { spacing, theme } from 'styles/tokens'
 
 export const mixinInput = (themeType: 'light' | 'dark') => css`
   border: none;
   outline: none;
   appearance: none;
 
+  width: 100%;
   height: inherit;
+  padding: ${spacing.padding.md};
 
   transition: input 0.1s ease-in-out;
 

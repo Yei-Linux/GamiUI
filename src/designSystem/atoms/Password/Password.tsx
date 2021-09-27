@@ -14,8 +14,8 @@ export interface IPassword extends IInput {
   iconHide?: React.ReactNode
 }
 const Password = ({
-  iconHide = <Icon fill="blue" size="20px" name="closeeye" />,
-  iconVisible = <Icon fill="red" size="20px" name="openeye" />,
+  iconHide = <Icon size="20px" name="preview__close" />,
+  iconVisible = <Icon size="20px" name="preview" />,
   positionPrefix = 'right',
   ...generalInputProps
 }: IPassword) => {

@@ -14,5 +14,5 @@ export const Basic = (args: any) => <Question {...args} />
 Basic.args = {
   question: 'What type of stay did you choose?',
   description: 'This question is about test reality work',
-  iconId: 'wise',
+  iconId: 'two__fingers',
 }

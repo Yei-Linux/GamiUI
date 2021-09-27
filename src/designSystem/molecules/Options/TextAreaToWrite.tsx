@@ -17,7 +17,7 @@ const TextAreaToWrite = ({
     <TextArea
       value={answer}
       placeholder={placeholder}
-      width="auto"
+      width="full"
       heigth="md"
       border="md"
       onChangeFormItem={onChangeOption}

@@ -43,5 +43,5 @@ Basic.args = {
   placeholder: 'Type your phone',
   width: 'auto',
   heigth: 'auto',
-  prefix: <Icon fill="#374a54" name="table" />,
+  prefix: <Icon name="phone" />,
 }

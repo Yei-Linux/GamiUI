@@ -28,7 +28,7 @@ export const Button = styled.button<{
   outline: none;
   appearance: none;
 
-  padding: ${spacing.padding.md};
+  padding: ${spacing.padding.sm} ${spacing.padding.md};
 
   &:hover {
     cursor: pointer;

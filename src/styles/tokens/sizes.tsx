@@ -1,5 +1,6 @@
 export const sizes = {
   width: {
+    fit: 'fit-content',
     auto: 'auto',
     xs: '1rem',
     sm: '3rem',

@@ -17,17 +17,17 @@ export const Basic = (args: any) => (
       isOpen
       title="Home"
       href="/"
-      icon={<Icon name="submit" />}
+      icon={<Icon name="bullet__item" />}
     ></Menu.SubMenu>
     <Menu.SubMenu
       title="Courses"
       href="/courses"
-      icon={<Icon name="submit" />}
+      icon={<Icon name="bullet__item" />}
     ></Menu.SubMenu>
     <Menu.SubMenu
       title="Exams"
       href="/exams"
-      icon={<Icon name="submit" />}
+      icon={<Icon name="bullet__item" />}
     ></Menu.SubMenu>
   </Menu>
 )

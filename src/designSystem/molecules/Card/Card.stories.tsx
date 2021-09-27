@@ -65,10 +65,10 @@ export const Footer = (args: any) => (
     <Card.Footer>
       <Button
         type="button"
-        border="md"
-        heigth="sm"
+        border="sm"
+        heigth="auto"
         variant="secondary"
-        width="sm"
+        width="auto"
       >
         Text
       </Button>

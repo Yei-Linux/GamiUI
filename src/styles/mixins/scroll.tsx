@@ -3,7 +3,7 @@ import { borderRadius, sizes, theme } from 'styles/tokens'
 
 export const mixinScroll = (themeType: 'light' | 'dark') => css`
   &::-webkit-scrollbar {
-    width: ${sizes.width.sm};
+    width: ${sizes.width.xs};
   }
 
   &::-webkit-scrollbar-track {

@@ -24,13 +24,14 @@ export const TrafficLight = styled.div<{
     setGenericPropStyles({
       border: $border || 'lg',
       shadow: $shadow || 'sm',
-      width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      width: $width || 'fit',
+      heigth: $heigth || 'auto',
     })};
 `
 
 export const TrafficLightContainer = styled.div`
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+  flex-direction: column;
   width: 100%;
   height: 100%; ;
 `

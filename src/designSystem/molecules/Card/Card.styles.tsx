@@ -15,19 +15,17 @@ export const Card = styled.div<{
   $width?: WidthType
   $heigth?: HeightType
 }>`
-  width: auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  min-width: min-content;
   min-height: min-content;
 
   ${({ $border, $shadow, $width, $heigth }) =>
     setGenericPropStyles({
-      border: $border || 'lg',
+      border: $border || 'sm',
       shadow: $shadow || 'sm',
-      width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      width: $width || 'fit',
+      heigth: $heigth || 'auto',
     })};
 `
 

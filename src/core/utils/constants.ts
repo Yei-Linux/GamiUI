@@ -1,5 +1,5 @@
 export const DESIGN_TYPES = {
-  width: ['auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
+  width: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   height: ['auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   border: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   shadow: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,

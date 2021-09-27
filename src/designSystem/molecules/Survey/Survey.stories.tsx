@@ -49,7 +49,7 @@ Basic.args = {
             label: 'Is the Answer one',
             value: 'one',
             icon: {
-              name: 'facebook',
+              name: 'bullet__item',
               fill: theme.light.primary.jordyBlue,
             },
           },
@@ -57,7 +57,7 @@ Basic.args = {
             label: 'Is the Answer two',
             value: 'two',
             icon: {
-              name: 'facebook',
+              name: 'bullet__item',
               fill: theme.light.primary.jordyBlue,
             },
           },
@@ -65,7 +65,7 @@ Basic.args = {
             label: 'Is the Answer three',
             value: 'three',
             icon: {
-              name: 'facebook',
+              name: 'bullet__item',
               fill: theme.light.primary.jordyBlue,
             },
           },

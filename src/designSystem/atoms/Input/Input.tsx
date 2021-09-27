@@ -78,12 +78,7 @@ const Input = ({
       })}
       {...getGenericPropStyles(genericsProps)}
     >
-      {prefix && (
-        <Fragment>
-          {prefix}
-          <Spacer direction="left" />
-        </Fragment>
-      )}
+      {prefix && <Fragment>{prefix}</Fragment>}
       {
         <S.Input
           readOnly={readOnly}

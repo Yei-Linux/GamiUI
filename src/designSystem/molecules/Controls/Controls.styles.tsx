@@ -18,6 +18,7 @@ export const ControlsItemGroup = styled.div`
 `
 
 export const ControlsItem = styled.div`
+  text-align: center;
   background-color: ${theme.light.primary.hawkesBlue};
   border-radius: 15em;
 
@@ -26,4 +27,8 @@ export const ControlsItem = styled.div`
 
   width: fit-content;
   min-width: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `

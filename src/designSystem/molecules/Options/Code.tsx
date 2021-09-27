@@ -52,8 +52,8 @@ const CodeAlternative = ({
                 <Button
                   className={classNames('flex', 'justify-center')}
                   type="button"
-                  width="md"
-                  border="full"
+                  width="fit"
+                  border="sm"
                 >
                   Run code ⚡
                 </Button>
@@ -63,8 +63,8 @@ const CodeAlternative = ({
                   className={classNames('flex', 'justify-center')}
                   variant="secondary"
                   type="button"
-                  width="md"
-                  border="full"
+                  width="fit"
+                  border="sm"
                 >
                   Submit 🔥
                 </Button>

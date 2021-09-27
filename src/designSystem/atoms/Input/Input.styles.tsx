@@ -32,13 +32,13 @@ export const InputBox = styled.div<{
   &.positionPrefixRight {
     flex-direction: row-reverse;
     justify-content: space-between;
+    padding: 0 1rem 0 0;
   }
 
   &.positionPrefixLeft {
     flex-direction: row;
+    padding: 0 0 0 1rem;
   }
-
-  padding: 1rem;
 
   ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
     setGenericPropStyles({

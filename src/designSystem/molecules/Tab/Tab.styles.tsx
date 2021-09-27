@@ -12,7 +12,7 @@ export const TabList = styled.ul`
   list-style: none;
   overflow: hidden;
   width: fit-content;
-  border-radius: 2em;
+  border-radius: 1em;
   box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 6%) 0px 1px 2px 0px;
 `
 

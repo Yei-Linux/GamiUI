@@ -22,9 +22,9 @@ export const GuideMessage = styled.div<{
 
   ${({ $border, $shadow, $width, $heigth }) =>
     setGenericPropStyles({
-      border: $border || 'lg',
-      shadow: $shadow || 'sm',
+      border: $border || 'none',
+      shadow: $shadow || 'none',
       width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      heigth: $heigth || 'auto',
     })};
 `

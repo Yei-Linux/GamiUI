@@ -89,6 +89,8 @@ const Note = ({
             <Title level="h3">{titleDefaultValue}</Title>
           ) : (
             <Input
+              width="full"
+              heigth="lg"
               border="none"
               shadow="none"
               placeholder="Type your note title"

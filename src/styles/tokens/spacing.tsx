@@ -17,7 +17,7 @@ export const spacing = {
   },
   border: {
     none: '0px',
-    xs: '.25rem',
+    xs: '.1rem',
     sm: '.5rem',
     md: '1rem',
     lg: '2rem',

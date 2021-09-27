@@ -51,5 +51,5 @@ IconInput.args = {
   placeholder: 'Type your name',
   width: 'auto',
   heigth: 'auto',
-  prefix: <Icon name="underline" />,
+  prefix: <Icon name="user" />,
 }

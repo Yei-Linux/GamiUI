@@ -18,7 +18,7 @@ export const Basic = (args: any) => {
 
   return (
     <div>
-      <Button type="button" width="sm" onClick={toggle}>
+      <Button type="button" width="fit" onClick={toggle}>
         Open Drawer
       </Button>
       <Drawer {...args} onClose={toggle} open={open}>

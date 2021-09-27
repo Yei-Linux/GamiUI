@@ -57,7 +57,7 @@ const Options = ({
 
       {type == 'TEXTAREA' && textarea && (
         <TextAreaToWrite
-          answer={answer.toString()}
+          answer={answer?.toString()}
           placeholder={textarea.placeholder}
           onChangeOption={handleChangeOption}
         />

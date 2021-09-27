@@ -36,8 +36,8 @@ const Wave = ({
   name = 'one',
   direction = 'top',
   children,
-  color = theme.light.neutral[800],
-  background = theme.light.primary.jordyBlue,
+  color = '#ffffff',
+  background = '#7f9cf5',
   isWaveLikeBackground = false,
 }: IWave) => {
   return (

@@ -22,8 +22,8 @@ export const List = styled.ul<{
     setGenericPropStyles({
       border: $border || 'sm',
       shadow: $shadow || 'sm',
-      width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      width: $width || 'fit',
+      heigth: $heigth || 'auto',
     })};
 `
 

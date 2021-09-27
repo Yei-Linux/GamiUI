@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Button from 'designSystem/atoms/Button'
+import Number from 'designSystem/atoms/Number'
 import Input from 'designSystem/atoms/Input'
 import Password from 'designSystem/atoms/Password'
 import Radio from 'designSystem/atoms/Radio'

@@ -19,7 +19,7 @@ const reducer = (state: IFormCommmonsContext, action: IAction) => {
       ...state,
       formValue: {
         ...state.formValue,
-        [action.payload.name]: action.payload.value,
+        [action.payload?.name]: action.payload?.value,
       },
     },
     SET_CALLBACKS: {

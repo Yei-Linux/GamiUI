@@ -44,7 +44,7 @@ Common.args = {}
 export const CustomContent = (args: any) => (
   <List {...args}>
     <List.Item
-      avatar={<Icon size="25px" name="book" />}
+      avatar={<Icon size="25px" name="books_folder" />}
       title="Main title"
       description="Description"
     >
@@ -53,7 +53,7 @@ export const CustomContent = (args: any) => (
       </Button>
     </List.Item>
     <List.Item
-      avatar={<Icon size="25px" name="book" />}
+      avatar={<Icon size="25px" name="books_folder" />}
       title="Main title"
       description="Description"
     >

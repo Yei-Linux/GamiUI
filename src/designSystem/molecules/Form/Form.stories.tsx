@@ -16,7 +16,7 @@ import Icon from '../../atoms/Icon'
 export default {
   title: 'Molecules/Form',
   component: Form,
-  args: {  },
+  args: {},
   argTypes: {
     ...stylesControl,
   },
@@ -61,7 +61,7 @@ export const Basic = () => (
       label="Activar Notificaciones"
       name="isActive"
     >
-      <Switch defaultChecked={false} />
+      <Switch width="fit" defaultChecked={false} />
     </Form.Item>
     <Form.Item
       rules={[{ type: 'required', message: 'Campo requerido' }]}
@@ -91,7 +91,12 @@ export const Basic = () => (
       </Radio>
     </Form.Item>
     <Form.Item name="submit">
-      <Button variant="primary" border="lg" preffix={<Icon name="submit" />}>
+      <Button
+        type="submit"
+        variant="primary"
+        border="lg"
+        preffix={<Icon name="submit" />}
+      >
         Submit
       </Button>
     </Form.Item>

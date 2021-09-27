@@ -58,10 +58,10 @@ export const Floating = styled.div<{
 
   ${({ $border, $shadow, $width, $heigth }) =>
     setGenericPropStyles({
-      border: $border || 'lg',
+      border: $border || 'sm',
       shadow: $shadow || 'sm',
       width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      heigth: $heigth || 'auto',
     })};
 
   ${({ $direction }) => $direction == 'right' && floatingRight()}
