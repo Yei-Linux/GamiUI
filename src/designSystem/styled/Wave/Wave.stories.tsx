@@ -7,7 +7,7 @@ import { options as optionsWave } from './constants'
 export default {
   title: 'Styled/Wave',
   component: Wave,
-  args: { ...Wave.defaultProps },
+  args: {},
   argTypes: {
     name: { control: { type: 'select', options: optionsWave.names } },
   },
@@ -16,8 +16,17 @@ export default {
 export const Basic = (args: any) => (
   <Wave {...args}>
     <div
-      style={{ height: '300px', width: '200px', backgroundColor: '#7f9cf5' }}
+      style={{ height: '300px', width: '100%', backgroundColor: '#7f9cf5' }}
     />
   </Wave>
 )
 Basic.args = {}
+
+export const LikeBackground = (args: any) => (
+  <Wave {...args}>
+    <div style={{ height: '300px', width: '100%' }}>Hii</div>
+  </Wave>
+)
+LikeBackground.args = {
+  isWaveLikeBackground: true,
+}

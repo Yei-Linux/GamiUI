@@ -1,14 +1,45 @@
 import React from 'react'
-import { SiderWrapper } from './Sider.styles'
+import Drawer from '../../molecules/Drawer'
+import Gradient from '../../styled/Gradient'
+import * as S from './Sider.styles'
 
 export interface ISider {
+  /**
+   * Header Container
+   */
+  header: React.ReactNode
+
+  /**
+   * Children Prop
+   */
   children: React.ReactNode
+  /**
+   * On close
+   */
+  onClose?: () => void
+  /**
+   * Open
+   */
+  open?: boolean
 }
 
-const Sider = ({ children }: ISider) => {
-  return <SiderWrapper>{children}</SiderWrapper>
+const Sider = ({ header, children, onClose, open }: ISider) => {
+  return (
+    <Gradient name="glassLight">
+      <Drawer
+        width="auto"
+        height="100%"
+        onClose={onClose}
+        open={open}
+        withMask={false}
+      >
+        <S.Sider>
+          <S.Header>{header}</S.Header>
+          <S.Body>{children}</S.Body>
+        </S.Sider>
+      </Drawer>
+    </Gradient>
+  )
 }
-
-Sider.defaultProps = {}
 
 export default Sider

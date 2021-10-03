@@ -1,18 +1,17 @@
+import useGameStore from 'hooks/store/useGameStore'
 import React, { Fragment } from 'react'
-import context from '../../../context/CanvasProvider/context'
 import useGameLoop from '../../../hooks/useGameLoop'
-import useStore from '../../../hooks/useStore'
 import useCharacter from '../Character'
 import useGrid from '../Grid'
 import useMap from '../Map'
 
 const WorldContent = () => {
-  const { canvasValue, width, height }  = useStore({context})
+  const { canvasValue, width, height } = useGameStore()
   const { drawXandYAxis } = useGrid()
   const { drawLayers } = useMap()
   const { drawCharacterPixel } = useCharacter()
 
-  const drawWorld = () => {
+  const drawWorld = (): void => {
     canvasValue.clearRect(0, 0, width, height)
     drawLayers()
     drawXandYAxis()
@@ -28,11 +27,9 @@ const WorldContent = () => {
 }
 
 const World = () => {
-  const { canvasValue }  = useStore({context})
+  const { canvasValue } = useGameStore()
 
   return <Fragment>{canvasValue && <WorldContent />}</Fragment>
 }
-
-World.defaultProps = {}
 
 export default World

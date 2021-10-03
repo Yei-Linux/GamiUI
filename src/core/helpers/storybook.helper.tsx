@@ -1,6 +1,6 @@
 import React from 'react'
-import TableStories from '../../styles/utilities/TableStories'
-import { options as optionsStyle } from '../utils/constants'
+import TableStories from 'styles/utilities/TableStories'
+import { DESIGN_TYPES as optionsStyle } from 'core/utils/constants'
 
 export const getTemplate =
   (Component: React.ComponentType<any>): any =>

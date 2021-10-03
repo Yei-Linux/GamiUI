@@ -1,44 +1,83 @@
+import classNames from 'classnames'
 import React, { CSSProperties } from 'react'
-import { RowWrapper } from './Row.styles'
+import * as S from './Row.styles'
+
+export type TJustifyContent =
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'space-between'
+  | 'space-around'
+
+export type TAlignItems = 'center' | 'flex-start' | 'flex-end' | 'normal'
+
+export type TFlexDirection = 'row' | 'column'
 
 export interface IRow {
+  /**
+   * Width Row
+   */
+  width?: string
+
+  /**
+   * Style Custom
+   */
   style?: CSSProperties
+
+  /**
+   * Children Prop
+   */
   children: React.ReactNode
-  justifyContent:
-    | 'center'
-    | 'flex-start'
-    | 'flex-end'
-    | 'space-between'
-    | 'space-around'
-  alignItems: 'center' | 'flex-start' | 'flex-end' | 'normal'
+
+  /**
+   * Justify Content
+   */
+  justifyContent?: TJustifyContent
+
+  /**
+   * Align Items
+   */
+  alignItems?: TAlignItems
+
+  /**
+   * Height
+   */
   height?: string
+
+  /**
+   * Is Wrap
+   */
   isWrap?: boolean
+
+  /**
+   * Flex Direction
+   */
+  flexDirection?: TFlexDirection
 }
 
 const Row = ({
   children,
-  justifyContent,
-  alignItems,
+  justifyContent = 'center',
+  alignItems = 'center',
   style = {},
+  width = 'auto',
   height = '100%',
   isWrap = true,
+  flexDirection = 'row',
 }: IRow) => {
   return (
-    <RowWrapper
-      height={height}
-      justifyContent={justifyContent}
-      alignItems={alignItems}
+    <S.Row
+      $width={width}
+      $height={height}
+      $justifyContent={justifyContent}
+      $alignItems={alignItems}
+      $flexDirection={flexDirection}
       style={style}
-      isWrap={isWrap}
+      className={classNames({ wrap: isWrap, nowrap: !isWrap })}
     >
       {children}
-    </RowWrapper>
+    </S.Row>
   )
-}
-
-Row.defaultProps = {
-  justifyContent: 'center',
-  alignItems: 'center',
 }
 
 export default Row

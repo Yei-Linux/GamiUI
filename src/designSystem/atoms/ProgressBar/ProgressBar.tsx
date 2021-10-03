@@ -1,10 +1,18 @@
 import React from 'react'
-import { colorLight } from '../../../styles/theme'
-import { ProgressBarWrapper, ProgressPercent } from './ProgressBar.styles'
+import * as S from './ProgressBar.styles'
 
 export interface IProgressBar {
-  backgroundProgressBar: string
-  backgroundProgress: string
+  /**
+   * Background of container
+   */
+  backgroundProgressBar?: string
+  /**
+   * Background of progress
+   */
+  backgroundProgress?: string
+  /**
+   * Max Width
+   */
   percent: number
 }
 
@@ -14,19 +22,13 @@ const ProgressBar = ({
   percent,
 }: IProgressBar) => {
   return (
-    <ProgressBarWrapper backgroundProgressBar={backgroundProgressBar}>
-      <ProgressPercent
-        percent={percent}
-        backgroundProgress={backgroundProgress}
+    <S.ProgressBar $backgroundProgressBar={backgroundProgressBar}>
+      <S.ProgressPercent
+        $percent={percent}
+        $backgroundProgress={backgroundProgress}
       />
-    </ProgressBarWrapper>
+    </S.ProgressBar>
   )
-}
-
-ProgressBar.defaultProps = {
-  percent: 100,
-  backgroundProgressBar: colorLight.neutral.seven,
-  backgroundProgress: colorLight.primary.one,
 }
 
 export default ProgressBar

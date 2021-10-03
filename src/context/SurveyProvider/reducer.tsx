@@ -1,23 +1,43 @@
-import { SET_CALLBACKS, SET_SURVEY_OPTION_SELECTED } from './types'
+import { ISurveyInitialState } from 'core/domain/interfaces/ISurveyContext'
+import {
+  SET_CALLBACKS,
+  SET_PERCENT,
+  SET_SURVEY_OPTION_SELECTED,
+  SET_TOTAL_QUESTIONS,
+} from './types'
+
+type TType =
+  | typeof SET_CALLBACKS
+  | typeof SET_PERCENT
+  | typeof SET_SURVEY_OPTION_SELECTED
+  | typeof SET_TOTAL_QUESTIONS
 
 interface IAction {
-  type: string
+  type: TType
   payload: any
 }
 
-export default (state: any, action: IAction) => {
-  switch (action.type) {
-    case SET_SURVEY_OPTION_SELECTED:
-      return {
-        ...state,
-        answers: { ...state.answers, ...action.payload },
-      }
-    case SET_CALLBACKS:
-      return {
-        ...state,
-        callbacks: action.payload,
-      }
-    default:
-      return state
+const reducer = (state: ISurveyInitialState, action: IAction) => {
+  const switcher = {
+    SET_SURVEY_OPTION_SELECTED: {
+      ...state,
+      answers: { ...state.answers, ...action.payload },
+    },
+    SET_CALLBACKS: {
+      ...state,
+      callbacks: action.payload,
+    },
+    SET_PERCENT: {
+      ...state,
+      percent: action.payload,
+    },
+    SET_TOTAL_QUESTIONS: {
+      ...state,
+      totalQuestions: action.payload,
+    },
   }
+
+  return switcher[action.type]
 }
+
+export default reducer

@@ -8,7 +8,7 @@ import Pulse from '.'
 export default {
   title: 'Atoms/Pulse',
   component: Pulse,
-  args: { ...Pulse.defaultProps },
+  args: { },
   argTypes: {
     borderColor: { control: 'color' },
     isBloqued: { control: 'boolean' },

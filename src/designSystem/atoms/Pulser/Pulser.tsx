@@ -1,15 +1,10 @@
+import classNames from 'classnames'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { colorLight } from '../../../styles/theme'
+import { theme } from 'styles/tokens'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import Icon from '../Icon'
-import {
-  Pulse,
-  PulseContainer,
-  PulseLock,
-  PulseProgress,
-  PulseTransitions,
-  PulseWrapper,
-} from './Pulser.styles'
+import * as S from './Pulser.styles'
 
 interface IPulser extends IGeneralProps {
   /**
@@ -31,7 +26,7 @@ interface IPulser extends IGeneralProps {
   /**
    * Progress Text
    */
-  progress: string
+  progressText: string
   /**
    * Background color
    */
@@ -40,47 +35,40 @@ interface IPulser extends IGeneralProps {
 
 const Pulser = ({
   children,
-  isActive,
-  isBloqued,
-  borderColor,
-  progress,
-  backgroundColor,
-  style,
-  ...args
+  isActive = false,
+  isBloqued = false,
+  borderColor = theme.light.primary.jordyBlue,
+  backgroundColor = theme.light.neutral[800],
+  progressText,
+  ...genericsProps
 }: IPulser) => {
   return (
-    <Pulse style={style}>
-      <PulseWrapper>
-        {isActive && <PulseTransitions type="one" />}
-        {isActive && <PulseTransitions type="two" />}
+    <S.Pulser>
+      <S.PulserContent>
+        {isActive && <S.PulseTransition className="one" />}
+        {isActive && <S.PulseTransition className="two" />}
 
-        <PulseContainer
-          {...args}
-          backgroundColor={backgroundColor}
-          borderColor={borderColor}
-          isBloqued={isBloqued}
+        <S.PulserBody
+          {...getGenericPropStyles(genericsProps)}
+          className={classNames({
+            bloqued: isBloqued,
+            unbloqued: !isBloqued,
+          })}
+          $backgroundColor={backgroundColor}
+          $borderColor={borderColor}
         >
           {children}
-        </PulseContainer>
+        </S.PulserBody>
 
         {isBloqued && (
-          <PulseLock>
-            <Icon fill="" size="30px" name="upset" />
-          </PulseLock>
+          <S.PulserLock>
+            <Icon fill="none" size="30px" name="sad" />
+          </S.PulserLock>
         )}
-      </PulseWrapper>
-      <PulseProgress>{progress}</PulseProgress>
-    </Pulse>
+      </S.PulserContent>
+      <S.PulserProgress>{progressText}</S.PulserProgress>
+    </S.Pulser>
   )
-}
-
-Pulser.defaultProps = {
-  isActive: false,
-  isBloqued: false,
-  borderColor: colorLight.primary.one,
-  backgroundColor: colorLight.neutral.nine,
-  shadow: 'LARGE',
-  progress: '100%',
 }
 
 export default Pulser

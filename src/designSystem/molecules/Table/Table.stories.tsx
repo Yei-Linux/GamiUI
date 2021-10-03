@@ -7,7 +7,7 @@ import RichText from '../../atoms/RichText'
 export default {
   title: 'Molecules/Table',
   component: Table,
-  args: { ...Table.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

@@ -1,93 +1,54 @@
-import React, { useEffect, useRef, useState } from 'react'
-import SelectProvider from '../../../context/SelectProvider'
-import context from '../../../context/SelectProvider/context'
-import useClickOutside from '../../../hooks/useClickOutside'
-import useStore from '../../../hooks/useStore'
-import Input from '../Input'
-import { IInput } from '../Input/Input'
-import {
-  OptionWrapper,
-  Selectinput,
-  SelectOptionsWrapper,
-  SelectWrapper,
-} from './Select.styles'
+import React from 'react'
+import { OptionTypeBase } from 'react-select'
 
-export interface SelectProps extends IInput {
+import { IInput } from '../Input/Input'
+import * as S from './Select.styles'
+
+export interface IOptions {
+  value: string
+  label: string
+}
+
+type TSelectValue = OptionTypeBase[] | OptionTypeBase | null | undefined
+
+export interface ISelect extends IInput {
   /**
    * Children Element
    */
-  children?: React.ReactNode[]
+  options?: IOptions[]
   /**
-   * Is basic select
+   * Multiple Option
    */
-  isBasic?: boolean
-}
-
-const SelectContent = ({
-  children,
-  isBasic,
-  onChangeFormItem = () => {
-    return
-  },
-  ...args
-}: SelectProps) => {
-  const selectReference: any = useRef()
-  const [isToggle, setIsToggle] = useState(false)
-
-  const { optionSelected } = useStore({ context })
-
-  useClickOutside({
-    ref: selectReference,
-    handleDoAction: () => setIsToggle(false),
-  })
-
-  useEffect(() => {
-    onChangeFormItem(optionSelected)
-  }, [optionSelected])
-
-  const handleInputClick = (): void => setIsToggle(!isToggle)
-
-  return (
-    <SelectWrapper ref={selectReference}>
-      <Selectinput onClick={handleInputClick}>
-        <Input readOnly={isBasic} {...args} value={optionSelected?.text} />
-      </Selectinput>
-      <SelectOptionsWrapper isToggle={isToggle}>
-        {children}
-      </SelectOptionsWrapper>
-    </SelectWrapper>
-  )
+  isMultiple?: boolean
+  /**
+   * isClearable Option
+   */
+  isClearable?: boolean
+  /**
+   * isClearable Option
+   */
+  selectValue?: TSelectValue
 }
 
 const Select = ({
-  children,
-  isBasic,
+  options,
   onChangeFormItem,
-  ...args
-}: SelectProps) => {
+  placeholder,
+  selectValue,
+  isMultiple = false,
+  isClearable = false,
+}: ISelect) => {
   return (
-    <SelectProvider>
-      <SelectContent
-        onChangeFormItem={onChangeFormItem}
-        isBasic={isBasic}
-        {...args}
-      >
-        {children}
-      </SelectContent>
-    </SelectProvider>
+    <S.ReactSelect
+      isClearable={isClearable}
+      isMulti={isMultiple}
+      classNamePrefix="Select"
+      placeholder={placeholder}
+      value={selectValue}
+      onChange={onChangeFormItem}
+      options={options}
+    />
   )
-}
-
-Select.Option = ({ children, value }: { children: string; value: string }) => {
-  const { setOptionSelected } = useStore({ context })
-  const handleClickOption = () => setOptionSelected({ value, text: children })
-  return <OptionWrapper onClick={handleClickOption}>{children}</OptionWrapper>
-}
-
-Select.defaultProps = {
-  isBasic: true,
-  width: 'NORMAL',
-  heigth: 'SMALL',
 }
 
 export default Select

@@ -7,7 +7,7 @@ import Button from '../../atoms/Button'
 export default {
   title: 'Molecules/Drawer',
   component: Drawer,
-  args: { ...Drawer.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -18,7 +18,7 @@ export const Basic = (args: any) => {
 
   return (
     <div>
-      <Button width="SMALL" onClick={toggle}>
+      <Button type="button" width="fit" onClick={toggle}>
         Open Drawer
       </Button>
       <Drawer {...args} onClose={toggle} open={open}>

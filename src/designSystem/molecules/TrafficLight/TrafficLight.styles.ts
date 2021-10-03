@@ -1,34 +1,57 @@
 import styled from '@emotion/styled'
-import tw from 'twin.macro'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import {
+  BorderType,
+  HeightType,
+  ShadowType,
+  WidthType,
+} from 'core/domain/types'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const TrafficLightWrapper = styled.div<{
-  border?: string
-  shadow?: string
-  width?: string
-  heigth?: string
+export const TrafficLight = styled.div<{
+  $border?: BorderType
+  $shadow?: ShadowType
+  $width?: WidthType
+  $heigth?: HeightType
 }>`
-  ${tw`flex flex-col justify-center items-center w-fit rounded-md`}
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+  flex-direction: column;
+
   padding: 10px 0px;
   background-color: #3a3a3a;
 
-  ${(props: any) => twinStyles(props)};
+  ${({ $border, $shadow, $width, $heigth }) =>
+    setGenericPropStyles({
+      border: $border || 'lg',
+      shadow: $shadow || 'sm',
+      width: $width || 'fit',
+      heigth: $heigth || 'auto',
+    })};
 `
 
-export const TrafficLightContainer = tw.div`flex flex-col justify-center items-center w-full h-full`
+export const TrafficLightContainer = styled.div`
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+  flex-direction: column;
+  width: 100%;
+  height: 100%; ;
+`
 
-export const Balls = styled.div<{ color: string; bright: string }>`
+export const Balls = styled.div<{ $color: string; $bright: string }>`
   border-radius: 4em;
   height: 40px;
   width: 40px;
   margin: 5px 30px;
 
-  box-shadow: ${(props) => props.bright};
-  background-color: ${(props) => props.color};
+  box-shadow: ${({ $bright }) => $bright};
+  background-color: ${({ $color }) => $color};
 `
 
 export const TextCounter = styled.div`
-  ${tw`flex justify-center items-center w-full rounded-md font-bold`}
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+  width: 100%;
+  border-radius: 4em;
+  font-weight: bold;
+
   min-height: 50px;
   margin: 15px 0px;
   color: #bababa;

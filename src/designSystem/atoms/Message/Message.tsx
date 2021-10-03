@@ -1,8 +1,13 @@
+import classNames from 'classnames'
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { MessageWrapper } from './Message.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import * as S from './Message.styles'
+import { theme } from 'styles/tokens'
 
-export interface MessageProps extends IGeneralProps {
+export type TDirection = 'left' | 'right'
+
+export interface IMessage extends IGeneralProps {
   /**
    * Message Text
    */
@@ -10,23 +15,48 @@ export interface MessageProps extends IGeneralProps {
   /**
    * Message Direction
    */
-  direction: 'left' | 'right'
+  direction?: TDirection
   /**
    * Background
    */
   background: string
+  /**
+   * Has Marker
+   */
+  hasMarker?: boolean
+  /**
+   * Color
+   */
+  color?: string
+  /**
+   * Max Width
+   */
+  maxWidth?: string
 }
 
-const Message = ({ text, direction, background, ...args }: MessageProps) => (
-  <MessageWrapper background={background} direction={direction} {...args}>
+const Message = ({
+  text = 'Hi, Welcome to our app',
+  direction = 'left',
+  background,
+  hasMarker = true,
+  color,
+  maxWidth = '250px',
+  ...genericsProps
+}: IMessage) => (
+  <S.Message
+    $direction={direction}
+    $background={background || theme.light.primary.jordyBlue}
+    $color={color || theme.light.neutral[800]}
+    $maxWidth={maxWidth}
+    className={classNames({
+      marker: hasMarker,
+      directionLeft: hasMarker && direction == 'left',
+      directionRight: hasMarker && direction == 'right',
+    })}
+    {...getGenericPropStyles(genericsProps)}
+  >
     {text}
-  </MessageWrapper>
+  </S.Message>
 )
-
-Message.defaultProps = {
-  text: 'Hola Bienvenido a nuestra app!',
-  direction: 'left',
-  background: '#7868e6',
-}
 
 export default Message

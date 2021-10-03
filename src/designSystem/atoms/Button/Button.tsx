@@ -1,7 +1,11 @@
-import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { ButtonType } from '../../../core/domain/types'
-import { ButtonWrapper } from './Button.styles'
+import React, { Fragment } from 'react'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import { ButtonType } from 'core/domain/types'
+import * as S from './Button.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import Spacer from 'designSystem/layouts/Spacer'
+
+export type TButton = 'button' | 'reset' | 'submit'
 
 export interface IButton extends IGeneralProps {
   /**
@@ -9,30 +13,41 @@ export interface IButton extends IGeneralProps {
    */
   children: React.ReactNode
   /**
-   * Button Type
+   * Button Variant
    */
-  type: ButtonType
+  variant?: ButtonType
   /**
    * Button Preffix
    */
   preffix?: React.ReactNode
+  /**
+   * Button Type Action
+   */
+  type?: TButton
 }
 
-const Button = ({ children, type, preffix, ...args }: IButton) => {
+const Button = ({
+  children,
+  variant = 'primary',
+  preffix,
+  type = 'button',
+  ...genericsProps
+}: IButton) => {
   return (
-    <ButtonWrapper {...args} typeStyle={type} type="submit">
-      {preffix && preffix}
+    <S.Button
+      {...getGenericPropStyles(genericsProps)}
+      $variant={variant}
+      type={type}
+    >
+      {preffix && (
+        <Fragment>
+          {preffix}
+          <Spacer direction="right" />
+        </Fragment>
+      )}
       {children}
-    </ButtonWrapper>
+    </S.Button>
   )
-}
-
-Button.defaultProps = {
-  type: 'primary',
-  border: 'MEDIUM',
-  shadow: 'MEDIUM',
-  heigth: 'SMALL',
-  width: 'SMALL',
 }
 
 export default Button

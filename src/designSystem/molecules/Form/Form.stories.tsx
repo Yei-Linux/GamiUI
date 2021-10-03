@@ -16,7 +16,7 @@ import Icon from '../../atoms/Icon'
 export default {
   title: 'Molecules/Form',
   component: Form,
-  args: { ...Form.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },
@@ -28,29 +28,60 @@ export const Basic = () => (
       console.log(values)
     }}
   >
-    <Form.Item label="Nombres" name="names">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Nombres"
+      name="names"
+    >
       <Input placeholder="Ingresa tus nombres" />
     </Form.Item>
-    <Form.Item label="Contraseña" name="password">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Contraseña"
+      name="password"
+    >
       <Password placeholder="Ingresa tu contraseña" />
     </Form.Item>
-    <Form.Item label="Celular" name="phone">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Celular"
+      name="phone"
+    >
       <Number placeholder="Ingresa tu celular" />
     </Form.Item>
-    <Form.Item label="Comentario" name="comment">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Comentario"
+      name="comment"
+    >
       <TextArea placeholder="Ingresa tu comentario" />
     </Form.Item>
-    <Form.Item label="Activar Notificaciones" name="isActive">
-      <Switch defaultChecked={false} />
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Activar Notificaciones"
+      name="isActive"
+    >
+      <Switch width="fit" defaultChecked={false} />
     </Form.Item>
-    <Form.Item label="Elige un pais" name="country">
-      <Select placeholder="Type your option">
-        <Select.Option value="one">Option1</Select.Option>
-        <Select.Option value="two">Option2</Select.Option>
-        <Select.Option value="three">Option3</Select.Option>
-      </Select>
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Elige un pais"
+      name="country"
+    >
+      <Select
+        placeholder="Type your option"
+        options={[
+          { value: 'chocolate', label: 'Chocolate' },
+          { value: 'strawberry', label: 'Strawberry' },
+          { value: 'vanilla', label: 'Vanilla' },
+        ]}
+      />
     </Form.Item>
-    <Form.Item label="Elige tu genero" name="gender">
+    <Form.Item
+      rules={[{ type: 'required', message: 'Campo requerido' }]}
+      label="Elige tu genero"
+      name="gender"
+    >
       <Radio>
         <Radio.Item isChecked value="one">
           A
@@ -59,8 +90,14 @@ export const Basic = () => (
         <Radio.Item value="three">C</Radio.Item>
       </Radio>
     </Form.Item>
-    <Form.Item name="isActive">
-      <Button type="primary" border="ROUNDED" preffix={<Icon name="submit" />}>
+    <Form.Item name="submit">
+      <Button
+        width="fit"
+        type="submit"
+        variant="primary"
+        border="lg"
+        preffix={<Icon fill="white" name="send__white" />}
+      >
         Submit
       </Button>
     </Form.Item>

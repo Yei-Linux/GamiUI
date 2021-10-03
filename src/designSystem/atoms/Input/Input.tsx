@@ -1,6 +1,16 @@
-import React from 'react'
+import classNames from 'classnames'
+import Spacer from 'designSystem/layouts/Spacer'
+import React, { Fragment } from 'react'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { InputContainer, InputWrapper } from './Input.styles'
+import * as S from './Input.styles'
+
+export type TPositionPrefix = 'left' | 'right'
+
+export type TOnChangeFormItem = (
+  value: any,
+  ...props: unknown[]
+) => unknown | void
 
 export interface IInput extends IGeneralProps {
   /**
@@ -14,19 +24,19 @@ export interface IInput extends IGeneralProps {
   /**
    * Value Input
    */
-  value?: any
+  value?: string
   /**
    * Prefix Content Input
    */
-  prefix?: any
+  prefix?: React.ReactNode
   /**
    * Prefix Position
    */
-  positionPrefix?: 'left' | 'right'
+  positionPrefix?: TPositionPrefix
   /**
-   * Prefix Position
+   * Input Type
    */
-  type?: 'password' | 'input'
+  type?: 'password' | 'input' | 'number'
   /**
    * Autocomplete action
    */
@@ -34,48 +44,54 @@ export interface IInput extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: (value: any) => any
+  onChangeFormItem?: TOnChangeFormItem
   /**
    * Is Readonly input
    */
-  readOnly?: any
+  readOnly?: boolean
 }
 
-const Text = ({ onChangeFormItem, ...args }: any) => (
-  <InputContainer
-    hasIcon={!!args.prefix}
-    {...args}
-    onChange={(e: any) => {
-      onChangeFormItem(e.target.value)
-      e.preventDefault()
-    }}
-  />
-)
+const Input = ({
+  onChangeFormItem,
+  readOnly = false,
+  autoComplete = 'off',
+  type = 'input',
+  positionPrefix = 'left',
+  prefix = null,
+  name = 'gamiUI',
+  value,
+  placeholder = '',
+  ...genericsProps
+}: IInput) => {
+  const handleChangeOnInput = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    e.preventDefault()
+    onChangeFormItem?.(e.target.value)
+  }
 
-const Input = ({ onChangeFormItem, ...args }: IInput) => {
-  return !args.prefix ? (
-    <Text onChangeFormItem={onChangeFormItem} {...args} />
-  ) : (
-    <InputWrapper {...args}>
-      {args.prefix}
-      {<Text onChangeFormItem={onChangeFormItem} {...args} />}
-    </InputWrapper>
+  return (
+    <S.InputBox
+      className={classNames({
+        positionPrefixRight: positionPrefix == 'right',
+        positionPrefixLeft: positionPrefix == 'left',
+      })}
+      {...getGenericPropStyles(genericsProps)}
+    >
+      {prefix && <Fragment>{prefix}</Fragment>}
+      {
+        <S.Input
+          readOnly={readOnly}
+          autoComplete={autoComplete}
+          type={type}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={handleChangeOnInput}
+        />
+      }
+    </S.InputBox>
   )
-}
-
-Input.defaultProps = {
-  name: 'gamification',
-  placeholder: '',
-  prefix: null,
-  positionPrefix: 'left',
-  type: 'input',
-  autoComplete: 'off',
-  readOnly: false,
-  shadow: 'SMALL',
-  width: 'NORMAL',
-  heigth: 'SMALL',
-  border: 'ROUNDED',
-  fontWeight: 'BOLD',
 }
 
 export default Input

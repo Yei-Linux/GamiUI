@@ -6,7 +6,7 @@ import Component from '.'
 export default {
   title: 'Atomic/Component',
   component: Component,
-  args: { ...Component.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

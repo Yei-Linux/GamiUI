@@ -1,4 +1,24 @@
-export const Guiders: any = {
+export interface IPosition {
+  x: string
+  y: string
+}
+
+export interface IDimensions {
+  width: string
+  height: string
+}
+
+export interface IGuide {
+  source: string
+  position: IPosition
+  dimensions: IDimensions
+}
+
+export interface IGuiders {
+  [key: string]: IGuide
+}
+
+export const Guiders: IGuiders = {
   inlove: {
     source: 'https://i.ibb.co/BwSvrW2/brain-animated.png',
     position: { x: '0px', y: '0px' },

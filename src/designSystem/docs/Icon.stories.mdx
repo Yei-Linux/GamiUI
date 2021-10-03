@@ -1,17 +1,16 @@
-import { Meta, IconGallery, IconItem } from "@storybook/addon-docs/blocks";
+import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks'
 
-import Icon from "../atoms/Icon";
+import { IconsPack } from 'designSystem/atoms/Icon/constants'
+import Icon from '../atoms/Icon'
 
-<Meta title="Icons" />
+<Meta title="Tokens/Icons" />
 
 # Icons Gallery
 
 <IconGallery>
-  <IconItem name="Facebook"><Icon name="facebook" fill="#374a54"/></IconItem>
-  <IconItem name="Youtube"><Icon name="youtube" fill="#374a54"/></IconItem>
-  <IconItem name="Twitter"><Icon name="twitter" fill="#374a54"/></IconItem>
-  <IconItem name="Instagram"><Icon name="instagram" fill="#374a54"/></IconItem>
-  <IconItem name="Wise"><Icon name="wise" size="20px"/></IconItem>
-  <IconItem name="Wizard"><Icon name="wizard" size="20px"/></IconItem>
-  <IconItem name="Killer"><Icon name="killer" size="20px"/></IconItem>
+  {Object.keys(IconsPack).map((key, index) => (
+    <IconItem name={key} key={index}>
+      <Icon name={key} fill="none" size="20px" />
+    </IconItem>
+  ))}
 </IconGallery>

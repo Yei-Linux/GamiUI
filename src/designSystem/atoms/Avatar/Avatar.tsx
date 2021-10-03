@@ -1,43 +1,67 @@
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { colorLight } from '../../../styles/theme'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import Image from '../Image'
-import { AvatarWrapper } from './Avatar.styles'
+import * as S from './Avatar.styles'
+
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { sizes } from 'styles/tokens/sizes'
+import { REGEX_RULES } from 'core/utils/constants'
 
 export interface IAvatar extends IGeneralProps {
+  /**
+   * Image Source for avatar
+   */
   src?: string
+  /**
+   * ICon element for render
+   */
   icon?: React.ReactNode
+  /**
+   * Text for render on avatar
+   */
   text?: string
+  /**
+   * Dynamic background
+   */
   background?: string
 }
 
-const REGEX_CATCH_FIRST_LETTERS = /\b(\w)/g
-
-const Avatar = ({ src, icon, text, background, ...props }: IAvatar) => {
-  const showOnlyFirstLettersOnText = (text: string) => {
-    const firstLettersCaptured: string[] | any = text.match(
-      REGEX_CATCH_FIRST_LETTERS
+const Avatar = ({
+  src,
+  icon,
+  text,
+  background = 'rgb(97, 104, 106)',
+  ...genericsProps
+}: IAvatar) => {
+  const showOnlyFirstLettersOnText = (text: string): string => {
+    const firstLettersCaptured: string[] | null = text.match(
+      REGEX_RULES.CATCH_FIRST_LETTERS
     )
-    return firstLettersCaptured.join('')
+    const joinFirstLetters = firstLettersCaptured?.join('') || ''
+
+    return joinFirstLetters
   }
 
-  const renderContent = () => {
-    if (!src && icon) return icon
-    if (!src && text) return showOnlyFirstLettersOnText(text)
-    if (src) return <Image width="40px" height="40px" src={src} alt="Avatar" />
+  const renderContent = (): React.ReactNode => {
+    if (icon) return icon
+    if (text) return showOnlyFirstLettersOnText(text)
+    if (src)
+      return (
+        <Image
+          width={sizes.avatar.width}
+          height={sizes.avatar.height}
+          src={src}
+          alt="Avatar"
+        />
+      )
+    return null
   }
 
   return (
-    <AvatarWrapper background={background} {...props}>
+    <S.Avatar $background={background} {...getGenericPropStyles(genericsProps)}>
       {renderContent()}
-    </AvatarWrapper>
+    </S.Avatar>
   )
-}
-
-Avatar.defaultProps = {
-  border: 'ROUNDED',
-  fontWeight: 'BOLD',
-  background: colorLight.neutral.three,
 }
 
 export default Avatar

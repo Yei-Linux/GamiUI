@@ -1,14 +1,25 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "styles/*": ["styles/*"]
+    },
+
     "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "es2015", "es2017"],
-    "strict": true,
+
     "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+
     "isolatedModules": true,
     "skipLibCheck": true,
-    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
     "preserveConstEnums": true,

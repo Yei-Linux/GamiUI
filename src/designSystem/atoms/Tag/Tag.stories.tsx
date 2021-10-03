@@ -6,7 +6,7 @@ import Tag from '.'
 export default {
   title: 'Atoms/Tag',
   component: Tag,
-  args: { ...Tag.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

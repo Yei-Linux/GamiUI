@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { Left, Right } from '../../../styles/utilities/flex'
-import { TitleContainer } from '../../../styles/utilities/text'
-import Icon from '../../atoms/Icon'
-import {
-  ModalContainer,
-  ModalContent,
-  ModalDialog,
-  ModalFooter,
-  ModalHeader,
-  ModalWrapper,
-} from './Modal.styles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 
 import { gsap } from 'gsap'
-import Mask from '../../atoms/Mask'
+import Mask from 'designSystem/atoms/Mask'
+import * as S from './Modal.styles'
+import ModalHeader from './ModalHeader'
+import ModalFooter from './ModalFooter'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 interface IModal extends IGeneralProps {
   /**
@@ -38,49 +31,30 @@ interface IModal extends IGeneralProps {
   onClose: () => void
 }
 
-const Header = ({
-  title,
-  handleClose,
-}: {
-  title: React.ReactNode
-  handleClose: () => any
-}) => (
-  <ModalHeader>
-    <Left>
-      <TitleContainer>{title}</TitleContainer>
-    </Left>
-    <Right>
-      <Icon fill="#7868e6" name="close" size="15px" onClick={handleClose} />
-    </Right>
-  </ModalHeader>
-)
-
-const Footer = ({ footer }: { footer: React.ReactNode }) => (
-  <ModalFooter>{footer}</ModalFooter>
-)
-
 const Modal = ({
   children,
   title,
   footer,
   visible,
   onClose,
-  ...args
+  ...genericsProps
 }: IModal) => {
-  let refDialog: any = null
-  let refContent: any = null
+  let refDialog: gsap.TweenTarget = null
+  let refContent: HTMLDivElement | null = null
   const [modalTween] = useState(gsap.timeline({ paused: true }))
 
   useEffect(() => {
-    modalTween
-      .to(refDialog, 0.35, { y: 0, autoAlpha: 1 })
-      .from(
-        refContent?.children,
-        0.35,
-        { y: 15, opacity: 0, stagger: 0.1 },
-        '-=0.15'
-      )
-      .reverse()
+    if (refContent) {
+      modalTween
+        .to(refDialog, 0.35, { y: 0, autoAlpha: 1 })
+        .from(
+          refContent.children,
+          0.35,
+          { y: 15, opacity: 0, stagger: 0.1 },
+          '-=0.15'
+        )
+        .reverse()
+    }
   }, [])
 
   useEffect(() => {
@@ -93,22 +67,20 @@ const Modal = ({
   }
 
   return (
-    <ModalWrapper visible={visible}>
+    <S.Modal $visible={visible}>
       <Mask />
-      <ModalDialog ref={(e) => (refDialog = e)}>
-        <ModalContainer {...args} ref={(e) => (refContent = e)}>
-          <Header title={title} handleClose={handleCloseGsap} />
-          <ModalContent>{children}</ModalContent>
-          <Footer footer={footer} />
-        </ModalContainer>
-      </ModalDialog>
-    </ModalWrapper>
+      <S.ModalDialog ref={(e) => (refDialog = e)}>
+        <S.ModalContainer
+          {...getGenericPropStyles(genericsProps)}
+          ref={(e) => (refContent = e)}
+        >
+          <ModalHeader title={title} handleClose={handleCloseGsap} />
+          <S.ModalBody>{children}</S.ModalBody>
+          <ModalFooter footer={footer} />
+        </S.ModalContainer>
+      </S.ModalDialog>
+    </S.Modal>
   )
-}
-
-Modal.defaultProps = {
-  shadow: 'SMALL',
-  border: 'SMALL',
 }
 
 export default Modal

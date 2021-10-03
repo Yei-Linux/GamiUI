@@ -1,9 +1,12 @@
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { GuidesNames } from '../../../core/domain/types'
-import AnimatorGuide from '../../atoms/AnimatorGuide/AnimatorGuide'
-import Message from '../../atoms/Message/Message'
-import { GuideMessageWrapper } from './GuideMessage.styles'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import { GuidesNames } from 'core/domain/types'
+
+import * as S from './GuideMessage.styles'
+import AnimatorGuide from 'designSystem/atoms/AnimatorGuide'
+
+import Message from 'designSystem/atoms/Message'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export interface GuideMessageProps extends IGeneralProps {
   /**
@@ -25,13 +28,16 @@ export interface GuideMessageProps extends IGeneralProps {
 }
 
 const GuideMessage = ({
-  guideType,
+  guideType = 'singer',
   message,
-  direction,
-  background,
-  ...args
+  direction = 'left',
+  background = '#7868e6',
+  ...genericsProps
 }: GuideMessageProps) => (
-  <GuideMessageWrapper direction={direction} {...args}>
+  <S.GuideMessage
+    $direction={direction}
+    {...getGenericPropStyles(genericsProps)}
+  >
     <AnimatorGuide type={guideType} />
     <Message
       style={{ marginTop: '15px' }}
@@ -39,13 +45,7 @@ const GuideMessage = ({
       direction={direction}
       background={background}
     />
-  </GuideMessageWrapper>
+  </S.GuideMessage>
 )
-
-GuideMessage.defaultProps = {
-  direction: 'left',
-  guideType: 'singer',
-  background: '#7868e6',
-}
 
 export default GuideMessage

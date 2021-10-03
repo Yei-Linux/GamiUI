@@ -1,16 +1,14 @@
 import 'regenerator-runtime/runtime'
 
-import context from '../../../context/CanvasProvider/context'
-
-import useAssetLoad from '../../../hooks/useAssetLoad'
-import useKeyDown from '../../../hooks/useKeyDown'
-import useAudio from '../../../hooks/useAudio'
+import useAssetLoad from 'hooks/useAssetLoad'
+import useKeyDown from 'hooks/useKeyDown'
+import useAudio from 'hooks/useAudio'
+import useCollision from 'hooks/useCollision'
+import useGameStore from 'hooks/store/useGameStore'
 
 import { HeroTypes } from './constants'
-
-import steps from '../../../audio/grass.mp3'
-import useCollision from '../../../hooks/useCollision'
-import useStore from '../../../hooks/useStore'
+import { IKeysDirection } from 'core/domain/interfaces/ICanvasContext'
+import { timeout } from 'core/helpers/utilities.helper'
 
 const useCharacter = () => {
   const {
@@ -26,28 +24,20 @@ const useCharacter = () => {
     keysDirection,
     currentDirection,
     setCurrentDirection,
-  } = useStore({ context })
+  } = useGameStore()
 
   const { isInFrontOfAnyBlock } = useCollision()
-  const { playAudio } = useAudio({ audioImported: steps })
-  const { topDir, bottomDir, leftDir, rightDir } = keysDirection
+  const { playAudio } = useAudio({
+    audioImported:
+      'https://storage.googleapis.com/cinetask.appspot.com/grass.mp3',
+  })
+  const { topDir, bottomDir, leftDir, rightDir }: IKeysDirection = keysDirection
   const keys = [topDir, bottomDir, leftDir, rightDir]
 
-  const findDirection = (key: any): any => {
-    let direction
-    Object.keys(keysDirection).map((keyObject) => {
-      if (keysDirection[keyObject].keyCode == key) {
-        direction = keyObject
-      }
-    })
-    return direction
-  }
-
-  const timeout = (t: number): Promise<any> => {
-    return new Promise((resolve, _reject) => {
-      setTimeout(resolve, t)
-    })
-  }
+  const findDirection = (key: string): string | undefined =>
+    Object.keys(keysDirection).find(
+      (keyObject: string) => keysDirection[keyObject].keyCode == key
+    )
 
   const doingActionsOnMoveCharacter = async (
     xPixelValue: number,
@@ -61,7 +51,7 @@ const useCharacter = () => {
     await timeout(200)
   }
 
-  const moveCharacter = async (key: any) => {
+  const moveCharacter = async (key: string) => {
     const axisPositionX = getAxisPositionXorY(positionX.current)
     const axisPositionY = getAxisPositionXorY(positionY.current)
 
@@ -77,7 +67,7 @@ const useCharacter = () => {
 
     const isNextBlockObstacule = isInFrontOfAnyBlock(
       currentIndexOnMap,
-      direction
+      direction ?? ''
     )
 
     if (isNextBlockObstacule) return
@@ -91,14 +81,13 @@ const useCharacter = () => {
         xPixelValue,
         yPixelValue,
         dirGif,
-        direction
+        direction ?? ''
       )
     }
   }
 
-  const getAxisPositionXorY = (positionAxis: number) => {
-    return positionAxis * (mapConfig.pixelSize / 4)
-  }
+  const getAxisPositionXorY = (positionAxis: number) =>
+    positionAxis * (mapConfig.pixelSize / 4)
 
   const chooseCharacterOnSpriteByDirection = (
     positionSpriteX = 1,
@@ -112,7 +101,7 @@ const useCharacter = () => {
     }
   }
 
-  const drawCharacter = (image: any) => {
+  const drawCharacter = (image: HTMLImageElement) => {
     const axisPositionX = getAxisPositionXorY(positionX.current)
     const axisPositionY = getAxisPositionXorY(positionY.current)
 

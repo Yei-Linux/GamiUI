@@ -6,12 +6,12 @@ import Link from '.'
 export default {
   title: 'Atoms/Link',
   component: Link,
-  args: { ...Link.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
 export const Basic = (args: any) => <Link {...args} />
 Basic.args = {
   text: 'Im link',
-  href: 'www.google.com'
+  href: 'www.google.com',
 }

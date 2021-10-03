@@ -1,5 +1,8 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import {
+  getTemplate,
+  stylesControl,
+} from '../../../core/helpers/storybook.helper'
 
 import Switch from '.'
 
@@ -8,7 +11,7 @@ const Template = getTemplate(Switch)
 export default {
   title: 'Atoms/Switch',
   component: Switch,
-  args: { ...Switch.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },

@@ -7,7 +7,7 @@ import Icon from '../Icon'
 export default {
   title: 'Atoms/Avatar',
   component: Avatar,
-  args: { ...Avatar.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -24,5 +24,5 @@ WithText.args = {
 
 export const WithIcon = (args: any) => <Avatar {...args} />
 WithIcon.args = {
-  icon: <Icon fill="white" size="25px" name="facebook" />,
+  icon: <Icon fill="none" size="25px" name="facebook__transparent" />,
 }

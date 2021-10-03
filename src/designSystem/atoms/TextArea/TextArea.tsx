@@ -1,6 +1,8 @@
 import React from 'react'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { TextAreaWrapper } from './TextArea.styles'
+import { TOnChangeFormItem } from '../Input/Input'
+import * as S from './TextArea.styles'
 
 interface AutoSize {
   minRows: number
@@ -35,31 +37,34 @@ export interface ITextArea extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: any
+  onChangeFormItem?: TOnChangeFormItem
 }
 
-const TextArea = ({ autoSize, onChangeFormItem, ...args }: ITextArea) => {
+const TextArea = ({
+  onChangeFormItem,
+  name = 'gamification',
+  placeholder = '',
+  cols = 5,
+  rows = 5,
+  ...genericsProps
+}: ITextArea) => {
+  const handleChangeOnTextArea = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    e.preventDefault()
+    onChangeFormItem?.(e.target.value)
+  }
+
   return (
-    <TextAreaWrapper
-      {...args}
-      onChange={(e: any) => {
-        onChangeFormItem(e.target.value)
-        e.preventDefault()
-      }}
+    <S.TextArea
+      name={name}
+      placeholder={placeholder}
+      cols={cols}
+      rows={rows}
+      onChange={handleChangeOnTextArea}
+      {...getGenericPropStyles(genericsProps)}
     />
   )
-}
-
-TextArea.defaultProps = {
-  name: 'gamification',
-  placeholder: '',
-  cols: 5,
-  rows: 5,
-  width: 'NORMAL',
-  heigth: 'SMALL',
-  border: 'MEDIUM',
-  fontWeight: 'BOLD',
-  shadow: 'SMALL',
 }
 
 export default TextArea

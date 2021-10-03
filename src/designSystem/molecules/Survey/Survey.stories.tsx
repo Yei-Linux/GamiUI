@@ -2,14 +2,14 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import Survey from '.'
-import { IQuestionSurvey } from './Survey'
-import { colorLight } from '../../../styles/theme'
 import { SAMPLE_CODE } from './constants'
+import { theme } from 'styles/tokens'
+import { IQuestionSurvey } from './SurveyItem'
 
 export default {
   title: 'Molecules/Survey',
   component: Survey,
-  args: { ...Survey.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -49,24 +49,24 @@ Basic.args = {
             label: 'Is the Answer one',
             value: 'one',
             icon: {
-              name: 'facebook',
-              fill: colorLight.primary.one,
+              name: 'bullet__item',
+              fill: theme.light.primary.jordyBlue,
             },
           },
           {
             label: 'Is the Answer two',
             value: 'two',
             icon: {
-              name: 'facebook',
-              fill: colorLight.primary.one,
+              name: 'bullet__item',
+              fill: theme.light.primary.jordyBlue,
             },
           },
           {
             label: 'Is the Answer three',
             value: 'three',
             icon: {
-              name: 'facebook',
-              fill: colorLight.primary.one,
+              name: 'bullet__item',
+              fill: theme.light.primary.jordyBlue,
             },
           },
         ],

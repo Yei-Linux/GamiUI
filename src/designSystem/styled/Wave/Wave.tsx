@@ -1,39 +1,71 @@
 import React from 'react'
-import { WavessNames } from '../../../core/domain/types'
-import { colorLight } from '../../../styles/theme'
+import { WavessNames } from 'core/domain/types'
 import { WaveTypes } from './constants'
-import { SvgWave, WaveWrapper } from './Wave.styles'
+import * as S from './Wave.styles'
+import { theme } from 'styles/tokens'
+import classNames from 'classnames'
 
-export interface WaveProps {
+export interface IWave {
+  /**
+   * Wave name to render
+   */
   name: WavessNames
+  /**
+   * Direction wave on top or bottom
+   */
   direction: 'top' | 'bottom'
+  /**
+   * Component of wave to wrap
+   */
   children?: React.ReactNode
+  /**
+   * Color
+   */
   color: string
+  /**
+   * Background
+   */
   background: string
+  /**
+   * Using like background or not
+   */
+  isWaveLikeBackground: boolean
 }
 
-const Wave = ({ name, direction, children, color, background }: WaveProps) => {
+const Wave = ({
+  name = 'one',
+  direction = 'top',
+  children,
+  color = '#ffffff',
+  background = '#7f9cf5',
+  isWaveLikeBackground = false,
+}: IWave) => {
   return (
-    <WaveWrapper>
-      {direction == 'bottom' && children}
-      <SvgWave
-        background={ direction == 'bottom' ? color : background}
-        direction={direction}
+    <S.Wave
+      className={classNames({
+        waveLikeBackground: isWaveLikeBackground,
+        notWaveLikeBackground: !isWaveLikeBackground,
+      })}
+    >
+      {!isWaveLikeBackground && direction == 'bottom' && children}
+      <S.SvgWave
+        $background={direction == 'bottom' ? color : background}
+        className={classNames({
+          waveLikeBackground: isWaveLikeBackground,
+        })}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
-        <path fill={direction == 'bottom' ? background : color} d={WaveTypes[name]}></path>
-      </SvgWave>
-      {direction == 'top' && children}
-    </WaveWrapper>
-  )
-}
+        <path
+          fill={direction == 'bottom' ? background : color}
+          d={WaveTypes[name]}
+        ></path>
+      </S.SvgWave>
 
-Wave.defaultProps = {
-  name: 'one',
-  direction: 'top',
-  color: colorLight.primary.one,
-  background: colorLight.neutral.nine,
+      {isWaveLikeBackground && children}
+      {!isWaveLikeBackground && direction == 'top' && children}
+    </S.Wave>
+  )
 }
 
 export default Wave

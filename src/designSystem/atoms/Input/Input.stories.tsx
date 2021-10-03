@@ -1,6 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import {
+  getTemplate,
+  stylesControl,
+} from '../../../core/helpers/storybook.helper'
 
 import Input from '.'
 import Icon from '../Icon'
@@ -10,7 +13,7 @@ const Template = getTemplate(Input)
 export default {
   title: 'Atoms/Input',
   component: Input,
-  args: { ...Input.defaultProps },
+  args: {},
   argTypes: {
     positionPrefix: {
       control: 'select',
@@ -38,15 +41,15 @@ export default {
 export const BasicInput = Template.bind({})
 BasicInput.args = {
   placeholder: 'Type your name',
-  width: 'NORMAL',
-  heigth: 'SMALL',
+  width: 'auto',
+  heigth: 'auto',
   prefix: null,
 }
 
 export const IconInput = Template.bind({})
 IconInput.args = {
   placeholder: 'Type your name',
-  width: 'NORMAL',
-  heigth: 'SMALL',
-  prefix: <Icon fill="#374a54" />,
+  width: 'auto',
+  heigth: 'auto',
+  prefix: <Icon name="user" />,
 }

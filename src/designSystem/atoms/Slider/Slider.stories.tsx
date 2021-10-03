@@ -7,7 +7,7 @@ import Image from '../Image'
 export default {
   title: 'Atoms/Slider',
   component: Slider,
-  args: { ...Slider.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -81,4 +81,10 @@ export const Vertical = (args: any) => {
 }
 Vertical.args = {
   vertical: true,
+  slidesPerView: {
+    phone: 1,
+    tablet: 1,
+    laptop: 2,
+    desktop: 2,
+  },
 }

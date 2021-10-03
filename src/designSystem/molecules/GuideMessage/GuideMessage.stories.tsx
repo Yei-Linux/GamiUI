@@ -1,5 +1,8 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import {
+  getTemplate,
+  stylesControl,
+} from '../../../core/helpers/storybook.helper'
 import { options as optionsGuide } from './constants'
 
 import GuideMessage from '.'
@@ -9,7 +12,7 @@ const Template = getTemplate(GuideMessage)
 export default {
   title: 'Molecules/GuideMessage',
   component: GuideMessage,
-  args: { ...GuideMessage.defaultProps },
+  args: {},
   argTypes: {
     message: { control: { type: 'text' } },
     guideType: { control: { type: 'select', options: optionsGuide.type } },

@@ -1,34 +1,38 @@
 import React from 'react'
-import { ContentWrapper, FooterWrapper, HeaderWrapper, LayoutWrapper } from './Layout.styles'
+import * as S from './Layout.styles'
 
-export interface IHeader {
+export interface ILayoutElement {
+  /**
+   * Children Prop
+   */
   children: React.ReactNode
 }
 
 export interface ILayout {
+  /**
+   * Children Prop
+   */
   children: React.ReactNode
 }
 
-const Header = ({children}: IHeader) => {
-  return <HeaderWrapper>{children}</HeaderWrapper>
+const Header = ({ children }: ILayoutElement) => {
+  return <S.Header>{children}</S.Header>
 }
 
-const Content = ({children}: IHeader) => {
-  return <ContentWrapper>{children}</ContentWrapper>
+const Content = ({ children }: ILayoutElement) => {
+  return <S.Content>{children}</S.Content>
 }
 
-const Footer = ({children}: IHeader) => {
-  return <FooterWrapper>{children}</FooterWrapper>
+const Footer = ({ children }: ILayoutElement) => {
+  return <S.Footer>{children}</S.Footer>
 }
 
 const Layout = ({ children }: ILayout) => {
-  return <LayoutWrapper>{ children }</LayoutWrapper>
+  return <S.Layout>{children}</S.Layout>
 }
 
 Layout.Header = Header
 Layout.Content = Content
 Layout.Footer = Footer
-
-Layout.defaultProps = {}
 
 export default Layout

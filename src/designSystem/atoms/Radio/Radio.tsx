@@ -1,28 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import RadioProvider from '../../../context/RadioProvider'
-import context from '../../../context/RadioProvider/context'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import useStore from '../../../hooks/useStore'
-import {
-  RadioCheck,
-  RadioContainer,
-  RadioGroupWrapper,
-  RadioInner,
-  RadioInput,
-  RadioText,
-} from './Radio.styles'
+import { TOnChangeFormItem } from '../Input/Input'
+import RadioContent from './RadioContent'
 
-interface IRadioItem {
-  children: string
-  value: string
-  isChecked?: boolean
-}
+import RadioItem from './RadioItem'
 
 export interface IRadio extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  onChangeFormItem?: (value: any) => any
+  onChangeFormItem?: TOnChangeFormItem
   /**
    * Children Element
    */
@@ -30,27 +18,11 @@ export interface IRadio extends IGeneralProps {
   /**
    * Function to detect changes
    */
-  name?: any
+  name?: string
   /**
    * Function to detect changes
    */
-  value?: any
-}
-
-const RadioContent = ({
-  children,
-  onChangeFormItem = () => {
-    return
-  },
-  ...args
-}: IRadio) => {
-  const { radioSelected } = useStore({context})
-
-  useEffect(() => {
-    onChangeFormItem(radioSelected)
-  }, [radioSelected])
-
-  return <RadioGroupWrapper {...args}>{children}</RadioGroupWrapper>
+  value?: unknown
 }
 
 const Radio = ({ children, onChangeFormItem, ...args }: IRadio) => {
@@ -63,31 +35,6 @@ const Radio = ({ children, onChangeFormItem, ...args }: IRadio) => {
   )
 }
 
-Radio.Item = ({ children, value, isChecked = false }: IRadioItem) => {
-  const { radioSelected, setRadioSelected } = useStore({context})
-
-  useEffect(() => {
-    isChecked && handleRadioChange()
-  }, [])
-
-  const handleRadioChange = () => setRadioSelected({ text: children, value })
-
-  return (
-    <RadioContainer>
-      <RadioCheck>
-        <RadioInput onClick={handleRadioChange} />
-        <RadioInner isChecked={radioSelected?.value == value} />
-      </RadioCheck>
-      <RadioText>{children}</RadioText>
-    </RadioContainer>
-  )
-}
-
-Radio.defaultProps = {
-  width: 'NORMAL',
-  heigth: 'SMALL',
-  border: 'MEDIUM',
-  fontWeight: 'BOLD',
-}
+Radio.Item = RadioItem
 
 export default Radio

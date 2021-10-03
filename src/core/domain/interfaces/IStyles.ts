@@ -6,13 +6,9 @@ import {
   HeightType,
   TextAlignType,
   FontWeightType,
-} from '../types'
+} from 'core/domain/types'
 
-export interface IStyles {
-  /**
-   * Custom Styles
-   */
-  style?: React.CSSProperties
+export interface IGenericPropStyles {
   /**
    * Shadow Component
    */
@@ -37,6 +33,14 @@ export interface IStyles {
    * Height Component
    */
   fontWeight?: FontWeightType
+}
+
+export interface IStyles extends IGenericPropStyles {
+  /**
+   * Custom Styles
+   */
+  style?: React.CSSProperties
+
   /**
    * Height Component
    */

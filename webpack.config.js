@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 'use strict'
 
-const webpack = require('webpack')
 const path = require('path')
 
 const APP_DIR = path.resolve(__dirname, './src')

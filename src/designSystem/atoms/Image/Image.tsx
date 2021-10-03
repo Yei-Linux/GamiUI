@@ -1,42 +1,80 @@
 import React, { CSSProperties, Fragment } from 'react'
 import { BackgroundImg, Img } from './Image.styles'
 
-interface ImageLink {
+interface IImageLink {
   url?: string
   newTab?: boolean
 }
 
-export interface ImageProps {
-  children?: React.ReactNode
-  src: string
-  alt?: string
+export interface IImagePropStyles {
+  /**
+   * Max width Image
+   */
   maxWidth?: string
+  /**
+   * Max Height Image
+   */
   maxHeight?: string
+  /**
+   * Min Width Image
+   */
   minWidth?: string
+  /**
+   * Min Height Image
+   */
   minHeight?: string
+  /**
+   * Width Image
+   */
   width?: string
+  /**
+   * Height Image
+   */
   height?: string
-  link?: ImageLink | null
-  className?: string
+}
+
+export interface IImage extends IImagePropStyles {
+  /**
+   * Children in case of Image Background
+   */
+  children?: React.ReactNode
+  /**
+   * Source Image
+   */
+  src: string
+  /**
+   * Alt Image
+   */
+  alt?: string
+
+  /**
+   * Link With Url and New Tab
+   */
+  link?: IImageLink | null
+  /**
+   * Background Size In Case has children
+   */
   backgroundSize?: 'cover' | 'contain'
+
+  className?: string
   style?: CSSProperties
 }
 
 const Image = ({
-  children,
+  children = null,
   src,
-  alt,
-  maxWidth,
-  maxHeight,
-  minWidth,
-  minHeight,
-  width,
-  height,
-  link,
+  alt = '',
+  maxWidth = '',
+  maxHeight = '',
+  minWidth = '',
+  minHeight = '',
+  width = 'auto',
+  height = 'auto',
+  link = null,
   className,
-  backgroundSize,
+  backgroundSize = 'contain',
   style,
-}: ImageProps) => {
+}: IImage) => {
   const imageCommonsProps = {
     src,
     maxWidth,
@@ -50,14 +88,17 @@ const Image = ({
   }
   const ImageClassName = link ? {} : { className }
   const ImageLinkClassName = link ? { className } : {}
+
   const shouldOpenLinkInNewTab = link?.newTab
+
   const imageElement = children ? (
     <BackgroundImg {...ImageClassName} {...imageCommonsProps}>
       {children}
     </BackgroundImg>
   ) : (
-    <Img {...ImageClassName} {...imageCommonsProps} alt={alt} />
+    <Img {...ImageClassName} {...imageCommonsProps} alt={alt} loading="lazy" />
   )
+
   const maybeLink = link ? (
     <a
       {...ImageLinkClassName}
@@ -72,19 +113,6 @@ const Image = ({
   )
 
   return <Fragment>{maybeLink}</Fragment>
-}
-
-Image.defaultProps = {
-  children: null,
-  alt: '',
-  link: null,
-  width: 'auto',
-  height: 'auto',
-  maxHeight: '',
-  maxWidth: '',
-  minWidth: '',
-  minHeight: '',
-  backgroundSize: 'contain',
 }
 
 export default Image

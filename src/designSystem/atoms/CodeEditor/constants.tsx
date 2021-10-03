@@ -4,8 +4,9 @@ export const CodeCustomTheme = {
   colors: {
     'editor.background': '#1d2432',
     'editorCursor.foreground': '#536383',
-    'editor.lineHighlightBackground': '#1d2432',
+    'editor.lineHighlightBackground': '#333e53',
     'editor.selectionBackground': '#536383',
+    'editorActiveLineNumber.foreground': '#237893',
   },
   rules: [
     { token: '', foreground: '63b7fc', background: '1d2432' },
@@ -113,6 +114,8 @@ export const codeOptions = {
   wordWrapMinified: true,
   wrappingIndent: 'none',
 }
+
+export const codeTheme = 'myTheme'
 
 export const options = {
   type: [] as const,

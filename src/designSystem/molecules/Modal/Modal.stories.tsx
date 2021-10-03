@@ -8,7 +8,7 @@ import Button from '../../atoms/Button'
 export default {
   title: 'Molecules/Modal',
   component: Modal,
-  args: { ...Modal.defaultProps },
+  args: {},
   argTypes: {
     ...stylesControl,
   },
@@ -25,10 +25,10 @@ export const Basic = () => {
     <div>
       <Button
         onClick={onOpen}
-        border="MEDIUM"
-        heigth="SMALL"
-        type="secondary"
-        width="SMALL"
+        border="md"
+        heigth="sm"
+        variant="secondary"
+        width="auto"
       >
         Show Modal
       </Button>

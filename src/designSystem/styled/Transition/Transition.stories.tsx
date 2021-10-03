@@ -7,7 +7,7 @@ import Mask from '../../atoms/Mask'
 export default {
   title: 'Styled/Transition',
   component: Transition,
-  args: { ...Transition.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

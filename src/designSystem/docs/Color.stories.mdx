@@ -1,51 +1,69 @@
-import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
 
-import { palette } from "../../styles/theme";
+import { theme } from 'styles/tokens'
 
-<Meta title="Colors" />
+<Meta title="Tokens/Colors" />
 
 # Colors Light Mode
 
 <ColorPalette>
   <ColorItem
-    title="palette.light.color.primary"
-    subtitle="Primary Colors"
+    title="Primary Colors"
     colors={[
-      palette.light.color.primary.one,
-      palette.light.color.primary.two,
+      theme.light.primary.jordyBlue,
+      theme.light.primary.hawkesBlue,
+      theme.light.primary.mediumPurple,
+      theme.light.primary.selago,
+      theme.light.primary.white,
     ]}
   />
   <ColorItem
-    title="palette.light.color.secondary"
-    subtitle="Secondary Colors"
+    title="Secondary Colors"
     colors={[
-      palette.light.color.secondary.one,
-      palette.light.color.secondary.two,
-      palette.light.color.secondary.three,
+      theme.light.secondary.nepal,
+      theme.light.secondary.linkWater,
+      theme.light.secondary.prim,
+      theme.light.secondary.tutu,
     ]}
   />
   <ColorItem
-    title="palette.light.color.neutral"
-    subtitle="Neutral Colors"
+    title="Neutral Colors"
     colors={[
-      palette.light.color.neutral.one,
-      palette.light.color.neutral.two,
-      palette.light.color.neutral.three,
-      palette.light.color.neutral.four,
-      palette.light.color.neutral.five,
-      palette.light.color.neutral.six,
-      palette.light.color.neutral.seven,
-      palette.light.color.neutral.eight,
+      theme.light.neutral[0],
+      theme.light.neutral[100],
+      theme.light.neutral[200],
+      theme.light.neutral[300],
+      theme.light.neutral[400],
+      theme.light.neutral[500],
+      theme.light.neutral[600],
+      theme.light.neutral[700],
     ]}
   />
   <ColorItem
-    title="palette.light.color.semantic"
-    subtitle="Semantic colors"
+    title="Semantic colors"
     colors={[
-      palette.light.color.semantic.success,
-      palette.light.color.semantic.warning,
-      palette.light.color.semantic.danger,
-      palette.light.color.semantic.info,
+      theme.light.semantic.success,
+      theme.light.semantic.warning,
+      theme.light.semantic.danger,
+      theme.light.semantic.info,
+      theme.light.semantic.warm,
+      theme.light.semantic.spring,
+      theme.light.semantic.earth,
+      theme.light.semantic.skin,
+      theme.light.semantic.sky,
+    ]}
+  />
+
+  <ColorItem
+    title="Extended colors"
+    colors={[
+      theme.light.extended.code,
+      theme.light.extended.codeStrong,
+      theme.light.extended.garden,
+      theme.light.extended.gardenStrong,
+      theme.light.extended.ocean,
+      theme.light.extended.oceanStrong,
+      theme.light.extended.gray
     ]}
   />
 </ColorPalette>

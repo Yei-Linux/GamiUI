@@ -1,45 +1,57 @@
 import 'regenerator-runtime/runtime'
-import React, { Fragment, useEffect, useState } from 'react'
-import Mask from '../../atoms/Mask'
-import Transition from '../../styled/Transition'
+
+import React, { Fragment } from 'react'
+
 import { drawerTranstionByStates } from './constants'
-import { DrawerWrapper } from './Drawer.styles'
+import * as S from './Drawer.styles'
+import useOpen from 'hooks/useOpen'
+
+import Mask from 'designSystem/atoms/Mask'
+import Transition from 'designSystem/styled/Transition'
 
 export interface IDrawer {
+  /**
+   * Custom Styles for drawer
+   */
+  style?: React.CSSProperties
+  /**
+   * Children Content
+   */
   children?: React.ReactNode
+  /**
+   * Open or not of drawer
+   */
   open?: boolean
+  /**
+   * Placement of drawer
+   */
   placement?: string
+  /**
+   * Width
+   */
   width?: string
+  /**
+   * Height
+   */
   height?: string
-  onClose?: () => any
+  /**
+   * Has Mask
+   */
+  withMask?: boolean
+  /**
+   * Action on close drawer
+   */
+  onClose?: () => void
 }
 
-const Drawer = ({ children, open, onClose }: IDrawer) => {
-  const [isFirstTime, setIsFirstTime] = useState(!open)
-  const [isOpen, setIsOpen] = useState(open)
-
-  const timeout = (t: number): Promise<any> => {
-    return new Promise((resolve, _reject) => {
-      setTimeout(resolve, t)
-    })
-  }
-
-  const updateIsOpen = async () => {
-    if (open) {
-      isFirstTime && setIsFirstTime(false)
-      setIsOpen(true)
-      return
-    }
-
-    if (!isFirstTime) {
-      await timeout(300)
-      setIsOpen(false)
-    }
-  }
-
-  useEffect(() => {
-    updateIsOpen()
-  }, [open])
+const Drawer = ({
+  children,
+  open,
+  onClose,
+  withMask = true,
+  style = {},
+}: IDrawer) => {
+  const { isOpen } = useOpen({ open })
 
   return (
     <Fragment>
@@ -51,7 +63,10 @@ const Drawer = ({ children, open, onClose }: IDrawer) => {
             isReadyToInitAnimation={open}
           >
             <div>
-              <Mask onClick={onClose} />
+              <Mask
+                onClick={onClose}
+                background={withMask ? 'rgba(0, 0, 0, 0.45)' : 'transparent'}
+              />
             </div>
           </Transition>
 
@@ -59,16 +74,12 @@ const Drawer = ({ children, open, onClose }: IDrawer) => {
             to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
-            <DrawerWrapper>{children}</DrawerWrapper>
+            <S.Drawer style={style}>{children}</S.Drawer>
           </Transition>
         </Fragment>
       )}
     </Fragment>
   )
-}
-
-Drawer.defaultProps = {
-  placement: 'left',
 }
 
 export default Drawer

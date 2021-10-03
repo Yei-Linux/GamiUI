@@ -7,7 +7,7 @@ import CanvasProvider from '../../../context/CanvasProvider'
 export default {
   title: 'Game/World',
   component: World,
-  args: { ...World.defaultProps },
+  args: { },
   decorators: [
     (Story) => (
       <CanvasProvider>

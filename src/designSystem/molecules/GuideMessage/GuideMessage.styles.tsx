@@ -1,17 +1,30 @@
 import styled from '@emotion/styled'
-import tw from 'twin.macro'
-import { twinStyles } from '../../../styles/utilities/twinStyles'
+import {
+  BorderType,
+  HeightType,
+  ShadowType,
+  WidthType,
+} from 'core/domain/types'
+import { mixinFlexVariants } from 'styles/mixins/flex'
+import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
-export const GuideMessageWrapper = styled.div<{
-  border?: string
-  shadow?: string
-  width?: string
-  heigth?: string
-  direction: 'left' | 'right'
+export const GuideMessage = styled.div<{
+  $border?: BorderType
+  $shadow?: ShadowType
+  $width?: WidthType
+  $heigth?: HeightType
+  $direction: 'left' | 'right'
 }>`
-  ${tw`flex justify-center items-center`}
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
 
-  ${(props: any) => twinStyles(props)};
-  flex-direction: ${(props) =>
-    props.direction == 'left' ? 'row' : 'row-reverse'};
+  flex-direction: ${({ $direction }) =>
+    $direction == 'left' ? 'row' : 'row-reverse'};
+
+  ${({ $border, $shadow, $width, $heigth }) =>
+    setGenericPropStyles({
+      border: $border || 'none',
+      shadow: $shadow || 'none',
+      width: $width || 'auto',
+      heigth: $heigth || 'auto',
+    })};
 `

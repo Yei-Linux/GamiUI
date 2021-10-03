@@ -1,22 +1,29 @@
 import React from 'react'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { GuidesNames } from '../../../core/domain/types'
-import { AnimatorGuideImg } from './AnimatorGuide.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import { GuidesNames } from 'core/domain/types'
+
+import * as S from './AnimatorGuide.styles'
 import { Guiders } from './constants'
 
-export interface AnimatorGuideProps extends IGeneralProps {
+export interface IAnimatorGuide extends IGeneralProps {
   /**
    * Guide Type
    */
   type: GuidesNames
 }
 
-const AnimatorGuide = ({ type, ...args }: AnimatorGuideProps) => {
-  return <AnimatorGuideImg imageProps={Guiders[type]} {...args} />
-}
-
-AnimatorGuide.defaultProps = {
-  type: 'singer',
+const AnimatorGuide = ({
+  type = 'singer',
+  ...genericsProps
+}: IAnimatorGuide) => {
+  return (
+    <S.AnimatorGuideImg
+      $imageProps={Guiders[type]}
+      {...getGenericPropStyles(genericsProps)}
+    />
+  )
 }
 
 export default AnimatorGuide

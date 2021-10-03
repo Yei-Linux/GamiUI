@@ -1,14 +1,15 @@
 import React from 'react'
-import { ComponentWrapper } from './Component.styles'
+import * as S from './Component.styles'
 
 export interface IComponent {
+  /**
+   * Prop Of Component
+   */
   prop?: any
 }
 
 const Component = ({ prop }: IComponent) => {
-  return <ComponentWrapper />
+  return <S.Component />
 }
-
-Component.defaultProps = {}
 
 export default Component

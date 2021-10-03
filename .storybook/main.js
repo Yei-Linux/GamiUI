@@ -17,6 +17,9 @@ module.exports = {
       use: ['style-loader', 'css-loader', 'sass-loader'],
       include: path.resolve(__dirname, '../'),
     })
+
+    config.resolve.modules.push(path.resolve(__dirname, '../src'))
+
     return config
   },
   typescript: {

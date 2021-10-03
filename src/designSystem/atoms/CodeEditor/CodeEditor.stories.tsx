@@ -6,7 +6,7 @@ import CodeEditor from '.'
 export default {
   title: 'Atoms/CodeEditor',
   component: CodeEditor,
-  args: { ...CodeEditor.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
