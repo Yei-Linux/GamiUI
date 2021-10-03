@@ -18,7 +18,7 @@ export default {
 
 export const BasicIcon = Template.bind({})
 BasicIcon.args = {
-  fill: 'red',
+  fill: 'none',
   size: '25px',
   name: 'facebook',
 }

@@ -121,7 +121,7 @@ const Video = ({
             <S.VideoOptionContainer align="flex-end">
               <S.VideoVolume>
                 <Range
-                  iconId="volume"
+                  iconId="volume__small__mono"
                   value={valueVolume}
                   onChangeFormItem={handleChangeVolume}
                 />
@@ -131,11 +131,11 @@ const Video = ({
 
           <Col spacing="sm" xs={4} sm={4} md={4} lg={4}>
             <S.VideoReproduceButton>
-              <Icon name={'prevskip'} size="20px" width="auto" />
+              <Icon name="prevskip" size="20px" width="auto" />
               <Spacer direction="left" />
 
               <Icon
-                name={!play ? 'play' : 'pause'}
+                name={!play ? 'play__mono' : 'pause__mono'}
                 size="40px"
                 onClick={handleTogglePlay}
                 shadow="lg"
@@ -144,7 +144,7 @@ const Video = ({
               />
 
               <Spacer direction="right" />
-              <Icon name={'nextskip'} size="20px" width="auto" />
+              <Icon name="nextskip" size="20px" width="auto" />
             </S.VideoReproduceButton>
           </Col>
 
@@ -152,7 +152,7 @@ const Video = ({
             <S.VideoOptionContainer align="flex-start">
               <S.VideoVelocityRange>
                 <Range
-                  iconId="options"
+                  iconId="speed__mono"
                   value={valueVelocity}
                   onChangeFormItem={handleChangeVelocity}
                 />

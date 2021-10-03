@@ -119,19 +119,19 @@ const Note = ({
           <Button
             border="lg"
             shadow="md"
-            width="auto"
+            width="fit"
             onClick={handleActionClick}
           >
-            <Icon size="25px" name={!isEdit ? 'edit' : 'check'} />
+            <Icon size="20px" name={!isEdit ? 'edit__white' : 'check__white'} />
           </Button>
           <Button
             variant="tertiary"
             border="lg"
             shadow="md"
-            width="auto"
+            width="fit"
             onClick={onDelete}
           >
-            <Icon size="25px" name="delete__white" />
+            <Icon size="20px" name="delete__white" />
           </Button>
         </Row>
       </S.NoteFooter>

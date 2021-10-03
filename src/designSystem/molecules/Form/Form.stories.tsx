@@ -92,10 +92,11 @@ export const Basic = () => (
     </Form.Item>
     <Form.Item name="submit">
       <Button
+        width="fit"
         type="submit"
         variant="primary"
         border="lg"
-        preffix={<Icon name="submit" />}
+        preffix={<Icon fill="white" name="send__white" />}
       >
         Submit
       </Button>

@@ -33,7 +33,7 @@ const SurveyContentBody = ({ children, onClickMenu }: ISurveyContentBody) => {
           {
             stickyContent: (
               <Fragment>
-                <Icon name="menu" size="20px" onClick={onClickMenu} />
+                <Icon name="hamburger" size="20px" onClick={onClickMenu} />
                 <Spacer direction="bottom" />
               </Fragment>
             ),

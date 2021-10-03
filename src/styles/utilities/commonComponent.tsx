@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { theme } from 'styles/tokens'
+import { font, theme } from 'styles/tokens'
 
 export const TitleContainer = styled.div`
-  font-weight: bold;
+  font-weight: ${font.weight.medium};
   color: ${theme.light.neutral[0]};
   margin-bottom: 3px;
 `

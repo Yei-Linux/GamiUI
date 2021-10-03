@@ -15,7 +15,7 @@ const FormError = ({ name }: IFormError) => {
     <Fragment>
       {yupErrors?.[name] && (
         <S.FormError>
-          <Icon name="errorForm" size="15px" fill="#E32B2B" />
+          <Icon name="attention__error" size="15px" fill="none" />
           <S.FormErrorLabel text={yupErrors?.[name]} />
         </S.FormError>
       )}

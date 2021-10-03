@@ -35,5 +35,5 @@ export const ProgressPercent = styled.div<{
   border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;
   height: 15px;
-  transition: div 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
 `

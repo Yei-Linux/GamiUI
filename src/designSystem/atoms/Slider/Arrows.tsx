@@ -1,11 +1,10 @@
 import { TOnClick } from 'core/domain/types'
 import KeenSlider from 'keen-slider'
 import React, { Fragment } from 'react'
-import { theme } from 'styles/tokens'
 
 import * as S from './Slider.styles'
 
-export interface ISliderElements{
+export interface ISliderElements {
   slider: KeenSlider
   vertical: boolean
   currentSlide: number
@@ -32,21 +31,13 @@ const Arrows = ({ slider, vertical, currentSlide }: ISliderElements) => {
         <>
           <S.ArrowLeft
             onClick={handleClickPrev}
-            fill={
-              isFirstSlide()
-                ? theme.light.neutral[500]
-                : theme.light.primary.jordyBlue
-            }
-            name="arrowLeft"
+            size="25px"
+            name={isFirstSlide() ? 'arrow__left__semiwhite' : 'arrow__left'}
           />
           <S.ArrowRight
+            size="25px"
             onClick={handleClickNext}
-            fill={
-              isLastSlide()
-                ? theme.light.neutral[500]
-                : theme.light.primary.jordyBlue
-            }
-            name="arrowRight"
+            name={isLastSlide() ? 'arrow__right__semiwhite' : 'arrow__right'}
           />
         </>
       )}

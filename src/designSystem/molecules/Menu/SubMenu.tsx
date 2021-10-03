@@ -3,7 +3,6 @@ import * as S from './Menu.styles'
 
 import Icon from 'designSystem/atoms/Icon'
 import Link from 'designSystem/atoms/Link'
-import { theme } from 'styles/tokens'
 
 export interface ISubMenu {
   isOpen?: boolean
@@ -33,10 +32,7 @@ const SubMenu = ({
         />
       }
     >
-      <Icon
-        fill={isOpen ? theme.light.primary.jordyBlue : theme.light.neutral[100]}
-        name="arrowRight"
-      />
+      <Icon size="20px" name="arrow__right" />
     </S.SubMenu>
   )
 }

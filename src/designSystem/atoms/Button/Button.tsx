@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { ButtonType } from 'core/domain/types'
 import * as S from './Button.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import Spacer from 'designSystem/layouts/Spacer'
 
 export type TButton = 'button' | 'reset' | 'submit'
 
@@ -38,7 +39,12 @@ const Button = ({
       $variant={variant}
       type={type}
     >
-      {preffix}
+      {preffix && (
+        <Fragment>
+          {preffix}
+          <Spacer direction="right" />
+        </Fragment>
+      )}
       {children}
     </S.Button>
   )
