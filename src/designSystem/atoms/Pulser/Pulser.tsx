@@ -62,7 +62,7 @@ const Pulser = ({
 
         {isBloqued && (
           <S.PulserLock>
-            <Icon fill="" size="30px" name="upset" />
+            <Icon fill="none" size="30px" name="sad" />
           </S.PulserLock>
         )}
       </S.PulserContent>

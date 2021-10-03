@@ -1,6 +1,395 @@
 import React from 'react'
 
 export const All = {
+  twitter: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M5 35.7622C6.92886 36.8286 20.8914 44.8773 30.8199 38.674C40.7483 32.4707 40.2006 21.7833 40.2006 16.886C41.1 15.0018 43 14.0439 43 8.9438C41.1337 10.6678 39.2787 11.2544 37.435 10.7036C35.6287 7.94957 33.1435 6.73147 29.9794 7.04934C25.2333 7.52614 23.4969 12.1825 24.0079 18.2067C16.6899 21.9074 10.9515 15.524 7.99418 10.7036C7.00607 14.4999 6.0533 19.0576 7.99418 24.0995C9.2881 27.4607 12.3985 30.3024 17.3254 32.6246C12.3323 35.3308 8.22382 36.3766 5 35.7622Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  facebook__transparent: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M36 12.5997H31.2489H29.9871C28.9009 12.5997 28.0203 13.4803 28.0203 14.5666V21.4674H36L34.8313 29.0643H28.0203V43H19.2451V29.0643H12V21.4674H19.1515L19.2451 14.2563L19.2318 12.9471C19.1879 8.60218 22.6745 5.04434 27.0194 5.0004C27.0459 5.00013 27.0724 5 27.0989 5H36V12.5997Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  facebook: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M4.11111 46C2.94518 46 2 45.0496 2 43.8773V4.12274C2 2.95038 2.94518 2 4.11111 2H43.8889C45.0548 2 46 2.95038 46 4.12274V43.8773C46 45.0496 45.0548 46 43.8889 46C42.4815 46 29.2222 46 4.11111 46Z"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M38.6615 17.887H34.3074H33.7929C32.4429 17.887 31.3485 18.9814 31.3485 20.3314V25.2218H38.6615L37.5904 32.5526H31.3485V46H23.3065V32.5526H16.6667V25.2218H23.2207L23.3065 18.2634L23.2825 15.7694C23.2487 12.2477 26.0762 9.36546 29.5978 9.33164C29.6182 9.33144 29.6386 9.33134 29.6591 9.33134H38.6615V17.887Z"
+          fill="#7f9cf5"
+        />
+      </>
+    ),
+  },
+  youtube: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M11.0634 10.4144C16.6066 10.1381 20.9181 10 23.9978 10C27.0778 10 31.3908 10.1382 36.9368 10.4145V10.4145C39.9389 10.5641 42.367 12.9119 42.6174 15.9072C42.871 18.9412 42.9978 21.6134 42.9978 23.9238C42.9978 26.2626 42.8679 28.972 42.608 32.0522H42.608C42.3584 35.0103 39.9831 37.3412 37.0207 37.5349C32.2793 37.845 27.9383 38 23.9978 38C20.0578 38 15.7184 37.845 10.9796 37.5351V37.5351C8.01828 37.3414 5.64346 35.0119 5.39264 32.055C5.12941 28.9518 4.9978 26.2414 4.9978 23.9238C4.9978 21.6341 5.12627 18.961 5.3832 15.9044L5.38321 15.9044C5.6349 12.9103 8.06249 10.564 11.0634 10.4144Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M21 19.6092V28.4061C21 28.8794 21.3838 29.2632 21.8571 29.2632C22.0252 29.2632 22.1896 29.2138 22.3298 29.1211L28.9274 24.7606C29.3223 24.4996 29.4308 23.9678 29.1698 23.5729C29.1074 23.4785 29.0269 23.3973 28.933 23.3342L22.3354 18.8979C21.9426 18.6338 21.41 18.7381 21.1458 19.131C21.0508 19.2724 21 19.4389 21 19.6092Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  voice: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <rect
+          x="17"
+          y="4"
+          width="14"
+          height="27"
+          rx="7"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M9 23C9 31.2843 15.7157 38 24 38C32.2843 38 39 31.2843 39 23"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M24 38V44"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  hear: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M42 30V24.4615C42 14.2655 33.9411 6 24 6C14.0589 6 6 14.2655 6 24.4615V30"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M34 32C34 29.7909 35.7909 28 38 28H42V42H38C35.7909 42 34 40.2091 34 38V32Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M42 32H44C45.1046 32 46 32.8954 46 34V36C46 37.1046 45.1046 38 44 38H42V32Z"
+          fill="#7f9cf5"
+        />
+        <path
+          d="M6 32H4C2.89543 32 2 32.8954 2 34V36C2 37.1046 2.89543 38 4 38H6V32Z"
+          fill="#7f9cf5"
+        />
+        <path
+          d="M6 28H10C12.2091 28 14 29.7909 14 32V38C14 40.2091 12.2091 42 10 42H6V28Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  remind: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M24 4C16.268 4 10 10.268 10 18V38H38V18C38 10.268 31.732 4 24 4Z"
+          fill="none"
+        />
+        <path
+          d="M10 38V18C10 10.268 16.268 4 24 4C31.732 4 38 10.268 38 18V38M4 38H44"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M24 44C26.7614 44 29 41.7614 29 39V38H19V39C19 41.7614 21.2386 44 24 44Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  visual: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path
+          d="M4 10C4 8.89543 4.89543 8 6 8H34C35.1046 8 36 8.89543 36 10V19L44 13V36L36 30V38C36 39.1046 35.1046 40 34 40H6C4.89543 40 4 39.1046 4 38V10Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle
+          cx="17"
+          cy="21"
+          r="5"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  speed__mono: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M30.2972 18.7786C30.2972 18.7786 27.0679 27.8808 25.5334 29.4699C23.9988 31.0591 21.4665 31.1033 19.8774 29.5687C18.2882 28.0341 18.244 25.5018 19.7786 23.9127C21.3132 22.3236 30.2972 18.7786 30.2972 18.7786Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M38.8492 38.8492C42.6495 35.049 45 29.799 45 24C45 12.402 35.598 3 24 3C12.402 3 3 12.402 3 24C3 29.799 5.35051 35.049 9.15076 38.8492"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M24 4V8"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M38.8454 11.1421L35.7368 13.6593"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M42.5225 27.2328L38.6251 26.333"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M5.47749 27.2328L9.37497 26.333"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M9.15463 11.1421L12.2632 13.6593"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  volume__small__mono: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M24 6V42C17 42 11.7985 32.8391 11.7985 32.8391H6C4.89543 32.8391 4 31.9437 4 30.8391V17.0108C4 15.9062 4.89543 15.0108 6 15.0108H11.7985C11.7985 15.0108 17 6 24 6Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M32 15L32 15C32.6232 15.5565 33.1881 16.1797 33.6841 16.8588C35.1387 18.8504 36 21.3223 36 24C36 26.6545 35.1535 29.1067 33.7218 31.0893C33.2168 31.7885 32.6391 32.4293 32 33"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  pause__mono: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M19 18V30"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M29 18V30"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  play__mono: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M20 24V17.0718L26 20.5359L32 24L26 27.4641L20 30.9282V24Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  controls: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <rect
+          x="4"
+          y="4"
+          width="16"
+          height="16"
+          rx="2"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <rect
+          x="4"
+          y="28"
+          width="16"
+          height="16"
+          rx="2"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <rect
+          x="28"
+          y="4"
+          width="16"
+          height="16"
+          rx="2"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M28 28H44"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M36 36H44"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M28 44H44"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
   delete: {
     viewBox: '0 0 48 48',
     svg: (
@@ -432,6 +821,36 @@ export const All = {
       </>
     ),
   },
+  arrow__left__semiwhite: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M31 36L19 24L31 12"
+          stroke="#EAEAEA"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  arrow__right__semiwhite: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M19 12L31 24L19 36"
+          stroke="#EAEAEA"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
   arrow__left: {
     viewBox: '0 0 48 48',
     svg: (
@@ -457,6 +876,28 @@ export const All = {
           stroke="#7f9cf5"
           strokeWidth="4"
           strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  like__white: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M27.6 18.6V11.4C27.6 8.41766 25.1823 6 22.2 6L15 22.2V42H35.916C37.7111 42.0203 39.2468 40.7149 39.516 38.94L42 22.74C42.1585 21.6957 41.8504 20.6346 41.1573 19.8375C40.4643 19.0405 39.4561 18.588 38.4 18.6H27.6Z"
+          stroke="white"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M15 22.0002H10.194C8.08532 21.9629 6.2827 23.7096 6 25.7996V38.3996C6.2827 40.4896 8.08532 42.0369 10.194 41.9996H15V22.0002Z"
+          fill="none"
+          stroke="white"
+          strokeWidth="4"
           strokeLinejoin="round"
         />
       </>
@@ -667,6 +1108,27 @@ export const All = {
       </>
     ),
   },
+  send__white: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path d="M48 0H0V48H48V0Z" fill="white" fillOpacity="0.01" />
+        <path
+          d="M43 5L29.7 43L22.1 25.9L5 18.3L43 5Z"
+          stroke="whtie"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M43.0001 5L22.1001 25.9"
+          stroke="whtie"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
   send: {
     viewBox: '0 0 48 48',
     svg: (
@@ -683,6 +1145,28 @@ export const All = {
           stroke="#7f9cf5"
           strokeWidth="4"
           strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  edit__white: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M7 42H43"
+          stroke="white"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M11 26.7199V34H18.3172L39 13.3081L31.6951 6L11 26.7199Z"
+          fill="none"
+          stroke="white"
+          strokeWidth="4"
           strokeLinejoin="round"
         />
       </>
@@ -705,6 +1189,21 @@ export const All = {
           fill="none"
           stroke="#7f9cf5"
           strokeWidth="4"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  check__white: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M43 11L16.875 37L5 25.1818"
+          stroke="white"
+          strokeWidth="4"
+          strokeLinecap="round"
           strokeLinejoin="round"
         />
       </>

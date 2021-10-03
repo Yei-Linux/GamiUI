@@ -13,7 +13,7 @@ import Icon from '../../atoms/Icon'
 export default {
   title: 'Layout/Sider',
   component: Sider,
-  args: { ...Sider.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 
@@ -24,7 +24,7 @@ export const Basic = () => {
 
   return (
     <div>
-      <Button width="SMALL" onClick={toggle}>
+      <Button width="auto" onClick={toggle}>
         Open Drawer
       </Button>
       <Sider
@@ -50,17 +50,17 @@ export const Basic = () => {
             isOpen
             title="Home"
             href="/"
-            icon={<Icon name="listitem" />}
+            icon={<Icon name="bullet__item" />}
           ></Menu.SubMenu>
           <Menu.SubMenu
             title="Courses"
             href="/courses"
-            icon={<Icon name="listitem" />}
+            icon={<Icon name="bullet__item" />}
           ></Menu.SubMenu>
           <Menu.SubMenu
             title="Exams"
             href="/exams"
-            icon={<Icon name="listitem" />}
+            icon={<Icon name="bullet__item" />}
           ></Menu.SubMenu>
         </Menu>
       </Sider>

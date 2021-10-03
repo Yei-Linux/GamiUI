@@ -28,8 +28,8 @@ export const Basic = () => (
           <div>
             <Icon
               onClick={() => setCurrentStep(0)}
-              fill={theme.light.primary.jordyBlue}
-              name="arrowLeft"
+              size="20px"
+              name="arrow__left"
             />
             <p>Hola1</p>
             <Button onClick={() => setCurrentStep(2)}>Siguiente</Button>
@@ -41,8 +41,8 @@ export const Basic = () => (
           <div>
             <Icon
               onClick={() => setCurrentStep(1)}
-              fill={theme.light.primary.jordyBlue}
-              name="arrowLeft"
+              size="20px"
+              name="arrow__left"
             />
             <p>Hola1</p>
           </div>

@@ -24,5 +24,5 @@ WithText.args = {
 
 export const WithIcon = (args: any) => <Avatar {...args} />
 WithIcon.args = {
-  icon: <Icon fill="white" size="25px" name="facebook" />,
+  icon: <Icon fill="none" size="25px" name="facebook__transparent" />,
 }

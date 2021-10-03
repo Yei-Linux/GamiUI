@@ -16,7 +16,7 @@ BasicVertical.args = {}
 export const BasicHorizontal = (args: any) => <FeaturedCard {...args} />
 BasicHorizontal.args = {
   themeType: 'warm',
-  iconId: 'eye',
+  iconId: 'preview',
   direction: 'vertical',
   iconSize: '40px',
 }

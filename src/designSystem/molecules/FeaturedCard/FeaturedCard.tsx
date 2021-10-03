@@ -34,7 +34,7 @@ export interface IFeaturedCard {
 }
 
 const FeaturedCard = ({
-  iconId = 'planewhite',
+  iconId = 'like__white',
   text = (
     <div>
       <Title level="h3">Title</Title>

@@ -28,7 +28,7 @@ export const Basic = () => {
         border="md"
         heigth="sm"
         variant="secondary"
-        width="sm"
+        width="auto"
       >
         Show Modal
       </Button>
