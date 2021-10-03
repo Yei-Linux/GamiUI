@@ -2,14 +2,13 @@ import React from 'react'
 import { WavessNames } from 'core/domain/types'
 import { WaveTypes } from './constants'
 import * as S from './Wave.styles'
-import { theme } from 'styles/tokens'
 import classNames from 'classnames'
 
 export interface IWave {
   /**
    * Wave name to render
    */
-  name: WavessNames
+  name?: WavessNames
   /**
    * Direction wave on top or bottom
    */
@@ -21,15 +20,15 @@ export interface IWave {
   /**
    * Color
    */
-  color: string
+  color?: string
   /**
    * Background
    */
-  background: string
+  background?: string
   /**
    * Using like background or not
    */
-  isWaveLikeBackground: boolean
+  isWaveLikeBackground?: boolean
 }
 
 const Wave = ({
