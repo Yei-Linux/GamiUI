@@ -13,7 +13,7 @@ export interface IUsePortalProps {
 const useOpen = ({ open, timer = 300 }: IUsePortalProps) => {
   const [isFirstTime, setIsFirstTime] = useState(!open)
   const [isOpen, setIsOpen] = useState(open)
-  
+
   const updateIsOpen = async () => {
     if (open) {
       isFirstTime && setIsFirstTime(false)

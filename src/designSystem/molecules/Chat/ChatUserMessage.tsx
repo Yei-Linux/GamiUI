@@ -38,9 +38,7 @@ const ChatUserMessage = ({ message }: ChatUserMessageProps) => {
                 >
                   <Message
                     color={
-                      !message?.isMe
-                        ? theme.light.secondary.nepal
-                        : 'white'
+                      !message?.isMe ? theme.light.secondary.nepal : 'white'
                     }
                     maxWidth="none"
                     background={

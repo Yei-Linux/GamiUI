@@ -1,8 +1,5 @@
 import { Meta } from '@storybook/react'
-import {
-  getTemplate,
-  stylesControl,
-} from 'core/helpers/storybook.helper'
+import { getTemplate, stylesControl } from 'core/helpers/storybook.helper'
 
 import Message from '.'
 

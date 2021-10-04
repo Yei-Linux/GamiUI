@@ -13,7 +13,7 @@ const reducer = (state: IRadioInitialState, action: IAction) => {
     SET_RADIO_SELECTED: {
       ...state,
       radioSelected: action.payload,
-    }
+    },
   }
 
   return switcher[action.type]

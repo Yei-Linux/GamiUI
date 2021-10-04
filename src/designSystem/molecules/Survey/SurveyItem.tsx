@@ -57,7 +57,9 @@ const SurveyItem = ({
           </Layout.Header>
           <Layout.Content>
             <Row justifyContent="center">
-              <S.SurveyOption $width={option.type == 'TEXTAREA' ? '80%' : 'auto'}>
+              <S.SurveyOption
+                $width={option.type == 'TEXTAREA' ? '80%' : 'auto'}
+              >
                 <Options
                   answer={answers?.[`question-${questionIndex}`]}
                   handleChangeOption={handleChangeOption}

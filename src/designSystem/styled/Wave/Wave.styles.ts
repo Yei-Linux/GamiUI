@@ -18,7 +18,7 @@ export const SvgWave = styled.svg<{
   height: ${sizes.height.auto};
   display: block;
 
-  background: ${({$background}) => $background};
+  background: ${({ $background }) => $background};
 
   &.waveLikeBackground {
     top: 0px;

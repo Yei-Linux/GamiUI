@@ -1,4 +1,4 @@
-import { IDynamicObjectWithField } from "core/domain/interfaces/common"
+import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
 
 export const GradientTypes: IDynamicObjectWithField = {
   glass: {

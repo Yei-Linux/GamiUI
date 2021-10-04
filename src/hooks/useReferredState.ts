@@ -1,4 +1,4 @@
-import { useRef, useState } from "react"
+import { useRef, useState } from 'react'
 
 const useReferredState = (initialValue: any) => {
   const [state, setState] = useState(initialValue)

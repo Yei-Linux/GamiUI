@@ -15,7 +15,7 @@ export const Spacer = styled.div<{
   $direction: 'left' | 'right' | 'top' | 'bottom'
   $size: 1 | 2 | 3 | 4 | 5
 }>`
-  ${({$direction, $size, $customSize}) =>
+  ${({ $direction, $size, $customSize }) =>
     getDirectionSpace({
       [$direction]: `${$customSize || `${$size}rem`}`,
     })}

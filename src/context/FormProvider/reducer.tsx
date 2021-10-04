@@ -6,7 +6,11 @@ import {
   SET_YUP_SCHEMA,
 } from './types'
 
-type TTypes = typeof SET_FORM_VALUES | typeof SET_CALLBACKS | typeof SET_YUP_SCHEMA | typeof SET_YUP_ERRORS
+type TTypes =
+  | typeof SET_FORM_VALUES
+  | typeof SET_CALLBACKS
+  | typeof SET_YUP_SCHEMA
+  | typeof SET_YUP_ERRORS
 
 interface IAction {
   type: TTypes
@@ -33,7 +37,7 @@ const reducer = (state: IFormCommmonsContext, action: IAction) => {
     SET_YUP_ERRORS: {
       ...state,
       yupErrors: action.payload,
-    }
+    },
   } as const
 
   return switcher[action.type]

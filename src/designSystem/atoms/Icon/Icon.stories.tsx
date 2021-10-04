@@ -1,5 +1,8 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from '../../../core/helpers/storybook.helper'
+import {
+  getTemplate,
+  stylesControl,
+} from '../../../core/helpers/storybook.helper'
 
 import Icon from '.'
 import { options as optionsIcon } from './constants'

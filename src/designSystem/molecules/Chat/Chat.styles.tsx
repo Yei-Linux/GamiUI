@@ -11,7 +11,7 @@ export const Chat = styled.div`
   padding: ${spacing.padding.md};
 `
 
-export const ChatContent= styled.div`
+export const ChatContent = styled.div`
   height: ${HEIGHT};
   padding: 0 1rem;
   ${ScrollBar()}
@@ -21,7 +21,7 @@ export const ChatTyping = styled.div`
   ${mixinFlexVariants({ justifyContent: 'center' })}
 `
 
-export const ChatUser= styled.div``
+export const ChatUser = styled.div``
 
 export const ChatUserAvatar = styled.div`
   padding: 0 1rem 0 0;
@@ -33,5 +33,5 @@ export const ChatUserMessages = styled.div`
 
 export const ChatUserMessageContent = styled.div<{ $direction: string }>`
   display: flex;
-  justify-content: ${({$direction}) => $direction};
+  justify-content: ${({ $direction }) => $direction};
 `

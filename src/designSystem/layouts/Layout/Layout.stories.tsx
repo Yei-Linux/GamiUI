@@ -6,7 +6,7 @@ import Layout from '.'
 export default {
   title: 'Layout/Layout',
   component: Layout,
-  args: { },
+  args: {},
   argTypes: {},
 } as Meta
 

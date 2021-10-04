@@ -31,7 +31,9 @@ WithRender.args = {
     {
       title: 'Nombres',
       dataIndex: 'name',
-      render: (name: string) => <RichText text={`[${name}](https://google.com?target=_blank)`} />,
+      render: (name: string) => (
+        <RichText text={`[${name}](https://google.com?target=_blank)`} />
+      ),
     },
     { title: 'Edad', dataIndex: 'age' },
     { title: 'Direccion', dataIndex: 'address' },

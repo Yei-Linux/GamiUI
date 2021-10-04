@@ -1,6 +1,6 @@
 {
   "name": "gamification-library",
-  "version": "1.0.68",
+  "version": "1.0.69",
   "description": "Library of custom components",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "create-component": "node ./src/scripts/createComponent.js",
     "build": "tsc",
     "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
     "preversion": "npm run lint && npm run format",
     "version": "git add . && git commit -m 'release: Release version :rocket:'",
     "postversion": "git push"
