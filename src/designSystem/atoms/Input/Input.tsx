@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import Spacer from 'designSystem/layouts/Spacer'
 import React, { Fragment } from 'react'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'

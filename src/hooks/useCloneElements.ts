@@ -79,8 +79,11 @@ const useCloneElement = ({
   }
 
   const validatorChildren = (child: any, index: number) => {
-    if (validators(child, childrenTypes))
+    if (validators(child, childrenTypes)) {
       return React.cloneElement(child, addIndexProps(child, index))
+    }
+
+    return null
   }
 
   const validatorChildrenTypes = (child: any, childrenTypes: any[]): boolean =>
