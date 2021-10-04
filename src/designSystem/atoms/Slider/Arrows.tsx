@@ -1,8 +1,21 @@
+import styled from '@emotion/styled'
 import { TOnClick } from 'core/domain/types'
 import KeenSlider from 'keen-slider'
 import React, { Fragment } from 'react'
+import Icon from '../Icon'
 
 import * as S from './Slider.styles'
+
+const ArrowLeft = styled(Icon)`
+  ${S.Arrow}
+  left: 5px;
+`
+
+const ArrowRight = styled(Icon)`
+  ${S.Arrow}
+  left: auto;
+  right: 5px;
+`
 
 export interface ISliderElements {
   slider: KeenSlider
@@ -29,12 +42,12 @@ const Arrows = ({ slider, vertical, currentSlide }: ISliderElements) => {
     <Fragment>
       {slider && !vertical && (
         <>
-          <S.ArrowLeft
+          <ArrowLeft
             onClick={handleClickPrev}
             size="25px"
             name={isFirstSlide() ? 'arrow__left__semiwhite' : 'arrow__left'}
           />
-          <S.ArrowRight
+          <ArrowRight
             size="25px"
             onClick={handleClickNext}
             name={isLastSlide() ? 'arrow__right__semiwhite' : 'arrow__right'}

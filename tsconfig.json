@@ -1,12 +1,19 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "lib",
+
+    "rootDir": "src",
+    "baseUrl": ".",
     "paths": {
-      "core/*": ["core/*"],
-      "designSystem/*": ["designSystem/*"],
-      "hooks/*": ["hooks/*"],
-      "providers/*": ["providers/*"],
-      "styles/*": ["styles/*"],
+      "context/*": ["./src/context/*", "./lib/context/*"],
+      "core/*": ["./src/core/*", "./lib/core/*"],
+      "designSystem/*": ["./src/designSystem/*", "./lib/designSystem/*"],
+      "hooks/*": ["./src/hooks/*", "./lib/hooks/*"],
+      "providers/*": ["./src/providers/*", "./lib/providers/*"],
+      "styles/*": ["./src/styles/*", "./lib/styles/*"]
     },
 
     "module": "commonjs",
@@ -14,7 +21,6 @@
     "jsx": "preserve",
     "lib": ["dom", "es2015", "es2017"],
 
-    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "strict": true,

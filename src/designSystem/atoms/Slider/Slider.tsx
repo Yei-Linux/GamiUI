@@ -22,19 +22,19 @@ export interface ISlider {
   /**
    * Sliders per layout
    */
-  slidesPerView: ISliderPerView
+  slidesPerView?: ISliderPerView
   /**
    * Spacing beetwen item
    */
-  spacing: number
+  spacing?: number
   /**
    * Initial item
    */
-  initial: number
+  initial?: number
   /**
    * Is Infinite
    */
-  isLoop: boolean
+  isLoop?: boolean
   /**
    * Is Vertical
    */

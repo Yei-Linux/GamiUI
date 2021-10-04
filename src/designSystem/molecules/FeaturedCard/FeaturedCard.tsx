@@ -14,11 +14,11 @@ export interface IFeaturedCard {
   /**
    * Feature Card theme type
    */
-  themeType: FeatureCardThemeTypes
+  themeType?: FeatureCardThemeTypes
   /**
    * Icon Id
    */
-  iconId: string
+  iconId?: string
   /**
    * Text
    */

@@ -2,7 +2,6 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { theme } from 'styles/tokens'
-import Icon from '../Icon'
 
 export const Slider = styled.div`
   position: relative;
@@ -46,17 +45,6 @@ export const Arrow = css`
   &:hover {
     cursor: pointer;
   }
-`
-
-export const ArrowLeft = styled(Icon)`
-  ${Arrow}
-  left: 5px;
-`
-
-export const ArrowRight = styled(Icon)`
-  ${Arrow}
-  left: auto;
-  right: 5px;
 `
 
 export const Dots = styled.div`
