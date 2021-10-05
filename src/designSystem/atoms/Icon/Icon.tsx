@@ -29,7 +29,11 @@ const Icon = ({
   size = '16px',
   ...genericsProps
 }: IIcon) => {
-  const [icon, setIcon] = useState(IconsPack[name])
+  const [icon, setIcon] = useState(IconsPack?.[name])
+
+  if (!icon) {
+    return null
+  }
 
   useEffect(() => {
     setIcon(IconsPack[name])

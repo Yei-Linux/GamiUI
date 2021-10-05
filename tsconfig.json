@@ -15,9 +15,11 @@
       "providers/*": ["./src/providers/*", "./lib/providers/*"],
       "styles/*": ["./src/styles/*", "./lib/styles/*"]
     },
+    "target": "es2015",
+    "module": "es2015",
+    
+    "moduleResolution": "Node",
 
-    "module": "commonjs",
-    "target": "esnext",
     "jsx": "preserve",
     "lib": ["dom", "es2015", "es2017"],
 
