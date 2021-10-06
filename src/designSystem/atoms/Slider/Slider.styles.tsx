@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { theme } from 'styles/tokens'
 
 export const Slider = styled.div`
   position: relative;
@@ -52,7 +51,10 @@ export const Dots = styled.div`
   padding: 10px 0;
 `
 
-export const Dot = styled.button`
+export const Dot = styled.button<{
+  $activeDotColor: string
+  $inactiveDotColor: string
+}>`
   border: none;
   border-radius: 50%;
   margin: 0 5px;
@@ -60,7 +62,7 @@ export const Dot = styled.button`
 
   width: 10px;
   height: 10px;
-  background: ${theme.light.neutral[500]};
+  background: ${({ $inactiveDotColor }) => $inactiveDotColor};
 
   &:focus {
     outline: none;
@@ -71,6 +73,6 @@ export const Dot = styled.button`
   }
 
   &.active {
-    background: ${theme.light.primary.jordyBlue};
+    background: ${({ $activeDotColor }) => $activeDotColor};
   }
 `

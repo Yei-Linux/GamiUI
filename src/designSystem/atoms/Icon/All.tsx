@@ -1,6 +1,33 @@
 import React from 'react'
 
 export const All = {
+  code: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path
+          d="M16 13L4 25.4322L16 37"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M32 13L44 25.4322L32 37"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M28 4L21 44"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+  },
   twitter: {
     viewBox: '0 0 48 48',
     svg: (
@@ -848,6 +875,22 @@ export const All = {
           strokeLinecap="round"
           strokeLinejoin="round"
         />
+      </>
+    ),
+  },
+  arrow__left__transparent: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+      </>
+    ),
+  },
+  arrow__right__transparent: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
       </>
     ),
   },

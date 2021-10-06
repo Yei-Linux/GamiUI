@@ -48,7 +48,7 @@ const Wave = ({
     >
       {!isWaveLikeBackground && direction == 'bottom' && children}
       <S.SvgWave
-        $background={direction == 'bottom' ? color : background}
+        $background={direction == 'top' ? color : background}
         className={classNames({
           waveLikeBackground: isWaveLikeBackground,
         })}
@@ -56,7 +56,7 @@ const Wave = ({
         viewBox="0 0 1440 320"
       >
         <path
-          fill={direction == 'bottom' ? background : color}
+          fill={direction == 'top' ? background : color}
           d={WaveTypes[name]}
         ></path>
       </S.SvgWave>

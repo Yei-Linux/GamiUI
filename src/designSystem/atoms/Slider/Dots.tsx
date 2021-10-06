@@ -1,15 +1,29 @@
 import classNames from 'classnames'
 import React, { Fragment } from 'react'
+import { theme } from 'styles/tokens'
 import { ISliderElements } from './Arrows'
 import * as S from './Slider.styles'
 
-const Dots = ({ slider, vertical, currentSlide }: ISliderElements) => {
+export interface IDots extends ISliderElements {
+  activeDotColor?: string
+  inactiveDotColor?: string
+}
+
+const Dots = ({
+  slider,
+  vertical,
+  currentSlide,
+  activeDotColor = theme.light.primary.jordyBlue,
+  inactiveDotColor = theme.light.neutral[500],
+}: IDots) => {
   return (
     <Fragment>
       {slider && !vertical && (
         <S.Dots className={classNames('slider__dots__wrapper')}>
           {[...Array(slider.details().size).keys()].map((idx) => (
             <S.Dot
+              $activeDotColor={activeDotColor}
+              $inactiveDotColor={inactiveDotColor}
               key={idx}
               onClick={() => {
                 slider.moveToSlideRelative(idx)
