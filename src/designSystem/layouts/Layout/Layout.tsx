@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import React from 'react'
 import * as S from './Layout.styles'
 
@@ -8,6 +9,13 @@ export interface ILayoutElement {
   children: React.ReactNode
 }
 
+interface IHeader extends ILayoutElement {
+  /**
+   * Children Prop
+   */
+  isSticky?: boolean
+}
+
 export interface ILayout {
   /**
    * Children Prop
@@ -15,8 +23,10 @@ export interface ILayout {
   children: React.ReactNode
 }
 
-const Header = ({ children }: ILayoutElement) => {
-  return <S.Header>{children}</S.Header>
+const Header = ({ children, isSticky = false }: IHeader) => {
+  return (
+    <S.Header className={classNames({ sticky: isSticky })}>{children}</S.Header>
+  )
 }
 
 const Content = ({ children }: ILayoutElement) => {
