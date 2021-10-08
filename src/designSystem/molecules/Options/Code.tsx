@@ -26,50 +26,52 @@ const CodeAlternative = ({
 }: ICodeAlternative) => {
   return (
     <Row alignItems="normal">
-      <Col spacing="sm" xs={12} sm={4} md={4} lg={4}>
+      <Col spacing="none" xs={12} sm={4} md={4} lg={4}>
         <S.CodeHeader className={classNames('flex', 'justify-between')}>
           <Title level="h3">Exercise:</Title>
         </S.CodeHeader>
         <S.QuestionCode dangerouslySetInnerHTML={{ __html: question }} />
       </Col>
 
-      <Col spacing="sm" xs={12} sm={8} md={8} lg={8}>
+      <Col
+        spacing="custom"
+        customSpacing="xs:1rem 0px,sm:0 0 0 1rem"
+        xs={12}
+        sm={8}
+        md={8}
+        lg={8}
+      >
         <S.Code>
           <S.CodeHeader className={classNames('flex', 'justify-between')}>
-            <Title level="h3">Language: Javascript</Title>
+            <Title level="h3">Javascript</Title>
             <RichText text="Change Theme" />
           </S.CodeHeader>
           <CodeEditor
             width="100%"
+            maxWidth="100%"
             height="450px"
             value={answer}
             defaultValueCode={initialCode}
             onChange={onChangeOption}
           />
-          <S.CodeFooter>
-            <Row justifyContent="flex-end">
-              <Col spacing="sm" xs={12} sm={6} md={6} lg={6}>
-                <Button
-                  className={classNames('flex', 'justify-center')}
-                  type="button"
-                  width="fit"
-                  border="sm"
-                >
-                  Run code ⚡
-                </Button>
-              </Col>
-              <Col spacing="sm" xs={12} sm={6} md={6} lg={6}>
-                <Button
-                  className={classNames('flex', 'justify-center')}
-                  variant="secondary"
-                  type="button"
-                  width="fit"
-                  border="sm"
-                >
-                  Submit 🔥
-                </Button>
-              </Col>
-            </Row>
+          <S.CodeFooter className={classNames('flex', 'justify-between')}>
+            <Button
+              className={classNames('flex', 'justify-start')}
+              type="button"
+              width="fit"
+              border="sm"
+            >
+              Run code ⚡
+            </Button>
+            <Button
+              className={classNames('flex', 'justify-end')}
+              variant="secondary"
+              type="button"
+              width="fit"
+              border="sm"
+            >
+              Submit 🔥
+            </Button>
           </S.CodeFooter>
         </S.Code>
       </Col>

@@ -1,11 +1,14 @@
 import { breakspointSizes } from 'styles/tokens/breakpoints'
 
 const breakPoints = {
+  xs: breakspointSizes.xs, //PHONE
   sm: breakspointSizes.sm, //TABLET
   md: breakspointSizes.md, //LAPTOP
   lg: breakspointSizes.lg, //PC
 }
 
-export const mediaQuery = (sizeName: 'sm' | 'md' | 'lg') => {
+export type TDevices = 'xs' | 'sm' | 'md' | 'lg'
+
+export const mediaQuery = (sizeName: TDevices) => {
   return `@media (min-width: ${breakPoints[sizeName]}px)`
 }

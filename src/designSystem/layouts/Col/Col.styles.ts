@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { builderSpacersByDevice } from 'styles/utilities/spacersBuilderByDevice'
 import { mediaQuery } from '../../../styles/utilities/breakpoints'
 
 export const Col = styled.div<{
@@ -8,8 +9,6 @@ export const Col = styled.div<{
   $md: number
   $lg: number
 }>`
-  padding: ${({ $spacing }) => $spacing};
-
   flex-basis: ${({ $xs }) => `${($xs / 12) * 100}%`};
 
   ${mediaQuery('sm')} {
@@ -22,5 +21,13 @@ export const Col = styled.div<{
 
   ${mediaQuery('lg')} {
     flex-basis: ${({ $lg }) => `${($lg / 12) * 100}%`};
+  }
+
+  &.custom {
+    ${({ $spacing }) => builderSpacersByDevice($spacing)}
+  }
+
+  &.nocustom {
+    padding: ${({ $spacing }) => $spacing};
   }
 `
