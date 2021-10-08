@@ -1,6 +1,37 @@
 import React from 'react'
 
 export const All = {
+  sad__multicolor: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path
+          fill="#ffca28"
+          d="M44,24c0,11-9,20-20,20S4,35,4,24S13,4,24,4S44,13,44,24z"
+        ></path>
+        <path
+          fill="#6d4c41"
+          d="M21,23c0,2.2-1.8,4-4,4s-4-1.8-4-4s1.8-4,4-4S21,20.8,21,23z"
+        ></path>
+        <path
+          fill="#fff"
+          d="M17,21.5c0,0.8-0.7,1.5-1.5,1.5S14,22.3,14,21.5s0.7-1.5,1.5-1.5C16.3,20,17,20.7,17,21.5z"
+        ></path>
+        <path
+          fill="#6d4c41"
+          d="M35,23c0,2.2-1.8,4-4,4s-4-1.8-4-4s1.8-4,4-4S35,20.8,35,23z"
+        ></path>
+        <path
+          fill="#fff"
+          d="M31,21.5c0,0.8-0.7,1.5-1.5,1.5S28,22.3,28,21.5s0.7-1.5,1.5-1.5S31,20.7,31,21.5z"
+        ></path>
+        <path
+          fill="#b76c09"
+          d="M29,36h-2c0-1.7-1.3-3-3-3s-3,1.3-3,3h-2c0-2.8,2.2-5,5-5S29,33.2,29,36z"
+        ></path>
+      </>
+    ),
+  },
   code: {
     viewBox: '0 0 48 48',
     svg: (
@@ -1309,6 +1340,21 @@ export const All = {
         <path
           d="M43 11L16.875 37L5 25.1818"
           stroke="white"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  check__success: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M43 11L16.875 37L5 25.1818"
+          stroke="#52c41a"
           strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
