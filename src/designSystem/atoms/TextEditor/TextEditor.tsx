@@ -37,6 +37,9 @@ const TextEditor = ({
   return (
     <S.TextEditorLib>
       <SunEditor
+        onPaste={(e, cleanData, maxCharCount) => {
+          console.log(e, cleanData, maxCharCount)
+        }}
         placeholder={placeholder}
         lang="es"
         height={height}
@@ -58,8 +61,9 @@ const TextEditor = ({
           buttonList: [
             ['undo', 'redo'],
             ['blockquote', 'bold', 'underline', 'italic'],
-            ['list', 'table'],
+            ['list', 'table', 'formatBlock'],
           ],
+          formats: ['pre'],
         }}
       />
     </S.TextEditorLib>

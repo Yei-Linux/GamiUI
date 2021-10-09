@@ -39,7 +39,7 @@ const CodeBlock = ({
   ...genericsProps
 }: ICodeBlock) => {
   return (
-    <S.CodeBlock  {...getGenericPropStyles(genericsProps)}>
+    <S.CodeBlock {...getGenericPropStyles(genericsProps)}>
       <CopyBlock
         text={code}
         language={language}
@@ -50,6 +50,7 @@ const CodeBlock = ({
           fontFamily: font.family.mali,
           fontSize: '0.75rem',
           padding: '.5rem 1rem',
+          height: '100%',
         }}
       />
     </S.CodeBlock>

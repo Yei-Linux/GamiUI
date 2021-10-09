@@ -480,6 +480,8 @@ export const TextEditorLib = styled.div`
     width: auto;
     display: flex;
     padding: 4px 6px;
+    background: white;
+    border-radius: 0.4em;
   }
   .sun-editor .se-btn-select .txt {
     flex: auto;
