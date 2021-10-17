@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import SunEditor from 'suneditor-react'
+
+import SunEditorCore from 'suneditor/src/lib/core'
+
 import * as S from './TextEditor.styles'
 import ReactDOMServer from 'react-dom/server'
 import Icon from '../Icon'
@@ -31,15 +34,31 @@ const TextEditor = ({
   defaultValue = '',
   onChange,
 }: ITextEditor) => {
+  const editor: any = useRef()
+
+  const getSunEditorInstance = (sunEditor: SunEditorCore) => {
+    editor.current = sunEditor
+  }
+
+  const validateOnPaseContentWithCode = (e: any) => {
+    if (!['pre', 'br'].includes(e.target.localName)) return true
+
+    if (e.target.localName == 'br') {
+      const [, secondTag] = e.path
+      if (secondTag.localName != 'pre') return true
+    }
+
+    return false
+  }
+
   const getStringIconOfToolbar = (iconId: string): string =>
     ReactDOMServer.renderToString(<Icon size="30px" name={iconId} />)
 
   return (
     <S.TextEditorLib>
       <SunEditor
-        onPaste={(e, cleanData, maxCharCount) => {
-          console.log(e, cleanData, maxCharCount)
-        }}
+        getSunEditorInstance={getSunEditorInstance}
+        onPaste={validateOnPaseContentWithCode}
         placeholder={placeholder}
         lang="es"
         height={height}

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled'
-import Col from 'designSystem/layouts/Col'
 import { mixinFontWeight } from 'styles/mixins/fonts'
 import { mixinScroll } from 'styles/mixins/scroll'
 import { sizes, spacing, theme } from 'styles/tokens'
