@@ -15,12 +15,16 @@ export interface ITab {
    * Active tab by default
    */
   defaultActiveTab: string
+  /**
+   * Width Prop
+   */
+  width?: string
 }
 
-const Tab = ({ children, defaultActiveTab }: ITab) => {
+const Tab = ({ children, defaultActiveTab, width = 'fit-content' }: ITab) => {
   return (
     <TabProvider defaultActiveTab={defaultActiveTab}>
-      <S.Tab>{children}</S.Tab>
+      <S.Tab $width={width}>{children}</S.Tab>
     </TabProvider>
   )
 }

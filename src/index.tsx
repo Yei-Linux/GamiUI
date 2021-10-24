@@ -41,6 +41,8 @@ export { default as Spacer } from './designSystem/layouts/Spacer'
 
 //Molecules
 export { default as Card } from './designSystem/molecules/Card'
+export { default as CodeBlock } from './designSystem/molecules/CodeBlock'
+export { default as CodeView } from './designSystem/molecules/CodeView'
 export { default as Chat } from './designSystem/molecules/Chat'
 export { default as Controls } from './designSystem/molecules/Controls'
 export { default as Drawer } from './designSystem/molecules/Drawer'
