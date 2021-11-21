@@ -46,7 +46,7 @@ const useYupValidation = ({ schema }: IUseYupValidation) => {
       schema.validateSync(data, { abortEarly: false })
       return onSucces()
     } catch (e) {
-      return onError(e.inner)
+      return onError((e as any).inner)
     }
   }
 
