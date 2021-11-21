@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import useRadioStore from 'hooks/store/useRadioStore'
 import { IRadio } from './Radio'
-import * as S from "./Radio.styles"
+import * as S from './Radio.styles'
 
 const RadioContent = ({
   children,

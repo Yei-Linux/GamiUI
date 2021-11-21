@@ -1,6 +1,64 @@
 import React from 'react'
 
 export const All = {
+  sad__multicolor: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path
+          fill="#ffca28"
+          d="M44,24c0,11-9,20-20,20S4,35,4,24S13,4,24,4S44,13,44,24z"
+        ></path>
+        <path
+          fill="#6d4c41"
+          d="M21,23c0,2.2-1.8,4-4,4s-4-1.8-4-4s1.8-4,4-4S21,20.8,21,23z"
+        ></path>
+        <path
+          fill="#fff"
+          d="M17,21.5c0,0.8-0.7,1.5-1.5,1.5S14,22.3,14,21.5s0.7-1.5,1.5-1.5C16.3,20,17,20.7,17,21.5z"
+        ></path>
+        <path
+          fill="#6d4c41"
+          d="M35,23c0,2.2-1.8,4-4,4s-4-1.8-4-4s1.8-4,4-4S35,20.8,35,23z"
+        ></path>
+        <path
+          fill="#fff"
+          d="M31,21.5c0,0.8-0.7,1.5-1.5,1.5S28,22.3,28,21.5s0.7-1.5,1.5-1.5S31,20.7,31,21.5z"
+        ></path>
+        <path
+          fill="#b76c09"
+          d="M29,36h-2c0-1.7-1.3-3-3-3s-3,1.3-3,3h-2c0-2.8,2.2-5,5-5S29,33.2,29,36z"
+        ></path>
+      </>
+    ),
+  },
+  code: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path
+          d="M16 13L4 25.4322L16 37"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M32 13L44 25.4322L32 37"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M28 4L21 44"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+  },
   twitter: {
     viewBox: '0 0 48 48',
     svg: (
@@ -23,6 +81,70 @@ export const All = {
         <rect width="48" height="48" fill="white" fillOpacity="0.01" />
         <path
           d="M36 12.5997H31.2489H29.9871C28.9009 12.5997 28.0203 13.4803 28.0203 14.5666V21.4674H36L34.8313 29.0643H28.0203V43H19.2451V29.0643H12V21.4674H19.1515L19.2451 14.2563L19.2318 12.9471C19.1879 8.60218 22.6745 5.04434 27.0194 5.0004C27.0459 5.00013 27.0724 5 27.0989 5H36V12.5997Z"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  github: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M29.3444 30.4767C31.7481 29.9771 33.9292 29.1109 35.6247 27.8393C38.5202 25.6677 40 22.3137 40 19C40 16.6754 39.1187 14.5051 37.5929 12.6669C36.7427 11.6426 39.2295 4.00001 37.02 5.02931C34.8105 6.05861 31.5708 8.33691 29.8726 7.8341C28.0545 7.29577 26.0733 7.00001 24 7.00001C22.1992 7.00001 20.4679 7.22313 18.8526 7.63452C16.5046 8.23249 14.2591 6.00001 12 5.02931C9.74086 4.05861 10.9736 11.9633 10.3026 12.7946C8.84119 14.6052 8 16.7289 8 19C8 22.3137 9.79086 25.6677 12.6863 27.8393C14.6151 29.2858 17.034 30.2077 19.7401 30.6621"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M19.7402 30.662C18.5817 31.9372 18.0024 33.148 18.0024 34.2946C18.0024 35.4411 18.0024 38.3465 18.0024 43.0108"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M29.3443 30.4767C30.4421 31.9175 30.991 33.2112 30.991 34.3577C30.991 35.5043 30.991 38.3886 30.991 43.0108"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <path
+          d="M6 31.2156C6.89887 31.3255 7.56554 31.7388 8 32.4555C8.65169 33.5304 11.0742 37.5181 13.8251 37.5181C15.6591 37.5181 17.0515 37.5181 18.0024 37.5181"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+      </>
+    ),
+  },
+  linkedin: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <circle
+          cx="9"
+          cy="8.00012"
+          r="4"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+        />
+        <rect
+          x="5"
+          y="18.0001"
+          width="8"
+          height="25"
+          fill="none"
+          stroke="#7f9cf5"
+          strokeWidth="4"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M21 27.5V43H28V29C28 26.5 29.5 24.5 32 24.5C34.5 24.5 36 27 36 29V43H43V27.5C43 24.5 39.5 18 32 18C24.5 18 21 24.5 21 27.5Z"
           fill="none"
           stroke="#7f9cf5"
           strokeWidth="4"
@@ -851,6 +973,22 @@ export const All = {
       </>
     ),
   },
+  arrow__left__transparent: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+      </>
+    ),
+  },
+  arrow__right__transparent: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+      </>
+    ),
+  },
   arrow__left: {
     viewBox: '0 0 48 48',
     svg: (
@@ -1202,6 +1340,21 @@ export const All = {
         <path
           d="M43 11L16.875 37L5 25.1818"
           stroke="white"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </>
+    ),
+  },
+  check__success: {
+    viewBox: '0 0 48 48',
+    svg: (
+      <>
+        <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+        <path
+          d="M43 11L16.875 37L5 25.1818"
+          stroke="#52c41a"
           strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"

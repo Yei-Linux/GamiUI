@@ -1,4 +1,3 @@
 export const SET_CANVAS_VALUE = 'SET_CANVAS_VALUE'
 export const SET_CURRENT_DIRECTION = 'SET_CURRENT_DIRECTION'
 export const SET_DIRS = 'SET_DIRS'
-

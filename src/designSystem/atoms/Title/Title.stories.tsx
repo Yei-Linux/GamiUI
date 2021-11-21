@@ -6,7 +6,7 @@ import Title from '.'
 export default {
   title: 'Atoms/Title',
   component: Title,
-  args: { },
+  args: {},
   argTypes: {},
 } as Meta
 

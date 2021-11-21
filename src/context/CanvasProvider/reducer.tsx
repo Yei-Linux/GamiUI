@@ -4,7 +4,10 @@ import {
 } from 'core/domain/interfaces/ICanvasContext'
 import { SET_CANVAS_VALUE, SET_CURRENT_DIRECTION, SET_DIRS } from './types'
 
-type TTypes = typeof SET_CANVAS_VALUE | typeof SET_CURRENT_DIRECTION | typeof SET_DIRS
+type TTypes =
+  | typeof SET_CANVAS_VALUE
+  | typeof SET_CURRENT_DIRECTION
+  | typeof SET_DIRS
 
 interface IAction {
   type: TTypes

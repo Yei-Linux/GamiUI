@@ -9,7 +9,7 @@ import Col from '../Col'
 export default {
   title: 'Layout/Spacer',
   component: Spacer,
-  args: { ...Spacer.defaultProps },
+  args: {},
   argTypes: {},
 } as Meta
 

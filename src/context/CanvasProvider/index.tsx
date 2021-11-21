@@ -2,17 +2,17 @@ import React, { useEffect, useReducer, useRef } from 'react'
 
 import { TUseRefCanvas } from 'core/domain/types'
 import { PropsCanvas } from 'core/domain/defaulProps/PropsCanvas'
-import { ICanvasProviderInterface, IDirPayload, TCurrentDirection } from 'core/domain/interfaces/ICanvasContext'
+import {
+  ICanvasProviderInterface,
+  IDirPayload,
+  TCurrentDirection,
+} from 'core/domain/interfaces/ICanvasContext'
 
 import useReferredState from 'hooks/useReferredState'
 
 import context from './context'
 import reducer from './reducer'
-import {
-  SET_CANVAS_VALUE,
-  SET_CURRENT_DIRECTION,
-  SET_DIRS,
-} from './types'
+import { SET_CANVAS_VALUE, SET_CURRENT_DIRECTION, SET_DIRS } from './types'
 
 const CanvasProvider = ({
   mapConfig,
@@ -51,10 +51,12 @@ const CanvasProvider = ({
       },
     },
   } as const
- 
-  const changePositionX = (value: number) => setPositionX(positionX.current + value)
 
-  const changePositionY = (value: number) => setPositionY(positionY.current + value)
+  const changePositionX = (value: number) =>
+    setPositionX(positionX.current + value)
+
+  const changePositionY = (value: number) =>
+    setPositionY(positionY.current + value)
 
   const [state, dispatch] = useReducer(reducer, initialState)
 

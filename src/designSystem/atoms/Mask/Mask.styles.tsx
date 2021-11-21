@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { sizes } from 'styles/tokens'
 import { TZIndex } from './Mask'
 
-export const Mask= styled.div<{
+export const Mask = styled.div<{
   $zIndex: TZIndex
   $background: string
 }>`

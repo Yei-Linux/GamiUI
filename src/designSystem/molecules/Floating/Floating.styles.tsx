@@ -1,6 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { BorderType, HeightType, ShadowType, WidthType } from 'core/domain/types'
+import {
+  BorderType,
+  HeightType,
+  ShadowType,
+  WidthType,
+} from 'core/domain/types'
 import { zIndex } from 'styles/tokens'
 import { mediaQuery } from 'styles/utilities/breakpoints'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'

@@ -1,7 +1,14 @@
 import styled from '@emotion/styled'
+import { zIndex } from 'styles/tokens'
 
 export const Header = styled.div`
   grid-area: header;
+
+  &.sticky {
+    position: sticky;
+    top: 0;
+    z-index: ${zIndex[1]};
+  }
 `
 
 export const Content = styled.div`

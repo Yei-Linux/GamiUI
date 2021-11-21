@@ -70,6 +70,14 @@ export const Autoplay = (args: any) => {
 }
 Autoplay.args = {
   isAutoplay: true,
+  dotsConfig: {
+    activeColor: 'red',
+    inactiveColor: 'black',
+  },
+  arrowsConfig: {
+    activeColor: 'red',
+    inactiveColor: 'black',
+  },
 }
 
 export const Vertical = (args: any) => {

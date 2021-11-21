@@ -15,3 +15,9 @@ Basic.args = {
   text: 'Im link',
   href: 'www.google.com',
 }
+
+export const WithChildren = () => (
+  <Link href="www.google.com" type="text">
+    <p>Testing link component</p>
+  </Link>
+)

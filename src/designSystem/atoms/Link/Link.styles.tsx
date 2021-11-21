@@ -14,6 +14,6 @@ export const Link = styled.a<{
   ${({ $width, $heigth }) =>
     setGenericPropStyles({
       width: $width || 'auto',
-      heigth: $heigth || 'sm',
+      heigth: $heigth || 'auto',
     })};
 `

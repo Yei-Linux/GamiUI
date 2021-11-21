@@ -13,20 +13,16 @@ export default {
   },
 } as Meta
 
-export const Basic = (args: any) => (
-  <Wave {...args}>
-    <div
-      style={{ height: '300px', width: '100%', backgroundColor: '#7f9cf5' }}
-    />
+export const Basic = () => (
+  <Wave direction="top" isWaveLikeBackground>
+    <div style={{ height: '300px', width: '100%', backgroundColor: '#7f9cf5' }}>
+      Text for test
+    </div>
   </Wave>
 )
-Basic.args = {}
 
-export const LikeBackground = (args: any) => (
-  <Wave {...args}>
-    <div style={{ height: '300px', width: '100%' }}>Hii</div>
+export const LikeBackground = () => (
+  <Wave direction="top" isWaveLikeBackground>
+    <div style={{ height: '300px', width: '100%', backgroundColor: '#7f9cf5' }}>Text for test</div>
   </Wave>
 )
-LikeBackground.args = {
-  isWaveLikeBackground: true,
-}

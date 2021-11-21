@@ -4,7 +4,6 @@ import { Meta } from '@storybook/react'
 import Steps from '.'
 import Button from '../../atoms/Button'
 import Icon from '../../atoms/Icon'
-import { theme } from 'styles/tokens'
 
 export default {
   title: 'Molecules/Steps',

@@ -9,7 +9,7 @@ export interface IComponent {
 }
 
 const Component = ({ prop }: IComponent) => {
-  return <S.Component />
+  return <S.Component {...prop} />
 }
 
 export default Component

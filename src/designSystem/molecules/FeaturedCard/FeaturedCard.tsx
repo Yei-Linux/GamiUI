@@ -9,16 +9,17 @@ import Title from 'designSystem/atoms/Title'
 import Row from 'designSystem/layouts/Row'
 import Spacer from 'designSystem/layouts/Spacer'
 import Card from '../Card'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 
-export interface IFeaturedCard {
+export interface IFeaturedCard extends IGeneralProps {
   /**
    * Feature Card theme type
    */
-  themeType: FeatureCardThemeTypes
+  themeType?: FeatureCardThemeTypes
   /**
    * Icon Id
    */
-  iconId: string
+  iconId?: string
   /**
    * Text
    */
@@ -44,9 +45,10 @@ const FeaturedCard = ({
   themeType = 'sky',
   direction = 'horizontal',
   iconSize = '20px',
+  ...genericsProps
 }: IFeaturedCard) => {
   return (
-    <Card>
+    <Card {...genericsProps}>
       <S.FeaturedCard
         $minWidth={FeatureCardDirection[direction].minWidth}
         $themeType={themeType}

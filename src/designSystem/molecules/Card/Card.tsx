@@ -6,6 +6,7 @@ import {
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import * as S from './Card.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import Spacer from 'designSystem/layouts/Spacer'
 
 export interface ICard extends IGeneralProps {
   /**
@@ -31,6 +32,7 @@ Card.Content = ({
 }) => (
   <S.Content>
     <TitleContainer>{title}</TitleContainer>
+    <Spacer direction="bottom"/>
     <SubtitleContainer>{description}</SubtitleContainer>
   </S.Content>
 )

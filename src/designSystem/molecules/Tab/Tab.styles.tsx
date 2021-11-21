@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 import { spacing, theme } from 'styles/tokens'
 
-export const Tab = styled.div`
-  width: fit-content;
+export const Tab = styled.div<{ $width: string }>`
+  width: ${({ $width }) => $width};
 `
 
 export const TabList = styled.ul`

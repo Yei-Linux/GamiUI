@@ -1,8 +1,21 @@
+import styled from '@emotion/styled'
 import { TOnClick } from 'core/domain/types'
 import KeenSlider from 'keen-slider'
 import React, { Fragment } from 'react'
+import Icon from '../Icon'
 
 import * as S from './Slider.styles'
+
+const ArrowLeft = styled(Icon)`
+  ${S.Arrow}
+  left: 5px;
+`
+
+const ArrowRight = styled(Icon)`
+  ${S.Arrow}
+  left: auto;
+  right: 5px;
+`
 
 export interface ISliderElements {
   slider: KeenSlider
@@ -10,7 +23,18 @@ export interface ISliderElements {
   currentSlide: number
 }
 
-const Arrows = ({ slider, vertical, currentSlide }: ISliderElements) => {
+export interface IArrows extends ISliderElements {
+  activeArrowColor?: string
+  inactiveArrowColor?: string
+}
+
+const Arrows = ({
+  slider,
+  vertical,
+  currentSlide,
+  activeArrowColor = '#7f9cf5',
+  inactiveArrowColor = '#EAEAEA',
+}: IArrows) => {
   const isFirstSlide = () => currentSlide == 0
 
   const isLastSlide = () => currentSlide == slider.details().size - 1
@@ -29,15 +53,17 @@ const Arrows = ({ slider, vertical, currentSlide }: ISliderElements) => {
     <Fragment>
       {slider && !vertical && (
         <>
-          <S.ArrowLeft
+          <ArrowLeft
             onClick={handleClickPrev}
             size="25px"
-            name={isFirstSlide() ? 'arrow__left__semiwhite' : 'arrow__left'}
+            name="arrow__left__transparent"
+            fill={isFirstSlide() ? inactiveArrowColor : activeArrowColor}
           />
-          <S.ArrowRight
+          <ArrowRight
             size="25px"
             onClick={handleClickNext}
-            name={isLastSlide() ? 'arrow__right__semiwhite' : 'arrow__right'}
+            name="arrow__right__transparent"
+            fill={isLastSlide() ? inactiveArrowColor : activeArrowColor}
           />
         </>
       )}

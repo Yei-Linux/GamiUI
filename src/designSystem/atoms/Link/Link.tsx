@@ -6,9 +6,13 @@ import * as S from './Link.styles'
 
 export interface ILink extends IGeneralProps {
   /**
+   * Children Content
+   */
+  children?: React.ReactNode
+  /**
    * Text Link
    */
-  text: string
+  text?: string | null
 
   /**
    * Url
@@ -27,7 +31,8 @@ export interface ILink extends IGeneralProps {
 }
 
 const Link = ({
-  text,
+  children,
+  text = null,
   href,
   type = 'secondary',
   isExternal = false,
@@ -40,7 +45,7 @@ const Link = ({
       $linkType={type}
       {...getGenericPropStyles(genericsProps)}
     >
-      {text}
+      {text ?? children}
     </S.Link>
   )
 }

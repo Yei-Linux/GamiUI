@@ -49,7 +49,9 @@ const TrafficLight = ({ ...args }: TrafficLightProps) => {
           $color={
             TrafficLightColors.orange[isBrightOrange ? 'brightColor' : 'color']
           }
-          $bright={isBrightOrange ? TrafficLightColors.orange['shadow'] : 'none'}
+          $bright={
+            isBrightOrange ? TrafficLightColors.orange['shadow'] : 'none'
+          }
         />
         <S.Balls
           $color={

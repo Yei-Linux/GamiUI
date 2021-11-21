@@ -14,6 +14,11 @@ interface ISliderPerView {
   desktop: number
 }
 
+interface IConfigSlider {
+  activeColor?: string
+  inactiveColor?: string
+}
+
 export interface ISlider {
   /**
    * Slider content
@@ -22,19 +27,19 @@ export interface ISlider {
   /**
    * Sliders per layout
    */
-  slidesPerView: ISliderPerView
+  slidesPerView?: ISliderPerView
   /**
    * Spacing beetwen item
    */
-  spacing: number
+  spacing?: number
   /**
    * Initial item
    */
-  initial: number
+  initial?: number
   /**
    * Is Infinite
    */
-  isLoop: boolean
+  isLoop?: boolean
   /**
    * Is Vertical
    */
@@ -43,6 +48,14 @@ export interface ISlider {
    * Is Autoplay
    */
   isAutoplay?: boolean
+  /**
+   * Dots Config
+   */
+  dotsConfig?: IConfigSlider
+  /**
+   * Arrows Config
+   */
+  arrowsConfig?: IConfigSlider
 }
 
 type TKeenSlider = [React.LegacyRef<HTMLDivElement>, KeenSlider]
@@ -60,6 +73,14 @@ const Slider = ({
   isLoop = true,
   vertical = false,
   isAutoplay = false,
+  dotsConfig = {
+    activeColor: '#7f9cf5',
+    inactiveColor: '#EAEAEA',
+  },
+  arrowsConfig = {
+    activeColor: '#7f9cf5',
+    inactiveColor: '#EAEAEA',
+  },
 }: ISlider) => {
   const { device } = useDevice()
   const [pause, setPause] = useState(false)
@@ -100,13 +121,21 @@ const Slider = ({
         </S.KeenSliderLib>
 
         <Arrows
+          activeArrowColor={arrowsConfig.activeColor}
+          inactiveArrowColor={arrowsConfig.inactiveColor}
           slider={slider}
           vertical={vertical}
           currentSlide={currentSlide}
         />
       </S.Slider>
 
-      <Dots slider={slider} vertical={vertical} currentSlide={currentSlide} />
+      <Dots
+        activeDotColor={dotsConfig.activeColor}
+        inactiveDotColor={dotsConfig.inactiveColor}
+        slider={slider}
+        vertical={vertical}
+        currentSlide={currentSlide}
+      />
     </Fragment>
   )
 }

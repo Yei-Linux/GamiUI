@@ -23,12 +23,16 @@ const getFileTypes = (componentName = 'Component') => {
 
 const validateArguments = (atomicType = '', componentName = '') => {
   if ([atomicType, componentName].includes('')) {
-    console.error('😩 Need to pass params: "atomicType(ATOM | MOLECULE | LAYOUT | STYLED)" and "componentName"')
+    console.error(
+      '😩 Need to pass params: "atomicType(ATOM | MOLECULE | LAYOUT | STYLED)" and "componentName"'
+    )
     process.exit(1)
   }
 
   if (!Object.keys(ATOMIC_TYPES).includes(atomicType)) {
-    console.error(`😩 Atomic type must be: "(ATOM | MOLECULE | LAYOUT | STYLED)"`)
+    console.error(
+      `😩 Atomic type must be: "(ATOM | MOLECULE | LAYOUT | STYLED)"`
+    )
     process.exit(1)
   }
 }
@@ -72,7 +76,7 @@ const writeFile = (route, dataToWrite) => {
 
 /**
  * Function to generate files of component to create:
- * To execute, type on console: 
+ * To execute, type on console:
  * npm run create-component 'ATOMIC_TYPE' 'COMPONENT_NAME'
  * Exp: npm run create-component ATOM MyComponent
  */

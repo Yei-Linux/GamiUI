@@ -38,7 +38,7 @@ export interface IHeroSprite {
 }
 
 export type TileType = 'OBSTACULE' | 'FLOOR'
-export type TCurrentDirection = "topDir" | "bottomDir" | "leftDir" | "rightDir"
+export type TCurrentDirection = 'topDir' | 'bottomDir' | 'leftDir' | 'rightDir'
 
 export interface ITileImage {
   tileKey: number

@@ -1,16 +1,28 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "styles/*": ["styles/*"]
-    },
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "lib",
 
-    "module": "commonjs",
-    "target": "esnext",
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "context/*": ["./src/context/*", "./lib/context/*"],
+      "core/*": ["./src/core/*", "./lib/core/*"],
+      "designSystem/*": ["./src/designSystem/*", "./lib/designSystem/*"],
+      "hooks/*": ["./src/hooks/*", "./lib/hooks/*"],
+      "providers/*": ["./src/providers/*", "./lib/providers/*"],
+      "styles/*": ["./src/styles/*", "./lib/styles/*"]
+    },
+    "target": "es2015",
+    "module": "es2015",
+    
+    "moduleResolution": "Node",
+
     "jsx": "preserve",
     "lib": ["dom", "es2015", "es2017"],
 
-    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "strict": true,
