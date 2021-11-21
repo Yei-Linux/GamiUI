@@ -32,7 +32,7 @@ Card.Content = ({
 }) => (
   <S.Content>
     <TitleContainer>{title}</TitleContainer>
-    <Spacer direction="bottom"/>
+    <Spacer direction="bottom" />
     <SubtitleContainer>{description}</SubtitleContainer>
   </S.Content>
 )

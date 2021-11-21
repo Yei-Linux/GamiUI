@@ -23,6 +23,8 @@ export const Basic = () => (
 
 export const LikeBackground = () => (
   <Wave direction="top" isWaveLikeBackground>
-    <div style={{ height: '300px', width: '100%', backgroundColor: '#7f9cf5' }}>Text for test</div>
+    <div style={{ height: '300px', width: '100%', backgroundColor: '#7f9cf5' }}>
+      Text for test
+    </div>
   </Wave>
 )

@@ -31,7 +31,7 @@ const Empty = ({ size = '150px', text, type = 'balloon' }: IEmpty) => {
       </Row>
       {text && (
         <Row>
-          <S.Text className={classNames("empty__text")} text={text} />
+          <S.Text className={classNames('empty__text')} text={text} />
         </Row>
       )}
     </S.Empty>

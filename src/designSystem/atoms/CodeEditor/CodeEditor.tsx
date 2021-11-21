@@ -2,7 +2,12 @@ import Editor, { Monaco } from '@monaco-editor/react'
 import useDevice from 'hooks/useDevice'
 import React from 'react'
 import * as S from './CodeEditor.styles'
-import { CodeCustomTheme, codeOptions, codeTheme, ShowLineNumbersByDevice } from './constants'
+import {
+  CodeCustomTheme,
+  codeOptions,
+  codeTheme,
+  ShowLineNumbersByDevice,
+} from './constants'
 
 export type TLanguage = 'javascript'
 
