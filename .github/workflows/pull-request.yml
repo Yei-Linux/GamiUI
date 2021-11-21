@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 15
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --ignore-engines
       - name: Lint code
         run: yarn lint
       - name: Build storybook
@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: 15
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --ignore-engines
       - name: Build storybook
         run: yarn build-storybook
       - name: Publish in Chromatic
