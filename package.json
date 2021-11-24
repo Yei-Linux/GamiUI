@@ -8,9 +8,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write ./src",
-    "lint": "eslint ./src",
-    "lint:fix": "eslint --fix ./src"
+    "test:gami-ui": "npm run test --workspace=@gami-ui/standard",
+    "test-snapshot-update:gami-ui": "npm run test:snapshot-update --workspace=@gami-ui/standard",
+    "storybook:gami-ui": "npm run storybook --workspace=@gami-ui/standard",
+    "build-storybook:gami-ui": "npm run workspace @gami-ui/standard build-storybook",
+    "chromatic:gami-ui": "npm run workspace @gami-ui/standard chromatic",
+    "prepare-husky:gami-ui": "npm run workspace @gami-ui/standard prepare-husky",
+    "semantic-release:gami-ui": "npm run workspace @gami-ui/standard semantic-release",
+    "build:gami-ui": "npm run workspace @gami-ui/standard build",
+    "prepare:gami-ui": "npm run workspace @gami-ui/standard prepare",
+    "prepublishOnly:gami-ui": "npm run workspace @gami-ui/standard prepublishOnly",
+    "preversion:gami-ui": "npm run workspace @gami-ui/standard preversion",
+    "version:gami-ui": "npm run workspace @gami-ui/standard version",
+    "postversion:gami-ui": "npm run workspace @gami-ui/standard postversion",
+    "create-component:gami-ui": "npm run workspace @gami-ui/standard prepare",
+    "develop:gami-docs": "npm run develop --workspace=@gami-ui/docs",
+    "clean:gami-docs": "npm run clean --workspace=@gami-ui/docs",
+    "format:gami-ui": "npm run workspace @gami-ui/standard format",
+    "format:gami-docs": "npm run workspace @gami-ui/docs format",
+    "lint:gami-ui": "npm run workspace @gami-ui/standard lint",
+    "lint:gami-docs": "npm run workspace @gami-ui/docs lint",
+    "lint-fix:gami-ui": "npm run workspace @gami-ui/standard lint:fix",
+    "lint-fix:gami-docs": "npm run workspace @gami-ui/docs lint:fix"
   },
   "repository": {
     "type": "git",
@@ -25,6 +44,8 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
