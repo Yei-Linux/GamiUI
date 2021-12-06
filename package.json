@@ -44,15 +44,15 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "husky": "^6.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
-    "@typescript-eslint/parser": "^4.23.0"
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0"
   },
   "author": "Yei Linux",
   "license": "ISC",
