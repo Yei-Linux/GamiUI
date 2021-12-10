@@ -1,6 +1,6 @@
 {
-  "name": "@gami-ui/standard",
-  "version": "1.2.0",
+  "name": "@gamiui/standard",
+  "version": "0.1.0-alpha.0",
   "description": "GamiUI Library of standard components",
   "main": "lib/index",
   "typings": "lib/index",
@@ -31,6 +31,9 @@
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@babel/core": "^7.12.7",
