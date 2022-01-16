@@ -65,7 +65,7 @@ export const CodeCustomTheme = {
 
 export const codeOptions = (isShowLineNumbers: boolean) => {
   return {
-    lineNumbers: isShowLineNumbers ? 'on' as const : 'off' as const,
+    lineNumbers: isShowLineNumbers ? ('on' as const) : ('off' as const),
     acceptSuggestionOnCommitCharacter: true,
     acceptSuggestionOnEnter: 'on' as const,
     accessibilitySupport: 'auto' as const,
