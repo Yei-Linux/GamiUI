@@ -46,10 +46,11 @@ const ListItem = ({
       onClick={handleClickItem}
     >
       <Section>
-        <S.ListItemChild>{avatar}</S.ListItemChild>
+        {avatar && <S.ListItemChild>{avatar}</S.ListItemChild>}
+
         <S.ListItemChild>
-          <TitleContainer>{title}</TitleContainer>
-          <SubtitleContainer>{description}</SubtitleContainer>
+          {title && <TitleContainer>{title}</TitleContainer>}
+          {description && <SubtitleContainer>{description}</SubtitleContainer>}
         </S.ListItemChild>
       </Section>
       <Section>

@@ -22,7 +22,7 @@
     "publishOnly": "npm publish",
     "version": "git add . && git commit -m 'release: Release version :rocket:'",
     "postversion": "git push",
-    "create-component": "node ./src/scripts/createComponent.js",
+    "create-component": "node ./scripts/createComponent.js",
     "format": "prettier --write ./src",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"

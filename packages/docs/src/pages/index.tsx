@@ -6,20 +6,7 @@ const IndexPage = () => {
     <div>
       Hello
       <div>
-        <Row>
-          <Title level="h2">Documentation</Title>
-        </Row>
-
-        <div>
-          <Menu>
-            <Menu.SubMenu
-              isOpen
-              title="Home"
-              href="/"
-              icon={<Icon name="bullet__item" />}
-            ></Menu.SubMenu>
-          </Menu>
-        </div>
+        
       </div>
     </div>
   )

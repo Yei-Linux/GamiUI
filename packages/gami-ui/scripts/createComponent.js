@@ -87,6 +87,7 @@ const createComponent = () => {
   const routeComponent = path.join(
     __dirname,
     '..',
+    'src',
     'designSystem',
     ATOMIC_TYPES[atomicType].folder,
     componentName

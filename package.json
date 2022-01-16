@@ -23,7 +23,7 @@
     "publishOnly:gami-ui": "npm run publishOnly --workspace=@gamiui/standard",
     "version:gami-ui": "npm run version --workspace=@gamiui/standard",
     "postversion:gami-ui": "npm run postversion --workspace=@gamiui/standard",
-    "create-component:gami-ui": "npm run prepare --workspace=@gamiui/standard",
+    "create-component:gami-ui": "npm run create-component --workspace=@gamiui/standard",
     "develop:gami-docs": "npm run develop --workspace=@gamiui/docs",
     "clean:gami-docs": "npm run clean --workspace=@gamiui/docs",
     "format:gami-ui": "npm run format --workspace=@gamiui/standard",

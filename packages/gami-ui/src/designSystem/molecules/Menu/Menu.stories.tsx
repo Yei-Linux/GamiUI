@@ -15,19 +15,30 @@ export const Basic = (args: any) => (
   <Menu {...args}>
     <Menu.SubMenu
       isOpen
+      title="Documentation"
+      hasIcon={false}
+      contentLeft={<Icon name="bullet__item" />}
+    ></Menu.SubMenu>
+    <Menu.SubMenu
+      isOpen
+      title="Home"
+      contentLeft={<Icon name="bullet__item" />}
+    ></Menu.SubMenu>
+    <Menu.SubMenu
+      isOpen
       title="Home"
       href="/"
-      icon={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet__item" />}
     ></Menu.SubMenu>
     <Menu.SubMenu
       title="Courses"
       href="/courses"
-      icon={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet__item" />}
     ></Menu.SubMenu>
     <Menu.SubMenu
       title="Exams"
       href="/exams"
-      icon={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet__item" />}
     ></Menu.SubMenu>
   </Menu>
 )
