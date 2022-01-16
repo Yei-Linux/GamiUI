@@ -1,0 +1,22 @@
+{
+  "React Functional Component": {
+    "prefix": "reactbase",
+    "body": [
+      "import React from \"react\"",
+      "",
+      "export interface I${1:Component} {}",
+      "",
+      "const ${1:Component} = ({} : I${1:Component}) => {",
+      "  return (",
+      "    <div>",
+      "      $2",
+      "    </div>",
+      "  )",
+      "};",
+      "",
+      "export default ${1:Component};",
+      ""
+    ],
+    "description": "React Functional Component"
+  }
+}
