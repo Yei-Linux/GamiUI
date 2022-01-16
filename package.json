@@ -8,6 +8,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install-deps": "npm install --legacy-peer-deps",
     "test:gami-ui": "npm run test --workspace=@gamiui/standard",
     "test-snapshot-update:gami-ui": "npm run test:snapshot-update --workspace=@gamiui/standard",
     "storybook:gami-ui": "npm run storybook --workspace=@gamiui/standard",
