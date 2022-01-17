@@ -1,7 +1,8 @@
 import classNames from 'classnames'
+import { TUseRefDiv } from 'core/domain/types'
 import Menu from 'designSystem/molecules/Menu'
 import useToggle from 'hooks/useToggle'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Icon from '../Icon'
 import * as S from './Collapse.styles'
 
@@ -26,6 +27,7 @@ export interface ICollapse {
    * Content Of Collapse
    */
   children: React.ReactNode
+  onClick?: (isVisible: boolean) => void
 }
 
 const Collapse = ({
@@ -34,14 +36,41 @@ const Collapse = ({
   subtitle,
   contentLeft = <Icon name="bullet__item" />,
   icon,
+  onClick,
 }: ICollapse) => {
+  const childrenRef: TUseRefDiv = useRef(null)
+  const [childrenHeight, setChildrenHeight] = useState('auto')
   const { isVisible, handleToggle } = useToggle({ defaultVisible: false })
 
+  const getChildrenHeight = () => {
+    if (!childrenRef) return 'auto'
+
+    const childrenHeight = childrenRef.current?.getBoundingClientRect()
+
+    if (!childrenHeight) return 'auto'
+
+    return `${childrenHeight.height}px`
+  }
+
+  const handleActionOnCollapse = () => {
+    onClick?.(!isVisible)
+    handleToggle(!isVisible)
+  }
+
+  useEffect(() => {
+    const childrenHeightResult = getChildrenHeight()
+    setChildrenHeight(childrenHeightResult)
+  }, [])
+
+  const handleCollapse = () => {
+    handleActionOnCollapse()
+  }
+
   return (
-    <S.Collapse>
+    <S.Collapse $height={childrenHeight}>
       <S.Header>
         <Menu.SubMenu
-          onClick={() => handleToggle(!isVisible)}
+          onClick={handleCollapse}
           isOpen
           title={title}
           subtitle={subtitle}
@@ -56,13 +85,13 @@ const Collapse = ({
           }
         />
       </S.Header>
-      <S.Children
+      <S.Content
         className={classNames({
           open: isVisible,
         })}
       >
-        {children}
-      </S.Children>
+        <S.Children ref={childrenRef}>{children}</S.Children>
+      </S.Content>
     </S.Collapse>
   )
 }

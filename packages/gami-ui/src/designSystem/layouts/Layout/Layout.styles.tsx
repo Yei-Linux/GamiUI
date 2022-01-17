@@ -15,11 +15,15 @@ export const Content = styled.div`
   grid-area: main;
 `
 
+export const Sidebar = styled.div`
+  grid-area: sidebar;
+`
+
 export const Footer = styled.div`
   grid-area: footer;
 `
 
-export const Layout = styled.div`
+export const Layout = styled.div<{ $hasSidebar: boolean }>`
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -27,7 +31,8 @@ export const Layout = styled.div`
   display: grid;
 
   grid-template:
-    'header' minmax(100px, max-content)
-    'main' auto
-    'footer' minmax(100px, max-content);
+    'header header header' minmax(100px, max-content)
+    ${({ $hasSidebar }) =>
+      $hasSidebar ? `'sidebar main main' auto` : `'main main main' auto`}
+    'footer footer footer' minmax(100px, max-content);
 `

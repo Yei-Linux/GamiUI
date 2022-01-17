@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import * as S from './Menu.styles'
 
 import Icon from 'designSystem/atoms/Icon'
 import Link from 'designSystem/atoms/Link'
 import RichText from 'designSystem/atoms/RichText'
+import Collapse from 'designSystem/atoms/Collapse'
 
 export interface ISubMenu {
   onClick?: () => void
@@ -16,6 +17,7 @@ export interface ISubMenu {
   isLink?: boolean
   icon?: React.ReactNode
   hasIcon?: boolean
+  children?: React.ReactNode
 }
 
 const SubMenu = ({
@@ -29,6 +31,7 @@ const SubMenu = ({
   isOpen,
   isLink = true,
   isExternal = false,
+  children,
 }: ISubMenu) => {
   const titleType = typeof title
 
@@ -52,15 +55,28 @@ const SubMenu = ({
   }
 
   return (
-    <S.SubMenu
-      onClick={onClick}
-      noBorder
-      avatar={contentLeft}
-      title={getTitle()}
-      description={subtitle}
-    >
-      {hasIcon && icon}
-    </S.SubMenu>
+    <Fragment>
+      {children ? (
+        <Collapse
+          contentLeft={contentLeft}
+          icon={icon}
+          title={getTitle()}
+          subtitle={subtitle}
+        >
+          {children}
+        </Collapse>
+      ) : (
+        <S.SubMenu
+          onClick={onClick}
+          noBorder
+          avatar={contentLeft}
+          title={getTitle()}
+          description={subtitle}
+        >
+          {hasIcon && icon}
+        </S.SubMenu>
+      )}
+    </Fragment>
   )
 }
 

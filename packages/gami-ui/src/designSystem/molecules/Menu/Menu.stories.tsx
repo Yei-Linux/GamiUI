@@ -18,7 +18,21 @@ export const Basic = (args: any) => (
       title="Documentation"
       hasIcon={false}
       contentLeft={<Icon name="bullet__item" />}
-    ></Menu.SubMenu>
+    >
+      <Menu>
+        <Menu.SubMenu
+          isOpen
+          title="Home1"
+          hasIcon={false}
+          contentLeft={<Icon name="bullet__item" />}
+        ></Menu.SubMenu>
+        <Menu.SubMenu
+          isOpen
+          title="Home2"
+          contentLeft={<Icon name="bullet__item" />}
+        ></Menu.SubMenu>
+      </Menu>
+    </Menu.SubMenu>
     <Menu.SubMenu
       isOpen
       title="Home"

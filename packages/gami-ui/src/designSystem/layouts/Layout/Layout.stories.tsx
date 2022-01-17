@@ -20,3 +20,17 @@ export const Basic = (args: any) => (
   </Layout>
 )
 Basic.args = {}
+
+export const WithSidebar = (args: any) => (
+  <Layout {...args}>
+    <Layout.Header>This is my header</Layout.Header>
+    <Layout.Sidebar>
+      <div>This is my sidebar</div>
+    </Layout.Sidebar>
+    <Layout.Content>
+      <div>This is my content</div>
+    </Layout.Content>
+    <Layout.Footer>This is my footer</Layout.Footer>
+  </Layout>
+)
+Basic.args = {}

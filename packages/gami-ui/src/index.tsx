@@ -27,6 +27,7 @@ export { default as Tag } from './designSystem/atoms/Tag'
 export { default as TextArea } from './designSystem/atoms/TextArea'
 export { default as TextEditor } from './designSystem/atoms/TextEditor'
 export { default as Title } from './designSystem/atoms/Title'
+export { default as Collapse } from './designSystem/atoms/Collapse'
 
 // Game
 export { default as World } from './designSystem/game/World'

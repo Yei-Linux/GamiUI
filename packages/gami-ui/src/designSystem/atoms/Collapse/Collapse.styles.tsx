@@ -1,18 +1,20 @@
 import styled from '@emotion/styled'
 
-export const Collapse = styled.div`
+export const Collapse = styled.div<{ $height: string }>`
   .open {
-    height: 66px;
+    max-height: ${({ $height }) => $height};
   }
 `
 
 export const Header = styled.div``
 
-export const Children = styled.div`
+export const Content = styled.div`
   padding-left: 19px;
 
-  height: 0px;
+  max-height: 0px;
 
   overflow: hidden;
-  transition: height 200ms ease 0s;
+  transition: 0.4s max-height;
 `
+
+export const Children = styled.div``
