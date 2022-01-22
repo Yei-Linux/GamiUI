@@ -6,6 +6,7 @@ import { mixinFontWeight, mixinTextAlign } from 'styles/mixins/fonts'
 import { mixinHeight } from 'styles/mixins/height'
 import { mixinShadow } from 'styles/mixins/shadow'
 import { mixinWidth } from 'styles/mixins/width'
+import { builderSpacersByDevice } from './spacersBuilderByDevice'
 
 export const setGenericPropStyles = ({
   shadow,
@@ -14,6 +15,8 @@ export const setGenericPropStyles = ({
   heigth,
   textAlign,
   fontWeight,
+  padding,
+  margin,
 }: IGenericPropStyles) => css`
   ${shadow && mixinShadow(shadow)}
   ${border && mixinBorderRadius(border)}
@@ -21,6 +24,8 @@ export const setGenericPropStyles = ({
     ${heigth && mixinHeight(heigth)}
     ${textAlign && mixinTextAlign(textAlign)}
     ${fontWeight && mixinFontWeight(fontWeight)}
+    ${padding && builderSpacersByDevice(padding, 'padding')}
+    ${margin && builderSpacersByDevice(margin, 'margin')}
 `
 
 interface IDynamicPropStyles {
@@ -34,6 +39,8 @@ export const getGenericPropStyles = ({
   heigth,
   textAlign,
   fontWeight,
+  padding,
+  margin,
   style,
   className,
   onClick,
@@ -47,6 +54,8 @@ export const getGenericPropStyles = ({
   if (heigth) propStyles['$heigth'] = heigth
   if (textAlign) propStyles['$textAlign'] = textAlign
   if (fontWeight) propStyles['$fontWeight'] = fontWeight
+  if (padding) propStyles['$padding'] = padding
+  if (margin) propStyles['$margin'] = margin
 
   if (style) propStyles['style'] = style
   if (className) propStyles['className'] = className

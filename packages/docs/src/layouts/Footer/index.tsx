@@ -23,11 +23,8 @@ const Footer = ({}: IFooter) => {
         </Col>
         <Col spacing="sm" xs={12} sm={12} md={12} lg={12}>
           <Title textAlign="center" level="h3">
-            Handcrafted by © YeiLinux
+            Handcrafted by © YeiLinux(Jesus Alvan)
           </Title>
-        </Col>
-        <Col spacing="sm" xs={12} sm={12} md={12} lg={12}>
-          <RichText text="Made with Nextjs" textAlign="center" />
         </Col>
       </Row>
     </S.Footer>

@@ -1,7 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from "react"
 
-// You can delete this file if you're not using it
+import GamiUIProvider from "./src/providers/GamiUI"
+
+export const wrapRootElement = ({ element }) => (
+  <GamiUIProvider>{element}</GamiUIProvider>
+)

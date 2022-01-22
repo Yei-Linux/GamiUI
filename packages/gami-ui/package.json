@@ -1,6 +1,6 @@
 {
   "name": "@gamiui/standard",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "GamiUI Library of standard components",
   "main": "lib/index",
   "typings": "lib/index",

@@ -27,19 +27,39 @@ const getSpacerValues = (
 }
 
 const getFormatSpacers = (
-  deviceObjectWithSpacers: IDynamicObjectWithField
+  deviceObjectWithSpacers: IDynamicObjectWithField,
+  spacingType: 'padding' | 'margin'
 ) => css`
   ${Object.prototype.hasOwnProperty.call(deviceObjectWithSpacers, 'xs') &&
-  mediaQuery('xs')} {
-    padding: ${deviceObjectWithSpacers['xs'] as string};
-  }
+  css`
+    ${mediaQuery('xs')} {
+      ${`${spacingType}: ${deviceObjectWithSpacers['xs'] as string}`}
+    }
+  `}
   ${Object.prototype.hasOwnProperty.call(deviceObjectWithSpacers, 'sm') &&
-  mediaQuery('sm')} {
-    padding: ${deviceObjectWithSpacers['sm'] as string};
-  }
+  css`
+    ${mediaQuery('sm')} {
+      ${`${spacingType}: ${deviceObjectWithSpacers['sm'] as string}`}
+    }
+  `}  
+  ${Object.prototype.hasOwnProperty.call(deviceObjectWithSpacers, 'md') &&
+  css`
+    ${mediaQuery('md')} {
+      ${`${spacingType}: ${deviceObjectWithSpacers['md'] as string}`}
+    }
+  `}  
+  ${Object.prototype.hasOwnProperty.call(deviceObjectWithSpacers, 'lg') &&
+  css`
+    ${mediaQuery('lg')} {
+      ${`${spacingType}: ${deviceObjectWithSpacers['lg'] as string}`}
+    }
+  `}
 `
 
-export const builderSpacersByDevice = (spacersByDevice: string) => {
+export const builderSpacersByDevice = (
+  spacersByDevice: string,
+  spacingType: 'padding' | 'margin'
+) => {
   const spacersFormatInArray = spacersByDevice.split(',')
   let deviceObjectWithSpacers: IDynamicObjectWithField = {}
 
@@ -52,7 +72,8 @@ export const builderSpacersByDevice = (spacersByDevice: string) => {
   )
 
   const stylesWithFormatSpacersByDevice = getFormatSpacers(
-    deviceObjectWithSpacers
+    deviceObjectWithSpacers,
+    spacingType
   )
 
   return stylesWithFormatSpacersByDevice.styles

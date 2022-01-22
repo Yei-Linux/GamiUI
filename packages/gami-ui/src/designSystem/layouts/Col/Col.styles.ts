@@ -24,7 +24,7 @@ export const Col = styled.div<{
   }
 
   &.custom {
-    ${({ $spacing }) => builderSpacersByDevice($spacing)}
+    ${({ $spacing }) => builderSpacersByDevice($spacing, 'padding')}
   }
 
   &.nocustom {

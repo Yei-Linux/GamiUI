@@ -33,6 +33,14 @@ export interface IGenericPropStyles {
    * Height Component
    */
   fontWeight?: FontWeightType
+  /**
+   * Padding Component
+   */
+  padding?: string
+  /**
+   * Margin Component
+   */
+  margin?: string
 }
 
 export interface IStyles extends IGenericPropStyles {

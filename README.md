@@ -9,7 +9,9 @@
     npm run install-deps
 
 3.  **Publish project to npm of @gamiui/standard.**
-    First login on npm and then execute this command script:
+    First login on npm 
+    Then change version
+    Finally execute this command script:
     npm run publishfinal:gami-ui
 
 ## PULL REQUEST 🚀

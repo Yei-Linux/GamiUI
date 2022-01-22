@@ -13,7 +13,7 @@ const Topbar = ({}: ITopbar) => {
             <Row>
               <Icon name="brain" size="30px" />
               <Spacer direction="right" />
-              <Title level="h2">Hacking Learning</Title>
+              <Title level="h2">GamiUI</Title>
             </Row>
           </Link>
         </S.TopbarLeft>
