@@ -1,25 +1,25 @@
 import React from 'react'
+import * as S from './Container.styles'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import * as S from './Title.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
 
-export interface ITitle extends IGeneralProps {
+export interface IContainer extends IGeneralProps {
   /**
-   * Tag Title
+   * Container type
    */
-  level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  as?: keyof JSX.IntrinsicElements
   /**
-   * Title Text Content
+   * Content
    */
   children: React.ReactNode
 }
 
-const Title = ({ level = 'h1', children, ...genericsProps }: ITitle) => {
+const Container = ({ children, as, ...genericsProps }: IContainer) => {
   return (
-    <S.Title as={level} {...getGenericPropStyles(genericsProps)}>
+    <S.Container as={as} {...getGenericPropStyles(genericsProps)}>
       {children}
-    </S.Title>
+    </S.Container>
   )
 }
 
@@ -29,4 +29,4 @@ const defaultProps = {
   heigth: 'auto',
 }
 
-export default withDefaults(Title, defaultProps)
+export default withDefaults(Container, defaultProps)

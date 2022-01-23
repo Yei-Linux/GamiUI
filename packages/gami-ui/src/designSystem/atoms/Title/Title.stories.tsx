@@ -13,5 +13,5 @@ export default {
 export const Basic = (args: any) => <Title {...args}>Titulo h1</Title>
 Basic.args = {
   margin: 'xs:0 0 1rem 0',
-  padding: 'xs:0 0 0 0'
+  padding: 'xs:0 0 0 0',
 }

@@ -6,6 +6,7 @@ import marked, { Renderer } from 'marked'
 import useIsMounted from 'hooks/useIsMounted'
 import { sanitizeLink } from './helper'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import withDefaults from 'hocs/WithDefault'
 
 export interface IRichText extends IGeneralProps {
   /**
@@ -45,4 +46,10 @@ const RichText = ({ text, ...genericsProps }: IRichText) => {
   )
 }
 
-export default RichText
+const defaultProps = {
+  shadow: 'none',
+  width: 'auto',
+  heigth: 'auto',
+}
+
+export default withDefaults(RichText, defaultProps)

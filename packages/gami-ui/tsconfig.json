@@ -13,11 +13,12 @@
       "designSystem/*": ["./src/designSystem/*", "./lib/designSystem/*"],
       "hooks/*": ["./src/hooks/*", "./lib/hooks/*"],
       "providers/*": ["./src/providers/*", "./lib/providers/*"],
-      "styles/*": ["./src/styles/*", "./lib/styles/*"]
+      "styles/*": ["./src/styles/*", "./lib/styles/*"],
+      "hocs/*": ["./src/hocs/*", "./lib/hocs/*"]
     },
     "target": "es2015",
     "module": "es2015",
-    
+
     "moduleResolution": "Node",
 
     "jsx": "preserve",

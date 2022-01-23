@@ -39,6 +39,7 @@ export { default as Layout } from './designSystem/layouts/Layout'
 export { default as Row } from './designSystem/layouts/Row'
 export { default as Sider } from './designSystem/layouts/Sider'
 export { default as Spacer } from './designSystem/layouts/Spacer'
+export { default as Container } from './designSystem/layouts/Container'
 
 //Molecules
 export { default as Card } from './designSystem/molecules/Card'
