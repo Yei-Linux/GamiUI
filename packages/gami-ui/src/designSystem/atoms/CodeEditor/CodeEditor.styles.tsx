@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinWidth } from 'styles/mixins/width'
 
-export const CodeEditor = styled.div<{ $maxWidth: string }>`
+export const CodeEditor = styled.div<{ $maxWidth: string, theme: ICustomTheme }>`
   max-width: ${({ $maxWidth }) => $maxWidth};
-  ${mixinWidth('full')}
+  ${({ theme }) => mixinWidth(theme, 'full')}
 `

@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import Options from '.'
 import { SAMPLE_CODE } from '../Survey/constants'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 
 export default {
   title: 'Molecules/Options',
@@ -21,7 +21,7 @@ Basic.args = {
       value: 'one',
       icon: {
         name: 'bullet__item',
-        fill: theme.light.primary.jordyBlue,
+        fill: defaultTheme.light.primary.jordyBlue,
       },
     },
     {
@@ -29,7 +29,7 @@ Basic.args = {
       value: 'two',
       icon: {
         name: 'bullet__item',
-        fill: theme.light.primary.jordyBlue,
+        fill: defaultTheme.light.primary.jordyBlue,
       },
     },
     {
@@ -37,7 +37,7 @@ Basic.args = {
       value: 'three',
       icon: {
         name: 'bullet__item',
-        fill: theme.light.primary.jordyBlue,
+        fill: defaultTheme.light.primary.jordyBlue,
       },
     },
   ],

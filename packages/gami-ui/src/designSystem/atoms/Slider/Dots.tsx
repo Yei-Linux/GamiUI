@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { Fragment } from 'react'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import { ISliderElements } from './Arrows'
 import * as S from './Slider.styles'
 
@@ -13,8 +13,8 @@ const Dots = ({
   slider,
   vertical,
   currentSlide,
-  activeDotColor = theme.light.primary.jordyBlue,
-  inactiveDotColor = theme.light.neutral[500],
+  activeDotColor = defaultTheme.light.primary.jordyBlue,
+  inactiveDotColor = defaultTheme.light.neutral[500],
 }: IDots) => {
   return (
     <Fragment>

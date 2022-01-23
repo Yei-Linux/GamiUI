@@ -30,6 +30,8 @@ export const globalClassesBuilder = ({
 }: IGlobalClassesBuilder): string => {
   let classes = ``
 
+  if (!token) return classes
+
   Object.entries(token).map(([key, value]) => {
     if (typeof value == 'object') {
       Object.entries(value).map((subkey, subvalue) => {

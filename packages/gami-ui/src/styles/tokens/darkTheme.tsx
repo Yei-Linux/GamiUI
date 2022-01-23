@@ -1,4 +1,4 @@
-export const colorDark = {
+export const darkTheme = {
   primary: {
     jordyBlue: '#7f9cf5',
     hawkesBlue: '#c0cffc',

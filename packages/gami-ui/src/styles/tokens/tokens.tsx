@@ -9,7 +9,7 @@ import {
   zIndex,
 } from '.'
 
-export const tokens = {
+export const defaultTokens = {
   borderRadius,
   boxShadow,
   breakspointSizes,

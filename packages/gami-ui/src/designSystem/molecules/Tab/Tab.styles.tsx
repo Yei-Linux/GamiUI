@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { spacing, theme } from 'styles/tokens'
+import { spacing, defaultTheme } from 'styles/tokens'
 
 export const Tab = styled.div<{ $width: string }>`
   width: ${({ $width }) => $width};
@@ -19,8 +19,8 @@ export const TabList = styled.ul`
 export const TabItem = styled.li`
   padding: ${spacing.padding.md};
   &.active {
-    background-color: ${theme.light.primary.jordyBlue};
-    color: ${theme.light.neutral[800]};
+    background-color: ${defaultTheme.light.primary.jordyBlue};
+    color: ${defaultTheme.light.neutral[800]};
   }
   &:hover {
     cursor: pointer;

@@ -2,7 +2,7 @@
 import React from 'react'
 import { getTrackBackground } from 'react-range'
 import { ITrackProps } from 'react-range/lib/types'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 
 interface IRangeTrack {
   props: ITrackProps
@@ -40,7 +40,7 @@ const RangeTrack = ({
           alignSelf: 'center',
           background: getTrackBackground({
             values: value,
-            colors: [theme.light.primary.jordyBlue, theme.light.neutral[600]],
+            colors: [defaultTheme.light.primary.jordyBlue, defaultTheme.light.neutral[600]],
             min: 0,
             max: 100,
           }),

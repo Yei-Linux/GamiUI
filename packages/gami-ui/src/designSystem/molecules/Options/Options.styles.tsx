@@ -1,15 +1,16 @@
 import styled from '@emotion/styled'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFontWeight } from 'styles/mixins/fonts'
 import { mixinScroll } from 'styles/mixins/scroll'
-import { sizes, spacing, theme } from 'styles/tokens'
+import { sizes, spacing, defaultTheme } from 'styles/tokens'
 
 export const Options = styled.div`
   width: ${sizes.width.full};
 `
 
-export const QuestionCode = styled.div`
+export const QuestionCode = styled.div<{ theme?: ICustomTheme }>`
   box-sizing: border-box;
-  background-color: ${theme.light.neutral[800]};
+  background-color: ${defaultTheme.light.neutral[800]};
   overflow: auto;
 
   padding: ${spacing.padding.md};
@@ -134,7 +135,7 @@ export const QuestionCode = styled.div`
 
   b,
   strong {
-    ${mixinFontWeight('bold')}
+    ${({ theme }) => mixinFontWeight(theme, 'bold')}
   }
 `
 
@@ -146,8 +147,8 @@ const CodeBlockLayout = styled.div`
   width: ${sizes.width.full};
   padding: ${spacing.padding.md};
 
-  color: ${theme.light.neutral[200]};
-  background-color: ${theme.light.neutral[700]};
+  color: ${defaultTheme.light.neutral[200]};
+  background-color: ${defaultTheme.light.neutral[700]};
 
   border-top-left-radius: 0.8em;
   border-top-right-radius: 0.8em;

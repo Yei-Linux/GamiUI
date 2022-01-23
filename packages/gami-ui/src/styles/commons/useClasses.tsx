@@ -1,5 +1,5 @@
-import { css, useTheme } from '@emotion/react'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import { css } from '@emotion/react'
+import useGamiTheme from 'hooks/useGamiTheme'
 import { globalClassesBuilder } from 'styles/utilities/classNamesBuilder'
 import { displays } from './display'
 import { flex } from './flex'
@@ -7,7 +7,7 @@ import { flex } from './flex'
 const useClasses = () => {
   const {
     tokens: { boxShadow, borderRadius, spacing, font, opacity, zIndex },
-  } = useTheme() as ICustomTheme
+  } = useGamiTheme()
 
   const fontClasses = () =>
     globalClassesBuilder({ token: font, tokenName: 'font' })

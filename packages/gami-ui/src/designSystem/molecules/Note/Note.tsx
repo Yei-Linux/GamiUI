@@ -6,7 +6,7 @@ import * as S from './Note.styles'
 import NoteAdd from './NoteAdd'
 import NotesLayout from './NotesLayout'
 
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import Button from 'designSystem/atoms/Button'
 import Icon from 'designSystem/atoms/Icon'
 import Input from 'designSystem/atoms/Input'
@@ -66,7 +66,7 @@ const Note = ({
   onDelete,
   onChange,
   onChangeTitle,
-  background = theme.light.neutral[700],
+  background = defaultTheme.light.neutral[700],
   ...genericsProps
 }: INote) => {
   const [isEdit, setIsEdit] = useState(isEditDefault)

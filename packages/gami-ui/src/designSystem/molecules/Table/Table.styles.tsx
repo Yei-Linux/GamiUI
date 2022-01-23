@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { ShadowType } from 'core/domain/types'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import { mediaQuery } from 'styles/utilities/breakpoints'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
@@ -27,8 +27,8 @@ export const TableContainer = styled.table`
 `
 
 export const TableHeader = styled.thead`
-  background-color: ${theme.light.neutral[700]};
-  color: ${theme.light.neutral[0]};
+  background-color: ${defaultTheme.light.neutral[700]};
+  color: ${defaultTheme.light.neutral[0]};
 `
 
 export const TableHeaderRow = styled.tr``

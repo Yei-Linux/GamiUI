@@ -1,8 +1,12 @@
 import React from 'react'
 import { ThemeProvider } from '@emotion/react'
 import DefaultStyles, { IDefaultStyles } from '../../styles/DefaultStyles'
-import { tokens } from 'styles/tokens/tokens'
-import { theme } from 'styles/tokens'
+import { defaultTokens } from 'styles/tokens/tokens'
+import { defaultTheme } from 'styles/tokens'
+import {
+  generatorComponentsTheme,
+  TComponentsThemeItem,
+} from 'styles/tokens/componentsTheme'
 
 export type TThemeType = 'light' | 'dark'
 
@@ -12,27 +16,34 @@ export interface ThemeGamificationProps extends IDefaultStyles {
   themeUI?: ITheme
 }
 
-type TTokens = typeof tokens
-type TTheme = typeof theme
+export type TTokens = typeof defaultTokens
+export type TTheme = typeof defaultTheme
 
-type TThemeItem = typeof theme.light
+export type TThemeItem = typeof defaultTheme.light
+
+export interface IComponentsTheme {
+  dark: TComponentsThemeItem
+  light: TComponentsThemeItem
+}
 
 export interface ITheme {
   tokens: TTokens
   themes: TTheme
+  componentsThemes?: IComponentsTheme
 }
 
 export interface ICustomTheme {
   tokens: TTokens
   theme: TThemeItem
+  componentsTheme?: TComponentsThemeItem
 }
 
 const ThemeGamification = ({
   children,
   themeType = 'light',
   themeUI = {
-    tokens: tokens,
-    themes: theme,
+    tokens: defaultTokens,
+    themes: defaultTheme,
   },
   disableDefaultFonts = false,
   disableDefaultClasses = false,
@@ -40,7 +51,13 @@ const ThemeGamification = ({
 }: ThemeGamificationProps) => {
   return (
     <ThemeProvider
-      theme={{ tokens: themeUI.tokens, theme: themeUI.themes[themeType] }}
+      theme={{
+        tokens: themeUI.tokens,
+        theme: themeUI.themes[themeType],
+        componentsTheme: themeUI?.componentsThemes
+          ? themeUI.componentsThemes[themeType]
+          : generatorComponentsTheme(themeUI.tokens, themeUI.themes[themeType]),
+      }}
     >
       <DefaultStyles
         disableDefaultFonts={disableDefaultFonts}

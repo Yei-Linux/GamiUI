@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { spacing, theme } from 'styles/tokens'
+import { spacing, defaultTheme } from 'styles/tokens'
 
 export const mixinInput = (themeType: 'light' | 'dark') => css`
   border: none;
@@ -13,6 +13,6 @@ export const mixinInput = (themeType: 'light' | 'dark') => css`
   transition: input 0.1s ease-in-out;
 
   &::placeholder {
-    color: ${theme[themeType].neutral[500]};
+    color: ${defaultTheme[themeType].neutral[500]};
   }
 `

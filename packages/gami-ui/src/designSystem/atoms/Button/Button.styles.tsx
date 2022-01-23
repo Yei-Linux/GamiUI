@@ -1,26 +1,14 @@
 import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
-import {
-  BorderType,
-  ButtonType,
-  FontWeightType,
-  HeightType,
-  ShadowType,
-  TextAlignType,
-  WidthType,
-} from 'core/domain/types'
-import { mixinComponentsTypes } from 'styles/mixins/componentsTypes'
+import { ButtonType } from 'core/domain/types'
+import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
 import { spacing } from 'styles/tokens/spacing'
+import { GlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
-export const Button = styled.button<{
-  $variant?: ButtonType
-  $border?: BorderType
-  $shadow?: ShadowType
-  $width?: WidthType
-  $heigth?: HeightType
-  $textAlign?: TextAlignType
-  $fontWeight?: FontWeightType
+export const Button = styled(GlobalStylesComponent('button'))<{
+  $variant?: ButtonType,
+  theme?: ICustomTheme
 }>`
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
 
@@ -34,16 +22,6 @@ export const Button = styled.button<{
     cursor: pointer;
   }
 
-  ${({ $variant }) =>
-    mixinComponentsTypes('light', $variant || 'primary', 'button')};
-
-  ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
-    setGenericPropStyles({
-      border: $border || 'sm',
-      shadow: $shadow || 'md',
-      width: $width || 'auto',
-      heigth: $heigth || 'auto',
-      fontWeight: $fontWeight,
-      textAlign: $textAlign,
-    })};
+  ${({ $variant, theme }) =>
+    mixinComponentsTheme(theme, $variant || 'primary', 'button')};
 `

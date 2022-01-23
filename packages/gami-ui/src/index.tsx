@@ -72,7 +72,9 @@ export { default as Wave } from './designSystem/styled/Wave'
 //Config Theme
 export { default as ThemeGamification } from './providers/ThemeGamification'
 export {
-  theme,
+  defaultTheme,
+  defaultTokens,
+  generatorComponentsTheme,
   borderRadius,
   breakspointSizes,
   sizes,
@@ -81,7 +83,6 @@ export {
   zIndex,
   font,
   opacity,
-  componentsTheme,
 } from './styles/tokens'
 export { mediaQuery } from './styles/utilities/breakpoints'
 
@@ -92,4 +93,5 @@ export {
   useFormStore,
   useGameStore,
   useRadioStore,
+  useGamiTheme,
 } from './hooks'

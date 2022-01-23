@@ -1,12 +1,12 @@
-import { css, useTheme } from '@emotion/react'
+import { css } from '@emotion/react'
+import useGamiTheme from 'hooks/useGamiTheme'
 
 import { normalize } from 'polished'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
 const useNormalize = () => {
   const {
     tokens: { sizes, spacing, font },
-  } = useTheme() as ICustomTheme
+  } = useGamiTheme()
 
   const normalizeGamiUI = () => css`
     html {

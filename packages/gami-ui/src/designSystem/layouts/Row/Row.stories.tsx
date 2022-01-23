@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import Row from '.'
 import Col from '../Col'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 
 export default {
   title: 'Layout/Row',
@@ -17,8 +17,8 @@ export const Basic = (args: any) => (
     <Col spacing="sm">
       <p
         style={{
-          background: theme.light.primary.jordyBlue,
-          color: theme.light.neutral[800],
+          background: defaultTheme.light.primary.jordyBlue,
+          color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
       >
@@ -29,8 +29,8 @@ export const Basic = (args: any) => (
     <Col spacing="sm">
       <p
         style={{
-          background: theme.light.primary.jordyBlue,
-          color: theme.light.neutral[800],
+          background: defaultTheme.light.primary.jordyBlue,
+          color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
       >
@@ -41,8 +41,8 @@ export const Basic = (args: any) => (
     <Col spacing="sm">
       <p
         style={{
-          background: theme.light.primary.jordyBlue,
-          color: theme.light.neutral[800],
+          background: defaultTheme.light.primary.jordyBlue,
+          color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
       >
@@ -53,8 +53,8 @@ export const Basic = (args: any) => (
     <Col spacing="sm">
       <p
         style={{
-          background: theme.light.primary.jordyBlue,
-          color: theme.light.neutral[800],
+          background: defaultTheme.light.primary.jordyBlue,
+          color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
       >

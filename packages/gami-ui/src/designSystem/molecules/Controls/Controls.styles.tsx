@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { spacing, theme } from 'styles/tokens'
+import { spacing, defaultTheme } from 'styles/tokens'
 
 export const Controls = styled.div<{ $maxWidth?: string }>`
   padding: ${spacing.padding.md};
@@ -19,7 +19,7 @@ export const ControlsItemGroup = styled.div`
 
 export const ControlsItem = styled.div`
   text-align: center;
-  background-color: ${theme.light.primary.hawkesBlue};
+  background-color: ${defaultTheme.light.primary.hawkesBlue};
   border-radius: 15em;
 
   padding: 5px;

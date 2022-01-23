@@ -9,7 +9,7 @@ import Spacer from 'designSystem/layouts/Spacer'
 
 import { IMessage, ITextDetail } from './Chat'
 import * as S from './Chat.styles'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 
 export interface ChatUserMessageProps {
   message: IMessage
@@ -38,11 +38,11 @@ const ChatUserMessage = ({ message }: ChatUserMessageProps) => {
                 >
                   <Message
                     color={
-                      !message?.isMe ? theme.light.secondary.nepal : 'white'
+                      !message?.isMe ? defaultTheme.light.secondary.nepal : 'white'
                     }
                     maxWidth="none"
                     background={
-                      message?.isMe ? theme.light.secondary.nepal : 'white'
+                      message?.isMe ? defaultTheme.light.secondary.nepal : 'white'
                     }
                     heigth="auto"
                     width="auto"

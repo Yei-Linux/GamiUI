@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { BorderType, ShadowType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { mixinScroll } from 'styles/mixins/scroll'
-import { spacing, theme } from 'styles/tokens'
+import { spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const NoteAdd = styled.div`
@@ -49,7 +49,7 @@ export const NoteTitle = styled.div<{
   $background?: string
 }>`
   padding: ${({ $padding }) => $padding};
-  border-bottom: 1px solid ${theme.light.neutral[700]};
+  border-bottom: 1px solid ${defaultTheme.light.neutral[700]};
 
   input {
     background-color: ${({ $background }) => $background};

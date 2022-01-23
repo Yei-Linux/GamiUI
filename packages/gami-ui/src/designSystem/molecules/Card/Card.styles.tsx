@@ -6,7 +6,7 @@ import {
   HeightType,
 } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { sizes, spacing, theme } from 'styles/tokens'
+import { sizes, spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const Card = styled.div<{
@@ -46,5 +46,5 @@ export const Footer = styled.div`
   margin: 0px;
 
   width: ${sizes.width.full};
-  border: 1px solid ${theme.light.neutral[800]};
+  border: 1px solid ${defaultTheme.light.neutral[800]};
 `

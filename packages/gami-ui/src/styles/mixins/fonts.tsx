@@ -1,27 +1,71 @@
 import { css } from '@emotion/react'
 import { FontWeightType, TextAlignType } from 'core/domain/types'
-import { theme, font } from 'styles/tokens'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
-export const mixinTextAlign = (textAlign: TextAlignType) => css`
-  text-align: ${font.textAlign[textAlign]};
-`
+export const mixinTextAlign = (
+  themeGlobal: ICustomTheme,
+  textAlign: TextAlignType
+) => {
+  if (!themeGlobal) return ``
 
-export const mixinFontWeight = (fontWeight: FontWeightType) => css`
-  font-weight: ${font.weight[fontWeight]};
-`
+  const { tokens } = themeGlobal
 
-export const mixinTitle = (themeType: 'light' | 'dark') => css`
-  ${mixinFontWeight('bold')}
-  font-size: ${font.size.md};
-  color: ${theme[themeType].neutral[0]};
-`
+  const tokenValue = tokens.font.textAlign[textAlign]
 
-export const mixinSubtitle = (themeType: 'light' | 'dark') => css`
-  font-size: ${font.size.sm};
-  color: ${theme[themeType].neutral[300]};
-`
+  if (!tokenValue) return ``
 
-export const mixinDescription = (themeType: 'light' | 'dark') => css`
-  font-size: ${font.size.xs};
-  color: ${theme[themeType].neutral[500]};
-`
+  return css`
+    text-align: ${tokenValue};
+  `
+}
+
+export const mixinFontWeight = (
+  themeGlobal: ICustomTheme,
+  fontWeight: FontWeightType
+) => {
+  if (!themeGlobal) return ``
+
+  const { tokens } = themeGlobal
+
+  const tokenValue = tokens.font.weight[fontWeight]
+
+  if (!tokenValue) return ``
+
+  return css`
+    font-weight: ${tokenValue};
+  `
+}
+
+export const mixinTitle = (themeGlobal: ICustomTheme) => {
+  const { theme, tokens } = themeGlobal
+
+  if (!theme && !tokens) return
+
+  return css`
+    ${mixinFontWeight(themeGlobal, 'bold')}
+    font-size: ${tokens.font.size.md};
+    color: ${theme.neutral[0]};
+  `
+}
+
+export const mixinSubtitle = (themeGlobal: ICustomTheme) => {
+  const { theme, tokens } = themeGlobal
+
+  if (!theme && !tokens) return
+
+  return css`
+    font-size: ${tokens.font.size.sm};
+    color: ${theme.neutral[300]};
+  `
+}
+
+export const mixinDescription = (themeGlobal: ICustomTheme) => {
+  const { theme, tokens } = themeGlobal
+
+  if (!theme && !tokens) return
+
+  return css`
+    font-size: ${tokens.font.size.xs};
+    color: ${theme.neutral[500]};
+  `
+}

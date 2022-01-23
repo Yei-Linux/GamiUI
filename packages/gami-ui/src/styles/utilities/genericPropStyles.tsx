@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinBorderRadius } from 'styles/mixins/border'
 import { mixinFontWeight, mixinTextAlign } from 'styles/mixins/fonts'
 import { mixinHeight } from 'styles/mixins/height'
@@ -8,7 +9,7 @@ import { mixinShadow } from 'styles/mixins/shadow'
 import { mixinWidth } from 'styles/mixins/width'
 import { builderSpacersByDevice } from './spacersBuilderByDevice'
 
-export const setGenericPropStyles = ({
+export const setGenericPropStyles = (theme: ICustomTheme,{
   shadow,
   border,
   width,
@@ -18,12 +19,12 @@ export const setGenericPropStyles = ({
   padding,
   margin,
 }: IGenericPropStyles) => css`
-  ${shadow && mixinShadow(shadow)}
-  ${border && mixinBorderRadius(border)}
-    ${width && mixinWidth(width)}
-    ${heigth && mixinHeight(heigth)}
-    ${textAlign && mixinTextAlign(textAlign)}
-    ${fontWeight && mixinFontWeight(fontWeight)}
+  ${shadow && mixinShadow(theme,shadow)}
+  ${border && mixinBorderRadius(theme,border)}
+    ${width && mixinWidth(theme,width)}
+    ${heigth && mixinHeight(theme,heigth)}
+    ${textAlign && mixinTextAlign(theme,textAlign)}
+    ${fontWeight && mixinFontWeight(theme,fontWeight)}
     ${padding && builderSpacersByDevice(padding, 'padding')}
     ${margin && builderSpacersByDevice(margin, 'margin')}
 `

@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { spacing, theme } from 'styles/tokens'
+import { spacing, defaultTheme } from 'styles/tokens'
 import { ScrollBar } from 'styles/utilities/commonComponent'
 
 const HEIGHT = '300px'
 
 export const Chat = styled.div`
-  background-color: ${theme.light.neutral[700]};
+  background-color: ${defaultTheme.light.neutral[700]};
   min-width: fit-content;
   padding: ${spacing.padding.md};
 `

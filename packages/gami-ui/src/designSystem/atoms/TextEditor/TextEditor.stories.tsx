@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import TextEditor from '.'
 import Row from 'designSystem/layouts/Row'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import Button from '../Button'
 import CodeView from 'designSystem/molecules/CodeView'
 
@@ -32,7 +32,7 @@ export const WithCodeBlocks = () => {
     <Row height="auto" justifyContent="space-around">
       <div
         style={{
-          background: theme.light.primary.hawkesBlue,
+          background: defaultTheme.light.primary.hawkesBlue,
           borderRadius: '0.5em',
           padding: '1rem',
         }}

@@ -9,7 +9,7 @@ import {
 } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { mixinInput } from 'styles/mixins/input'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const InputBox = styled.div<{
@@ -21,7 +21,7 @@ export const InputBox = styled.div<{
   $fontWeight?: FontWeightType
 }>`
   overflow: hidden;
-  background: ${theme.light.neutral[800]};
+  background: ${defaultTheme.light.neutral[800]};
   ${mixinFlexVariants({ alignItems: 'center' })}
   max-width: 300px;
 

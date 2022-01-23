@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import Container from '.'
 import styled from '@emotion/styled'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 
 export default {
   title: 'Layout/Container',
@@ -13,7 +13,7 @@ export default {
 } as Meta
 
 const ContaierBasic = styled(Container)`
-  background-color: ${theme.light.neutral[500]};
+  background-color: ${defaultTheme.light.neutral[500]};
 `
 
 export const Basic = () => (

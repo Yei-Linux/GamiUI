@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+import { defaultTheme } from 'styles/tokens'
+import {
+  THEME_TOKENS_FIRST_VARIANT,
+  THEME_TOKENS_SECOND_VARIANT,
+  THEME_TOKENS_THIRD_VARIANT,
+} from 'core/utils/constants'
+import ThemeGamification from 'providers/ThemeGamification'
+
+import Button from '../atoms/Button'
+
+<Meta title="GamiUI Provider" />
+
+# Using ThemeGamification Provider
+
+<ThemeGamification themeUI={THEME_TOKENS_FIRST_VARIANT}>
+  <Button preffix="Test">First Variant</Button>
+</ThemeGamification>
+
+<ThemeGamification themeUI={THEME_TOKENS_SECOND_VARIANT}>
+  <Button>Second Variant</Button>
+</ThemeGamification>
+
+<ThemeGamification themeUI={THEME_TOKENS_THIRD_VARIANT}>
+  <Button>Third Variant</Button>
+</ThemeGamification>

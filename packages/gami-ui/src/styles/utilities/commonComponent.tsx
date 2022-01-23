@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { font, theme } from 'styles/tokens'
+import { font, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from './genericPropStyles'
 
 export const GlobalStylesComponent = (tag: any) => styled(
@@ -17,8 +17,9 @@ export const GlobalStylesComponent = (tag: any) => styled(
     $fontWeight,
     $padding,
     $margin,
+    theme,
   }) =>
-    setGenericPropStyles({
+    setGenericPropStyles(theme, {
       shadow: $shadow,
       border: $border,
       width: $width,
@@ -32,12 +33,12 @@ export const GlobalStylesComponent = (tag: any) => styled(
 
 export const TitleContainer = styled.div`
   font-weight: ${font.weight.medium};
-  color: ${theme.light.neutral[0]};
+  color: ${defaultTheme.light.neutral[0]};
   margin-bottom: 3px;
 `
 
 export const SubtitleContainer = styled.div`
-  color: ${theme.light.neutral[300]};
+  color: ${defaultTheme.light.neutral[300]};
   font-size: 0.9em;
 `
 
@@ -56,7 +57,7 @@ export const ScrollBar = () => css`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${theme.light.primary.hawkesBlue};
+    background-color: ${defaultTheme.light.primary.hawkesBlue};
     border-radius: 20px;
   }
 `

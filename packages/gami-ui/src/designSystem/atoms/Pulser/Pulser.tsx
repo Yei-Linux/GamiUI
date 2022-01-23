@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import React from 'react'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import Icon from '../Icon'
 import * as S from './Pulser.styles'
@@ -37,8 +37,8 @@ const Pulser = ({
   children,
   isActive = false,
   isBloqued = false,
-  borderColor = theme.light.primary.jordyBlue,
-  backgroundColor = theme.light.neutral[800],
+  borderColor = defaultTheme.light.primary.jordyBlue,
+  backgroundColor = defaultTheme.light.neutral[800],
   progressText,
   ...genericsProps
 }: IPulser) => {

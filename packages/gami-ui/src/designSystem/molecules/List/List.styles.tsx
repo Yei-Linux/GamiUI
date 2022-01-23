@@ -7,7 +7,7 @@ import {
   HeightType,
 } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { spacing, theme } from 'styles/tokens'
+import { spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const List = styled.ul<{
@@ -28,13 +28,13 @@ export const List = styled.ul<{
 `
 
 const selectedItemStyle = () => css`
-  background-color: ${theme.light.primary.jordyBlue};
+  background-color: ${defaultTheme.light.primary.jordyBlue};
 
   div {
-    color: ${theme.light.neutral[800]};
+    color: ${defaultTheme.light.neutral[800]};
   }
   svg {
-    fill: ${theme.light.neutral[800]};
+    fill: ${defaultTheme.light.neutral[800]};
   }
 `
 
@@ -56,13 +56,13 @@ export const ListItem = styled.li`
   }
 
   &.selected {
-    border: 1px solid ${theme.light.neutral[500]};
+    border: 1px solid ${defaultTheme.light.neutral[500]};
     border-radius: 0.4em;
     ${selectedItemStyle()}
   }
 
   &.allborder {
-    border: 1px solid ${theme.light.neutral[500]};
+    border: 1px solid ${defaultTheme.light.neutral[500]};
     border-radius: 0.4em;
     &:hover {
       ${selectedItemStyle()}
@@ -70,7 +70,7 @@ export const ListItem = styled.li`
   }
 
   &.halfborder {
-    border-bottom: 1px solid ${theme.light.neutral[500]};
+    border-bottom: 1px solid ${defaultTheme.light.neutral[500]};
   }
 
   &.noborder {

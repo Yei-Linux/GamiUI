@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { borderRadius, theme } from 'styles/tokens'
+import { borderRadius, defaultTheme } from 'styles/tokens'
 
 export const mixinScroll = (themeType: 'light' | 'dark') => css`
   &::-webkit-scrollbar {
@@ -11,7 +11,7 @@ export const mixinScroll = (themeType: 'light' | 'dark') => css`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${theme[themeType].neutral[500]};
+    background-color: ${defaultTheme[themeType].neutral[500]};
     border-radius: ${borderRadius.md};
   }
 `

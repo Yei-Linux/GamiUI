@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import * as S from './ProgressBar.styles'
 import ProgressCircle from './ProgressCircle'
 
@@ -61,7 +61,7 @@ const ProgressBar = ({
         <ProgressCircle
           percent={percent}
           backgroundProgress={
-            backgroundProgress ?? theme.light.primary.jordyBlue
+            backgroundProgress ?? defaultTheme.light.primary.jordyBlue
           }
         />
       )}

@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { BorderType, ShadowType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { spacing, theme, zIndex } from 'styles/tokens'
+import { spacing, defaultTheme, zIndex } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const Modal = styled.div<{ $visible: boolean }>`
@@ -41,7 +41,7 @@ export const ModalContainer = styled.div<{
 }>`
   min-width: 500px;
   height: fit-content;
-  background-color: ${theme.light.neutral[800]};
+  background-color: ${defaultTheme.light.neutral[800]};
   ${({ $border, $shadow }) =>
     setGenericPropStyles({
       border: $border || 'sm',
@@ -51,12 +51,12 @@ export const ModalContainer = styled.div<{
 
 export const ModalHeader = styled.div`
   ${ModalLayout()}
-  border-bottom: 1px solid ${theme.light.neutral[500]};
+  border-bottom: 1px solid ${defaultTheme.light.neutral[500]};
 `
 
 export const ModalFooter = styled.div`
   ${ModalLayout()}
-  border-top: 1px solid ${theme.light.neutral[500]};
+  border-top: 1px solid ${defaultTheme.light.neutral[500]};
 `
 
 export const ModalBody = styled.div`

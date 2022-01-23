@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { BorderType, FontWeightType, ShadowType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { borderRadius, spacing, theme } from 'styles/tokens'
+import { borderRadius, spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const Tag = styled.div<{
@@ -18,8 +18,8 @@ export const Tag = styled.div<{
     cursor: pointer;
   }
 
-  background: ${({ $background }) => $background || theme.light.neutral[600]};
-  color: ${({ $color }) => $color || theme.light.neutral[400]};
+  background: ${({ $background }) => $background || defaultTheme.light.neutral[600]};
+  color: ${({ $color }) => $color || defaultTheme.light.neutral[400]};
 
   ${mixinFlexVariants({ alignItems: 'center' })}
 

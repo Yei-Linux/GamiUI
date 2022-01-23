@@ -3,7 +3,7 @@ import React from 'react'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import * as S from './Message.styles'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 
 export type TDirection = 'left' | 'right'
 
@@ -45,8 +45,8 @@ const Message = ({
 }: IMessage) => (
   <S.Message
     $direction={direction}
-    $background={background || theme.light.primary.jordyBlue}
-    $color={color || theme.light.neutral[800]}
+    $background={background || defaultTheme.light.primary.jordyBlue}
+    $color={color || defaultTheme.light.neutral[800]}
     $maxWidth={maxWidth}
     className={classNames({
       marker: hasMarker,

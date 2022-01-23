@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { sizes, spacing, theme, zIndex } from 'styles/tokens'
+import { sizes, spacing, defaultTheme, zIndex } from 'styles/tokens'
 
 export const ProgressBar = styled.div<{
   $backgroundProgressBar?: string
@@ -14,7 +14,7 @@ export const ProgressBar = styled.div<{
   overflow: hidden;
 
   background-color: ${({ $backgroundProgressBar }) =>
-    $backgroundProgressBar || theme.light.neutral[600]};
+    $backgroundProgressBar || defaultTheme.light.neutral[600]};
 
   &.bar {
     height: 15px;
@@ -47,7 +47,7 @@ export const ProgressPercent = styled.div<{
 
   width: ${({ $percent }) => `${$percent}%`};
   background-color: ${({ $backgroundProgress }) =>
-    $backgroundProgress || theme.light.primary.jordyBlue};
+    $backgroundProgress || defaultTheme.light.primary.jordyBlue};
 
   position: absolute;
   top: 0px;

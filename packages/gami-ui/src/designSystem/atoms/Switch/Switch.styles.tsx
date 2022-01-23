@@ -5,7 +5,7 @@ import {
   ShadowType,
   WidthType,
 } from 'core/domain/types'
-import { borderRadius, spacing, theme } from 'styles/tokens'
+import { borderRadius, spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const Switch = styled.button<{
@@ -31,11 +31,11 @@ export const Switch = styled.button<{
   }
 
   &.checked {
-    background: ${theme.light.primary.jordyBlue};
+    background: ${defaultTheme.light.primary.jordyBlue};
   }
 
   &.notChecked {
-    background: ${theme.light.neutral[400]};
+    background: ${defaultTheme.light.neutral[400]};
   }
 
   ${({ $border, $shadow, $width, $heigth }) =>
@@ -56,7 +56,7 @@ export const SwitchBall = styled.div`
 
   border-radius: ${borderRadius.md};
 
-  background: ${theme.light.neutral[800]};
+  background: ${defaultTheme.light.neutral[800]};
 
   transition: all 0.2s ease-in-out;
 

@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { ShadowType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { opacity, sizes, theme, zIndex } from 'styles/tokens'
+import { opacity, sizes, defaultTheme, zIndex } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 const PulserCommon = css`
@@ -58,8 +58,8 @@ export const PulserProgress = styled.div`
   margin: 10px auto;
   border-radius: 2em;
 
-  background-color: ${theme.light.primary.jordyBlue};
-  color: ${theme.light.neutral[700]};
+  background-color: ${defaultTheme.light.primary.jordyBlue};
+  color: ${defaultTheme.light.neutral[700]};
 `
 
 export const PulserBody = styled.div<{

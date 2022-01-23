@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { ShadowType } from 'core/domain/types'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 const stickyCommon = ({ $shadow }: { $shadow: ShadowType }) => css`
-  background-color: ${theme.light.neutral[800]};
+  background-color: ${defaultTheme.light.neutral[800]};
   z-index: 2;
   transition: all 0.3s;
   position: fixed;

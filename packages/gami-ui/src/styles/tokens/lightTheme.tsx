@@ -1,4 +1,4 @@
-export const colorLight = {
+export const lightTheme = {
   primary: {
     jordyBlue: '#7f9cf5',
     hawkesBlue: '#c0cffc',

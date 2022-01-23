@@ -1,13 +1,17 @@
 import { css } from '@emotion/react'
-import { componentsTheme } from 'styles/tokens'
 import { ButtonType, FeatureCardThemeTypes } from 'core/domain/types'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
-export const mixinComponentsTypes = (
-  themeType: 'light' | 'dark',
+export const mixinComponentsTheme = (
+  emotionTheme: ICustomTheme,
   typeStyle: ButtonType | FeatureCardThemeTypes,
   element: 'button' | 'link' | 'card' = 'button'
 ) => {
-  const { color, bg, border } = componentsTheme(themeType)[element][typeStyle]
+  const { componentsTheme } = emotionTheme
+
+  if (!componentsTheme) return ``
+
+  const { color, bg, border } = componentsTheme[element][typeStyle]
 
   return css`
     background: ${bg};

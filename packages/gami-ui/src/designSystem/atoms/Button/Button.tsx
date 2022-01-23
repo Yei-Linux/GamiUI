@@ -4,6 +4,8 @@ import { ButtonType } from 'core/domain/types'
 import * as S from './Button.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import Spacer from 'designSystem/layouts/Spacer'
+import withDefaults from 'hocs/WithDefault'
+import useGamiTheme from 'hooks/useGamiTheme'
 
 export type TButton = 'button' | 'reset' | 'submit'
 
@@ -33,9 +35,12 @@ const Button = ({
   type = 'button',
   ...genericsProps
 }: IButton) => {
+  const theme = useGamiTheme()
+
   return (
     <S.Button
       {...getGenericPropStyles(genericsProps)}
+      theme={theme}
       $variant={variant}
       type={type}
     >
@@ -50,4 +55,11 @@ const Button = ({
   )
 }
 
-export default Button
+const defaultProps = {
+  border: 'sm',
+  shadow: 'md',
+  width: 'auto',
+  heigth: 'auto',
+}
+
+export default withDefaults(Button, defaultProps)

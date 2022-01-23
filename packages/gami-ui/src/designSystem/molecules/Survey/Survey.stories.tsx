@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react'
 
 import Survey from '.'
 import { SAMPLE_CODE } from './constants'
-import { theme } from 'styles/tokens'
+import { defaultTheme } from 'styles/tokens'
 import { IQuestionSurvey } from './SurveyItem'
 
 export default {
@@ -50,7 +50,7 @@ Basic.args = {
             value: 'one',
             icon: {
               name: 'bullet__item',
-              fill: theme.light.primary.jordyBlue,
+              fill: defaultTheme.light.primary.jordyBlue,
             },
           },
           {
@@ -58,7 +58,7 @@ Basic.args = {
             value: 'two',
             icon: {
               name: 'bullet__item',
-              fill: theme.light.primary.jordyBlue,
+              fill: defaultTheme.light.primary.jordyBlue,
             },
           },
           {
@@ -66,7 +66,7 @@ Basic.args = {
             value: 'three',
             icon: {
               name: 'bullet__item',
-              fill: theme.light.primary.jordyBlue,
+              fill: defaultTheme.light.primary.jordyBlue,
             },
           },
         ],
