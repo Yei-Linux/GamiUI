@@ -1,4 +1,3 @@
-import useGamiTheme from 'hooks/useGamiTheme'
 import React from 'react'
 import * as S from './Spacer.styles'
 
@@ -22,11 +21,8 @@ export interface ISpacer {
 }
 
 const Spacer = ({ direction, size = 1, customSize }: ISpacer) => {
-  const theme = useGamiTheme()
-
   return (
     <S.Spacer
-      theme={theme}
       $direction={direction}
       $size={size}
       $customSize={customSize}

@@ -1,10 +1,18 @@
-import React from "react";
-import ThemeGamification from "../../src/providers/ThemeGamification"
+import React from 'react'
+import { ThemeProvider } from '@storybook/theming'
 
-const EmotionThemeProvider = (storyFn) => (
-  <ThemeGamification>
-    {storyFn()}
-  </ThemeGamification>
-);
+import ThemeGamification from '../../src/providers/ThemeGamification'
+import { useStorybookTheme } from '../../src/hooks/useStorybookTheme'
+import { DEFAULT_THEME_MODES } from '../../src/core/utils/constants'
 
-export default EmotionThemeProvider;
+const EmotionThemeProvider = (storyFn) => {
+  const themeType = useStorybookTheme()
+
+  return (
+    <ThemeProvider theme={DEFAULT_THEME_MODES[themeType]}>
+      <ThemeGamification>{storyFn()}</ThemeGamification>
+    </ThemeProvider>
+  )
+}
+
+export default EmotionThemeProvider

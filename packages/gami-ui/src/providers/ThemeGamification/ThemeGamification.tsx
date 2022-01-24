@@ -26,16 +26,16 @@ export interface IComponentsTheme {
   light: TComponentsThemeItem
 }
 
-export interface ITheme {
-  tokens: TTokens
-  themes: TTheme
-  componentsThemes?: IComponentsTheme
-}
-
 export interface ICustomTheme {
   tokens: TTokens
   theme: TThemeItem
   componentsTheme?: TComponentsThemeItem
+}
+
+export interface ITheme {
+  tokens: TTokens
+  themes: TTheme
+  componentsThemes?: IComponentsTheme
 }
 
 const ThemeGamification = ({

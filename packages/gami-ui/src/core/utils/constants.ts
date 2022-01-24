@@ -1,5 +1,8 @@
-import { defaultTheme, generatorComponentsTheme } from 'styles/tokens'
-import { defaultTokens } from 'styles/tokens/tokens'
+import {
+  defaultTheme,
+  defaultTokens,
+  generatorComponentsTheme,
+} from '../../styles/tokens'
 
 export const DESIGN_TYPES = {
   width: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
@@ -24,43 +27,57 @@ export const REGEX_RULES = {
   ONLY_NUMBERS: /^[0-9]+$/,
 }
 
-export const THEME_TOKENS_FIRST_VARIANT = {
-  tokens: defaultTokens,
-  themes: {
-    dark: defaultTheme.dark,
-    light: {
-      ...defaultTheme.light,
-      primary: {
-        ...defaultTheme.light.primary,
-        jordyBlue: '#D9D7F1',
-      },
-    },
-  },
-}
-
 const lightThemeComponents = generatorComponentsTheme(
   defaultTokens,
   defaultTheme.light
 )
 
+const darkThemeComponents = generatorComponentsTheme(
+  defaultTokens,
+  defaultTheme.dark
+)
+
+export const DEFAULT_THEME_LIGHT_UI = {
+  tokens: defaultTokens,
+  theme: defaultTheme.light,
+  componentsTheme: lightThemeComponents,
+}
+
+export const DEFAULT_THEME_DARK_UI = {
+  tokens: defaultTokens,
+  theme: defaultTheme.dark,
+  componentsTheme: darkThemeComponents,
+}
+
+export const DEFAULT_THEME_MODES = {
+  dark: DEFAULT_THEME_DARK_UI,
+  light: DEFAULT_THEME_LIGHT_UI,
+}
+
+export const THEME_TOKENS_FIRST_VARIANT = {
+  tokens: defaultTokens,
+  theme: {
+    ...defaultTheme.light,
+    primary: {
+      ...defaultTheme.light.primary,
+      jordyBlue: '#D9D7F1',
+    },
+  },
+  componentsTheme: lightThemeComponents,
+}
+
 export const THEME_TOKENS_SECOND_VARIANT = {
   tokens: defaultTokens,
-  themes: {
-    dark: defaultTheme.dark,
-    light: defaultTheme.light,
-  },
-  componentsThemes: {
-    dark: generatorComponentsTheme(defaultTokens, defaultTheme.dark),
-    light: {
-      ...lightThemeComponents,
-      button: {
-        ...lightThemeComponents.button,
+  theme: defaultTheme.light,
+  componentsTheme: {
+    ...lightThemeComponents,
+    button: {
+      ...lightThemeComponents.button,
 
-        primary: {
-          bg: 'red',
-          color: 'yellow',
-          border: '0px',
-        },
+      primary: {
+        bg: 'red',
+        color: 'yellow',
+        border: '0px',
       },
     },
   },
@@ -78,5 +95,6 @@ export const THEME_TOKENS_THIRD_VARIANT = {
       full: '9999px',
     },
   },
-  themes: defaultTheme,
+  theme: defaultTheme.light,
+  componentsTheme: lightThemeComponents,
 }

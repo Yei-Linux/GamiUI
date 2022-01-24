@@ -1,6 +1,6 @@
 export const darkTheme = {
   primary: {
-    jordyBlue: '#7f9cf5',
+    jordyBlue: 'red',
     hawkesBlue: '#c0cffc',
     white: '#ffffff',
     mediumPurple: '#9879e9',

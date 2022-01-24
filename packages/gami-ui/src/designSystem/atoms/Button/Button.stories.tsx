@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/react'
+import React from 'react'
 import {
   getListTemplate,
   stylesControl,
@@ -19,6 +20,12 @@ export default {
     ...stylesControl,
   },
 } as Meta
+
+export const Basic = () => (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Button preffix="Test">Test</Button>
+    </div>
+)
 
 export const TypesButton = ListTemplate.bind({})
 TypesButton.args = {

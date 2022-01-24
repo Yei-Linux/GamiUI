@@ -39,5 +39,6 @@ module.exports = {
     '@storybook/addon-docs',
     'storybook-addon-react-docgen',
     '@storybook/addon-jest',
+    'storybook-dark-mode',
   ],
 }
