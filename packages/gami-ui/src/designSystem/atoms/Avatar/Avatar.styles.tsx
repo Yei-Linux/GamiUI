@@ -1,28 +1,18 @@
 import styled from '@emotion/styled'
 import { BorderType, FontWeightType, ShadowType } from 'core/domain/types'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { sizes } from 'styles/tokens/sizes'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { GlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Avatar = styled.div<{
+export const Avatar = styled(GlobalStylesComponent('div'))<{
   $background?: string
-  $border?: BorderType
-  $shadow?: ShadowType
-  $fontWeight?: FontWeightType
+  theme?: ICustomTheme
 }>`
-  width: ${sizes.avatar.width};
-  height: ${sizes.avatar.height};
+  width: ${({ theme }) => theme.tokens.sizes.avatar.width};
+  height: ${({ theme }) => theme.tokens.sizes.avatar.height};
 
   background: ${({ $background }) => $background};
   overflow: hidden;
 
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
-
-  ${({ $border, $shadow, $fontWeight }) =>
-    setGenericPropStyles({
-      border: $border || 'full',
-      shadow: $shadow,
-      fontWeight: $fontWeight || 'bold',
-      textAlign: 'center',
-    })};
 `

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { EmptyTypes } from 'core/domain/types'
 import React from 'react'
-import Row from '../../layouts/Row'
+import Row from 'designSystem/layouts/Row'
 import Icon from '../Icon'
 import { iconsEmpty } from './constants'
 import * as S from './Empty.styles'

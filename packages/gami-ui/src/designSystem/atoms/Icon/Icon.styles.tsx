@@ -1,16 +1,14 @@
 import styled from '@emotion/styled'
-import { BorderType, ShadowType } from 'core/domain/types'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { spacing } from 'styles/tokens'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { GlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Icon = styled.i<{
-  $border?: BorderType
-  $shadow?: ShadowType
+export const Icon = styled(GlobalStylesComponent('i'))<{
+  theme?: ICustomTheme
 }>`
   outline: none;
   appearance: none;
-  border: ${spacing.border.none};
+  border: ${({ theme }) => theme.tokens.spacing.border.none};
 
   &.hoverIcon {
     &:hover {
@@ -18,13 +16,7 @@ export const Icon = styled.i<{
     }
   }
 
-  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
-
-  ${({ $border, $shadow }) =>
-    setGenericPropStyles({
-      border: $border || 'none',
-      shadow: $shadow || 'none',
-    })};
+  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
 `
 
 export const Svg = styled.svg``

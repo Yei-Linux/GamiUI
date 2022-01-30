@@ -6,6 +6,7 @@ import * as S from './Avatar.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { sizes } from 'styles/tokens/sizes'
 import { REGEX_RULES } from 'core/utils/constants'
+import withDefaults from 'hocs/WithDefault'
 
 export interface IAvatar extends IGeneralProps {
   /**
@@ -64,4 +65,10 @@ const Avatar = ({
   )
 }
 
-export default Avatar
+const defaultProps = {
+  border: 'full',
+  fontWeight: 'bold',
+  textAlign: 'center',
+}
+
+export default withDefaults(Avatar, defaultProps)

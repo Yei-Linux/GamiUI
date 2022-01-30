@@ -2,12 +2,11 @@ import styled from '@emotion/styled'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { ButtonType } from 'core/domain/types'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
-import { spacing } from 'styles/tokens/spacing'
 import { GlobalStylesComponent } from 'styles/utilities/commonComponent'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
 export const Button = styled(GlobalStylesComponent('button'))<{
-  $variant?: ButtonType,
+  $variant?: ButtonType
   theme?: ICustomTheme
 }>`
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
@@ -16,7 +15,8 @@ export const Button = styled(GlobalStylesComponent('button'))<{
   outline: none;
   appearance: none;
 
-  padding: ${spacing.padding.sm} ${spacing.padding.md};
+  padding: ${({ theme }) =>
+    `${theme.tokens.spacing.padding.sm} ${theme.tokens.spacing.padding.md}`};
 
   &:hover {
     cursor: pointer;

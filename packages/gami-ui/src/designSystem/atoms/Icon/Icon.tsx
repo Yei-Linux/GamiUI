@@ -5,6 +5,7 @@ import { IconNames } from 'core/domain/types'
 import { IconsPack } from './constants'
 import * as S from './Icon.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import withDefaults from 'hocs/WithDefault'
 
 export interface IOnlyIcon {
   /**
@@ -53,4 +54,9 @@ const Icon = ({
   )
 }
 
-export default Icon
+const defaultProps = {
+  border: 'none',
+  shadow: 'none',
+}
+
+export default withDefaults(Icon, defaultProps)

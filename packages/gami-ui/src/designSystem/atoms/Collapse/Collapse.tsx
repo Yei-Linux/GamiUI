@@ -16,17 +16,20 @@ export interface ICollapse {
    */
   subtitle?: React.ReactNode
   /**
-   * Subtitle Of Collapse
+   * Content Left of Collapse Header
    */
   contentLeft?: React.ReactNode
   /**
-   * Subtitle Of Collapse
+   * Icon of Collapse Header
    */
   icon?: React.ReactNode
   /**
    * Content Of Collapse
    */
   children: React.ReactNode
+  /**
+   * Action on click header Collapse
+   */
   onClick?: (isVisible: boolean) => void
 }
 
