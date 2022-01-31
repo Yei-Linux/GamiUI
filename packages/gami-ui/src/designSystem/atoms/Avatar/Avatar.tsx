@@ -10,19 +10,23 @@ import withDefaults from 'hocs/WithDefault'
 
 export interface IAvatar extends IGeneralProps {
   /**
-   * Image Source for avatar
+   * Image source
    */
   src?: string
   /**
-   * ICon element for render
+   * Show icon in avatar
    */
   icon?: React.ReactNode
   /**
-   * Text for render on avatar
+   * 	Display text when image is missing
    */
   text?: string
   /**
-   * Dynamic background
+   * 	Display altText in avatar
+   */
+  alt?: string
+  /**
+   * Change avatar background
    */
   background?: string
 }
@@ -31,6 +35,7 @@ const Avatar = ({
   src,
   icon,
   text,
+  alt,
   background = 'rgb(97, 104, 106)',
   ...genericsProps
 }: IAvatar) => {
@@ -52,7 +57,7 @@ const Avatar = ({
           width={sizes.avatar.width}
           height={sizes.avatar.height}
           src={src}
-          alt="Avatar"
+          alt={alt}
         />
       )
     return null

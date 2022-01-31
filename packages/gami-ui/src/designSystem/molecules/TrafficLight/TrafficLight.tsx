@@ -3,9 +3,9 @@ import 'regenerator-runtime/runtime'
 import React, { useEffect, useState } from 'react'
 import * as S from './TrafficLight.styles'
 
-import { TrafficLightColors } from 'core/utils/trafficlight.util'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { timeout } from 'core/helpers/utilities.helper'
+import { TrafficLightColors } from './constants'
 
 export type TrafficLightProps = IGeneralProps
 
