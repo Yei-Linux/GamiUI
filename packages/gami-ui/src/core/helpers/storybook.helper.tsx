@@ -1,5 +1,5 @@
 import React from 'react'
-import TableStories from 'styles/utilities/TableStories'
+import TableStories from 'styles/utilities/components/TableStories'
 import { DESIGN_TYPES as optionsStyle } from 'core/utils/constants'
 
 export const getTemplate =

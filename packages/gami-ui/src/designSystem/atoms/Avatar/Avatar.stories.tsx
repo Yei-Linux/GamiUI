@@ -3,6 +3,9 @@ import { Meta } from '@storybook/react'
 
 import Avatar from '.'
 import Icon from '../Icon'
+import { IAvatar } from './Avatar'
+import { avatarProfilesImages } from './constants'
+import { getTemplate } from 'core/helpers/storybook.helper'
 
 export default {
   title: 'Atoms/Avatar',
@@ -11,18 +14,21 @@ export default {
   argTypes: {},
 } as Meta
 
-export const WithSrc = (args: any) => <Avatar {...args} />
-WithSrc.args = {
-  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPegjNNBzO3-k5t6hTm1htv1kxyWSOtCRr3A&usqp=CAU',
+const Template = getTemplate(Avatar)
+
+export const WithImage = Template.bind({})
+WithImage.args = {
+  zoomMode: 'inside',
+  src: avatarProfilesImages.one,
 }
 
-export const WithText = (args: any) => <Avatar {...args} />
+export const WithText = (args: IAvatar) => <Avatar {...args} />
 WithText.args = {
   text: 'Yei Linux',
   style: { color: 'white' },
 }
 
-export const WithIcon = (args: any) => <Avatar {...args} />
+export const WithIcon = (args: IAvatar) => <Avatar {...args} />
 WithIcon.args = {
   icon: <Icon fill="none" size="25px" name="facebook__transparent" />,
 }

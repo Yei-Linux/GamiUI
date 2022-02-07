@@ -1,6 +1,6 @@
-import { useEffect } from '@storybook/addons'
 import { prefixCls } from 'core/utils/cls'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDeepCompareEffect } from './useDeepCompareEffect'
 
 interface IClassValueItem {
   name: string
@@ -13,7 +13,7 @@ type THandles = Record<string, Array<string>>
 export interface IUseCssHandle {
   classes: TClasses
   componentPrefixCls: string
-  customPrexiCls: string | null
+  customPrexiCls?: string | null
 }
 
 /**
@@ -26,7 +26,7 @@ export interface IUseCssHandle {
  *
  *     useCssHandle({
  *        classes: {
- *          wrapper: ['wrapper']
+ *          wrapper: ['wrapper'],
  *          container: ['container', {name: 'container__gradient', modifier: 'red'}]
  *        },
  *        componentPrefixCls: 'button',
@@ -75,7 +75,11 @@ const useCssHandle = ({
 
   useEffect(() => {
     computedHandles()
-  }, [classes, componentPrefixCls, customPrexiCls])
+  }, [componentPrefixCls, customPrexiCls])
+
+  useDeepCompareEffect(() => {
+    computedHandles()
+  }, [classes])
 
   return { handles }
 }

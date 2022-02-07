@@ -7,8 +7,13 @@ import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import { sizes } from 'styles/tokens/sizes'
 import { REGEX_RULES } from 'core/utils/constants'
 import withDefaults from 'hocs/WithDefault'
+import { IUseImage } from 'hooks/useImage'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
 
-export interface IAvatar extends IGeneralProps {
+export type TZoomMode = 'outside' | 'inside' | 'none'
+
+export interface IAvatar extends IGeneralProps, IUseImage {
   /**
    * Image source
    */
@@ -29,6 +34,18 @@ export interface IAvatar extends IGeneralProps {
    * Change avatar background
    */
   background?: string
+  /**
+   * Change avatar text color
+   */
+  textColor?: string
+  /**
+   * Change avatar border color
+   */
+  borderColor?: string
+  /**
+   * Change avatar border color
+   */
+  zoomMode?: TZoomMode
 }
 
 const Avatar = ({
@@ -36,9 +53,23 @@ const Avatar = ({
   icon,
   text,
   alt,
+  sets,
+  breakpoints,
+  textColor,
+  borderColor,
+  zoomMode = 'none',
   background = 'rgb(97, 104, 106)',
   ...genericsProps
 }: IAvatar) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      image__container: ['image__container'],
+    },
+    componentPrefixCls: 'avatar',
+    customPrexiCls: genericsProps.className,
+  })
+
   const showOnlyFirstLettersOnText = (text: string): string => {
     const firstLettersCaptured: string[] | null = text.match(
       REGEX_RULES.CATCH_FIRST_LETTERS
@@ -54,6 +85,9 @@ const Avatar = ({
     if (src)
       return (
         <Image
+          className={cls(handles.image__container)}
+          sets={sets}
+          breakpoints={breakpoints}
           width={sizes.avatar.width}
           height={sizes.avatar.height}
           src={src}
@@ -64,7 +98,16 @@ const Avatar = ({
   }
 
   return (
-    <S.Avatar $background={background} {...getGenericPropStyles(genericsProps)}>
+    <S.Avatar
+      className={cls(handles.wrapper, {
+        zoom__outside: zoomMode == 'outside',
+        zoom__inside: zoomMode == 'inside',
+      })}
+      $borderColor={borderColor}
+      $textColor={textColor}
+      $background={background}
+      {...getGenericPropStyles(genericsProps)}
+    >
       {renderContent()}
     </S.Avatar>
   )

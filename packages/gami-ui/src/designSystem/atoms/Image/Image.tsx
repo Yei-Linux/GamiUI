@@ -1,3 +1,4 @@
+import useImage, { IUseImage } from 'hooks/useImage'
 import React, { CSSProperties, Fragment } from 'react'
 import { BackgroundImg, Img } from './Image.styles'
 
@@ -33,7 +34,7 @@ export interface IImagePropStyles {
   height?: string
 }
 
-export interface IImage extends IImagePropStyles {
+export interface IImage extends IImagePropStyles, IUseImage {
   /**
    * Children in case of Image Background
    */
@@ -74,7 +75,15 @@ const Image = ({
   className,
   backgroundSize = 'contain',
   style,
+  sets,
+  breakpoints,
 }: IImage) => {
+  const { setsImg, breakpointsImg } = useImage({ sets, breakpoints })
+  const optimizationImgSizes = {
+    srcset: setsImg,
+    sizes: breakpointsImg,
+  }
+
   const imageCommonsProps = {
     src,
     maxWidth,
@@ -85,6 +94,7 @@ const Image = ({
     height,
     backgroundSize,
     style,
+    ...optimizationImgSizes,
   }
   const ImageClassName = link ? {} : { className }
   const ImageLinkClassName = link ? { className } : {}
