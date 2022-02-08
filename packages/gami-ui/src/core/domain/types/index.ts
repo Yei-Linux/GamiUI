@@ -6,6 +6,7 @@ import { options as optionsGradient } from 'designSystem/styled/Gradient'
 import { options as optionsWave } from 'designSystem/styled/Wave'
 import { options as optionsHeroes } from 'designSystem/game/Character'
 import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCard'
+import { options as optionsAvatar } from 'designSystem/atoms/Avatar/constants'
 import { options } from 'designSystem/atoms/Link'
 
 import { DESIGN_TYPES } from 'core/utils/constants'
@@ -22,6 +23,8 @@ export type EmptyTypes = typeof optionsEmpty.type[number]
 
 export type ButtonType = typeof optionsButton.type[number]
 export type LinkType = typeof options.type[number]
+
+export type ZoomModeType = typeof optionsAvatar.type[number]
 
 export type IconNames = typeof optionsIcon.names[number]
 

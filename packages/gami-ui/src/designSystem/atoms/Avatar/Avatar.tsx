@@ -58,7 +58,7 @@ const Avatar = ({
   textColor,
   borderColor,
   zoomMode = 'none',
-  background = 'rgb(97, 104, 106)',
+  background = 'aliceblue',
   ...genericsProps
 }: IAvatar) => {
   const { handles } = useCssHandle({

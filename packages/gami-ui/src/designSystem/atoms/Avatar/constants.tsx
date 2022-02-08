@@ -1,5 +1,6 @@
 export const options = {
   type: [] as const,
+  zoomMode: ['outside', 'inside', 'none'] as const,
 }
 
 export const avatarProfilesImages = {

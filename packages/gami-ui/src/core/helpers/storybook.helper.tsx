@@ -8,11 +8,40 @@ export const getTemplate =
     return <Component {...args} />
   }
 
+export const getListTemplateTypes =
+  (Component: React.ComponentType<any>): any =>
+  ({
+    variants: { field, examples },
+    ...props
+  }: {
+    variants: any
+    props: any
+  }) =>
+    examples.map(({ label, value, customProps }: any, index: number) => (
+      <TableStories key={index} item={value} field={field} labelStory={label}>
+        <Component {...{ ...props, ...customProps, ...{ [field]: value } }} />
+      </TableStories>
+    ))
+
 export const getListTemplate =
   (Component: React.ComponentType<any>): any =>
-  ({ items, field, ...args }: { items: any[]; field: any }) =>
+  ({
+    items,
+    field,
+    labelStory,
+    ...args
+  }: {
+    items: any[]
+    labelStory: any
+    field: any
+  }) =>
     items.map((item, index) => (
-      <TableStories key={index} item={item} field={field}>
+      <TableStories
+        key={index}
+        item={item}
+        field={field}
+        labelStory={labelStory ? `${labelStory} ${index + 1}` : undefined}
+      >
         <Component {...args} {...item} />
       </TableStories>
     ))
