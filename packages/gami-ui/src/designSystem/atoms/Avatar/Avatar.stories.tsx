@@ -37,6 +37,7 @@ WithBorders.args = {
     })),
     field: 'border',
   },
+  background: '#F76E11',
   src: avatarProfilesImages.one,
   zoomMode: 'inside',
 }
@@ -51,6 +52,66 @@ WithShadows.args = {
     field: 'shadow',
   },
   src: avatarProfilesImages.one,
+  zoomMode: 'inside',
+  border: 'lg',
+}
+
+export const WithPaddings = ListTemplateType.bind({})
+WithPaddings.args = {
+  variants: {
+    examples: ['0px', '2px', '4px', '6px', '8px', '10px'].map((padding) => ({
+      label: padding,
+      value: padding,
+    })),
+    field: 'padding',
+  },
+  background: '#F76E11',
+  src: avatarProfilesImages.one,
+  zoomMode: 'inside',
+  border: 'lg',
+}
+
+export const WithMargins = ListTemplateType.bind({})
+WithMargins.args = {
+  variants: {
+    examples: ['0px', '2px', '4px', '6px', '8px', '10px'].map((margin) => ({
+      label: margin,
+      value: margin,
+    })),
+    field: 'margin',
+  },
+  background: '#F76E11',
+  src: avatarProfilesImages.one,
+  zoomMode: 'inside',
+  border: 'lg',
+}
+
+export const WithWidths = ListTemplateType.bind({})
+WithWidths.args = {
+  variants: {
+    examples: DESIGN_TYPES.width.map((width) => ({
+      label: width,
+      value: width,
+    })),
+    field: 'width',
+  },
+  src: avatarProfilesImages.one,
+  heigth: 'auto',
+  zoomMode: 'inside',
+  border: 'lg',
+}
+
+export const WithHeight = ListTemplateType.bind({})
+WithHeight.args = {
+  variants: {
+    examples: DESIGN_TYPES.height.map((height) => ({
+      label: height,
+      value: height,
+    })),
+    field: 'heigth',
+  },
+  src: avatarProfilesImages.one,
+  width: 'sm',
   zoomMode: 'inside',
   border: 'lg',
 }

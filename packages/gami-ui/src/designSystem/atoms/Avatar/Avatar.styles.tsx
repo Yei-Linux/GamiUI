@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { GlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 import { validatorProperty } from 'styles/utilities/validatorsCss'
 
 const valideZoomMode = () => css`
@@ -18,7 +18,7 @@ const valideZoomMode = () => css`
   }
 `
 
-export const Avatar = styled(GlobalStylesComponent('div'))<{
+export const Avatar = InheritGlobalStylesComponent(styled.div<{
   $borderColor?: string
   $background?: string
   $textColor?: string
@@ -37,4 +37,4 @@ export const Avatar = styled(GlobalStylesComponent('div'))<{
   ${valideZoomMode()}
 
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
-`
+`)

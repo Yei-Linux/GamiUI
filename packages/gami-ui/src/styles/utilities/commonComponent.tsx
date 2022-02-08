@@ -1,6 +1,15 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
+import {
+  ShadowType,
+  BorderType,
+  WidthType,
+  HeightType,
+  TextAlignType,
+  FontWeightType,
+} from 'core/domain/types'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { font, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from './genericPropStyles'
@@ -8,6 +17,42 @@ import { setGenericPropStyles } from './genericPropStyles'
 export const GlobalStylesComponent = (tag: any) => styled(
   tag
 )<IGenericPropStyles>`
+  ${({
+    $shadow,
+    $border,
+    $width,
+    $heigth,
+    $textAlign,
+    $fontWeight,
+    $padding,
+    $margin,
+    theme,
+  }) =>
+    setGenericPropStyles(theme, {
+      shadow: $shadow,
+      border: $border,
+      width: $width,
+      heigth: $heigth,
+      textAlign: $textAlign,
+      fontWeight: $fontWeight,
+      padding: $padding,
+      margin: $margin,
+    })};
+`
+
+export const InheritGlobalStylesComponent = (styledProps: any) => styled(
+  styledProps
+)<{
+  $shadow?: ShadowType
+  $border?: BorderType
+  $width?: WidthType
+  $heigth?: HeightType
+  $textAlign?: TextAlignType
+  $fontWeight?: FontWeightType
+  $padding?: string
+  $margin?: string
+  theme?: ICustomTheme
+}>`
   ${({
     $shadow,
     $border,

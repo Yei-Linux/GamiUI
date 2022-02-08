@@ -22,6 +22,14 @@ const getSpacerValues = (
     const [, spacerValueLG] = spacer.split('lg:')
     deviceObjectWithSpacers['lg'] = spacerValueLG
   }
+  if (
+    !spacer.includes('xs:') &&
+    !spacer.includes('sm:') &&
+    !spacer.includes('md:') &&
+    !spacer.includes('lg:')
+  ) {
+    deviceObjectWithSpacers['custom'] = spacer
+  }
 
   return deviceObjectWithSpacers
 }
@@ -30,6 +38,10 @@ const getFormatSpacers = (
   deviceObjectWithSpacers: IDynamicObjectWithField,
   spacingType: 'padding' | 'margin'
 ) => css`
+  ${Object.prototype.hasOwnProperty.call(deviceObjectWithSpacers, 'custom') &&
+  css`
+    ${`${spacingType}: ${deviceObjectWithSpacers['custom'] as string}`}
+  `}
   ${Object.prototype.hasOwnProperty.call(deviceObjectWithSpacers, 'xs') &&
   css`
     ${mediaQuery('xs')} {

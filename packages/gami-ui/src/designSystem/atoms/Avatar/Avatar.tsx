@@ -4,7 +4,6 @@ import Image from '../Image'
 import * as S from './Avatar.styles'
 
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
-import { sizes } from 'styles/tokens/sizes'
 import { REGEX_RULES } from 'core/utils/constants'
 import withDefaults from 'hocs/WithDefault'
 import { IUseImage } from 'hooks/useImage'
@@ -88,8 +87,8 @@ const Avatar = ({
           className={cls(handles.image__container)}
           sets={sets}
           breakpoints={breakpoints}
-          width={sizes.avatar.width}
-          height={sizes.avatar.height}
+          width="100%"
+          height="100%"
           src={src}
           alt={alt}
         />
