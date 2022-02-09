@@ -23,6 +23,37 @@ export const getListTemplateTypes =
       </TableStories>
     ))
 
+export const getStory = (Component: any, args: any, storyName: string) => {
+  const ListTemplateType = getListTemplateTypes(Component)
+
+  const Story = ListTemplateType.bind({})
+  Story.storyName = storyName
+  Story.args = args
+
+  return Story
+}
+
+export const getStories = (storyConfig: any[], Component: any) => {
+  return storyConfig.map(({ storyName, args }) =>
+    getStory(Component, args, storyName)
+  )
+}
+
+export const getStoryConfigStructure = ({
+  mainConfig,
+  storiesInheritGlobalStyles = [],
+  storiesComponent = [],
+  component,
+}: any) => {
+  const allstoriesConfig = [...storiesInheritGlobalStyles, ...storiesComponent]
+
+  const stories = getStories(allstoriesConfig, component)
+
+  const storyConfig = { mainConfig, stories }
+
+  return storyConfig
+}
+
 export const getListTemplate =
   (Component: React.ComponentType<any>): any =>
   ({
