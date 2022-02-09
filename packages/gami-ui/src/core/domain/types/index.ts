@@ -11,6 +11,7 @@ import { options } from 'designSystem/atoms/Link'
 
 import { DESIGN_TYPES } from 'core/utils/constants'
 import { MutableRefObject } from 'react'
+import { TTokensKeySizeComponents } from 'providers/ThemeGamification/ThemeGamification'
 
 export type WidthType = typeof DESIGN_TYPES.width[number]
 export type HeightType = typeof DESIGN_TYPES.height[number]
@@ -18,6 +19,7 @@ export type BorderType = typeof DESIGN_TYPES.border[number]
 export type ShadowType = typeof DESIGN_TYPES.shadow[number]
 export type TextAlignType = typeof DESIGN_TYPES.textAlign[number]
 export type FontWeightType = typeof DESIGN_TYPES.fontWeight[number]
+export type SizeType = typeof DESIGN_TYPES.size[number]
 
 export type EmptyTypes = typeof optionsEmpty.type[number]
 
@@ -41,6 +43,7 @@ export type FeatureCardThemeTypes = typeof optionsFeatureCard.type[number]
 
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'
+export type InheritStyleComponent = TTokensKeySizeComponents | null
 
 export type TOnClick = React.MouseEvent
 

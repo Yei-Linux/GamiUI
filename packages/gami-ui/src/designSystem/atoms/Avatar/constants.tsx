@@ -4,6 +4,8 @@ export const options = {
   textMode: ['firstcapitals', 'twofirstchars', 'threefirstchars'] as const,
 }
 
+export const maxSizeLetters = 3
+
 export const avatarTextModes = {
   firstcapitals: 'CATCH_FIRST_LETTERS',
   twofirstchars: 'CATCH_TWO_FIRST_CHARACTERS',

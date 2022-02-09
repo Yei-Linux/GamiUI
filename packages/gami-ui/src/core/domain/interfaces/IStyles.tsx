@@ -41,6 +41,10 @@ export interface IGenericPropStyles {
    * Margin Component
    */
   margin?: string
+  /**
+   * Size Component
+   */
+  size?: WidthType
 }
 
 export interface IStyles extends IGenericPropStyles {

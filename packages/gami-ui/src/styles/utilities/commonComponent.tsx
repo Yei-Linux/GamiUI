@@ -8,6 +8,7 @@ import {
   HeightType,
   TextAlignType,
   FontWeightType,
+  InheritStyleComponent,
 } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
@@ -40,9 +41,10 @@ export const GlobalStylesComponent = (tag: any) => styled(
     })};
 `
 
-export const InheritGlobalStylesComponent = (styledProps: any) => styled(
-  styledProps
-)<{
+export const InheritGlobalStylesComponent = (
+  styledProps: any,
+  component: InheritStyleComponent = null
+) => styled(styledProps)<{
   $shadow?: ShadowType
   $border?: BorderType
   $width?: WidthType
@@ -64,16 +66,20 @@ export const InheritGlobalStylesComponent = (styledProps: any) => styled(
     $margin,
     theme,
   }) =>
-    setGenericPropStyles(theme, {
-      shadow: $shadow,
-      border: $border,
-      width: $width,
-      heigth: $heigth,
-      textAlign: $textAlign,
-      fontWeight: $fontWeight,
-      padding: $padding,
-      margin: $margin,
-    })};
+    setGenericPropStyles(
+      theme,
+      {
+        shadow: $shadow,
+        border: $border,
+        width: $width,
+        heigth: $heigth,
+        textAlign: $textAlign,
+        fontWeight: $fontWeight,
+        padding: $padding,
+        margin: $margin,
+      },
+      component
+    )};
 `
 
 export const TitleContainer = styled.div`

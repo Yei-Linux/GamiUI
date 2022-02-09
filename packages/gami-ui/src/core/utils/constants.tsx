@@ -5,6 +5,7 @@ import {
 } from '../../styles/tokens'
 
 export const DESIGN_TYPES = {
+  size: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   width: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   height: ['auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   border: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
@@ -22,8 +23,8 @@ export const DESIGN_TYPES = {
 }
 
 export const REGEX_RULES = {
-  CATCH_TWO_FIRST_CHARACTERS: /^([a-z]{2})?\d+$/i,
-  CATCH_THREE_FIRST_CHARACTERS: /^([a-z]{3})?\d+$/i,
+  CATCH_TWO_FIRST_CHARACTERS: /^[\s\S]{0,2}/i,
+  CATCH_THREE_FIRST_CHARACTERS: /^[\s\S]{0,3}/g,
   CATCH_FIRST_LETTERS: /\b(\w)/g,
   FIND_CAPITAL_LETTERS: /(?=[A-Z])/,
   ONLY_NUMBERS: /^[0-9]+$/,

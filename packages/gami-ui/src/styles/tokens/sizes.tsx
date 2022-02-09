@@ -9,6 +9,7 @@ export const sizes = {
     full: '100%',
   },
   height: {
+    fit: 'fit-content',
     auto: 'auto',
     xs: '0.5rem',
     sm: '1rem',
@@ -16,8 +17,15 @@ export const sizes = {
     lg: '2rem',
     full: '100%',
   },
-  avatar: {
-    width: '40px',
-    height: '40px',
+  components: {
+    avatar: {
+      fit: 'fit-content',
+      auto: 'auto',
+      xs: '20px',
+      sm: '30px',
+      md: '40px',
+      lg: '60px',
+      full: '100%',
+    },
   },
 }

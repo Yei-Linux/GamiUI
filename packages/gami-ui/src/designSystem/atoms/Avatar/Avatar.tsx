@@ -10,7 +10,7 @@ import { IUseImage } from 'hooks/useImage'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import { TextModeType, ZoomModeType } from 'core/domain/types'
-import { avatarTextModes } from './constants'
+import { avatarTextModes, maxSizeLetters } from './constants'
 
 export interface IAvatar extends IGeneralProps, IUseImage {
   /**
@@ -42,11 +42,11 @@ export interface IAvatar extends IGeneralProps, IUseImage {
    */
   borderColor?: string
   /**
-   * Change avatar border color
+   * Display avatar zoom
    */
   zoomMode?: ZoomModeType
   /**
-   * Change avatar border color
+   * Display avatar text mode
    */
   textMode?: TextModeType
 }
@@ -74,6 +74,16 @@ const Avatar = ({
     customPrexiCls: genericsProps.className,
   })
 
+  const validateMaxLetters = (firstLettersGot: string) => {
+    const size = firstLettersGot.length
+
+    if (size > maxSizeLetters) {
+      return firstLettersGot.substring(0, maxSizeLetters)
+    }
+
+    return firstLettersGot
+  }
+
   const showOnlyFirstLettersOnText = (
     text: string,
     type: TextModeType
@@ -82,9 +92,10 @@ const Avatar = ({
     const firstLettersCaptured: string[] | null = text.match(
       REGEX_RULES[regexType]
     )
+
     const joinFirstLetters = firstLettersCaptured?.join('') || ''
 
-    return joinFirstLetters
+    return validateMaxLetters(joinFirstLetters)
   }
 
   const renderContent = (): React.ReactNode => {

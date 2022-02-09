@@ -18,23 +18,26 @@ const valideZoomMode = () => css`
   }
 `
 
-export const Avatar = InheritGlobalStylesComponent(styled.div<{
-  $borderColor?: string
-  $background?: string
-  $textColor?: string
-  theme?: ICustomTheme
-}>`
-  width: ${({ theme }) => theme.tokens.sizes.avatar.width};
-  height: ${({ theme }) => theme.tokens.sizes.avatar.height};
+export const Avatar = InheritGlobalStylesComponent(
+  styled.div<{
+    $borderColor?: string
+    $background?: string
+    $textColor?: string
+    theme?: ICustomTheme
+  }>`
+    width: ${({ theme }) => theme.tokens.sizes.components.avatar.md};
+    height: ${({ theme }) => theme.tokens.sizes.components.avatar.md};
 
-  background: ${({ $background }) => $background};
-  overflow: hidden;
+    background: ${({ $background }) => $background};
+    overflow: hidden;
 
-  ${({ $textColor }) => validatorProperty('color', $textColor)}
-  ${({ $borderColor }) =>
-    validatorProperty('border-color', `1px solid ${$borderColor}`)}
+    ${({ $textColor }) => validatorProperty('color', $textColor)}
+    ${({ $borderColor }) =>
+      validatorProperty('border-color', `1px solid ${$borderColor}`)}
 
   ${valideZoomMode()}
 
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
-`)
+  `,
+  'avatar'
+)
