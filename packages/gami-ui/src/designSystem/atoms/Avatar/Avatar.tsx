@@ -9,8 +9,8 @@ import withDefaults from 'hocs/WithDefault'
 import { IUseImage } from 'hooks/useImage'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
-
-export type TZoomMode = 'outside' | 'inside' | 'none'
+import { TextModeType, ZoomModeType } from 'core/domain/types'
+import { avatarTextModes } from './constants'
 
 export interface IAvatar extends IGeneralProps, IUseImage {
   /**
@@ -44,7 +44,11 @@ export interface IAvatar extends IGeneralProps, IUseImage {
   /**
    * Change avatar border color
    */
-  zoomMode?: TZoomMode
+  zoomMode?: ZoomModeType
+  /**
+   * Change avatar border color
+   */
+  textMode?: TextModeType
 }
 
 const Avatar = ({
@@ -57,6 +61,7 @@ const Avatar = ({
   textColor,
   borderColor,
   zoomMode = 'none',
+  textMode = 'firstcapitals',
   background = 'aliceblue',
   ...genericsProps
 }: IAvatar) => {
@@ -69,9 +74,13 @@ const Avatar = ({
     customPrexiCls: genericsProps.className,
   })
 
-  const showOnlyFirstLettersOnText = (text: string): string => {
+  const showOnlyFirstLettersOnText = (
+    text: string,
+    type: TextModeType
+  ): string => {
+    const regexType = avatarTextModes[type]
     const firstLettersCaptured: string[] | null = text.match(
-      REGEX_RULES.CATCH_FIRST_LETTERS
+      REGEX_RULES[regexType]
     )
     const joinFirstLetters = firstLettersCaptured?.join('') || ''
 
@@ -80,7 +89,7 @@ const Avatar = ({
 
   const renderContent = (): React.ReactNode => {
     if (icon) return icon
-    if (text) return showOnlyFirstLettersOnText(text)
+    if (text) return showOnlyFirstLettersOnText(text, textMode)
     if (src)
       return (
         <Image

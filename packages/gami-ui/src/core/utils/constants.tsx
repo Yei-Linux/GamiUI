@@ -22,6 +22,8 @@ export const DESIGN_TYPES = {
 }
 
 export const REGEX_RULES = {
+  CATCH_TWO_FIRST_CHARACTERS: /^([a-z]{2})?\d+$/i,
+  CATCH_THREE_FIRST_CHARACTERS: /^([a-z]{3})?\d+$/i,
   CATCH_FIRST_LETTERS: /\b(\w)/g,
   FIND_CAPITAL_LETTERS: /(?=[A-Z])/,
   ONLY_NUMBERS: /^[0-9]+$/,

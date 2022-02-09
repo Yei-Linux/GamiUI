@@ -24,7 +24,8 @@ export type EmptyTypes = typeof optionsEmpty.type[number]
 export type ButtonType = typeof optionsButton.type[number]
 export type LinkType = typeof options.type[number]
 
-export type ZoomModeType = typeof optionsAvatar.type[number]
+export type ZoomModeType = typeof optionsAvatar.zoomMode[number]
+export type TextModeType = typeof optionsAvatar.textMode[number]
 
 export type IconNames = typeof optionsIcon.names[number]
 

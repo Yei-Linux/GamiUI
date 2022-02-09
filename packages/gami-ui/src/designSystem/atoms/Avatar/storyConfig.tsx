@@ -3,7 +3,7 @@ import { getStoryConfigStructure } from 'core/helpers/storybook.helper'
 import { DESIGN_TYPES } from 'core/utils/constants'
 import Avatar from '.'
 import Icon from '../Icon'
-import { avatarProfilesImages } from './constants'
+import { avatarProfilesImages, options } from './constants'
 
 const mainConfig = {
   title: 'Atoms/Avatar',
@@ -215,6 +215,60 @@ const storiesComponent = [
       src: avatarProfilesImages.one,
       zoomMode: 'inside',
       shadow: 'md',
+    },
+  },
+  {
+    storyName: 'WithSetsAndBreakpoints',
+    args: {
+      variants: {
+        examples: [
+          {
+            label: 'For Sets device',
+            value: [
+              { setSrc: avatarProfilesImages.one, setWidth: '320w' },
+              { setSrc: avatarProfilesImages.one, setWidth: '480w' },
+              { setSrc: avatarProfilesImages.one, setWidth: '800w' },
+            ],
+          },
+        ],
+        field: 'sets',
+      },
+      breakpoints: [
+        { mediaMaxWidth: '320px', size: '280px' },
+        { mediaMaxWidth: '480px', size: '440px' },
+        { size: '800px' },
+      ],
+      background: '#F76E11',
+      src: avatarProfilesImages.one,
+      zoomMode: 'inside',
+      shadow: 'md',
+    },
+  },
+  {
+    storyName: 'WithZoomMode',
+    args: {
+      variants: {
+        examples: options.zoomMode.map((mode) => ({
+          label: mode,
+          value: mode,
+        })),
+        field: 'zoomMode',
+      },
+      background: '#F76E11',
+      src: avatarProfilesImages.one,
+    },
+  },
+  {
+    storyName: 'WithTextMode',
+    args: {
+      variants: {
+        examples: options.textMode.map((mode) => ({
+          label: mode,
+          value: mode,
+        })),
+        field: 'textMode',
+      },
+      text: 'Jesus Alvan',
     },
   },
 ]
