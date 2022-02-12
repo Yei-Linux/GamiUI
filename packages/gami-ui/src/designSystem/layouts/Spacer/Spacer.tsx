@@ -18,14 +18,19 @@ export interface ISpacer {
    * Custom Size
    */
   customSize?: string
+  /**
+   * Classname
+   */
+  className?: string
 }
 
-const Spacer = ({ direction, size = 1, customSize }: ISpacer) => {
+const Spacer = ({ direction, size = 1, customSize, className }: ISpacer) => {
   return (
     <S.Spacer
       $direction={direction}
       $size={size}
       $customSize={customSize}
+      className={className}
     />
   )
 }

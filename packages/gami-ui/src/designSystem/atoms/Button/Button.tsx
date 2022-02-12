@@ -1,30 +1,30 @@
 import React, { Fragment } from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { ButtonType } from 'core/domain/types'
+import { ButtonHtmlType, ButtonType } from 'core/domain/types'
 import * as S from './Button.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import Spacer from 'designSystem/layouts/Spacer'
 import withDefaults from 'hocs/WithDefault'
-
-export type TButton = 'button' | 'reset' | 'submit'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
 
 export interface IButton extends IGeneralProps {
   /**
-   * Content Button to show
+   * 	Display button content
    */
   children: React.ReactNode
   /**
-   * Button Variant
+   * Display theme button variants
    */
   variant?: ButtonType
   /**
-   * Button Preffix
+   * 	Display prefix Content button
    */
   preffix?: React.ReactNode
   /**
-   * Button Type Action
+   * Set html button types
    */
-  type?: TButton
+  type?: ButtonHtmlType
 }
 
 const Button = ({
@@ -34,16 +34,29 @@ const Button = ({
   type = 'button',
   ...genericsProps
 }: IButton) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      spacer__container: ['spacer__container'],
+    },
+    componentPrefixCls: 'button',
+    customPrexiCls: genericsProps.className,
+  })
+
   return (
     <S.Button
       {...getGenericPropStyles(genericsProps)}
       $variant={variant}
       type={type}
+      className={cls(handles.wrapper)}
     >
       {preffix && (
         <Fragment>
           {preffix}
-          <Spacer direction="right" />
+          <Spacer
+            className={cls(handles.spacer__container)}
+            direction="right"
+          />
         </Fragment>
       )}
       {children}
@@ -58,4 +71,8 @@ const defaultProps = {
   heigth: 'auto',
 }
 
-export default withDefaults(Button, defaultProps)
+type ButtonComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Button, defaultProps) as ButtonComponent<IButton>

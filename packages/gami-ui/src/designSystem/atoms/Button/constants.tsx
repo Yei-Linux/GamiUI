@@ -11,4 +11,5 @@ export const options = {
     'danger',
     'info',
   ] as const,
+  typeHtml: ['reset','button','submit'] as const
 }

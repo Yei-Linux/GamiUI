@@ -24,6 +24,7 @@ export type SizeType = typeof DESIGN_TYPES.size[number]
 export type EmptyTypes = typeof optionsEmpty.type[number]
 
 export type ButtonType = typeof optionsButton.type[number]
+export type ButtonHtmlType = typeof optionsButton.typeHtml[number]
 export type LinkType = typeof options.type[number]
 
 export type ZoomModeType = typeof optionsAvatar.zoomMode[number]

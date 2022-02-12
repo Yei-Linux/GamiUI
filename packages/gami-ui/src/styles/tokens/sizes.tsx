@@ -27,5 +27,14 @@ export const sizes = {
       lg: '60px',
       full: '100%',
     },
+    button: {
+      fit: 'fit-content',
+      auto: 'auto',
+      xs: '100px',
+      sm: '120px',
+      md: '140px',
+      lg: '160px',
+      full: '100%',
+    },
   },
 }
