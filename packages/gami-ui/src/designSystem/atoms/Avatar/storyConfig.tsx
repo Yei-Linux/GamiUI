@@ -3,9 +3,10 @@ import { getStoryConfigStructure } from 'core/helpers/storybook.helper'
 import { DESIGN_TYPES } from 'core/utils/constants'
 import Avatar from '.'
 import Icon from '../Icon'
-import { avatarProfilesImages, options } from './constants'
+import { avatarProfilesImages, options, withTextExamples } from './constants'
+import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 
-const mainConfig = {
+const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Avatar',
   component: Avatar,
   args: {},
@@ -80,7 +81,12 @@ const mainConfig = {
 const storiesInheritGlobalStyles = [
   {
     storyName: 'WithBorders',
-    args: {
+    self: {
+      args: {
+        background: '#F76E11',
+        src: avatarProfilesImages.one,
+        zoomMode: 'inside',
+      },
       variants: {
         examples: DESIGN_TYPES.border.map((border) => ({
           label: border,
@@ -88,14 +94,16 @@ const storiesInheritGlobalStyles = [
         })),
         field: 'border',
       },
-      background: '#F76E11',
-      src: avatarProfilesImages.one,
-      zoomMode: 'inside',
     },
   },
   {
     storyName: 'WithShadows',
-    args: {
+    self: {
+      args: {
+        src: avatarProfilesImages.one,
+        zoomMode: 'inside',
+        border: 'lg',
+      },
       variants: {
         examples: DESIGN_TYPES.shadow.map((shadow) => ({
           label: shadow,
@@ -103,14 +111,17 @@ const storiesInheritGlobalStyles = [
         })),
         field: 'shadow',
       },
-      src: avatarProfilesImages.one,
-      zoomMode: 'inside',
-      border: 'lg',
     },
   },
   {
     storyName: 'WithPaddings',
-    args: {
+    self: {
+      args: {
+        background: '#F76E11',
+        src: avatarProfilesImages.one,
+        zoomMode: 'inside',
+        border: 'lg',
+      },
       variants: {
         examples: ['0px', '2px', '4px', '6px', '8px', '10px'].map(
           (padding) => ({
@@ -120,15 +131,17 @@ const storiesInheritGlobalStyles = [
         ),
         field: 'padding',
       },
-      background: '#F76E11',
-      src: avatarProfilesImages.one,
-      zoomMode: 'inside',
-      border: 'lg',
     },
   },
   {
     storyName: 'WithMargins',
-    args: {
+    self: {
+      args: {
+        background: '#F76E11',
+        src: avatarProfilesImages.one,
+        zoomMode: 'inside',
+        border: 'lg',
+      },
       variants: {
         examples: ['0px', '2px', '4px', '6px', '8px', '10px'].map((margin) => ({
           label: margin,
@@ -136,15 +149,17 @@ const storiesInheritGlobalStyles = [
         })),
         field: 'margin',
       },
-      background: '#F76E11',
-      src: avatarProfilesImages.one,
-      zoomMode: 'inside',
-      border: 'lg',
     },
   },
   {
     storyName: 'WithWidths',
-    args: {
+    self: {
+      args: {
+        src: avatarProfilesImages.one,
+        heigth: 'auto',
+        zoomMode: 'inside',
+        border: 'lg',
+      },
       variants: {
         examples: DESIGN_TYPES.width.map((width) => ({
           label: width,
@@ -152,15 +167,17 @@ const storiesInheritGlobalStyles = [
         })),
         field: 'width',
       },
-      src: avatarProfilesImages.one,
-      heigth: 'auto',
-      zoomMode: 'inside',
-      border: 'lg',
     },
   },
   {
     storyName: 'WithHeight',
-    args: {
+    self: {
+      args: {
+        src: avatarProfilesImages.one,
+        width: 'sm',
+        zoomMode: 'inside',
+        border: 'lg',
+      },
       variants: {
         examples: DESIGN_TYPES.height.map((height) => ({
           label: height,
@@ -168,15 +185,16 @@ const storiesInheritGlobalStyles = [
         })),
         field: 'heigth',
       },
-      src: avatarProfilesImages.one,
-      width: 'sm',
-      zoomMode: 'inside',
-      border: 'lg',
     },
   },
   {
     storyName: 'WithSizes',
-    args: {
+    self: {
+      args: {
+        src: avatarProfilesImages.one,
+        zoomMode: 'inside',
+        border: 'lg',
+      },
       variants: {
         examples: DESIGN_TYPES.size.map((size) => ({
           label: size,
@@ -184,17 +202,46 @@ const storiesInheritGlobalStyles = [
         })),
         field: 'size',
       },
-      src: avatarProfilesImages.one,
-      zoomMode: 'inside',
-      border: 'lg',
     },
   },
 ]
 
 const storiesComponent = [
   {
+    storyName: 'WithGroup',
+    parent: {
+      args: {
+        count: 12,
+      },
+      variants: [
+        {
+          label: 'WithImage',
+          value: Object.entries(avatarProfilesImages).map(
+            ([, value], index) => (
+              <Avatar zoomMode="outside" src={value} key={index} />
+            )
+          ),
+        },
+        {
+          label: 'WithText',
+          value: withTextExamples.map(({ value, customProps }, index) => (
+            <Avatar
+              zoomMode="outside"
+              text={value}
+              key={index}
+              {...customProps}
+            />
+          )),
+        },
+      ],
+    },
+  },
+  {
     storyName: 'WithImage',
-    args: {
+    self: {
+      args: {
+        zoomMode: 'inside',
+      },
       variants: {
         examples: Object.entries(avatarProfilesImages).map(
           ([, value], index) => ({
@@ -204,46 +251,25 @@ const storiesComponent = [
         ),
         field: 'src',
       },
-      zoomMode: 'inside',
     },
   },
   {
     storyName: 'WithText',
-    args: {
+    self: {
+      args: {},
       variants: {
-        examples: [
-          {
-            label: 'Textone',
-            value: 'Jesus',
-            customProps: {
-              background: '#54BAB9',
-              textColor: 'white',
-            },
-          },
-          {
-            label: 'Texttwo',
-            value: 'Yei Linux',
-            customProps: {
-              background: '#54BAB9',
-              textColor: 'white',
-            },
-          },
-          {
-            label: 'Textthree',
-            value: 'Cesar Jesus Alberto',
-            customProps: {
-              background: '#54BAB9',
-              textColor: 'white',
-            },
-          },
-        ],
+        examples: withTextExamples,
         field: 'text',
       },
     },
   },
   {
     storyName: 'WithIcon',
-    args: {
+    self: {
+      args: {
+        background: 'white',
+        shadow: 'md',
+      },
       variants: {
         examples: [
           {
@@ -267,13 +293,17 @@ const storiesComponent = [
         ],
         field: 'icon',
       },
-      background: 'white',
-      shadow: 'md',
     },
   },
   {
     storyName: 'WithAlt',
-    args: {
+    self: {
+      args: {
+        background: '#F76E11',
+        src: avatarProfilesImages.one,
+        zoomMode: 'inside',
+        shadow: 'md',
+      },
       variants: {
         examples: [
           {
@@ -291,15 +321,22 @@ const storiesComponent = [
         ],
         field: 'alt',
       },
-      background: '#F76E11',
-      src: avatarProfilesImages.one,
-      zoomMode: 'inside',
-      shadow: 'md',
     },
   },
   {
     storyName: 'WithSetsAndBreakpoints',
-    args: {
+    self: {
+      args: {
+        breakpoints: [
+          { mediaMaxWidth: '320px', size: '280px' },
+          { mediaMaxWidth: '480px', size: '440px' },
+          { size: '800px' },
+        ],
+        background: '#F76E11',
+        src: avatarProfilesImages.one,
+        zoomMode: 'inside',
+        shadow: 'md',
+      },
       variants: {
         examples: [
           {
@@ -313,20 +350,15 @@ const storiesComponent = [
         ],
         field: 'sets',
       },
-      breakpoints: [
-        { mediaMaxWidth: '320px', size: '280px' },
-        { mediaMaxWidth: '480px', size: '440px' },
-        { size: '800px' },
-      ],
-      background: '#F76E11',
-      src: avatarProfilesImages.one,
-      zoomMode: 'inside',
-      shadow: 'md',
     },
   },
   {
     storyName: 'WithZoomMode',
-    args: {
+    self: {
+      args: {
+        background: '#F76E11',
+        src: avatarProfilesImages.one,
+      },
       variants: {
         examples: options.zoomMode.map((mode) => ({
           label: mode,
@@ -334,13 +366,14 @@ const storiesComponent = [
         })),
         field: 'zoomMode',
       },
-      background: '#F76E11',
-      src: avatarProfilesImages.one,
     },
   },
   {
     storyName: 'WithTextMode',
-    args: {
+    self: {
+      args: {
+        text: 'Jesus Alvan',
+      },
       variants: {
         examples: options.textMode.map((mode) => ({
           label: `${mode}: (Jesus Alvan)`,
@@ -348,7 +381,6 @@ const storiesComponent = [
         })),
         field: 'textMode',
       },
-      text: 'Jesus Alvan',
     },
   },
 ]
@@ -358,6 +390,7 @@ const storyConfig = getStoryConfigStructure({
   storiesInheritGlobalStyles,
   storiesComponent,
   component: Avatar,
+  parentComponent: Avatar.Group,
 })
 
 export { storyConfig }

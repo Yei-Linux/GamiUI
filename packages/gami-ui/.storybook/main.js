@@ -18,6 +18,12 @@ module.exports = {
       include: path.resolve(__dirname, '../'),
     })
 
+    config.module.rules.push({
+      test: /\.(ts|tsx)$/,
+      loader: require.resolve('babel-loader'),
+      include: path.resolve(__dirname, '../'),
+    })
+
     config.resolve.modules.push(path.resolve(__dirname, '../src'))
 
     return config

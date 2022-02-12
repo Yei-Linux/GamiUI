@@ -19,3 +19,30 @@ export const avatarProfilesImages = {
   four: 'https://i.imgur.com/IXPZxIr.png',
   five: 'https://i.imgur.com/ub0bTXj.png',
 }
+
+export const withTextExamples = [
+  {
+    label: 'Textone',
+    value: 'Jesus',
+    customProps: {
+      background: '#54BAB9',
+      textColor: 'white',
+    },
+  },
+  {
+    label: 'Texttwo',
+    value: 'Yei Linux',
+    customProps: {
+      background: '#54BAB9',
+      textColor: 'white',
+    },
+  },
+  {
+    label: 'Textthree',
+    value: 'Cesar Jesus Alberto',
+    customProps: {
+      background: '#54BAB9',
+      textColor: 'white',
+    },
+  },
+]

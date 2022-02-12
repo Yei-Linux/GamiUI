@@ -53,6 +53,10 @@ export interface IRow {
    * Flex Direction
    */
   flexDirection?: TFlexDirection
+  /**
+   * Classname
+   */
+  className?: string
 }
 
 const Row = ({
@@ -64,6 +68,7 @@ const Row = ({
   height = '100%',
   isWrap = true,
   flexDirection = 'row',
+  className,
 }: IRow) => {
   return (
     <S.Row
@@ -73,7 +78,7 @@ const Row = ({
       $alignItems={alignItems}
       $flexDirection={flexDirection}
       style={style}
-      className={classNames({ wrap: isWrap, nowrap: !isWrap })}
+      className={classNames(className, { wrap: isWrap, nowrap: !isWrap })}
     >
       {children}
     </S.Row>

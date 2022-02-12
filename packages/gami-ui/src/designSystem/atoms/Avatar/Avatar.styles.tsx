@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import Row from 'designSystem/layouts/Row'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
@@ -38,6 +39,23 @@ export const Avatar = InheritGlobalStylesComponent(
   ${valideZoomMode()}
 
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
+
+    &:hover {
+      cursor: pointer;
+    }
   `,
   'avatar'
 )
+
+export const AvatarGroup = styled(Row)`
+  ${Avatar} {
+    margin-left: -5px;
+  }
+`
+
+export const Count = styled(Row)`
+  width: 30px;
+  height: 100%;
+  margin-left: 0.4rem;
+  font-weight: bold;
+`

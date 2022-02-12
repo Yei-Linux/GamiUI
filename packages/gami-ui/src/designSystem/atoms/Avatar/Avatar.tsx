@@ -11,6 +11,7 @@ import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import { TextModeType, ZoomModeType } from 'core/domain/types'
 import { avatarTextModes, maxSizeLetters } from './constants'
+import AvatarGroup from './AvatarGroup'
 
 export interface IAvatar extends IGeneralProps, IUseImage {
   /**
@@ -132,10 +133,17 @@ const Avatar = ({
   )
 }
 
+Avatar.Group = AvatarGroup
+
 const defaultProps = {
   border: 'full',
   fontWeight: 'bold',
   textAlign: 'center',
 }
 
-export default withDefaults(Avatar, defaultProps)
+type AvatarComponent<P> = React.NamedExoticComponent<P> & {
+  Group: typeof AvatarGroup
+  defaultProps: P
+}
+
+export default withDefaults(Avatar, defaultProps) as AvatarComponent<IAvatar>
