@@ -16,7 +16,7 @@ export const setGenericPropStyles = (
     shadow,
     border,
     width,
-    heigth,
+    height,
     textAlign,
     fontWeight,
     padding,
@@ -27,7 +27,7 @@ export const setGenericPropStyles = (
   ${shadow && mixinShadow(theme, shadow)}
   ${border && mixinBorderRadius(theme, border)}
     ${width && mixinWidth(theme, width, component)}
-    ${heigth && mixinHeight(theme, heigth, component)}
+    ${height && mixinHeight(theme, height, component)}
     ${textAlign && mixinTextAlign(theme, textAlign)}
     ${fontWeight && mixinFontWeight(theme, fontWeight)}
     ${padding && builderSpacersByDevice(padding, 'padding')}
@@ -42,7 +42,7 @@ export const getGenericPropStyles = ({
   shadow,
   border,
   width,
-  heigth,
+  height,
   size,
   textAlign,
   fontWeight,
@@ -58,9 +58,9 @@ export const getGenericPropStyles = ({
   if (shadow) propStyles['$shadow'] = shadow
   if (border) propStyles['$border'] = border
   if (width) propStyles['$width'] = width
-  if (heigth) propStyles['$heigth'] = heigth
+  if (height) propStyles['$height'] = height
   if (size) propStyles['$width'] = size
-  if (size) propStyles['$heigth'] = size
+  if (size) propStyles['$height'] = size
   if (textAlign) propStyles['$textAlign'] = textAlign
   if (fontWeight) propStyles['$fontWeight'] = fontWeight
   if (padding) propStyles['$padding'] = padding

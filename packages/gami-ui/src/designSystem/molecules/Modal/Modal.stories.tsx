@@ -26,7 +26,7 @@ export const Basic = () => {
       <Button
         onClick={onOpen}
         border="md"
-        heigth="sm"
+        height="sm"
         variant="secondary"
         width="auto"
       >

@@ -14,14 +14,21 @@ export const Button = InheritGlobalStylesComponent(
     outline: none;
     appearance: none;
 
+    &.disabled {
+      cursor: not-allowed;
+      pointer-events: auto;
+    }
+
+    &.enabled {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
 
     padding: ${({ theme }) =>
       `${theme.tokens.spacing.padding.sm} ${theme.tokens.spacing.padding.md}`};
-
-    &:hover {
-      cursor: pointer;
-    }
 
     ${({ $variant, theme }) =>
       mixinComponentsTheme(theme, $variant || 'primary', 'button')};

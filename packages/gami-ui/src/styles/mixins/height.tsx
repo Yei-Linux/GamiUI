@@ -1,7 +1,12 @@
 import { css } from '@emotion/react'
 import { HeightType, InheritStyleComponent } from 'core/domain/types'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import {
+  IComponentSize,
+  ICustomTheme,
+} from 'providers/ThemeGamification/ThemeGamification'
+import { staticsSizesTokens } from 'styles/tokens/sizes'
 
+//TODO: Refactoring
 export const mixinHeight = (
   themeGlobal: ICustomTheme,
   height: HeightType,
@@ -20,18 +25,39 @@ export const mixinHeight = (
 
     if (!tokenComponentSizeValue) return ``
 
-    const heightComponent = tokenComponentSizeValue[height]
+    const sizeComponent = tokenComponentSizeValue[height]
 
-    if (!heightComponent) return ``
+    if (!sizeComponent) return ``
 
-    return css`
-      height: ${heightComponent};
-    `
+    const typeOfSize = typeof sizeComponent
+
+    const heightComponent =
+      typeOfSize == 'string'
+        ? (sizeComponent as string)
+        : (sizeComponent as IComponentSize)?.height
+
+    const isStaticSizeTokenValue = staticsSizesTokens.includes(heightComponent)
+
+    return isStaticSizeTokenValue
+      ? css`
+          height: ${heightComponent};
+        `
+      : css`
+          height: auto;
+          min-height: ${heightComponent};
+        `
   }
 
   if (!tokenValue) return ``
 
-  return css`
-    height: ${tokenValue};
-  `
+  const isStaticSizeTokenValue = staticsSizesTokens.includes(tokenValue)
+
+  return isStaticSizeTokenValue
+    ? css`
+        height: ${tokenValue};
+      `
+    : css`
+        height: auto;
+        min-height: ${tokenValue};
+      `
 }

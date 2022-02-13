@@ -22,7 +22,7 @@ export const GlobalStylesComponent = (tag: any) => styled(
     $shadow,
     $border,
     $width,
-    $heigth,
+    $height,
     $textAlign,
     $fontWeight,
     $padding,
@@ -33,7 +33,7 @@ export const GlobalStylesComponent = (tag: any) => styled(
       shadow: $shadow,
       border: $border,
       width: $width,
-      heigth: $heigth,
+      height: $height,
       textAlign: $textAlign,
       fontWeight: $fontWeight,
       padding: $padding,
@@ -48,7 +48,7 @@ export const InheritGlobalStylesComponent = (
   $shadow?: ShadowType
   $border?: BorderType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
   $textAlign?: TextAlignType
   $fontWeight?: FontWeightType
   $padding?: string
@@ -59,7 +59,7 @@ export const InheritGlobalStylesComponent = (
     $shadow,
     $border,
     $width,
-    $heigth,
+    $height,
     $textAlign,
     $fontWeight,
     $padding,
@@ -72,7 +72,7 @@ export const InheritGlobalStylesComponent = (
         shadow: $shadow,
         border: $border,
         width: $width,
-        heigth: $heigth,
+        height: $height,
         textAlign: $textAlign,
         fontWeight: $fontWeight,
         padding: $padding,

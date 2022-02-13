@@ -42,7 +42,7 @@ export const BasicInput = Template.bind({})
 BasicInput.args = {
   placeholder: 'Type your name',
   width: 'auto',
-  heigth: 'auto',
+  height: 'auto',
   prefix: null,
 }
 
@@ -50,6 +50,6 @@ export const IconInput = Template.bind({})
 IconInput.args = {
   placeholder: 'Type your name',
   width: 'auto',
-  heigth: 'auto',
+  height: 'auto',
   prefix: <Icon name="user" />,
 }

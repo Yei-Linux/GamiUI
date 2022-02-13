@@ -49,7 +49,7 @@ const RichText = ({ text, ...genericsProps }: IRichText) => {
 const defaultProps = {
   shadow: 'none',
   width: 'auto',
-  heigth: 'auto',
+  height: 'auto',
 }
 
 export default withDefaults(RichText, defaultProps)

@@ -4,6 +4,8 @@ import {
   generatorComponentsTheme,
 } from '../../styles/tokens'
 
+export const DYNAMIC_DESIGN_TYPES = ['padding', 'margin'] as const
+
 export const DESIGN_TYPES = {
   size: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   width: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
@@ -20,7 +22,7 @@ export const DESIGN_TYPES = {
     'extrabold',
     'black',
   ] as const,
-}
+} as const
 
 export const REGEX_RULES = {
   CATCH_TWO_FIRST_CHARACTERS: /^[\s\S]{0,2}/i,

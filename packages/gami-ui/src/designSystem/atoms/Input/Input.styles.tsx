@@ -16,7 +16,7 @@ export const InputBox = styled.div<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
   $textAlign?: TextAlignType
   $fontWeight?: FontWeightType
 }>`
@@ -40,12 +40,12 @@ export const InputBox = styled.div<{
     padding: 0 0 0 1rem;
   }
 
-  ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
+  ${({ $border, $shadow, $fontWeight, $width, $textAlign, $height }) =>
     setGenericPropStyles({
       border: $border || 'sm',
       shadow: $shadow || 'sm',
       width: $width || 'auto',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign,
     })};

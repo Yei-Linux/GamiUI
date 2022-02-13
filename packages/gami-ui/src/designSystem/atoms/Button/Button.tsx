@@ -25,6 +25,10 @@ export interface IButton extends IGeneralProps {
    * Set html button types
    */
   type?: ButtonHtmlType
+  /**
+   * Display theme button variants
+   */
+  disable?: boolean
 }
 
 const Button = ({
@@ -32,6 +36,7 @@ const Button = ({
   variant = 'primary',
   preffix,
   type = 'button',
+  disable = false,
   ...genericsProps
 }: IButton) => {
   const { handles } = useCssHandle({
@@ -48,7 +53,10 @@ const Button = ({
       {...getGenericPropStyles(genericsProps)}
       $variant={variant}
       type={type}
-      className={cls(handles.wrapper)}
+      className={cls(handles.wrapper, {
+        disabled: disable,
+        enabled: !disable,
+      })}
     >
       {preffix && (
         <Fragment>
@@ -68,7 +76,7 @@ const defaultProps = {
   border: 'sm',
   shadow: 'md',
   width: 'auto',
-  heigth: 'auto',
+  height: 'auto',
 }
 
 type ButtonComponent<P> = React.NamedExoticComponent<P> & {

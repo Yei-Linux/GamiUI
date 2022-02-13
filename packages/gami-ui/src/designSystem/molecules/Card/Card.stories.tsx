@@ -66,7 +66,7 @@ export const Footer = (args: any) => (
       <Button
         type="button"
         border="sm"
-        heigth="auto"
+        height="auto"
         variant="secondary"
         width="auto"
       >

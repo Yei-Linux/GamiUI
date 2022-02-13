@@ -13,19 +13,19 @@ export const Card = styled.div<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
 }>`
   display: flex;
   flex-direction: column;
   overflow: hidden;
   min-height: min-content;
 
-  ${({ $border, $shadow, $width, $heigth }) =>
+  ${({ $border, $shadow, $width, $height }) =>
     setGenericPropStyles({
       border: $border || 'sm',
       shadow: $shadow || 'sm',
       width: $width || 'fit',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
     })};
 `
 

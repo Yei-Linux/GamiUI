@@ -15,7 +15,7 @@ export const TextArea = styled.textarea<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
   $textAlign?: TextAlignType
   $fontWeight?: FontWeightType
 }>`
@@ -28,12 +28,12 @@ export const TextArea = styled.textarea<{
 
   ${mixinInput('light')};
 
-  ${({ $border, $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
+  ${({ $border, $shadow, $fontWeight, $width, $textAlign, $height }) =>
     setGenericPropStyles({
       border: $border || 'sm',
       shadow: $shadow || 'sm',
       width: $width || 'auto',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign,
     })};

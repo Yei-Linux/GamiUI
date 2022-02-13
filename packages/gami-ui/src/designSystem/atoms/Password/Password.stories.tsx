@@ -42,5 +42,5 @@ export const BasicPassword = Template.bind({})
 BasicPassword.args = {
   placeholder: 'Type your password',
   width: 'NORMAL',
-  heigth: 'SMALL',
+  height: 'SMALL',
 }

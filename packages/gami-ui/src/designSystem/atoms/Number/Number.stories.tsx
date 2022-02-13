@@ -42,6 +42,6 @@ export const Basic = Template.bind({})
 Basic.args = {
   placeholder: 'Type your phone',
   width: 'auto',
-  heigth: 'auto',
+  height: 'auto',
   prefix: <Icon name="phone" />,
 }

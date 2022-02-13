@@ -44,7 +44,7 @@ const ChatUserMessage = ({ message }: ChatUserMessageProps) => {
                     background={
                       message?.isMe ? defaultTheme.light.secondary.nepal : 'white'
                     }
-                    heigth="auto"
+                    height="auto"
                     width="auto"
                     text={textDetail?.text}
                     border="md"

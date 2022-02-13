@@ -12,7 +12,7 @@ export const GuideMessage = styled.div<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
   $direction: 'left' | 'right'
 }>`
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
@@ -20,11 +20,11 @@ export const GuideMessage = styled.div<{
   flex-direction: ${({ $direction }) =>
     $direction == 'left' ? 'row' : 'row-reverse'};
 
-  ${({ $border, $shadow, $width, $heigth }) =>
+  ${({ $border, $shadow, $width, $height }) =>
     setGenericPropStyles({
       border: $border || 'none',
       shadow: $shadow || 'none',
       width: $width || 'auto',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
     })};
 `

@@ -1,15 +1,72 @@
 import React, { Fragment } from 'react'
 import TableStories from 'styles/utilities/components/TableStories'
-import { DESIGN_TYPES as optionsStyle } from 'core/utils/constants'
 import {
+  DESIGN_TYPES as optionsStyle,
+  DYNAMIC_DESIGN_TYPES,
+} from 'core/utils/constants'
+import {
+  IDesignValues,
   IParentVariant,
   IStoryConfig,
   IStoryConfigStructure,
   IStoryElement,
+  IStoryInheritGlobalStyles,
   IVariants,
+  TMergeAllDesignTypes,
 } from 'core/domain/interfaces/IStorybook'
 import { TDynamicFields, TJSXElements } from 'core/domain/interfaces/common'
 import { ComponentStory } from '@storybook/react'
+import { capitalize } from './validations.helper'
+
+const getInheritGlobalStyle = (
+  inheritGlobalStyles: IStoryInheritGlobalStyles,
+  key: TMergeAllDesignTypes,
+  value: readonly string[]
+) => {
+  const designValue = inheritGlobalStyles[key] as IDesignValues
+
+  if (!designValue) return null
+
+  const examples = DYNAMIC_DESIGN_TYPES.includes(key)
+    ? designValue.examples
+    : value
+
+  const globalStylesToken = {
+    storyName: `With${capitalize(key)}s`,
+    self: {
+      args: designValue.args,
+      variants: {
+        examples: examples
+          ? examples.map((globalStyle) => ({
+              label: globalStyle,
+              value: globalStyle,
+            }))
+          : [],
+        field: key,
+      },
+    },
+  }
+
+  return globalStylesToken
+}
+
+export const getInheritGlobalStylesStories = (
+  inheritGlobalStyles: IStoryInheritGlobalStyles
+) => {
+  const filtered: IStoryConfig[] = []
+
+  const storiesInheritSyles = Object.entries(optionsStyle).map(([key, value]) =>
+    getInheritGlobalStyle(
+      inheritGlobalStyles,
+      key as TMergeAllDesignTypes,
+      value
+    )
+  )
+
+  storiesInheritSyles.forEach((story) => story !== null && filtered.push(story))
+
+  return filtered
+}
 
 export const getTemplate =
   (Component: TJSXElements): ComponentStory<typeof Component> =>
@@ -76,7 +133,9 @@ export const getStory = (
     ? getParentListTemplateTypes(Component, ParenComponent, parent)
     : null
 
-  if (!ListTemplateType) return null
+  if (!ListTemplateType) {
+    return null
+  }
 
   const Story = ListTemplateType.bind({})
   Story.storyName = storyName
@@ -142,5 +201,5 @@ export const stylesControl = {
   width: { control: { type: 'select', options: optionsStyle.width } },
   shadow: { control: { type: 'select', options: optionsStyle.shadow } },
   border: { control: { type: 'select', options: optionsStyle.border } },
-  heigth: { control: { type: 'select', options: optionsStyle.height } },
+  height: { control: { type: 'select', options: optionsStyle.height } },
 }

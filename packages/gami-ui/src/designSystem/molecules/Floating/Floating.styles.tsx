@@ -51,7 +51,7 @@ export const Floating = styled.div<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
 }>`
   z-index: ${zIndex[5]};
   background-color: white;
@@ -61,12 +61,12 @@ export const Floating = styled.div<{
 
   position: fixed;
 
-  ${({ $border, $shadow, $width, $heigth }) =>
+  ${({ $border, $shadow, $width, $height }) =>
     setGenericPropStyles({
       border: $border || 'sm',
       shadow: $shadow || 'sm',
       width: $width || 'auto',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
     })};
 
   ${({ $direction }) => $direction == 'right' && floatingRight()}

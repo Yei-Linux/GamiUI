@@ -1,7 +1,12 @@
 import { css } from '@emotion/react'
 import { InheritStyleComponent, WidthType } from 'core/domain/types'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import {
+  IComponentSize,
+  ICustomTheme,
+} from 'providers/ThemeGamification/ThemeGamification'
+import { staticsSizesTokens } from 'styles/tokens/sizes'
 
+//TODO: Refactoring
 export const mixinWidth = (
   themeGlobal: ICustomTheme,
   width: WidthType,
@@ -18,20 +23,41 @@ export const mixinWidth = (
 
     if (!tokenComponentSizeValue) return ``
 
-    const widthComponent = tokenComponentSizeValue[width]
+    const sizeComponent = tokenComponentSizeValue[width]
 
-    if (!widthComponent) return ``
+    if (!sizeComponent) return ``
 
-    return css`
-      width: ${widthComponent};
-    `
+    const typeOfSize = typeof sizeComponent
+
+    const widthComponent =
+      typeOfSize == 'string'
+        ? (sizeComponent as string)
+        : (sizeComponent as IComponentSize)?.width
+
+    const isStaticSizeTokenValue = staticsSizesTokens.includes(widthComponent)
+
+    return isStaticSizeTokenValue
+      ? css`
+          width: ${widthComponent};
+        `
+      : css`
+          width: auto;
+          min-width: ${widthComponent};
+        `
   }
 
   const tokenValue = tokens.sizes.width[width]
 
   if (!tokenValue) return ``
 
-  return css`
-    width: ${tokenValue};
-  `
+  const isStaticSizeTokenValue = staticsSizesTokens.includes(tokenValue)
+
+  return isStaticSizeTokenValue
+    ? css`
+        width: ${tokenValue};
+      `
+    : css`
+        width: auto;
+        min-width: ${tokenValue};
+      `
 }

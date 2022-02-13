@@ -26,7 +26,7 @@ const Container = ({ children, as, ...genericsProps }: IContainer) => {
 const defaultProps = {
   shadow: 'none',
   width: 'auto',
-  heigth: 'auto',
+  height: 'auto',
 }
 
 export default withDefaults(Container, defaultProps)

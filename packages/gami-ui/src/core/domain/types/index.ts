@@ -9,9 +9,12 @@ import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCa
 import { options as optionsAvatar } from 'designSystem/atoms/Avatar/constants'
 import { options } from 'designSystem/atoms/Link'
 
-import { DESIGN_TYPES } from 'core/utils/constants'
+import { DESIGN_TYPES, DYNAMIC_DESIGN_TYPES } from 'core/utils/constants'
 import { MutableRefObject } from 'react'
 import { TTokensKeySizeComponents } from 'providers/ThemeGamification/ThemeGamification'
+
+export type DesignTypes = typeof DESIGN_TYPES
+export type DynamicDesignTypes = typeof DYNAMIC_DESIGN_TYPES[number]
 
 export type WidthType = typeof DESIGN_TYPES.width[number]
 export type HeightType = typeof DESIGN_TYPES.height[number]

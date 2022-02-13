@@ -1,3 +1,4 @@
+import { DesignTypes, DynamicDesignTypes } from '../types'
 import { TDynamicFields, TJSXElements } from './common'
 
 export interface IExample {
@@ -20,6 +21,18 @@ export interface IParentVariant {
   label: string
   value: any[]
 }
+
+export type TDesignTypes = keyof DesignTypes
+export type TMergeAllDesignTypes = TDesignTypes & DynamicDesignTypes
+export interface IDesignValues {
+  args: TDynamicFields
+  examples?: string[]
+}
+
+export type IStoryInheritGlobalStyles = Record<
+  TMergeAllDesignTypes,
+  IDesignValues | null
+>
 
 export interface IStoryConfig {
   storyName: string

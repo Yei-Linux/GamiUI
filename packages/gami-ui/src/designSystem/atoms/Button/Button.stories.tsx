@@ -1,46 +1,11 @@
 import { Meta } from '@storybook/react'
-import React from 'react'
-import {
-  getListTemplate,
-  stylesControl,
-} from '../../../core/helpers/storybook.helper'
 
-import Button from '.'
-import { options as optionsButton } from './constants'
-import { DESIGN_TYPES as optionsStyles } from 'core/utils/constants'
+import { storyConfig } from './storyConfig'
 
-const ListTemplate = getListTemplate(Button)
+const { mainConfig, stories } = storyConfig
 
-export default {
-  title: 'Atoms/Button',
-  component: Button,
-  argTypes: {
-    children: { control: 'text' },
-    type: { control: { type: 'select', options: optionsButton.type } },
-    ...stylesControl,
-  },
-} as Meta
+export default mainConfig as Meta
 
-export const Basic = () => (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <Button preffix="Test">Test</Button>
-    </div>
-)
+const [one, two, three, four, five, six, seven, eight, nine] = stories
 
-export const TypesButton = ListTemplate.bind({})
-TypesButton.args = {
-  items: optionsButton.type.map((type) => ({ variant: type })),
-  field: 'variant',
-  children: 'Text',
-  width: 'lg',
-  border: 'md',
-}
-
-export const WidthButton = ListTemplate.bind({})
-WidthButton.args = {
-  items: optionsStyles.width.map((width) => ({ width })),
-  field: 'width',
-  children: 'Text',
-  border: 'md',
-}
-WidthButton.storyName = 'Width Sizes'
+export { one, two, three, four, five, six, seven, eight, nine }

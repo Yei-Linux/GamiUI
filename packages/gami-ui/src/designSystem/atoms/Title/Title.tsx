@@ -26,7 +26,7 @@ const Title = ({ level = 'h1', children, ...genericsProps }: ITitle) => {
 const defaultProps = {
   shadow: 'none',
   width: 'auto',
-  heigth: 'auto',
+  height: 'auto',
 }
 
 export default withDefaults(Title, defaultProps)

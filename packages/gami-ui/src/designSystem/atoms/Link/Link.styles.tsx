@@ -6,16 +6,16 @@ import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
 export const Link = styled.a<{
   $linkType: LinkType
-  $heigth?: HeightType
+  $height?: HeightType
   $width?: WidthType
   theme: ICustomTheme
 }>`
   text-decoration: none;
   ${({ $linkType, theme }) => mixinComponentsTheme(theme, $linkType, 'link')};
 
-  ${({ $width, $heigth }) =>
+  ${({ $width, $height }) =>
     setGenericPropStyles({
       width: $width || 'auto',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
     })};
 `

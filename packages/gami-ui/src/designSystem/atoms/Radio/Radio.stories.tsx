@@ -26,6 +26,6 @@ export const Basic = (args: any) => {
 }
 Basic.args = {
   width: 'md',
-  heigth: 'sm',
+  height: 'sm',
   shadow: 'none',
 }

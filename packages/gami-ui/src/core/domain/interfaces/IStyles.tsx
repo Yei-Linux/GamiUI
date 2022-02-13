@@ -24,7 +24,7 @@ export interface IGenericPropStyles {
   /**
    * Height Component
    */
-  heigth?: HeightType
+  height?: HeightType
   /**
    * Width Component
    */

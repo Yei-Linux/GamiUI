@@ -70,7 +70,7 @@ const FormItem = ({ label = '', name, children }: IFormItem) => {
           fontWeight="semibold"
           text={label}
           width="auto"
-          heigth="auto"
+          height="auto"
           border="none"
         />
       )}

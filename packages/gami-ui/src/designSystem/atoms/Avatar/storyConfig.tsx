@@ -1,6 +1,8 @@
 import React from 'react'
-import { getStoryConfigStructure } from 'core/helpers/storybook.helper'
-import { DESIGN_TYPES } from 'core/utils/constants'
+import {
+  getInheritGlobalStylesStories,
+  getStoryConfigStructure,
+} from 'core/helpers/storybook.helper'
 import Avatar from '.'
 import Icon from '../Icon'
 import { avatarProfilesImages, options, withTextExamples } from './constants'
@@ -78,133 +80,65 @@ const mainConfig: IStoryMainConfig = {
   },
 }
 
-const storiesInheritGlobalStyles = [
-  {
-    storyName: 'WithBorders',
-    self: {
-      args: {
-        background: '#F76E11',
-        src: avatarProfilesImages.one,
-        zoomMode: 'inside',
-      },
-      variants: {
-        examples: DESIGN_TYPES.border.map((border) => ({
-          label: border,
-          value: border,
-        })),
-        field: 'border',
-      },
+const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
+  border: {
+    args: {
+      background: '#F76E11',
+      src: avatarProfilesImages.one,
+      zoomMode: 'inside',
     },
   },
-  {
-    storyName: 'WithShadows',
-    self: {
-      args: {
-        src: avatarProfilesImages.one,
-        zoomMode: 'inside',
-        border: 'lg',
-      },
-      variants: {
-        examples: DESIGN_TYPES.shadow.map((shadow) => ({
-          label: shadow,
-          value: shadow,
-        })),
-        field: 'shadow',
-      },
+  shadow: {
+    args: {
+      src: avatarProfilesImages.one,
+      zoomMode: 'inside',
+      border: 'lg',
     },
   },
-  {
-    storyName: 'WithPaddings',
-    self: {
-      args: {
-        background: '#F76E11',
-        src: avatarProfilesImages.one,
-        zoomMode: 'inside',
-        border: 'lg',
-      },
-      variants: {
-        examples: ['0px', '2px', '4px', '6px', '8px', '10px'].map(
-          (padding) => ({
-            label: padding,
-            value: padding,
-          })
-        ),
-        field: 'padding',
-      },
+  width: {
+    args: {
+      src: avatarProfilesImages.one,
+      height: 'auto',
+      zoomMode: 'inside',
+      border: 'lg',
     },
   },
-  {
-    storyName: 'WithMargins',
-    self: {
-      args: {
-        background: '#F76E11',
-        src: avatarProfilesImages.one,
-        zoomMode: 'inside',
-        border: 'lg',
-      },
-      variants: {
-        examples: ['0px', '2px', '4px', '6px', '8px', '10px'].map((margin) => ({
-          label: margin,
-          value: margin,
-        })),
-        field: 'margin',
-      },
+  height: {
+    args: {
+      src: avatarProfilesImages.one,
+      width: 'sm',
+      zoomMode: 'inside',
+      border: 'lg',
     },
   },
-  {
-    storyName: 'WithWidths',
-    self: {
-      args: {
-        src: avatarProfilesImages.one,
-        heigth: 'auto',
-        zoomMode: 'inside',
-        border: 'lg',
-      },
-      variants: {
-        examples: DESIGN_TYPES.width.map((width) => ({
-          label: width,
-          value: width,
-        })),
-        field: 'width',
-      },
+  size: {
+    args: {
+      src: avatarProfilesImages.one,
+      zoomMode: 'inside',
+      border: 'lg',
     },
   },
-  {
-    storyName: 'WithHeight',
-    self: {
-      args: {
-        src: avatarProfilesImages.one,
-        width: 'sm',
-        zoomMode: 'inside',
-        border: 'lg',
-      },
-      variants: {
-        examples: DESIGN_TYPES.height.map((height) => ({
-          label: height,
-          value: height,
-        })),
-        field: 'heigth',
-      },
+  fontWeight: null,
+  textAlign: null,
+  margin: {
+    args: {
+      background: '#F76E11',
+      src: avatarProfilesImages.one,
+      zoomMode: 'inside',
+      border: 'lg',
     },
+    examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
-  {
-    storyName: 'WithSizes',
-    self: {
-      args: {
-        src: avatarProfilesImages.one,
-        zoomMode: 'inside',
-        border: 'lg',
-      },
-      variants: {
-        examples: DESIGN_TYPES.size.map((size) => ({
-          label: size,
-          value: size,
-        })),
-        field: 'size',
-      },
+  padding: {
+    args: {
+      background: '#F76E11',
+      src: avatarProfilesImages.one,
+      zoomMode: 'inside',
+      border: 'lg',
     },
+    examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
-]
+})
 
 const storiesComponent = [
   {

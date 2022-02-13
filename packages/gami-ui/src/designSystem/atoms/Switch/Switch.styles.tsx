@@ -12,7 +12,7 @@ export const Switch = styled.button<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
 }>`
   position: relative;
 
@@ -38,12 +38,12 @@ export const Switch = styled.button<{
     background: ${defaultTheme.light.neutral[400]};
   }
 
-  ${({ $border, $shadow, $width, $heigth }) =>
+  ${({ $border, $shadow, $width, $height }) =>
     setGenericPropStyles({
       border: $border || 'lg',
       shadow: $shadow || 'sm',
       width: $width,
-      heigth: $heigth,
+      height: $height,
     })};
 `
 

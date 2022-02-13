@@ -17,7 +17,14 @@ export interface ThemeGamificationProps extends IDefaultStyles {
 }
 
 export type TTokensSizeComponents = typeof defaultTokens.sizes.components
+
 export type TTokensKeySizeComponents = keyof TTokensSizeComponents
+
+export interface IComponentSize {
+  width: string
+  height: string
+}
+
 export type TTokens = typeof defaultTokens
 export type TTheme = typeof defaultTheme
 

@@ -1,3 +1,5 @@
+export const staticsSizesTokens = ['fit-content', 'auto', '100%']
+
 export const sizes = {
   width: {
     fit: 'fit-content',
@@ -30,10 +32,22 @@ export const sizes = {
     button: {
       fit: 'fit-content',
       auto: 'auto',
-      xs: '100px',
-      sm: '120px',
-      md: '140px',
-      lg: '160px',
+      xs: {
+        height: '1.5rem',
+        width: '5rem',
+      },
+      sm: {
+        height: '2rem',
+        width: '7rem',
+      },
+      md: {
+        height: '2.5rem',
+        width: '9rem',
+      },
+      lg: {
+        height: '3rem',
+        width: '11rem',
+      },
       full: '100%',
     },
   },

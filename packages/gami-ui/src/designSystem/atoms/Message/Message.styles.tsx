@@ -38,7 +38,7 @@ export const Message = styled.div<{
 
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
   $textAlign?: TextAlignType
   $fontWeight?: FontWeightType
 }>`
@@ -85,12 +85,12 @@ export const Message = styled.div<{
     }
   }
 
-  ${({ $shadow, $fontWeight, $width, $textAlign, $heigth }) =>
+  ${({ $shadow, $fontWeight, $width, $textAlign, $height }) =>
     setGenericPropStyles({
       border: 'sm',
       shadow: $shadow || 'none',
       width: $width || 'auto',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
       fontWeight: $fontWeight,
       textAlign: $textAlign || 'left',
     })};

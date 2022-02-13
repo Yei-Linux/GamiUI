@@ -12,7 +12,7 @@ export const TrafficLight = styled.div<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
 }>`
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
   flex-direction: column;
@@ -20,12 +20,12 @@ export const TrafficLight = styled.div<{
   padding: 10px 0px;
   background-color: #3a3a3a;
 
-  ${({ $border, $shadow, $width, $heigth }) =>
+  ${({ $border, $shadow, $width, $height }) =>
     setGenericPropStyles({
       border: $border || 'lg',
       shadow: $shadow || 'sm',
       width: $width || 'fit',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
     })};
 `
 

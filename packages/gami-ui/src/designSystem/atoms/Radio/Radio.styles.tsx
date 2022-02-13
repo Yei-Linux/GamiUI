@@ -12,18 +12,18 @@ export const RadioGroup = styled.div<{
   $border?: BorderType
   $shadow?: ShadowType
   $width?: WidthType
-  $heigth?: HeightType
+  $height?: HeightType
 }>`
   margin: ${spacing.margin.none};
   padding: ${spacing.padding.none};
   font-size: 14px;
 
-  ${({ $border, $shadow, $width, $heigth }) =>
+  ${({ $border, $shadow, $width, $height }) =>
     setGenericPropStyles({
       border: $border || 'none',
       shadow: $shadow || 'none',
       width: $width || 'auto',
-      heigth: $heigth || 'auto',
+      height: $height || 'auto',
     })};
 `
 
