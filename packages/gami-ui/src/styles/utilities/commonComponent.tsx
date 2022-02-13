@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
 import {
   ShadowType,
-  BorderType,
+  RoundedType,
   WidthType,
   HeightType,
   TextAlignType,
@@ -20,7 +20,7 @@ export const GlobalStylesComponent = (tag: any) => styled(
 )<IGenericPropStyles>`
   ${({
     $shadow,
-    $border,
+    $rounded,
     $width,
     $height,
     $textAlign,
@@ -31,7 +31,7 @@ export const GlobalStylesComponent = (tag: any) => styled(
   }) =>
     setGenericPropStyles(theme, {
       shadow: $shadow,
-      border: $border,
+      rounded: $rounded,
       width: $width,
       height: $height,
       textAlign: $textAlign,
@@ -46,7 +46,7 @@ export const InheritGlobalStylesComponent = (
   component: InheritStyleComponent = null
 ) => styled(styledProps)<{
   $shadow?: ShadowType
-  $border?: BorderType
+  $rounded?: RoundedType
   $width?: WidthType
   $height?: HeightType
   $textAlign?: TextAlignType
@@ -57,7 +57,7 @@ export const InheritGlobalStylesComponent = (
 }>`
   ${({
     $shadow,
-    $border,
+    $rounded,
     $width,
     $height,
     $textAlign,
@@ -70,7 +70,7 @@ export const InheritGlobalStylesComponent = (
       theme,
       {
         shadow: $shadow,
-        border: $border,
+        rounded: $rounded,
         width: $width,
         height: $height,
         textAlign: $textAlign,

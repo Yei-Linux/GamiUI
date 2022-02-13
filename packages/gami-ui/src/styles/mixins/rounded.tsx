@@ -1,16 +1,16 @@
 import { css } from '@emotion/react'
-import { BorderType } from 'core/domain/types'
+import { RoundedType } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
-export const mixinBorderRadius = (
+export const mixinRounded = (
   themeGlobal: ICustomTheme,
-  border: BorderType
+  rounded: RoundedType
 ) => {
   if (!themeGlobal) return ``
 
   const { tokens } = themeGlobal
 
-  const tokenValue = tokens.borderRadius[border]
+  const tokenValue = tokens.rounded[rounded]
 
   if (!tokenValue) return ``
 

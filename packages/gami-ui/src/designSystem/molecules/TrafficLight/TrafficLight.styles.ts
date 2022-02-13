@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import {
-  BorderType,
+  RoundedType,
   HeightType,
   ShadowType,
   WidthType,
@@ -9,7 +9,7 @@ import { mixinFlexVariants } from 'styles/mixins/flex'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const TrafficLight = styled.div<{
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $width?: WidthType
   $height?: HeightType

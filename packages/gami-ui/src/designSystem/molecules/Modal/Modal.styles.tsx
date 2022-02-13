@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { BorderType, ShadowType } from 'core/domain/types'
+import { RoundedType, ShadowType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { spacing, defaultTheme, zIndex } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
@@ -36,7 +36,7 @@ const ModalLayout = () => css`
 `
 
 export const ModalContainer = styled.div<{
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
 }>`
   min-width: 500px;

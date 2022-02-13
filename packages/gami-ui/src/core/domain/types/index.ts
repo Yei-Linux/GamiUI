@@ -18,7 +18,7 @@ export type DynamicDesignTypes = typeof DYNAMIC_DESIGN_TYPES[number]
 
 export type WidthType = typeof DESIGN_TYPES.width[number]
 export type HeightType = typeof DESIGN_TYPES.height[number]
-export type BorderType = typeof DESIGN_TYPES.border[number]
+export type RoundedType = typeof DESIGN_TYPES.rounded[number]
 export type ShadowType = typeof DESIGN_TYPES.shadow[number]
 export type TextAlignType = typeof DESIGN_TYPES.textAlign[number]
 export type FontWeightType = typeof DESIGN_TYPES.fontWeight[number]

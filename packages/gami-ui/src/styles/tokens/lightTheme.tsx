@@ -1,10 +1,10 @@
 export const lightTheme = {
   primary: {
     jordyBlue: '#7f9cf5',
-    hawkesBlue: '#c0cffc',
-    white: '#ffffff',
     mediumPurple: '#9879e9',
-    selago: '#EFF1FD',
+    hawkesBlue: '#54BAB9',
+    selago: '#FF8882',
+    white: '#ffffff',
   },
   secondary: {
     nepal: '#93B5C6',
@@ -25,14 +25,16 @@ export const lightTheme = {
   },
   semantic: {
     success: '#16c79a',
-    warning: '#ffd66b',
-    danger: '#ff4646',
+    warning: '#f5a623',
+    danger: '#f21361',
     info: '#a7c5eb',
     warm: '#F8F8F8',
     spring: '#8FD9A8',
     earth: '#A6F0C6',
     skin: '#F2C0FF',
     sky: '#96BAFF',
+    gradient:
+      'linear-gradient(112deg, #AAFFEC -63.59%, #ff4ecd -20.3%, #0070F3 70.46%)',
   },
   extended: {
     code: '#374a54',

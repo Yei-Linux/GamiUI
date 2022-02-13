@@ -81,7 +81,7 @@ const mainConfig: IStoryMainConfig = {
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
-  border: {
+  rounded: {
     args: {
       background: '#F76E11',
       src: avatarProfilesImages.one,
@@ -92,7 +92,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {
       src: avatarProfilesImages.one,
       zoomMode: 'inside',
-      border: 'lg',
+      rounded: 'lg',
     },
   },
   width: {
@@ -100,7 +100,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       src: avatarProfilesImages.one,
       height: 'auto',
       zoomMode: 'inside',
-      border: 'lg',
+      rounded: 'lg',
     },
   },
   height: {
@@ -108,14 +108,14 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       src: avatarProfilesImages.one,
       width: 'sm',
       zoomMode: 'inside',
-      border: 'lg',
+      rounded: 'lg',
     },
   },
   size: {
     args: {
       src: avatarProfilesImages.one,
       zoomMode: 'inside',
-      border: 'lg',
+      rounded: 'lg',
     },
   },
   fontWeight: null,
@@ -125,7 +125,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       background: '#F76E11',
       src: avatarProfilesImages.one,
       zoomMode: 'inside',
-      border: 'lg',
+      rounded: 'lg',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
@@ -134,7 +134,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       background: '#F76E11',
       src: avatarProfilesImages.one,
       zoomMode: 'inside',
-      border: 'lg',
+      rounded: 'lg',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },

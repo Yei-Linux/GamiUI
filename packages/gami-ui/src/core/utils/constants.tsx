@@ -7,11 +7,29 @@ import {
 export const DYNAMIC_DESIGN_TYPES = ['padding', 'margin'] as const
 
 export const DESIGN_TYPES = {
+  bordered: [true, false, 'custom'] as const,
   size: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   width: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   height: ['auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
-  border: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
-  shadow: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
+  rounded: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
+  shadow: [
+    'none',
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'full',
+    'flat',
+    'primary',
+    'secondary',
+    'tertiary',
+    'cuaternary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'gradient',
+  ] as const,
   textAlign: ['left', 'center', 'right', 'justify'] as const,
   fontWeight: [
     'light',
@@ -91,7 +109,7 @@ export const THEME_TOKENS_SECOND_VARIANT = {
 export const THEME_TOKENS_THIRD_VARIANT = {
   tokens: {
     ...defaultTokens,
-    borderRadius: {
+    rounded: {
       none: '0',
       xs: '14px',
       sm: '20px',

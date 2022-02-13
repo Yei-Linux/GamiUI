@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import {
-  BorderType,
+  RoundedType,
   FontWeightType,
   HeightType,
   ShadowType,
@@ -12,7 +12,7 @@ import { spacing } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const TextArea = styled.textarea<{
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $width?: WidthType
   $height?: HeightType

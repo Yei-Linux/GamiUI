@@ -1,4 +1,4 @@
-export const borderRadius = {
+export const rounded = {
   none: '0',
   xs: '4px',
   sm: '10px',

@@ -200,6 +200,6 @@ export const stylesControl = {
   },
   width: { control: { type: 'select', options: optionsStyle.width } },
   shadow: { control: { type: 'select', options: optionsStyle.shadow } },
-  border: { control: { type: 'select', options: optionsStyle.border } },
+  rounded: { control: { type: 'select', options: optionsStyle.rounded } },
   height: { control: { type: 'select', options: optionsStyle.height } },
 }

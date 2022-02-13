@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import {
-  BorderType,
+  RoundedType,
   ShadowType,
   WidthType,
   HeightType,
@@ -11,7 +11,7 @@ import { spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const List = styled.ul<{
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $width?: WidthType
   $height?: HeightType

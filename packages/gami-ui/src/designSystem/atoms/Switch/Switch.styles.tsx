@@ -1,15 +1,15 @@
 import styled from '@emotion/styled'
 import {
-  BorderType,
+  RoundedType,
   HeightType,
   ShadowType,
   WidthType,
 } from 'core/domain/types'
-import { borderRadius, spacing, defaultTheme } from 'styles/tokens'
+import { rounded, spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const Switch = styled.button<{
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $width?: WidthType
   $height?: HeightType
@@ -54,7 +54,7 @@ export const SwitchBall = styled.div`
   width: 18px;
   height: 18px;
 
-  border-radius: ${borderRadius.md};
+  border-radius: ${rounded.md};
 
   background: ${defaultTheme.light.neutral[800]};
 

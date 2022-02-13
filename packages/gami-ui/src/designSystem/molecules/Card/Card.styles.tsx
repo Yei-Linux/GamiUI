@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import {
-  BorderType,
+  RoundedType,
   ShadowType,
   WidthType,
   HeightType,
@@ -10,7 +10,7 @@ import { sizes, spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const Card = styled.div<{
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $width?: WidthType
   $height?: HeightType

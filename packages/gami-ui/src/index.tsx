@@ -61,7 +61,7 @@ export {
   defaultTheme,
   defaultTokens,
   generatorComponentsTheme,
-  borderRadius,
+  rounded,
   breakspointSizes,
   sizes,
   spacing,

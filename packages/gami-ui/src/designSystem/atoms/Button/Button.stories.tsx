@@ -6,6 +6,38 @@ const { mainConfig, stories } = storyConfig
 
 export default mainConfig as Meta
 
-const [one, two, three, four, five, six, seven, eight, nine] = stories
+const [
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven,
+  twelve,
+  thirteen,
+  fourteen,
+  fifteen,
+] = stories
 
-export { one, two, three, four, five, six, seven, eight, nine }
+export {
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven,
+  twelve,
+  thirteen,
+  fourteen,
+  fifteen,
+}

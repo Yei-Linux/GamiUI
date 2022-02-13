@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   ShadowType,
-  BorderType,
+  RoundedType,
   WidthType,
   HeightType,
   TextAlignType,
@@ -16,7 +16,7 @@ export interface IGenericPropStyles {
   /**
    * Border Component
    */
-  border?: BorderType
+  rounded?: RoundedType
   /**
    * Width Component
    */

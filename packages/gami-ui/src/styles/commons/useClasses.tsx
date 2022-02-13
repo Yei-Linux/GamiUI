@@ -6,14 +6,14 @@ import { flex } from './flex'
 
 const useClasses = () => {
   const {
-    tokens: { boxShadow, borderRadius, spacing, font, opacity, zIndex },
+    tokens: { boxShadow, rounded, spacing, font, opacity, zIndex },
   } = useGamiTheme()
 
   const fontClasses = () =>
     globalClassesBuilder({ token: font, tokenName: 'font' })
 
   const borderRadiusClasses = () =>
-    globalClassesBuilder({ token: borderRadius, tokenName: 'borderRadius' })
+    globalClassesBuilder({ token: rounded, tokenName: 'rounded' })
 
   const boxShadowClasses = () =>
     globalClassesBuilder({ token: boxShadow, tokenName: 'boxShadow' })

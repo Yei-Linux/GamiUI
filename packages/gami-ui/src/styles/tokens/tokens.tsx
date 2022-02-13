@@ -1,5 +1,5 @@
 import {
-  borderRadius,
+  rounded,
   boxShadow,
   breakspointSizes,
   font,
@@ -10,7 +10,7 @@ import {
 } from '.'
 
 export const defaultTokens = {
-  borderRadius,
+  rounded,
   boxShadow,
   breakspointSizes,
   font,

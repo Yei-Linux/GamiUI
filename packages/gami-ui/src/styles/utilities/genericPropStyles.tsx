@@ -3,7 +3,7 @@ import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
 import { InheritStyleComponent } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { mixinBorderRadius } from 'styles/mixins/border'
+import { mixinRounded } from 'styles/mixins/rounded'
 import { mixinFontWeight, mixinTextAlign } from 'styles/mixins/fonts'
 import { mixinHeight } from 'styles/mixins/height'
 import { mixinShadow } from 'styles/mixins/shadow'
@@ -14,7 +14,7 @@ export const setGenericPropStyles = (
   theme: ICustomTheme,
   {
     shadow,
-    border,
+    rounded,
     width,
     height,
     textAlign,
@@ -25,7 +25,7 @@ export const setGenericPropStyles = (
   component: InheritStyleComponent = null
 ) => css`
   ${shadow && mixinShadow(theme, shadow)}
-  ${border && mixinBorderRadius(theme, border)}
+  ${rounded && mixinRounded(theme, rounded)}
     ${width && mixinWidth(theme, width, component)}
     ${height && mixinHeight(theme, height, component)}
     ${textAlign && mixinTextAlign(theme, textAlign)}
@@ -35,12 +35,15 @@ export const setGenericPropStyles = (
 `
 
 interface IDynamicPropStyles {
-  [key: string]: string | React.CSSProperties | React.MouseEventHandler<unknown>
+  [key: string]:
+    | string
+    | React.CSSProperties
+    | React.MouseEventHandler<unknown>
 }
 
 export const getGenericPropStyles = ({
   shadow,
-  border,
+  rounded,
   width,
   height,
   size,
@@ -56,7 +59,7 @@ export const getGenericPropStyles = ({
   const propStyles: IDynamicPropStyles = {}
 
   if (shadow) propStyles['$shadow'] = shadow
-  if (border) propStyles['$border'] = border
+  if (rounded) propStyles['$rounded'] = rounded
   if (width) propStyles['$width'] = width
   if (height) propStyles['$height'] = height
   if (size) propStyles['$width'] = size

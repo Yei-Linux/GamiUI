@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import {
-  BorderType,
+  RoundedType,
   HeightType,
   ShadowType,
   WidthType,
@@ -48,7 +48,7 @@ export const floatingBottom = () => css`
 
 export const Floating = styled.div<{
   $direction: 'left' | 'top' | 'right' | 'bottom'
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $width?: WidthType
   $height?: HeightType

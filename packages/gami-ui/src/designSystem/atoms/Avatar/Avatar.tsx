@@ -136,7 +136,7 @@ const Avatar = ({
 Avatar.Group = AvatarGroup
 
 const defaultProps = {
-  border: 'full',
+  rounded: 'full',
   fontWeight: 'bold',
   textAlign: 'center',
 }

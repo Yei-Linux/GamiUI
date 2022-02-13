@@ -1,4 +1,4 @@
-export { borderRadius } from './borderRadius'
+export { rounded } from './rounded'
 export { boxShadow } from './boxShadow'
 export { breakspointSizes } from './breakpoints'
 export { font } from './font'

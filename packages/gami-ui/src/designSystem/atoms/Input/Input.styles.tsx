@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import {
-  BorderType,
+  RoundedType,
   FontWeightType,
   HeightType,
   ShadowType,
@@ -13,7 +13,7 @@ import { defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const InputBox = styled.div<{
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $width?: WidthType
   $height?: HeightType

@@ -15,33 +15,47 @@ const mainConfig: IStoryMainConfig = {
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
-  border: {
+  rounded: {
     args: {
       children: 'Gami Button',
+      fontWeight: 'semibold',
     },
   },
   shadow: {
     args: {
       children: 'Gami Button',
+      fontWeight: 'semibold',
     },
   },
   width: {
     args: {
       children: 'GamiUI',
+      fontWeight: 'semibold',
     },
   },
   height: {
     args: {
       children: 'GamiUI',
+      fontWeight: 'semibold',
     },
   },
   size: {
     args: {
       children: 'GamiUI',
+      fontWeight: 'semibold',
     },
   },
-  fontWeight: null,
-  textAlign: null,
+  fontWeight: {
+    args: {
+      children: 'GamiUI',
+    },
+  },
+  textAlign: {
+    args: {
+      width: 'lg',
+      children: 'GamiUI',
+    },
+  },
   margin: {
     args: {
       children: 'Gami Button',
@@ -62,6 +76,7 @@ const storiesComponent = [
     self: {
       args: {
         children: 'Gami Button',
+        shadow: 'flat',
       },
       variants: {
         examples: [
@@ -83,6 +98,80 @@ const storiesComponent = [
     self: {
       args: {
         children: 'Gami Button',
+        fontWeight: 'semibold',
+      },
+      variants: {
+        examples: options.type.map((variant) => ({
+          label: variant,
+          value: variant,
+          customProps: {
+            shadow: variant,
+          },
+        })),
+        field: 'variant',
+      },
+    },
+  },
+  {
+    storyName: 'WithBordered',
+    self: {
+      args: {
+        children: 'Gami Button',
+        bordered: true,
+        fontWeight: 'semibold',
+      },
+      variants: {
+        examples: options.type.map((variant) => ({
+          label: variant,
+          value: variant,
+        })),
+        field: 'variant',
+      },
+    },
+  },
+  {
+    storyName: 'WithGhost',
+    self: {
+      args: {
+        children: 'Gami Button',
+        ghost: true,
+        fontWeight: 'semibold',
+      },
+      variants: {
+        examples: options.type.map((variant) => ({
+          label: variant,
+          value: variant,
+        })),
+        field: 'variant',
+      },
+    },
+  },
+  {
+    storyName: 'WithLight',
+    self: {
+      args: {
+        children: 'Gami Button',
+        shadow: 'none',
+        light: true,
+        fontWeight: 'semibold',
+      },
+      variants: {
+        examples: options.type.map((variant) => ({
+          label: variant,
+          value: variant,
+        })),
+        field: 'variant',
+      },
+    },
+  },
+  {
+    storyName: 'WithFlat',
+    self: {
+      args: {
+        children: 'Gami Button',
+        shadow: 'none',
+        flat: true,
+        fontWeight: 'semibold',
       },
       variants: {
         examples: options.type.map((variant) => ({
@@ -98,7 +187,10 @@ const storiesComponent = [
     self: {
       args: {
         children: 'Gami Button',
-        variant: 'secondary',
+        variant: 'info',
+        shadow: 'info',
+        flat: true,
+        fontWeight: 'semibold',
       },
       variants: {
         examples: [
@@ -124,6 +216,7 @@ const storiesComponent = [
     self: {
       args: {
         children: 'Gami Button',
+        fontWeight: 'semibold',
       },
       variants: {
         examples: options.typeHtml.map((typeHtml) => ({

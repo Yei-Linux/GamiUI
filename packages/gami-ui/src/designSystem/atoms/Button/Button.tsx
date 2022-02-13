@@ -1,22 +1,19 @@
 import React, { Fragment } from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { ButtonHtmlType, ButtonType } from 'core/domain/types'
+import { ButtonHtmlType } from 'core/domain/types'
 import * as S from './Button.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import Spacer from 'designSystem/layouts/Spacer'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
+import { IComponentsVariant } from 'core/domain/interfaces/IComponentsVariant'
 
-export interface IButton extends IGeneralProps {
+export interface IButton extends IGeneralProps, IComponentsVariant {
   /**
    * 	Display button content
    */
   children: React.ReactNode
-  /**
-   * Display theme button variants
-   */
-  variant?: ButtonType
   /**
    * 	Display prefix Content button
    */
@@ -37,6 +34,10 @@ const Button = ({
   preffix,
   type = 'button',
   disable = false,
+  bordered = false,
+  ghost = false,
+  flat = false,
+  light = false,
   ...genericsProps
 }: IButton) => {
   const { handles } = useCssHandle({
@@ -52,6 +53,10 @@ const Button = ({
     <S.Button
       {...getGenericPropStyles(genericsProps)}
       $variant={variant}
+      $bordered={bordered}
+      $ghost={ghost}
+      $flat={flat}
+      $light={light}
       type={type}
       className={cls(handles.wrapper, {
         disabled: disable,
@@ -73,7 +78,7 @@ const Button = ({
 }
 
 const defaultProps = {
-  border: 'sm',
+  rounded: 'sm',
   shadow: 'md',
   width: 'auto',
   height: 'auto',

@@ -8,6 +8,10 @@ import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 export const Button = InheritGlobalStylesComponent(
   styled.button<{
     $variant?: ButtonType
+    $bordered?: boolean
+    $ghost?: boolean
+    $flat?: boolean
+    $light?: boolean
     theme?: ICustomTheme
   }>`
     border: none;
@@ -30,8 +34,16 @@ export const Button = InheritGlobalStylesComponent(
     padding: ${({ theme }) =>
       `${theme.tokens.spacing.padding.sm} ${theme.tokens.spacing.padding.md}`};
 
-    ${({ $variant, theme }) =>
-      mixinComponentsTheme(theme, $variant || 'primary', 'button')};
+    ${({ $variant, theme, $bordered, $ghost, $light, $flat }) =>
+      mixinComponentsTheme({
+        emotionTheme: theme,
+        typeStyle: $variant || 'primary',
+        element: 'button',
+        bordered: $bordered,
+        ghost: $ghost,
+        light: $light,
+        flat: $flat,
+      })};
   `,
   'button'
 )

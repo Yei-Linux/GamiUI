@@ -33,6 +33,8 @@ export const darkTheme = {
     earth: '#A6F0C6',
     skin: '#F2C0FF',
     sky: '#96BAFF',
+    gradient:
+      'linear-gradient(112deg, #AAFFEC -63.59%, #ff4ecd -20.3%, #0070F3 70.46%)',
   },
   extended: {
     code: '#374a54',

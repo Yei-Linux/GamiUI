@@ -7,7 +7,7 @@ type TToken =
   | 'spacing'
   | 'zIndex'
   | 'boxShadow'
-  | 'borderRadius'
+  | 'rounded'
 
 type TKey = string | number
 type TValue = IDynamicToken | string | number

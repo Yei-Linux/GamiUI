@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
-import { BorderType, FontWeightType, ShadowType } from 'core/domain/types'
+import { RoundedType, FontWeightType, ShadowType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { borderRadius, spacing, defaultTheme } from 'styles/tokens'
+import { rounded, spacing, defaultTheme } from 'styles/tokens'
 import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 export const Tag = styled.div<{
   $background?: string
   $color?: string
-  $border?: BorderType
+  $border?: RoundedType
   $shadow?: ShadowType
   $fontWeight?: FontWeightType
 }>`
@@ -36,7 +36,7 @@ export const BallMarker = styled.span<{ $background?: string }>`
   width: 10px;
   height: 10px;
 
-  border-radius: ${borderRadius.lg};
+  border-radius: ${rounded.lg};
   margin-right: ${spacing.margin.sm};
 
   background: ${({ $background }) => $background};
