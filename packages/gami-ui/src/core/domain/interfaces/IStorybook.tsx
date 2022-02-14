@@ -51,6 +51,6 @@ export interface IStoryConfigStructure {
   mainConfig: IStoryMainConfig
   component: TJSXElements
   parentComponent?: TJSXElements
-  storiesInheritGlobalStyles: IStoryConfig[]
+  storiesInheritGlobalStyles?: IStoryConfig[]
   storiesComponent: IStoryConfig[]
 }

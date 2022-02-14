@@ -1,10 +1,5 @@
 import styled from '@emotion/styled'
-
-export const Collapse = styled.div<{ $height: string }>`
-  .open {
-    max-height: ${({ $height }) => $height};
-  }
-`
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
 export const Header = styled.div``
 
@@ -18,3 +13,11 @@ export const Content = styled.div`
 `
 
 export const Children = styled.div``
+
+export const Collapse = InheritGlobalStylesComponent(styled.div<{
+  $height: string
+}>`
+  .open {
+    max-height: ${({ $height }) => $height};
+  }
+`)

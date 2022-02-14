@@ -50,12 +50,23 @@ const getInheritGlobalStyle = (
   return globalStylesToken
 }
 
+const buildDynamicDesignTypesObject = () => {
+  const objectBuilt : Record<string,null>= {}
+
+  DYNAMIC_DESIGN_TYPES.forEach((token) => {
+    objectBuilt[token] = null
+  })
+
+  return objectBuilt
+}
+
 export const getInheritGlobalStylesStories = (
   inheritGlobalStyles: IStoryInheritGlobalStyles
 ) => {
   const filtered: IStoryConfig[] = []
+  const mergedDesigns = { ...optionsStyle, ...buildDynamicDesignTypesObject() }
 
-  const storiesInheritSyles = Object.entries(optionsStyle).map(([key, value]) =>
+  const storiesInheritSyles = Object.entries(mergedDesigns).map(([key, value]) =>
     getInheritGlobalStyle(
       inheritGlobalStyles,
       key as TMergeAllDesignTypes,

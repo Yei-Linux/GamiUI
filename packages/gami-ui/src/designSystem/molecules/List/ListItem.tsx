@@ -20,6 +20,7 @@ export interface IListItem {
   onClick?: (value: TItemId) => void
   isSelected?: boolean
   noBorder?: boolean
+  className?: string
 }
 
 const ListItem = ({
@@ -32,12 +33,13 @@ const ListItem = ({
   onClick,
   isSelected = false,
   noBorder = false,
+  className,
 }: IListItem) => {
   const handleClickItem = () => onClick?.(id)
 
   return (
     <S.ListItem
-      className={classNames({
+      className={classNames(className, {
         selected: isSelected,
         allborder: hasAllBorder,
         halfborder: hasAllBorder,

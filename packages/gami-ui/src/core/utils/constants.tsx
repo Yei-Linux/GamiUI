@@ -7,7 +7,6 @@ import {
 export const DYNAMIC_DESIGN_TYPES = ['padding', 'margin'] as const
 
 export const DESIGN_TYPES = {
-  bordered: [true, false, 'custom'] as const,
   size: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   width: ['fit', 'auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   height: ['auto', 'xs', 'sm', 'md', 'lg', 'full'] as const,

@@ -18,6 +18,7 @@ export interface ISubMenu {
   icon?: React.ReactNode
   hasIcon?: boolean
   children?: React.ReactNode
+  className?: string
 }
 
 const SubMenu = ({
@@ -32,6 +33,7 @@ const SubMenu = ({
   isLink = true,
   isExternal = false,
   children,
+  className,
 }: ISubMenu) => {
   const titleType = typeof title
 
@@ -58,6 +60,7 @@ const SubMenu = ({
     <Fragment>
       {children ? (
         <Collapse
+          className={className}
           contentLeft={contentLeft}
           icon={icon}
           title={getTitle()}
@@ -67,6 +70,7 @@ const SubMenu = ({
         </Collapse>
       ) : (
         <S.SubMenu
+          className={className}
           onClick={onClick}
           noBorder
           avatar={contentLeft}
