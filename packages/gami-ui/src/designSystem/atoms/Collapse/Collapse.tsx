@@ -53,6 +53,8 @@ export interface ICollapse
 const Collapse = ({
   title,
   children,
+  variant = 'info',
+  bordered = false,
   subtitle,
   contentLeft,
   icon,
@@ -106,6 +108,8 @@ const Collapse = ({
       {...getGenericPropStyles(genericsProps)}
       className={cls(handles.wrapper)}
       $height={childrenHeight}
+      $variant={variant}
+      $bordered={bordered}
     >
       <S.Header className={cls(handles.header)}>
         <Menu.SubMenu

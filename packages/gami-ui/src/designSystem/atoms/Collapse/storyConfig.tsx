@@ -4,7 +4,7 @@ import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import Collapse from '.'
+import Collapse, { options } from '.'
 import RichText from '../RichText'
 import Title from '../Title'
 import Avatar from '../Avatar'
@@ -132,6 +132,46 @@ const storiesComponent = [
           },
         ],
         field: 'expanded',
+      },
+    },
+  },
+  {
+    storyName: 'WithVariants',
+    self: {
+      args: {
+        title: <Title level="h2">Title</Title>,
+        subtitle: 'Subtitle',
+        rounded: 'md',
+        children: textContentMock(),
+      },
+      variants: {
+        examples: options.type.map((variant) => ({
+          label: variant,
+          value: variant,
+          customProps: {
+            shadow: variant,
+          },
+        })),
+        field: 'variant',
+      },
+    },
+  },
+  {
+    storyName: 'WithBordered',
+    self: {
+      args: {
+        title: <Title level="h2">Title</Title>,
+        subtitle: 'Subtitle',
+        rounded: 'md',
+        bordered: true,
+        children: textContentMock(),
+      },
+      variants: {
+        examples: options.type.map((variant) => ({
+          label: variant,
+          value: variant,
+        })),
+        field: 'variant',
       },
     },
   },

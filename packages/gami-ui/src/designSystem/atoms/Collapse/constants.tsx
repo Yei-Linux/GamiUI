@@ -1,3 +1,13 @@
 export const options = {
-  type: [] as const,
+  type: [
+    'primary',
+    'secondary',
+    'tertiary',
+    'cuaternary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'gradient',
+  ] as const,
 }

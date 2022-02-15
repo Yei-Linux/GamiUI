@@ -7,7 +7,7 @@ import { validatorProperty } from 'styles/utilities/validatorsCss'
 interface IMixinComponentsTheme extends IComponentsVariant {
   emotionTheme: ICustomTheme
   typeStyle: ButtonType | FeatureCardThemeTypes
-  element: 'button' | 'link' | 'card'
+  element: 'button' | 'link' | 'card' | 'collapse'
 }
 
 export const mixinComponentsTheme = ({

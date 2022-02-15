@@ -1,0 +1,4 @@
+export const SET_ACCORDION = 'SET_ACCORDION'
+export const SET_ANIMATED = 'SET_ANIMATED'
+export const SET_DIVIDER = 'SET_DIVIDER'
+export const SET_ON_CHANGE = 'SET_ON_CHANGE'
