@@ -21,6 +21,7 @@ export const Collapse = InheritGlobalStylesComponent(styled.div<{
   $height: string
   $variant?: ButtonType
   $bordered?: boolean
+  $divider?: boolean
   theme?: ICustomTheme
 }>`
   .open {
@@ -34,4 +35,9 @@ export const Collapse = InheritGlobalStylesComponent(styled.div<{
       element: 'collapse',
       bordered: $bordered,
     })};
+
+  &.divider {
+    border-top: none;
+    border-bottom: 1px solid #eaeaea;
+  }
 `)

@@ -230,7 +230,7 @@ export const generatorComponentsTheme = (
         border: tokens.spacing.border.none,
       },
       gradient: {
-        flatbg: "white",
+        flatbg: 'white',
         bg: colorsTheme.semantic.gradient,
         color: colorsTheme.neutral[800],
         border: tokens.spacing.border.none,
@@ -269,7 +269,7 @@ export const generatorComponentsTheme = (
     collapse: {
       primary: {
         flatbg: '#bfd8fc',
-        bg: '#bfd8fc',
+        bg: colorsTheme.neutral[800],
         color: colorsTheme.neutral[0],
         border: tokens.spacing.border.none,
       },
@@ -316,8 +316,8 @@ export const generatorComponentsTheme = (
         border: tokens.spacing.border.none,
       },
       gradient: {
-        flatbg: "white",
-        bg: "white",
+        flatbg: 'white',
+        bg: 'white',
         color: colorsTheme.neutral[0],
         border: tokens.spacing.border.none,
       },

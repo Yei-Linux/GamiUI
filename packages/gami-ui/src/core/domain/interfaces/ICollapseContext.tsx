@@ -2,6 +2,7 @@ export type TOnChangeCollapse = () => void
 type TAccordion<T> = (data: T) => void
 
 export interface ICollapseCollomsContext {
+  index?: number | null
   accordion?: boolean
   animated?: boolean
   divider?: boolean
@@ -9,6 +10,7 @@ export interface ICollapseCollomsContext {
 }
 
 export interface ICollapseContext extends ICollapseCollomsContext {
+  setIndex: TAccordion<number | null>
   setAccordion: TAccordion<boolean>
   setAnimated: TAccordion<boolean>
   setDivider: TAccordion<boolean>

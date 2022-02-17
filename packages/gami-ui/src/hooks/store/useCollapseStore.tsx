@@ -2,7 +2,12 @@ import context from 'context/CollapseProvider/context'
 import useStore from '../useStore'
 
 const useCollapseStore = () => {
+  const store = useStore({ context: context, hasValidation: true })
+
+  if (!store) return null
+
   const {
+    index,
     accordion,
     animated,
     divider,
@@ -11,9 +16,11 @@ const useCollapseStore = () => {
     setAnimated,
     setDivider,
     setOnChange,
-  } = useStore({ context: context })
+    setIndex,
+  } = store
 
   return {
+    index,
     accordion,
     animated,
     divider,
@@ -22,6 +29,7 @@ const useCollapseStore = () => {
     setAnimated,
     setDivider,
     setOnChange,
+    setIndex,
   }
 }
 

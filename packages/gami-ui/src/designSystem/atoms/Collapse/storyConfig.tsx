@@ -8,6 +8,7 @@ import Collapse, { options } from '.'
 import RichText from '../RichText'
 import Title from '../Title'
 import Avatar from '../Avatar'
+import { TitleCollapses } from './constants'
 
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Collapse',
@@ -61,6 +62,54 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 })
 
 const storiesComponent = [
+  {
+    storyName: 'WithGroupAndDivider',
+    parent: {
+      args: { divider: true },
+      variants: [
+        {
+          label: 'WithDivider',
+          value: TitleCollapses.map((Title, index) => (
+            <Collapse key={index} title={Title}>
+              {textContentMock()}
+            </Collapse>
+          )),
+        },
+      ],
+    },
+  },
+  {
+    storyName: 'WithGroupAndNotDivider',
+    parent: {
+      args: { divider: false },
+      variants: [
+        {
+          label: 'WithNotDivider',
+          value: TitleCollapses.map((Title, index) => (
+            <Collapse key={index} title={Title}>
+              {textContentMock()}
+            </Collapse>
+          )),
+        },
+      ],
+    },
+  },
+  {
+    storyName: 'WithGroupAndAccordion',
+    parent: {
+      args: { accordion: true },
+      variants: [
+        {
+          label: 'WithAccordion',
+          value: TitleCollapses.map((Title, index) => (
+            <Collapse key={index} title={Title}>
+              {textContentMock()}
+            </Collapse>
+          )),
+        },
+      ],
+    },
+  },
   {
     storyName: 'WithTitle',
     self: {
@@ -230,6 +279,7 @@ const storyConfig = getStoryConfigStructure({
   storiesInheritGlobalStyles,
   storiesComponent,
   component: Collapse,
+  parentComponent: Collapse.Group,
 })
 
 export { storyConfig }

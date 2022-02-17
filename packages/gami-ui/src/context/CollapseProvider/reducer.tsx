@@ -3,6 +3,7 @@ import {
   SET_ACCORDION,
   SET_ANIMATED,
   SET_DIVIDER,
+  SET_INDEX,
   SET_ON_CHANGE,
 } from './types'
 
@@ -11,6 +12,7 @@ type TTypes =
   | typeof SET_ANIMATED
   | typeof SET_DIVIDER
   | typeof SET_ON_CHANGE
+  | typeof SET_INDEX
 
 interface IAction {
   type: TTypes
@@ -19,6 +21,10 @@ interface IAction {
 
 const reducer = (state: ICollapseCollomsContext, action: IAction) => {
   const switcher = {
+    SET_INDEX: {
+      ...state,
+      index: action.payload,
+    },
     SET_ACCORDION: {
       ...state,
       accordion: action.payload,

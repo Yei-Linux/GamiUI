@@ -6,11 +6,13 @@ import {
   SET_ACCORDION,
   SET_ANIMATED,
   SET_DIVIDER,
+  SET_INDEX,
   SET_ON_CHANGE,
 } from './types'
 
 const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const initialState = {
+    index: null,
     accordion: false,
     animated: false,
     divider: false,
@@ -18,6 +20,13 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
   } as const
 
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const setIndex = (data: number | null) => {
+    dispatch({
+      type: SET_INDEX,
+      payload: data,
+    })
+  }
 
   const setAccordion = (data: boolean) => {
     dispatch({
@@ -54,6 +63,8 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
         animated: state.animated,
         divider: state.divider,
         onChange: state.onChange,
+        index: state.index,
+        setIndex,
         setAccordion,
         setAnimated,
         setDivider,

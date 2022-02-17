@@ -10,6 +10,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import Icon from '../Icon'
 import * as S from './Collapse.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import useCollapseStore from 'hooks/store/useCollapseStore'
+import CollapseGroup from './CollapseGroup'
 
 type TCollapseAction = (isVisible: boolean) => void
 
@@ -48,12 +50,16 @@ export interface ICollapse
    * Set default visible
    */
   expanded?: boolean
+  /**
+   * Identifier
+   */
+  index?: number | null
 }
 
 const Collapse = ({
   title,
   children,
-  variant = 'info',
+  variant = 'primary',
   bordered = false,
   subtitle,
   contentLeft,
@@ -61,6 +67,7 @@ const Collapse = ({
   onClick,
   className,
   expanded,
+  index = null,
   ...genericsProps
 }: ICollapse) => {
   const { handles } = useCssHandle({
@@ -78,6 +85,17 @@ const Collapse = ({
   const childrenRef: TUseRefDiv = useRef(null)
   const [childrenHeight, setChildrenHeight] = useState('auto')
   const { isVisible, handleToggle } = useToggle({ defaultVisible: expanded })
+  const store = useCollapseStore()
+
+  const hasCollapseGroupParent = () => (store ? true : false)
+
+  const hasDivider = () => hasCollapseGroupParent() && store?.divider
+
+  const hasAccordion = () => hasCollapseGroupParent() && store?.accordion
+
+  useEffect(() => {
+    hasAccordion() && index !== store?.index && handleToggle(false)
+  }, [store?.index])
 
   const getChildrenHeight = () => {
     if (!childrenRef) return 'auto'
@@ -101,12 +119,15 @@ const Collapse = ({
 
   const handleCollapse = () => {
     handleActionOnCollapse()
+    hasAccordion() && !isVisible && index != null && store?.setIndex(index)
   }
 
   return (
     <S.Collapse
       {...getGenericPropStyles(genericsProps)}
-      className={cls(handles.wrapper)}
+      className={cls(handles.wrapper, {
+        divider: hasDivider(),
+      })}
       $height={childrenHeight}
       $variant={variant}
       $bordered={bordered}
@@ -145,9 +166,12 @@ const Collapse = ({
   )
 }
 
+Collapse.Group = CollapseGroup
+
 const defaultProps = {}
 
 type CollapseComponent<P> = React.NamedExoticComponent<P> & {
+  Group: typeof CollapseGroup
   defaultProps: P
 }
 
