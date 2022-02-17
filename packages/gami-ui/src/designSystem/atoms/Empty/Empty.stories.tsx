@@ -1,14 +1,11 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Empty from '.'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/Empty',
-  component: Empty,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = (args: any) => <Empty {...args} />
-Basic.args = {}
+export default mainConfig as Meta
+
+const [one, two, three, four, five, six, seven, eight] = stories
+
+export { one, two, three, four, five, six, seven, eight }

@@ -65,7 +65,6 @@ const Collapse = ({
   contentLeft,
   icon,
   onClick,
-  className,
   expanded,
   index = null,
   ...genericsProps
@@ -79,7 +78,7 @@ const Collapse = ({
       children__content: ['children__content'],
     },
     componentPrefixCls: 'collapse',
-    customPrexiCls: className,
+    customPrexiCls: genericsProps?.className,
   })
 
   const childrenRef: TUseRefDiv = useRef(null)

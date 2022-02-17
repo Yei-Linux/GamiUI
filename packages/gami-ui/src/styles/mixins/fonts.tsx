@@ -59,13 +59,16 @@ export const mixinSubtitle = (themeGlobal: ICustomTheme) => {
   `
 }
 
-export const mixinDescription = (themeGlobal: ICustomTheme) => {
+export const mixinDescription = (
+  themeGlobal: ICustomTheme,
+  color: string | null = null
+) => {
   const { theme, tokens } = themeGlobal
 
   if (!theme && !tokens) return
 
   return css`
     font-size: ${tokens.font.size.xs};
-    color: ${theme.neutral[500]};
+    color: ${color ?? theme.neutral[300]};
   `
 }
