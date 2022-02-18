@@ -1,11 +1,14 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks'
 
 import { IconsPack } from 'designSystem/atoms/Icon/constants'
+import ThemeGamification from 'providers/ThemeGamification'
 import Icon from '../atoms/Icon'
 
 <Meta title="Tokens/Icons" />
 
 # Icons Gallery
+
+<ThemeGamification />
 
 <IconGallery>
   {Object.keys(IconsPack).map((key, index) => (

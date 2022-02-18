@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import React, { useEffect, useState } from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import { IconNames } from 'core/domain/types'
@@ -6,6 +5,8 @@ import { IconsPack } from './constants'
 import * as S from './Icon.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
 
 export interface IOnlyIcon {
   /**
@@ -22,7 +23,12 @@ export interface IOnlyIcon {
   size?: string
 }
 
-interface IIcon extends IOnlyIcon, IGeneralProps {}
+type IGeneralPropsIcon = Omit<
+  IGeneralProps,
+  'size' | 'width' | 'height' | 'textAlign'
+>
+
+interface IIcon extends IOnlyIcon, IGeneralPropsIcon {}
 
 const Icon = ({
   fill = 'none',
@@ -31,6 +37,14 @@ const Icon = ({
   ...genericsProps
 }: IIcon) => {
   const [icon, setIcon] = useState(IconsPack?.[name])
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      svg: ['svg'],
+    },
+    componentPrefixCls: 'icon',
+    customPrexiCls: genericsProps?.className,
+  })
 
   if (!icon) {
     return null
@@ -42,10 +56,10 @@ const Icon = ({
 
   return (
     <S.Icon
-      className={classNames({
-        hoverIcon: [genericsProps.onClick],
-      })}
       {...getGenericPropStyles(genericsProps)}
+      className={cls(handles.wrapper, {
+        hoverIcon: genericsProps?.onClick ? true : false,
+      })}
     >
       <S.Svg fill={fill} width={size} height={size} viewBox={icon.viewBox}>
         {icon.svg}
@@ -55,8 +69,12 @@ const Icon = ({
 }
 
 const defaultProps = {
-  border: 'none',
+  rounded: 'none',
   shadow: 'none',
 }
 
-export default withDefaults(Icon, defaultProps)
+type IconComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Icon, defaultProps) as IconComponent<IIcon>
