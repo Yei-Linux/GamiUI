@@ -52,7 +52,6 @@ export const getGenericPropStyles = ({
   padding,
   margin,
   style,
-  className,
   onClick,
   onChange,
 }: IGeneralProps) => {
@@ -70,7 +69,6 @@ export const getGenericPropStyles = ({
   if (margin) propStyles['$margin'] = margin
 
   if (style) propStyles['style'] = style
-  if (className) propStyles['className'] = className
 
   if (onClick) propStyles['onClick'] = onClick
   if (onChange) propStyles['onChange'] = onChange

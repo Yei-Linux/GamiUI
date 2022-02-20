@@ -1,17 +1,26 @@
+import { cls } from 'core/utils/cls'
 import React from 'react'
 import Icon from '../Icon'
-import * as S from './ProgressBar.styles'
+import {
+  SUCCESS_BACKGROUND_PROGRESS,
+  CIRCLE_SIZE_PROPORTION,
+  PROPORTION,
+} from './constants'
+import { IProgressTypeContent } from './Progress'
+import * as S from './Progress.styles'
 
-export interface IProgressCircle {
-  percent: number
-  backgroundProgress: string
+interface IProgressCircle {
+  background?: string
 }
 
-const ProgressCircle = ({ percent, backgroundProgress }: IProgressCircle) => {
-  const SUCCESS_BACKGROUND_PROGRESS = '#52c41a'
-  const CIRCLE_SIZE_PROPORTION = 29.531
-  const PROPORTION = 10
+type TProgressCircle = IProgressCircle & IProgressTypeContent
 
+const ProgressCircle = ({
+  percent,
+  backgroundProgress,
+  className = [],
+  background = '#f5f5f5',
+}: TProgressCircle) => {
   const finalPercent = percent < 0 ? 0 : percent > 100 ? 100 : percent
   const finalBackground =
     finalPercent == 100 ? SUCCESS_BACKGROUND_PROGRESS : backgroundProgress
@@ -23,14 +32,13 @@ const ProgressCircle = ({ percent, backgroundProgress }: IProgressCircle) => {
   }
 
   return (
-    <S.ProgressCircle>
-      <svg className="ant-progress-circle" viewBox="0 0 100 100">
+    <S.ProgressCircle className={cls(className)}>
+      <svg viewBox="0 0 100 100">
         <path
-          className="ant-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
-          stroke="#f5f5f5"
+          stroke={background}
           strokeLinecap="round"
           strokeWidth="6"
           fillOpacity="0"
@@ -42,7 +50,6 @@ const ProgressCircle = ({ percent, backgroundProgress }: IProgressCircle) => {
           }}
         ></path>
         <path
-          className="ant-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -59,7 +66,6 @@ const ProgressCircle = ({ percent, backgroundProgress }: IProgressCircle) => {
           }}
         ></path>
         <path
-          className="ant-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -78,7 +84,7 @@ const ProgressCircle = ({ percent, backgroundProgress }: IProgressCircle) => {
       </svg>
       <S.ProgressText>
         {finalPercent == 100 ? (
-          <Icon name="check__success" size="45%" />
+          <Icon name="check" size="45%" />
         ) : (
           `${finalPercent}%`
         )}

@@ -1,11 +1,13 @@
 import styled from '@emotion/styled'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { sizes, spacing, defaultTheme, zIndex } from 'styles/tokens'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const ProgressBar = styled.div<{
+export const Progress = InheritGlobalStylesComponent(styled.div<{
   $backgroundProgressBar?: string
   $maxWidth: string
   $maxHeight: string
+  theme?: ICustomTheme
 }>`
   max-width: ${({ $maxWidth }) => $maxWidth};
   max-height: ${({ $maxHeight }) => $maxHeight};
@@ -13,13 +15,13 @@ export const ProgressBar = styled.div<{
   position: relative;
   overflow: hidden;
 
-  background-color: ${({ $backgroundProgressBar }) =>
-    $backgroundProgressBar || defaultTheme.light.neutral[600]};
-
   &.bar {
     height: 15px;
-    border-radius: ${spacing.border.sm};
-    width: ${sizes.width.full};
+    border-radius: ${({ theme }) => theme.tokens.spacing.border.sm};
+    width: ${({ theme }) => theme.tokens.sizes.width.full};
+
+    background-color: ${({ $backgroundProgressBar, theme }) =>
+      $backgroundProgressBar || theme.theme.neutral[600]};
   }
 
   &.circle {
@@ -30,7 +32,7 @@ export const ProgressBar = styled.div<{
   &:hover {
     cursor: pointer;
   }
-`
+`)
 
 export const ProgressPercentEffect = styled.div`
   width: 80%;
@@ -42,17 +44,18 @@ export const ProgressPercentEffect = styled.div`
 export const ProgressPercent = styled.div<{
   $percent: number
   $backgroundProgress?: string
+  theme?: ICustomTheme
 }>`
   ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
 
   width: ${({ $percent }) => `${$percent}%`};
-  background-color: ${({ $backgroundProgress }) =>
-    $backgroundProgress || defaultTheme.light.primary.jordyBlue};
+  background-color: ${({ $backgroundProgress, theme }) =>
+    $backgroundProgress || theme.theme.primary.jordyBlue};
 
   position: absolute;
   top: 0px;
   left: 0px;
-  z-index: ${zIndex[1]};
+  z-index: ${({ theme }) => theme.tokens.zIndex[1]};
 
   border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;

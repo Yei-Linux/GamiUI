@@ -11,7 +11,7 @@ export { default as Mask } from './designSystem/atoms/Mask'
 export { default as Message } from './designSystem/atoms/Message'
 export { default as Number } from './designSystem/atoms/Number'
 export { default as Password } from './designSystem/atoms/Password'
-export { default as ProgressBar } from './designSystem/atoms/ProgressBar'
+export { default as Progress } from './designSystem/atoms/Progress'
 export { default as Radio } from './designSystem/atoms/Radio'
 export { default as Range } from './designSystem/atoms/Range'
 export { default as RichText } from './designSystem/atoms/RichText'
@@ -74,7 +74,6 @@ export { mediaQuery } from './styles/utilities/breakpoints'
 
 //Hooks
 export {
-  useSurveyStore,
   useStepStore,
   useFormStore,
   useGameStore,

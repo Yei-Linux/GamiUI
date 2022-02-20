@@ -100,7 +100,7 @@ const Image = ({
       background__wrapper: ['background__wrapper'],
       link__wrapper: ['link__wrapper'],
     },
-    componentPrefixCls: 'icon',
+    componentPrefixCls: 'image',
     customPrexiCls: genericsProps?.className,
   })
   const { setsImg, breakpointsImg } = useImage({ sets, breakpoints })
