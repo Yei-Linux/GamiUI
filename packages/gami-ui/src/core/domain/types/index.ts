@@ -6,6 +6,7 @@ import { options as optionsWave } from 'designSystem/styled/Wave'
 import { options as optionsHeroes } from 'designSystem/game/Character'
 import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCard'
 import { options as optionsAvatar } from 'designSystem/atoms/Avatar/constants'
+import { options as optionsImage} from 'designSystem/atoms/Image/constants'
 import { options } from 'designSystem/atoms/Link'
 
 import { DESIGN_TYPES, DYNAMIC_DESIGN_TYPES } from 'core/utils/constants'
@@ -29,6 +30,8 @@ export type EmptyTypes = typeof optionsEmpty.type[number]
 export type ButtonType = typeof optionsButton.type[number]
 export type ButtonHtmlType = typeof optionsButton.typeHtml[number]
 export type LinkType = typeof options.type[number]
+
+export type ImageBackgroundType = typeof optionsImage.typeImageBackground[number]
 
 export type ZoomModeType = typeof optionsAvatar.zoomMode[number]
 export type TextModeType = typeof optionsAvatar.textMode[number]

@@ -1,45 +1,11 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Image from '.'
-import RichText from '../RichText'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/Image',
-  component: Image,
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = ({ ...args }: any) => <Image {...args} />
-Basic.args = {
-  src: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1e0d62f445e6448af1e125f5702c8227/reactjs-development-services.png',
-  alt: 'Example Image',
-}
+export default mainConfig as Meta
 
-export const Background = ({ ...args }: any) => (
-  <Image {...args}>
-    <RichText text="Hola Como estas" />
-  </Image>
-)
-Background.args = {
-  src: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1e0d62f445e6448af1e125f5702c8227/reactjs-development-services.png',
-  alt: 'Example Image',
-  width: 'fit-content',
-  height: '200px',
-}
+const [one, two, three, four, five, six, seven, height] = stories
 
-export const Link = ({ ...args }: any) => (
-  <Image {...args}>
-    <RichText text="Hola Como estas" />
-  </Image>
-)
-Link.args = {
-  src: 'https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_1e0d62f445e6448af1e125f5702c8227/reactjs-development-services.png',
-  alt: 'Example Image',
-  link: {
-    url: 'https://www.google.com/',
-    newTab: true,
-  },
-  width: 'fit-content',
-  height: '200px',
-}
+export { one, two, three, four, five, six, seven, height }

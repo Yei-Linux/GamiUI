@@ -1,11 +1,29 @@
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import { cls } from 'core/utils/cls'
+import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
 import useImage, { IUseImage } from 'hooks/useImage'
-import React, { CSSProperties, Fragment } from 'react'
-import { BackgroundImg, Img } from './Image.styles'
+import React, { Fragment } from 'react'
+import * as S from './Image.styles'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { ImageBackgroundType } from 'core/domain/types'
 
 interface IImageLink {
   url?: string
   newTab?: boolean
 }
+export type IImageLinkNul = IImageLink | null
+
+type IGeneralPropsImage = Omit<
+  IGeneralProps,
+  | 'width'
+  | 'height'
+  | 'textAlign'
+  | 'fontWeight'
+  | 'padding'
+  | 'size'
+  | 'onChange'
+>
 
 export interface IImagePropStyles {
   /**
@@ -34,7 +52,10 @@ export interface IImagePropStyles {
   height?: string
 }
 
-export interface IImage extends IImagePropStyles, IUseImage {
+export interface IImage
+  extends IImagePropStyles,
+    IUseImage,
+    IGeneralPropsImage {
   /**
    * Children in case of Image Background
    */
@@ -47,18 +68,14 @@ export interface IImage extends IImagePropStyles, IUseImage {
    * Alt Image
    */
   alt?: string
-
   /**
    * Link With Url and New Tab
    */
-  link?: IImageLink | null
+  link?: IImageLinkNul
   /**
    * Background Size In Case has children
    */
-  backgroundSize?: 'cover' | 'contain'
-
-  className?: string
-  style?: CSSProperties
+  backgroundSize?: ImageBackgroundType
 }
 
 const Image = ({
@@ -72,12 +89,20 @@ const Image = ({
   width = 'auto',
   height = 'auto',
   link = null,
-  className,
   backgroundSize = 'contain',
-  style,
   sets,
   breakpoints,
+  ...genericsProps
 }: IImage) => {
+  const { handles } = useCssHandle({
+    classes: {
+      image__wrapper: ['image__wrapper'],
+      background__wrapper: ['background__wrapper'],
+      link__wrapper: ['link__wrapper'],
+    },
+    componentPrefixCls: 'icon',
+    customPrexiCls: genericsProps?.className,
+  })
   const { setsImg, breakpointsImg } = useImage({ sets, breakpoints })
   const optimizationImgSizes = {
     srcset: setsImg,
@@ -93,31 +118,46 @@ const Image = ({
     width,
     height,
     backgroundSize,
-    style,
+    style: genericsProps.style,
     ...optimizationImgSizes,
   }
-  const ImageClassName = link ? {} : { className }
-  const ImageLinkClassName = link ? { className } : {}
 
   const shouldOpenLinkInNewTab = link?.newTab
 
   const imageElement = children ? (
-    <BackgroundImg {...ImageClassName} {...imageCommonsProps}>
+    <S.BackgroundImg
+      {...(!link ? getGenericPropStyles(genericsProps) : {})}
+      className={cls(handles.background__wrapper, {
+        [genericsProps.className ?? '']: link == null,
+      })}
+      {...imageCommonsProps}
+    >
       {children}
-    </BackgroundImg>
+    </S.BackgroundImg>
   ) : (
-    <Img {...ImageClassName} {...imageCommonsProps} alt={alt} loading="lazy" />
+    <S.Img
+      {...(!link ? getGenericPropStyles(genericsProps) : {})}
+      className={cls(handles.image__wrapper, {
+        [genericsProps.className ?? '']: link == null,
+      })}
+      {...imageCommonsProps}
+      alt={alt}
+      loading="lazy"
+    />
   )
 
   const maybeLink = link ? (
-    <a
-      {...ImageLinkClassName}
+    <S.LinkImg
+      {...(link ? getGenericPropStyles(genericsProps) : {})}
+      className={cls(handles.link__wrapper, {
+        [genericsProps.className ?? '']: link != null,
+      })}
       href={link?.url}
       target={shouldOpenLinkInNewTab ? '_blank' : undefined}
       rel="noreferrer"
     >
       {imageElement}
-    </a>
+    </S.LinkImg>
   ) : (
     <Fragment>{imageElement}</Fragment>
   )
@@ -125,4 +165,13 @@ const Image = ({
   return <Fragment>{maybeLink}</Fragment>
 }
 
-export default Image
+const defaultProps = {
+  rounded: 'none',
+  shadow: 'none',
+}
+
+type ImageComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Image, defaultProps) as ImageComponent<IImage>

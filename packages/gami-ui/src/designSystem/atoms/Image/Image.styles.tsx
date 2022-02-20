@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 import { IImagePropStyles } from './Image'
 
 const imagePropsStyles = ({
@@ -18,7 +19,7 @@ const imagePropsStyles = ({
   min-height: ${minHeight};
 `
 
-export const Img = styled.img<{
+export const Img = InheritGlobalStylesComponent(styled.img<{
   maxWidth?: string
   maxHeight?: string
   minWidth?: string
@@ -35,9 +36,9 @@ export const Img = styled.img<{
       width,
       height,
     })};
-`
+`)
 
-export const BackgroundImg = styled.div<{
+export const BackgroundImg = InheritGlobalStylesComponent(styled.div<{
   src: string
   maxWidth?: string
   maxHeight?: string
@@ -61,4 +62,6 @@ export const BackgroundImg = styled.div<{
       width,
       height,
     })};
-`
+`)
+
+export const LinkImg = InheritGlobalStylesComponent(styled.a``)
