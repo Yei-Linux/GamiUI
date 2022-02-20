@@ -8,6 +8,7 @@ import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCa
 import { options as optionsAvatar } from 'designSystem/atoms/Avatar/constants'
 import { options as optionsImage} from 'designSystem/atoms/Image/constants'
 import { options as optionsProgress} from 'designSystem/atoms/Progress/constants'
+import { options as optionsTitle} from 'designSystem/atoms/Title/constants'
 import { options } from 'designSystem/atoms/Link'
 
 import { DESIGN_TYPES, DYNAMIC_DESIGN_TYPES } from 'core/utils/constants'
@@ -35,6 +36,8 @@ export type LinkType = typeof options.type[number]
 export type ImageBackgroundType = typeof optionsImage.typeImageBackground[number]
 
 export type ProgressType = typeof optionsProgress.type[number]
+
+export type LevelType = typeof optionsTitle.typeLevel[number]
 
 export type ZoomModeType = typeof optionsAvatar.zoomMode[number]
 export type TextModeType = typeof optionsAvatar.textMode[number]

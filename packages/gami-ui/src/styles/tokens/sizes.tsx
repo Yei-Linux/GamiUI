@@ -50,5 +50,26 @@ export const sizes = {
       },
       full: '100%',
     },
+    title: {
+      fit: 'fit-content',
+      auto: 'auto',
+      xs: {
+        height: '1.5rem',
+        width: '5rem',
+      },
+      sm: {
+        height: '2rem',
+        width: '7rem',
+      },
+      md: {
+        height: '2.5rem',
+        width: '9rem',
+      },
+      lg: {
+        height: '3rem',
+        width: '11rem',
+      },
+      full: '100%',
+    },
   },
 }
