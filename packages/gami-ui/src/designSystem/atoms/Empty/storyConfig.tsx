@@ -70,15 +70,15 @@ const storiesComponent = [
         examples: [
           {
             label: 'code',
-            value: <Icon size="100px" name="code" />,
+            value: <Icon size="50px" name="code" />,
           },
           {
             label: 'voice',
-            value: <Icon size="100px" name="voice" />,
+            value: <Icon size="50px" name="voice" />,
           },
           {
             label: 'notes',
-            value: <Icon size="100px" name="notes" />,
+            value: <Icon size="50px" name="notes" />,
           },
         ],
         field: 'icon',

@@ -12,7 +12,7 @@ export interface IOnlyIcon {
   /**
    * Fill Icon
    */
-  fill?: string
+  color?: string
   /**
    * Name
    */
@@ -31,12 +31,12 @@ type IGeneralPropsIcon = Omit<
 interface IIcon extends IOnlyIcon, IGeneralPropsIcon {}
 
 const Icon = ({
-  fill = 'none',
+  color = '#7f9cf5',
   name = 'facebook',
   size = '16px',
   ...genericsProps
 }: IIcon) => {
-  const [icon, setIcon] = useState(IconsPack?.[name])
+  const [icon, setIcon] = useState(IconsPack(color)?.[name])
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
@@ -51,7 +51,7 @@ const Icon = ({
   }
 
   useEffect(() => {
-    setIcon(IconsPack[name])
+    setIcon(IconsPack(color)?.[name])
   }, [name])
 
   return (
@@ -61,7 +61,7 @@ const Icon = ({
         hoverIcon: genericsProps?.onClick ? true : false,
       })}
     >
-      <S.Svg fill={fill} width={size} height={size} viewBox={icon.viewBox}>
+      <S.Svg fill="none" width={size} height={size} viewBox={icon.viewBox}>
         {icon.svg}
       </S.Svg>
     </S.Icon>

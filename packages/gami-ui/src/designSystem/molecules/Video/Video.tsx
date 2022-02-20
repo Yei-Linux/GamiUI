@@ -121,7 +121,7 @@ const Video = ({
             <S.VideoOptionContainer align="flex-end">
               <S.VideoVolume>
                 <Range
-                  iconId="volume__small__mono"
+                  iconId="volume"
                   value={valueVolume}
                   onChangeFormItem={handleChangeVolume}
                 />
@@ -135,7 +135,7 @@ const Video = ({
               <Spacer direction="left" />
 
               <Icon
-                name={!play ? 'play__mono' : 'pause__mono'}
+                name={!play ? 'play' : 'pause'}
                 size="40px"
                 onClick={handleTogglePlay}
                 shadow="lg"

@@ -1,15 +1,9 @@
-import { All } from './All'
-import { Backgrounds } from './Backgrounds'
-import { Base } from './Base'
-import { DrawkitIcons } from './DrawkitIcons'
+import { DrawkitIcons, MultiColor, DefinedColor } from './gallery'
 
-export const IconsPack: any = {
-  ...Backgrounds,
-  ...DrawkitIcons,
-  ...Base,
-  ...All,
-}
+export const IconsPack = (color = '#7f9cf5') => ({
+  ...DrawkitIcons(),
+  ...DefinedColor(),
+  ...MultiColor(color),
+})
 
-export const options = {
-  names: Object.keys(IconsPack),
-}
+export type TIconsPack = ReturnType<typeof IconsPack>

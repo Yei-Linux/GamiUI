@@ -1,6 +1,6 @@
 export const iconsEmpty = {
-  base: 'drawkit__empty',
-  sad: 'sad__multicolor',
+  base: 'empty',
+  sad: 'sad',
 }
 
 export const options = {

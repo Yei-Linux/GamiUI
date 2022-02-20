@@ -1,5 +1,4 @@
 import { options as optionsButton } from 'designSystem/atoms/Button/constants'
-import { options as optionsIcon } from 'designSystem/atoms/Icon'
 import { options as optionsGuides } from 'designSystem/atoms/AnimatorGuide'
 import { options as optionsEmpty } from 'designSystem/atoms/Empty'
 import { options as optionsGradient } from 'designSystem/styled/Gradient'
@@ -12,6 +11,7 @@ import { options } from 'designSystem/atoms/Link'
 import { DESIGN_TYPES, DYNAMIC_DESIGN_TYPES } from 'core/utils/constants'
 import { MutableRefObject } from 'react'
 import { TTokensKeySizeComponents } from 'providers/ThemeGamification/ThemeGamification'
+import { TIconsPack } from 'designSystem/atoms/Icon/constants'
 
 export type DesignTypes = typeof DESIGN_TYPES
 export type DynamicDesignTypes = typeof DYNAMIC_DESIGN_TYPES[number]
@@ -33,7 +33,7 @@ export type LinkType = typeof options.type[number]
 export type ZoomModeType = typeof optionsAvatar.zoomMode[number]
 export type TextModeType = typeof optionsAvatar.textMode[number]
 
-export type IconNames = typeof optionsIcon.names[number]
+export type IconNames = keyof TIconsPack
 
 export type GuidesNames = typeof optionsGuides.type[number]
 

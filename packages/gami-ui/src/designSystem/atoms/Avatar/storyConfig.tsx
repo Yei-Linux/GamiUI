@@ -209,19 +209,19 @@ const storiesComponent = [
           {
             label: 'Icon 1',
             value: (
-              <Icon fill="none" size="25px" name="facebook__transparent" />
+              <Icon size="25px" name="facebook" />
             ),
           },
           {
             label: 'Icon 2',
             value: (
-              <Icon fill="none" size="25px" name="facebook__transparent" />
+              <Icon size="25px" name="facebook" />
             ),
           },
           {
             label: 'Icon 3',
             value: (
-              <Icon fill="none" size="25px" name="facebook__transparent" />
+              <Icon size="25px" name="facebook" />
             ),
           },
         ],

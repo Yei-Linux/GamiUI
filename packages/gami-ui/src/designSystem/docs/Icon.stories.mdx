@@ -1,19 +1,101 @@
 import { Meta, IconGallery, IconItem } from '@storybook/addon-docs/blocks'
 
-import { IconsPack } from 'designSystem/atoms/Icon/constants'
+import {
+  MultiColor,
+  DefinedColor,
+  DrawkitIcons,
+} from 'designSystem/atoms/Icon/gallery'
+
+import { defaultTheme } from 'styles/tokens'
+import { DEFAULT_THEME_MODES } from 'core/utils/constants'
 import ThemeGamification from 'providers/ThemeGamification'
+import { ThemeProvider } from '@storybook/theming'
+import { useStorybookTheme } from 'hooks/useStorybookTheme'
+
 import Icon from '../atoms/Icon'
 
 <Meta title="Tokens/Icons" />
 
-# Icons Gallery
+# Icons MultiColor Gallery - Primary(Default)
 
-<ThemeGamification />
+<ThemeProvider theme={DEFAULT_THEME_MODES[useStorybookTheme()]}>
+  <ThemeGamification>
+    <IconGallery>
+      {Object.keys(MultiColor()).map((key, index) => (
+        <IconItem name={key} key={index}>
+          <Icon name={key} size="20px" />
+        </IconItem>
+      ))}
+    </IconGallery>
+  </ThemeGamification>
+</ThemeProvider>
 
-<IconGallery>
-  {Object.keys(IconsPack).map((key, index) => (
-    <IconItem name={key} key={index}>
-      <Icon name={key} fill="none" size="20px" />
-    </IconItem>
-  ))}
-</IconGallery>
+# Icons MultiColor Gallery - Secondary
+
+<ThemeProvider theme={DEFAULT_THEME_MODES[useStorybookTheme()]}>
+  <ThemeGamification>
+    <IconGallery>
+      {Object.keys(MultiColor()).map((key, index) => (
+        <IconItem name={key} key={index}>
+          <Icon name={key} color="#9879e9" size="20px" />
+        </IconItem>
+      ))}
+    </IconGallery>
+  </ThemeGamification>
+</ThemeProvider>
+
+# Icons MultiColor Gallery - Tertiary
+
+<ThemeProvider theme={DEFAULT_THEME_MODES[useStorybookTheme()]}>
+  <ThemeGamification>
+    <IconGallery>
+      {Object.keys(MultiColor()).map((key, index) => (
+        <IconItem name={key} key={index}>
+          <Icon name={key} color="#54BAB9" size="20px" />
+        </IconItem>
+      ))}
+    </IconGallery>
+  </ThemeGamification>
+</ThemeProvider>
+
+# Icons MultiColor Gallery - Cuaternary
+
+<ThemeProvider theme={DEFAULT_THEME_MODES[useStorybookTheme()]}>
+  <ThemeGamification>
+    <IconGallery>
+      {Object.keys(MultiColor()).map((key, index) => (
+        <IconItem name={key} key={index}>
+          <Icon name={key} color="#FF8882" size="20px" />
+        </IconItem>
+      ))}
+    </IconGallery>
+  </ThemeGamification>
+</ThemeProvider>
+
+# Icons Defined Color Gallery
+
+<ThemeProvider theme={DEFAULT_THEME_MODES[useStorybookTheme()]}>
+  <ThemeGamification>
+    <IconGallery>
+      {Object.keys(DefinedColor()).map((key, index) => (
+        <IconItem name={key} key={index}>
+          <Icon name={key} fill="none" size="20px" />
+        </IconItem>
+      ))}
+    </IconGallery>
+  </ThemeGamification>
+</ThemeProvider>
+
+# Icons Drawkit Color Gallery
+
+<ThemeProvider theme={DEFAULT_THEME_MODES[useStorybookTheme()]}>
+  <ThemeGamification>
+    <IconGallery>
+      {Object.keys(DrawkitIcons()).map((key, index) => (
+        <IconItem name={key} key={index}>
+          <Icon name={key} fill="none" size="20px" />
+        </IconItem>
+      ))}
+    </IconGallery>
+  </ThemeGamification>
+</ThemeProvider>

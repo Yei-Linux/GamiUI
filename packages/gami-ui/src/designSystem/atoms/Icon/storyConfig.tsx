@@ -3,7 +3,6 @@ import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import { lightTheme } from 'styles/tokens/lightTheme'
 import Icon from '.'
 
 const mainConfig: IStoryMainConfig = {
@@ -37,7 +36,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithFills',
+    storyName: 'WithColors',
     self: {
       args: {
         name: 'check',
@@ -56,8 +55,42 @@ const storiesComponent = [
             label: 'Color C',
             value: 'green',
           },
+          {
+            label: 'Color D',
+            value: '#9879e9',
+          },
         ],
-        field: 'fill',
+        field: 'color',
+      },
+    },
+  },
+  {
+    storyName: 'WithSize',
+    self: {
+      args: {
+        name: 'code',
+        color: '#9879e9'
+      },
+      variants: {
+        examples: [
+          {
+            label: 'Size A',
+            value: '15px',
+          },
+          {
+            label: 'Size B',
+            value: '22px',
+          },
+          {
+            label: 'Size C',
+            value: '24px',
+          },
+          {
+            label: 'Size D',
+            value: '30px',
+          },
+        ],
+        field: 'size',
       },
     },
   },
