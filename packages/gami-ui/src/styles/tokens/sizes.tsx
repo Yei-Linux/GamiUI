@@ -50,7 +50,7 @@ export const sizes = {
       },
       full: '100%',
     },
-    title: {
+    text: {
       fit: 'fit-content',
       auto: 'auto',
       xs: {
