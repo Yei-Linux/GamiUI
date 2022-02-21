@@ -1,21 +1,35 @@
 import styled from '@emotion/styled'
-import { HeightType, LinkType, WidthType } from 'core/domain/types'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { ComponentThemeType } from 'core/domain/types'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Link = styled.a<{
-  $linkType: LinkType
-  $height?: HeightType
-  $width?: WidthType
-  theme: ICustomTheme
-}>`
-  text-decoration: none;
-  ${({ $linkType, theme }) => mixinComponentsTheme(theme, $linkType, 'link')};
+export const Link = InheritGlobalStylesComponent(
+  styled.a<{
+    theme: ICustomTheme
+    $variant?: ComponentThemeType
+    $bordered?: boolean
+    $ghost?: boolean
+    $flat?: boolean
+    $light?: boolean
+  }>`
+    text-decoration: none;
+    display: inline-block;
 
-  ${({ $width, $height }) =>
-    setGenericPropStyles({
-      width: $width || 'auto',
-      height: $height || 'auto',
-    })};
-`
+    &:hover {
+      cursor: pointer;
+    }
+
+    ${({ $variant, theme, $bordered, $ghost, $light, $flat }) =>
+      mixinComponentsTheme({
+        emotionTheme: theme,
+        typeStyle: $variant || 'primary',
+        element: 'link',
+        bordered: $bordered,
+        ghost: $ghost,
+        light: $light,
+        flat: $flat,
+      })};
+  `,
+  'text'
+)

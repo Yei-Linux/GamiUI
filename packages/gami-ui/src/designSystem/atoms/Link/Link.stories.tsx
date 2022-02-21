@@ -1,23 +1,41 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Link from '.'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/Link',
-  component: Link,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = (args: any) => <Link {...args} />
-Basic.args = {
-  text: 'Im link',
-  href: 'www.google.com',
+export default mainConfig as Meta
+
+const [
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven,
+  twelve,
+  thirteen,
+  fourteen,
+] = stories
+
+export {
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven,
+  twelve,
+  thirteen,
+  fourteen,
 }
-
-export const WithChildren = () => (
-  <Link href="www.google.com" type="text">
-    <p>Testing link component</p>
-  </Link>
-)

@@ -3,17 +3,7 @@ import React from 'react'
 import Title from '../Title'
 
 export const options = {
-  type: [
-    'primary',
-    'secondary',
-    'tertiary',
-    'cuaternary',
-    'success',
-    'warning',
-    'danger',
-    'info',
-    'gradient',
-  ] as const,
+  type: [] as const,
 }
 
 export const TitleCollapses = [

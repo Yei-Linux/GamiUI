@@ -1,10 +1,10 @@
-import { ButtonType } from 'core/domain/types'
+import { ComponentThemeType } from 'core/domain/types'
 
 export interface IComponentsVariant {
   /**
    * Display theme button variants
    */
-  variant?: ButtonType
+  variant?: ComponentThemeType
   /**
    * Set bordered or not
    */

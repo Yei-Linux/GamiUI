@@ -4,10 +4,11 @@ import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import Collapse, { options } from '.'
+import Collapse from '.'
 import RichText from '../RichText'
 import Title from '../Title'
 import Avatar from '../Avatar'
+import { options } from '../Button'
 import { TitleCollapses } from './constants'
 
 const mainConfig: IStoryMainConfig = {

@@ -1,10 +1,13 @@
 import React from 'react'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { LinkType } from '../../../core/domain/types'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import * as S from './Link.styles'
+import { IComponentsVariant } from 'core/domain/interfaces/IComponentsVariant'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
+import withDefaults from 'hocs/WithDefault'
 
-export interface ILink extends IGeneralProps {
+export interface ILink extends IGeneralProps, IComponentsVariant {
   /**
    * Children Content
    */
@@ -13,16 +16,10 @@ export interface ILink extends IGeneralProps {
    * Text Link
    */
   text?: string | null
-
   /**
    * Url
    */
   href: string
-
-  /**
-   * Link Type
-   */
-  type?: LinkType
 
   /**
    * Is External
@@ -34,15 +31,31 @@ const Link = ({
   children,
   text = null,
   href,
-  type = 'secondary',
   isExternal = false,
+  variant = 'primary',
+  bordered = false,
+  ghost = false,
+  flat = false,
+  light = false,
   ...genericsProps
 }: ILink) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+    },
+    componentPrefixCls: 'link',
+    customPrexiCls: genericsProps.className,
+  })
   return (
     <S.Link
+      className={cls(handles.wrapper)}
       href={href}
       target={isExternal ? '_blank' : '_self'}
-      $linkType={type}
+      $variant={variant}
+      $bordered={bordered}
+      $ghost={ghost}
+      $flat={flat}
+      $light={light}
       {...getGenericPropStyles(genericsProps)}
     >
       {text ?? children}
@@ -50,4 +63,14 @@ const Link = ({
   )
 }
 
-export default Link
+const defaultProps = {
+  shadow: 'none',
+  width: 'auto',
+  height: 'auto',
+}
+
+type LinkComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Link, defaultProps) as LinkComponent<ILink>
