@@ -3,7 +3,6 @@ import { stylesControl } from '../../../core/helpers/storybook.helper'
 
 import Floating from '.'
 import React, { useState } from 'react'
-import GuideMessage from '../GuideMessage'
 import Button from '../../atoms/Button'
 
 export default {
@@ -23,12 +22,7 @@ export const Right = () => {
   return (
     <div>
       <Floating direction="right" visible={visible} onClose={toggleVisible}>
-        <GuideMessage
-          guideType="chill"
-          message="Toma un descanso!"
-          direction="right"
-          background="#ff75a0"
-        />
+        Gami Floating
       </Floating>
 
       <Button onClick={toggleVisible}>Show Message</Button>
@@ -44,12 +38,7 @@ export const Left = () => {
   return (
     <div>
       <Floating direction="left" visible={visible} onClose={toggleVisible}>
-        <GuideMessage
-          guideType="chill"
-          message="Toma un descanso!"
-          direction="right"
-          background="#ff75a0"
-        />
+        Gami Floating
       </Floating>
 
       <Button onClick={toggleVisible}>Show Message</Button>
@@ -65,12 +54,7 @@ export const Top = () => {
   return (
     <div>
       <Floating direction="top" visible={visible} onClose={toggleVisible}>
-        <GuideMessage
-          guideType="chill"
-          message="Toma un descanso!"
-          direction="right"
-          background="#ff75a0"
-        />
+        Gami Floating
       </Floating>
 
       <Button onClick={toggleVisible}>Show Message</Button>
@@ -86,12 +70,7 @@ export const Bottom = () => {
   return (
     <div>
       <Floating direction="bottom" visible={visible} onClose={toggleVisible}>
-        <GuideMessage
-          guideType="chill"
-          message="Toma un descanso!"
-          direction="right"
-          background="#ff75a0"
-        />
+        Gami Floating
       </Floating>
 
       <Button onClick={toggleVisible}>Show Message</Button>

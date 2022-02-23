@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Drawer = styled.div`
+export const Drawer = InheritGlobalStylesComponent(styled.div`
   background: #fff;
   box-shadow: 0 -2px 8px rgb(0 0 0 / 15%);
   border-top-right-radius: 2em;
@@ -14,4 +15,4 @@ export const Drawer = styled.div`
   left: -280px;
   width: 280px;
   height: 100%;
-`
+`)

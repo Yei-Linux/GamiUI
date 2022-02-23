@@ -51,7 +51,7 @@ const getInheritGlobalStyle = (
 }
 
 const buildDynamicDesignTypesObject = () => {
-  const objectBuilt : Record<string,null>= {}
+  const objectBuilt: Record<string, null> = {}
 
   DYNAMIC_DESIGN_TYPES.forEach((token) => {
     objectBuilt[token] = null
@@ -66,12 +66,13 @@ export const getInheritGlobalStylesStories = (
   const filtered: IStoryConfig[] = []
   const mergedDesigns = { ...optionsStyle, ...buildDynamicDesignTypesObject() }
 
-  const storiesInheritSyles = Object.entries(mergedDesigns).map(([key, value]) =>
-    getInheritGlobalStyle(
-      inheritGlobalStyles,
-      key as TMergeAllDesignTypes,
-      value
-    )
+  const storiesInheritSyles = Object.entries(mergedDesigns).map(
+    ([key, value]) =>
+      getInheritGlobalStyle(
+        inheritGlobalStyles,
+        key as TMergeAllDesignTypes,
+        value
+      )
   )
 
   storiesInheritSyles.forEach((story) => story !== null && filtered.push(story))
@@ -170,12 +171,16 @@ export const getStoryConfigStructure = ({
   storiesComponent = [],
   component,
   parentComponent,
+  customStories = [],
 }: IStoryConfigStructure) => {
   const allstoriesConfig = [...storiesInheritGlobalStyles, ...storiesComponent]
 
   const stories = getStories(allstoriesConfig, component, parentComponent)
 
-  const storyConfig = { mainConfig, stories }
+  const storyConfig = {
+    mainConfig,
+    stories: [...stories, ...(customStories ?? [])],
+  }
 
   return storyConfig
 }

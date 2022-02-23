@@ -6,6 +6,10 @@ export type TZIndex = 0 | 1 | 2 | 3 | 4 | 5
 
 export interface IMask {
   /**
+   * classname
+   */
+   className?: string
+  /**
    * ZIndex of Layer Mask
    */
   zIndex?: TZIndex
@@ -22,12 +26,14 @@ export interface IMask {
 }
 
 const Mask = ({
+  className,
   zIndex = 1,
   onClick,
   background = 'rgba(0, 0, 0, 0.45)',
 }: IMask) => {
   return (
     <S.Mask
+      className={className}
       onClick={onClick}
       $background={background}
       $zIndex={zIndexToken[zIndex] as TZIndex}

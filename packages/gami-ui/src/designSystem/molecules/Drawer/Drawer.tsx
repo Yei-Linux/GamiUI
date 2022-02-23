@@ -8,12 +8,17 @@ import useOpen from 'hooks/useOpen'
 
 import Mask from 'designSystem/atoms/Mask'
 import Transition from 'designSystem/styled/Transition'
+import withDefaults from 'hocs/WithDefault'
+import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
 
-export interface IDrawer {
-  /**
-   * Custom Styles for drawer
-   */
-  style?: React.CSSProperties
+type TGenericStylesFloating = Omit<
+  IGeneralProps,
+  'size' | 'fontWeight' | 'textAlign' | 'margin' | 'padding'
+>
+
+export interface IDrawer extends TGenericStylesFloating {
   /**
    * Children Content
    */
@@ -22,18 +27,6 @@ export interface IDrawer {
    * Open or not of drawer
    */
   open?: boolean
-  /**
-   * Placement of drawer
-   */
-  placement?: string
-  /**
-   * Width
-   */
-  width?: string
-  /**
-   * Height
-   */
-  height?: string
   /**
    * Has Mask
    */
@@ -49,8 +42,17 @@ const Drawer = ({
   open,
   onClose,
   withMask = true,
-  style = {},
+  ...genericsProps
 }: IDrawer) => {
+  const { handles } = useCssHandle({
+    classes: {
+      mask__wrapper: ['mask__wrapper'],
+      mask: ['mask'],
+      drawer: ['drawer'],
+    },
+    componentPrefixCls: 'drawer',
+    customPrexiCls: genericsProps?.className,
+  })
   const { isOpen } = useOpen({ open })
 
   return (
@@ -62,8 +64,9 @@ const Drawer = ({
             to={drawerTranstionByStates.mask[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
-            <div>
+            <div className={cls(handles.mask__wrapper)}>
               <Mask
+                className={cls(handles.mask)}
                 onClick={onClose}
                 background={withMask ? 'rgba(0, 0, 0, 0.45)' : 'transparent'}
               />
@@ -74,7 +77,7 @@ const Drawer = ({
             to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
-            <S.Drawer style={style}>{children}</S.Drawer>
+            <S.Drawer className={cls(handles.drawer)}>{children}</S.Drawer>
           </Transition>
         </Fragment>
       )}
@@ -82,4 +85,15 @@ const Drawer = ({
   )
 }
 
-export default Drawer
+const defaultProps = {
+  rounded: 'sm',
+  shadow: 'sm',
+  width: 'auto',
+  height: 'auto',
+}
+
+type DrawerComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Drawer, defaultProps) as DrawerComponent<IDrawer>

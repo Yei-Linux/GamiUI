@@ -5,8 +5,6 @@ import {
 } from 'core/helpers/storybook.helper'
 import Tag from '.'
 
-import { options } from 'designSystem/atoms/Message'
-
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Tag',
   component: Tag,

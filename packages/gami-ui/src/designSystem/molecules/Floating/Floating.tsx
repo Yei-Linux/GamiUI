@@ -8,10 +8,19 @@ import Transition from '../../styled/Transition'
 import { positionFloating } from './constants'
 import * as S from './Floating.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { FloatingTypes } from 'core/domain/types'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
+import withDefaults from 'hocs/WithDefault'
 
 type IOnClose = () => void
 
-export interface FloatingProps extends IGeneralProps {
+type TGenericStylesFloating = Omit<
+  IGeneralProps,
+  'size' | 'fontWeight' | 'textAlign' | 'margin' | 'padding'
+>
+
+export interface IFloating extends TGenericStylesFloating {
   /**
    * Is visible or not floating
    */
@@ -23,7 +32,7 @@ export interface FloatingProps extends IGeneralProps {
   /**
    * Floating direction
    */
-  direction: 'left' | 'top' | 'right' | 'bottom'
+  direction: FloatingTypes
   /**
    * Action on close floating message
    */
@@ -36,7 +45,16 @@ const Floating = ({
   direction = 'right',
   children,
   ...genericsProps
-}: FloatingProps) => {
+}: IFloating) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      header: ['header'],
+      icon: ['icon'],
+    },
+    componentPrefixCls: 'floating',
+    customPrexiCls: genericsProps?.className,
+  })
   const { isOpen } = useOpen({ open: visible })
 
   return (
@@ -48,11 +66,18 @@ const Floating = ({
           isReadyToInitAnimation={visible}
         >
           <S.Floating
+            className={cls(handles.wrapper)}
             $direction={direction}
             {...getGenericPropStyles(genericsProps)}
           >
-            <S.FloatingHeader>
-              <Icon fill="#7868e6" name="close" size="15px" onClick={onClose} />
+            <S.FloatingHeader className={cls(handles.header)}>
+              <Icon
+                className={cls(handles.icon)}
+                color="#7868e6"
+                name="close"
+                size="15px"
+                onClick={onClose}
+              />
             </S.FloatingHeader>
 
             {children}
@@ -63,4 +88,18 @@ const Floating = ({
   )
 }
 
-export default Floating
+const defaultProps = {
+  rounded: 'sm',
+  shadow: 'sm',
+  width: 'auto',
+  height: 'auto',
+}
+
+type FloatingComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  Floating,
+  defaultProps
+) as FloatingComponent<IFloating>

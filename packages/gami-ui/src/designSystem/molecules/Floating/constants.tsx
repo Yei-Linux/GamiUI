@@ -1,5 +1,3 @@
-export type TPlacementAnimationType = 'left' | 'right' | 'top' | 'bottom'
-
 export const positionFloating: any = {
   left: {
     open: {
@@ -93,5 +91,5 @@ export const positionFloating: any = {
 }
 
 export const options = {
-  type: [] as const,
+  type: ['left', 'right', 'top', 'bottom'] as const,
 }

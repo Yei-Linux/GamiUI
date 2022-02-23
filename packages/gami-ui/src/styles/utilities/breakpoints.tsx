@@ -9,6 +9,9 @@ const breakPoints = {
 
 export type TDevices = 'xs' | 'sm' | 'md' | 'lg'
 
-export const mediaQuery = (sizeName: TDevices) => {
-  return `@media (min-width: ${breakPoints[sizeName]}px)`
+export const mediaQuery = (
+  sizeName: TDevices,
+  breakPointsProp = breakPoints
+) => {
+  return `@media (min-width: ${breakPointsProp[sizeName]}px)`
 }

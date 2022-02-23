@@ -1,59 +1,51 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import {
-  RoundedType,
-  HeightType,
-  ShadowType,
-  WidthType,
-} from 'core/domain/types'
-import { zIndex } from 'styles/tokens'
+import { FloatingTypes } from 'core/domain/types'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mediaQuery } from 'styles/utilities/breakpoints'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const floatingRight = () => css`
+export const floatingRight = (customTheme: ICustomTheme) => css`
   margin: auto;
   right: 10px;
 
-  ${mediaQuery('md')} {
+  ${mediaQuery('md', customTheme.tokens.breakspointSizes)} {
     top: 40%;
   }
 `
 
-export const floatingLeft = () => css`
+export const floatingLeft = (customTheme: ICustomTheme) => css`
   margin: auto;
   left: 10px;
 
-  ${mediaQuery('md')} {
+  ${mediaQuery('md', customTheme.tokens.breakspointSizes)} {
     top: 40%;
   }
 `
 
-export const floatingTop = () => css`
+export const floatingTop = (customTheme: ICustomTheme) => css`
   margin: auto;
   top: 10px;
 
-  ${mediaQuery('md')} {
+  ${mediaQuery('md', customTheme.tokens.breakspointSizes)} {
     left: 40%;
   }
 `
 
-export const floatingBottom = () => css`
+export const floatingBottom = (customTheme: ICustomTheme) => css`
   margin: auto;
   bottom: 10px;
 
-  ${mediaQuery('md')} {
+  ${mediaQuery('md', customTheme.tokens.breakspointSizes)} {
     left: 40%;
   }
 `
 
-export const Floating = styled.div<{
-  $direction: 'left' | 'top' | 'right' | 'bottom'
-  $border?: RoundedType
-  $shadow?: ShadowType
-  $width?: WidthType
-  $height?: HeightType
+export const Floating = InheritGlobalStylesComponent(styled.div<{
+  $direction: FloatingTypes
+  theme?: ICustomTheme
 }>`
-  z-index: ${zIndex[5]};
+  z-index: ${({ theme }) => theme.tokens.zIndex[5]};
   background-color: white;
   width: fit-content;
   overflow: hidden;
@@ -61,19 +53,11 @@ export const Floating = styled.div<{
 
   position: fixed;
 
-  ${({ $border, $shadow, $width, $height }) =>
-    setGenericPropStyles({
-      border: $border || 'sm',
-      shadow: $shadow || 'sm',
-      width: $width || 'auto',
-      height: $height || 'auto',
-    })};
-
-  ${({ $direction }) => $direction == 'right' && floatingRight()}
-  ${({ $direction }) => $direction == 'left' && floatingLeft()}
-  ${({ $direction }) => $direction == 'top' && floatingTop()}
-  ${({ $direction }) => $direction == 'bottom' && floatingBottom()}
-`
+  ${({ $direction, theme }) => $direction == 'right' && floatingRight(theme)}
+  ${({ $direction, theme }) => $direction == 'left' && floatingLeft(theme)}
+  ${({ $direction, theme }) => $direction == 'top' && floatingTop(theme)}
+  ${({ $direction, theme }) => $direction == 'bottom' && floatingBottom(theme)}
+`)
 
 export const FloatingHeader = styled.div`
   display: flex;

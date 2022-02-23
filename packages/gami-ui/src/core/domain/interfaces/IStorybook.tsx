@@ -4,6 +4,7 @@ import { TDynamicFields, TJSXElements } from './common'
 export interface IExample {
   label: string
   value: unknown
+  customComponent?: TDynamicFields
   customProps?: TDynamicFields
 }
 
@@ -53,4 +54,5 @@ export interface IStoryConfigStructure {
   parentComponent?: TJSXElements
   storiesInheritGlobalStyles?: IStoryConfig[]
   storiesComponent: IStoryConfig[]
+  customStories?: React.ReactElement[] | null
 }
