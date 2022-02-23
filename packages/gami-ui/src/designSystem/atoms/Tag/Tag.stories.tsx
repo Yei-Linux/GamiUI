@@ -1,23 +1,11 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Tag from '.'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/Tag',
-  component: Tag,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const WithOnlyText = (args: any) => <Tag {...args} />
-WithOnlyText.args = {
-  text: 'Multiplayer',
-  background: 'transparent',
-}
+export default mainConfig as Meta
 
-export const WithMarker = (args: any) => <Tag {...args} />
-WithMarker.args = {
-  text: 'Online',
-  ballMarkerColor: 'green',
-}
+const [one, two, three, four, five, six, seven, eight, nine] = stories
+
+export { one, two, three, four, five, six, seven, eight, nine }

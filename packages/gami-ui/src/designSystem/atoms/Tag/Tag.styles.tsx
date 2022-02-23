@@ -1,15 +1,11 @@
 import styled from '@emotion/styled'
-import { RoundedType, FontWeightType, ShadowType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { rounded, spacing, defaultTheme } from 'styles/tokens'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Tag = styled.div<{
+export const Tag = InheritGlobalStylesComponent(styled.div<{
   $background?: string
   $color?: string
-  $border?: RoundedType
-  $shadow?: ShadowType
-  $fontWeight?: FontWeightType
 }>`
   padding: 10px 1rem;
   width: fit-content;
@@ -18,18 +14,13 @@ export const Tag = styled.div<{
     cursor: pointer;
   }
 
-  background: ${({ $background }) => $background || defaultTheme.light.neutral[600]};
-  color: ${({ $color }) => $color || defaultTheme.light.neutral[400]};
+  background: ${({ $background }) =>
+    $background || defaultTheme.light.neutral[800]};
+  color: ${({ $color }) => $color || defaultTheme.light.primary.jordyBlue};
 
   ${mixinFlexVariants({ alignItems: 'center' })}
+`)
 
-  ${({ $border, $shadow, $fontWeight }) =>
-    setGenericPropStyles({
-      border: $border || 'lg',
-      shadow: $shadow || 'sm',
-      fontWeight: $fontWeight,
-    })};
-`
 export const BallMarker = styled.span<{ $background?: string }>`
   display: block;
 
