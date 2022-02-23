@@ -2,6 +2,13 @@ import { css } from '@emotion/react'
 import { FontWeightType, TextAlignType } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
+const flexAlign = {
+  left: 'flex-start',
+  right: 'flex-end',
+  center: 'center',
+  justify: 'center',
+}
+
 export const mixinTextAlign = (
   themeGlobal: ICustomTheme,
   textAlign: TextAlignType
@@ -15,6 +22,7 @@ export const mixinTextAlign = (
   if (!tokenValue) return ``
 
   return css`
+    justify-content: ${flexAlign[textAlign]};
     text-align: ${tokenValue};
   `
 }

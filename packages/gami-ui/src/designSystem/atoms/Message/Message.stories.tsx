@@ -1,28 +1,11 @@
 import { Meta } from '@storybook/react'
-import { getTemplate, stylesControl } from 'core/helpers/storybook.helper'
 
-import Message from '.'
+import { storyConfig } from './storyConfig'
 
-const Template = getTemplate(Message)
+const { mainConfig, stories } = storyConfig
 
-export default {
-  title: 'Atoms/Message',
-  component: Message,
-  args: {},
-  argTypes: {
-    ...stylesControl,
-  },
-} as Meta
+export default mainConfig as Meta
 
-export const BasicMessageLeft = Template.bind({})
-BasicMessageLeft.args = {
-  width: 'auto',
-  shadow: 'none',
-}
+const [one, two, three, four, five, six, seven, eight, nine, ten] = stories
 
-export const BasicMessageRight = Template.bind({})
-BasicMessageRight.args = {
-  width: 'auto',
-  direction: 'right',
-  shadow: 'none',
-}
+export { one, two, three, four, five, six, seven, eight, nine, ten }

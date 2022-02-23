@@ -7,6 +7,7 @@ import { options as optionsHeroes } from 'designSystem/game/Character'
 import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCard'
 import { options as optionsAvatar } from 'designSystem/atoms/Avatar/constants'
 import { options as optionsImage} from 'designSystem/atoms/Image/constants'
+import { options as optionsMessage} from 'designSystem/atoms/Message/constants'
 import { options as optionsProgress} from 'designSystem/atoms/Progress/constants'
 import { options as optionsTitle} from 'designSystem/atoms/Title/constants'
 import { options } from 'designSystem/atoms/Link'
@@ -50,6 +51,8 @@ export type GuidesNames = typeof optionsGuides.type[number]
 export type GradientsNames = typeof optionsGradient.names[number]
 
 export type WavessNames = typeof optionsWave.names[number]
+
+export type DirectionMessageType = typeof optionsMessage.directionType[number]
 
 export type HeroNames = typeof optionsHeroes.names[number]
 

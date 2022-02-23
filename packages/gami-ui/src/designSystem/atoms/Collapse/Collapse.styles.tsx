@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { ButtonType } from 'core/domain/types'
+import { ComponentThemeType } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
 import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
@@ -19,7 +19,7 @@ export const Children = styled.div`
 
 export const Collapse = InheritGlobalStylesComponent(styled.div<{
   $height: string
-  $variant?: ButtonType
+  $variant?: ComponentThemeType
   $bordered?: boolean
   $divider?: boolean
   theme?: ICustomTheme

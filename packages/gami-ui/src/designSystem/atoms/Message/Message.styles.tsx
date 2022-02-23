@@ -1,16 +1,9 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import {
-  FontWeightType,
-  HeightType,
-  ShadowType,
-  TextAlignType,
-  WidthType,
-} from 'core/domain/types'
+import { DirectionMessageType } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { spacing } from 'styles/tokens'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
-import { TDirection } from './Message'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
 const messageDirectionLeft = (
   background: string,
@@ -30,17 +23,11 @@ const messageDirectionRight = (
   right: ${type == 'before' ? '-17px' : '-15px'};
 `
 
-export const Message = styled.div<{
-  $direction: TDirection
+export const Message = InheritGlobalStylesComponent(styled.div<{
+  $direction: DirectionMessageType
   $background: string
   $color?: string
   $maxWidth?: string
-
-  $shadow?: ShadowType
-  $width?: WidthType
-  $height?: HeightType
-  $textAlign?: TextAlignType
-  $fontWeight?: FontWeightType
 }>`
   position: relative;
 
@@ -84,14 +71,4 @@ export const Message = styled.div<{
       ${({ $background }) => messageDirectionRight($background, 'after')};
     }
   }
-
-  ${({ $shadow, $fontWeight, $width, $textAlign, $height }) =>
-    setGenericPropStyles({
-      border: 'sm',
-      shadow: $shadow || 'none',
-      width: $width || 'auto',
-      height: $height || 'auto',
-      fontWeight: $fontWeight,
-      textAlign: $textAlign || 'left',
-    })};
-`
+`)
