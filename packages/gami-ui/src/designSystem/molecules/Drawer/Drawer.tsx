@@ -12,6 +12,7 @@ import withDefaults from 'hocs/WithDefault'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
+import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 type TGenericStylesFloating = Omit<
   IGeneralProps,
@@ -77,7 +78,12 @@ const Drawer = ({
             to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
-            <S.Drawer className={cls(handles.drawer)}>{children}</S.Drawer>
+            <S.Drawer
+              {...getGenericPropStyles(genericsProps)}
+              className={cls(handles.drawer)}
+            >
+              {children}
+            </S.Drawer>
           </Transition>
         </Fragment>
       )}
