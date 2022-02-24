@@ -1,20 +1,16 @@
-import classNames from 'classnames'
+import { ColSpacingTypes, ColTypes } from 'core/domain/types'
+import { cls } from 'core/utils/cls'
+import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
 import React from 'react'
 import * as S from './Col.styles'
-
-const spacingValues = {
-  sm: '8px',
-  md: '16px',
-  lg: '24px',
-  none: '0px',
-  custom: 'custom',
-}
-
-type TCols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
-
-type TSpacing = 'none' | 'sm' | 'md' | 'lg' | 'custom'
+import { spacingValues } from './constants'
 
 export interface ICol {
+  /**
+   * Classname Prop
+   */
+  className?: string
   /**
    * Children Prop
    */
@@ -22,7 +18,7 @@ export interface ICol {
   /**
    * Spacing Prop
    */
-  spacing: TSpacing
+  spacing: ColSpacingTypes
   /**
    * Spacing Prop
    */
@@ -30,22 +26,23 @@ export interface ICol {
   /**
    * Extra Small Size
    */
-  xs?: TCols
+  xs?: ColTypes
   /**
    * Small Size
    */
-  sm?: TCols
+  sm?: ColTypes
   /**
    * Medium Size
    */
-  md?: TCols
+  md?: ColTypes
   /**
    * Large Size
    */
-  lg?: TCols
+  lg?: ColTypes
 }
 
 const Col = ({
+  className,
   children,
   spacing,
   customSpacing = '0px',
@@ -54,9 +51,16 @@ const Col = ({
   md = 4,
   lg = 3,
 }: ICol) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+    },
+    componentPrefixCls: 'col',
+    customPrexiCls: className,
+  })
   return (
     <S.Col
-      className={classNames({
+      className={cls(handles.wrapper, {
         custom: spacing == 'custom',
         nocustom: spacing !== 'custom',
       })}
@@ -71,4 +75,10 @@ const Col = ({
   )
 }
 
-export default Col
+const defaultProps = {}
+
+type ColComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Col, defaultProps) as ColComponent<ICol>

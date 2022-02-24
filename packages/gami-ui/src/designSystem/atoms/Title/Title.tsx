@@ -18,25 +18,28 @@ export interface ITitle extends IGeneralProps {
   children: React.ReactNode
 }
 
-const Title = ({ level = 'h1', children, ...genericsProps }: ITitle) => {
-  const { handles } = useCssHandle({
-    classes: {
-      wrapper: ['wrapper'],
-    },
-    componentPrefixCls: 'title',
-    customPrexiCls: genericsProps.className,
-  })
+const Title = React.forwardRef(
+  ({ level = 'h1', children, ...genericsProps }: ITitle, ref) => {
+    const { handles } = useCssHandle({
+      classes: {
+        wrapper: ['wrapper'],
+      },
+      componentPrefixCls: 'title',
+      customPrexiCls: genericsProps.className,
+    })
 
-  return (
-    <S.Title
-      className={cls(handles.wrapper)}
-      as={level}
-      {...getGenericPropStyles(genericsProps)}
-    >
-      {children}
-    </S.Title>
-  )
-}
+    return (
+      <S.Title
+        ref={ref}
+        className={cls(handles.wrapper)}
+        as={level}
+        {...getGenericPropStyles(genericsProps)}
+      >
+        {children}
+      </S.Title>
+    )
+  }
+)
 
 const defaultProps = {
   shadow: 'none',

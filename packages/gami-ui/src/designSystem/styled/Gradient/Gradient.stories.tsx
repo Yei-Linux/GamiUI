@@ -2,8 +2,8 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 
 import Gradient from '.'
-import Card from '../../molecules/Card'
 import { options as optionsGradient } from './constants'
+import Container from 'designSystem/layouts/Container'
 
 export default {
   title: 'Styled/Gradient',
@@ -27,9 +27,7 @@ export const Basic = (args: any) => (
     }}
   >
     <Gradient {...args}>
-      <Card>
-        <p style={{ padding: '1rem' }}>Hola como estas</p>
-      </Card>
+      <Container style={{ width: '100%' }}>Gami Gradient</Container>
     </Gradient>
   </div>
 )

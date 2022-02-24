@@ -11,6 +11,8 @@ import { options as optionsMessage } from 'designSystem/atoms/Message/constants'
 import { options as optionsProgress } from 'designSystem/atoms/Progress/constants'
 import { options as optionsTitle } from 'designSystem/atoms/Title/constants'
 import { options as optionsFloating } from 'designSystem/molecules/Floating/constants'
+import { options as optionsRow } from 'designSystem/layouts/Row/constants'
+import { options as optionsCol } from 'designSystem/layouts/Col/constants'
 import { options } from 'designSystem/atoms/Link'
 
 import { DESIGN_TYPES, DYNAMIC_DESIGN_TYPES } from 'core/utils/constants'
@@ -51,6 +53,13 @@ export type IconNames = keyof TIconsPack
 export type GuidesNames = typeof optionsGuides.type[number]
 
 export type GradientsNames = typeof optionsGradient.names[number]
+
+export type ColTypes = typeof optionsCol.type[number]
+export type ColSpacingTypes = typeof optionsCol.spacingType[number]
+
+export type JustifyContentTypes = typeof optionsRow.justifyContentType[number]
+export type AlignItemsTypes = typeof optionsRow.alignItemsType[number]
+export type DirectionTypes = typeof optionsRow.directionType[number]
 
 export type WavessNames = typeof optionsWave.names[number]
 

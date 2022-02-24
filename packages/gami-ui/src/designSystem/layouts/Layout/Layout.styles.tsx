@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
-import { zIndex } from 'styles/tokens'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
-export const Header = styled.div`
+export const Header = styled.div<{ theme?: ICustomTheme }>`
   grid-area: header;
 
   &.sticky {
     position: sticky;
     top: 0;
-    z-index: ${zIndex[1]};
+    z-index: ${({ theme }) => theme.tokens.zIndex[1]};
   }
 `
 

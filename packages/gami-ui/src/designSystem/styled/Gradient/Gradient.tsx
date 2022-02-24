@@ -3,13 +3,14 @@ import { GradientsNames } from 'core/domain/types'
 import useCloneElement from 'hooks/useCloneElements'
 import { GradientTypes } from './constants'
 import { makeGradient } from './helper'
+import withDefaults from 'hocs/WithDefault'
 
 interface CustomGradientColors {
   first: string
   second: string
 }
 
-export interface GradientProps {
+export interface IGradient {
   /**
    * Component will be modified
    */
@@ -24,11 +25,7 @@ export interface GradientProps {
   colors?: CustomGradientColors | null
 }
 
-const Gradient = ({
-  children,
-  name = 'almost',
-  colors = null,
-}: GradientProps) => {
+const Gradient = ({ children, name = 'almost', colors = null }: IGradient) => {
   const makeStyleGradient = () =>
     !colors
       ? GradientTypes[name]
@@ -50,4 +47,13 @@ const Gradient = ({
   return <Fragment>{childrenWithProps}</Fragment>
 }
 
-export default Gradient
+const defaultProps = {}
+
+type GradientComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  Gradient,
+  defaultProps
+) as GradientComponent<IGradient>

@@ -1,17 +1,13 @@
-import classNames from 'classnames'
+import {
+  JustifyContentTypes,
+  AlignItemsTypes,
+  DirectionTypes,
+} from 'core/domain/types'
+import { cls } from 'core/utils/cls'
+import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
 import React, { CSSProperties } from 'react'
 import * as S from './Row.styles'
-
-export type TJustifyContent =
-  | 'center'
-  | 'flex-start'
-  | 'flex-end'
-  | 'space-between'
-  | 'space-around'
-
-export type TAlignItems = 'center' | 'flex-start' | 'flex-end' | 'normal'
-
-export type TFlexDirection = 'row' | 'column'
 
 export interface IRow {
   /**
@@ -32,12 +28,12 @@ export interface IRow {
   /**
    * Justify Content
    */
-  justifyContent?: TJustifyContent
+  justifyContent?: JustifyContentTypes
 
   /**
    * Align Items
    */
-  alignItems?: TAlignItems
+  alignItems?: AlignItemsTypes
 
   /**
    * Height
@@ -52,7 +48,7 @@ export interface IRow {
   /**
    * Flex Direction
    */
-  flexDirection?: TFlexDirection
+  flexDirection?: DirectionTypes
   /**
    * Classname
    */
@@ -70,6 +66,14 @@ const Row = ({
   flexDirection = 'row',
   className,
 }: IRow) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+    },
+    componentPrefixCls: 'row',
+    customPrexiCls: className,
+  })
+
   return (
     <S.Row
       $width={width}
@@ -78,11 +82,17 @@ const Row = ({
       $alignItems={alignItems}
       $flexDirection={flexDirection}
       style={style}
-      className={classNames(className, { wrap: isWrap, nowrap: !isWrap })}
+      className={cls(handles.wrapper, { wrap: isWrap, nowrap: !isWrap })}
     >
       {children}
     </S.Row>
   )
 }
 
-export default Row
+const defaultProps = {}
+
+type RowComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Row, defaultProps) as RowComponent<IRow>

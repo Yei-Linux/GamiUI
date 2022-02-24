@@ -28,7 +28,7 @@ const Sider = ({ header, children, onClose, open }: ISider) => {
     <Gradient name="glassLight">
       <Drawer
         width="auto"
-        height="100%"
+        height="full"
         onClose={onClose}
         open={open}
         withMask={false}

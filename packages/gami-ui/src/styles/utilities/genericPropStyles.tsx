@@ -9,6 +9,7 @@ import { mixinHeight } from 'styles/mixins/height'
 import { mixinShadow } from 'styles/mixins/shadow'
 import { mixinWidth } from 'styles/mixins/width'
 import { builderSpacersByDevice } from './spacersBuilderByDevice'
+import { MutableRefObject } from 'react'
 
 export const setGenericPropStyles = (
   theme: ICustomTheme,
@@ -35,10 +36,7 @@ export const setGenericPropStyles = (
 `
 
 interface IDynamicPropStyles {
-  [key: string]:
-    | string
-    | React.CSSProperties
-    | React.MouseEventHandler<unknown>
+  [key: string]: string | React.CSSProperties | React.MouseEventHandler<unknown>
 }
 
 export const getGenericPropStyles = ({

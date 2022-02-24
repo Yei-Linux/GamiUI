@@ -3,6 +3,7 @@ import { Meta } from '@storybook/react'
 
 import Transition from '.'
 import Mask from '../../atoms/Mask'
+import Title from 'designSystem/atoms/Title'
 
 export default {
   title: 'Styled/Transition',
@@ -14,7 +15,9 @@ export default {
 export const Ease = (args: any) => {
   return (
     <Transition {...args}>
-      <p style={{ position: 'absolute' }}>Hi, this a test</p>
+      <Title level="h3" style={{ position: 'absolute' }}>
+        Hi, this a test
+      </Title>
     </Transition>
   )
 }
@@ -37,6 +40,7 @@ export const Opacity = (args: any) => {
     </Transition>
   )
 }
+
 Opacity.args = {
   isReadyToInitAnimation: true,
   from: {

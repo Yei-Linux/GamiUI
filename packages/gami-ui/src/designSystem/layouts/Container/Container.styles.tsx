@@ -1,4 +1,4 @@
 import styled from '@emotion/styled'
-import { GlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Container = styled(GlobalStylesComponent('div'))``
+export const Container = InheritGlobalStylesComponent(styled.div``)
