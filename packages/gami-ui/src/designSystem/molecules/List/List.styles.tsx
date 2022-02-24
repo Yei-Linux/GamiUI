@@ -1,31 +1,12 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import {
-  RoundedType,
-  ShadowType,
-  WidthType,
-  HeightType,
-} from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
 import { spacing, defaultTheme } from 'styles/tokens'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const List = styled.ul<{
-  $border?: RoundedType
-  $shadow?: ShadowType
-  $width?: WidthType
-  $height?: HeightType
-}>`
+export const List = InheritGlobalStylesComponent(styled.ul`
   width: fit-content;
-
-  ${({ $border, $shadow, $width, $height }) =>
-    setGenericPropStyles({
-      border: $border || 'sm',
-      shadow: $shadow || 'sm',
-      width: $width || 'fit',
-      height: $height || 'auto',
-    })};
-`
+`)
 
 const selectedItemStyle = () => css`
   background-color: ${defaultTheme.light.primary.jordyBlue};

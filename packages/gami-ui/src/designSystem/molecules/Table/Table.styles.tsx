@@ -1,22 +1,14 @@
 import styled from '@emotion/styled'
-import { ShadowType } from 'core/domain/types'
 import { defaultTheme } from 'styles/tokens'
 import { mediaQuery } from 'styles/utilities/breakpoints'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Table = styled.div<{
-  $shadow?: ShadowType
-}>`
+export const Table = InheritGlobalStylesComponent(styled.div`
   overflow: hidden;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
   width: fit-content;
-
-  ${({ $shadow }) =>
-    setGenericPropStyles({
-      shadow: $shadow || 'sm',
-    })};
-`
+`)
 
 export const TableContainer = styled.table`
   table-layout: fixed;
