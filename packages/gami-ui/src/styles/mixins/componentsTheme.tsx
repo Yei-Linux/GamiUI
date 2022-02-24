@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
 import { IComponentsVariant } from 'core/domain/interfaces/IComponentsVariant'
-import { ComponentThemeType, FeatureCardThemeTypes } from 'core/domain/types'
+import { ComponentThemeType } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { validatorProperty } from 'styles/utilities/validatorsCss'
 
 interface IMixinComponentsTheme extends IComponentsVariant {
   emotionTheme: ICustomTheme
-  typeStyle: ComponentThemeType | FeatureCardThemeTypes
+  typeStyle: ComponentThemeType
   element: 'button' | 'link' | 'card' | 'collapse'
 }
 

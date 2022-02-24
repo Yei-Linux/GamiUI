@@ -50,17 +50,17 @@ export const Basic = () => {
             isOpen
             title="Home"
             href="/"
-            icon={<Icon name="bullet__item" />}
+            icon={<Icon name="bullet" />}
           ></Menu.SubMenu>
           <Menu.SubMenu
             title="Courses"
             href="/courses"
-            icon={<Icon name="bullet__item" />}
+            icon={<Icon name="bullet" />}
           ></Menu.SubMenu>
           <Menu.SubMenu
             title="Exams"
             href="/exams"
-            icon={<Icon name="bullet__item" />}
+            icon={<Icon name="bullet" />}
           ></Menu.SubMenu>
         </Menu>
       </Sider>

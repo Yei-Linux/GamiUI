@@ -1,13 +1,13 @@
 import {
-  CodeBlock,
   Container,
   RichText,
   Table,
   Tag,
-  theme,
+  defaultTheme,
   Title,
 } from "@gamiui/standard"
 import React from "react"
+import CodeBlock from "../../../components/CodeBlock/CodeBlock"
 import WithLayout from "../../../hocs/WithLayout"
 
 export interface IGettingStart {}
@@ -149,8 +149,8 @@ export default MyApp;
               render: (name: string) => (
                 <Tag
                   text={name}
-                  color={theme.light.neutral[800]}
-                  background={theme.light.primary.jordyBlue}
+                  color={defaultTheme.light.neutral[800]}
+                  background={defaultTheme.light.primary.jordyBlue}
                 />
               ),
             },

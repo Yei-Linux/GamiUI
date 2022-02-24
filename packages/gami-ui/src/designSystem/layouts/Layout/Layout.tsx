@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import { cls } from 'core/utils/cls'
 import React from 'react'
 import * as S from './Layout.styles'
 
@@ -24,9 +24,7 @@ export interface ILayout {
 }
 
 const Header = ({ children, isSticky = false }: IHeader) => {
-  return (
-    <S.Header className={classNames({ sticky: isSticky })}>{children}</S.Header>
-  )
+  return <S.Header className={cls({ sticky: isSticky })}>{children}</S.Header>
 }
 
 const Content = ({ children }: ILayoutElement) => {

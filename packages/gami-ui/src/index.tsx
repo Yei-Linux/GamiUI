@@ -25,6 +25,8 @@ export { default as Container } from './designSystem/layouts/Container'
 export { default as Drawer } from './designSystem/molecules/Drawer'
 export { default as Floating } from './designSystem/molecules/Floating'
 export { default as Menu } from './designSystem/molecules/Menu'
+export { default as List } from './designSystem/molecules/List'
+export { default as Table } from './designSystem/molecules/Table'
 
 // Styled
 export { default as Transition } from './designSystem/styled/Transition'
@@ -50,7 +52,6 @@ export { mediaQuery } from './styles/utilities/breakpoints'
 export {
   useStepStore,
   useFormStore,
-  useGameStore,
   useRadioStore,
   useGamiTheme,
 } from './hooks'

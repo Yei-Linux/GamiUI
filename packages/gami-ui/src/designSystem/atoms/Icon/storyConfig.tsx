@@ -69,7 +69,7 @@ const storiesComponent = [
     self: {
       args: {
         name: 'code',
-        color: '#9879e9'
+        color: '#9879e9',
       },
       variants: {
         examples: [

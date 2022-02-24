@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
-import { TJustifyContent, TAlignItems } from 'designSystem/layouts/Row/Row'
+import { AlignItemsTypes, JustifyContentTypes } from 'core/domain/types'
 
 interface IMixinFlexVariant {
-  justifyContent?: TJustifyContent | null
-  alignItems?: TAlignItems | null
+  justifyContent?: JustifyContentTypes | null
+  alignItems?: AlignItemsTypes | null
 }
 
 export const mixinFlexVariants = ({

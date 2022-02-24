@@ -1,5 +1,5 @@
 export const options = {
-  type: ['circle','bar'] as const,
+  type: ['circle', 'bar'] as const,
 }
 
 export const SUCCESS_BACKGROUND_PROGRESS = '#52c41a'

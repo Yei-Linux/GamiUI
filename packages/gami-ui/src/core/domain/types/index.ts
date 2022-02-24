@@ -1,10 +1,5 @@
 import { options as optionsButton } from 'designSystem/atoms/Button/constants'
-import { options as optionsGuides } from 'designSystem/atoms/AnimatorGuide'
 import { options as optionsEmpty } from 'designSystem/atoms/Empty'
-import { options as optionsGradient } from 'designSystem/styled/Gradient'
-import { options as optionsWave } from 'designSystem/styled/Wave'
-import { options as optionsHeroes } from 'designSystem/game/Character'
-import { options as optionsFeatureCard } from 'designSystem/molecules/FeaturedCard'
 import { options as optionsAvatar } from 'designSystem/atoms/Avatar/constants'
 import { options as optionsImage } from 'designSystem/atoms/Image/constants'
 import { options as optionsMessage } from 'designSystem/atoms/Message/constants'
@@ -50,10 +45,6 @@ export type TextModeType = typeof optionsAvatar.textMode[number]
 
 export type IconNames = keyof TIconsPack
 
-export type GuidesNames = typeof optionsGuides.type[number]
-
-export type GradientsNames = typeof optionsGradient.names[number]
-
 export type ColTypes = typeof optionsCol.type[number]
 export type ColSpacingTypes = typeof optionsCol.spacingType[number]
 
@@ -61,15 +52,9 @@ export type JustifyContentTypes = typeof optionsRow.justifyContentType[number]
 export type AlignItemsTypes = typeof optionsRow.alignItemsType[number]
 export type DirectionTypes = typeof optionsRow.directionType[number]
 
-export type WavessNames = typeof optionsWave.names[number]
-
 export type DirectionMessageType = typeof optionsMessage.directionType[number]
 
 export type FloatingTypes = typeof optionsFloating.type[number]
-
-export type HeroNames = typeof optionsHeroes.names[number]
-
-export type FeatureCardThemeTypes = typeof optionsFeatureCard.type[number]
 
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'

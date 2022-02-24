@@ -1,6 +1,5 @@
 export { default as useStepStore } from './store/useStepStore'
 export { default as useFormStore } from './store/useFormStore'
-export { default as useGameStore } from './store/useGameStore'
 export { default as useRadioStore } from './store/useRadioStore'
 export { default as useCollapseStore } from './store/useCollapseStore'
 export { default as useGamiTheme } from './useGamiTheme'

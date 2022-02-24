@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import { cls } from 'core/utils/cls'
 import React from 'react'
 import {
   Section,
@@ -29,17 +29,17 @@ const ListItem = ({
   avatar,
   title,
   description,
-  hasAllBorder,
+  hasAllBorder = false,
   onClick,
   isSelected = false,
   noBorder = false,
-  className,
+  className = '',
 }: IListItem) => {
   const handleClickItem = () => onClick?.(id)
 
   return (
     <S.ListItem
-      className={classNames(className, {
+      className={cls(className, {
         selected: isSelected,
         allborder: hasAllBorder,
         halfborder: hasAllBorder,

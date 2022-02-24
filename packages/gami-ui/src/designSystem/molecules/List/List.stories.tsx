@@ -48,7 +48,7 @@ export const CustomContent = (args: any) => (
       title="Main title"
       description="Description"
     >
-      <Button width="md" border="md">
+      <Button width="md" rounded="md">
         Go!!
       </Button>
     </List.Item>
@@ -57,7 +57,7 @@ export const CustomContent = (args: any) => (
       title="Main title"
       description="Description"
     >
-      <Button width="md" border="md">
+      <Button width="md" rounded="md">
         Go!!
       </Button>
     </List.Item>

@@ -11,6 +11,9 @@ export const Empty = InheritGlobalStylesComponent(styled.div<{
   ${({ theme }) => mixinWidth(theme, 'full')}
 `)
 
-export const Text = styled(RichText)<{ theme?: ICustomTheme; $color: string | null }>`
+export const Text = styled(RichText)<{
+  theme?: ICustomTheme
+  $color: string | null
+}>`
   ${({ theme, $color }) => mixinDescription(theme, $color)}
 `

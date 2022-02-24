@@ -208,21 +208,15 @@ const storiesComponent = [
         examples: [
           {
             label: 'Icon 1',
-            value: (
-              <Icon size="25px" name="facebook" />
-            ),
+            value: <Icon size="25px" name="facebook" />,
           },
           {
             label: 'Icon 2',
-            value: (
-              <Icon size="25px" name="facebook" />
-            ),
+            value: <Icon size="25px" name="facebook" />,
           },
           {
             label: 'Icon 3',
-            value: (
-              <Icon size="25px" name="facebook" />
-            ),
+            value: <Icon size="25px" name="facebook" />,
           },
         ],
         field: 'icon',

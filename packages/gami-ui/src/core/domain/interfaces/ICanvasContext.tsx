@@ -1,5 +1,3 @@
-import { HeroNames } from 'core/domain/types'
-
 export interface IMap {
   cols: number
   rows: number
@@ -32,7 +30,7 @@ export interface IKeysDirection {
 }
 
 export interface IHeroSprite {
-  type: HeroNames
+  type: any
   pixelSize: number
   animation: number[]
 }

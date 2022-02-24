@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
+import { JustifyContentTypes, AlignItemsTypes } from 'core/domain/types'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { TAlignItems, TJustifyContent } from './Row'
 
 export const Row = styled.div<{
   $width?: string
   $height: string
-  $justifyContent: TJustifyContent
-  $alignItems: TAlignItems
+  $justifyContent: JustifyContentTypes
+  $alignItems: AlignItemsTypes
   $flexDirection?: string
 }>`
   ${({ $justifyContent, $alignItems }) =>

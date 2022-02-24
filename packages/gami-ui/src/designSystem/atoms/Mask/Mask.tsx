@@ -8,7 +8,7 @@ export interface IMask {
   /**
    * classname
    */
-   className?: string
+  className?: string
   /**
    * ZIndex of Layer Mask
    */

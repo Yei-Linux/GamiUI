@@ -10,5 +10,5 @@ export const options = {
     'info',
     'gradient',
   ] as const,
-  typeHtml: ['reset','button','submit'] as const
+  typeHtml: ['reset', 'button', 'submit'] as const,
 }

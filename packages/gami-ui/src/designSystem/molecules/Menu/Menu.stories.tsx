@@ -17,42 +17,42 @@ export const Basic = (args: any) => (
       isOpen
       title="Documentation"
       hasIcon={false}
-      contentLeft={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet" />}
     >
       <Menu>
         <Menu.SubMenu
           isOpen
           title="Home1"
           hasIcon={false}
-          contentLeft={<Icon name="bullet__item" />}
+          contentLeft={<Icon name="bullet" />}
         ></Menu.SubMenu>
         <Menu.SubMenu
           isOpen
           title="Home2"
-          contentLeft={<Icon name="bullet__item" />}
+          contentLeft={<Icon name="bullet" />}
         ></Menu.SubMenu>
       </Menu>
     </Menu.SubMenu>
     <Menu.SubMenu
       isOpen
       title="Home"
-      contentLeft={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet" />}
     ></Menu.SubMenu>
     <Menu.SubMenu
       isOpen
       title="Home"
       href="/"
-      contentLeft={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet" />}
     ></Menu.SubMenu>
     <Menu.SubMenu
       title="Courses"
       href="/courses"
-      contentLeft={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet" />}
     ></Menu.SubMenu>
     <Menu.SubMenu
       title="Exams"
       href="/exams"
-      contentLeft={<Icon name="bullet__item" />}
+      contentLeft={<Icon name="bullet" />}
     ></Menu.SubMenu>
   </Menu>
 )

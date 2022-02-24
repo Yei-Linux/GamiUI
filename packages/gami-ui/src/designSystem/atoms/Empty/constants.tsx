@@ -1,4 +1,4 @@
-export const iconsEmpty = {
+export const iconsEmpty: Record<string, 'empty' | 'sad'> = {
   base: 'empty',
   sad: 'sad',
 }

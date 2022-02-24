@@ -196,15 +196,15 @@ const storiesComponent = [
         examples: [
           {
             label: 'Icon 1',
-            value: <Icon fill="none" size="25px" name="edit" />,
+            value: <Icon color="none" size="25px" name="edit" />,
           },
           {
             label: 'Icon 2',
-            value: <Icon fill="none" size="25px" name="edit" />,
+            value: <Icon color="none" size="25px" name="edit" />,
           },
           {
             label: 'Icon 3',
-            value: <Icon fill="none" size="25px" name="edit" />,
+            value: <Icon color="none" size="25px" name="edit" />,
           },
         ],
         field: 'preffix',
