@@ -42,7 +42,8 @@ const SubMenu = ({
       return (
         <Link
           isExternal={isExternal}
-          type={isOpen ? 'secondary' : 'text'}
+          variant={isOpen ? 'secondary' : 'primary'}
+          light
           href={href}
           text={title as string}
         />
