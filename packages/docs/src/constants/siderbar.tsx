@@ -11,7 +11,7 @@ const atomComponents = [
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "button",
   },
   {
     title: "Collapse",

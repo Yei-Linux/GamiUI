@@ -98,7 +98,7 @@ export const getSelftListTemplateTypes =
         {examples.map(({ label, value, customProps }, index: number) => (
           <TableStories
             key={index}
-            item={value}
+            item={label ? '' : value}
             field={field}
             labelStory={label}
           >
@@ -120,7 +120,12 @@ export const getParentListTemplateTypes =
     (
       <Fragment>
         {variants.map(({ label, value }, index: number) => (
-          <TableStories key={index} item={value} field="" labelStory={label}>
+          <TableStories
+            key={index}
+            item={label ? '' : value}
+            field=""
+            labelStory={label}
+          >
             <ParenComponent {...parentArgs}>
               {value.map((ComponentChildren) => ComponentChildren)}
             </ParenComponent>
