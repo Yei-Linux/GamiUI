@@ -48,6 +48,9 @@ export {
 } from './styles/tokens'
 export { mediaQuery } from './styles/utilities/breakpoints'
 
+//Utilities
+export { TableStories } from './styles/utilities/components'
+
 //Hooks
 export {
   useStepStore,

@@ -14,10 +14,10 @@ const mainConfig: IStoryMainConfig = {
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   shadow: {
-    args: { percent: 75 },
+    args: { percent: 75, style: { width: '100px' } },
   },
   margin: {
-    args: { percent: 75 },
+    args: { percent: 75, style: { width: '100px' } },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
   rounded: null,
@@ -33,7 +33,7 @@ const storiesComponent = [
   {
     storyName: 'WithTypes',
     self: {
-      args: { percent: 75 },
+      args: { percent: 75, style: { width: '100px' } },
       variants: {
         examples: [
           {
@@ -52,7 +52,7 @@ const storiesComponent = [
   {
     storyName: 'WithBackgrounProgressBar',
     self: {
-      args: { percent: 75 },
+      args: { percent: 75, style: { width: '100px' } },
       variants: {
         examples: [
           {
@@ -77,7 +77,7 @@ const storiesComponent = [
   {
     storyName: 'WithMaxSizes',
     self: {
-      args: { percent: 75 },
+      args: { percent: 75, style: { width: '100px' } },
       variants: {
         examples: [
           {

@@ -24,6 +24,7 @@ const textContentMock = () => (
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   rounded: {
     args: {
+      style: { maxWidth: '300px' },
       title: <Title level="h3">Title</Title>,
       subtitle: 'Subtitle',
       children: textContentMock(),
@@ -32,6 +33,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   },
   shadow: {
     args: {
+      style: { maxWidth: '300px' },
       title: <Title level="h3">Title</Title>,
       subtitle: 'Subtitle',
       children: textContentMock(),
@@ -39,6 +41,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   },
   margin: {
     args: {
+      style: { maxWidth: '300px' },
       title: <Title level="h3">Title</Title>,
       subtitle: 'Subtitle',
       children: textContentMock(),
@@ -48,6 +51,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   },
   padding: {
     args: {
+      style: { maxWidth: '300px' },
       title: <Title level="h3">Title</Title>,
       subtitle: 'Subtitle',
       children: textContentMock(),

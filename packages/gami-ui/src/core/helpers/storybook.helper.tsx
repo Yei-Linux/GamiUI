@@ -17,6 +17,7 @@ import {
 import { TDynamicFields, TJSXElements } from 'core/domain/interfaces/common'
 import { ComponentStory } from '@storybook/react'
 import { capitalize } from './validations.helper'
+import Row from 'designSystem/layouts/Row'
 
 const getInheritGlobalStyle = (
   inheritGlobalStyles: IStoryInheritGlobalStyles,
@@ -93,7 +94,7 @@ export const getSelftListTemplateTypes =
   ): ComponentStory<typeof Component> =>
   (args: TDynamicFields): JSX.Element =>
     (
-      <Fragment>
+      <Row gap="1rem" height="auto">
         {examples.map(({ label, value, customProps }, index: number) => (
           <TableStories
             key={index}
@@ -106,7 +107,7 @@ export const getSelftListTemplateTypes =
             />
           </TableStories>
         ))}
-      </Fragment>
+      </Row>
     )
 
 export const getParentListTemplateTypes =

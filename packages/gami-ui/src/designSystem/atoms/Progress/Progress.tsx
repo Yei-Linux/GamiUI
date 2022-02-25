@@ -20,7 +20,6 @@ export interface IProgressTypeContent {
 
 type IGeneralPropsProgress = Omit<
   IGeneralProps,
-  | 'width'
   | 'height'
   | 'textAlign'
   | 'fontWeight'

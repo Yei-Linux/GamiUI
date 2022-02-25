@@ -11,6 +11,10 @@ import * as S from './Row.styles'
 
 export interface IRow {
   /**
+   * Gap
+   */
+  gap?: string | null
+  /**
    * Width Row
    */
   width?: string
@@ -56,6 +60,7 @@ export interface IRow {
 }
 
 const Row = ({
+  gap = null,
   children,
   justifyContent = 'center',
   alignItems = 'center',
@@ -76,6 +81,7 @@ const Row = ({
 
   return (
     <S.Row
+      $gap={gap}
       $width={width}
       $height={height}
       $justifyContent={justifyContent}

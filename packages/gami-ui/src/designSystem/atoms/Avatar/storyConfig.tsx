@@ -97,6 +97,10 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   },
   width: {
     args: {
+      style: {
+        maxWidth: '100px',
+        maxHeight: '100px',
+      },
       src: avatarProfilesImages.one,
       height: 'auto',
       zoomMode: 'inside',
@@ -105,6 +109,10 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   },
   height: {
     args: {
+      style: {
+        maxWidth: '100px',
+        maxHeight: '100px',
+      },
       src: avatarProfilesImages.one,
       width: 'sm',
       zoomMode: 'inside',
@@ -113,6 +121,10 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   },
   size: {
     args: {
+      style: {
+        maxWidth: '100px',
+        maxHeight: '100px',
+      },
       src: avatarProfilesImages.one,
       zoomMode: 'inside',
       rounded: 'lg',

@@ -43,9 +43,12 @@ const CodeBlock = ({
         wrapLines
         theme={atomOneDark}
         customStyle={{
-          fontSize: "0.75rem",
-          padding: ".5rem 1rem",
+          fontSize: "1rem",
+          padding: ".9rem 1rem",
           height: "100%",
+          borderRadius: "0.8em",
+          maxHeight: "500px",
+          overflow: "auto",
         }}
       />
     </S.CodeBlock>
