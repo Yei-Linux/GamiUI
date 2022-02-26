@@ -46,42 +46,42 @@ const atomComponents = [
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "link",
   },
   {
     title: "Message",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "message",
   },
   {
     title: "Progress",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "progress",
   },
   {
     title: "RichText",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "richtext",
   },
   {
     title: "Tag",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "tag",
   },
   {
     title: "Title",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "title",
   },
 ]
 

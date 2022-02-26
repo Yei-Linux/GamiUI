@@ -1659,7 +1659,7 @@ export const atoms: IPages[] = [
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "Icon component is used to display icon!",
+              text: "Image component is used to display any picture!",
             },
           },
           {
@@ -1865,6 +1865,1831 @@ export const atoms: IPages[] = [
             props: {
               code: exampleComponentCodeBlock(
                 reactElementToJSXString(allComponents.atoms.image.max)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: {
+              columns: [
+                { title: "Attribute", dataIndex: "attribute" },
+                {
+                  title: "Type",
+                  dataIndex: "type",
+                  render: (name: string) => (
+                    <Tag
+                      text={name}
+                      color={defaultTheme.light.neutral[800]}
+                      background={defaultTheme.light.primary.jordyBlue}
+                    />
+                  ),
+                },
+                { title: "Accepted values", dataIndex: "acceptedvalues" },
+                { title: "Description", dataIndex: "description" },
+                { title: "Default", dataIndex: "default" },
+              ],
+              data: [
+                {
+                  attribute: "disableDefaultStyles",
+                  type: "boolean",
+                  acceptedvalues: "true/false",
+                  description: "By default includes <GlobalStyles/>",
+                  default: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Link",
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Link component is used to access an url!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Link } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "Sizes",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.sizes,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.sizes)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Widths",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.width,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.width)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Heights",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.height,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.height)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Roundeds",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.rounded,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.rounded)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Shadow",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.shadow,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.shadow)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "TextAligns",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.textalign,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.textalign)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "FontWeight",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.fontweight,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.fontweight)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Padding",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.padding,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.padding)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Margins",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.margin,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.margin)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Variants",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.variants,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.variants)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Bordereds",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.variants,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.variants)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Ghost",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.ghost,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.ghost)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Light",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.light,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.light)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Flat",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display link.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.link.flat,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.link.flat)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: {
+              columns: [
+                { title: "Attribute", dataIndex: "attribute" },
+                {
+                  title: "Type",
+                  dataIndex: "type",
+                  render: (name: string) => (
+                    <Tag
+                      text={name}
+                      color={defaultTheme.light.neutral[800]}
+                      background={defaultTheme.light.primary.jordyBlue}
+                    />
+                  ),
+                },
+                { title: "Accepted values", dataIndex: "acceptedvalues" },
+                { title: "Description", dataIndex: "description" },
+                { title: "Default", dataIndex: "default" },
+              ],
+              data: [
+                {
+                  attribute: "disableDefaultStyles",
+                  type: "boolean",
+                  acceptedvalues: "true/false",
+                  description: "By default includes <GlobalStyles/>",
+                  default: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Message",
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Message component is used to show a nice message to user!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Message } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "Widths",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.width,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.width)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Heights",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.height,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.height)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Shadow",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.shadow,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.shadow)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "TextAligns",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.textalign,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.textalign)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "FontWeight",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.fontweight,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.fontweight)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Padding",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.padding,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.padding)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Margins",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.margin,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.margin)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Directions",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.direction,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.direction)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Backgrounds",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.background,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.background)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "ColorsMarker",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display message.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.message.colormarker,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.message.colormarker)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: {
+              columns: [
+                { title: "Attribute", dataIndex: "attribute" },
+                {
+                  title: "Type",
+                  dataIndex: "type",
+                  render: (name: string) => (
+                    <Tag
+                      text={name}
+                      color={defaultTheme.light.neutral[800]}
+                      background={defaultTheme.light.primary.jordyBlue}
+                    />
+                  ),
+                },
+                { title: "Accepted values", dataIndex: "acceptedvalues" },
+                { title: "Description", dataIndex: "description" },
+                { title: "Default", dataIndex: "default" },
+              ],
+              data: [
+                {
+                  attribute: "disableDefaultStyles",
+                  type: "boolean",
+                  acceptedvalues: "true/false",
+                  description: "By default includes <GlobalStyles/>",
+                  default: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Progress",
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Progress component is used to display progress size!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Progress } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "Shadow",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display progress.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.progress.shadow,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.progress.shadow)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Margins",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display progress.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.progress.margin,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.progress.margin)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Types",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display progress.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.progress.type,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.progress.type)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Backgrounds",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display progress.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.progress.background,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.progress.background)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "MaxSize",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display progress.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.progress.maxsize,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.progress.maxsize)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: {
+              columns: [
+                { title: "Attribute", dataIndex: "attribute" },
+                {
+                  title: "Type",
+                  dataIndex: "type",
+                  render: (name: string) => (
+                    <Tag
+                      text={name}
+                      color={defaultTheme.light.neutral[800]}
+                      background={defaultTheme.light.primary.jordyBlue}
+                    />
+                  ),
+                },
+                { title: "Accepted values", dataIndex: "acceptedvalues" },
+                { title: "Description", dataIndex: "description" },
+                { title: "Default", dataIndex: "default" },
+              ],
+              data: [
+                {
+                  attribute: "disableDefaultStyles",
+                  type: "boolean",
+                  acceptedvalues: "true/false",
+                  description: "By default includes <GlobalStyles/>",
+                  default: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "RichText",
+
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "RichText component is used to show any text you want!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { RichText } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "Sizes",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.sizes,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.sizes)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Widths",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.width,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.width)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Heights",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.height,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.height)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Roundeds",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.rounded,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.rounded)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Shadow",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.shadow,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.shadow)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "TextAligns",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.textalign,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.textalign)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "FontWeight",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.fontweight,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.fontweight)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Padding",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.padding,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.padding)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Margins",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.margin,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.margin)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Text",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display richtext.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.richtext.text,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.richtext.text)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: {
+              columns: [
+                { title: "Attribute", dataIndex: "attribute" },
+                {
+                  title: "Type",
+                  dataIndex: "type",
+                  render: (name: string) => (
+                    <Tag
+                      text={name}
+                      color={defaultTheme.light.neutral[800]}
+                      background={defaultTheme.light.primary.jordyBlue}
+                    />
+                  ),
+                },
+                { title: "Accepted values", dataIndex: "acceptedvalues" },
+                { title: "Description", dataIndex: "description" },
+                { title: "Default", dataIndex: "default" },
+              ],
+              data: [
+                {
+                  attribute: "disableDefaultStyles",
+                  type: "boolean",
+                  acceptedvalues: "true/false",
+                  description: "By default includes <GlobalStyles/>",
+                  default: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Tag",
+
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Tag component is used to show marked text!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Tag } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "Widths",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.width,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.width)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Heights",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.height,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.height)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Roundeds",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.rounded,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.rounded)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Shadow",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.shadow,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.shadow)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "TextAligns",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.textalign,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.textalign)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "FontWeight",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.fontweight,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.fontweight)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Padding",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.padding,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.padding)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Margins",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.margin,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.margin)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Colors",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display tag.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.tag.color,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.tag.color)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: {
+              columns: [
+                { title: "Attribute", dataIndex: "attribute" },
+                {
+                  title: "Type",
+                  dataIndex: "type",
+                  render: (name: string) => (
+                    <Tag
+                      text={name}
+                      color={defaultTheme.light.neutral[800]}
+                      background={defaultTheme.light.primary.jordyBlue}
+                    />
+                  ),
+                },
+                { title: "Accepted values", dataIndex: "acceptedvalues" },
+                { title: "Description", dataIndex: "description" },
+                { title: "Default", dataIndex: "default" },
+              ],
+              data: [
+                {
+                  attribute: "disableDefaultStyles",
+                  type: "boolean",
+                  acceptedvalues: "true/false",
+                  description: "By default includes <GlobalStyles/>",
+                  default: false,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Title",
+
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Title component is used to show important text!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Title } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "Sizes",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.size,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.size)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Widths",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.width,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.width)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Roundeds",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.rounded,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.rounded)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Shadow",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.shadow,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.shadow)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "TextAligns",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.textalign,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.textalign)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "FontWeight",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.fontweight,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.fontweight)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Padding",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.padding,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.padding)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Margins",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.margin,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.margin)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Children",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.children,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.children)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Level",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display title.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.atoms.title.level,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.atoms.title.level)
               ),
               language: "jsx",
             },

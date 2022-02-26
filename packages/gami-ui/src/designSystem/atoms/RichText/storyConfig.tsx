@@ -17,7 +17,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {
       text: 'Gami RichText',
       fontWeight: 'semibold',
-      level: 'h4',
       textAlign: 'center',
       shadow: 'sm',
       padding: '10px',
@@ -27,7 +26,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {
       text: 'Gami RichText',
       fontWeight: 'semibold',
-      level: 'h4',
       textAlign: 'center',
       shadow: 'sm',
       padding: '10px',
@@ -37,7 +35,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {
       text: 'Gami RichText',
       fontWeight: 'semibold',
-      level: 'h4',
       textAlign: 'center',
       shadow: 'sm',
       padding: '10px',
@@ -47,7 +44,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {
       text: 'Gami RichText',
       fontWeight: 'semibold',
-      level: 'h4',
       textAlign: 'center',
       shadow: 'sm',
       padding: '10px',
@@ -57,7 +53,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {
       text: 'Gami RichText',
       fontWeight: 'semibold',
-      level: 'h4',
       textAlign: 'center',
       shadow: 'sm',
       padding: '10px',
@@ -75,7 +70,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {
       width: 'lg',
       text: 'Gami RichText',
-      level: 'h4',
       shadow: 'sm',
       padding: '10px',
     },
@@ -83,7 +77,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   margin: {
     args: {
       text: 'Gami RichText',
-      level: 'h4',
       textAlign: 'center',
       shadow: 'sm',
       padding: '10px',
@@ -93,7 +86,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   padding: {
     args: {
       text: 'Gami RichText',
-      level: 'h4',
       textAlign: 'center',
       shadow: 'sm',
     },
