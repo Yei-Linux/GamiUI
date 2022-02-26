@@ -8,6 +8,7 @@ import Drawer from '.'
 import { DrawerPlacementTypes } from 'core/domain/types'
 import Row from 'designSystem/layouts/Row'
 import Icon from 'designSystem/atoms/Icon'
+import RichText from 'designSystem/atoms/RichText'
 
 const { mainConfig, stories } = storyConfig
 
@@ -27,7 +28,7 @@ const StoryDefault = (args: unknown) => {
         Toggle
       </Button>
       <Drawer onClose={() => setOpen(!open)} open={open} {...args}>
-        <p>Hey, whats up</p>
+        <RichText text="Hey, whats up!" />
       </Drawer>
     </Row>
   )
@@ -68,7 +69,7 @@ const StoryCustomCloseIcon = (args: unknown) => {
         open={open}
         {...args}
       >
-        <p>Hey, whats up</p>
+        <RichText text="Hey, whats up!" />
       </Drawer>
     </Row>
   )
@@ -108,7 +109,7 @@ const StoryCloseIcon = (args: unknown) => {
         open={open}
         {...args}
       >
-        <p>Hey, whats up</p>
+        <RichText text="Hey, whats up!" />
       </Drawer>
     </Row>
   )
@@ -147,7 +148,7 @@ const StoryMask = (args: unknown) => {
         open={open}
         {...args}
       >
-        <p>Hey, whats up</p>
+        <RichText text="Hey, whats up!" />
       </Drawer>
     </Row>
   )
@@ -192,7 +193,7 @@ const StoryDirection = (args: unknown) => {
         placement={placement}
         {...args}
       >
-        <p>Hey, whats up</p>
+        <RichText text="Hey, whats up!" />
       </Drawer>
     </Row>
   )
