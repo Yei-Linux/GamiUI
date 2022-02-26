@@ -47,6 +47,8 @@ const defaultProps = {
   height: 'auto',
 }
 
+Title.displayName = 'Title'
+
 type TitleComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

@@ -18,9 +18,14 @@ export interface IStoryElement<T> {
   variants: T
 }
 
+export interface IParentChildrenArgs {
+  props: TDynamicFields
+  Component: React.ElementType
+}
+
 export interface IParentVariant {
   label: string
-  value: any[]
+  value: IParentChildrenArgs[]
 }
 
 export type TDesignTypes = keyof DesignTypes
@@ -46,6 +51,7 @@ export interface IStoryMainConfig {
   component: TJSXElements
   args: TDynamicFields
   argTypes: TDynamicFields
+  parameters?: TDynamicFields
 }
 
 export interface IStoryConfigStructure {

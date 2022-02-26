@@ -116,9 +116,9 @@ export const getParentListTemplateTypes =
     ParenComponent: TJSXElements,
     { args: parentArgs, variants }: IStoryElement<IParentVariant[]>
   ): ComponentStory<typeof Component> =>
-  (): JSX.Element =>
+  (args: TDynamicFields): JSX.Element =>
     (
-      <Fragment>
+      <Row gap="1rem" height="auto">
         {variants.map(({ label, value }, index: number) => (
           <TableStories
             key={index}
@@ -127,11 +127,13 @@ export const getParentListTemplateTypes =
             labelStory={label}
           >
             <ParenComponent {...parentArgs}>
-              {value.map((ComponentChildren) => ComponentChildren)}
+              {value.map(({ props, Component }, index) => (
+                <Component key={index} {...props} {...args} />
+              ))}
             </ParenComponent>
           </TableStories>
         ))}
-      </Fragment>
+      </Row>
     )
 
 export const getStory = (

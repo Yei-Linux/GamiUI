@@ -74,11 +74,10 @@ const storiesComponent = [
       variants: [
         {
           label: 'WithDivider',
-          value: TitleCollapses.map((Title, index) => (
-            <Collapse key={index} title={Title}>
-              {textContentMock()}
-            </Collapse>
-          )),
+          value: TitleCollapses.map((Title) => ({
+            props: { title: Title, children: textContentMock() },
+            Component: Collapse,
+          })),
         },
       ],
     },
@@ -90,11 +89,10 @@ const storiesComponent = [
       variants: [
         {
           label: 'WithNotDivider',
-          value: TitleCollapses.map((Title, index) => (
-            <Collapse key={index} title={Title}>
-              {textContentMock()}
-            </Collapse>
-          )),
+          value: TitleCollapses.map((Title) => ({
+            props: { title: Title, children: textContentMock() },
+            Component: Collapse,
+          })),
         },
       ],
     },
@@ -106,11 +104,10 @@ const storiesComponent = [
       variants: [
         {
           label: 'WithAccordion',
-          value: TitleCollapses.map((Title, index) => (
-            <Collapse key={index} title={Title}>
-              {textContentMock()}
-            </Collapse>
-          )),
+          value: TitleCollapses.map((Title) => ({
+            props: { title: Title, children: textContentMock() },
+            Component: Collapse,
+          })),
         },
       ],
     },

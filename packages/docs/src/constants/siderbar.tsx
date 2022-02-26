@@ -18,28 +18,28 @@ const atomComponents = [
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "collapse",
   },
   {
     title: "Empty",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "empty",
   },
   {
     title: "Icon",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "icon",
   },
   {
     title: "Image",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "image",
   },
   {
     title: "Link",

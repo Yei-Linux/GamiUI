@@ -162,22 +162,21 @@ const storiesComponent = [
       variants: [
         {
           label: 'WithImage',
-          value: Object.entries(avatarProfilesImages).map(
-            ([, value], index) => (
-              <Avatar zoomMode="outside" src={value} key={index} />
-            )
-          ),
+          value: Object.entries(avatarProfilesImages).map(([, value]) => ({
+            props: { zoomMode: 'outside', src: value },
+            Component: Avatar,
+          })),
         },
         {
           label: 'WithText',
-          value: withTextExamples.map(({ value, customProps }, index) => (
-            <Avatar
-              zoomMode="outside"
-              text={value}
-              key={index}
-              {...customProps}
-            />
-          )),
+          value: withTextExamples.map(({ value, customProps }) => ({
+            props: {
+              zoomMode: 'outside',
+              text: value,
+              ...customProps,
+            },
+            Component: Avatar,
+          })),
         },
       ],
     },
