@@ -18,23 +18,74 @@ export const drawerTranstionByStates = {
     },
   },
   drawer: {
-    open: {
-      to: {
-        duration: 0.8,
-        delay: 0,
-        position: { axis: 'xPercent', value: 100 },
+    left: {
+      open: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'xPercent', value: 100 },
+        },
+      },
+      close: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'xPercent', value: -100 },
+        },
       },
     },
-    close: {
-      to: {
-        duration: 0.8,
-        delay: 0,
-        position: { axis: 'xPercent', value: -100 },
+    right: {
+      open: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'xPercent', value: -100 },
+        },
+      },
+      close: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'xPercent', value: 100 },
+        },
+      },
+    },
+    top: {
+      open: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'yPercent', value: 100 },
+        },
+      },
+      close: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'yPercent', value: -100 },
+        },
+      },
+    },
+    bottom: {
+      open: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'yPercent', value: -100 },
+        },
+      },
+      close: {
+        to: {
+          duration: 0.8,
+          delay: 0,
+          position: { axis: 'yPercent', value: 100 },
+        },
       },
     },
   },
 }
 
 export const options = {
+  placementType: ['left', 'right', 'top', 'bottom'] as const,
   type: [] as const,
 }

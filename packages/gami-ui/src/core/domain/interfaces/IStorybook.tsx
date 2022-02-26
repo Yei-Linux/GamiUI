@@ -42,7 +42,6 @@ export type IStoryInheritGlobalStyles = Record<
 
 export interface IStoryConfig {
   storyName: string
-  templateAction?: IStoryElement<IVariants>
   self?: IStoryElement<IVariants>
   parent?: IStoryElement<IParentVariant[]>
 }

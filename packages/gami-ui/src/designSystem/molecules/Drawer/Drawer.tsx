@@ -14,10 +14,19 @@ import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 import Portal from 'hooks/Portal'
+import { DrawerPlacementTypes } from 'core/domain/types'
+import Icon from 'designSystem/atoms/Icon'
 
 type TGenericStylesFloating = Omit<
   IGeneralProps,
-  'size' | 'fontWeight' | 'textAlign' | 'margin' | 'padding' | 'rounded'
+  | 'size'
+  | 'fontWeight'
+  | 'textAlign'
+  | 'margin'
+  | 'padding'
+  | 'rounded'
+  | 'width'
+  | 'height'
 >
 
 export interface IDrawer extends TGenericStylesFloating {
@@ -34,6 +43,30 @@ export interface IDrawer extends TGenericStylesFloating {
    */
   withMask?: boolean
   /**
+   * Custom Icon
+   */
+  customCloseIcon?: React.ReactNode | null
+  /**
+   * Has Close Icon
+   */
+  hasCloseIcon?: boolean
+  /**
+   * Height
+   */
+  height?: number
+  /**
+   * Width
+   */
+  width?: number
+  /**
+   * ZIndex
+   */
+  zIndex?: number
+  /**
+   * Placemente Drawer
+   */
+  placement?: DrawerPlacementTypes
+  /**
    * Action on close drawer
    */
   onClose?: () => void
@@ -43,7 +76,13 @@ const Drawer = ({
   children,
   open,
   onClose,
+  placement = 'left',
   withMask = true,
+  width = 280,
+  height = 300,
+  zIndex = 2,
+  customCloseIcon = null,
+  hasCloseIcon = false,
   ...genericsProps
 }: IDrawer) => {
   const { handles } = useCssHandle({
@@ -51,6 +90,7 @@ const Drawer = ({
       mask__wrapper: ['mask__wrapper'],
       mask: ['mask'],
       drawer: ['drawer'],
+      drawer__icon__container: ['drawer__icon__container'],
     },
     componentPrefixCls: 'drawer',
     customPrexiCls: genericsProps?.className,
@@ -79,13 +119,36 @@ const Drawer = ({
 
           <Portal container={document.body}>
             <Transition
-              to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
+              to={
+                drawerTranstionByStates.drawer[placement][
+                  open ? 'open' : 'close'
+                ].to
+              }
               isReadyToInitAnimation={open}
             >
               <S.Drawer
-                className={cls(handles.drawer)}
+                $zIndex={zIndex}
+                $width={width}
+                $height={height}
+                className={cls(handles.drawer, {
+                  left: placement == 'left',
+                  right: placement == 'right',
+                  top: placement == 'top',
+                  bottom: placement == 'bottom',
+                })}
                 {...getGenericPropStyles(genericsProps)}
               >
+                {hasCloseIcon && (
+                  <S.CloseIcon className={cls(handles.drawer__icon__container)}>
+                    {customCloseIcon ?? (
+                      <Icon
+                        className="gamiui__drawer__icon"
+                        name="close"
+                        size="20px"
+                      />
+                    )}
+                  </S.CloseIcon>
+                )}
                 {children}
               </S.Drawer>
             </Transition>
@@ -98,7 +161,6 @@ const Drawer = ({
 
 const defaultProps = {
   shadow: 'sm',
-  height: 'full',
 }
 
 type DrawerComponent<P> = React.NamedExoticComponent<P> & {

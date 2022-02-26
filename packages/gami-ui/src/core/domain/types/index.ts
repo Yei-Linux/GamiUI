@@ -5,6 +5,7 @@ import { options as optionsImage } from 'designSystem/atoms/Image/constants'
 import { options as optionsMessage } from 'designSystem/atoms/Message/constants'
 import { options as optionsProgress } from 'designSystem/atoms/Progress/constants'
 import { options as optionsTitle } from 'designSystem/atoms/Title/constants'
+import { options as optionsDrawer } from 'designSystem/molecules/Drawer/constants'
 import { options as optionsFloating } from 'designSystem/molecules/Floating/constants'
 import { options as optionsRow } from 'designSystem/layouts/Row/constants'
 import { options as optionsCol } from 'designSystem/layouts/Col/constants'
@@ -53,6 +54,8 @@ export type AlignItemsTypes = typeof optionsRow.alignItemsType[number]
 export type DirectionTypes = typeof optionsRow.directionType[number]
 
 export type DirectionMessageType = typeof optionsMessage.directionType[number]
+
+export type DrawerPlacementTypes = typeof optionsDrawer.placementType[number]
 
 export type FloatingTypes = typeof optionsFloating.type[number]
 
