@@ -87,6 +87,27 @@ export const getTemplate =
     return <Component {...args} />
   }
 
+export const getStoryActionListTemplateTypes =
+  (
+    Template: TJSXElements,
+    { variants: { examples, field } }: IStoryElement<IVariants>
+  ): ComponentStory<typeof Template> =>
+  (args: TDynamicFields): JSX.Element =>
+    (
+      <Row gap="1rem" height="auto">
+        {examples.map(({ label, value, customProps }, index: number) => (
+          <TableStories
+            key={index}
+            item={label ? '' : value}
+            field={field}
+            labelStory={label}
+          >
+            <Template {...customProps} {...args} />
+          </TableStories>
+        ))}
+      </Row>
+    )
+
 export const getSelftListTemplateTypes =
   (
     Component: TJSXElements,
@@ -140,15 +161,18 @@ export const getStory = (
   Component: TJSXElements,
   storyName: string,
   self?: IStoryElement<IVariants>,
+  templateAction?: IStoryElement<IVariants>,
   parent?: IStoryElement<IParentVariant[]>,
   ParenComponent?: TJSXElements
 ) => {
-  if (!self && !parent) {
+  if (!self && !parent && !templateAction) {
     return null
   }
 
   const ListTemplateType: ComponentStory<typeof Component> | null = self
     ? getSelftListTemplateTypes(Component, self)
+    : templateAction
+    ? getStoryActionListTemplateTypes(Component, templateAction)
     : parent && ParenComponent
     ? getParentListTemplateTypes(Component, ParenComponent, parent)
     : null
@@ -169,8 +193,15 @@ export const getStories = (
   Component: TJSXElements,
   ParentComponent?: TJSXElements
 ) =>
-  storyConfig.map(({ storyName, parent, self }) =>
-    getStory(Component, storyName, self, parent, ParentComponent)
+  storyConfig.map(({ storyName, parent, self, templateAction }) =>
+    getStory(
+      Component,
+      storyName,
+      self,
+      templateAction,
+      parent,
+      ParentComponent
+    )
   )
 
 export const getStoryConfigStructure = ({

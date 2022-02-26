@@ -13,10 +13,11 @@ import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import Portal from 'hooks/Portal'
 
 type TGenericStylesFloating = Omit<
   IGeneralProps,
-  'size' | 'fontWeight' | 'textAlign' | 'margin' | 'padding'
+  'size' | 'fontWeight' | 'textAlign' | 'margin' | 'padding' | 'rounded'
 >
 
 export interface IDrawer extends TGenericStylesFloating {
@@ -60,31 +61,35 @@ const Drawer = ({
     <Fragment>
       {isOpen && (
         <Fragment>
-          <Transition
-            from={drawerTranstionByStates.mask[open ? 'open' : 'close']?.from}
-            to={drawerTranstionByStates.mask[open ? 'open' : 'close'].to}
-            isReadyToInitAnimation={open}
-          >
-            <div className={cls(handles.mask__wrapper)}>
-              <Mask
-                className={cls(handles.mask)}
-                onClick={onClose}
-                background={withMask ? 'rgba(0, 0, 0, 0.45)' : 'transparent'}
-              />
-            </div>
-          </Transition>
-
-          <Transition
-            to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
-            isReadyToInitAnimation={open}
-          >
-            <S.Drawer
-              {...getGenericPropStyles(genericsProps)}
-              className={cls(handles.drawer)}
+          <Portal container={document.body}>
+            <Transition
+              from={drawerTranstionByStates.mask[open ? 'open' : 'close']?.from}
+              to={drawerTranstionByStates.mask[open ? 'open' : 'close'].to}
+              isReadyToInitAnimation={open}
             >
-              {children}
-            </S.Drawer>
-          </Transition>
+              <div className={cls(handles.mask__wrapper)}>
+                <Mask
+                  className={cls(handles.mask)}
+                  onClick={onClose}
+                  background={withMask ? 'rgba(0, 0, 0, 0.45)' : 'transparent'}
+                />
+              </div>
+            </Transition>
+          </Portal>
+
+          <Portal container={document.body}>
+            <Transition
+              to={drawerTranstionByStates.drawer[open ? 'open' : 'close'].to}
+              isReadyToInitAnimation={open}
+            >
+              <S.Drawer
+                className={cls(handles.drawer)}
+                {...getGenericPropStyles(genericsProps)}
+              >
+                {children}
+              </S.Drawer>
+            </Transition>
+          </Portal>
         </Fragment>
       )}
     </Fragment>
@@ -92,10 +97,8 @@ const Drawer = ({
 }
 
 const defaultProps = {
-  rounded: 'sm',
   shadow: 'sm',
-  width: 'auto',
-  height: 'auto',
+  height: 'full',
 }
 
 type DrawerComponent<P> = React.NamedExoticComponent<P> & {

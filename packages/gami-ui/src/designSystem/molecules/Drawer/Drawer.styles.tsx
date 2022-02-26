@@ -14,5 +14,4 @@ export const Drawer = InheritGlobalStylesComponent(styled.div`
   bottom: 0px;
   left: -280px;
   width: 280px;
-  height: 100%;
 `)

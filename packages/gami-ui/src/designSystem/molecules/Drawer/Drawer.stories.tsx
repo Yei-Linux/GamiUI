@@ -1,33 +1,11 @@
-import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
-import Drawer from '.'
-import Button from '../../atoms/Button'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Molecules/Drawer',
-  component: Drawer,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = (args: any) => {
-  const [open, setOpen] = useState(true)
+export default mainConfig as Meta
 
-  const toggle = () => setOpen(!open)
+const [one] = stories
 
-  return (
-    <div>
-      <Button type="button" width="fit" onClick={toggle}>
-        Open Drawer
-      </Button>
-      <Drawer {...args} onClose={toggle} open={open}>
-        <p>Hey, whats up</p>
-      </Drawer>
-    </div>
-  )
-}
-Basic.args = {
-  width: '400px',
-  height: '100%',
-}
+export { one }
