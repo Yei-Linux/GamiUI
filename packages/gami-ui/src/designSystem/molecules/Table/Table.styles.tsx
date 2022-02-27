@@ -1,13 +1,14 @@
 import styled from '@emotion/styled'
+import { mixinScroll } from 'styles/mixins/scroll'
 import { defaultTheme } from 'styles/tokens'
 import { mediaQuery } from 'styles/utilities/breakpoints'
 import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
 export const Table = InheritGlobalStylesComponent(styled.div`
-  overflow: hidden;
+  overflow: auto hidden;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  width: fit-content;
+  ${mixinScroll('light')}
 `)
 
 export const TableContainer = styled.table`

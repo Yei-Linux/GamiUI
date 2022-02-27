@@ -1,79 +1,175 @@
-import { Meta } from '@storybook/react'
-import { stylesControl } from '../../../core/helpers/storybook.helper'
+import { ComponentStory, Meta } from '@storybook/react'
 
 import Floating from '.'
 import React, { useState } from 'react'
 import Button from '../../atoms/Button'
+import { storyConfig } from './storyConfig'
+import { TJSXElements } from 'core/domain/interfaces/common'
+import RichText from 'designSystem/atoms/RichText'
+import Row from 'designSystem/layouts/Row'
+import Icon from 'designSystem/atoms/Icon'
+import { FloatingTypes } from 'core/domain/types'
 
-export default {
-  title: 'Molecules/Floating',
-  component: Floating,
-  args: {},
-  argTypes: {
-    ...stylesControl,
-  },
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Right = () => {
-  const [visible, setIsVisible] = useState(true)
+export default mainConfig as Meta
 
-  const toggleVisible = () => setIsVisible(!visible)
+// eslint-disable-next-line no-empty-pattern
+const [] = stories
+
+const StoryDefault = (args: unknown) => {
+  const [open, setOpen] = useState(false)
+
+  const toggle = () => setOpen(!open)
 
   return (
-    <div>
-      <Floating direction="right" visible={visible} onClose={toggleVisible}>
-        Gami Floating
+    <Row gap="10px">
+      <Button type="button" width="fit" onClick={toggle}>
+        Toggle
+      </Button>
+      <Floating
+        height="auto"
+        width="auto"
+        direction="right"
+        open={open}
+        onClose={toggle}
+        {...args}
+      >
+        <RichText text="Gami Floating!" />
       </Floating>
-
-      <Button onClick={toggleVisible}>Show Message</Button>
-    </div>
+    </Row>
   )
 }
-
-export const Left = () => {
-  const [visible, setIsVisible] = useState(false)
-
-  const toggleVisible = () => setIsVisible(!visible)
-
-  return (
-    <div>
-      <Floating direction="left" visible={visible} onClose={toggleVisible}>
-        Gami Floating
-      </Floating>
-
-      <Button onClick={toggleVisible}>Show Message</Button>
-    </div>
-  )
+export const StoryDefaultTemplate: ComponentStory<TJSXElements> =
+  StoryDefault.bind({})
+StoryDefaultTemplate.storyName = 'WithDefault'
+StoryDefaultTemplate.args = {
+  hasCloseIcon: true,
+  zIndex: 2,
 }
 
-export const Top = () => {
-  const [visible, setIsVisible] = useState(true)
+const StoryCustomCloseIcon = (args: unknown) => {
+  const [customCloseIcon, setCustomCloseIcon] = useState(true)
+  const [open, setOpen] = useState(false)
 
-  const toggleVisible = () => setIsVisible(!visible)
+  const toggle = (hasMask: boolean) => {
+    setCustomCloseIcon(hasMask)
+    setOpen(!open)
+  }
 
   return (
-    <div>
-      <Floating direction="top" visible={visible} onClose={toggleVisible}>
-        Gami Floating
+    <Row gap="10px">
+      <Button type="button" width="fit" onClick={() => toggle(true)}>
+        CustomCloseIcon
+      </Button>
+      <Button type="button" width="fit" onClick={() => toggle(false)}>
+        Not CustomCloseIcon
+      </Button>
+      <Floating
+        height="auto"
+        width="auto"
+        direction="right"
+        open={open}
+        customCloseIcon={
+          customCloseIcon ? (
+            <Icon name="close" color="black" size="20px" />
+          ) : null
+        }
+        onClose={() => setOpen(!open)}
+        {...args}
+      >
+        <RichText text="Gami Floating!" />
       </Floating>
-
-      <Button onClick={toggleVisible}>Show Message</Button>
-    </div>
+    </Row>
   )
 }
+export const StoryCustomCloseIconTemplate: ComponentStory<TJSXElements> =
+  StoryCustomCloseIcon.bind({})
 
-export const Bottom = () => {
-  const [visible, setIsVisible] = useState(false)
+StoryCustomCloseIconTemplate.storyName = 'WithCustomCloseIcon'
+StoryCustomCloseIconTemplate.args = {
+  hasCloseIcon: true,
+  zIndex: 2,
+}
 
-  const toggleVisible = () => setIsVisible(!visible)
+const StoryCloseIcon = (args: unknown) => {
+  const [closeIcon, setCloseIcon] = useState(true)
+  const [open, setOpen] = useState(false)
+
+  const toggle = (hasMask: boolean) => {
+    setCloseIcon(hasMask)
+    setOpen(!open)
+  }
 
   return (
-    <div>
-      <Floating direction="bottom" visible={visible} onClose={toggleVisible}>
-        Gami Floating
+    <Row gap="10px">
+      <Button type="button" width="fit" onClick={() => toggle(true)}>
+        Close Icon
+      </Button>
+      <Button type="button" width="fit" onClick={() => toggle(false)}>
+        Not Close Icon
+      </Button>
+      <Floating
+        height="auto"
+        width="auto"
+        direction="right"
+        open={open}
+        hasCloseIcon={closeIcon}
+        onClose={() => setOpen(!open)}
+        {...args}
+      >
+        <RichText text="Gami Floating!" />
       </Floating>
-
-      <Button onClick={toggleVisible}>Show Message</Button>
-    </div>
+    </Row>
   )
+}
+export const StoryCloseIconTemplate: ComponentStory<TJSXElements> =
+  StoryCloseIcon.bind({})
+
+StoryCloseIconTemplate.storyName = 'WithCloseIcon'
+StoryCloseIconTemplate.args = {
+  zIndex: 2,
+}
+
+const StoryDirection = (args: unknown) => {
+  const [direction, setDirection] = useState<FloatingTypes>('left')
+  const [open, setOpen] = useState(false)
+
+  const toggle = (directionProp: FloatingTypes) => {
+    setDirection(directionProp)
+    setOpen(!open)
+  }
+
+  return (
+    <Row gap="10px">
+      <Button type="button" width="fit" onClick={() => toggle('left')}>
+        Left
+      </Button>
+      <Button type="button" width="fit" onClick={() => toggle('right')}>
+        Right
+      </Button>
+      <Button type="button" width="fit" onClick={() => toggle('top')}>
+        Top
+      </Button>
+      <Button type="button" width="fit" onClick={() => toggle('bottom')}>
+        Bottom
+      </Button>
+      <Floating
+        height="auto"
+        width="auto"
+        direction={direction}
+        open={open}
+        onClose={() => setOpen(!open)}
+        {...args}
+      >
+        <RichText text="Gami Floating!" />
+      </Floating>
+    </Row>
+  )
+}
+export const StoryDirectionTemplate: ComponentStory<TJSXElements> =
+  StoryDirection.bind({})
+StoryDirectionTemplate.storyName = 'WithDirection'
+StoryDirectionTemplate.args = {
+  zIndex: 2,
 }

@@ -29,8 +29,6 @@ const Sider = ({ header, children, onClose, open }: ISider) => {
         backgroundColor: 'rgba( 255, 255, 255, 0.55 )',
         backdropFilter: 'blur( 14.5px )',
       }}
-      width="auto"
-      height="full"
       onClose={onClose}
       open={open}
       withMask={false}

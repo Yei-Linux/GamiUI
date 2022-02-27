@@ -91,7 +91,7 @@ const moleculeComponents = [
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "drawer",
   },
   {
     title: "Floating",
@@ -225,14 +225,14 @@ export const siderbar = {
   sections: [
     {
       title: "Guide",
-      basepath: "atoms",
+      basepath: "guide",
       prevIcon: "",
       afterIcon: "bullet" as const,
       items: guide,
     },
     {
       title: "Theme",
-      basepath: "atoms",
+      basepath: "theme",
       prevIcon: "",
       afterIcon: "bullet" as const,
       items: theme,
@@ -246,21 +246,21 @@ export const siderbar = {
     },
     {
       title: "Molecule Components",
-      basepath: "atoms",
+      basepath: "molecules",
       prevIcon: "",
       afterIcon: "bullet" as const,
       items: moleculeComponents,
     },
     {
       title: "Layout Components",
-      basepath: "atoms",
+      basepath: "layouts",
       prevIcon: "",
       afterIcon: "bullet" as const,
       items: layoutComponents,
     },
     {
       title: "Styled Components",
-      basepath: "atoms",
+      basepath: "styled",
       prevIcon: "",
       afterIcon: "bullet" as const,
       items: styledComponents,

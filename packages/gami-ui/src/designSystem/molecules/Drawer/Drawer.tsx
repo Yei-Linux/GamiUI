@@ -91,6 +91,7 @@ const Drawer = ({
       mask: ['mask'],
       drawer: ['drawer'],
       drawer__icon__container: ['drawer__icon__container'],
+      drawer__icon: ['drawer__icon'],
     },
     componentPrefixCls: 'drawer',
     customPrexiCls: genericsProps?.className,
@@ -142,9 +143,11 @@ const Drawer = ({
                   <S.CloseIcon className={cls(handles.drawer__icon__container)}>
                     {customCloseIcon ?? (
                       <Icon
-                        className="gamiui__drawer__icon"
+                        className={cls(handles.drawer__icon)}
+                        color="#7868e6"
                         name="close"
                         size="20px"
+                        onClick={onClose}
                       />
                     )}
                   </S.CloseIcon>

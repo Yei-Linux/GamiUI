@@ -1,5 +1,12 @@
 import React from "react"
 import {
+  DrawerWithCloseIconCode,
+  DrawerWithCustomCloseIconCode,
+  DrawerWithDefaultCode,
+  DrawerWithDirectionCode,
+  DrawerWithMaskCode,
+} from "./code/molecules/drawer"
+import {
   AvatarWithAlt,
   AvatarWithHeight,
   AvatarWithIcon,
@@ -45,6 +52,13 @@ import {
   CollapseWithBordered,
   CollapseWithContentLeft,
 } from "./examples/CollapseExtra"
+import {
+  DrawerWithCloseIcon,
+  DrawerWithCustomCloseIcon,
+  DrawerWithDefault,
+  DrawerWithDirection,
+  DrawerWithMask,
+} from "./examples/DrawerExa"
 import {
   EmptyWithShadows,
   EmptyWithPadding,
@@ -286,6 +300,20 @@ const atoms = {
   },
 }
 
+const molecules = {
+  drawer: {
+    default: [<DrawerWithDefault />, DrawerWithDefaultCode],
+    customcloseicon: [
+      <DrawerWithCustomCloseIcon />,
+      DrawerWithCustomCloseIconCode,
+    ],
+    closeicon: [<DrawerWithCloseIcon />, DrawerWithCloseIconCode],
+    mask: [<DrawerWithMask />, DrawerWithMaskCode],
+    direction: [<DrawerWithDirection />, DrawerWithDirectionCode],
+  },
+}
+
 export const allComponents = {
   atoms,
+  molecules,
 }

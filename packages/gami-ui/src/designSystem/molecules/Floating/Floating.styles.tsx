@@ -42,12 +42,18 @@ export const floatingBottom = (customTheme: ICustomTheme) => css`
 `
 
 export const Floating = InheritGlobalStylesComponent(styled.div<{
+  $zIndex?: number
   $direction: FloatingTypes
   theme?: ICustomTheme
+  $width?: string
+  $height?: string
 }>`
-  z-index: ${({ theme }) => theme.tokens.zIndex[5]};
+  z-index: ${({ $zIndex }) => $zIndex};
   background-color: white;
-  width: fit-content;
+
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+
   overflow: hidden;
   padding: 1rem;
 
@@ -60,5 +66,7 @@ export const Floating = InheritGlobalStylesComponent(styled.div<{
 `)
 
 export const FloatingHeader = styled.div`
-  display: flex;
+  position: absolute;
+  top: 8px;
+  right: 10px;
 `

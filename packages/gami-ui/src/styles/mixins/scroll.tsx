@@ -3,7 +3,7 @@ import { rounded, defaultTheme } from 'styles/tokens'
 
 export const mixinScroll = (themeType: 'light' | 'dark') => css`
   &::-webkit-scrollbar {
-    width: 8px;
+    height: 8px;
   }
 
   &::-webkit-scrollbar-track {
