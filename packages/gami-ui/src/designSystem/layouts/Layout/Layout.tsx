@@ -23,7 +23,7 @@ interface IHeader extends ILayoutElement {
 
 export interface ILayout {
   /**
-   * Children Prop
+   * className Prop
    */
   className: string
   /**
@@ -31,15 +31,15 @@ export interface ILayout {
    */
   children: React.ReactNode[]
   /**
-   * Children Prop
+   * width Prop
    */
   width: string
   /**
-   * Children Prop
+   * height Prop
    */
   height: string
   /**
-   * Children Prop
+   * minHeight Prop
    */
   minHeight: string
 }

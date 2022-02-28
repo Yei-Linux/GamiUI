@@ -5,11 +5,34 @@ import {
 } from 'core/helpers/storybook.helper'
 import Container from 'designSystem/layouts/Container'
 
+const storyArgTypes = {
+  as: {
+    control: 'text',
+    description: 'Spacing Prop',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Container.defaultProps?.as,
+    },
+  },
+}
+
+const docArgTypes = {
+  children: {
+    control: 'object',
+    description: 'Content',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Layout/Container',
   component: Container,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -102,4 +125,4 @@ const storyConfig = getStoryConfigStructure({
   component: Container,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

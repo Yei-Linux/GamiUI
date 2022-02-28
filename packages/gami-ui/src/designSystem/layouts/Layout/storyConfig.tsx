@@ -10,11 +10,54 @@ import { Fragment } from 'react'
 import Container from '../Container'
 import { defaultTheme } from 'styles/tokens'
 
+const storyArgTypes = {
+  className: {
+    control: 'text',
+    description: 'Classname Prop',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  width: {
+    control: 'text',
+    description: 'width Prop',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  height: {
+    control: 'text',
+    description: 'height Prop',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  minHeight: {
+    control: 'text',
+    description: 'min height Prop',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+}
+
+const docArgTypes = {
+  children: {
+    control: 'object',
+    description: 'Children Prop',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Layout/Layout',
   component: Layout,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -119,4 +162,4 @@ const storyConfig = getStoryConfigStructure({
   component: Layout,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

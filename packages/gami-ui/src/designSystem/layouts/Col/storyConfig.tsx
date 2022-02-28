@@ -2,17 +2,88 @@ import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import Col from '.'
+import Col, { options } from '.'
 import {
   IStoryConfig,
   IStoryMainConfig,
 } from 'core/domain/interfaces/IStorybook'
 
+const storyArgTypes = {
+  className: {
+    control: 'text',
+    description: 'Classname Prop',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Col.defaultProps?.className,
+    },
+  },
+  spacing: {
+    control: { type: 'select', options: options.spacingType },
+    description: 'Spacing Prop',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Col.defaultProps?.spacing,
+    },
+  },
+  customSpacing: {
+    control: 'text',
+    description: 'Custom Spacing Prop',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Col.defaultProps?.customSpacing,
+    },
+  },
+  xs: {
+    control: { type: 'select', options: options.type },
+    description: 'Extra Small Size',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Col.defaultProps?.xs,
+    },
+  },
+  sm: {
+    control: { type: 'select', options: options.type },
+    description: 'Small Size',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Col.defaultProps?.sm,
+    },
+  },
+  md: {
+    control: { type: 'select', options: options.type },
+    description: 'Medium Size',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Col.defaultProps?.md,
+    },
+  },
+  lg: {
+    control: { type: 'select', options: options.type },
+    description: 'Large Size',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Col.defaultProps?.lg,
+    },
+  },
+}
+
+const docArgTypes = {
+  children: {
+    control: 'object',
+    description: 'Children Prop',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Layout/Col',
   component: Col,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     docs: {
@@ -44,4 +115,4 @@ const storyConfig = getStoryConfigStructure({
   component: Col,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

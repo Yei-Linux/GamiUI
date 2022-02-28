@@ -20,7 +20,7 @@ export interface ICol {
    */
   spacing: ColSpacingTypes
   /**
-   * Spacing Prop
+   * Custom Spacing Prop
    */
   customSpacing?: string
   /**
