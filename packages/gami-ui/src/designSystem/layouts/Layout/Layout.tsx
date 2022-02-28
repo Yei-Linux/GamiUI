@@ -1,8 +1,13 @@
 import { cls } from 'core/utils/cls'
-import React from 'react'
+import useCssHandle from 'hooks/useCssHandle'
+import React, { Fragment } from 'react'
 import * as S from './Layout.styles'
 
 export interface ILayoutElement {
+  /**
+   * Children Prop
+   */
+  style?: React.CSSProperties
   /**
    * Children Prop
    */
@@ -20,29 +25,82 @@ export interface ILayout {
   /**
    * Children Prop
    */
+  className: string
+  /**
+   * Children Prop
+   */
   children: React.ReactNode[]
+  /**
+   * Children Prop
+   */
+  width: string
+  /**
+   * Children Prop
+   */
+  height: string
+  /**
+   * Children Prop
+   */
+  minHeight: string
 }
 
-const Header = ({ children, isSticky = false }: IHeader) => {
-  return <S.Header className={cls({ sticky: isSticky })}>{children}</S.Header>
+const Header = ({ children, isSticky = false, style }: IHeader) => {
+  return (
+    <S.Header style={style} className={cls({ sticky: isSticky })}>
+      {children}
+    </S.Header>
+  )
 }
 
-const Content = ({ children }: ILayoutElement) => {
-  return <S.Content>{children}</S.Content>
+const Content = ({ children, style }: ILayoutElement) => {
+  return <S.Content style={style}>{children}</S.Content>
 }
 
-const Sidebar = ({ children }: ILayoutElement) => {
-  return <S.Sidebar>{children}</S.Sidebar>
+const Sidebar = ({ children, style }: ILayoutElement) => {
+  return <S.Sidebar style={style}>{children}</S.Sidebar>
 }
 
-const Footer = ({ children }: ILayoutElement) => {
-  return <S.Footer>{children}</S.Footer>
+const Footer = ({ children, style }: ILayoutElement) => {
+  return <S.Footer style={style}>{children}</S.Footer>
 }
 
-const Layout = ({ children }: ILayout) => {
-  const validateHasSidebar = () => {
+const Layout = ({
+  className,
+  children,
+  width = '100%',
+  height = '100%',
+  minHeight = '100vh',
+}: ILayout) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+    },
+    componentPrefixCls: 'layout',
+    customPrexiCls: className,
+  })
+
+  const deleteFragmentFromChildrens = (children: React.ReactNode[]) => {
+    let childrenModified = children
+
+    React.Children.forEach(children, (child) => {
+      if (
+        React.isValidElement(child) &&
+        [Fragment].includes(child.type as any) &&
+        child.props?.children
+      ) {
+        childrenModified = child.props.children
+      }
+    })
+
+    return childrenModified
+  }
+
+  const childrenModified = deleteFragmentFromChildrens(children)
+
+  const validateHasSidebar = (childrenModified: React.ReactNode[]) => {
     let isSidebarPresent = false
-    React.Children.map(children, (child) => {
+
+    React.Children.map(childrenModified, (child) => {
       const hasSidebarElement =
         React.isValidElement(child) && [Sidebar].includes(child.type as any)
       if (!isSidebarPresent) {
@@ -53,7 +111,17 @@ const Layout = ({ children }: ILayout) => {
     return isSidebarPresent
   }
 
-  return <S.Layout $hasSidebar={validateHasSidebar()}>{children}</S.Layout>
+  return (
+    <S.Layout
+      className={cls(handles.handles)}
+      $width={width}
+      $height={height}
+      $minHeight={minHeight}
+      $hasSidebar={validateHasSidebar(childrenModified)}
+    >
+      {childrenModified}
+    </S.Layout>
+  )
 }
 
 Layout.Header = Header

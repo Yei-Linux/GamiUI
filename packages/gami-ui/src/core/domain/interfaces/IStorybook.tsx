@@ -61,4 +61,5 @@ export interface IStoryConfigStructure {
   storiesInheritGlobalStyles?: IStoryConfig[]
   storiesComponent: IStoryConfig[]
   customStories?: React.ReactElement[] | null
+  customPropsStoryWrapper?: TDynamicFields
 }

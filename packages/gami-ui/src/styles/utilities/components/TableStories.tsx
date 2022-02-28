@@ -6,6 +6,7 @@ export interface TableStoriesProps {
   item: any
   field: string
   labelStory?: string
+  style?: React.CSSProperties
 }
 
 const WrapperStories = styled.div`
@@ -40,9 +41,10 @@ const TableStories = ({
   item,
   field,
   labelStory,
+  style = {},
 }: TableStoriesProps) => {
   return (
-    <WrapperStories>
+    <WrapperStories style={style}>
       <FirstColumn>
         <p>{labelStory ?? item[field]}</p>
       </FirstColumn>

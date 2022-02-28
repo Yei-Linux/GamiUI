@@ -23,10 +23,15 @@ export const Footer = styled.div`
   grid-area: footer;
 `
 
-export const Layout = styled.div<{ $hasSidebar: boolean }>`
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
+export const Layout = styled.div<{
+  $hasSidebar: boolean
+  $width: string
+  $height: string
+  $minHeight: string
+}>`
+  width: ${({ $width }) => $width};
+  height: ${({ $height }) => $height};
+  min-height: ${({ $minHeight }) => $minHeight};
 
   display: grid;
 

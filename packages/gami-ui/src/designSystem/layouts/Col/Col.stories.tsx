@@ -1,68 +1,72 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, ComponentStory } from '@storybook/react'
+import { TJSXElements } from 'core/domain/interfaces/common'
 
+import { storyConfig } from './storyConfig'
 import Col from '.'
-import Row from '../Row'
+import Row from 'designSystem/layouts/Row'
+import RichText from 'designSystem/atoms/RichText'
 import { defaultTheme } from 'styles/tokens'
-export default {
-  title: 'Layout/Col',
-  component: Col,
-  args: {},
-  argTypes: {},
-} as Meta
 
-export const Basic = (args: any) => (
+const { mainConfig, stories } = storyConfig
+
+export default mainConfig as Meta
+
+// eslint-disable-next-line no-empty-pattern
+const [] = stories
+
+const StorySizes = (args: unknown) => (
   <Row>
     <Col {...args}>
-      <p
+      <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
           color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
-      >
-        1
-      </p>
+        text="1"
+      />
     </Col>
 
     <Col {...args}>
-      <p
+      <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
           color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
-      >
-        2
-      </p>
+        text="2"
+      />
     </Col>
 
     <Col {...args}>
-      <p
+      <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
           color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
-      >
-        3
-      </p>
+        text="3"
+      />
     </Col>
 
     <Col {...args}>
-      <p
+      <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
           color: defaultTheme.light.neutral[800],
           padding: '16px',
         }}
-      >
-        4
-      </p>
+        text="4"
+      />
     </Col>
   </Row>
 )
-Basic.args = {
+export const StorySizesTemplate: ComponentStory<TJSXElements> = StorySizes.bind(
+  {}
+)
+StorySizesTemplate.storyName = 'WithSizesAndSpacing'
+StorySizesTemplate.args = {
   spacing: 'sm',
   xs: 12,
   sm: 6,

@@ -1,31 +1,48 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, ComponentStory } from '@storybook/react'
+import { TJSXElements } from 'core/domain/interfaces/common'
 
+import { storyConfig } from './storyConfig'
 import Spacer from '.'
-import Avatar from '../../atoms/Avatar'
-import Row from '../Row'
-import Col from '../Col'
+import Row from 'designSystem/layouts/Row'
+import Avatar from 'designSystem/atoms/Avatar'
+import { avatarProfilesImages } from 'designSystem/atoms/Avatar/constants'
 
-export default {
-  title: 'Layout/Spacer',
-  component: Spacer,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = (args: any) => (
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <Row>
-      <Col spacing="none">
-        <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPegjNNBzO3-k5t6hTm1htv1kxyWSOtCRr3A&usqp=CAU" />
-      </Col>
-      <Spacer {...args} />
-      <Col spacing="none">
-        <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPegjNNBzO3-k5t6hTm1htv1kxyWSOtCRr3A&usqp=CAU" />
-      </Col>
-    </Row>
-  </div>
+export default mainConfig as Meta
+
+// eslint-disable-next-line no-empty-pattern
+const [] = stories
+
+const StorySizeDirection = (args: unknown) => (
+  <Row gap="10px">
+    <Avatar src={avatarProfilesImages.one} rounded="lg" />
+    <Spacer direction="left" size={1} {...args} />
+    <Avatar src={avatarProfilesImages.one} rounded="lg" />
+  </Row>
 )
-Basic.args = {
-  direction: 'right',
+
+export const StorySizeDirectionTemplate: ComponentStory<TJSXElements> =
+  StorySizeDirection.bind({})
+StorySizeDirectionTemplate.storyName = 'WithSizeDirection'
+StorySizeDirectionTemplate.args = {
+  direction: 'left',
+  size: 1,
+}
+
+const StoryCustomSizeDirection = (args: unknown) => (
+  <Row gap="10px">
+    <Avatar src={avatarProfilesImages.one} rounded="lg" />
+    <Spacer direction="left" customSize="45px" {...args} />
+    <Avatar src={avatarProfilesImages.one} rounded="lg" />
+  </Row>
+)
+
+export const StoryCustomSizeDirectionTemplate: ComponentStory<TJSXElements> =
+  StoryCustomSizeDirection.bind({})
+StoryCustomSizeDirectionTemplate.storyName = 'WithCustomSizeDirection'
+StoryCustomSizeDirectionTemplate.args = {
+  direction: 'left',
+  customSize: '45px',
 }

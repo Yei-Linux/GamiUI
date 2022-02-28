@@ -84,7 +84,8 @@ export const getInheritGlobalStylesStories = (
 export const getSelftListTemplateTypes =
   (
     Component: TJSXElements,
-    { variants: { examples, field } }: IStoryElement<IVariants>
+    { variants: { examples, field } }: IStoryElement<IVariants>,
+    customPropsStoryWrapper?: TDynamicFields
   ): ComponentStory<typeof Component> =>
   (args: TDynamicFields): JSX.Element =>
     (
@@ -95,6 +96,7 @@ export const getSelftListTemplateTypes =
             item={label ? '' : value}
             field={field}
             labelStory={label}
+            {...customPropsStoryWrapper}
           >
             <Component
               {...{ ...args, ...customProps, ...{ [field]: value } }}
@@ -108,7 +110,8 @@ export const getParentListTemplateTypes =
   (
     Component: TJSXElements,
     ParenComponent: TJSXElements,
-    { args: parentArgs, variants }: IStoryElement<IParentVariant[]>
+    { args: parentArgs, variants }: IStoryElement<IParentVariant[]>,
+    customPropsStoryWrapper?: TDynamicFields
   ): ComponentStory<typeof Component> =>
   (args: TDynamicFields): JSX.Element =>
     (
@@ -119,6 +122,7 @@ export const getParentListTemplateTypes =
             item={label ? '' : value}
             field=""
             labelStory={label}
+            {...customPropsStoryWrapper}
           >
             <ParenComponent {...parentArgs}>
               {value.map(({ props, Component }, index) => (
@@ -135,16 +139,22 @@ export const getStory = (
   storyName: string,
   self?: IStoryElement<IVariants>,
   parent?: IStoryElement<IParentVariant[]>,
-  ParenComponent?: TJSXElements
+  ParenComponent?: TJSXElements,
+  customPropsStoryWrapper?: TDynamicFields
 ) => {
   if (!self && !parent) {
     return null
   }
 
   const ListTemplateType: ComponentStory<typeof Component> | null = self
-    ? getSelftListTemplateTypes(Component, self)
+    ? getSelftListTemplateTypes(Component, self, customPropsStoryWrapper)
     : parent && ParenComponent
-    ? getParentListTemplateTypes(Component, ParenComponent, parent)
+    ? getParentListTemplateTypes(
+        Component,
+        ParenComponent,
+        parent,
+        customPropsStoryWrapper
+      )
     : null
 
   if (!ListTemplateType) {
@@ -161,10 +171,18 @@ export const getStory = (
 export const getStories = (
   storyConfig: IStoryConfig[],
   Component: TJSXElements,
-  ParentComponent?: TJSXElements
+  ParentComponent?: TJSXElements,
+  customPropsStoryWrapper?: TDynamicFields
 ) =>
   storyConfig.map(({ storyName, parent, self }) =>
-    getStory(Component, storyName, self, parent, ParentComponent)
+    getStory(
+      Component,
+      storyName,
+      self,
+      parent,
+      ParentComponent,
+      customPropsStoryWrapper
+    )
   )
 
 export const getStoryConfigStructure = ({
@@ -174,10 +192,16 @@ export const getStoryConfigStructure = ({
   component,
   parentComponent,
   customStories = [],
+  customPropsStoryWrapper,
 }: IStoryConfigStructure) => {
   const allstoriesConfig = [...storiesInheritGlobalStyles, ...storiesComponent]
 
-  const stories = getStories(allstoriesConfig, component, parentComponent)
+  const stories = getStories(
+    allstoriesConfig,
+    component,
+    parentComponent,
+    customPropsStoryWrapper
+  )
 
   const storyConfig = {
     mainConfig,

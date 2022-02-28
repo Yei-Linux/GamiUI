@@ -1,66 +1,11 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Row from '.'
-import Col from '../Col'
-import { defaultTheme } from 'styles/tokens'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Layout/Row',
-  component: Row,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = (args: any) => (
-  <Row {...args}>
-    <Col spacing="sm">
-      <p
-        style={{
-          background: defaultTheme.light.primary.jordyBlue,
-          color: defaultTheme.light.neutral[800],
-          padding: '16px',
-        }}
-      >
-        1
-      </p>
-    </Col>
+export default mainConfig as Meta
 
-    <Col spacing="sm">
-      <p
-        style={{
-          background: defaultTheme.light.primary.jordyBlue,
-          color: defaultTheme.light.neutral[800],
-          padding: '16px',
-        }}
-      >
-        2
-      </p>
-    </Col>
+const [one, two] = stories
 
-    <Col spacing="sm">
-      <p
-        style={{
-          background: defaultTheme.light.primary.jordyBlue,
-          color: defaultTheme.light.neutral[800],
-          padding: '16px',
-        }}
-      >
-        3
-      </p>
-    </Col>
-
-    <Col spacing="sm">
-      <p
-        style={{
-          background: defaultTheme.light.primary.jordyBlue,
-          color: defaultTheme.light.neutral[800],
-          padding: '16px',
-        }}
-      >
-        4
-      </p>
-    </Col>
-  </Row>
-)
-Basic.args = {}
+export { one, two }
