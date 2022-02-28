@@ -23,11 +23,11 @@ export interface ITransition {
    */
   isReadyToInitAnimation?: boolean
   /**
-   * Component will be has from animation
+   * From prop to start animation
    */
   from?: ITransitionProp | null
   /**
-   * Component will be has to animation
+   * To prop to end animation
    */
   to?: ITransitionProp | null
   /**

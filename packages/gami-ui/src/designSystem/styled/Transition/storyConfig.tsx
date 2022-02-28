@@ -11,11 +11,47 @@ import {
 } from 'core/domain/interfaces/IStorybook'
 import Title from 'designSystem/atoms/Title'
 
+const storyArgTypes = {
+  isReadyToInitAnimation: {
+    control: 'boolean',
+    description: 'Component will be has animation',
+    table: {
+      type: { summary: 'boolean' },
+    },
+  },
+}
+
+const docArgTypes = {
+  children: {
+    control: 'object',
+    description: 'Children Prop',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+  from: {
+    control: 'object',
+    description: 'From prop to start animation',
+    table: {
+      type: { summary: 'ITransitionProp | null' },
+    },
+  },
+  to: {
+    control: 'object',
+    description: 'To prop to end animation',
+    table: {
+      type: { summary: 'ITransitionProp | null' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Layout/Transition',
   component: Transition,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -107,4 +143,4 @@ const storyConfig = getStoryConfigStructure({
   },
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }
