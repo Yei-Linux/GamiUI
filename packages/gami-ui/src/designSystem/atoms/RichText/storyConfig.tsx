@@ -5,11 +5,26 @@ import {
 } from 'core/helpers/storybook.helper'
 import RichText from '.'
 
+const storyArgTypes = {
+  text: {
+    control: 'text',
+    description: 'Text to Show',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: RichText.defaultProps?.text,
+    },
+  },
+}
+
+const docArgTypes = {}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/RichText',
   component: RichText,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -135,4 +150,4 @@ const storyConfig = getStoryConfigStructure({
   component: RichText,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

@@ -3,13 +3,44 @@ import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import Icon from '.'
+import Icon, { IconsPack } from '.'
+
+const storyArgTypes = {
+  color: {
+    control: 'text',
+    description: 'Fill Icon',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Icon.defaultProps?.color,
+    },
+  },
+  name: {
+    control: { type: 'select', options: Object.keys(IconsPack()) },
+    description: 'Name',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Icon.defaultProps?.name,
+    },
+  },
+  size: {
+    control: 'text',
+    description: 'Size icon',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Icon.defaultProps?.size,
+    },
+  },
+}
+
+const docArgTypes = {}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Icon',
   component: Icon,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -103,4 +134,4 @@ const storyConfig = getStoryConfigStructure({
   component: Icon,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

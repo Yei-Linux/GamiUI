@@ -3,13 +3,68 @@ import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import Progress from '.'
+import Progress, { options } from '.'
+
+const storyArgTypes = {
+  backgroundProgressBar: {
+    control: 'text',
+    description: 'Background of container',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Progress.defaultProps?.backgroundProgressBar,
+    },
+  },
+  backgroundProgress: {
+    control: 'text',
+    description: 'Background of progress',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Progress.defaultProps?.backgroundProgress,
+    },
+  },
+  percent: {
+    control: 'number',
+    description: 'Percent Number',
+    table: {
+      type: { summary: 'number' },
+      defaultValue: Progress.defaultProps?.percent,
+    },
+  },
+  type: {
+    control: { type: 'select', options: options.type },
+    description: 'Progress Type',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Progress.defaultProps?.type,
+    },
+  },
+  maxWidth: {
+    control: 'text',
+    description: 'Max Width',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Progress.defaultProps?.maxWidth,
+    },
+  },
+  maxHeight: {
+    control: 'text',
+    description: 'Max Height',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Progress.defaultProps?.maxHeight,
+    },
+  },
+}
+
+const docArgTypes = {}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Progress',
   component: Progress,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -111,4 +166,4 @@ const storyConfig = getStoryConfigStructure({
   component: Progress,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

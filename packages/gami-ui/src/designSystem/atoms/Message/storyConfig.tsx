@@ -7,11 +7,66 @@ import Message from '.'
 
 import { options } from 'designSystem/atoms/Message'
 
+const storyArgTypes = {
+  text: {
+    control: 'text',
+    description: 'Message Text',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Message.defaultProps?.text,
+    },
+  },
+  direction: {
+    control: { type: 'select', options: options.directionType },
+    description: 'Message Direction',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Message.defaultProps?.direction,
+    },
+  },
+  background: {
+    control: 'text',
+    description: 'Background',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Message.defaultProps?.background,
+    },
+  },
+  hasMarker: {
+    control: 'text',
+    description: 'Has Marker',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Message.defaultProps?.hasMarker,
+    },
+  },
+  color: {
+    control: 'text',
+    description: 'Color',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Message.defaultProps?.color,
+    },
+  },
+  maxWidth: {
+    control: 'text',
+    description: 'Max Width',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Message.defaultProps?.maxWidth,
+    },
+  },
+}
+
+const docArgTypes = {}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Message',
   component: Message,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -125,4 +180,4 @@ const storyConfig = getStoryConfigStructure({
   component: Message,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

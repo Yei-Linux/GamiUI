@@ -5,11 +5,34 @@ import {
 } from 'core/helpers/storybook.helper'
 import Title, { options } from '.'
 
+const storyArgTypes = {
+  level: {
+    control: { type: 'select', options: options.typeLevel },
+    description: 'Level Title',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Title.defaultProps?.level,
+    },
+  },
+}
+
+const docArgTypes = {
+  children: {
+    control: 'object',
+    description: 'Title Text Content',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Title',
   component: Title,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -143,4 +166,4 @@ const storyConfig = getStoryConfigStructure({
   component: Title,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

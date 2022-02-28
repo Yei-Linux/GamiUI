@@ -7,13 +7,107 @@ import {
 import Image from '.'
 import Title from '../Title'
 import Container from 'designSystem/layouts/Container'
-import { imagesExamples } from './constants'
+import { imagesExamples, options } from './constants'
+
+const storyArgTypes = {
+  src: {
+    control: 'text',
+    description: 'Source Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.src,
+    },
+  },
+  alt: {
+    control: 'text',
+    description: 'Alt Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.alt,
+    },
+  },
+  maxWidth: {
+    control: 'text',
+    description: 'Max width Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.maxWidth,
+    },
+  },
+  maxHeight: {
+    control: 'text',
+    description: 'Max Height Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.maxHeight,
+    },
+  },
+  minWidth: {
+    control: 'text',
+    description: 'Min Width Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.minWidth,
+    },
+  },
+  minHeight: {
+    control: 'text',
+    description: 'Min Height Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.minHeight,
+    },
+  },
+  width: {
+    control: 'text',
+    description: 'Width Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.width,
+    },
+  },
+  height: {
+    control: 'text',
+    description: 'Height Image',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.height,
+    },
+  },
+  backgroundSize: {
+    control: { type: 'select', options: options.typeImageBackground },
+    description: 'Background Size In Case has children',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Image.defaultProps?.backgroundSize,
+    },
+  },
+}
+
+const docArgTypes = {
+  children: {
+    control: 'object',
+    description: 'Children in case of Image Background',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+  link: {
+    control: 'object',
+    description: 'Link With Url and New Tab',
+    table: {
+      type: { summary: 'IImageLinkNul' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Image',
   component: Image,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -274,4 +368,4 @@ const storyConfig = getStoryConfigStructure({
   component: Image,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

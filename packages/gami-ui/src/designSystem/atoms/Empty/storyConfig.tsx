@@ -9,11 +9,58 @@ import Empty, { options } from 'designSystem/atoms/Empty'
 import Icon from 'designSystem/atoms/Icon'
 import { lightTheme } from 'styles/tokens/lightTheme'
 
+const storyArgTypes = {
+  size: {
+    control: 'text',
+    description: 'Set Size of empty',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Empty.defaultProps?.size,
+    },
+  },
+  text: {
+    control: 'text',
+    description: 'Set Empty Text',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Empty.defaultProps?.text,
+    },
+  },
+  type: {
+    control: { type: 'select', options: options.type },
+    description: 'Set Empty Icon Type',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Empty.defaultProps?.type,
+    },
+  },
+  color: {
+    control: 'text',
+    description: 'Display Empty Text color',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Empty.defaultProps?.color,
+    },
+  },
+}
+
+const docArgTypes = {
+  icon: {
+    control: 'object',
+    description: 'Display Empty custom icon',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Empty',
   component: Empty,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -179,4 +226,4 @@ const storyConfig = getStoryConfigStructure({
   component: Empty,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

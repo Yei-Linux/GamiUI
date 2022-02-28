@@ -7,11 +7,90 @@ import Link from '.'
 
 import { options } from 'designSystem/atoms/Button'
 
+const storyArgTypes = {
+  variant: {
+    control: { type: 'select', options: options.type },
+    description: 'Display theme variants',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Link.defaultProps?.variant,
+    },
+  },
+  bordered: {
+    control: 'boolean',
+    description: 'Set bordered or not',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Link.defaultProps?.bordered,
+    },
+  },
+  ghost: {
+    control: 'boolean',
+    description: 'Set ghost or not',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Link.defaultProps?.ghost,
+    },
+  },
+  flat: {
+    control: 'boolean',
+    description: 'Set flat or not',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Link.defaultProps?.flat,
+    },
+  },
+  light: {
+    control: 'text',
+    description: 'Set light or not',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Link.defaultProps?.light,
+    },
+  },
+  text: {
+    control: 'text',
+    description: 'Text Link',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Link.defaultProps?.text,
+    },
+  },
+  href: {
+    control: 'text',
+    description: 'Url',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Link.defaultProps?.href,
+    },
+  },
+  isExternal: {
+    control: 'boolean',
+    description: 'Is External',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Link.defaultProps?.isExternal,
+    },
+  },
+}
+
+const docArgTypes = {
+  children: {
+    control: 'object',
+    description: 'Children Content',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Link',
   component: Link,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -215,4 +294,4 @@ const storyConfig = getStoryConfigStructure({
   component: Link,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

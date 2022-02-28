@@ -37,7 +37,7 @@ export interface IEmpty extends TGenericStylesEmpty {
   color?: string | null
 
   /**
-   * Display Empty Text color
+   * Display Empty custom icon
    */
   icon?: React.ReactNode
 }

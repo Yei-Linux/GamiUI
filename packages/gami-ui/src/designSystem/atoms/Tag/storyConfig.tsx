@@ -5,11 +5,50 @@ import {
 } from 'core/helpers/storybook.helper'
 import Tag from '.'
 
+const storyArgTypes = {
+  text: {
+    control: 'text',
+    description: 'Text on tag',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Tag.defaultProps?.text,
+    },
+  },
+  color: {
+    control: 'text',
+    description: 'Color on tag',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Tag.defaultProps?.color,
+    },
+  },
+  background: {
+    control: 'text',
+    description: 'Background on tag',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Tag.defaultProps?.background,
+    },
+  },
+  ballMarkerColor: {
+    control: 'text',
+    description: 'Ball Marker Color',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Tag.defaultProps?.ballMarkerColor,
+    },
+  },
+}
+
+const docArgTypes = {}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Tag',
   component: Tag,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -90,4 +129,4 @@ const storyConfig = getStoryConfigStructure({
   component: Tag,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

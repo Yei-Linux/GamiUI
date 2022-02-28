@@ -9,7 +9,7 @@ import { LevelType } from 'core/domain/types'
 
 export interface ITitle extends IGeneralProps {
   /**
-   * Tag Title
+   * Level Title
    */
   level?: LevelType
   /**
