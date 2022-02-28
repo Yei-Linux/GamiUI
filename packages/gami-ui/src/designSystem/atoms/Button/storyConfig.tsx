@@ -7,11 +7,89 @@ import {
 import Button, { options } from '.'
 import Icon from '../Icon'
 
+const storyArgTypes = {
+  variant: {
+    control: { type: 'select', options: options.type },
+    description: 'Display theme button variants',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Button.defaultProps?.variant,
+    },
+  },
+  bordered: {
+    control: 'boolean',
+    description: 'Set bordered or not',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Button.defaultProps?.bordered,
+    },
+  },
+  ghost: {
+    control: 'boolean',
+    description: 'Set ghost or not',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Button.defaultProps?.ghost,
+    },
+  },
+  flat: {
+    control: 'boolean',
+    description: 'Set flat or not',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Button.defaultProps?.flat,
+    },
+  },
+  light: {
+    control: 'text',
+    description: 'Set light or not',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Button.defaultProps?.light,
+    },
+  },
+  type: {
+    control: 'text',
+    description: 'Set html button types',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Button.defaultProps?.type,
+    },
+  },
+  disable: {
+    control: 'boolean',
+    description: 'Display theme button variants',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Button.defaultProps?.disable,
+    },
+  },
+}
+
+const docArgTypes = {
+  preffix: {
+    control: 'object',
+    description: 'Display prefix Content button',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+  children: {
+    control: 'object',
+    description: 'Display button content',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Button',
   component: Button,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -236,4 +314,4 @@ const storyConfig = getStoryConfigStructure({
   component: Button,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

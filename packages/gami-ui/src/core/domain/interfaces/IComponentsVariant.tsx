@@ -2,7 +2,7 @@ import { ComponentThemeType } from 'core/domain/types'
 
 export interface IComponentsVariant {
   /**
-   * Display theme button variants
+   * Display theme variants
    */
   variant?: ComponentThemeType
   /**

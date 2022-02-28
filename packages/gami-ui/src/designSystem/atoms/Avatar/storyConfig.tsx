@@ -8,76 +8,90 @@ import Icon from '../Icon'
 import { avatarProfilesImages, options, withTextExamples } from './constants'
 import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 
+const storyArgTypes = {
+  src: {
+    control: 'text',
+    description: 'Image source',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.src,
+    },
+  },
+  text: {
+    control: 'text',
+    description: 'Display text when image is missing',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.text,
+    },
+  },
+  alt: {
+    control: 'text',
+    description: 'Display altText in avatar',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.alt,
+    },
+  },
+  background: {
+    control: 'color',
+    description: 'Change avatar background',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.background,
+    },
+  },
+  textColor: {
+    control: 'color',
+    description: 'Change avatar text color',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.textColor,
+    },
+  },
+  borderColor: {
+    control: 'color',
+    description: 'Change avatar border color',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.borderColor,
+    },
+  },
+  zoomMode: {
+    control: { type: 'select', options: options.zoomMode },
+    description: 'Display avatar zoom',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.zoomMode,
+    },
+  },
+  textMode: {
+    control: { type: 'select', options: options.textMode },
+    description: 'Display avatar text mode',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Avatar.defaultProps?.textMode,
+    },
+  },
+}
+
+const docArgTypes = {
+  icon: {
+    control: 'object',
+    description: 'Show icon in avatar',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Avatar',
   component: Avatar,
   args: {},
-  argTypes: {
-    src: {
-      control: 'text',
-      description: 'Image source',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.src,
-      },
-    },
-    text: {
-      control: 'text',
-      description: 'Display text when image is missing',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.text,
-      },
-    },
-    alt: {
-      control: 'text',
-      description: 'Display altText in avatar',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.alt,
-      },
-    },
-    background: {
-      control: 'color',
-      description: 'Change avatar background',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.background,
-      },
-    },
-    textColor: {
-      control: 'color',
-      description: 'Change avatar text color',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.textColor,
-      },
-    },
-    borderColor: {
-      control: 'color',
-      description: 'Change avatar border color',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.borderColor,
-      },
-    },
-    zoomMode: {
-      control: { type: 'select', options: options.zoomMode },
-      description: 'Display avatar zoom',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.zoomMode,
-      },
-    },
-    textMode: {
-      control: { type: 'select', options: options.textMode },
-      description: 'Display avatar text mode',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: Avatar.defaultProps?.textMode,
-      },
-    },
-  },
+  argTypes: storyArgTypes,
 }
 
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
@@ -332,4 +346,4 @@ const storyConfig = getStoryConfigStructure({
   parentComponent: Avatar.Group,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }

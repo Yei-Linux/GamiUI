@@ -1,5 +1,8 @@
 // Atoms
-export { default as Avatar } from './designSystem/atoms/Avatar'
+export {
+  default as Avatar,
+  argTypes as docAvatar,
+} from './designSystem/atoms/Avatar'
 export { default as Button } from './designSystem/atoms/Button'
 export { default as Empty } from './designSystem/atoms/Empty'
 export { default as Icon } from './designSystem/atoms/Icon'

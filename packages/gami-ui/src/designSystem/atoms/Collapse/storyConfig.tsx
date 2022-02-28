@@ -11,11 +11,78 @@ import Avatar from '../Avatar'
 import { options } from '../Button'
 import { TitleCollapses } from './constants'
 
+const storyArgTypes = {
+  variant: {
+    control: { type: 'select', options: options.type },
+    description: 'Display theme button variants',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: Collapse.defaultProps?.variant,
+    },
+  },
+  bordered: {
+    control: 'boolean',
+    description: 'Set bordered or not',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Collapse.defaultProps?.bordered,
+    },
+  },
+  expanded: {
+    control: 'boolean',
+    description: 'Set default visible',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: Collapse.defaultProps?.expanded,
+    },
+  },
+}
+
+const docArgTypes = {
+  title: {
+    control: 'object',
+    description: 'Display title collapse',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+  subtitle: {
+    control: 'object',
+    description: 'Display subtitle collapse',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+  contentLeft: {
+    control: 'object',
+    description: 'Display content Left of Collapse Header',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+  icon: {
+    control: 'object',
+    description: 'Display icon of Collapse Header',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+  children: {
+    control: 'object',
+    description: 'Display content Of Collapse',
+    table: {
+      type: { summary: 'React.ReactNode' },
+    },
+  },
+}
+
+const argTypes = { ...storyArgTypes, ...docArgTypes }
+
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Collapse',
   component: Collapse,
   args: {},
-  argTypes: {},
+  argTypes: storyArgTypes,
 }
 
 const textContentMock = () => (
@@ -284,4 +351,4 @@ const storyConfig = getStoryConfigStructure({
   parentComponent: Collapse.Group,
 })
 
-export { storyConfig }
+export { storyConfig, argTypes }
