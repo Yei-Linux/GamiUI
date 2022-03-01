@@ -1,9 +1,26 @@
 import * as React from "react"
-import { defaultTheme, Row, Tag } from "@gamiui/standard"
+import {
+  defaultTheme,
+  docAvatar,
+  docsButton,
+  docsCollapse,
+  docsEmpty,
+  docsIcon,
+  docsImage,
+  docsLink,
+  docsMessage,
+  docsProgress,
+  docsRichText,
+  docsTag,
+  docsTitle,
+  Row,
+  Tag,
+} from "@gamiui/standard"
 import { IPages } from "../types/components"
 import { allComponents } from "./allcomponents"
 import reactElementToJSXString from "react-element-to-jsx-string"
 import { exampleComponentCodeBlock } from "../helpers/formater"
+import { makeTableDocProps } from "../utils/components"
 
 export const atoms: IPages[] = [
   {
@@ -310,34 +327,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docAvatar),
           },
         ],
       },
@@ -747,34 +737,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsButton),
           },
         ],
       },
@@ -1142,34 +1105,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsCollapse),
           },
         ],
       },
@@ -1404,34 +1340,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsEmpty),
           },
         ],
       },
@@ -1616,34 +1525,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsIcon),
           },
         ],
       },
@@ -1878,34 +1760,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsImage),
           },
         ],
       },
@@ -2290,34 +2145,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsLink),
           },
         ],
       },
@@ -2602,34 +2430,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsMessage),
           },
         ],
       },
@@ -2789,34 +2590,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsProgress),
           },
         ],
       },
@@ -3102,34 +2876,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsRichText),
           },
         ],
       },
@@ -3390,34 +3137,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsTag),
           },
         ],
       },
@@ -3703,34 +3423,7 @@ export const atoms: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsTitle),
           },
         ],
       },

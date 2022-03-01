@@ -1,9 +1,18 @@
 import * as React from "react"
-import { defaultTheme, Tag } from "@gamiui/standard"
+import {
+  defaultTheme,
+  docsCol,
+  docsContainer,
+  docsLayout,
+  docsRow,
+  docsSpacer,
+  Tag,
+} from "@gamiui/standard"
 import { IPages } from "../types/components"
 import { allComponents } from "./allcomponents"
 import { exampleComponentCodeBlock } from "../helpers/formater"
 import reactElementToJSXString from "react-element-to-jsx-string"
+import { makeTableDocProps } from "../utils/components"
 
 export const layouts: IPages[] = [
   {
@@ -60,34 +69,7 @@ export const layouts: IPages[] = [
         items: [
           {
             component: "Table",
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(docsCol),
           },
         ],
       },
@@ -377,34 +359,269 @@ export const layouts: IPages[] = [
         items: [
           {
             component: "Table",
+            props: makeTableDocProps(docsContainer),
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Layout",
+
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
             props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
+              margin: "xs:0 0 1rem 0",
+              text: "Layout component is used to organize container on correct structure!",
             },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Layout } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "Default",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display layout.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.layout.default,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.layout.default)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "WithSidebar",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display layout.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.layout.sidebar,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.layout.sidebar)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: makeTableDocProps(docsLayout),
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Row",
+
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Row component is used to set component with flex props!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Row } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "WithDirection",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display row.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.row.direction,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.row.direction)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "WithGap",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display row.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.row.gap,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.row.gap)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: makeTableDocProps(docsRow),
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Spacer",
+
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Spacer component is used to add separation between components!",
+            },
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: `import { Spacer } from '@gamiui/standard';`,
+              language: "javascript",
+            },
+          },
+        ],
+      },
+      {
+        title: "WithSizeDirection",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display spacer.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.spacer.sizedirection,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(
+                  allComponents.layouts.spacer.sizedirection
+                )
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "WithCustomSizeDirection",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display spacer.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.spacer.customsizedirection,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(
+                  allComponents.layouts.spacer.customsizedirection
+                )
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [
+      {
+        title: "GamiUI Provider Props",
+        items: [
+          {
+            component: "Table",
+            props: makeTableDocProps(docsSpacer),
           },
         ],
       },

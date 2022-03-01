@@ -25,7 +25,7 @@ export interface ILayout {
   /**
    * className Prop
    */
-  className: string
+  className?: string
   /**
    * Children Prop
    */
@@ -33,15 +33,15 @@ export interface ILayout {
   /**
    * width Prop
    */
-  width: string
+  width?: string
   /**
    * height Prop
    */
-  height: string
+  height?: string
   /**
    * minHeight Prop
    */
-  minHeight: string
+  minHeight?: string
 }
 
 const Header = ({ children, isSticky = false, style }: IHeader) => {

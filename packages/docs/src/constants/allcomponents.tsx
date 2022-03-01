@@ -112,6 +112,7 @@ import {
   ImageWithSets,
   ImageWithMax,
 } from "./examples/ImageExa"
+import { LayoutWithDefault, LayoutWithSidebar } from "./examples/LayoutExa"
 import {
   LinkWithWidth,
   LinkWithHeight,
@@ -154,6 +155,11 @@ import {
   RichTextWithMargin,
   RichTextWithText,
 } from "./examples/RichTextExa"
+import { RowWithDirection, RowWithGap } from "./examples/RowExa"
+import {
+  SpacerWithSizeDirection,
+  SpacerWithCustomSizeDirection,
+} from "./examples/SpacerExa"
 import {
   TagWithWidth,
   TagWithHeight,
@@ -177,6 +183,10 @@ import {
   TitleWithChildren,
   TitleWithLevels,
 } from "./examples/TitleExa"
+import {
+  TransitionWithEase,
+  TransitionWithOpacity,
+} from "./examples/TransitionExa"
 
 const atoms = {
   avatar: {
@@ -363,10 +373,30 @@ const layouts = {
     margin: ColWithFontMargin,
     as: ColWithAs,
   },
+  layout: {
+    default: LayoutWithDefault,
+    sidebar: LayoutWithSidebar,
+  },
+  row: {
+    direction: RowWithDirection,
+    gap: RowWithGap,
+  },
+  spacer: {
+    sizedirection: SpacerWithSizeDirection,
+    customsizedirection: SpacerWithCustomSizeDirection,
+  },
+}
+
+const styled = {
+  transition: {
+    ease: TransitionWithEase,
+    opacity: TransitionWithOpacity,
+  },
 }
 
 export const allComponents = {
   atoms,
   molecules,
   layouts,
+  styled,
 }

@@ -119,21 +119,21 @@ const layoutComponents = [
     title: "Layout",
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "layout",
   },
   {
     title: "Row",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "row",
   },
   {
     title: "Spacer",
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "spacer",
   },
 ]
 
@@ -142,7 +142,7 @@ const styledComponents = [
     title: "Transition",
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "transition",
   },
 ]
 
