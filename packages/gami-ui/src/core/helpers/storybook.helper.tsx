@@ -234,14 +234,117 @@ export const getListTemplate =
       </TableStories>
     ))
 
-export const stylesControl = {
-  style: { control: 'object' },
-  textAlign: { control: { type: 'select', options: optionsStyle.textAlign } },
-  fontWeight: {
-    control: { type: 'select', options: optionsStyle.fontWeight },
-  },
-  width: { control: { type: 'select', options: optionsStyle.width } },
-  shadow: { control: { type: 'select', options: optionsStyle.shadow } },
-  rounded: { control: { type: 'select', options: optionsStyle.rounded } },
-  height: { control: { type: 'select', options: optionsStyle.height } },
+export const madegenericPropsControl = (dontInclude: string[]) => {
+  const generics: Record<string, unknown> = {}
+
+  if (!dontInclude.includes('className')) {
+    generics['className'] = {
+      control: 'text',
+      description: 'className Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('style')) {
+    generics['style'] = {
+      control: 'object',
+      description: 'style Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('shadow')) {
+    generics['shadow'] = {
+      control: { type: 'select', options: optionsStyle.shadow },
+      description: 'shadow Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('rounded')) {
+    generics['rounded'] = {
+      control: { type: 'select', options: optionsStyle.rounded },
+      description: 'rounded Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('width')) {
+    generics['width'] = {
+      control: { type: 'select', options: optionsStyle.width },
+      description: 'width Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('height')) {
+    generics['height'] = {
+      control: { type: 'select', options: optionsStyle.height },
+      description: 'height Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('textAlign')) {
+    generics['textAlign'] = {
+      control: { type: 'select', options: optionsStyle.textAlign },
+      description: 'textAlign Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('fontWeight')) {
+    generics['fontWeight'] = {
+      control: { type: 'select', options: optionsStyle.fontWeight },
+      description: 'fontWeight Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('padding')) {
+    generics['padding'] = {
+      control: 'text',
+      description: 'padding Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('margin')) {
+    generics['margin'] = {
+      control: 'text',
+      description: 'margin Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+
+  if (!dontInclude.includes('size')) {
+    generics['size'] = {
+      control: { type: 'select', options: optionsStyle.width },
+      description: 'size Prop',
+      table: {
+        type: { summary: 'string' },
+      },
+    }
+  }
+  return generics
 }

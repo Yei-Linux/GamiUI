@@ -2,10 +2,13 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Message from '.'
 
 import { options } from 'designSystem/atoms/Message'
+
+const genericArgTypes = madegenericPropsControl(['size', 'rounded'])
 
 const storyArgTypes = {
   text: {
@@ -56,6 +59,7 @@ const storyArgTypes = {
       defaultValue: Message.defaultProps?.maxWidth,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {}

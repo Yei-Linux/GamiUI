@@ -2,8 +2,11 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Title, { options } from '.'
+
+const genericArgTypes = madegenericPropsControl([])
 
 const storyArgTypes = {
   level: {
@@ -14,6 +17,7 @@ const storyArgTypes = {
       defaultValue: Title.defaultProps?.level,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

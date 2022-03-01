@@ -3,6 +3,7 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Collapse from '.'
 import RichText from '../RichText'
@@ -10,6 +11,14 @@ import Title from '../Title'
 import Avatar from '../Avatar'
 import { options } from '../Button'
 import { TitleCollapses } from './constants'
+
+const genericArgTypes = madegenericPropsControl([
+  'size',
+  'fontWeight',
+  'textAlign',
+  'height',
+  'width',
+])
 
 const storyArgTypes = {
   variant: {
@@ -36,6 +45,7 @@ const storyArgTypes = {
       defaultValue: Collapse.defaultProps?.expanded,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

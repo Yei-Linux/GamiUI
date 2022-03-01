@@ -2,6 +2,7 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Tag from '.'
 
@@ -42,7 +43,9 @@ const storyArgTypes = {
 
 const docArgTypes = {}
 
-const argTypes = { ...storyArgTypes, ...docArgTypes }
+const genericArgTypes = madegenericPropsControl(['size'])
+
+const argTypes = { ...storyArgTypes, ...docArgTypes, ...genericArgTypes }
 
 const mainConfig: IStoryMainConfig = {
   title: 'Atoms/Tag',

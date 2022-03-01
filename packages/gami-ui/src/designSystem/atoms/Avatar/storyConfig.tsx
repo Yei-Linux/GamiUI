@@ -2,11 +2,14 @@ import React from 'react'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Avatar from '.'
 import Icon from '../Icon'
 import { avatarProfilesImages, options, withTextExamples } from './constants'
 import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
+
+const genericArgTypes = madegenericPropsControl([])
 
 const storyArgTypes = {
   src: {
@@ -73,6 +76,7 @@ const storyArgTypes = {
       defaultValue: Avatar.defaultProps?.textMode,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

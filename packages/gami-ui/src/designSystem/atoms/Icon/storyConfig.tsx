@@ -2,8 +2,16 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Icon, { IconsPack } from '.'
+
+const genericArgTypes = madegenericPropsControl([
+  'size',
+  'width',
+  'height',
+  'textAlign',
+])
 
 const storyArgTypes = {
   color: {
@@ -30,6 +38,7 @@ const storyArgTypes = {
       defaultValue: Icon.defaultProps?.size,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {}

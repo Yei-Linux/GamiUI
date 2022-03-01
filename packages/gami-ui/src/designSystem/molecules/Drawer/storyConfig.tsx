@@ -1,12 +1,24 @@
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Drawer, { options } from '.'
 import {
   IStoryConfig,
   IStoryMainConfig,
 } from 'core/domain/interfaces/IStorybook'
+
+const genericArgTypes = madegenericPropsControl([
+  'size',
+  'fontWeight',
+  'textAlign',
+  'margin',
+  'padding',
+  'rounded',
+  'width',
+  'height',
+])
 
 const storyArgTypes = {
   open: {
@@ -58,6 +70,7 @@ const storyArgTypes = {
       type: { summary: 'string' },
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

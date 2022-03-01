@@ -2,8 +2,11 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Container from 'designSystem/layouts/Container'
+
+const genericArgTypes = madegenericPropsControl([])
 
 const storyArgTypes = {
   as: {
@@ -14,6 +17,7 @@ const storyArgTypes = {
       defaultValue: Container.defaultProps?.as,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

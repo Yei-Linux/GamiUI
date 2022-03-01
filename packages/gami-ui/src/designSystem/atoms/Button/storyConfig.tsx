@@ -3,9 +3,12 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Button, { options } from '.'
 import Icon from '../Icon'
+
+const genericArgTypes = madegenericPropsControl([])
 
 const storyArgTypes = {
   variant: {
@@ -64,6 +67,7 @@ const storyArgTypes = {
       defaultValue: Button.defaultProps?.disable,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

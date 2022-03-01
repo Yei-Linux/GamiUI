@@ -4,10 +4,19 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Empty, { options } from 'designSystem/atoms/Empty'
 import Icon from 'designSystem/atoms/Icon'
 import { lightTheme } from 'styles/tokens/lightTheme'
+
+const genericArgTypes = madegenericPropsControl([
+  'size',
+  'textAlign',
+  'height',
+  'width',
+  'rounded',
+])
 
 const storyArgTypes = {
   size: {
@@ -42,6 +51,7 @@ const storyArgTypes = {
       defaultValue: Empty.defaultProps?.color,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

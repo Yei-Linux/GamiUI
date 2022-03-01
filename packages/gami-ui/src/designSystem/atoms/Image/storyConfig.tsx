@@ -3,11 +3,22 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Image from '.'
 import Title from '../Title'
 import Container from 'designSystem/layouts/Container'
 import { imagesExamples, options } from './constants'
+
+const genericArgTypes = madegenericPropsControl([
+  'width',
+  'height',
+  'textAlign',
+  'fontWeight',
+  'padding',
+  'size',
+  'onChange',
+])
 
 const storyArgTypes = {
   src: {
@@ -82,6 +93,7 @@ const storyArgTypes = {
       defaultValue: Image.defaultProps?.backgroundSize,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

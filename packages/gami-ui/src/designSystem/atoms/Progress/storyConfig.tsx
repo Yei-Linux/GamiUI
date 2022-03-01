@@ -2,8 +2,19 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Progress, { options } from '.'
+
+const genericArgTypes = madegenericPropsControl([
+  'height',
+  'textAlign',
+  'fontWeight',
+  'padding',
+  'size',
+  'onChange',
+  'rounded',
+])
 
 const storyArgTypes = {
   backgroundProgressBar: {
@@ -54,6 +65,7 @@ const storyArgTypes = {
       defaultValue: Progress.defaultProps?.maxHeight,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {}

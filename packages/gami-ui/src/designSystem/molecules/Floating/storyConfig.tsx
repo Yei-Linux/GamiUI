@@ -1,6 +1,7 @@
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Floating, { options } from '.'
 import {
@@ -8,6 +9,15 @@ import {
   IStoryMainConfig,
 } from 'core/domain/interfaces/IStorybook'
 
+const genericArgTypes = madegenericPropsControl([
+  'size',
+  'fontWeight',
+  'textAlign',
+  'margin',
+  'padding',
+  'width',
+  'height',
+])
 const storyArgTypes = {
   open: {
     control: 'boolean',
@@ -51,6 +61,7 @@ const storyArgTypes = {
       type: { summary: 'boolean' },
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {

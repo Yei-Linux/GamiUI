@@ -2,10 +2,13 @@ import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
+  madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Link from '.'
 
 import { options } from 'designSystem/atoms/Button'
+
+const genericArgTypes = madegenericPropsControl([])
 
 const storyArgTypes = {
   variant: {
@@ -72,6 +75,7 @@ const storyArgTypes = {
       defaultValue: Link.defaultProps?.isExternal,
     },
   },
+  ...genericArgTypes,
 }
 
 const docArgTypes = {
