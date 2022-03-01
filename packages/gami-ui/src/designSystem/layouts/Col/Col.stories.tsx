@@ -17,7 +17,7 @@ const [] = stories
 
 const StorySizes = (args: unknown) => (
   <Row>
-    <Col {...args}>
+    <Col xs={12} sm={6} md={4} lg={3} spacing="sm" {...args}>
       <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
@@ -28,7 +28,7 @@ const StorySizes = (args: unknown) => (
       />
     </Col>
 
-    <Col {...args}>
+    <Col xs={12} sm={6} md={4} lg={3} spacing="sm" {...args}>
       <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
@@ -39,7 +39,7 @@ const StorySizes = (args: unknown) => (
       />
     </Col>
 
-    <Col {...args}>
+    <Col xs={12} sm={6} md={4} lg={3} spacing="sm" {...args}>
       <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
@@ -50,7 +50,7 @@ const StorySizes = (args: unknown) => (
       />
     </Col>
 
-    <Col {...args}>
+    <Col xs={12} sm={6} md={4} lg={3} spacing="sm" {...args}>
       <RichText
         style={{
           background: defaultTheme.light.primary.jordyBlue,
@@ -68,8 +68,4 @@ export const StorySizesTemplate: ComponentStory<TJSXElements> = StorySizes.bind(
 StorySizesTemplate.storyName = 'WithSizesAndSpacing'
 StorySizesTemplate.args = {
   spacing: 'sm',
-  xs: 12,
-  sm: 6,
-  md: 4,
-  lg: 3,
 }

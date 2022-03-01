@@ -1,12 +1,13 @@
 import * as React from "react"
-import { defaultTheme, Row, Tag } from "@gamiui/standard"
+import { defaultTheme, Tag } from "@gamiui/standard"
 import { IPages } from "../types/components"
 import { allComponents } from "./allcomponents"
 import { exampleComponentCodeBlock } from "../helpers/formater"
+import reactElementToJSXString from "react-element-to-jsx-string"
 
-export const molecules: IPages[] = [
+export const layouts: IPages[] = [
   {
-    title: "Drawer",
+    title: "Col",
     sections: [
       {
         title: "",
@@ -15,142 +16,37 @@ export const molecules: IPages[] = [
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "Drawer component is used to display a container in placement you want!",
+              text: "Col component is used to display a container wich separate content!",
             },
           },
           {
             component: "CodeBlock",
             props: {
-              code: `import { Drawer } from '@gamiui/standard';`,
+              code: `import { Col } from '@gamiui/standard';`,
               language: "javascript",
             },
           },
         ],
       },
       {
-        title: "WithDefault",
+        title: "WithSizeSpacing",
         items: [
           {
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display drawer.",
+              text: "To use this prop component only copy this code to display col.",
             },
           },
           {
             component: "Example",
-            example: allComponents.molecules.drawer.default[0],
+            example: allComponents.layouts.col.sizespacing,
           },
           {
             component: "CodeBlock",
             props: {
               code: exampleComponentCodeBlock(
-                `${allComponents.molecules.drawer.default[1]}`,
-                false
-              ),
-              language: "jsx",
-            },
-          },
-        ],
-      },
-      {
-        title: "WithDirection",
-        items: [
-          {
-            component: "RichText",
-            props: {
-              margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display drawer.",
-            },
-          },
-          {
-            component: "Example",
-            example: allComponents.molecules.drawer.direction[0],
-          },
-          {
-            component: "CodeBlock",
-            props: {
-              code: exampleComponentCodeBlock(
-                `${allComponents.molecules.drawer.direction[1]}`,
-                false
-              ),
-              language: "jsx",
-            },
-          },
-        ],
-      },
-      {
-        title: "WithCustomCloseIcon",
-        items: [
-          {
-            component: "RichText",
-            props: {
-              margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display drawer.",
-            },
-          },
-          {
-            component: "Example",
-            example: allComponents.molecules.drawer.customcloseicon[0],
-          },
-          {
-            component: "CodeBlock",
-            props: {
-              code: exampleComponentCodeBlock(
-                `${allComponents.molecules.drawer.customcloseicon[1]}`,
-                false
-              ),
-              language: "jsx",
-            },
-          },
-        ],
-      },
-      {
-        title: "WithCloseIcon",
-        items: [
-          {
-            component: "RichText",
-            props: {
-              margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display drawer.",
-            },
-          },
-          {
-            component: "Example",
-            example: allComponents.molecules.drawer.closeicon[0],
-          },
-          {
-            component: "CodeBlock",
-            props: {
-              code: exampleComponentCodeBlock(
-                `${allComponents.molecules.drawer.closeicon[1]}`,
-                false
-              ),
-              language: "jsx",
-            },
-          },
-        ],
-      },
-      {
-        title: "WithMask",
-        items: [
-          {
-            component: "RichText",
-            props: {
-              margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display drawer.",
-            },
-          },
-          {
-            component: "Example",
-            example: allComponents.molecules.drawer.mask[0],
-          },
-          {
-            component: "CodeBlock",
-            props: {
-              code: exampleComponentCodeBlock(
-                `${allComponents.molecules.drawer.mask[1]}`,
-                false
+                reactElementToJSXString(allComponents.layouts.col.sizespacing)
               ),
               language: "jsx",
             },
@@ -198,7 +94,8 @@ export const molecules: IPages[] = [
     ],
   },
   {
-    title: "Floating",
+    title: "Container",
+
     sections: [
       {
         title: "",
@@ -207,38 +104,37 @@ export const molecules: IPages[] = [
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "Floating component is used to display a notification container in placement you want!",
+              text: "Container component is used to show a classic container!",
             },
           },
           {
             component: "CodeBlock",
             props: {
-              code: `import { Floating } from '@gamiui/standard';`,
+              code: `import { Container } from '@gamiui/standard';`,
               language: "javascript",
             },
           },
         ],
       },
       {
-        title: "WithDefault",
+        title: "Sizes",
         items: [
           {
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display floating.",
+              text: "To use this prop component only copy this code to display container.",
             },
           },
           {
             component: "Example",
-            example: allComponents.molecules.floating.default[0],
+            example: allComponents.layouts.container.size,
           },
           {
             component: "CodeBlock",
             props: {
               code: exampleComponentCodeBlock(
-                `${allComponents.molecules.floating.default[1]}`,
-                false
+                reactElementToJSXString(allComponents.layouts.container.size)
               ),
               language: "jsx",
             },
@@ -246,25 +142,24 @@ export const molecules: IPages[] = [
         ],
       },
       {
-        title: "WithDirection",
+        title: "Heights",
         items: [
           {
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display floating.",
+              text: "To use this prop component only copy this code to display container.",
             },
           },
           {
             component: "Example",
-            example: allComponents.molecules.floating.direction[0],
+            example: allComponents.layouts.container.height,
           },
           {
             component: "CodeBlock",
             props: {
               code: exampleComponentCodeBlock(
-                `${allComponents.molecules.floating.direction[1]}`,
-                false
+                reactElementToJSXString(allComponents.layouts.container.height)
               ),
               language: "jsx",
             },
@@ -272,25 +167,24 @@ export const molecules: IPages[] = [
         ],
       },
       {
-        title: "WithCustomCloseIcon",
+        title: "Widths",
         items: [
           {
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display floating.",
+              text: "To use this prop component only copy this code to display container.",
             },
           },
           {
             component: "Example",
-            example: allComponents.molecules.floating.customcloseicon[0],
+            example: allComponents.layouts.container.width,
           },
           {
             component: "CodeBlock",
             props: {
               code: exampleComponentCodeBlock(
-                `${allComponents.molecules.floating.customcloseicon[1]}`,
-                false
+                reactElementToJSXString(allComponents.layouts.container.width)
               ),
               language: "jsx",
             },
@@ -298,25 +192,178 @@ export const molecules: IPages[] = [
         ],
       },
       {
-        title: "WithCloseIcon",
+        title: "Roundeds",
         items: [
           {
             component: "RichText",
             props: {
               margin: "xs:0 0 1rem 0",
-              text: "To use this prop component only copy this code to display floating.",
+              text: "To use this prop component only copy this code to display container.",
             },
           },
           {
             component: "Example",
-            example: allComponents.molecules.floating.closeicon[0],
+            example: allComponents.layouts.container.rounded,
           },
           {
             component: "CodeBlock",
             props: {
               code: exampleComponentCodeBlock(
-                `${allComponents.molecules.floating.closeicon[1]}`,
-                false
+                reactElementToJSXString(allComponents.layouts.container.rounded)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Shadow",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display container.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.container.shadow,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.container.shadow)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "TextAligns",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display container.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.container.textalign,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(
+                  allComponents.layouts.container.textalign
+                )
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "FontWeight",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display container.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.container.fontweight,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(
+                  allComponents.layouts.container.fontweight
+                )
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Padding",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display container.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.container.padding,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.container.padding)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "Margins",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display container.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.container.margin,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.container.margin)
+              ),
+              language: "jsx",
+            },
+          },
+        ],
+      },
+      {
+        title: "As",
+        items: [
+          {
+            component: "RichText",
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "To use this prop component only copy this code to display container.",
+            },
+          },
+          {
+            component: "Example",
+            example: allComponents.layouts.container.as,
+          },
+          {
+            component: "CodeBlock",
+            props: {
+              code: exampleComponentCodeBlock(
+                reactElementToJSXString(allComponents.layouts.container.as)
               ),
               language: "jsx",
             },

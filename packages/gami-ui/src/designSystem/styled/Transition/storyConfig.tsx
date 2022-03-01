@@ -87,7 +87,7 @@ const storiesComponent: IStoryConfig[] = [
                 ease: 'elastic.out(1,0.3)',
                 duration: 2.5,
                 delay: 0,
-                position: { axis: 'xPercent', value: 100 },
+                position: { axis: 'xPercent', value: 20 },
               },
             },
           },
@@ -138,7 +138,8 @@ const storyConfig = getStoryConfigStructure({
     style: {
       height: '90px',
       position: 'relative',
-      width: '200px',
+      maxWidth: '250px',
+      width: '100%',
     },
   },
 })

@@ -18,7 +18,7 @@ export interface ICol {
   /**
    * Spacing Prop
    */
-  spacing: ColSpacingTypes
+  spacing?: ColSpacingTypes
   /**
    * Custom Spacing Prop
    */
@@ -44,7 +44,7 @@ export interface ICol {
 const Col = ({
   className,
   children,
-  spacing,
+  spacing = 'none',
   customSpacing = '0px',
   xs = 12,
   sm = 6,

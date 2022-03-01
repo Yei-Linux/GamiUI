@@ -98,14 +98,7 @@ const moleculeComponents = [
 
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
-  },
-  {
-    title: "Menu",
-
-    icon: "bullet" as const,
-    hasIcon: false,
-    href: "/",
+    href: "floating",
   },
 ]
 
@@ -114,13 +107,13 @@ const layoutComponents = [
     title: "Col",
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "col",
   },
   {
     title: "Container",
     icon: "bullet" as const,
     hasIcon: false,
-    href: "/",
+    href: "container",
   },
   {
     title: "Layout",
@@ -130,13 +123,6 @@ const layoutComponents = [
   },
   {
     title: "Row",
-
-    icon: "bullet" as const,
-    hasIcon: false,
-    href: "/",
-  },
-  {
-    title: "Sider",
 
     icon: "bullet" as const,
     hasIcon: false,

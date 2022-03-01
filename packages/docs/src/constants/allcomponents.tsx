@@ -7,6 +7,12 @@ import {
   DrawerWithMaskCode,
 } from "./code/molecules/drawer"
 import {
+  FloatingWithDefaultCode,
+  FloatingWithCustomCloseIconCode,
+  FloatingWithCloseIconCode,
+  FloatingWithDirectionCode,
+} from "./code/molecules/floating"
+import {
   AvatarWithAlt,
   AvatarWithHeight,
   AvatarWithIcon,
@@ -37,6 +43,7 @@ import {
   ButtonWithLight,
   ButtonWithFlat,
 } from "./examples/ButtonExa"
+import { ColWithSizesAndSpacing } from "./examples/ColExa"
 import {
   CollapseWithRoundeds,
   CollapseWithShadows,
@@ -52,6 +59,18 @@ import {
   CollapseWithBordered,
   CollapseWithContentLeft,
 } from "./examples/CollapseExtra"
+import {
+  ColWithSizes,
+  ColWithWidth,
+  ColWithHeight,
+  ColWithRounded,
+  ColWithShadow,
+  ColWithTextAlign,
+  ColWithFontWeight,
+  ColWithFontPadding,
+  ColWithFontMargin,
+  ColWithAs,
+} from "./examples/ContainerExa"
 import {
   DrawerWithCloseIcon,
   DrawerWithCustomCloseIcon,
@@ -69,6 +88,12 @@ import {
   EmptyWithTextColors,
   EmptyWithSize,
 } from "./examples/EmptyExa"
+import {
+  FloatingWithDefault,
+  FloatingWithCustomCloseIcon,
+  FloatingWithCloseIcon,
+  FloatingWithDirection,
+} from "./examples/FloatingExa"
 import {
   IconWithRounded,
   IconWithShadow,
@@ -311,9 +336,37 @@ const molecules = {
     mask: [<DrawerWithMask />, DrawerWithMaskCode],
     direction: [<DrawerWithDirection />, DrawerWithDirectionCode],
   },
+  floating: {
+    default: [<FloatingWithDefault />, FloatingWithDefaultCode],
+    customcloseicon: [
+      <FloatingWithCustomCloseIcon />,
+      FloatingWithCustomCloseIconCode,
+    ],
+    closeicon: [<FloatingWithCloseIcon />, FloatingWithCloseIconCode],
+    direction: [<FloatingWithDirection />, FloatingWithDirectionCode],
+  },
+}
+
+const layouts = {
+  col: {
+    sizespacing: ColWithSizesAndSpacing,
+  },
+  container: {
+    size: ColWithSizes,
+    width: ColWithWidth,
+    height: ColWithHeight,
+    rounded: ColWithRounded,
+    shadow: ColWithShadow,
+    textalign: ColWithTextAlign,
+    fontweight: ColWithFontWeight,
+    padding: ColWithFontPadding,
+    margin: ColWithFontMargin,
+    as: ColWithAs,
+  },
 }
 
 export const allComponents = {
   atoms,
   molecules,
+  layouts,
 }

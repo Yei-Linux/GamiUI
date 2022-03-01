@@ -1,7 +1,7 @@
 import { ColSpacingTypes } from 'core/domain/types'
 
 export const options = {
-  spacingType: ['none', 'sm', 'md', 'lg', 'custom'],
+  spacingType: ['none', 'sm', 'md', 'lg', 'custom'] as const,
   type: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const,
 }
 
