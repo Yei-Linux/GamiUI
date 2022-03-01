@@ -48,7 +48,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Layout/Transition',
+  title: 'Styled/Transition',
   component: Transition,
   args: {},
   argTypes: storyArgTypes,
