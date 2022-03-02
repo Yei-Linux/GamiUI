@@ -10,6 +10,7 @@ export interface IAsConverter {
 }
 
 const TableFormat = styled(Table)`
+  max-width: 92vw;
   p {
     word-break: break-all;
   }

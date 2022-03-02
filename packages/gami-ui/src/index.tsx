@@ -83,6 +83,8 @@ export {
   argTypes as docsTransition,
 } from './designSystem/styled/Transition'
 
+export { genericArgTypes } from 'core/helpers/storybook.helper'
+
 //Config Theme
 export { default as ThemeGamification } from './providers/ThemeGamification'
 export {
@@ -109,4 +111,8 @@ export {
   useFormStore,
   useRadioStore,
   useGamiTheme,
+  useDevice,
+  useCssHandle,
+  useCloneElements,
+  Portal,
 } from './hooks'

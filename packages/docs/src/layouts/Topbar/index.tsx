@@ -1,29 +1,87 @@
-import {  Icon, Link, Row, Spacer, Title } from "@gamiui/standard"
-import React from "react"
+import {
+  defaultTheme,
+  Icon,
+  Link,
+  Row,
+  Spacer,
+  Tag,
+  Title,
+  useDevice,
+} from "@gamiui/standard"
+import React, { Fragment } from "react"
 import * as S from "./styles"
+import { Link as GatsbyLink } from "gatsby"
+import styled from "@emotion/styled"
 
-export interface ITopbar {}
+export interface ITopbar {
+  toggle: () => void
+}
 
-const Topbar = ({}: ITopbar) => {
+const LinkItem = styled(Link)`
+  color: ${defaultTheme.light.primary.jordyBlue};
+  background: transparent;
+`
+
+const Topbar = ({ toggle }: ITopbar) => {
+  const { device } = useDevice()
+
   return (
     <S.Topbar padding="1rem">
       <Row justifyContent="space-between">
         <S.TopbarLeft>
-          <Link href="/" style={{ background: "transparent" }}>
-            <Row>
-              <Icon name="brain" size="30px" />
-              <Spacer direction="right" />
-              <Title level="h2">GamiUI</Title>
-            </Row>
-          </Link>
+          <GatsbyLink to={`/`}>
+            <Link href="/" style={{ background: "transparent" }}>
+              <Row>
+                <Icon name="brain" size="30px" />
+                <Spacer direction="right" />
+                <Title level="h2">GamiUI</Title>
+                <Tag
+                  text="ALPHA"
+                  fontWeight="bold"
+                  padding="3px"
+                  background={defaultTheme.light.primary.jordyBlue}
+                  color={defaultTheme.light.neutral[800]}
+                  style={{ fontSize: "10px" }}
+                />
+              </Row>
+            </Link>
+          </GatsbyLink>
         </S.TopbarLeft>
 
         <S.TopbarRight>
           <Row>
-            <Icon name="hamburger" size="20px" />
+            {device !== "phone" && (
+              <Fragment>
+                <GatsbyLink to={`/`}>
+                  <LinkItem fontWeight="bold" text="Home" href={`/`} />
+                </GatsbyLink>
+                <Spacer direction="left" />
+              </Fragment>
+            )}
+            <GatsbyLink to={`/docs/atoms/avatar`}>
+              <LinkItem
+                fontWeight="bold"
+                text="Components"
+                href={`/docs/atoms/avatar`}
+              />
+            </GatsbyLink>
+
             <Spacer direction="left" />
-            <Icon name="remind" size="20px" />
-            <Spacer direction="left" />
+
+            <LinkItem
+              isExternal
+              fontWeight="bold"
+              href={`https://github.com/Yei-Linux/GamiUI`}
+            >
+              <Icon name="github" size="20px" />
+            </LinkItem>
+
+            {device !== "desktop" && (
+              <Fragment>
+                <Spacer direction="left" />
+                <Icon onClick={toggle} name="hamburger" size="20px" />
+              </Fragment>
+            )}
           </Row>
         </S.TopbarRight>
       </Row>

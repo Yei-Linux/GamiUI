@@ -1,6 +1,7 @@
 import { Row, Title, Menu, Icon } from "@gamiui/standard"
 import React from "react"
 import { siderbar } from "../../constants/siderbar"
+import { Link as GatsbyLink } from "gatsby"
 
 export interface ISidebar {}
 
@@ -20,13 +21,16 @@ const Sidebar = ({}: ISidebar) => {
             >
               <Menu>
                 {items.map(({ title, hasIcon, href, icon }) => (
-                  <Menu.SubMenu
-                    isOpen={false}
-                    title={title}
-                    href={`/docs/${basepath}/${href}`}
-                    hasIcon={hasIcon}
-                    icon={<Icon name={icon} />}
-                  />
+                  <GatsbyLink to={`/docs/${basepath}/${href}`}>
+                    <Menu.SubMenu
+                      isOpen={false}
+                      title={title}
+                      href={`/docs/${basepath}/${href}`}
+                      contentLeft={<Icon name="check" />}
+                      hasIcon={hasIcon}
+                      icon={<Icon name={icon} />}
+                    />
+                  </GatsbyLink>
                 ))}
               </Menu>
             </Menu.SubMenu>

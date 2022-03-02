@@ -1,6 +1,14 @@
 import * as React from "react"
-import { defaultTheme, Tag } from "@gamiui/standard"
 import { IPages } from "../types/components"
+import {
+  basicInstallation,
+  reactProvider,
+  nextProvider,
+  gatsbyProvider,
+} from "./code/guide/gettingstart"
+import { genericPropButtonExample } from "./code/guide/genericprops"
+import { defaultTheme, genericArgTypes, Tag } from "@gamiui/standard"
+import { IArg, makeTableDocProps } from "../utils/components"
 
 export const guide: IPages[] = [
   {
@@ -23,6 +31,20 @@ export const guide: IPages[] = [
               text: "This library was created to give a nice lib ui, full customizable , easy to use and the power to use on gamification projects too.",
             },
           },
+          {
+            component: "RichText" as const,
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "Best part its we continue improve this ui lib, with not only ui component but also gamification components.",
+            },
+          },
+          {
+            component: "RichText" as const,
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "**This is not only a simple ui lib but also a gamification lib orientation**.",
+            },
+          },
         ],
       },
       {
@@ -38,9 +60,7 @@ export const guide: IPages[] = [
           {
             component: "CodeBlock" as const,
             props: {
-              code: `yarn add @gamiui/standard
-# or
-npm i @gamiui/standard`,
+              code: basicInstallation,
               language: "javascript",
             },
           },
@@ -66,19 +86,7 @@ npm i @gamiui/standard`,
           {
             component: "CodeBlock" as const,
             props: {
-              code: `import * as React from 'react';
-  
-              // 1. import GamiUIProvider component
-              import { ThemeGamification } from "@gamiui/standard";
-                      
-              const App = ({ Component }) => {
-                // 2. Use at the root of your app
-                return (
-                  <ThemeGamification>
-                    <Component />
-                  </ThemeGamification>
-                );
-              }`,
+              code: reactProvider,
               language: "jsx",
             },
           },
@@ -104,19 +112,7 @@ npm i @gamiui/standard`,
           {
             component: "CodeBlock" as const,
             props: {
-              code: `import * as React from 'react';
-  
-              // 1. import GamiUIProvider component
-              import { ThemeGamification } from "@gamiui/standard";
-                      
-              const App = ({ Component }) => {
-                // 2. Use at the root of your app
-                return (
-                  <ThemeGamification>
-                    <Component />
-                  </ThemeGamification>
-                );
-              }`,
+              code: nextProvider,
               language: "jsx",
             },
           },
@@ -142,19 +138,46 @@ npm i @gamiui/standard`,
           {
             component: "CodeBlock" as const,
             props: {
-              code: `import * as React from 'react';
-  
-              // 1. import GamiUIProvider component
-              import { ThemeGamification } from "@gamiui/standard";
-                      
-              const App = ({ Component }) => {
-                // 2. Use at the root of your app
-                return (
-                  <ThemeGamification>
-                    <Component />
-                  </ThemeGamification>
-                );
-              }`,
+              code: gatsbyProvider,
+              language: "jsx",
+            },
+          },
+        ],
+      },
+    ],
+    apis: [],
+  },
+  {
+    title: "Generic Props",
+    sections: [
+      {
+        title: "",
+        items: [
+          {
+            component: "RichText" as const,
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "**We have a generic props for components, each component inside of docs props!**",
+            },
+          },
+          {
+            component: "RichText" as const,
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "**This props value can be customize on GamiUIThemeProvider(please read theme section)!**",
+            },
+          },
+          {
+            component: "RichText" as const,
+            props: {
+              margin: "xs:0 0 1rem 0",
+              text: "For example by Button component we have this generic props, and others components have some or all options(please read components doc):",
+            },
+          },
+          {
+            component: "CodeBlock" as const,
+            props: {
+              code: genericPropButtonExample,
               language: "jsx",
             },
           },
@@ -163,38 +186,11 @@ npm i @gamiui/standard`,
     ],
     apis: [
       {
-        title: "GamiUI Provider Props",
+        title: "Generic Props",
         items: [
           {
             component: "Table" as const,
-            props: {
-              columns: [
-                { title: "Attribute", dataIndex: "attribute" },
-                {
-                  title: "Type",
-                  dataIndex: "type",
-                  render: (name: string) => (
-                    <Tag
-                      text={name}
-                      color={defaultTheme.light.neutral[800]}
-                      background={defaultTheme.light.primary.jordyBlue}
-                    />
-                  ),
-                },
-                { title: "Accepted values", dataIndex: "acceptedvalues" },
-                { title: "Description", dataIndex: "description" },
-                { title: "Default", dataIndex: "default" },
-              ],
-              data: [
-                {
-                  attribute: "disableDefaultStyles",
-                  type: "boolean",
-                  acceptedvalues: "true/false",
-                  description: "By default includes <GlobalStyles/>",
-                  default: false,
-                },
-              ],
-            },
+            props: makeTableDocProps(genericArgTypes as IArg),
           },
         ],
       },

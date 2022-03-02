@@ -240,7 +240,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('className')) {
     generics['className'] = {
       control: 'text',
-      description: 'className Prop',
+      description: 'You can set className component',
       table: {
         type: { summary: 'string' },
       },
@@ -250,7 +250,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('style')) {
     generics['style'] = {
       control: 'object',
-      description: 'style Prop',
+      description: 'You can set custom styles to component',
       table: {
         type: { summary: 'string' },
       },
@@ -260,7 +260,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('shadow')) {
     generics['shadow'] = {
       control: { type: 'select', options: optionsStyle.shadow },
-      description: 'shadow Prop',
+      description: 'You can set shadow options from list',
       table: {
         type: { summary: 'string' },
       },
@@ -270,7 +270,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('rounded')) {
     generics['rounded'] = {
       control: { type: 'select', options: optionsStyle.rounded },
-      description: 'rounded Prop',
+      description: 'You can set rounded options from list',
       table: {
         type: { summary: 'string' },
       },
@@ -280,7 +280,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('width')) {
     generics['width'] = {
       control: { type: 'select', options: optionsStyle.width },
-      description: 'width Prop',
+      description: 'You can set width options from list',
       table: {
         type: { summary: 'string' },
       },
@@ -290,7 +290,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('height')) {
     generics['height'] = {
       control: { type: 'select', options: optionsStyle.height },
-      description: 'height Prop',
+      description: 'You can set height options from list',
       table: {
         type: { summary: 'string' },
       },
@@ -300,7 +300,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('textAlign')) {
     generics['textAlign'] = {
       control: { type: 'select', options: optionsStyle.textAlign },
-      description: 'textAlign Prop',
+      description: 'You can set textAlign options from list',
       table: {
         type: { summary: 'string' },
       },
@@ -310,7 +310,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('fontWeight')) {
     generics['fontWeight'] = {
       control: { type: 'select', options: optionsStyle.fontWeight },
-      description: 'fontWeight Prop',
+      description: 'You can set fontWeight options from list',
       table: {
         type: { summary: 'string' },
       },
@@ -320,7 +320,8 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('padding')) {
     generics['padding'] = {
       control: 'text',
-      description: 'padding Prop',
+      description:
+        'You can set padding , can be custom or by device(xs:10px,sm:8px,md:5px,lg:0px)',
       table: {
         type: { summary: 'string' },
       },
@@ -330,7 +331,8 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('margin')) {
     generics['margin'] = {
       control: 'text',
-      description: 'margin Prop',
+      description:
+        'You can set margin , can be custom or by device(xs:10px,sm:8px,md:5px,lg:0px)',
       table: {
         type: { summary: 'string' },
       },
@@ -340,7 +342,7 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   if (!dontInclude.includes('size')) {
     generics['size'] = {
       control: { type: 'select', options: optionsStyle.width },
-      description: 'size Prop',
+      description: 'You can set size options from list',
       table: {
         type: { summary: 'string' },
       },
@@ -348,3 +350,5 @@ export const madegenericPropsControl = (dontInclude: string[]) => {
   }
   return generics
 }
+
+export const genericArgTypes = madegenericPropsControl([])

@@ -62,5 +62,7 @@
     "url": "https://github.com/Yei-Linux/GamificationStorybook/issues"
   },
   "homepage": "https://github.com/Yei-Linux/GamificationStorybook#readme",
-  "dependencies": {}
+  "dependencies": {
+    "@types/react-helmet": "^6.1.5"
+  }
 }

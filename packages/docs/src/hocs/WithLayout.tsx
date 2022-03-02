@@ -1,6 +1,6 @@
-import { Layout } from "@gamiui/standard"
+import { Drawer, Layout, useDevice } from "@gamiui/standard"
 
-import React, { Fragment } from "react"
+import React, { Fragment, useState } from "react"
 import Footer from "../layouts/Footer"
 import Sidebar from "../layouts/Sidebar"
 import Topbar from "../layouts/Topbar"
@@ -11,6 +11,7 @@ interface Props {
   HeaderChildren?: React.ElementType
   hasFooter?: boolean
   FooterChildren?: React.ElementType
+  hasSidebar?: boolean
 }
 
 const WithLayout =
@@ -19,18 +20,37 @@ const WithLayout =
     HeaderChildren = Topbar,
     hasFooter,
     FooterChildren = Footer,
+    hasSidebar = true,
   }: Props) =>
   (WrappedComponent: any) =>
   (componentProps: any) => {
+    const [open, setOpen] = useState(false)
+    const { device } = useDevice()
+
     return (
       <Fragment>
         <Layout>
           {hasHeader && (
-            <Layout.Header isSticky>{<HeaderChildren />}</Layout.Header>
+            <Layout.Header isSticky>
+              {<HeaderChildren toggle={() => setOpen(!open)} />}
+            </Layout.Header>
           )}
-          <Layout.Sidebar>
-            <Sidebar />
-          </Layout.Sidebar>
+
+          {hasSidebar &&
+            (device !== "desktop" ? (
+              <Drawer
+                style={{ padding: "1rem 0" }}
+                onClose={() => setOpen(!open)}
+                open={open}
+              >
+                <Sidebar />
+              </Drawer>
+            ) : (
+              <Layout.Sidebar>
+                <Sidebar />
+              </Layout.Sidebar>
+            ))}
+
           <Layout.Content>
             <WrappedComponent {...componentProps} />
           </Layout.Content>

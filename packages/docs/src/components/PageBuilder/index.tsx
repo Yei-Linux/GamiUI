@@ -9,11 +9,11 @@ export interface IReactBuilder {
 
 const ReactBuilder = ({ page }: IReactBuilder) => {
   return (
-    <Container>
+    <Container padding="0 1rem">
       <Title margin="xs:0 0 2rem 0" level="h1">
         {page.title}
       </Title>
-      
+
       {page.sections.map(({ items, title }) => (
         <Container margin="xs:0 0 2rem 0">
           {title && (
