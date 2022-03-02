@@ -31,7 +31,7 @@ const Title = React.forwardRef(
     return (
       <S.Title
         ref={ref}
-        className={cls(handles.wrapper)}
+        className={cls(handles.wrapper, genericsProps?.className ?? '')}
         as={level}
         {...getGenericPropStyles(genericsProps)}
       >

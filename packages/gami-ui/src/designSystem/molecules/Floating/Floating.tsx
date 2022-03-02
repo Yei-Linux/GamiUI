@@ -102,7 +102,7 @@ const Floating = ({
               $width={width}
               $height={height}
               $zIndex={zIndex}
-              className={cls(handles.wrapper)}
+              className={cls(handles.wrapper, genericsProps?.className ?? '')}
               $direction={direction}
               {...getGenericPropStyles(genericsProps)}
             >

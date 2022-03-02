@@ -63,7 +63,9 @@ const Empty = ({
 
   return (
     <S.Empty {...getGenericPropStyles(genericsProps)}>
-      <Row className={cls(handles.icon__wrapper)}>
+      <Row
+        className={cls(handles.icon__wrapper, genericsProps?.className ?? '')}
+      >
         {icon ?? (
           <Icon
             className={cls(handles.icon)}

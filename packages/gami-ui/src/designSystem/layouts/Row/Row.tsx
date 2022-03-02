@@ -88,7 +88,10 @@ const Row = ({
       $alignItems={alignItems}
       $flexDirection={flexDirection}
       style={style}
-      className={cls(handles.wrapper, { wrap: isWrap, nowrap: !isWrap })}
+      className={cls(handles.wrapper, className ?? '', {
+        wrap: isWrap,
+        nowrap: !isWrap,
+      })}
     >
       {children}
     </S.Row>

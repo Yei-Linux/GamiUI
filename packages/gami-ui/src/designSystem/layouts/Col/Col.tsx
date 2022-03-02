@@ -60,7 +60,7 @@ const Col = ({
   })
   return (
     <S.Col
-      className={cls(handles.wrapper, {
+      className={cls(handles.wrapper, className ?? '', {
         custom: spacing == 'custom',
         nocustom: spacing !== 'custom',
       })}

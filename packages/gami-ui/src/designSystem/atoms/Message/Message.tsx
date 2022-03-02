@@ -60,7 +60,7 @@ const Message = ({
       $background={background || defaultTheme.light.primary.jordyBlue}
       $color={color || defaultTheme.light.neutral[800]}
       $maxWidth={maxWidth}
-      className={cls(handles.wrapper, {
+      className={cls(handles.wrapper, genericsProps?.className ?? '', {
         marker: hasMarker,
         directionLeft: hasMarker && direction == 'left',
         directionRight: hasMarker && direction == 'right',

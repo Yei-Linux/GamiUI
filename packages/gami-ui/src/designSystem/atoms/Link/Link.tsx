@@ -48,7 +48,7 @@ const Link = ({
   })
   return (
     <S.Link
-      className={cls(handles.wrapper)}
+      className={cls(handles.wrapper, genericsProps?.className ?? '')}
       href={href}
       target={isExternal ? '_blank' : '_self'}
       $variant={variant}

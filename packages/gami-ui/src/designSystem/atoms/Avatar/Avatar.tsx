@@ -119,7 +119,7 @@ const Avatar = ({
 
   return (
     <S.Avatar
-      className={cls(handles.wrapper, {
+      className={cls(handles.wrapper, genericsProps?.className ?? '', {
         zoom__outside: zoomMode == 'outside',
         zoom__inside: zoomMode == 'inside',
       })}

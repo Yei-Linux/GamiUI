@@ -58,7 +58,7 @@ const Button = ({
       $flat={flat}
       $light={light}
       type={type}
-      className={cls(handles.wrapper, {
+      className={cls(handles.wrapper, genericsProps?.className ?? '', {
         disabled: disable,
         enabled: !disable,
       })}

@@ -57,7 +57,7 @@ const Icon = ({
   return (
     <S.Icon
       {...getGenericPropStyles(genericsProps)}
-      className={cls(handles.wrapper, {
+      className={cls(handles.wrapper, genericsProps?.className ?? '', {
         hoverIcon: genericsProps?.onClick ? true : false,
       })}
     >

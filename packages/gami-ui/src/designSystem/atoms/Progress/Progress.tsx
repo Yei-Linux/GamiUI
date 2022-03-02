@@ -90,7 +90,7 @@ const Progress = ({
       $maxHeight={maxHeight ?? 'none'}
       $maxWidth={maxWidth ?? 'none'}
       $backgroundProgressBar={backgroundProgressBar}
-      className={cls(handles.progress, {
+      className={cls(handles.progress, genericsProps?.className ?? '', {
         bar: type == 'bar',
         circle: type == 'circle',
       })}

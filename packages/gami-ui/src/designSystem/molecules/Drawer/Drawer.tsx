@@ -131,7 +131,7 @@ const Drawer = ({
                 $zIndex={zIndex}
                 $width={width}
                 $height={height}
-                className={cls(handles.drawer, {
+                className={cls(handles.drawer, genericsProps?.className ?? '', {
                   left: placement == 'left',
                   right: placement == 'right',
                   top: placement == 'top',

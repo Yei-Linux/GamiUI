@@ -124,7 +124,7 @@ const Collapse = ({
   return (
     <S.Collapse
       {...getGenericPropStyles(genericsProps)}
-      className={cls(handles.wrapper, {
+      className={cls(handles.wrapper, genericsProps?.className ?? '', {
         divider: hasDivider(),
       })}
       $height={childrenHeight}

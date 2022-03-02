@@ -44,7 +44,7 @@ const Tag = ({
 
   return (
     <S.Tag
-      className={cls(handles.wrapper)}
+      className={cls(handles.wrapper, genericsProps?.className ?? '')}
       $background={background}
       $color={color}
       {...getGenericPropStyles(genericsProps)}

@@ -4,6 +4,8 @@ import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
 
 import * as S from './Table.styles'
+import RichText from 'designSystem/atoms/RichText'
+import { cls } from 'core/utils/cls'
 
 interface IColumn {
   title: string
@@ -21,11 +23,14 @@ const Table = ({ columns, data, ...genericsProps }: ITable) => {
     const column: IColumn | undefined = columns.find(
       ({ dataIndex }) => dataIndex == key
     )
-    return column?.render ? column?.render(value) : value
+    return column?.render ? column?.render(value) : <RichText text={value} />
   }
 
   return (
-    <S.Table {...getGenericPropStyles(genericsProps)}>
+    <S.Table
+      className={cls(genericsProps?.className ?? '')}
+      {...getGenericPropStyles(genericsProps)}
+    >
       <S.TableContainer>
         <S.TableHeader>
           <S.TableHeaderRow>

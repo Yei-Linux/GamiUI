@@ -28,7 +28,7 @@ const Container = ({ children, as, ...genericsProps }: IContainer) => {
 
   return (
     <S.Container
-      className={cls(handles.wrapper)}
+      className={cls(handles.wrapper, genericsProps?.className ?? '')}
       as={as}
       {...getGenericPropStyles(genericsProps)}
     >

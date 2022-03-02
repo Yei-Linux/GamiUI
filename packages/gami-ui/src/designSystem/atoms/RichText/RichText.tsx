@@ -49,7 +49,7 @@ const RichText = ({ text, ...genericsProps }: IRichText) => {
 
   return (
     <S.RichText
-      className={cls(handles.wrapper)}
+      className={cls(handles.wrapper, genericsProps?.className ?? '')}
       {...getGenericPropStyles(genericsProps)}
       dangerouslySetInnerHTML={{ __html: html }}
     />

@@ -113,7 +113,7 @@ const Layout = ({
 
   return (
     <S.Layout
-      className={cls(handles.handles)}
+      className={cls(handles.wrapper, className ?? '')}
       $width={width}
       $height={height}
       $minHeight={minHeight}

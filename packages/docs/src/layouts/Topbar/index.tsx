@@ -1,4 +1,4 @@
-import { Icon, Link, Row, Spacer, Title } from "@gamiui/standard"
+import {  Icon, Link, Row, Spacer, Title } from "@gamiui/standard"
 import React from "react"
 import * as S from "./styles"
 
@@ -6,10 +6,10 @@ export interface ITopbar {}
 
 const Topbar = ({}: ITopbar) => {
   return (
-    <S.Topbar>
+    <S.Topbar padding="1rem">
       <Row justifyContent="space-between">
         <S.TopbarLeft>
-          <Link href="/">
+          <Link href="/" style={{ background: "transparent" }}>
             <Row>
               <Icon name="brain" size="30px" />
               <Spacer direction="right" />

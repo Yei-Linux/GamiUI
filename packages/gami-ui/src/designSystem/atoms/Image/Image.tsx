@@ -127,9 +127,13 @@ const Image = ({
   const imageElement = children ? (
     <S.BackgroundImg
       {...(!link ? getGenericPropStyles(genericsProps) : {})}
-      className={cls(handles.background__wrapper, {
-        [genericsProps.className ?? '']: link == null,
-      })}
+      className={cls(
+        handles.background__wrapper,
+        genericsProps?.className ?? '',
+        {
+          [genericsProps.className ?? '']: link == null,
+        }
+      )}
       {...imageCommonsProps}
     >
       {children}
@@ -137,7 +141,7 @@ const Image = ({
   ) : (
     <S.Img
       {...(!link ? getGenericPropStyles(genericsProps) : {})}
-      className={cls(handles.image__wrapper, {
+      className={cls(handles.image__wrapper, genericsProps?.className ?? '', {
         [genericsProps.className ?? '']: link == null,
       })}
       {...imageCommonsProps}
@@ -149,7 +153,7 @@ const Image = ({
   const maybeLink = link ? (
     <S.LinkImg
       {...(link ? getGenericPropStyles(genericsProps) : {})}
-      className={cls(handles.link__wrapper, {
+      className={cls(handles.link__wrapper, genericsProps?.className ?? '', {
         [genericsProps.className ?? '']: link != null,
       })}
       href={link?.url}

@@ -30,7 +30,7 @@ const validateAcceptedValues = (control: any) => {
 
   const definedTypes = control?.options
 
-  return definedTypes.join("|")
+  return definedTypes.join(" | ")
 }
 
 export const makeTableDocProps = (args: IArg) => {
