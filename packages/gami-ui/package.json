@@ -1,9 +1,9 @@
 {
   "name": "@gamiui/standard",
-  "version": "0.1.0-alpha.26",
+  "version": "0.1.0-alpha.32",
   "description": "GamiUI Library of standard components",
-  "main": "lib/index",
-  "typings": "lib/index",
+  "main": "lib/types/index",
+  "typings": "lib/types/index",
   "files": [
     "lib/"
   ],
@@ -12,10 +12,13 @@
     "test:snapshot-update": "jest --u",
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
     "build-storybook": "build-storybook",
+    "build": "node ./scripts/build.js",
+    "build:esm": "tsc -p tsconfig.json --module es2015 --target es5 --outDir ./lib/esm && tscpaths -p tsconfig.json -s ./src -o ./lib/esm",
+    "build:cjs": "tsc -p tsconfig.json --module commonjs --target es5 --outDir ./lib/cjs && tscpaths -p tsconfig.json -s ./src -o ./lib/cjs",
+    "build:types": "tsc -p tsconfig.json -d --emitDeclarationOnly --outDir ./lib/types && tscpaths -p tsconfig.json -s ./src -o ./lib/types",
     "chromatic": "npx chromatic --project-token 7296afeee821",
     "prepare-husky": "husky install",
     "semantic-release": "semantic-release",
-    "build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./lib",
     "preversion": "npm run lint && npm run format",
     "prepublish": "npm run preversion && npm run build",
     "publishfinal": "npm run prepublish && npm publish",
@@ -37,6 +40,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.12.7",
     "@babel/preset-flow": "^7.12.1",
     "@storybook/addon-actions": "^6.2.9",

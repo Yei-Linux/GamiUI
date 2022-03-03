@@ -8,13 +8,48 @@
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
-      "context/*": ["./src/context/*", "./lib/context/*"],
-      "core/*": ["./src/core/*", "./lib/core/*"],
-      "designSystem/*": ["./src/designSystem/*", "./lib/designSystem/*"],
-      "hooks/*": ["./src/hooks/*", "./lib/hooks/*"],
-      "providers/*": ["./src/providers/*", "./lib/providers/*"],
-      "styles/*": ["./src/styles/*", "./lib/styles/*"],
-      "hocs/*": ["./src/hocs/*", "./lib/hocs/*"]
+      "context/*": [
+        "./src/context/*",
+        "./lib/cjs/context/*",
+        "./lib/esm/context/*",
+        "./lib/types/context/*"
+      ],
+      "core/*": [
+        "./src/core/*",
+        "./lib/cjs/core/*",
+        "./lib/esm/core/*",
+        "./lib/types/core/*"
+      ],
+      "designSystem/*": [
+        "./src/designSystem/*",
+        "./lib/cjs/designSystem/*",
+        "./lib/esm/designSystem/*",
+        "./lib/types/designSystem/*"
+      ],
+      "hooks/*": [
+        "./src/hooks/*",
+        "./lib/cjs/hooks/*",
+        "./lib/esm/hooks/*",
+        "./lib/types/hooks/*"
+      ],
+      "providers/*": [
+        "./src/providers/*",
+        "./lib/cjs/providers/*",
+        "./lib/esm/providers/*",
+        "./lib/types/providers/*"
+      ],
+      "styles/*": [
+        "./src/styles/*",
+        "./lib/cjs/styles/*",
+        "./lib/esm/styles/*",
+        "./lib/types/styles/*"
+      ],
+      "hocs/*": [
+        "./src/hocs/*",
+        "./lib/cjs/hocs/*",
+        "./lib/esm/hocs/*",
+        "./lib/types/hocs/*"
+      ]
     },
     "target": "es2015",
     "module": "es2015",
