@@ -1,3 +1,5 @@
+packages/gami-ui/README.md
+
 # Execute Project
 
 1.  **Version of node and npm.**
@@ -13,7 +15,3 @@
     Then change version
     Finally execute this command script:
     npm run publishfinal:gami-ui
-
-## PULL REQUEST 🚀
-
-## STRUCTURE 🤘
