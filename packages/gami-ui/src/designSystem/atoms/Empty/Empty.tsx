@@ -85,6 +85,8 @@ const Empty = ({
 
 const defaultProps = {}
 
+Empty.displayName = 'Empty'
+
 type EmptyComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

@@ -124,6 +124,11 @@ const Layout = ({
   )
 }
 
+Layout.displayName = 'Layout'
+Content.displayName = 'Content'
+Footer.displayName = 'Footer'
+Sidebar.displayName = 'Sidebar'
+
 Layout.Header = Header
 Layout.Content = Content
 Layout.Footer = Footer

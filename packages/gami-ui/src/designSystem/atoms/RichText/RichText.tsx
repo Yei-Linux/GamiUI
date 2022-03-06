@@ -62,6 +62,8 @@ const defaultProps = {
   height: 'auto',
 }
 
+RichText.displayName = 'RichText'
+
 type RichTextComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

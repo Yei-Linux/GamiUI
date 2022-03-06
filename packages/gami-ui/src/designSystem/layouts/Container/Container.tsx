@@ -43,6 +43,8 @@ const defaultProps = {
   height: 'auto',
 }
 
+Container.displayName = 'Container'
+
 type ContainerComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

@@ -41,4 +41,6 @@ const Mask = ({
   )
 }
 
+Mask.displayName = 'Mask'
+
 export default Mask

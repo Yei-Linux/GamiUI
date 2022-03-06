@@ -121,6 +121,8 @@ const Progress = ({
 
 const defaultProps = {}
 
+Progress.displayName = 'Progress'
+
 type ProgressComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

@@ -84,6 +84,8 @@ const defaultProps = {
   height: 'auto',
 }
 
+Button.displayName = 'Button'
+
 type ButtonComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

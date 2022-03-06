@@ -62,6 +62,8 @@ const defaultProps = {
   rounded: 'lg',
 }
 
+Tag.displayName = 'Tag'
+
 type TagComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

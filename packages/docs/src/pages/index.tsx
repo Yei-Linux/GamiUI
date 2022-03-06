@@ -33,8 +33,6 @@ const ColCards = styled(Col)`
   border-radius: 1rem;
 `
 
-const url = `url(&quot;https://assets-global.website-files.com/5f3cf8cce20a65438a93628a/5f59d3dae314c45f39759041_Drawkit_landing_04_1-compressed-poster-00001.jpg&quot;)"`
-
 const Home = ({}: ICustomTheme) => {
   const { device } = useDevice()
 
@@ -48,7 +46,6 @@ const Home = ({}: ICustomTheme) => {
               muted
               autoPlay
               style={{
-                backgroundImage: url,
                 maxWidth: device !== "phone" ? "400px" : "300px",
               }}
             >

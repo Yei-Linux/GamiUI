@@ -14,6 +14,7 @@ import { Link as GatsbyLink } from "gatsby"
 import styled from "@emotion/styled"
 
 export interface ITopbar {
+  hasSidebar: boolean
   toggle: () => void
 }
 
@@ -22,7 +23,7 @@ const LinkItem = styled(Link)`
   background: transparent;
 `
 
-const Topbar = ({ toggle }: ITopbar) => {
+const Topbar = ({ toggle, hasSidebar }: ITopbar) => {
   const { device } = useDevice()
 
   return (
@@ -76,7 +77,7 @@ const Topbar = ({ toggle }: ITopbar) => {
               <Icon name="github" size="20px" />
             </LinkItem>
 
-            {device !== "desktop" && (
+            {device !== "desktop" && hasSidebar && (
               <Fragment>
                 <Spacer direction="left" />
                 <Icon onClick={toggle} name="hamburger" size="20px" />
