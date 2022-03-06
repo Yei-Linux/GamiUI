@@ -6,13 +6,13 @@ export const mixinRounded = (
   themeGlobal: ICustomTheme,
   rounded: RoundedType
 ) => {
-  if (!themeGlobal) return ``
+  if (!themeGlobal) return css``
 
   const { tokens } = themeGlobal
 
   const tokenValue = tokens.rounded[rounded]
 
-  if (!tokenValue) return ``
+  if (!tokenValue) return css``
 
   return css`
     border-radius: ${tokenValue};

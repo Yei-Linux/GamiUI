@@ -6,13 +6,13 @@ export const mixinShadow = (
   themeGlobal: ICustomTheme,
   shadowType: ShadowType
 ) => {
-  if (!themeGlobal) return ``
+  if (!themeGlobal) return css``
 
   const { tokens } = themeGlobal
 
   const tokenValue = tokens.boxShadow[shadowType]
 
-  if (!tokenValue) return ``
+  if (!tokenValue) return css``
 
   return css`
     box-shadow: ${tokenValue};

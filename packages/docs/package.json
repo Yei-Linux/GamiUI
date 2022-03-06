@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "author": "Yei Linux",
   "dependencies": {
+    "@gamiui/standard": "^0.1.0-alpha.39",
     "gatsby": "^4.3.0",
     "gatsby-plugin-gatsby-cloud": "^4.3.0",
     "gatsby-plugin-image": "^2.3.0",
@@ -24,8 +25,8 @@
     "@types/react-helmet": "^6.1.5"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1"
   },
   "devDependencies": {},
   "keywords": [

@@ -12,7 +12,7 @@ export const mixinHeight = (
   height: HeightType,
   component: InheritStyleComponent = null
 ) => {
-  if (!themeGlobal) return ``
+  if (!themeGlobal) return css``
 
   const { tokens } = themeGlobal
 
@@ -23,11 +23,11 @@ export const mixinHeight = (
   if (component) {
     const tokenComponentSizeValue = tokenComponentsValue[component]
 
-    if (!tokenComponentSizeValue) return ``
+    if (!tokenComponentSizeValue) return css``
 
     const sizeComponent = tokenComponentSizeValue[height]
 
-    if (!sizeComponent) return ``
+    if (!sizeComponent) return css``
 
     const typeOfSize = typeof sizeComponent
 
@@ -48,7 +48,7 @@ export const mixinHeight = (
         `
   }
 
-  if (!tokenValue) return ``
+  if (!tokenValue) return css``
 
   const isStaticSizeTokenValue = staticsSizesTokens.includes(tokenValue)
 

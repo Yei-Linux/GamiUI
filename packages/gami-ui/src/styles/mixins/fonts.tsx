@@ -13,13 +13,13 @@ export const mixinTextAlign = (
   themeGlobal: ICustomTheme,
   textAlign: TextAlignType
 ) => {
-  if (!themeGlobal) return ``
+  if (!themeGlobal) return css``
 
   const { tokens } = themeGlobal
 
   const tokenValue = tokens.font.textAlign[textAlign]
 
-  if (!tokenValue) return ``
+  if (!tokenValue) return css``
 
   return css`
     justify-content: ${flexAlign[textAlign]};
@@ -31,13 +31,13 @@ export const mixinFontWeight = (
   themeGlobal: ICustomTheme,
   fontWeight: FontWeightType
 ) => {
-  if (!themeGlobal) return ``
+  if (!themeGlobal) return css``
 
   const { tokens } = themeGlobal
 
   const tokenValue = tokens.font.weight[fontWeight]
 
-  if (!tokenValue) return ``
+  if (!tokenValue) return css``
 
   return css`
     font-weight: ${tokenValue};
@@ -47,7 +47,7 @@ export const mixinFontWeight = (
 export const mixinTitle = (themeGlobal: ICustomTheme) => {
   const { theme, tokens } = themeGlobal
 
-  if (!theme && !tokens) return
+  if (!theme && !tokens) return css``
 
   return css`
     ${mixinFontWeight(themeGlobal, 'bold')}
@@ -59,7 +59,7 @@ export const mixinTitle = (themeGlobal: ICustomTheme) => {
 export const mixinSubtitle = (themeGlobal: ICustomTheme) => {
   const { theme, tokens } = themeGlobal
 
-  if (!theme && !tokens) return
+  if (!theme && !tokens) return css``
 
   return css`
     font-size: ${tokens.font.size.sm};
@@ -73,7 +73,7 @@ export const mixinDescription = (
 ) => {
   const { theme, tokens } = themeGlobal
 
-  if (!theme && !tokens) return
+  if (!theme && !tokens) return css``
 
   return css`
     font-size: ${tokens.font.size.xs};

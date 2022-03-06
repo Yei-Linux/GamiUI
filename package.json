@@ -62,5 +62,6 @@
   "bugs": {
     "url": "https://github.com/Yei-Linux/GamificationStorybook/issues"
   },
-  "homepage": "https://github.com/Yei-Linux/GamificationStorybook#readme"
+  "homepage": "https://github.com/Yei-Linux/GamificationStorybook#readme",
+  "dependencies": {}
 }

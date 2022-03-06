@@ -12,7 +12,7 @@ export const mixinWidth = (
   width: WidthType,
   component: InheritStyleComponent = null
 ) => {
-  if (!themeGlobal) return ``
+  if (!themeGlobal) return css``
 
   const { tokens } = themeGlobal
 
@@ -21,11 +21,11 @@ export const mixinWidth = (
   if (component) {
     const tokenComponentSizeValue = tokenComponentsValue[component]
 
-    if (!tokenComponentSizeValue) return ``
+    if (!tokenComponentSizeValue) return css``
 
     const sizeComponent = tokenComponentSizeValue[width]
 
-    if (!sizeComponent) return ``
+    if (!sizeComponent) return css``
 
     const typeOfSize = typeof sizeComponent
 
@@ -48,7 +48,7 @@ export const mixinWidth = (
 
   const tokenValue = tokens.sizes.width[width]
 
-  if (!tokenValue) return ``
+  if (!tokenValue) return css``
 
   const isStaticSizeTokenValue = staticsSizesTokens.includes(tokenValue)
 
