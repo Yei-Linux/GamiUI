@@ -17,11 +17,11 @@ jobs:
         with:
           node-version: 15
       - name: Install dependencies
-        run: yarn install --ignore-engines
+        run: yarn install-deps
       - name: Lint code
-        run: yarn lint
+        run: yarn lint:gami-ui
       - name: Build storybook
-        run: yarn build-storybook
+        run: yarn build-storybook:gami-ui
 
   visual:
     name: Vistual testing
@@ -36,12 +36,12 @@ jobs:
         with:
           node-version: 15
       - name: Install dependencies
-        run: yarn install --ignore-engines
+        run: yarn install-deps
       - name: Build storybook
-        run: yarn build-storybook
+        run: yarn build-storybook:gami-ui
       - name: Publish in Chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          storybookBuildDir: 'storybook-static'
+          storybookBuildDir: 'packages/gami-ui/storybook-static'
