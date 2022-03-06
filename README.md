@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.gamiui.com">
-    <img src="https://i.imgur.com/8EkWyHT.png" alt="gamiui" />
+    <img style="border-radius:1em;box-shadow: 1px 1px 8px 0px rgba(0,0,0,0.15)" src="https://i.imgur.com/8EkWyHT.png" alt="gamiui" />
     <h1 align="center">GamiUI</h1>
   </a>
 </p>
