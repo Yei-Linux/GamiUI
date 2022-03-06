@@ -4,8 +4,12 @@
   "version": "0.1.0",
   "author": "Yei Linux",
   "dependencies": {
-    "@gamiui/standard": "^0.1.0-alpha.39",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@gamiui/standard": "^0.1.0-alpha.41",
+    "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.3.0",
+    "gatsby-plugin-emotion": "^7.9.0",
     "gatsby-plugin-gatsby-cloud": "^4.3.0",
     "gatsby-plugin-image": "^2.3.0",
     "gatsby-plugin-manifest": "^4.3.0",
@@ -15,25 +19,24 @@
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-transformer-sharp": "^4.3.0",
     "prop-types": "^15.7.2",
-    "react-helmet": "^6.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "@emotion/react": "^11.1.4",
-    "@emotion/styled": "^11.0.0",
     "react-code-blocks": "0.0.9-0",
+    "react-dom": "^16.13.1",
     "react-element-to-jsx-string": "^14.3.4",
-    "@types/react-helmet": "^6.1.5"
+    "react-helmet": "^6.1.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1"
   },
-  "devDependencies": {},
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
   "scripts": {
+    "publishfinal": "npm run build && npm run deploy-netlify",
+    "deployprop-netlify": "netlify deploy --prod",
+    "deploy-netlify": "netlify deploy",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "gatsby develop",

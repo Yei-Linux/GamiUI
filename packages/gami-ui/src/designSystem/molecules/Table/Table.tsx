@@ -58,4 +58,6 @@ const Table = ({ columns, data, ...genericsProps }: ITable) => {
   )
 }
 
+Table.displayName = 'Table'
+
 export default Table

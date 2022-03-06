@@ -166,6 +166,8 @@ const defaultProps = {
   shadow: 'sm',
 }
 
+Drawer.displayName = 'Drawer'
+
 type DrawerComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

@@ -77,6 +77,8 @@ const Col = ({
 
 const defaultProps = {}
 
+Col.displayName = 'Col'
+
 type ColComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

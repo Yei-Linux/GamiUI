@@ -53,4 +53,6 @@ const TableStories = ({
   )
 }
 
+TableStories.displayName = 'TableStories'
+
 export default TableStories

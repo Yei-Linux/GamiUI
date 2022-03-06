@@ -35,4 +35,6 @@ const Spacer = ({ direction, size = 1, customSize, className }: ISpacer) => {
   )
 }
 
+Spacer.displayName = 'Spacer'
+
 export default Spacer

@@ -169,6 +169,8 @@ Collapse.Group = CollapseGroup
 
 const defaultProps = {}
 
+Collapse.displayName = 'Collapse'
+
 type CollapseComponent<P> = React.NamedExoticComponent<P> & {
   Group: typeof CollapseGroup
   defaultProps: P

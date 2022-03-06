@@ -42,4 +42,6 @@ const CollapseGroup = ({ children, ...props }: ICollapseGroup) => {
   )
 }
 
+CollapseGroup.displayName = 'CollapseGroup'
+
 export default CollapseGroup

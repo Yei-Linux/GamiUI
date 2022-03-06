@@ -15,4 +15,6 @@ const AvatarGroup = ({ children, count }: IAvatarGroup) => {
   )
 }
 
+AvatarGroup.displayName = 'AvatarGroup'
+
 export default AvatarGroup

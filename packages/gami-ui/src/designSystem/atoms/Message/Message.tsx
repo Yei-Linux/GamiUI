@@ -74,6 +74,8 @@ const Message = ({
 
 const defaultProps = {}
 
+Message.displayName = 'Message'
+
 type MessageComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

@@ -174,6 +174,8 @@ const defaultProps = {
   shadow: 'none',
 }
 
+Image.displayName = 'Image'
+
 type ImageComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

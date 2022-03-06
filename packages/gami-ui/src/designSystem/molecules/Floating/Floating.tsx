@@ -134,6 +134,8 @@ const defaultProps = {
   shadow: 'sm',
 }
 
+Floating.displayName = 'Floating'
+
 type FloatingComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

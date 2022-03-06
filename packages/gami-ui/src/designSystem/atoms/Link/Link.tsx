@@ -69,6 +69,8 @@ const defaultProps = {
   height: 'auto',
 }
 
+Link.displayName = 'Link'
+
 type LinkComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

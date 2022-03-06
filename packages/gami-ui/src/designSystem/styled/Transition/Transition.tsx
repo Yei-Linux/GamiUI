@@ -92,4 +92,6 @@ const Transition = ({
   return <Fragment>{childrenWithProps}</Fragment>
 }
 
+Transition.displayName = 'Transition'
+
 export default Transition

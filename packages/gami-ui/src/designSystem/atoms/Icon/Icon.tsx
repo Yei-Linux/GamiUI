@@ -73,6 +73,8 @@ const defaultProps = {
   shadow: 'none',
 }
 
+Icon.displayName = 'Icon'
+
 type IconComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

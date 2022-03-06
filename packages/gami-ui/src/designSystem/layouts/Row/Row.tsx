@@ -100,6 +100,8 @@ const Row = ({
 
 const defaultProps = {}
 
+Row.displayName = 'Row'
+
 type RowComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }

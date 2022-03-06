@@ -135,6 +135,8 @@ const Avatar = ({
 
 Avatar.Group = AvatarGroup
 
+Avatar.displayName = 'Avatar'
+
 const defaultProps = {
   rounded: 'full',
   fontWeight: 'bold',
