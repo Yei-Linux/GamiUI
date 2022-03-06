@@ -1,0 +1,69 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks'
+
+import { defaultTheme } from 'styles/tokens'
+
+<Meta title="Docs/ColorTheme" />
+
+# Colors Light Mode
+
+<ColorPalette>
+  <ColorItem
+    title="Primary Colors"
+    colors={[
+      defaultTheme.light.primary.jordyBlue,
+      defaultTheme.light.primary.hawkesBlue,
+      defaultTheme.light.primary.mediumPurple,
+      defaultTheme.light.primary.selago,
+      defaultTheme.light.primary.white,
+    ]}
+  />
+  <ColorItem
+    title="Secondary Colors"
+    colors={[
+      defaultTheme.light.secondary.nepal,
+      defaultTheme.light.secondary.linkWater,
+      defaultTheme.light.secondary.prim,
+      defaultTheme.light.secondary.tutu,
+    ]}
+  />
+  <ColorItem
+    title="Neutral Colors"
+    colors={[
+      defaultTheme.light.neutral[0],
+      defaultTheme.light.neutral[100],
+      defaultTheme.light.neutral[200],
+      defaultTheme.light.neutral[300],
+      defaultTheme.light.neutral[400],
+      defaultTheme.light.neutral[500],
+      defaultTheme.light.neutral[600],
+      defaultTheme.light.neutral[700],
+    ]}
+  />
+  <ColorItem
+    title="Semantic colors"
+    colors={[
+      defaultTheme.light.semantic.success,
+      defaultTheme.light.semantic.warning,
+      defaultTheme.light.semantic.danger,
+      defaultTheme.light.semantic.info,
+      defaultTheme.light.semantic.warm,
+      defaultTheme.light.semantic.spring,
+      defaultTheme.light.semantic.earth,
+      defaultTheme.light.semantic.skin,
+      defaultTheme.light.semantic.sky,
+    ]}
+  />
+
+  <ColorItem
+    title="Extended colors"
+    colors={[
+      defaultTheme.light.extended.code,
+      defaultTheme.light.extended.codeStrong,
+      defaultTheme.light.extended.garden,
+      defaultTheme.light.extended.gardenStrong,
+      defaultTheme.light.extended.ocean,
+      defaultTheme.light.extended.oceanStrong,
+      defaultTheme.light.extended.gray
+    ]}
+  />
+</ColorPalette>

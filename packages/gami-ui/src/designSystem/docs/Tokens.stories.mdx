@@ -1,0 +1,100 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks'
+
+import { font } from 'styles/tokens'
+import ThemeGamification from 'providers/ThemeGamification'
+
+<Meta title="Docs/Tokens" />
+
+# Font Weight
+
+<ThemeGamification />
+
+<Typeset
+  fontSizes={[font.size.base]}
+  fontFamily={font.family.mali}
+  fontWeight={font.weight.light}
+  sampleText="Light Font Weight"
+/>
+
+<Typeset
+  fontSizes={[font.size.base]}
+  fontFamily={font.family.mali}
+  fontWeight={font.weight.normal}
+  sampleText="Normal Font Weight"
+/>
+<Typeset
+  fontSizes={[font.size.base]}
+  fontFamily={font.family.mali}
+  fontWeight={font.weight.medium}
+/>
+<Typeset
+  fontSizes={[font.size.base]}
+  fontFamily={font.family.mali}
+  fontWeight={font.weight.semibold}
+  sampleText="Semibold Font Weight"
+/>
+<Typeset
+  fontSizes={[font.size.base]}
+  fontFamily={font.family.mali}
+  fontWeight={font.weight.bold}
+  sampleText="Bold Font Weight"
+/>
+<Typeset
+  fontSizes={[font.size.base]}
+  fontFamily={font.family.mali}
+  fontWeight={font.weight.extrabold}
+  sampleText="ExtraBold Font Weight"
+/>
+<Typeset
+  fontSizes={[font.size.base]}
+  fontFamily={font.family.mali}
+  fontWeight={font.weight.black}
+  sampleText="Black Font Weight"
+/>
+
+# Font Family
+
+**Primary Font:** Mali
+
+<Typeset
+  fontFamily={font.family.mali}
+  fontSizes={[
+    font.size.base,
+    font.size.xs,
+    font.size.sm,
+    font.size.md,
+    font.size.lg,
+    font.size.xl,
+  ]}
+  fontWeight={font.weight.normal}
+/>
+
+**Secondary Font:** Source Sans Pro
+
+<Typeset
+  fontFamily={font.family.sanspro}
+  fontSizes={[
+    font.size.base,
+    font.size.xs,
+    font.size.sm,
+    font.size.md,
+    font.size.lg,
+    font.size.xl,
+  ]}
+  fontWeight={font.weight.normal}
+/>
+
+**Terciary Font:** Quicksand
+
+<Typeset
+  fontFamily={font.family.sans}
+  fontSizes={[
+    font.size.base,
+    font.size.xs,
+    font.size.sm,
+    font.size.md,
+    font.size.lg,
+    font.size.xl,
+  ]}
+  fontWeight={font.weight.normal}
+/>
