@@ -1,5 +1,5 @@
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import Row from 'designSystem/layouts/Row'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
