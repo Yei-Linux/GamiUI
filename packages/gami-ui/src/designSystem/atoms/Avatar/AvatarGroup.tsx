@@ -8,10 +8,10 @@ export interface IAvatarGroup {
 
 const AvatarGroup = ({ children, count }: IAvatarGroup) => {
   return (
-    <S.AvatarGroup>
+    <S.AvatarGroupStyled>
       {children}
-      {count && <S.Count>+{count}</S.Count>}
-    </S.AvatarGroup>
+      {count && <S.CountStyled>+{count}</S.CountStyled>}
+    </S.AvatarGroupStyled>
   )
 }
 

@@ -4,7 +4,6 @@ module.exports = {
     '@babel/preset-react',
     '@babel/preset-flow',
     '@babel/preset-typescript',
-    '@emotion/babel-preset-css-prop',
   ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
@@ -23,6 +22,9 @@ module.exports = {
     [
       '@emotion',
       {
+        autoLabel: 'never',
+        labelFormat: '',
+        sourceMap: true,
         cssPropOptimization: true,
         importMap: {
           '@emotion/styled-base': {

@@ -1,61 +1,63 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import Row from 'designSystem/layouts/Row'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinFlexVariants } from 'styles/mixins/flex'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
-import { validatorProperty } from 'styles/utilities/validatorsCss'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
+import { compose } from 'styles/utilities/tools'
+import { PartialBy } from 'core/domain/types/mixins'
 
-const valideZoomMode = () => css`
-  &.zoom__outside,
-  &.zoom__inside {
-    transition: transform 0.2s;
-  }
-  &.zoom__outside:hover {
-    transform: scale(1.2);
-  }
-  &.zoom__inside:hover {
-    transform: scale(0.8);
-  }
-`
+export const zoomModeCSS = css({
+  '&.zoom__outside,&.zoom__inside': {
+    transition: 'transform 0.2s',
+  },
+  '&.zoom__outside:hover': {
+    transform: 'scale(1.2)',
+  },
+  '&.zoom__inside:hover': {
+    transform: 'scale(0.8)',
+  },
+})
 
-export const Avatar = InheritGlobalStylesComponent(
-  styled.div<{
-    $borderColor?: string
-    $background?: string
-    $textColor?: string
-    theme?: ICustomTheme
-  }>`
-    width: ${({ theme }) => theme.tokens.sizes.components.avatar.md};
-    height: ${({ theme }) => theme.tokens.sizes.components.avatar.md};
+export const flexCSS = mixinFlexVariants({
+  justifyContent: 'center',
+  alignItems: 'center',
+})
 
-    background: ${({ $background }) => $background};
-    overflow: hidden;
+export const CountStyled = styled(Row)({
+  width: '30px',
+  height: '100%',
+  marginLeft: '0.4rem',
+  fontWeight: 'bold',
+})
 
-    ${({ $textColor }) => validatorProperty('color', $textColor)}
-    ${({ $borderColor }) =>
-      validatorProperty('border-color', `1px solid ${$borderColor}`)}
-
-  ${valideZoomMode()}
-
-  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
-
-    &:hover {
-      cursor: pointer;
-    }
-  `,
-  'avatar'
+export type TAvatarStyles = {
+  $borderColor?: string
+  $textColor?: string
+  $background: string
+} & PartialBy<TWithGlobalStylesUI, 'theme'>
+export const AvatarStyled = styled('div')(
+  ({
+    $background,
+    $textColor,
+    $borderColor,
+    ...globalStyles
+  }: TAvatarStyles) => ({
+    background: $background,
+    color: $textColor && $textColor,
+    borderColor: $borderColor && `1px solid ${$borderColor}`,
+    width: globalStyles.theme?.tokens.sizes.components.avatar.md,
+    height: globalStyles.theme?.tokens.sizes.components.avatar.md,
+    overflow: 'hidden',
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  }),
+  (props) => withGlobalStylesUI(props)('avatar'),
+  () => compose([zoomModeCSS, flexCSS])
 )
 
-export const AvatarGroup = styled(Row)`
-  ${Avatar} {
+export const AvatarGroupStyled = styled(Row)`
+  ${AvatarStyled} {
     margin-left: -5px;
   }
-`
-
-export const Count = styled(Row)`
-  width: 30px;
-  height: 100%;
-  margin-left: 0.4rem;
-  font-weight: bold;
 `
