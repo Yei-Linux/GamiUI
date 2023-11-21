@@ -4,13 +4,20 @@ import * as S from './Avatar.styles'
 export interface IAvatarGroup {
   children: React.ReactNode[]
   count?: number
+  counterBackground?: string
 }
 
-const AvatarGroup = ({ children, count }: IAvatarGroup) => {
+const AvatarGroup = ({
+  children,
+  count,
+  counterBackground,
+}: IAvatarGroup) => {
   return (
     <S.AvatarGroupStyled>
       {children}
-      {count && <S.CountStyled>+{count}</S.CountStyled>}
+      {count && (
+        <S.CountStyled $background={counterBackground}>+{count}</S.CountStyled>
+      )}
     </S.AvatarGroupStyled>
   )
 }

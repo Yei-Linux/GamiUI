@@ -33,7 +33,7 @@ const getInheritGlobalStyle = (
     : value
 
   const globalStylesToken = {
-    storyName: `With${capitalize(key)}s`,
+    storyName: `With${capitalize(key)}s 😁`,
     self: {
       args: designValue.args,
       variants: {
@@ -46,6 +46,7 @@ const getInheritGlobalStyle = (
         field: key,
       },
     },
+    wrapper: designValue.wrapper,
   }
 
   return globalStylesToken
@@ -85,7 +86,8 @@ export const getSelftListTemplateTypes =
   (
     Component: TJSXElements,
     { variants: { examples, field } }: IStoryElement<IVariants>,
-    customPropsStoryWrapper?: TDynamicFields
+    customPropsStoryWrapper?: TDynamicFields,
+    wrapper?: (content: React.ReactNode) => React.ReactNode
   ): ComponentStory<typeof Component> =>
   (args: TDynamicFields): JSX.Element =>
     (
@@ -98,9 +100,17 @@ export const getSelftListTemplateTypes =
             labelStory={label}
             {...customPropsStoryWrapper}
           >
-            <Component
-              {...{ ...args, ...customProps, ...{ [field]: value } }}
-            />
+            {wrapper ? (
+              wrapper(
+                <Component
+                  {...{ ...args, ...customProps, ...{ [field]: value } }}
+                />
+              )
+            ) : (
+              <Component
+                {...{ ...args, ...customProps, ...{ [field]: value } }}
+              />
+            )}
           </TableStories>
         ))}
       </Row>
@@ -140,14 +150,20 @@ export const getStory = (
   self?: IStoryElement<IVariants>,
   parent?: IStoryElement<IParentVariant[]>,
   ParenComponent?: TJSXElements,
-  customPropsStoryWrapper?: TDynamicFields
+  customPropsStoryWrapper?: TDynamicFields,
+  wrapper?: (content: React.ReactNode) => void
 ) => {
   if (!self && !parent) {
     return null
   }
 
   const ListTemplateType: ComponentStory<typeof Component> | null = self
-    ? getSelftListTemplateTypes(Component, self, customPropsStoryWrapper)
+    ? getSelftListTemplateTypes(
+        Component,
+        self,
+        customPropsStoryWrapper,
+        wrapper
+      )
     : parent && ParenComponent
     ? getParentListTemplateTypes(
         Component,
@@ -174,14 +190,15 @@ export const getStories = (
   ParentComponent?: TJSXElements,
   customPropsStoryWrapper?: TDynamicFields
 ) =>
-  storyConfig.map(({ storyName, parent, self }) =>
+  storyConfig.map(({ storyName, parent, self, wrapper }) =>
     getStory(
       Component,
       storyName,
       self,
       parent,
       ParentComponent,
-      customPropsStoryWrapper
+      customPropsStoryWrapper,
+      wrapper
     )
   )
 

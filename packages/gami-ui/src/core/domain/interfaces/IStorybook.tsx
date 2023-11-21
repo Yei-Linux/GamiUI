@@ -33,6 +33,7 @@ export type TMergeAllDesignTypes = TDesignTypes & DynamicDesignTypes
 export interface IDesignValues {
   args: TDynamicFields
   examples?: string[]
+  wrapper?: (content: React.ReactNode) => React.ReactNode
 }
 
 export type IStoryInheritGlobalStyles = Record<
@@ -44,6 +45,7 @@ export interface IStoryConfig {
   storyName: string
   self?: IStoryElement<IVariants>
   parent?: IStoryElement<IParentVariant[]>
+  wrapper?: (content: React.ReactNode) => React.ReactNode
 }
 
 export interface IStoryMainConfig {

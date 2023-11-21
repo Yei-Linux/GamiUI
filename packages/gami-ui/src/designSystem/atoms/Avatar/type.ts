@@ -41,4 +41,7 @@ export type TAvatar = {
   textMode?: TextModeType
 }
 
-export type TAvatarComponent = TAvatar & TDesignTokens & TDesignUI & IUseImage
+export type TAvatarComponent = TAvatar &
+  Omit<TDesignTokens, 'width' | 'height' | 'textAlign' | 'fontWeight'> &
+  TDesignUI &
+  IUseImage

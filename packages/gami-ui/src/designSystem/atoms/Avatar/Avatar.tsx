@@ -19,9 +19,9 @@ const Avatar = ({
   breakpoints,
   textColor,
   borderColor,
+  background,
   zoomMode = 'none',
   textMode = 'firstcapitals',
-  background = 'aliceblue',
   ...genericsProps
 }: TAvatarComponent) => {
   const globalStyles = useMemo(

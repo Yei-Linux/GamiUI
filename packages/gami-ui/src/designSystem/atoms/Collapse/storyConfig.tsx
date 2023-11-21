@@ -318,7 +318,7 @@ const storiesComponent = [
             value: (
               <Avatar
                 rounded="lg"
-                shadow="flat"
+                shadow="primary"
                 src="https://i.imgur.com/vyW3w3r.png"
                 zoomMode="inside"
               />
@@ -329,7 +329,7 @@ const storiesComponent = [
             value: (
               <Avatar
                 rounded="lg"
-                shadow="flat"
+                shadow="primary"
                 src="https://i.imgur.com/lkIgoZP.png"
                 zoomMode="inside"
               />
@@ -340,7 +340,7 @@ const storiesComponent = [
             value: (
               <Avatar
                 rounded="lg"
-                shadow="flat"
+                shadow="primary"
                 src="https://i.imgur.com/IXPZxIr.png"
                 zoomMode="inside"
               />

@@ -9,7 +9,12 @@ import Icon from '../Icon'
 import { avatarProfilesImages, options, withTextExamples } from './constants'
 import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 
-const genericArgTypes = madegenericPropsControl([])
+const genericArgTypes = madegenericPropsControl([
+  'fontWeight',
+  'textAlign',
+  'width',
+  'height',
+])
 
 const storyArgTypes = {
   src: {
@@ -92,7 +97,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Avatar',
+  title: 'Atoms/Avatar 🟢',
   component: Avatar,
   args: {},
   argTypes: storyArgTypes,
@@ -113,30 +118,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       rounded: 'lg',
     },
   },
-  width: {
-    args: {
-      style: {
-        maxWidth: '100px',
-        maxHeight: '100px',
-      },
-      src: avatarProfilesImages.one,
-      height: 'auto',
-      zoomMode: 'inside',
-      rounded: 'lg',
-    },
-  },
-  height: {
-    args: {
-      style: {
-        maxWidth: '100px',
-        maxHeight: '100px',
-      },
-      src: avatarProfilesImages.one,
-      width: 'sm',
-      zoomMode: 'inside',
-      rounded: 'lg',
-    },
-  },
   size: {
     args: {
       style: {
@@ -148,8 +129,6 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       rounded: 'lg',
     },
   },
-  fontWeight: null,
-  textAlign: null,
   margin: {
     args: {
       background: '#F76E11',
@@ -158,6 +137,9 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       rounded: 'lg',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    wrapper: (content: React.ReactNode) => (
+      <div style={{ border: '1px solid #d1d1d1' }}>{content}</div>
+    ),
   },
   padding: {
     args: {
@@ -168,11 +150,15 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
+  fontWeight: null,
+  textAlign: null,
+  width: null,
+  height: null,
 })
 
 const storiesComponent = [
   {
-    storyName: 'WithGroup',
+    storyName: 'WithGroup 🙂',
     parent: {
       args: {
         count: 12,

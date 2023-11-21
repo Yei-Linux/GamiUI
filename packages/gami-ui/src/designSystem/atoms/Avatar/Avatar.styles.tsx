@@ -5,6 +5,7 @@ import { mixinFlexVariants } from 'styles/mixins/flex'
 import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 import { compose } from 'styles/utilities/tools'
 import { PartialBy } from 'core/domain/types/mixins'
+import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 
 export const zoomModeCSS = css({
   '&.zoom__outside,&.zoom__inside': {
@@ -23,41 +24,45 @@ export const flexCSS = mixinFlexVariants({
   alignItems: 'center',
 })
 
-export const CountStyled = styled(Row)({
-  width: '30px',
-  height: '100%',
-  marginLeft: '0.4rem',
-  fontWeight: 'bold',
-})
+const BaseAvatarCSS = (theme: ICustomTheme | undefined) =>
+  css({
+    width: theme?.tokens.sizes.components.avatar.md,
+    height: theme?.tokens.sizes.components.avatar.md,
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  })
+
+type TCountedStyled = {
+  $background?: string
+} & PartialBy<Pick<TWithGlobalStylesUI, 'theme'>, 'theme'>
+export const CountStyled = styled(Row)(
+  ({ $background, theme }: TCountedStyled) => ({
+    fontWeight: theme?.tokens.font.weight.bold,
+    borderRadius: theme?.tokens.sizes.components.avatar.full,
+    background: $background ?? theme?.theme.neutral[500],
+  }),
+  (props) => compose([BaseAvatarCSS(props.theme)])
+)
 
 export type TAvatarStyles = {
   $borderColor?: string
   $textColor?: string
-  $background: string
+  $background?: string
 } & PartialBy<TWithGlobalStylesUI, 'theme'>
 export const AvatarStyled = styled('div')(
-  ({
-    $background,
-    $textColor,
-    $borderColor,
-    ...globalStyles
-  }: TAvatarStyles) => ({
-    background: $background,
-    color: $textColor && $textColor,
-    borderColor: $borderColor && `1px solid ${$borderColor}`,
-    width: globalStyles.theme?.tokens.sizes.components.avatar.md,
-    height: globalStyles.theme?.tokens.sizes.components.avatar.md,
+  ({ $background, $textColor, $borderColor }: TAvatarStyles) => ({
     overflow: 'hidden',
-    '&:hover': {
-      cursor: 'pointer',
-    },
+    borderColor: $borderColor && `1px solid ${$borderColor}`,
+    color: $textColor,
+    background: $background,
   }),
-  (props) => withGlobalStylesUI(props)('avatar'),
-  () => compose([zoomModeCSS, flexCSS])
+  (props) => compose([zoomModeCSS, flexCSS, BaseAvatarCSS(props.theme)]),
+  (props) => withGlobalStylesUI(props)('avatar')
 )
 
 export const AvatarGroupStyled = styled(Row)`
-  ${AvatarStyled} {
+  ${AvatarStyled}, ${CountStyled} {
     margin-left: -5px;
   }
 `
