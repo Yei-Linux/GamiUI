@@ -1,23 +1,10 @@
-import { DateHelper, dateHelper, ICalendarItem } from 'core/helpers/date.helper'
+import { DateHelper } from 'core/helpers/date.helper'
 import { cls } from 'core/utils/cls'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import * as S from './Calendar.styles'
-
-export interface ICalendar {
-  /**
-   * Default Date
-   */
-  defaultDate?: Date
-  /**
-   * Handler on date selection
-   */
-  onDateSelected?: (date?: Date) => void
-
-  daySelected: number
-  handleSelectDay: (dayId: number) => void
-  handleSelectCurrentDate: (date: Date) => void
-  currentDate: Date
-}
+import { TCalendar } from './type'
+import { useCalendar } from './useCalendar'
+import { handleChangeDateByMonth } from './helper'
 
 const Calendar = React.forwardRef(
   (
@@ -26,49 +13,16 @@ const Calendar = React.forwardRef(
       currentDate,
       handleSelectDay,
       daySelected,
-    }: ICalendar,
+    }: TCalendar,
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
-    const [weeks, setWeeks] = useState<number>(0)
-    const [calendar, setCalendar] = useState<ICalendarItem[]>([])
-    const [month, setMonth] = useState<string>('')
-    const [year, setYear] = useState<number>(0)
+    const { weeks, calendar, month, year } = useCalendar({ currentDate })
 
-    const handleChangeDateByMonth = (type: 'prev' | 'next') => {
-      const currentDateCloned = new Date(currentDate.getTime())
-      const currentMonth = currentDateCloned.getMonth()
+    const prevMonth = () =>
+      handleChangeDateByMonth('prev', currentDate, handleSelectCurrentDate)
 
-      const monthOperation = currentMonth + (type === 'prev' ? -1 : +1)
-      currentDateCloned.setMonth(monthOperation)
-
-      handleSelectCurrentDate(currentDateCloned)
-    }
-
-    const handleCalendar = () => {
-      const weekDays = dateHelper({ date: currentDate }).getWeeksByMonth()
-      const { calendar } = dateHelper({
-        date: currentDate,
-      }).getCalendar()
-      const monthName = dateHelper({ date: currentDate }).monthName
-      const year = dateHelper({ date: currentDate }).year
-
-      setWeeks(weekDays)
-      setCalendar(calendar)
-      setMonth(monthName)
-      setYear(year)
-    }
-
-    useEffect(() => {
-      handleCalendar()
-    }, [])
-
-    useEffect(() => {
-      handleCalendar()
-    }, [currentDate])
-
-    const prevMonth = () => handleChangeDateByMonth('prev')
-
-    const nextMonth = () => handleChangeDateByMonth('next')
+    const nextMonth = () =>
+      handleChangeDateByMonth('next', currentDate, handleSelectCurrentDate)
 
     return (
       <S.Calendar ref={ref}>

@@ -80,20 +80,18 @@ export const Section = styled.div`
   ${flex({ alignItems: 'center' })}
 `
 
-export const Panel = styled.div`
-  background-color: ${lightTheme.neutral[800]};
-  padding: 1rem;
-  border-radius: 0.4em;
-  width: 300px;
-  max-width: 300px;
-
-  background: white;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-`
+export const Panel = styled('div')(() => ({
+  backgroundColor: lightTheme.neutral[800],
+  padding: '1rem',
+  width: '300px',
+  maxWidth: '300px',
+  background: 'white',
+  boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
+  backdropFilter: 'blur(4px)',
+  '-webkit-backdrop-filter': 'blur(4px)',
+  borderRadius: '10px',
+  border: '1px solid rgba(255, 255, 255, 0.18)',
+}))
 
 export const ScrollBar = () => css`
   overflow: auto;
