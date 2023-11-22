@@ -89,7 +89,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Collapse',
+  title: 'Atoms/Collapse 🟢',
   component: Collapse,
   args: {},
   argTypes: storyArgTypes,
@@ -101,7 +101,7 @@ const textContentMock = () => (
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   rounded: {
     args: {
-      style: { maxWidth: '300px' },
+      style: { maxWidth: '300px', overflow: 'hidden' },
       title: <Title level="h3">Title</Title>,
       subtitle: 'Subtitle',
       children: textContentMock(),
@@ -125,6 +125,9 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       shadow: 'xs',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    wrapper: (content: React.ReactNode) => (
+      <div style={{ border: '1px solid #d1d1d1' }}>{content}</div>
+    ),
   },
   padding: {
     args: {
@@ -145,7 +148,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithGroupAndDivider',
+    storyName: 'WithGroupAndDivider 🙂',
     parent: {
       args: { divider: true },
       variants: [
@@ -160,7 +163,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithGroupAndNotDivider',
+    storyName: 'WithGroupAndNotDivider 🙂',
     parent: {
       args: { divider: false },
       variants: [
@@ -175,7 +178,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithGroupAndAccordion',
+    storyName: 'WithGroupAndAccordion 🙂',
     parent: {
       args: { accordion: true },
       variants: [
@@ -190,7 +193,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithTitle',
+    storyName: 'WithTitle 🙂',
     self: {
       args: {
         children: textContentMock(),
@@ -215,7 +218,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithSubTitle',
+    storyName: 'WithSubTitle 🙂',
     self: {
       args: {
         title: <Title level="h3">Title</Title>,
@@ -241,7 +244,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithExpanded',
+    storyName: 'WithExpanded 🙂',
     self: {
       args: {
         title: <Title level="h3">Title</Title>,
@@ -264,7 +267,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithVariants',
+    storyName: 'WithVariants 🙂',
     self: {
       args: {
         title: <Title level="h2">Title</Title>,
@@ -285,7 +288,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithBordered',
+    storyName: 'WithBordered 🙂',
     self: {
       args: {
         title: <Title level="h2">Title</Title>,
@@ -304,7 +307,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithContentLeft',
+    storyName: 'WithContentLeft 🙂',
     self: {
       args: {
         title: <Title level="h3">Title</Title>,
@@ -359,6 +362,12 @@ const storyConfig = getStoryConfigStructure({
   storiesComponent,
   component: Collapse,
   parentComponent: Collapse.Group,
+  customPropsStoryWrapper: {
+    style: {
+      width: '100%',
+      justifyContent: 'space-around',
+    },
+  },
 })
 
 export { storyConfig, argTypes }

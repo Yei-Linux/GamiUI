@@ -186,7 +186,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithImage',
+    storyName: 'WithImage 🙂',
     self: {
       args: {
         zoomMode: 'inside',
@@ -203,7 +203,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithText',
+    storyName: 'WithText 🙂',
     self: {
       args: {},
       variants: {
@@ -213,7 +213,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithIcon',
+    storyName: 'WithIcon 🙂',
     self: {
       args: {
         background: 'white',
@@ -227,11 +227,11 @@ const storiesComponent = [
           },
           {
             label: 'Icon 2',
-            value: <Icon size="25px" name="facebook" />,
+            value: <Icon size="25px" name="brain" />,
           },
           {
             label: 'Icon 3',
-            value: <Icon size="25px" name="facebook" />,
+            value: <Icon size="25px" name="camera" />,
           },
         ],
         field: 'icon',
@@ -239,7 +239,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithAlt',
+    storyName: 'WithAlt 🙂',
     self: {
       args: {
         background: '#F76E11',
@@ -267,7 +267,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithSetsAndBreakpoints',
+    storyName: 'WithSetsAndBreakpoints 🙂',
     self: {
       args: {
         breakpoints: [
@@ -296,7 +296,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithZoomMode',
+    storyName: 'WithZoomMode 🙂',
     self: {
       args: {
         background: '#F76E11',
@@ -312,7 +312,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithTextMode',
+    storyName: 'WithTextMode 🙂',
     self: {
       args: {
         text: 'Jesus Alvan',

@@ -1,32 +1,10 @@
-import React, { Fragment } from 'react'
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { ButtonHtmlType } from 'core/domain/types'
+import React, { useMemo } from 'react'
 import * as S from './Button.styles'
 import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
-import Spacer from 'designSystem/layouts/Spacer'
 import withDefaults from 'hocs/WithDefault'
-import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
-import { IComponentsVariant } from 'core/domain/interfaces/IComponentsVariant'
-
-export interface IButton extends IGeneralProps, IComponentsVariant {
-  /**
-   * 	Display button content
-   */
-  children: React.ReactNode
-  /**
-   * 	Display prefix Content button
-   */
-  preffix?: React.ReactNode
-  /**
-   * Set html button types
-   */
-  type?: ButtonHtmlType
-  /**
-   * Display theme button variants
-   */
-  disable?: boolean
-}
+import { TButtonComponent } from './type'
+import { ButtonPreffixer } from './ButtonPreffixer'
 
 const Button = ({
   children,
@@ -39,41 +17,29 @@ const Button = ({
   flat = false,
   light = false,
   ...genericsProps
-}: IButton) => {
-  const { handles } = useCssHandle({
-    classes: {
-      wrapper: ['wrapper'],
-      spacer__container: ['spacer__container'],
-    },
-    componentPrefixCls: 'button',
-    customPrexiCls: genericsProps.className,
-  })
+}: TButtonComponent) => {
+  const globalStyles = useMemo(
+    () => getGenericPropStyles(genericsProps),
+    [genericsProps]
+  )
 
   return (
-    <S.Button
-      {...getGenericPropStyles(genericsProps)}
+    <S.ButtonStyled
+      {...globalStyles}
       $variant={variant}
       $bordered={bordered}
       $ghost={ghost}
       $flat={flat}
       $light={light}
       type={type}
-      className={cls(handles.wrapper, genericsProps?.className ?? '', {
+      className={cls(genericsProps?.className ?? '', {
         disabled: disable,
         enabled: !disable,
       })}
     >
-      {preffix && (
-        <Fragment>
-          {preffix}
-          <Spacer
-            className={cls(handles.spacer__container)}
-            direction="right"
-          />
-        </Fragment>
-      )}
+      {preffix && <ButtonPreffixer preffix={preffix} />}
       {children}
-    </S.Button>
+    </S.ButtonStyled>
   )
 }
 
@@ -90,4 +56,7 @@ type ButtonComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }
 
-export default withDefaults(Button, defaultProps) as ButtonComponent<IButton>
+export default withDefaults(
+  Button,
+  defaultProps
+) as ButtonComponent<TButtonComponent>

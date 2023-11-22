@@ -33,7 +33,7 @@ export const setGenericPropStyles = (
     ${margin && builderSpacersByDevice(margin, 'margin')}
 `
 
-interface IDynamicPropStyles {
+export interface IDynamicPropStyles {
   [key: string]: string | React.CSSProperties | React.MouseEventHandler<unknown>
 }
 

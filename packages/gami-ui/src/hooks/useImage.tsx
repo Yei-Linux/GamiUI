@@ -36,32 +36,30 @@ const useImage = ({ sets, breakpoints }: IUseImage) => {
   const [setsImg, setSetsImg] = useState<string>('')
   const [breakpointsImg, setBreaktpointsImg] = useState<string>('')
 
-  const handleSetsImg = () => {
-    if (!sets) return
-    if (sets.length == 0) return
-    const setsGenerated = sets.map(({ setSrc, setWidth }) => {
-      return `${setSrc} ${setWidth}`
-    })
-
-    setSetsImg(setsGenerated.join(','))
+  const handleSetsImgAttributeFormated = () => {
+    if (!sets?.length) return
+    const setsGenerated = sets.map(
+      ({ setSrc, setWidth }) => `${setSrc} ${setWidth}`
+    )
+    const formattedSetsImg = setsGenerated.join(',')
+    setSetsImg(formattedSetsImg)
   }
 
-  const handleBreakpointsImg = () => {
-    if (!breakpoints) return
-    if (breakpoints.length == 0) return
+  const handleBreakpointsImgAttributeFormated = () => {
+    if (!breakpoints?.length) return
     const sizesGenerated = breakpoints.map(({ mediaMaxWidth, size }) => {
       const widthGenerated = mediaMaxWidth
         ? `(max-width: ${mediaMaxWidth}) `
         : ''
       return `${widthGenerated}${size}`
     })
-
-    setBreaktpointsImg(sizesGenerated.join(','))
+    const formattedSetsBreakpoints = sizesGenerated.join(',')
+    setBreaktpointsImg(formattedSetsBreakpoints)
   }
 
   const handle = () => {
-    handleSetsImg()
-    handleBreakpointsImg()
+    handleSetsImgAttributeFormated()
+    handleBreakpointsImgAttributeFormated()
   }
 
   useEffect(() => {

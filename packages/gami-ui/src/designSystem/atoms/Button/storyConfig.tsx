@@ -90,7 +90,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Button',
+  title: 'Atoms/Button 🟢',
   component: Button,
   args: {},
   argTypes: storyArgTypes,
@@ -143,6 +143,9 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       children: 'Gami Button',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    wrapper: (content: React.ReactNode) => (
+      <div style={{ border: '1px solid #d1d1d1' }}>{content}</div>
+    ),
   },
   padding: {
     args: {
@@ -154,11 +157,11 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithDisable',
+    storyName: 'WithDisable 🙂',
     self: {
       args: {
         children: 'Gami Button',
-        shadow: 'flat',
+        shadow: 'sm',
       },
       variants: {
         examples: [
@@ -176,7 +179,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithVariants',
+    storyName: 'WithVariants 🙂',
     self: {
       args: {
         children: 'Gami Button',
@@ -195,7 +198,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithBordered',
+    storyName: 'WithBordered 🙂',
     self: {
       args: {
         children: 'Gami Button',
@@ -212,7 +215,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithGhost',
+    storyName: 'WithGhost 🙂',
     self: {
       args: {
         children: 'Gami Button',
@@ -229,7 +232,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithLight',
+    storyName: 'WithLight 🙂',
     self: {
       args: {
         children: 'Gami Button',
@@ -247,7 +250,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithFlat',
+    storyName: 'WithFlat 🙂',
     self: {
       args: {
         children: 'Gami Button',
@@ -265,7 +268,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithPreffix',
+    storyName: 'WithPreffix 🙂',
     self: {
       args: {
         children: 'Gami Button',
@@ -278,15 +281,15 @@ const storiesComponent = [
         examples: [
           {
             label: 'Icon 1',
-            value: <Icon color="none" size="25px" name="edit" />,
+            value: <Icon size="25px" name="edit" />,
           },
           {
             label: 'Icon 2',
-            value: <Icon color="none" size="25px" name="edit" />,
+            value: <Icon size="25px" name="edit" />,
           },
           {
             label: 'Icon 3',
-            value: <Icon color="none" size="25px" name="edit" />,
+            value: <Icon size="25px" name="edit" />,
           },
         ],
         field: 'preffix',
@@ -294,7 +297,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithHtmlButtonTypes',
+    storyName: 'WithHtmlButtonTypes 🙂',
     self: {
       args: {
         children: 'Gami Button',

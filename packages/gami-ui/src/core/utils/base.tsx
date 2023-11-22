@@ -19,7 +19,7 @@ export type TWithGlobalStylesUI = {
   $fontWeight?: FontWeightType
   $padding?: string
   $margin?: string
-  theme: ICustomTheme
+  theme?: ICustomTheme
 }
 export const withGlobalStylesUI =
   ({
@@ -34,6 +34,7 @@ export const withGlobalStylesUI =
     $padding,
   }: TWithGlobalStylesUI) =>
   (component?: InheritStyleComponent) =>
+    theme &&
     setGenericPropStyles(
       theme,
       {

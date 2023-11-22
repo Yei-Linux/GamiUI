@@ -10,6 +10,7 @@ interface IMixinComponentsTheme extends IComponentsVariant {
   element: 'button' | 'link' | 'card' | 'collapse'
 }
 
+//TODO: Implement contrast detector dynamically
 export const mixinComponentsTheme = ({
   emotionTheme,
   typeStyle,
@@ -20,8 +21,7 @@ export const mixinComponentsTheme = ({
   flat = false,
 }: IMixinComponentsTheme) => {
   const { componentsTheme } = emotionTheme
-
-  if (!componentsTheme) return ``
+  if (!componentsTheme) return css``
 
   const { color, bg, border, flatbg } = componentsTheme[element][typeStyle]
 
@@ -29,27 +29,23 @@ export const mixinComponentsTheme = ({
   const colorCondition = [bordered, ghost, light, flat].includes(true)
   const borderCondition = [bordered, ghost].includes(true)
 
+  const contrastColors = ['white', '#FFFFFF'].includes(bg) ? '#000000' : bg
+
+  const backgroundValueCSS = bgCondition ? 'white' : flat ? flatbg : bg
+  const colorValueCSS = colorCondition ? contrastColors : color
+  const borderValueCSS = `${border} solid ${
+    borderCondition ? contrastColors : flat ? flatbg : bg
+  }`
+
   return css`
-    background: ${bgCondition ? 'white' : flat ? flatbg : bg};
-    color: ${colorCondition
-      ? ['white', '#FFFFFF'].includes(bg)
-        ? '#000000'
-        : bg
-      : color};
-    border: ${`1px solid ${
-      borderCondition
-        ? ['white', '#FFFFFF'].includes(bg)
-          ? '#000000'
-          : bg
-        : flat
-        ? flatbg
-        : border
-    }`};
+    background: ${backgroundValueCSS};
+    color: ${colorValueCSS};
+    border: ${borderValueCSS};
 
     &:hover {
       ${validatorProperty('background', bg, ghost)}
       ${validatorProperty('color', color, ghost)}
-      ${validatorProperty('border', `1px solid ${border}`, ghost)}
+      ${validatorProperty('border', `${border} solid ${bg}`, ghost)}
     }
   `
 }

@@ -37,11 +37,11 @@ export const sizes = {
         width: '5rem',
       },
       sm: {
-        height: '2rem',
+        height: '2.3rem',
         width: '7rem',
       },
       md: {
-        height: '2.5rem',
+        height: '2.8rem',
         width: '9rem',
       },
       lg: {

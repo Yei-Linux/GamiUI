@@ -1,67 +1,38 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
-import { IImagePropStyles } from './Image'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
+import { PartialBy } from 'core/domain/types/mixins'
+import { TImageComponent, TImagePropStyles } from './type'
 
-const imagePropsStyles = ({
+const commonImgCSS = ({
   width,
-  height,
-  maxWidth,
   minWidth,
-  maxHeight,
+  maxWidth,
+  height,
   minHeight,
-}: IImagePropStyles) => css`
-  width: ${width};
-  height: ${height};
-  max-width: ${maxWidth};
-  min-width: ${minWidth};
-  max-height: ${maxHeight};
-  min-height: ${minHeight};
-`
+  maxHeight,
+}: TImagePropStyles) =>
+  css({ width, minWidth, maxWidth, height, minHeight, maxHeight })
 
-export const Img = InheritGlobalStylesComponent(styled.img<{
-  maxWidth?: string
-  maxHeight?: string
-  minWidth?: string
-  minHeight?: string
-  width?: string
-  height?: string
-}>`
-  ${({ maxHeight, maxWidth, minHeight, minWidth, width, height }) =>
-    imagePropsStyles({
-      maxHeight,
-      maxWidth,
-      minHeight,
-      minWidth,
-      width,
-      height,
-    })};
-`)
+export type TLinkImgPropsStyles = PartialBy<TWithGlobalStylesUI, 'theme'>
+export const LinkImgStyled = styled('a')((props: TLinkImgPropsStyles) =>
+  withGlobalStylesUI(props)()
+)
 
-export const BackgroundImg = InheritGlobalStylesComponent(styled.div<{
-  src: string
-  maxWidth?: string
-  maxHeight?: string
-  minWidth?: string
-  minHeight?: string
-  width?: string
-  height?: string
-  backgroundSize?: 'cover' | 'contain'
-}>`
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url(${({ src }) => src});
-  background-size: ${({ backgroundSize }) => backgroundSize};
+export const ImgStyled = styled('img')((props: TImagePropStyles) =>
+  commonImgCSS(props)
+)
 
-  ${({ maxHeight, maxWidth, minHeight, minWidth, width, height }) =>
-    imagePropsStyles({
-      maxHeight,
-      maxWidth,
-      minHeight,
-      minWidth,
-      width,
-      height,
-    })};
-`)
-
-export const LinkImg = InheritGlobalStylesComponent(styled.a``)
+type TBackgroundImgStyledProps = TImagePropStyles &
+  Pick<TImageComponent, 'src' | 'backgroundSize'> &
+  PartialBy<TWithGlobalStylesUI, 'theme'>
+export const BackgroundImgStyled = styled('img')(
+  ({ src, backgroundSize }: TBackgroundImgStyledProps) => ({
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    backgroundImmage: `url(${src})`,
+    backgroundSize,
+  }),
+  (props: TBackgroundImgStyledProps) => commonImgCSS(props),
+  (props) => withGlobalStylesUI(props)('avatar')
+)
