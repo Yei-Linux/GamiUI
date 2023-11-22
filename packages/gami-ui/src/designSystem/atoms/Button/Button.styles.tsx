@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
-import { mixinFlexVariants } from 'styles/mixins/flex'
+import { flex } from 'styles/mixins/flex'
 import { ComponentThemeType } from 'core/domain/types'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
 import { PartialBy } from 'core/domain/types/mixins'
 import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 import { compose } from 'styles/utilities/tools'
 
-const flexCSS = mixinFlexVariants({
+const flexCSS = flex({
   justifyContent: 'center',
   alignItems: 'center',
 })

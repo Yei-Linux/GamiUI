@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { DirectionMessageType } from 'core/domain/types'
-import { mixinFlexVariants } from 'styles/mixins/flex'
+import { flex } from 'styles/mixins/flex'
 import { spacing } from 'styles/tokens'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
 const messageDirectionLeft = (
   background: string,
@@ -23,7 +23,7 @@ const messageDirectionRight = (
   right: ${type == 'before' ? '-17px' : '-15px'};
 `
 
-export const Message = InheritGlobalStylesComponent(styled.div<{
+export const Message = WithDesignStyledComponent(styled.div<{
   $direction: DirectionMessageType
   $background: string
   $color?: string
@@ -39,7 +39,7 @@ export const Message = InheritGlobalStylesComponent(styled.div<{
   min-height: 50px;
   padding: ${spacing.padding.md};
 
-  ${mixinFlexVariants({ alignItems: 'center' })}
+  ${flex({ alignItems: 'center' })}
 
   &.marker {
     &::after,

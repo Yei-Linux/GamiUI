@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react'
 import * as S from './Avatar.styles'
 
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
-
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
+import { maxSizeLetters } from './constants'
 import AvatarGroup from './AvatarGroup'
 import { TAvatarComponent } from './type'
-import { maxSizeLetters } from './constants'
 import { renderContent } from './utils'
 
 const Avatar = ({
@@ -25,13 +25,21 @@ const Avatar = ({
   ...genericsProps
 }: TAvatarComponent) => {
   const globalStyles = useMemo(
-    () => getGenericPropStyles(genericsProps),
+    () => getDesignProps(genericsProps),
     [genericsProps]
   )
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      image__container: ['image__container'],
+    },
+    componentPrefixCls: 'avatar',
+    customPrexiCls: genericsProps.className,
+  })
 
   return (
     <S.AvatarStyled
-      className={cls(genericsProps?.className ?? '', {
+      className={cls(handles.wrapper, {
         zoom__outside: zoomMode == 'outside',
         zoom__inside: zoomMode == 'inside',
       })}

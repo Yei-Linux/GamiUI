@@ -7,17 +7,11 @@ export interface IAvatarGroup {
   counterBackground?: string
 }
 
-const AvatarGroup = ({
-  children,
-  count,
-  counterBackground,
-}: IAvatarGroup) => {
+const AvatarGroup = ({ children, count, counterBackground }: IAvatarGroup) => {
   return (
     <S.AvatarGroupStyled>
       {children}
-      {count && (
-        <S.CountStyled $background={counterBackground}>+{count}</S.CountStyled>
-      )}
+      {count && <S.CountStyled $background={counterBackground}>+{count}</S.CountStyled>}
     </S.AvatarGroupStyled>
   )
 }

@@ -8,7 +8,7 @@ import { defaultTheme } from 'styles/tokens'
 import * as S from './Progress.styles'
 import ProgressBar from './ProgressBar'
 import ProgressCircle from './ProgressCircle'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import { timeout } from 'core/helpers/utilities.helper'
 import { TIMEOUT_PERCENT_RENDER } from './constants'
 
@@ -94,7 +94,7 @@ const Progress = ({
         bar: type == 'bar',
         circle: type == 'circle',
       })}
-      {...getGenericPropStyles(genericsProps)}
+      {...getDesignProps(genericsProps)}
     >
       {type == 'bar' && (
         <ProgressBar

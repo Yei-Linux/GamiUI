@@ -5,7 +5,7 @@ import * as S from './RichText.styles'
 import marked, { Renderer } from 'marked'
 import useIsMounted from 'hooks/useIsMounted'
 import { sanitizeLink } from './helper'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
@@ -50,7 +50,7 @@ const RichText = ({ text, ...genericsProps }: IRichText) => {
   return (
     <S.RichText
       className={cls(handles.wrapper, genericsProps?.className ?? '')}
-      {...getGenericPropStyles(genericsProps)}
+      {...getDesignProps(genericsProps)}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
 export const CloseIcon = styled.div`
   position: absolute;
@@ -7,7 +7,7 @@ export const CloseIcon = styled.div`
   right: 10px;
 `
 
-export const Drawer = InheritGlobalStylesComponent(styled.div<{
+export const Drawer = WithDesignStyledComponent(styled.div<{
   $zIndex: number
   $width: number
   $height: number

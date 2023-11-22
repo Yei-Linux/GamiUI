@@ -1,6 +1,3 @@
-import { TextModeType } from 'core/domain/types'
-import { REGEX_RULES } from 'core/utils/constants'
-
 export const options = {
   type: [] as const,
   zoomMode: ['outside', 'inside', 'none'] as const,
@@ -9,7 +6,7 @@ export const options = {
 
 export const maxSizeLetters = 3
 
-export const avatarTextModes: Record<TextModeType, keyof typeof REGEX_RULES> = {
+export const avatarTextModes = {
   firstcapitals: 'CATCH_FIRST_LETTERS',
   twofirstchars: 'CATCH_TWO_FIRST_CHARACTERS',
   threefirstchars: 'CATCH_THREE_FIRST_CHARACTERS',

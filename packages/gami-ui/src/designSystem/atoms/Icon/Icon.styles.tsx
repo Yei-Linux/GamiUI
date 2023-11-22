@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { mixinFlexVariants } from 'styles/mixins/flex'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { flex } from 'styles/mixins/flex'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const Icon = InheritGlobalStylesComponent(styled.i<{
+export const Icon = WithDesignStyledComponent(styled.i<{
   theme?: ICustomTheme
 }>`
   outline: none;
@@ -16,7 +16,7 @@ export const Icon = InheritGlobalStylesComponent(styled.i<{
     }
   }
 
-  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
+  ${flex({ justifyContent: 'center', alignItems: 'center' })};
 `)
 
 export const Svg = styled.svg``

@@ -3,7 +3,7 @@ import withDefaults from 'hocs/WithDefault'
 import useImage from 'hooks/useImage'
 import React, { Fragment, useMemo } from 'react'
 import * as S from './Image.styles'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import { TImageComponent } from './type'
 import { ImageConditional } from './ImageConditional'
 
@@ -25,7 +25,7 @@ const Image = ({
 }: TImageComponent) => {
   const { setsImg, breakpointsImg } = useImage({ sets, breakpoints })
   const globalStyles = useMemo(
-    () => getGenericPropStyles(genericsProps),
+    () => getDesignProps(genericsProps),
     [genericsProps]
   )
   const optimizationImgSizes = {

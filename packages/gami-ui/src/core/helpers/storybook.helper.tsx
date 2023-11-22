@@ -151,7 +151,7 @@ export const getStory = (
   parent?: IStoryElement<IParentVariant[]>,
   ParenComponent?: TJSXElements,
   customPropsStoryWrapper?: TDynamicFields,
-  wrapper?: (content: React.ReactNode) => void
+  wrapper?: (content: React.ReactNode) => React.ReactNode
 ) => {
   if (!self && !parent) {
     return null

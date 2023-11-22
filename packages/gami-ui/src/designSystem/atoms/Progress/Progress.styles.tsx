@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { mixinFlexVariants } from 'styles/mixins/flex'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { flex } from 'styles/mixins/flex'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const Progress = InheritGlobalStylesComponent(styled.div<{
+export const Progress = WithDesignStyledComponent(styled.div<{
   $backgroundProgressBar?: string
   $maxWidth: string
   $maxHeight: string
@@ -46,7 +46,7 @@ export const ProgressPercent = styled.div<{
   $backgroundProgress?: string
   theme?: ICustomTheme
 }>`
-  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+  ${flex({ justifyContent: 'center', alignItems: 'center' })}
 
   width: ${({ $percent }) => `${$percent}%`};
   background-color: ${({ $backgroundProgress, theme }) =>
@@ -79,7 +79,7 @@ export const ProgressText = styled.span`
   margin: 0;
   padding: 0;
 
-  ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })}
+  ${flex({ justifyContent: 'center', alignItems: 'center' })}
 
   font-size: 75%;
 `

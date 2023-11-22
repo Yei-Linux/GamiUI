@@ -12,7 +12,7 @@ import withDefaults from 'hocs/WithDefault'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import Portal from 'hooks/Portal'
 import { DrawerPlacementTypes } from 'core/domain/types'
 import Icon from 'designSystem/atoms/Icon'
@@ -137,7 +137,7 @@ const Drawer = ({
                   top: placement == 'top',
                   bottom: placement == 'bottom',
                 })}
-                {...getGenericPropStyles(genericsProps)}
+                {...getDesignProps(genericsProps)}
               >
                 {hasCloseIcon && (
                   <S.CloseIcon className={cls(handles.drawer__icon__container)}>

@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/Modal Basic 1`] = `
+<div>
+  <button
+    className="css-1ru1eiv-ButtonWrapper ekfoxpm0"
+    onClick={[Function]}
+    type="submit"
+    width="SMALL"
+  >
+    Show Modal
+  </button>
+  <div
+    className="css-1zg4yv-ModalWrapper eje9c9k0"
+  >
+    <div
+      className="css-1528g5q-MaskWrapper e1qqpb1u0"
+    />
+    <div
+      className="css-193xukr-ModalDialog eje9c9k1"
+    >
+      <div
+        className="css-u01hii-ModalContainer eje9c9k2"
+      >
+        <div
+          className="css-1ayc9ds-ModalHeader eje9c9k3"
+        >
+          <div
+            className="css-a72bgn-Left e1skj02x0"
+          >
+            <div
+              className="css-144j0q-TitleContainer etn7vk90"
+            >
+              Title
+            </div>
+          </div>
+          <div
+            className="css-mgn85a-Right e1skj02x1"
+          >
+            <i
+              className="css-6tw2qr-IconWrapper e1cr9qb30"
+              onClick={[Function]}
+            >
+              <svg
+                fill="#7868e6"
+                height="15px"
+                viewBox="0 0 329.26933 329"
+                width="15px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0"
+                />
+              </svg>
+            </i>
+          </div>
+        </div>
+        <div
+          className="css-wu8ba1-ModalContent eje9c9k5"
+        >
+          <p
+            style={
+              Object {
+                "padding": "1rem",
+              }
+            }
+          >
+            Hola como estas
+          </p>
+        </div>
+        <div
+          className="css-p70500-ModalFooter eje9c9k4"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

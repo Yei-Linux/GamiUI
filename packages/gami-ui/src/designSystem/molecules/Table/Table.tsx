@@ -1,63 +1,45 @@
 import React from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { IDynamicObjectWithField } from 'core/domain/interfaces/common'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 
 import * as S from './Table.styles'
-import RichText from 'designSystem/atoms/RichText'
 import { cls } from 'core/utils/cls'
+import { Header } from './Header'
+import { Body } from './Body'
+import { Column } from './Column'
+import { Row } from './Row'
+import { Cell } from './Cell'
+import { TPagination } from './TPagination'
+import { Footer } from './Footer'
 
-interface IColumn {
+export interface IColumn {
   title: string
   dataIndex: string
   render?: (props: string) => React.ReactNode
 }
 
 export interface ITable extends IGeneralProps {
-  columns: IColumn[]
-  data: IDynamicObjectWithField[]
+  children: React.ReactNode
 }
 
-const Table = ({ columns, data, ...genericsProps }: ITable) => {
-  const findRenderByColumn = (key: string, value: string) => {
-    const column: IColumn | undefined = columns.find(
-      ({ dataIndex }) => dataIndex == key
-    )
-    return column?.render ? column?.render(value) : <RichText text={value} />
-  }
-
+const Table = ({ children, ...genericsProps }: ITable) => {
   return (
-    <S.Table
+    <S.TableContainer
       className={cls(genericsProps?.className ?? '')}
-      {...getGenericPropStyles(genericsProps)}
+      {...getDesignProps(genericsProps)}
     >
-      <S.TableContainer>
-        <S.TableHeader>
-          <S.TableHeaderRow>
-            {columns.map((column: IColumn, index: number) => (
-              <S.TableHeaderColumn key={index}>
-                {column.title}
-              </S.TableHeaderColumn>
-            ))}
-          </S.TableHeaderRow>
-        </S.TableHeader>
-
-        <S.TableBody>
-          {data.map((row: any, index: number) => (
-            <S.TableBodyRow key={index}>
-              {Object.keys(row).map((column: any, index: number) => (
-                <S.TableBodyColumn key={index}>
-                  {findRenderByColumn(column, row[column])}
-                </S.TableBodyColumn>
-              ))}
-            </S.TableBodyRow>
-          ))}
-        </S.TableBody>
-      </S.TableContainer>
-    </S.Table>
+      <S.Table>{children}</S.Table>
+    </S.TableContainer>
   )
 }
 
 Table.displayName = 'Table'
+Table.Header = Header
+Table.Body = Body
+Table.Column = Column
+Table.Row = Row
+Table.Cell = Cell
+Table.Pagination = TPagination
+Table.Footer = Footer
 
 export default Table

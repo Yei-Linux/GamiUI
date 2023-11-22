@@ -1,7 +1,7 @@
 import React from 'react'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import * as S from './Title.styles'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
@@ -33,7 +33,7 @@ const Title = React.forwardRef(
         ref={ref}
         className={cls(handles.wrapper, genericsProps?.className ?? '')}
         as={level}
-        {...getGenericPropStyles(genericsProps)}
+        {...getDesignProps(genericsProps)}
       >
         {children}
       </S.Title>

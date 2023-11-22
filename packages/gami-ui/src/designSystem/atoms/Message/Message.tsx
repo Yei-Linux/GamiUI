@@ -1,5 +1,5 @@
 import React from 'react'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import * as S from './Message.styles'
 import { defaultTheme } from 'styles/tokens'
@@ -65,7 +65,7 @@ const Message = ({
         directionLeft: hasMarker && direction == 'left',
         directionRight: hasMarker && direction == 'right',
       })}
-      {...getGenericPropStyles(genericsProps)}
+      {...getDesignProps(genericsProps)}
     >
       {text}
     </S.Message>

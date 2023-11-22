@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
 
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const RichText = InheritGlobalStylesComponent(styled.div``, 'text')
+export const RichText = WithDesignStyledComponent(styled.div``, 'text')

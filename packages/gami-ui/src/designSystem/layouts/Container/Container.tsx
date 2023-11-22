@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './Container.styles'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
@@ -11,6 +11,7 @@ export interface IContainer extends IGeneralProps {
    * Container type
    */
   as?: keyof JSX.IntrinsicElements
+  dangerouslySetInnerHTML?: string
   /**
    * Content
    */
@@ -26,13 +27,22 @@ const Container = ({ children, as, ...genericsProps }: IContainer) => {
     customPrexiCls: genericsProps?.className,
   })
 
+  const dangerousField = genericsProps.dangerouslySetInnerHTML
+    ? {
+        dangerouslySetInnerHTML: {
+          __html: genericsProps.dangerouslySetInnerHTML,
+        },
+      }
+    : {}
+
   return (
     <S.Container
       className={cls(handles.wrapper, genericsProps?.className ?? '')}
       as={as}
-      {...getGenericPropStyles(genericsProps)}
+      {...getDesignProps(genericsProps)}
+      {...dangerousField}
     >
-      {children}
+      {genericsProps.dangerouslySetInnerHTML ? undefined : children}
     </S.Container>
   )
 }

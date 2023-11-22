@@ -8,7 +8,7 @@ import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import withDefaults from 'hocs/WithDefault'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 
 type TGenericStylesEmpty = Omit<
   IGeneralProps,
@@ -62,7 +62,7 @@ const Empty = ({
   })
 
   return (
-    <S.Empty {...getGenericPropStyles(genericsProps)}>
+    <S.Empty {...getDesignProps(genericsProps)}>
       <Row
         className={cls(handles.icon__wrapper, genericsProps?.className ?? '')}
       >

@@ -4,7 +4,7 @@ import withDefaults from 'hocs/WithDefault'
 import React, { useMemo } from 'react'
 import Icon from '../Icon'
 import * as S from './Collapse.styles'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import useCollapseStore from 'hooks/store/useCollapseStore'
 import CollapseGroup from './CollapseGroup'
 import { TCollapseComponent } from './type'
@@ -27,7 +27,7 @@ const Collapse = ({
   const { childrenHeight, childrenRef } = useHeight()
   const store = useCollapseStore()
   const globalStyles = useMemo(
-    () => getGenericPropStyles(genericsProps),
+    () => getDesignProps(genericsProps),
     [genericsProps]
   )
 

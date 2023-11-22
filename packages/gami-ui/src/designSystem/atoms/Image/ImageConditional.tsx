@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import * as S from './Image.styles'
 import { TImageComponent, TImageLinkNul } from './type'
-import { IDynamicPropStyles } from 'styles/utilities/genericPropStyles'
 import { cls } from 'core/utils/cls'
+import { IDynamicPropStyles } from 'styles/utilities/genericPropStyles'
 
 export type TImageCommonsProps = {
   srcset: string

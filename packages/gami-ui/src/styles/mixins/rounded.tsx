@@ -7,9 +7,11 @@ export const mixinRounded = (
   rounded: RoundedType
 ) => {
   if (!themeGlobal) return css``
+
   const { tokens } = themeGlobal
 
   const tokenValue = tokens.rounded[rounded]
+
   if (!tokenValue) return css``
 
   return css`

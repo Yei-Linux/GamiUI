@@ -1,5 +1,5 @@
 import React from 'react'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import * as S from './Link.styles'
 import { IComponentsVariant } from 'core/domain/interfaces/IComponentsVariant'
@@ -56,7 +56,7 @@ const Link = ({
       $ghost={ghost}
       $flat={flat}
       $light={light}
-      {...getGenericPropStyles(genericsProps)}
+      {...getDesignProps(genericsProps)}
     >
       {text ?? children}
     </S.Link>

@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { IComponentsVariant } from 'core/domain/interfaces/IComponentsVariant'
 import { ComponentThemeType } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { validatorProperty } from 'styles/utilities/validatorsCss'
+import { validProp } from 'styles/utilities/validatorsCss'
 
 interface IMixinComponentsTheme extends IComponentsVariant {
   emotionTheme: ICustomTheme
@@ -43,9 +43,9 @@ export const mixinComponentsTheme = ({
     border: ${borderValueCSS};
 
     &:hover {
-      ${validatorProperty('background', bg, ghost)}
-      ${validatorProperty('color', color, ghost)}
-      ${validatorProperty('border', `${border} solid ${bg}`, ghost)}
+      ${validProp('background', bg, ghost)}
+      ${validProp('color', color, ghost)}
+      ${validProp('border', `${border} solid ${bg}`, ghost)}
     }
   `
 }

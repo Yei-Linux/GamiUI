@@ -17,7 +17,7 @@ export default mainConfig as Meta
 // eslint-disable-next-line no-empty-pattern
 const [] = stories
 
-const StoryDefault = (args: unknown) => {
+const StoryDefault = (args: any) => {
   const [open, setOpen] = useState(false)
 
   const toggle = () => setOpen(!open)
@@ -48,7 +48,7 @@ StoryDefaultTemplate.args = {
   zIndex: 2,
 }
 
-const StoryCustomCloseIcon = (args: unknown) => {
+const StoryCustomCloseIcon = (args: any) => {
   const [customCloseIcon, setCustomCloseIcon] = useState(true)
   const [open, setOpen] = useState(false)
 
@@ -92,7 +92,7 @@ StoryCustomCloseIconTemplate.args = {
   zIndex: 2,
 }
 
-const StoryCloseIcon = (args: unknown) => {
+const StoryCloseIcon = (args: any) => {
   const [closeIcon, setCloseIcon] = useState(true)
   const [open, setOpen] = useState(false)
 
@@ -131,7 +131,7 @@ StoryCloseIconTemplate.args = {
   zIndex: 2,
 }
 
-const StoryDirection = (args: unknown) => {
+const StoryDirection = (args: any) => {
   const [direction, setDirection] = useState<FloatingTypes>('left')
   const [open, setOpen] = useState(false)
 

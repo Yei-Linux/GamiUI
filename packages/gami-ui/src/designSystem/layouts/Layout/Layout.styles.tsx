@@ -28,16 +28,22 @@ export const Layout = styled.div<{
   $width: string
   $height: string
   $minHeight: string
+  $gridTemplate: string
 }>`
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
   min-height: ${({ $minHeight }) => $minHeight};
 
   display: grid;
-
-  grid-template:
-    'header header header' minmax(100px, max-content)
-    ${({ $hasSidebar }) =>
-      $hasSidebar ? `'sidebar main main' auto` : `'main main main' auto`}
-    'footer footer footer' minmax(100px, max-content);
+  grid-template: ${({ $gridTemplate }) => $gridTemplate};
 `
+
+/**
+ *
+ * <Layout>
+ *  <Aside>
+ *  </Aside>
+ *
+ *  <Content/>
+ * </Layout>
+ */

@@ -2,9 +2,9 @@ import styled from '@emotion/styled'
 import { ComponentThemeType } from 'core/domain/types'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const Link = InheritGlobalStylesComponent(
+export const Link = WithDesignStyledComponent(
   styled.a<{
     theme: ICustomTheme
     $variant?: ComponentThemeType

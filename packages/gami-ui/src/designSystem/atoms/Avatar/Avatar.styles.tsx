@@ -1,11 +1,12 @@
-import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import Row from 'designSystem/layouts/Row'
-import { mixinFlexVariants } from 'styles/mixins/flex'
-import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
-import { compose } from 'styles/utilities/tools'
+import styled from '@emotion/styled'
 import { PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
+import Row from 'designSystem/layouts/Row'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import { flex } from 'styles/mixins/flex'
+import { hover } from 'styles/mixins/transition'
+import { compose } from 'styles/utilities/tools'
 
 export const zoomModeCSS = css({
   '&.zoom__outside,&.zoom__inside': {
@@ -19,19 +20,19 @@ export const zoomModeCSS = css({
   },
 })
 
-export const flexCSS = mixinFlexVariants({
+export const flexCSS = flex({
   justifyContent: 'center',
   alignItems: 'center',
 })
 
 const BaseAvatarCSS = (theme: ICustomTheme | undefined) =>
-  css({
-    width: theme?.tokens.sizes.components.avatar.md,
-    height: theme?.tokens.sizes.components.avatar.md,
-    '&:hover': {
-      cursor: 'pointer',
-    },
-  })
+  compose([
+    css({
+      width: theme?.tokens.sizes.components.avatar.md,
+      height: theme?.tokens.sizes.components.avatar.md,
+    }),
+    hover,
+  ])
 
 type TCountedStyled = {
   $background?: string

@@ -32,12 +32,7 @@ const WithLayout =
         <Layout>
           {hasHeader && (
             <Layout.Header isSticky>
-              {
-                <HeaderChildren
-                  toggle={() => setOpen(!open)}
-                  hasSidebar={hasSidebar}
-                />
-              }
+              {<HeaderChildren toggle={() => setOpen(!open)} hasSidebar={hasSidebar} />}
             </Layout.Header>
           )}
 

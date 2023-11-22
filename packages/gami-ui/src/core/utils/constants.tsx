@@ -7,9 +7,9 @@ import {
 export const DYNAMIC_DESIGN_TYPES = ['padding', 'margin'] as const
 
 export const DESIGN_TYPES = {
-  size: ['xs', 'sm', 'md', 'lg', 'fit', 'auto', 'full'] as const,
-  width: ['xs', 'sm', 'md', 'lg', 'fit', 'auto', 'full'] as const,
-  height: ['xs', 'sm', 'md', 'lg', 'auto', 'full'] as const,
+  size: ['xs', 'sm', 'md', 'lg', 'full', 'fit', 'auto'] as const,
+  width: ['xs', 'sm', 'md', 'lg', 'full', 'fit', 'auto'] as const,
+  height: ['xs', 'sm', 'md', 'lg', 'full', 'auto'] as const,
   rounded: ['none', 'xs', 'sm', 'md', 'lg', 'full'] as const,
   shadow: [
     'none',

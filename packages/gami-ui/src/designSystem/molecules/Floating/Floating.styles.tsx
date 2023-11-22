@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { FloatingTypes } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mediaQuery } from 'styles/utilities/breakpoints'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
 export const floatingRight = (customTheme: ICustomTheme) => css`
   margin: auto;
@@ -41,7 +41,7 @@ export const floatingBottom = (customTheme: ICustomTheme) => css`
   }
 `
 
-export const Floating = InheritGlobalStylesComponent(styled.div<{
+export const Floating = WithDesignStyledComponent(styled.div<{
   $zIndex?: number
   $direction: FloatingTypes
   theme?: ICustomTheme

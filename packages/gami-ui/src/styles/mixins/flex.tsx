@@ -6,7 +6,7 @@ interface IMixinFlexVariant {
   alignItems?: AlignItemsTypes | null
 }
 
-export const mixinFlexVariants = ({
+export const flex = ({
   justifyContent = null,
   alignItems = null,
 }: IMixinFlexVariant) => css`

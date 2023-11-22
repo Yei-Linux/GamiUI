@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { JustifyContentTypes, AlignItemsTypes } from 'core/domain/types'
-import { mixinFlexVariants } from 'styles/mixins/flex'
-import { validatorProperty } from 'styles/utilities/validatorsCss'
+import { flex } from 'styles/mixins/flex'
+import { validProp } from 'styles/utilities/validatorsCss'
 
 export const Row = styled.div<{
   $gap?: string | null
@@ -12,7 +12,7 @@ export const Row = styled.div<{
   $flexDirection?: string
 }>`
   ${({ $justifyContent, $alignItems }) =>
-    mixinFlexVariants({
+    flex({
       justifyContent: $justifyContent,
       alignItems: $alignItems,
     })}
@@ -27,7 +27,7 @@ export const Row = styled.div<{
 
   flex-direction: ${({ $flexDirection }) => $flexDirection};
 
-  ${({ $gap }) => validatorProperty('gap', $gap)}
+  ${({ $gap }) => validProp('gap', $gap)}
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
 `

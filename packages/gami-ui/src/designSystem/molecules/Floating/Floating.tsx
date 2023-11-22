@@ -7,7 +7,7 @@ import Transition from '../../styled/Transition'
 
 import { positionFloating } from './constants'
 import * as S from './Floating.styles'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import { FloatingTypes } from 'core/domain/types'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
@@ -104,7 +104,7 @@ const Floating = ({
               $zIndex={zIndex}
               className={cls(handles.wrapper, genericsProps?.className ?? '')}
               $direction={direction}
-              {...getGenericPropStyles(genericsProps)}
+              {...getDesignProps(genericsProps)}
             >
               {hasCloseIcon && (
                 <S.FloatingHeader className={cls(handles.header)}>

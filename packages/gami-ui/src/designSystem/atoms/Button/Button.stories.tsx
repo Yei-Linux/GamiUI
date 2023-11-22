@@ -23,7 +23,7 @@ const [
   fourteen,
   fifteen,
   sixteen,
-  seventeen,
+  seventeen
 ] = stories
 
 export {
@@ -43,5 +43,5 @@ export {
   fourteen,
   fifteen,
   sixteen,
-  seventeen,
+  seventeen
 }

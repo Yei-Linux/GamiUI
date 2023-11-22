@@ -5,6 +5,7 @@ import {
   madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
 import Tag from '.'
+import { Tags } from './constants'
 
 const storyArgTypes = {
   text: {
@@ -123,6 +124,23 @@ const storiesComponent = [
       },
     },
   },
+  {
+    storyName: 'WithGroup',
+    parent: {
+      args: {
+        max: 2,
+      },
+      variants: [
+        {
+          label: 'Default',
+          value: Tags.map(() => ({
+            props: { text: 'Tag' },
+            Component: Tag,
+          })),
+        },
+      ],
+    },
+  },
 ]
 
 const storyConfig = getStoryConfigStructure({
@@ -130,6 +148,7 @@ const storyConfig = getStoryConfigStructure({
   storiesInheritGlobalStyles,
   storiesComponent,
   component: Tag,
+  parentComponent: Tag.Group,
 })
 
 export { storyConfig, argTypes }

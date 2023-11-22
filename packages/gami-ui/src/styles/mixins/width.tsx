@@ -4,7 +4,6 @@ import {
   IComponentSize,
   ICustomTheme,
 } from 'providers/ThemeGamification/ThemeGamification'
-import { staticsSizesTokens } from 'styles/tokens/sizes'
 
 const componentWidth = (
   tokenComponentsValue: ICustomTheme['tokens']['sizes']['components'],
@@ -23,7 +22,6 @@ const componentWidth = (
       ? (sizeComponent as string)
       : (sizeComponent as IComponentSize)?.width
 
-  //const isStaticSizeTokenValue = staticsSizesTokens.includes(widthComponent)
   return css`
     width: ${widthComponent};
   `
@@ -47,7 +45,6 @@ export const mixinWidth = (
   const tokenValue = tokens.sizes.width[width]
   if (!tokenValue) return css``
 
-  //const isStaticSizeTokenValue = staticsSizesTokens.includes(tokenValue)
   return css`
     width: ${tokenValue};
   `

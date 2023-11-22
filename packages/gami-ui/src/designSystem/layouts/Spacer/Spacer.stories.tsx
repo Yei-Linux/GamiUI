@@ -15,7 +15,7 @@ export default mainConfig as Meta
 // eslint-disable-next-line no-empty-pattern
 const [] = stories
 
-const StorySizeDirection = (args: unknown) => (
+const StorySizeDirection = (args: any) => (
   <Row gap="10px">
     <Avatar src={avatarProfilesImages.one} rounded="lg" />
     <Spacer direction="left" size={1} {...args} />
@@ -31,7 +31,7 @@ StorySizeDirectionTemplate.args = {
   size: 1,
 }
 
-const StoryCustomSizeDirection = (args: unknown) => (
+const StoryCustomSizeDirection = (args: any) => (
   <Row gap="10px">
     <Avatar src={avatarProfilesImages.one} rounded="lg" />
     <Spacer direction="left" customSize="45px" {...args} />

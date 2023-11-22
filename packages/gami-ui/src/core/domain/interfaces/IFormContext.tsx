@@ -16,6 +16,7 @@ export interface IFormCommmonsContext {
 export interface IFormContext extends IFormCommmonsContext {
   setYupErrors: (data: IDynamicObjectWithField) => void
   setYupSchema: (data: ObjectSchema<any, any, any>) => void
+  setInitialFormValues: (data: Record<string, unknown>) => void
   setFormValues: (data: IFormValueItem) => void
   setCallbacks: (data: IDynamicObjectWithField) => void
   onClickSubmit: (data: IDynamicObjectWithField) => void

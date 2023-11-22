@@ -120,6 +120,28 @@ const storiesComponent = [
       },
     },
   },
+  {
+    storyName: 'WithDangerousSetInnerHTML',
+    self: {
+      args: {
+        padding: '1rem',
+        children: 'Gami Container',
+      },
+      variants: {
+        examples: [
+          {
+            label: 'With p element',
+            value: '<p>Example of dangerous html</p>',
+          },
+          {
+            label: 'With div element',
+            value: '<div>Example of dangerous html</div>',
+          },
+        ],
+        field: 'dangerouslySetInnerHTML',
+      },
+    },
+  },
 ]
 
 const storyConfig = getStoryConfigStructure({

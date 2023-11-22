@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import styled from '@emotion/styled'
+import styled, { StyledComponent } from '@emotion/styled'
 import { IGenericPropStyles } from 'core/domain/interfaces/IStyles'
 import {
   ShadowType,
@@ -11,40 +11,28 @@ import {
   InheritStyleComponent,
 } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { mixinFlexVariants } from 'styles/mixins/flex'
+import { flex } from 'styles/mixins/flex'
 import { font, defaultTheme } from 'styles/tokens'
-import { setGenericPropStyles } from './genericPropStyles'
+import { lightTheme } from 'styles/tokens/lightTheme'
+import { setDesignCss } from './genericPropStyles'
 
 export const GlobalStylesComponent = (tag: any) => styled(
   tag
 )<IGenericPropStyles>`
-  ${({
-    $shadow,
-    $rounded,
-    $width,
-    $height,
-    $textAlign,
-    $fontWeight,
-    $padding,
-    $margin,
-    theme,
-  }) =>
-    setGenericPropStyles(theme, {
-      shadow: $shadow,
-      rounded: $rounded,
-      width: $width,
-      height: $height,
-      textAlign: $textAlign,
-      fontWeight: $fontWeight,
-      padding: $padding,
-      margin: $margin,
+  ${({ theme, ...designProps }) =>
+    setDesignCss(theme, {
+      shadow: designProps.$shadow,
+      rounded: designProps.$rounded,
+      width: designProps.$width,
+      height: designProps.$height,
+      textAlign: designProps.$textAlign,
+      fontWeight: designProps.$fontWeight,
+      padding: designProps.$padding,
+      margin: designProps.$margin,
     })};
 `
 
-export const InheritGlobalStylesComponent = (
-  styledProps: any,
-  component: InheritStyleComponent = null
-) => styled(styledProps)<{
+export interface IWithDesignStyleHoc {
   $shadow?: ShadowType
   $rounded?: RoundedType
   $width?: WidthType
@@ -54,29 +42,24 @@ export const InheritGlobalStylesComponent = (
   $padding?: string
   $margin?: string
   theme?: ICustomTheme
-}>`
-  ${({
-    $shadow,
-    $rounded,
-    $width,
-    $height,
-    $textAlign,
-    $fontWeight,
-    $padding,
-    $margin,
-    theme,
-  }) =>
-    setGenericPropStyles(
+}
+
+export const WithDesignStyledComponent = (
+  styledProps: StyledComponent<any, any, any>,
+  component: InheritStyleComponent = null
+) => styled(styledProps)<IWithDesignStyleHoc>`
+  ${({ theme, ...designProps }) =>
+    setDesignCss(
       theme,
       {
-        shadow: $shadow,
-        rounded: $rounded,
-        width: $width,
-        height: $height,
-        textAlign: $textAlign,
-        fontWeight: $fontWeight,
-        padding: $padding,
-        margin: $margin,
+        shadow: designProps.$shadow,
+        rounded: designProps.$rounded,
+        width: designProps.$width,
+        height: designProps.$height,
+        textAlign: designProps.$textAlign,
+        fontWeight: designProps.$fontWeight,
+        padding: designProps.$padding,
+        margin: designProps.$margin,
       },
       component
     )};
@@ -94,7 +77,22 @@ export const SubtitleContainer = styled.div`
 `
 
 export const Section = styled.div`
-  ${mixinFlexVariants({ alignItems: 'center' })}
+  ${flex({ alignItems: 'center' })}
+`
+
+export const Panel = styled.div`
+  background-color: ${lightTheme.neutral[800]};
+  padding: 1rem;
+  border-radius: 0.4em;
+  width: 300px;
+  max-width: 300px;
+
+  background: white;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 `
 
 export const ScrollBar = () => css`

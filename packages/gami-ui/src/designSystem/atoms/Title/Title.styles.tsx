@@ -1,4 +1,4 @@
 import styled from '@emotion/styled'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const Title = InheritGlobalStylesComponent(styled.div``, 'text')
+export const Title = WithDesignStyledComponent(styled.div``, 'text')

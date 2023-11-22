@@ -5,7 +5,8 @@ const withDefaults = <P, DP>(
   defaultProps: DP
 ) => {
   type Props = Partial<DP> & Omit<P, keyof DP>
-  component.defaultProps = defaultProps
+  //TODO: Refactor
+  component.defaultProps = defaultProps as any
   return component as React.ComponentType<Props>
 }
 

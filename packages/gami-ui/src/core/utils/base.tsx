@@ -8,7 +8,7 @@ import {
   InheritStyleComponent,
 } from 'core/domain/types'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { setGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { setDesignCss } from 'styles/utilities/genericPropStyles'
 
 export type TWithGlobalStylesUI = {
   $shadow?: ShadowType
@@ -35,7 +35,7 @@ export const withGlobalStylesUI =
   }: TWithGlobalStylesUI) =>
   (component?: InheritStyleComponent) =>
     theme &&
-    setGenericPropStyles(
+    setDesignCss(
       theme,
       {
         shadow: $shadow,

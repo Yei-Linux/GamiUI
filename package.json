@@ -51,6 +51,8 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
+    "@types/react-datepicker": "^4.8.0",
+    "@types/stylis": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "babel-plugin-tsconfig-paths-module-resolver": "^1.0.3",
@@ -68,5 +70,10 @@
     "url": "https://github.com/Yei-Linux/GamificationStorybook/issues"
   },
   "homepage": "https://github.com/Yei-Linux/GamificationStorybook#readme",
-  "dependencies": {}
+  "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/css": "^11.10.6",
+    "rc-datepicker": "^5.0.16",
+    "react-datepicker": "^4.8.0"
+  }
 }

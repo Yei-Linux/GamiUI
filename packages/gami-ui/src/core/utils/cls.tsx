@@ -12,7 +12,7 @@ export const cls = (...args: ArgumentCls[]): string => {
       if (typeof arg == 'object') {
         const classesMeetCondition = Object.entries(arg)
           .map(([key, value]) => {
-            if (value === true) return key.trim()
+            if (value === true) return key
 
             return null
           })
@@ -26,6 +26,7 @@ export const cls = (...args: ArgumentCls[]): string => {
     .filter((clsItems: string | (string | null)[] | null) => clsItems !== null)
 
   const clsString = clsArray.flat()
+
   return clsString.join(' ').trim()
 }
 

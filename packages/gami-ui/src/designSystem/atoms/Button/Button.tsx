@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react'
 import * as S from './Button.styles'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import { TButtonComponent } from './type'
 import { ButtonPreffixer } from './ButtonPreffixer'
@@ -18,8 +19,16 @@ const Button = ({
   light = false,
   ...genericsProps
 }: TButtonComponent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      spacer__container: ['spacer__container'],
+    },
+    componentPrefixCls: 'button',
+    customPrexiCls: genericsProps.className,
+  })
   const globalStyles = useMemo(
-    () => getGenericPropStyles(genericsProps),
+    () => getDesignProps(genericsProps),
     [genericsProps]
   )
 
@@ -32,7 +41,7 @@ const Button = ({
       $flat={flat}
       $light={light}
       type={type}
-      className={cls(genericsProps?.className ?? '', {
+      className={cls(handles.wrapper, genericsProps?.className ?? '', {
         disabled: disable,
         enabled: !disable,
       })}

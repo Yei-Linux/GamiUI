@@ -6,7 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
-    "@gamiui/standard": "0.1.0-alpha.41",
+    "@gamiui/standard": "^0.1.0-alpha.43",
     "@types/react-helmet": "^6.1.5",
     "gatsby": "^4.3.0",
     "gatsby-plugin-emotion": "^7.9.0",
@@ -19,15 +19,11 @@
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-transformer-sharp": "^4.3.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-code-blocks": "0.0.9-0",
-    "react-dom": "^16.13.1",
     "react-element-to-jsx-string": "^14.3.4",
     "react-helmet": "^6.1.0"
-  },
-  "peerDependencies": {
-    "react": ">=16.13.1",
-    "react-dom": ">=16.13.1"
   },
   "keywords": [
     "gatsby"
