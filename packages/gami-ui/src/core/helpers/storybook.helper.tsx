@@ -13,6 +13,7 @@ import {
   IStoryInheritGlobalStyles,
   IVariants,
   TMergeAllDesignTypes,
+  TStoryInitiate,
 } from 'core/domain/interfaces/IStorybook'
 import { TDynamicFields, TJSXElements } from 'core/domain/interfaces/common'
 import { ComponentStory } from '@storybook/react'
@@ -144,6 +145,14 @@ export const getParentListTemplateTypes =
       </Row>
     )
 
+export const initiateStory = (config: TStoryInitiate) => {
+  const Story = config.storyBuilder.bind({})
+  Story.storyName = config.storyName
+  Story.args = config.args ?? {}
+
+  return Story
+}
+
 export const getStory = (
   Component: TJSXElements,
   storyName: string,
@@ -177,10 +186,12 @@ export const getStory = (
     return null
   }
 
-  const Story = ListTemplateType.bind({})
-  Story.storyName = storyName
-  Story.args = self?.args ?? {}
-
+  const config = {
+    storyBuilder: ListTemplateType,
+    storyName,
+    args: self?.args,
+  }
+  const Story = initiateStory(config)
   return Story
 }
 
@@ -202,6 +213,10 @@ export const getStories = (
     )
   )
 
+const buildCustomStories = (customStories: Array<TStoryInitiate>) => {
+  return customStories.map((config) => initiateStory(config))
+}
+
 export const getStoryConfigStructure = ({
   mainConfig,
   storiesInheritGlobalStyles = [],
@@ -219,10 +234,11 @@ export const getStoryConfigStructure = ({
     parentComponent,
     customPropsStoryWrapper
   )
+  const customStoriesBuilt = buildCustomStories(customStories)
 
   const storyConfig = {
     mainConfig,
-    stories: [...stories, ...(customStories ?? [])],
+    stories: [...stories, ...(customStoriesBuilt ?? [])],
   }
 
   return storyConfig

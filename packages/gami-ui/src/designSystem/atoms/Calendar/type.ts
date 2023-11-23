@@ -1,3 +1,5 @@
+import { TDesignUI } from 'core/domain/types/design-system'
+
 export type TCalendar = {
   /**
    * Default Date
@@ -24,3 +26,5 @@ export type TCalendar = {
    */
   currentDate: Date
 }
+
+export type TCalendarComponent = TCalendar & Pick<TDesignUI, 'className'>

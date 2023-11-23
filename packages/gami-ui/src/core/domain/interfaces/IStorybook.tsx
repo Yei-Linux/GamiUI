@@ -1,3 +1,4 @@
+import { ComponentStory } from '@storybook/react'
 import { DesignTypes, DynamicDesignTypes } from '../types'
 import { TDynamicFields, TJSXElements } from './common'
 
@@ -56,12 +57,18 @@ export interface IStoryMainConfig {
   parameters?: TDynamicFields
 }
 
+export type TStoryInitiate = {
+  storyBuilder: ComponentStory<TJSXElements>
+  storyName: string
+  args?: Record<string, unknown>
+}
+
 export interface IStoryConfigStructure {
   mainConfig: IStoryMainConfig
   component: TJSXElements
   parentComponent?: TJSXElements
   storiesInheritGlobalStyles?: IStoryConfig[]
   storiesComponent: IStoryConfig[]
-  customStories?: React.ReactElement[] | null
+  customStories?: Array<TStoryInitiate>
   customPropsStoryWrapper?: TDynamicFields
 }

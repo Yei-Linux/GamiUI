@@ -11,5 +11,5 @@ export const handleChangeDateByMonth = (
   const monthOperation = currentMonth + (type === 'prev' ? -1 : +1)
   currentDateCloned.setMonth(monthOperation)
 
-  handleSelectCurrentDate(currentDateCloned)
+  handleSelectCurrentDate?.(currentDateCloned)
 }

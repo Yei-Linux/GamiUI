@@ -1,19 +1,11 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Calendar from '.'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/Calendar',
-  component: Calendar,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = (args: any) => <Calendar {...args} />
-Basic.args = {}
+export default mainConfig as Meta
 
-export const WithDefaultDate = (args: any) => <Calendar {...args} />
-WithDefaultDate.args = {
-  defaultDate: new Date(2022, 10, 12),
-}
+const [one, two] = stories
+
+export { one, two }

@@ -40,7 +40,7 @@ export class DateHelper {
     'Saturday',
   ]
 
-  private get date() {
+  get date() {
     return this._date
   }
 
@@ -54,6 +54,17 @@ export class DateHelper {
 
   get day() {
     return this.date.getDay()
+  }
+
+  get getTimeStampByDate() {
+    if (!this.date) return 0
+
+    const year = this.date.getFullYear()
+    const month = this.date.getMonth()
+    const dayNumber = this.date.getDate()
+
+    const timestamp = new Date(year, month, dayNumber)
+    return timestamp.getTime()
   }
 
   get today() {
@@ -80,6 +91,10 @@ export class DateHelper {
 
     const firstDay = new Date(year, month, 1).getDay()
     return firstDay
+  }
+
+  getDateByTimeStamp(timestamp: number) {
+    return new Date(timestamp)
   }
 
   getDaysByMonth(monthProp?: number) {

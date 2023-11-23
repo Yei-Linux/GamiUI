@@ -8,6 +8,7 @@ import { usePickerTooltip } from 'hooks/usePickerTooltip'
 import { cls } from 'core/utils/cls'
 import { TOnChangeFormItem } from '../Input/Input'
 import { dateFormatter, TPattern } from 'core/helpers/date-formatter'
+import { dateHelper } from 'core/helpers/date.helper'
 
 export interface IDatePicker {
   onChangeFormItem?: TOnChangeFormItem
@@ -15,27 +16,14 @@ export interface IDatePicker {
   formatter?: TPattern
 }
 
-const getTimeStampByDate = (date?: Date) => {
-  if (!date) return 0
-
-  const year = date.getFullYear()
-  const month = date.getMonth()
-  const dayNumber = date.getDate()
-
-  const timestamp = new Date(year, month, dayNumber)
-  return timestamp.getTime()
-}
-
-const getDateByTimeStamp = (timestamp: number) => {
-  return new Date(timestamp)
-}
-
 const DatePicker = ({
   onChangeFormItem,
   value,
   formatter = 'dd/MM/yyyy',
 }: IDatePicker) => {
-  const daySelected = getTimeStampByDate(value)
+  const dateManager = dateHelper({ date: value })
+  const daySelected = dateManager.getTimeStampByDate
+
   const [currentDate, setCurrentDate] = useState<Date>(
     (value as any) == '' || !value ? new Date() : value
   )
@@ -57,9 +45,7 @@ const DatePicker = ({
 
   const formatDate = () => {
     if (daySelected <= 0) return ''
-
     const currentDateCloned = new Date(daySelected)
-
     return dateFormatter(currentDateCloned, formatter)
   }
 
@@ -77,7 +63,7 @@ const DatePicker = ({
           daySelected={daySelected}
           currentDate={currentDate}
           handleSelectDay={(dayId) =>
-            onChangeFormItem?.(getDateByTimeStamp(dayId))
+            onChangeFormItem?.(dateManager.getDateByTimeStamp(dayId))
           }
           handleSelectCurrentDate={setCurrentDate}
         />
