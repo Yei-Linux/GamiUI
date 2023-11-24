@@ -5,6 +5,14 @@ export interface IUseResizeObserver {
   handler?: (itemProps: DOMRectReadOnly) => void
 }
 
+/**
+ * Creates a resize observer that listens for changes to the size of the specified element.
+ *
+ * @param {object} options - The options for the resize observer.
+ * @param {RefObject} options.refElement - The ref to the element to observe.
+ * @param {function} options.handler - The callback function to handle the resize event.
+ * @return {object} An empty object.
+ */
 export const useResizeObserver = ({
   refElement,
   handler,

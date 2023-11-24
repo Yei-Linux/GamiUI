@@ -7,13 +7,27 @@ import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import ColorPicker from '.'
-import { WithColorPickerInteraction } from './mock'
+import { WithBasic, WithTooltipAbove, WithDefault } from './mock'
+import DatePicker from './DatePicker'
 
 const storyArgTypes = {
+  className: {
+    control: 'text',
+    description: 'Classname preffix to date picker',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
   value: {
     control: 'text',
-    description: 'Value to display it on input picker',
+    description: 'Value to display it on date picker',
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  formatter: {
+    control: 'text',
+    description: 'formatter on date picker',
     table: {
       type: { summary: 'string' },
     },
@@ -23,7 +37,7 @@ const storyArgTypes = {
 const docArgTypes = {
   onChangeFormItem: {
     control: 'object',
-    description: 'Function to handler when is changing color',
+    description: 'Function to handler when is changing date',
     table: { type: { summary: 'object' } },
   },
 }
@@ -31,8 +45,8 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/ColorPicker 🟢',
-  component: ColorPicker,
+  title: 'Atoms/DatePicker 🟢',
+  component: DatePicker,
   args: {},
   argTypes: storyArgTypes,
 }
@@ -53,8 +67,18 @@ const storiesComponent = [] as IStoryConfig[]
 
 const customStories = [
   {
-    storyBuilder: (args: any) => <WithColorPickerInteraction {...args} />,
-    storyName: 'With Interaction 🙂',
+    storyBuilder: (args: any) => <WithBasic {...args} />,
+    storyName: 'With Basic Interaction 🙂',
+    args: {},
+  },
+  {
+    storyBuilder: (args: any) => <WithTooltipAbove {...args} />,
+    storyName: 'With TooltipAbove 🙂',
+    args: {},
+  },
+  {
+    storyBuilder: (args: any) => <WithDefault {...args} />,
+    storyName: 'WithDefault 🙂',
     args: {},
   },
 ]
@@ -64,7 +88,7 @@ const storyConfig = getStoryConfigStructure({
   storiesInheritGlobalStyles,
   storiesComponent,
   customStories,
-  component: ColorPicker,
+  component: DatePicker,
 })
 
 export { storyConfig, argTypes }

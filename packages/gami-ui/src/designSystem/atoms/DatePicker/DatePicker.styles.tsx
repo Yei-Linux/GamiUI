@@ -1,12 +1,13 @@
 import styled from '@emotion/styled'
 
-export const DatePicker = styled.div``
+export const DatePicker = styled('div')()
 
-export const PickerCalendar = styled.div`
-  position: fixed;
-  z-index: 3;
+export const PickerCalendar = styled('div')(() => ({
+  position: 'fixed',
+  zIndex: 3,
+  '&.hide': {
+    visibility: 'hidden',
+  },
+}))
 
-  &.hide {
-    visibility: hidden;
-  }
-`
+export const InputContainer = styled('div')()

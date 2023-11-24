@@ -73,7 +73,7 @@ const useCssHandle = <T,>({
       ]
     })
 
-    setHandles(handlesProp)
+    setHandles((prev) => (Object.keys(prev).length === 0 ? handlesProp : prev))
   }
 
   useEffect(() => {

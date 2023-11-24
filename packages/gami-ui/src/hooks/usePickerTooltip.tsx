@@ -7,6 +7,13 @@ export interface IUsePickerTooltip {
   handleOnClickOutside?: () => void
 }
 
+/**
+ * Generates a tooltip for a picker.
+ *
+ * @param {IUsePickerTooltip} options - An object containing the tooltip reference,
+ * input reference, and a function to handle clicks outside the tooltip.
+ * @return {void}
+ */
 export const usePickerTooltip = ({
   tooltipRef,
   inputRef,
@@ -60,15 +67,12 @@ export const usePickerTooltip = ({
 
   const handleDetectClickOutside = (e: MouseEvent) => {
     const targetElement = e.target as Element
-
     if (!targetElement) return
 
     const isClickInsideInputElement = inputRef.current.contains(targetElement)
-
     if (isClickInsideInputElement) return
 
     const isClickInsideRefElement = tooltipRef.current.contains(targetElement)
-
     if (isClickInsideRefElement) return
 
     handleOnClickOutside?.()

@@ -2,37 +2,41 @@ import Container from 'designSystem/layouts/Container'
 import Input from 'designSystem/atoms/Input'
 import * as S from './DatePicker.styles'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import Calendar from '../Calendar'
 import { usePickerTooltip } from 'hooks/usePickerTooltip'
 import { cls } from 'core/utils/cls'
-import { TOnChangeFormItem } from '../Input/Input'
-import { dateFormatter, TPattern } from 'core/helpers/date-formatter'
+import { dateFormatter } from 'core/helpers/date-formatter'
 import { dateHelper } from 'core/helpers/date.helper'
-
-export interface IDatePicker {
-  onChangeFormItem?: TOnChangeFormItem
-  value?: Date
-  formatter?: TPattern
-}
+import { TDatePickerComponent } from './type'
+import withDefaults from 'hocs/WithDefault'
+import useToggle from 'hooks/useToggle'
+import { useCurrentDate } from './useCurrentDate'
+import useCssHandle from 'hooks/useCssHandle'
 
 const DatePicker = ({
   onChangeFormItem,
   value,
+  className,
   formatter = 'dd/MM/yyyy',
-}: IDatePicker) => {
+}: TDatePickerComponent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      date__picker__wrapper: ['date__picker__wrapper'],
+      date__picker__calendar__container: ['date__picker__calendar__container'],
+      date__picker__calendar: ['date__picker__calendar'],
+      date__picker__input__container: ['date__picker__input__container'],
+      date__picker__input: ['date__picker__input'],
+    },
+    componentPrefixCls: 'datePicker',
+    customPrexiCls: className,
+  })
   const dateManager = dateHelper({ date: value })
   const daySelected = dateManager.getTimeStampByDate
 
-  const [currentDate, setCurrentDate] = useState<Date>(
-    (value as any) == '' || !value ? new Date() : value
-  )
+  const { isVisible, handleToggle } = useToggle({ defaultVisible: false })
+  const { currentDate, setCurrentDate } = useCurrentDate({ value })
 
-  useEffect(() => {
-    value && setCurrentDate(value)
-  }, [value])
-
-  const [isVisible, setIsVisible] = useState(false)
   const tooltipRef =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>
   const inputRef =
@@ -40,7 +44,7 @@ const DatePicker = ({
   usePickerTooltip({
     tooltipRef,
     inputRef,
-    handleOnClickOutside: () => setIsVisible(false),
+    handleOnClickOutside: () => handleToggle(false),
   })
 
   const formatDate = () => {
@@ -49,17 +53,16 @@ const DatePicker = ({
     return dateFormatter(currentDateCloned, formatter)
   }
 
-  const handleClick = () => setIsVisible(!isVisible)
-
   return (
-    <Container>
+    <Container className={cls(handles.date__picker__wrapper)}>
       <S.PickerCalendar
         ref={tooltipRef}
-        className={cls({
+        className={cls(handles.date__picker__calendar__container, {
           hide: !isVisible,
         })}
       >
         <Calendar
+          className={cls(handles.date__picker__calendar)}
           daySelected={daySelected}
           currentDate={currentDate}
           handleSelectDay={(dayId) =>
@@ -69,11 +72,30 @@ const DatePicker = ({
         />
       </S.PickerCalendar>
 
-      <div ref={inputRef}>
-        <Input readOnly value={formatDate()} onClick={handleClick} />
-      </div>
+      <S.InputContainer
+        ref={inputRef}
+        className={cls(handles.date__picker__input__container)}
+      >
+        <Input
+          readOnly
+          value={formatDate()}
+          onClick={() => handleToggle()}
+          className={cls(handles.date__picker__input)}
+        />
+      </S.InputContainer>
     </Container>
   )
 }
 
-export default DatePicker
+const defaultProps = {}
+
+DatePicker.displayName = 'DatePicker'
+
+type DatePickerComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  DatePicker,
+  defaultProps
+) as DatePickerComponent<TDatePickerComponent>

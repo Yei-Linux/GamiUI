@@ -67,7 +67,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Empty',
+  title: 'Atoms/Empty 🟢',
   component: Empty,
   args: {},
   argTypes: storyArgTypes,
@@ -77,6 +77,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   shadow: {
     args: {
       text: 'No data',
+      padding: '20px',
     },
   },
   margin: {
@@ -88,6 +89,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   padding: {
     args: {
       text: 'No data',
+      shadow: 'xs',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
@@ -101,7 +103,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithIconTypes',
+    storyName: 'WithIconTypes 🙂',
     self: {
       args: {
         size: '200px',
@@ -117,7 +119,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithCustomIcons',
+    storyName: 'WithCustomIcons 🙂',
     self: {
       args: {
         text: 'No data!',
@@ -143,7 +145,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithText',
+    storyName: 'WithText 🙂',
     self: {
       args: {
         size: '200px',
@@ -169,7 +171,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithTextColors',
+    storyName: 'WithTextColors 🙂',
     self: {
       args: {
         text: 'No data!',
@@ -198,7 +200,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithSize',
+    storyName: 'WithSize 🙂',
     self: {
       args: {
         text: 'No data!',
