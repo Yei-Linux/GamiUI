@@ -1,33 +1,57 @@
 import Input from 'designSystem/atoms/Input'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import * as S from './ColorPicker.styles'
 import { useColorPicker } from './useColorPicker'
 import { usePickerTooltip } from 'hooks/usePickerTooltip'
 import { cls } from 'core/utils/cls'
-import { TOnChangeFormItem } from '../Input/Input'
+import useToggle from 'hooks/useToggle'
+import { useColorPickerLocal } from './useColorPickerLocal'
+import { TTColorPickerComponent } from './type'
+import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
 
-export interface IColorPicker {
-  value?: string
-  onChangeFormItem?: TOnChangeFormItem
-}
+const ColorPicker = ({
+  onChangeFormItem,
+  value = '',
+  className,
+}: TTColorPickerComponent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      color__pickerwrapper: ['color__pickerwrapper'],
+      color__pickerpanel: ['color__pickerpanel'],
+      color__picker: ['color__picker'],
+      color__picker__title: ['color__picker__title'],
+      color__picker__canvas: ['color__picker__canvas'],
+      color__picker__canvas__ref: ['color__picker__canvas__ref'],
+      color__picker__canvaspicker__ref: ['color__picker__canvaspicker__ref'],
+      color__picker__info: ['color__picker__info'],
+      color__picker__info__selected__viewer: [
+        'color__picker__info__selected__viewer',
+      ],
+      color__picker__info__selected__title: [
+        'color__picker__info__selected__title',
+      ],
+      color__picker__input__container: ['color__picker__input__container'],
+      color__picker__input: ['color__picker__input'],
+    },
+    componentPrefixCls: 'colorPicker',
+    customPrexiCls: className,
+  })
 
-const ColorPicker = ({ onChangeFormItem, value = '' }: IColorPicker) => {
   const tooltipRef =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>
   const inputRef =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>
 
-  const [colorPickerLocal, setColorPickerLocal] = useState(value)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setColorPickerLocal(value)
-  }, [value])
+  const { isVisible, handleToggle } = useToggle({ defaultVisible: false })
+  const { colorPickerLocal, setColorPickerLocal } = useColorPickerLocal({
+    value,
+  })
 
   usePickerTooltip({
     tooltipRef,
     inputRef,
-    handleOnClickOutside: () => setIsVisible(false),
+    handleOnClickOutside: () => handleToggle(false),
   })
 
   const {
@@ -44,45 +68,79 @@ const ColorPicker = ({ onChangeFormItem, value = '' }: IColorPicker) => {
     onClick: (color: string) => onChangeFormItem?.(color),
   })
 
-  const handleClickInput = () => setIsVisible(!isVisible)
-
   return (
-    <S.Wrapper>
-      <S.ColorPickerPanel
+    <S.WrapperStyled className={cls(handles.color__pickerwrapper)}>
+      <S.ColorPickerPanelstyled
         ref={tooltipRef}
-        className={cls({
+        className={cls(handles.color__pickerpanel, {
           hide: !isVisible,
         })}
       >
-        <S.ColorPicker>
-          <S.TitlePicker level="h4" textAlign="left" width="full">
+        <S.ColorPickerStyled className={cls(handles.color__picker)}>
+          <S.TitlePickerStyled
+            className={cls(handles.color__picker__title)}
+            level="h4"
+            textAlign="left"
+            width="full"
+          >
             Color Picker:
-          </S.TitlePicker>
-          <S.CanvasContainer>
-            <S.Canvas ref={canvasRef} />
-            <S.CanvasPicker
+          </S.TitlePickerStyled>
+          <S.CanvasContainerStyled
+            className={cls(handles.color__picker__canvas)}
+          >
+            <S.CanvasStyled
+              ref={canvasRef}
+              className={cls(handles.color__picker__canvas__ref)}
+            />
+            <S.CanvasPickerStyled
+              className={cls(handles.color__picker__canvaspicker__ref)}
               ref={pickerRef}
               onClick={handleClick}
               onMouseDown={handleStart}
               onMouseMove={handleMove}
               onMouseUp={handleEnd}
             />
-          </S.CanvasContainer>
+          </S.CanvasContainerStyled>
 
-          <S.Info>
-            <S.SelectedViewer style={{ background: colorPickerLocal }} />
-            <S.SelectedTitle level="h4">
+          <S.InfoStyled className={cls(handles.color__picker__info)}>
+            <S.SelectedViewerStyled
+              style={{ background: colorPickerLocal }}
+              className={cls(handles.color__picker__info__selected__viewer)}
+            />
+            <S.SelectedTitleStyled
+              level="h4"
+              className={cls(handles.color__picker__info__selected__title)}
+            >
               {colorPickerLocal != '' ? colorPickerLocal : 'Not Picked'}
-            </S.SelectedTitle>
-          </S.Info>
-        </S.ColorPicker>
-      </S.ColorPickerPanel>
+            </S.SelectedTitleStyled>
+          </S.InfoStyled>
+        </S.ColorPickerStyled>
+      </S.ColorPickerPanelstyled>
 
-      <div ref={inputRef}>
-        <Input readOnly value={value} onClick={handleClickInput} />
-      </div>
-    </S.Wrapper>
+      <S.InputContainerStyled
+        ref={inputRef}
+        className={cls(handles.color__picker__input__container)}
+      >
+        <Input
+          className={cls(handles.color__picker__input)}
+          readOnly
+          value={value}
+          onClick={() => handleToggle()}
+        />
+      </S.InputContainerStyled>
+    </S.WrapperStyled>
   )
 }
 
-export default ColorPicker
+const defaultProps = {}
+
+ColorPicker.displayName = 'ColorPicker'
+
+type ColorPickerComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  ColorPicker,
+  defaultProps
+) as ColorPickerComponent<TTColorPickerComponent>

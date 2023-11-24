@@ -4,8 +4,7 @@ import Icon from 'designSystem/atoms/Icon'
 import { Panel } from 'styles/utilities/commonComponent'
 import { flex } from 'styles/mixins/flex'
 import { hover } from 'styles/mixins/transition'
-import { TWithGlobalStylesUI } from 'core/utils/base'
-import { PartialBy } from 'core/domain/types/mixins'
+import { OnlyTheme } from 'core/domain/types/mixins'
 
 export const Calendar = styled(Panel)()
 
@@ -20,8 +19,6 @@ export const Header = styled(Container)(
 const BaseAction = styled(Icon)(() => hover)
 export const Prev = styled(BaseAction)()
 export const Next = styled(BaseAction)()
-
-type OnlyTheme = PartialBy<Pick<TWithGlobalStylesUI, 'theme'>, 'theme'>
 
 type TMonth = OnlyTheme
 export const Month = styled('div')((props: TMonth) => ({

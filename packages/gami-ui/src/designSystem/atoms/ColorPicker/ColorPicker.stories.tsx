@@ -1,17 +1,11 @@
-import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
-import ColorPicker from '.'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/ColorPicker',
-  component: ColorPicker,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = () => {
-  const [value, setValue] = useState('')
+export default mainConfig as Meta
 
-  return <ColorPicker value={value} onChangeFormItem={setValue} />
-}
+const [one] = stories
+
+export { one }

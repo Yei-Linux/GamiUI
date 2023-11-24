@@ -1,14 +1,20 @@
 import { css } from '@emotion/react'
-import { AlignItemsTypes, JustifyContentTypes } from 'core/domain/types'
+import {
+  AlignItemsTypes,
+  DirectionTypes,
+  JustifyContentTypes,
+} from 'core/domain/types'
 
 interface IMixinFlexVariant {
   justifyContent?: JustifyContentTypes | null
   alignItems?: AlignItemsTypes | null
+  direction?: DirectionTypes | null
 }
 
 export const flex = ({
   justifyContent = null,
   alignItems = null,
+  direction = null,
 }: IMixinFlexVariant) => css`
   display: flex;
 
@@ -20,5 +26,10 @@ export const flex = ({
   ${alignItems &&
   css`
     align-items: ${alignItems};
+  `}
+
+  ${direction &&
+  css`
+    flex-direction: ${direction};
   `}
 `

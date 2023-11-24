@@ -1,63 +1,82 @@
 import styled from '@emotion/styled'
 import Container from 'designSystem/layouts/Container'
-import { lightTheme } from 'styles/tokens/lightTheme'
 import { Panel } from 'styles/utilities/commonComponent'
 import Title from '../Title'
+import { flex } from 'styles/mixins/flex'
+import { OnlyTheme } from 'core/domain/types/mixins'
 
-export const Wrapper = styled.div``
+export const WrapperStyled = styled('div')()
 
-export const ColorPickerPanel = styled(Panel)`
-  position: fixed;
-  z-index: 3;
+export const ColorPickerPanelstyled = styled(Panel)({
+  position: 'fixed',
+  zIndex: 3,
+  '&.hide': {
+    visibility: 'hidden',
+  },
+})
 
-  &.hide {
-    visibility: hidden;
-  }
-`
+type TColorPickerStyled = OnlyTheme
+const flexCenterCSS = flex({
+  justifyContent: 'center',
+  alignItems: 'center',
+  direction: 'column',
+})
+export const ColorPickerStyled = styled('div')(
+  ({ theme }: TColorPickerStyled) => ({
+    width: theme?.tokens.sizes.width.full,
+    height: theme?.tokens.sizes.height.full,
+    gap: '1rem',
+  }),
+  () => flexCenterCSS
+)
 
-export const ColorPicker = styled.div`
-  width: 100%;
-  height: 100%;
+type TCavasStyled = OnlyTheme
+export const CanvasStyled = styled('canvas')(({ theme }: TCavasStyled) => ({
+  border: `1px solid ${theme?.theme.neutral[600]}`,
+}))
 
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
+type TCavasPickerStyled = OnlyTheme
+export const CanvasPickerStyled = styled('canvas')(
+  ({ theme }: TCavasPickerStyled) => ({
+    border: `1px solid ${theme?.theme.neutral[600]}`,
+    position: 'absolute',
+    left: '0px',
+    top: '0px',
+  })
+)
 
-export const Canvas = styled.canvas`
-  border: 1px solid ${lightTheme.neutral[600]};
-`
+const flexCenterInfoCSS = flex({
+  justifyContent: 'center',
+  alignItems: 'center',
+})
+export const InfoStyled = styled('div')(
+  () => ({
+    gap: '1rem',
+  }),
+  () => flexCenterInfoCSS
+)
 
-export const CanvasPicker = styled.canvas`
-  border: 1px solid ${lightTheme.neutral[600]};
-  position: absolute;
-  left: 0px;
-  top: 0px;
-`
+export const SelectedTitleStyled = styled(Title)(() => ({
+  minWidth: '130px',
+  textAign: 'center',
+}))
 
-export const Info = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-`
+export const SelectedViewerStyled = styled('div')(() => ({
+  width: '30px',
+  height: '30px',
+  borderRadius: '100%',
+  border: '2px solid rgba(15, 15, 15, 0.2)',
+}))
 
-export const SelectedTitle = styled(Title)`
-  min-width: 130px;
-  text-align: center;
-`
+export const TitlePickerStyled = styled(Title)()
 
-export const SelectedViewer = styled.div`
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  border: 2px solid rgba(15, 15, 15, 0.2);
-`
+export const CanvasContainerStyled = styled(Container)(() => ({
+  position: 'relative',
+}))
 
-export const TitlePicker = styled(Title)``
-
-export const CanvasContainer = styled(Container)`
-  position: relative;
-`
+type TInputContainerStyled = OnlyTheme
+export const InputContainerStyled = styled('div')(
+  ({ theme }: TInputContainerStyled) => ({
+    width: theme?.tokens.sizes.width.fit,
+  })
+)

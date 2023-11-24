@@ -36,7 +36,7 @@ const Calendar = React.forwardRef(
         body__day_body_week_item: ['body__day_body_week_item'],
         body__day_body_span: ['body__day_body_span'],
       },
-      componentPrefixCls: 'button',
+      componentPrefixCls: 'calendar',
       customPrexiCls: className,
     })
 
