@@ -1,22 +1,24 @@
 import styled from '@emotion/styled'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import { PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 import { flex } from 'styles/mixins/flex'
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const Icon = WithDesignStyledComponent(styled.i<{
-  theme?: ICustomTheme
-}>`
-  outline: none;
-  appearance: none;
-  border: ${({ theme }) => theme.tokens.spacing.border.none};
+const flexCenterCSS = flex({ justifyContent: 'center', alignItems: 'center' })
 
-  &.hoverIcon {
-    &:hover {
-      cursor: pointer;
-    }
-  }
+type TIconStyled = PartialBy<TWithGlobalStylesUI, 'theme'>
+export const IconStyled = styled('i')(
+  ({ theme }: TIconStyled) => ({
+    outline: 'none',
+    appearance: 'none',
+    border: theme?.tokens.spacing.border.none,
+    '&.hoverIcon': {
+      '&:hover': {
+        cursor: 'pointer',
+      },
+    },
+  }),
+  (props) => withGlobalStylesUI(props)(),
+  () => flexCenterCSS
+)
 
-  ${flex({ justifyContent: 'center', alignItems: 'center' })};
-`)
-
-export const Svg = styled.svg``
+export const SvgStyled = styled('svg')()
