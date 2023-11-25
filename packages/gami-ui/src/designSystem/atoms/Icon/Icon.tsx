@@ -35,6 +35,7 @@ const Icon = ({
       })}
     >
       <S.SvgStyled
+        className={cls(handles.svg)}
         fill="none"
         width={size}
         height={size}

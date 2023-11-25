@@ -3,6 +3,7 @@ import * as S from './Image.styles'
 import { TImageComponent, TImageLinkNul } from './type'
 import { cls } from 'core/utils/cls'
 import { IDynamicPropStyles } from 'styles/utilities/genericPropStyles'
+import useCssHandle from 'hooks/useCssHandle'
 
 export type TImageCommonsProps = {
   srcset: string
@@ -19,7 +20,7 @@ export type TImageCommonsProps = {
 }
 
 export type TImageConditional = {
-  content: React.ReactNode
+  children: React.ReactNode
   link: TImageLinkNul
   globalStyles: IDynamicPropStyles
   className: TImageComponent['className']
@@ -27,13 +28,20 @@ export type TImageConditional = {
   imageCommonsProps: TImageCommonsProps
 }
 export const ImageConditional = ({
-  content,
+  children,
   link,
   globalStyles,
   className,
   imageCommonsProps,
   alt,
 }: TImageConditional) => {
+  const { handles } = useCssHandle({
+    classes: {
+      background: ['background'],
+      imageelement: ['imageelement'],
+    },
+    componentPrefixCls: 'image',
+  })
   const imgProps = {
     ...(!link ? globalStyles : {}),
     ...imageCommonsProps,
@@ -44,10 +52,20 @@ export const ImageConditional = ({
 
   return (
     <Fragment>
-      {content ? (
-        <S.BackgroundImgStyled {...imgProps}>{content}</S.BackgroundImgStyled>
+      {children ? (
+        <S.BackgroundImgStyled
+          {...imgProps}
+          className={cls(handles.background)}
+        >
+          {children}
+        </S.BackgroundImgStyled>
       ) : (
-        <S.ImgStyled {...imgProps} alt={alt} loading="lazy" />
+        <S.ImgStyled
+          {...imgProps}
+          alt={alt}
+          loading="lazy"
+          className={cls(handles.imageelement)}
+        />
       )}
     </Fragment>
   )

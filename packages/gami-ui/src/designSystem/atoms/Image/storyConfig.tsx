@@ -116,7 +116,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Image',
+  title: 'Atoms/Image 🟢',
   component: Image,
   args: {},
   argTypes: storyArgTypes,
@@ -142,6 +142,9 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
       alt: 'Game Character',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    wrapper: (content: React.ReactNode) => (
+      <div style={{ border: '1px solid #d1d1d1' }}>{content}</div>
+    ),
   },
   padding: null,
   width: null,
@@ -153,7 +156,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithSrcsAndAlts',
+    storyName: 'WithSrcsAndAlts 🙂',
     self: {
       args: {
         alt: 'Image Story',
@@ -182,7 +185,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithLink',
+    storyName: 'WithLink 🙂',
     self: {
       args: {
         alt: 'Image Story',
@@ -210,7 +213,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithBackground',
+    storyName: 'WithBackground 🙂',
     self: {
       args: {
         alt: 'Image Story',
@@ -218,28 +221,6 @@ const storiesComponent = [
       },
       variants: {
         examples: [
-          {
-            label: 'Image A with Contain Prop(Auto Sizes)',
-            value: (
-              <Title level="h3" textAlign="center">
-                My Image A
-              </Title>
-            ),
-            customProps: {
-              backgroundSize: 'contain',
-            },
-          },
-          {
-            label: 'Image B with Cover Prop(Auto Sizes)',
-            value: (
-              <Title level="h3" textAlign="center">
-                My Image B
-              </Title>
-            ),
-            customProps: {
-              backgroundSize: 'cover',
-            },
-          },
           {
             label: 'Image A with Contain Prop(Static Sizes)',
             value: (
@@ -292,7 +273,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithSetsAndBreakpoints',
+    storyName: 'WithSetsAndBreakpoints 🙂',
     self: {
       args: {
         alt: 'Image Story',
@@ -329,7 +310,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithMaxSizes',
+    storyName: 'WithMaxSizes 🙂',
     self: {
       args: {
         alt: 'Image Story',

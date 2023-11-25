@@ -19,20 +19,22 @@ export const LinkImgStyled = styled('a')((props: TLinkImgPropsStyles) =>
   withGlobalStylesUI(props)()
 )
 
-export const ImgStyled = styled('img')((props: TImagePropStyles) =>
-  commonImgCSS(props)
+type TImgStyled = TImagePropStyles & PartialBy<TWithGlobalStylesUI, 'theme'>
+export const ImgStyled = styled('img')(
+  (props: TImgStyled) => commonImgCSS(props),
+  (props) => withGlobalStylesUI(props)()
 )
 
 type TBackgroundImgStyledProps = TImagePropStyles &
   Pick<TImageComponent, 'src' | 'backgroundSize'> &
   PartialBy<TWithGlobalStylesUI, 'theme'>
-export const BackgroundImgStyled = styled('img')(
+export const BackgroundImgStyled = styled('div')(
   ({ src, backgroundSize }: TBackgroundImgStyledProps) => ({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center center',
-    backgroundImmage: `url(${src})`,
+    backgroundImage: `url(${src})`,
     backgroundSize,
   }),
   (props: TBackgroundImgStyledProps) => commonImgCSS(props),
-  (props) => withGlobalStylesUI(props)('avatar')
+  (props) => withGlobalStylesUI(props)()
 )
