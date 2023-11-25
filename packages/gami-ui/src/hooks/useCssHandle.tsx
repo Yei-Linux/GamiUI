@@ -43,7 +43,7 @@ const useCssHandle = <T,>({
   const [handles, setHandles] = useState<THandles<T>>(defaultValue)
 
   const computedHandles = () => {
-    const handlesProp: THandles<T> = defaultValue
+    const handlesProp: THandles<T> = { ...defaultValue }
     const prefixClass = prefixCls(componentPrefixCls, customPrexiCls)
 
     Object.entries(classes).map((item) => {
@@ -73,7 +73,7 @@ const useCssHandle = <T,>({
       ]
     })
 
-    setHandles((prev) => (Object.keys(prev).length === 0 ? handlesProp : prev))
+    setHandles(handlesProp)
   }
 
   useEffect(() => {

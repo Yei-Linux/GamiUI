@@ -41,7 +41,7 @@ export const FilePreview = ({ extension, file, withPreview }: IFilePreview) => {
   return (
     <S.FilePreview>
       {!imagesExtensions.includes(extension) || !withPreview ? (
-        <S.FileType padding="11px">{extension}</S.FileType>
+        <S.FileTypeStyled padding="11px">{extension}</S.FileTypeStyled>
       ) : (
         <ImagePreview file={file} />
       )}

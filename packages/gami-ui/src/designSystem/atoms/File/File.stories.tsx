@@ -1,29 +1,11 @@
-import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
-import File from '.'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/File',
-  component: File,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = () => {
-  const [value, setValue] = useState([])
+export default mainConfig as Meta
 
-  return <File value={value} onChangeFormItem={setValue} />
-}
+const [one, two, three] = stories
 
-export const SingleFile = () => {
-  const [value, setValue] = useState([])
-
-  return <File isMultiple={false} value={value} onChangeFormItem={setValue} />
-}
-
-export const WithPreview = () => {
-  const [value, setValue] = useState([])
-
-  return <File withPreview value={value} onChangeFormItem={setValue} />
-}
+export { one, two, three }

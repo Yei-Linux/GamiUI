@@ -1,101 +1,53 @@
-import React, { useState, useEffect } from 'react'
-import { TOnChangeFormItem } from '../Input/Input'
+import React from 'react'
 import Title from '../Title'
 import * as S from './File.styles'
 import { FilePreview } from './FilePreview'
 import { useDrag } from './useDrag'
-import { IFileViewItem, useFile } from './useFile'
+import { useFile } from './useFile'
+import { TFileComponent } from './type'
+import { formatFileSize } from './helper'
+import { useFileDefaultValues } from './useFileDefaultValues'
+import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
 
-export interface IFile {
-  onChangeFormItem?: TOnChangeFormItem
-  value?: IFileViewItem[]
-  /**
-   * By default IsMultiple allows load multiple files
-   */
-  isMultiple?: boolean
-  withPreview?: boolean
-}
-
-const FileComponent = ({
+const FileC = ({
   onChangeFormItem,
+  className,
   withPreview = false,
   isMultiple = true,
   value = [],
-}: IFile) => {
-  const convertUrlToFile = async (url: string) => {
-    try {
-      const headers = new Headers()
-      headers.append('Access-Control-Allow-Origin', '*')
-      headers.append('cache-control', 'no-cache')
-      headers.append('pragma', 'no-cache')
+}: TFileComponent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      listwrapper: ['listwrapper'],
+      list__item: ['list__item'],
+      item__details: ['item__details'],
+      item__details__title: ['item__details__title'],
+      item__size: ['item__size'],
+      item__size__title: ['item__size__title'],
+      item__size__remove: ['item__size__remove'],
+      item__size__remove__close: ['item__size__remove__close'],
 
-      const response = await fetch(url, {
-        method: 'GET',
-        headers,
-      })
-
-      const blob = await response.blob()
-      const file = new File([blob], 'myFile', { type: blob.type })
-      const [, extension] = blob.type.split('/')
-
-      const obj = {
-        file,
-        size: file.size,
-        extension,
-        name: file.name,
-      }
-
-      return obj
-    } catch (error) {
-      return
-    }
-  }
-
-  const transformDefaultValues = async (value: IFileViewItem[]) => {
-    const defaultValues = []
-
-    for (const item of value) {
-      if (item.file) {
-        defaultValues.push(item)
-        continue
-      }
-
-      if (!item.url && !item.file) continue
-      if (!item.url) {
-        defaultValues.push(item)
-        continue
-      }
-
-      const file = await convertUrlToFile(item.url)
-      if (!file) continue
-      defaultValues.push({
-        ...item,
-        ...file,
-      })
-    }
-
-    return defaultValues
-  }
-
-  const [files, setFiles] = useState<IFileViewItem[]>([])
-
-  const updateDefault = async () => {
-    const values = await transformDefaultValues(value)
-    setFiles(values)
-  }
-
-  useEffect(() => {
-    updateDefault()
-  }, [value])
-
+      input__container: ['input__container'],
+      input: ['input'],
+      input__plus: ['input__plus'],
+      plus: ['plus'],
+      dragzone: ['dragzone'],
+      dragzone__text: ['dragzone__text'],
+      dragzone__placeholder: ['dragzone__placeholder'],
+    },
+    componentPrefixCls: 'file',
+    customPrexiCls: className,
+  })
+  const { files } = useFileDefaultValues({ value })
   const {
-    formatFileSize,
     removeFile,
     inputRef,
     handleListFilesSelected,
     handleBrowseFiles,
     addFile,
-    transformFileData,
   } = useFile({
     files: (files as any) == '' || !files ? [] : files,
     setFiles: (file) => onChangeFormItem?.(file),
@@ -103,17 +55,16 @@ const FileComponent = ({
   })
 
   const { handleDrag, handleDrop, dragActive } = useDrag({
-    transformFileData,
     addFile,
   })
 
   return (
-    <S.FileWrapper>
+    <S.FileWrapperStyled className={cls(handles.wrapper)}>
       {!!files.length && (
-        <S.FileList>
+        <S.FileListStyled className={cls(handles.listwrapper)}>
           {files.map(({ name, extension, size, id, file }) => (
-            <S.FileItem key={id}>
-              <S.FileDetails>
+            <S.FileItemStyled key={id} className={cls(handles.list__item)}>
+              <S.FileDetailsStyled className={cls(handles.item__details)}>
                 {file && name && extension && (
                   <FilePreview
                     fileName={name}
@@ -124,53 +75,78 @@ const FileComponent = ({
                 )}
 
                 <Title
+                  className={cls(handles.item__details__title)}
                   level="h4"
                   fontWeight="semibold"
                 >{`${name}.${extension}`}</Title>
-              </S.FileDetails>
-              <S.FileSize>
+              </S.FileDetailsStyled>
+              <S.FileSizeStyled className={cls(handles.item__size)}>
                 {size && (
-                  <Title level="h4" fontWeight="normal">
+                  <Title
+                    level="h4"
+                    fontWeight="normal"
+                    className={cls(handles.item__size__title)}
+                  >
                     {formatFileSize(size)}
                   </Title>
                 )}
-                <S.RemoveFileItem
+                <S.RemoveFileItemStyled
+                  className={cls(handles.item__size__remove)}
                   padding="7px"
                   variant="primary"
                   rounded="full"
                   onClick={() => removeFile(id)}
                 >
-                  <S.Remove name="close" />
-                </S.RemoveFileItem>
-              </S.FileSize>
-            </S.FileItem>
+                  <S.RemoveStyled
+                    name="close"
+                    className={cls(handles.item__size__remove__close)}
+                  />
+                </S.RemoveFileItemStyled>
+              </S.FileSizeStyled>
+            </S.FileItemStyled>
           ))}
-        </S.FileList>
+        </S.FileListStyled>
       )}
 
-      <S.File>
-        <S.InputFile
+      <S.FileStyled className={cls(handles.input__container)}>
+        <S.InputFileStyled
+          className={cls(handles.input)}
           onChange={handleListFilesSelected}
           ref={inputRef}
           type="file"
         />
 
-        <S.FilePlus
+        <S.FilePlusStyled
+          className={cls(handles.input__plus)}
           padding="7px"
           variant="primary"
           rounded="full"
           onClick={handleBrowseFiles}
         >
-          <S.Plus size="25px" name="plus" color="white" />
-        </S.FilePlus>
+          <S.PlusStyled
+            className={cls(handles.plus)}
+            size="25px"
+            name="plus"
+            color="white"
+          />
+        </S.FilePlusStyled>
 
-        <S.DragZone onDragEnter={handleDrag}>
-          <S.DragText fontWeight="semibold" level="h4" textAlign="center">
+        <S.DragZoneStyled
+          onDragEnter={handleDrag}
+          className={cls(handles.dragzone)}
+        >
+          <S.DragTextStyled
+            fontWeight="semibold"
+            level="h4"
+            textAlign="center"
+            className={cls(handles.dragzone__text)}
+          >
             Drag files here
-          </S.DragText>
+          </S.DragTextStyled>
 
           {dragActive && (
-            <S.DragPlaceholder
+            <S.DragPlaceholderStyled
+              className={cls(handles.dragzone__placeholder)}
               id="drag-file-element"
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
@@ -178,10 +154,21 @@ const FileComponent = ({
               onDrop={handleDrop}
             />
           )}
-        </S.DragZone>
-      </S.File>
-    </S.FileWrapper>
+        </S.DragZoneStyled>
+      </S.FileStyled>
+    </S.FileWrapperStyled>
   )
 }
 
-export default FileComponent
+const defaultProps = {}
+
+FileC.displayName = 'FileC'
+
+type FileComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  FileC,
+  defaultProps
+) as FileComponent<TFileComponent>

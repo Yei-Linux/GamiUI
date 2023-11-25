@@ -29,5 +29,5 @@ type TEmpty = {
 }
 
 export type TEmptyComponent = TEmpty &
-  Omit<TDesignTokens, 'size' | 'textAlign' | 'height' | 'width' | 'rounded'> &
+  Omit<TDesignTokens, 'size' | 'textAlign' | 'height' | 'width'> &
   TDesignUI

@@ -1,102 +1,124 @@
 import styled from '@emotion/styled'
 import Container from 'designSystem/layouts/Container'
-import { lightTheme } from 'styles/tokens/lightTheme'
 import Button from '../Button'
 import Icon from '../Icon'
 import Title from '../Title'
+import { flex } from 'styles/mixins/flex'
+import { OnlyTheme } from 'core/domain/types/mixins'
 
-export const FileWrapper = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-`
+const flexColCenterCSS = flex({
+  justifyContent: 'center',
+  alignItems: 'center',
+  direction: 'column',
+})
 
-export const File = styled.div`
-  position: relative;
-  width: 100%;
-`
+export const FileWrapperStyled = styled(Container)(
+  () => ({
+    gap: '2rem',
+  }),
+  () => flexColCenterCSS
+)
 
-export const FileList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`
+type TFileStyled = OnlyTheme
+export const FileStyled = styled('div')(({ theme }: TFileStyled) => ({
+  position: 'relative',
+  width: theme?.tokens.sizes.width.full,
+}))
 
-export const FileItem = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-`
+type TFileListStyled = OnlyTheme
+export const FileListStyled = styled('ul')(
+  ({ theme }: TFileListStyled) => ({
+    gap: '1rem',
+    width: theme?.tokens.sizes.width.full,
+  }),
+  () => flexColCenterCSS
+)
 
-export const FileDetails = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-`
+const flexRowCenterBetweenCSS = flex({
+  justifyContent: 'space-between',
+  alignItems: 'center',
+})
 
-export const FileType = styled(Container)`
-  background-color: ${lightTheme.primary.mediumPurple};
-  text-transform: uppercase;
-  border-radius: 1em;
-  color: ${lightTheme.neutral[700]};
-  font-size: 11px;
-`
+type TFileItemStyled = OnlyTheme
+export const FileItemStyled = styled('li')(
+  ({ theme }: TFileItemStyled) => ({
+    width: theme?.tokens.sizes.width.full,
+  }),
+  () => flexRowCenterBetweenCSS
+)
 
-export const FileSize = styled(Container)`
-  color: ${lightTheme.neutral[300]};
+export const FileDetailsStyled = styled(Container)(
+  () => ({
+    gap: '1rem',
+  }),
+  () => flexRowCenterBetweenCSS
+)
 
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
-`
+type TFileTypeStyled = OnlyTheme
+export const FileTypeStyled = styled(Container)(
+  ({ theme }: TFileTypeStyled) => ({
+    textTransform: 'uppercase',
+    borderRradius: '1em',
+    fontSize: '11px',
+    color: theme?.theme.neutral[700],
+    backgroundColor: theme?.theme.primary.mediumPurple,
+  })
+)
 
-export const RemoveFileItem = styled(Button)`
-  background-color: white;
-`
+const flexEndCSS = flex({ justifyContent: 'flex-end', alignItems: 'center' })
+type TFileSizeStyled = OnlyTheme
+export const FileSizeStyled = styled(Container)(
+  ({ theme }: TFileSizeStyled) => ({
+    color: theme?.theme.neutral[300],
+    gap: '1rem',
+  }),
+  () => flexEndCSS
+)
 
-export const Remove = styled(Icon)``
+type TRemoveFileItemStyled = OnlyTheme
+export const RemoveFileItemStyled = styled(Button)(
+  ({ theme }: TRemoveFileItemStyled) => ({
+    backgroundColor: theme?.theme.neutral[800],
+  })
+)
 
-export const InputFile = styled.input`
-  display: none;
-`
+export const RemoveStyled = styled(Icon)()
 
-export const FilePlus = styled(Button)`
-  position: absolute;
-  right: 10px;
-  top: -15px;
-  z-index: 2;
-`
+export const InputFileStyled = styled('input')(() => ({
+  display: 'none',
+}))
 
-export const Plus = styled(Icon)``
+export const FilePlusStyled = styled(Button)(() => ({
+  position: 'absolute',
+  right: '10px',
+  top: '-15px',
+  zIndex: 2,
+}))
 
-export const DragZone = styled.div`
-  border: 4px dashed ${lightTheme.neutral[600]};
-  border-radius: 1em;
-  padding: 15px;
+export const PlusStyled = styled(Icon)()
 
-  position: relative;
-`
+type TDragZoneStyled = OnlyTheme
+export const DragZoneStyled = styled('div')(({ theme }: TDragZoneStyled) => ({
+  border: `4px dashed ${theme?.theme.neutral[600]}`,
+  borderRadius: '1em',
+  padding: '15px',
+  position: 'relative',
+}))
 
-export const DragText = styled(Title)``
+export const DragTextStyled = styled(Title)()
 
-export const DragPlaceholder = styled.div`
-  width: 100%;
-  height: 100%;
-  background: #f1f1f197;
+type TDragPlaceholderStyled = OnlyTheme
+export const DragPlaceholderStyled = styled('div')(
+  ({ theme }: TDragPlaceholderStyled) => ({
+    width: theme?.tokens.sizes.width.full,
+    height: theme?.tokens.sizes.height.full,
+    background: theme?.theme.neutral[300],
+    position: 'absolute',
+    left: '0px',
+    top: '0px',
+  })
+)
 
-  position: absolute;
-  left: 0px;
-  top: 0px;
-`
+export const FilePreview = styled(Container)()
 
-export const FilePreview = styled(Container)``
-
-export const FileImage = styled.img``
+export const FileImage = styled('img')()
