@@ -1,54 +1,10 @@
 import { cls } from 'core/utils/cls'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { getDesignProps } from 'styles/utilities/genericPropStyles'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import * as S from './Input.styles'
-
-export type TPositionPrefix = 'left' | 'right'
-
-export type TOnChangeFormItem = (
-  value: any,
-  ...props: unknown[]
-) => unknown | void
-
-export interface IInput extends IGeneralProps {
-  /**
-   * Placeholder Input to show
-   */
-  placeholder?: string
-  /**
-   * Identifier Input
-   */
-  name?: string
-  /**
-   * Value Input
-   */
-  value?: string
-  /**
-   * Prefix Content Input
-   */
-  prefix?: React.ReactNode
-  /**
-   * Prefix Position
-   */
-  positionPrefix?: TPositionPrefix
-  /**
-   * Input Type
-   */
-  type?: 'password' | 'input' | 'number'
-  /**
-   * Autocomplete action
-   */
-  autoComplete?: 'off' | 'on'
-  /**
-   * Function to detect changes
-   */
-  onChangeFormItem?: TOnChangeFormItem
-  /**
-   * Is Readonly input
-   */
-  readOnly?: boolean
-}
+import { TInputComponent } from './type'
+import useCssHandle from 'hooks/useCssHandle'
+import withDefaults from 'hocs/WithDefault'
 
 const Input = ({
   onChangeFormItem,
@@ -61,7 +17,21 @@ const Input = ({
   value,
   placeholder = '',
   ...genericsProps
-}: IInput) => {
+}: TInputComponent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      preffix: ['preffix'],
+      element: ['element'],
+    },
+    componentPrefixCls: 'input',
+    customPrexiCls: genericsProps.className,
+  })
+  const globalStyles = useMemo(
+    () => getDesignProps(genericsProps),
+    [genericsProps]
+  )
+
   const handleChangeOnInput = (
     e: React.ChangeEvent<HTMLInputElement>
   ): void => {
@@ -70,17 +40,21 @@ const Input = ({
   }
 
   return (
-    <S.InputBox
-      {...getDesignProps(genericsProps)}
-      className={cls({
+    <S.InputBoxStyled
+      {...globalStyles}
+      className={cls(handles.wrapper, {
         positionPrefixRight: positionPrefix == 'right',
         positionPrefixLeft: positionPrefix == 'left',
       })}
     >
-      {prefix && <S.PrefixContainer>{prefix}</S.PrefixContainer>}
+      {prefix && (
+        <S.PrefixContainerStyled className={cls(handles.preffix)}>
+          {prefix}
+        </S.PrefixContainerStyled>
+      )}
       {
-        <S.Input
-          className={cls('input')}
+        <S.InputStyled
+          className={cls(handles.element)}
           readOnly={readOnly}
           autoComplete={autoComplete}
           type={type}
@@ -90,8 +64,19 @@ const Input = ({
           onChange={handleChangeOnInput}
         />
       }
-    </S.InputBox>
+    </S.InputBoxStyled>
   )
 }
 
-export default Input
+const defaultProps = {}
+
+Input.displayName = 'Input'
+
+type InputComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  Input,
+  defaultProps
+) as InputComponent<TInputComponent>

@@ -1,67 +1,54 @@
 import styled from '@emotion/styled'
-import {
-  RoundedType,
-  FontWeightType,
-  HeightType,
-  ShadowType,
-  TextAlignType,
-  WidthType,
-} from 'core/domain/types'
+import { OnlyTheme, PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 import Container from 'designSystem/layouts/Container'
 import { flex } from 'styles/mixins/flex'
 import { mixinInput } from 'styles/mixins/input'
-import { spacing } from 'styles/tokens'
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const Input = styled.input`
-  padding-top: ${spacing.padding.md};
-  padding-bottom: ${spacing.padding.xs};
+const inputCSS = mixinInput('light', '')
+type TInputStyled = OnlyTheme
+export const InputStyled = styled('input')(
+  ({ theme }: TInputStyled) => ({
+    paddingTop: theme?.tokens.spacing.padding.md,
+    paddingBottom: theme?.tokens.spacing.padding.xs,
+  }),
+  () => inputCSS
+)
 
-  ${mixinInput('light', '')}
-`
+export const PrefixContainerStyled = styled(Container)(() => ({
+  marginBottom: '5px',
+}))
 
-export const PrefixContainer = styled(Container)`
-  margin-bottom: 5px;
-`
+const flexEndCSS = flex({ alignItems: 'flex-end' })
 
-export const InputBox = WithDesignStyledComponent(
-  styled.div<{
-    $border?: RoundedType
-    $shadow?: ShadowType
-    $fontWeight?: FontWeightType
-    $width?: WidthType
-    $height?: HeightType
-    $textAlign?: TextAlignType
-  }>`
-    overflow: hidden;
-    background: white;
-    ${flex({ alignItems: 'flex-end' })}
-    max-width: 300px;
+type TInputBoxStyled = PartialBy<TWithGlobalStylesUI, 'theme'>
+export const InputBoxStyled = styled('div')(
+  ({ theme }: TInputBoxStyled) => ({
+    overflow: 'hidden',
+    background: 'white',
+    maxWidth: '300px',
+    boxShadow: '0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%)',
+    borderRadius: '0.5em',
+    "input[type='password']": {
+      fontFamily: 'system-ui !important',
+    },
+    '&.positionPrefixRight': {
+      flexDirection: 'row-reverse',
+      justifyContent: 'space-between',
+      paddingRight: '0.5rem',
+      input: {
+        marginRight: theme?.tokens.spacing.padding.sm,
+      },
+    },
+    '&.positionPrefixLeft': {
+      flexDirection: 'row',
+      paddingLeft: '0.5rem',
 
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-    border-radius: 0.5em;
-
-    input[type='password'] {
-      font-family: system-ui !important;
-    }
-
-    &.positionPrefixRight {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      padding-right: 0.5rem;
-
-      input {
-        margin-right: ${spacing.padding.sm};
-      }
-    }
-
-    &.positionPrefixLeft {
-      flex-direction: row;
-      padding-left: 0.5rem;
-
-      input {
-        margin-left: ${spacing.padding.sm};
-      }
-    }
-  `
+      input: {
+        marginLeft: theme?.tokens.spacing.padding.sm,
+      },
+    },
+  }),
+  () => flexEndCSS,
+  (props) => withGlobalStylesUI(props)()
 )

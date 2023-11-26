@@ -1,37 +1,23 @@
-import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
 
-import Input from '.'
+import { storyConfig } from './storyConfig'
+import React, { useState } from 'react'
+import Input from './Input'
 import Icon from '../Icon'
 
-export default {
-  title: 'Atoms/Input',
-  component: Input,
-  args: {},
-  argTypes: {
-    positionPrefix: {
-      control: 'select',
-      options: ['left', 'right'],
-    },
-    placeholder: { control: 'text' },
-    prefix: {
-      options: ['a', 'b'],
-      mapping: {
-        a: null,
-        b: <Icon color="#374a54" />,
-      },
-      control: {
-        type: 'select',
-        labels: {
-          a: 'withoutIcon',
-          b: 'withIcon',
-        },
-      },
-    },
-  },
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const BasicInput = () => {
+export default mainConfig as Meta
+
+const [one, two, three, four, five] = stories
+
+export { one, two, three, four, five }
+
+/**
+ * Custom Stories
+ * @returns
+ */
+export const WithBasicInteraction = () => {
   const [value, setValue] = useState('test')
 
   const handleChange = (newValue: string) => setValue(newValue)
@@ -47,8 +33,9 @@ export const BasicInput = () => {
     />
   )
 }
+WithBasicInteraction.storyName = 'With Basic Interaction 🙂'
 
-export const IconInput = () => {
+export const WithIconInput = () => {
   const [value, setValue] = useState('')
 
   const handleChange = (newValue: string) => setValue(newValue)
@@ -65,3 +52,4 @@ export const IconInput = () => {
     />
   )
 }
+WithIconInput.storyName = 'With Basic Interaction 🙂'
