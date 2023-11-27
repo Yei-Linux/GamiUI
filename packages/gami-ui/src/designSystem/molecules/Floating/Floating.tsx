@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import useOpen from 'hooks/useOpen'
 
 import Icon from '../../atoms/Icon'
@@ -8,63 +7,11 @@ import Transition from '../../styled/Transition'
 import { positionFloating } from './constants'
 import * as S from './Floating.styles'
 import { getDesignProps } from 'styles/utilities/genericPropStyles'
-import { FloatingTypes } from 'core/domain/types'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import withDefaults from 'hocs/WithDefault'
 import Portal from 'hooks/Portal'
-
-type IOnClose = () => void
-
-type TGenericStylesFloating = Omit<
-  IGeneralProps,
-  | 'size'
-  | 'fontWeight'
-  | 'textAlign'
-  | 'margin'
-  | 'padding'
-  | 'width'
-  | 'height'
->
-
-export interface IFloating extends TGenericStylesFloating {
-  /**
-   * Is visible or not floating
-   */
-  open?: boolean
-  /**
-   * Content
-   */
-  children: React.ReactNode
-  /**
-   * Floating direction
-   */
-  direction: FloatingTypes
-  /**
-   * Height
-   */
-  height?: string
-  /**
-   * Width
-   */
-  width?: string
-  /**
-   * Custom Icon
-   */
-  customCloseIcon?: React.ReactNode | null
-  /**
-   * Has Close Icon
-   */
-  hasCloseIcon?: boolean
-  /**
-   * ZIndex
-   */
-  zIndex?: number
-  /**
-   * Action on close floating message
-   */
-  onClose: IOnClose
-}
+import { TFloatingComponent } from './type'
 
 const Floating = ({
   onClose,
@@ -77,7 +24,7 @@ const Floating = ({
   hasCloseIcon = true,
   zIndex,
   ...genericsProps
-}: IFloating) => {
+}: TFloatingComponent) => {
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
@@ -85,7 +32,7 @@ const Floating = ({
       icon: ['icon'],
     },
     componentPrefixCls: 'floating',
-    customPrexiCls: genericsProps?.className,
+    customPrexiCls: '',
   })
   const { isOpen } = useOpen({ open })
 
@@ -98,7 +45,7 @@ const Floating = ({
             to={positionFloating[direction][open ? 'open' : 'close'].to}
             isReadyToInitAnimation={open}
           >
-            <S.Floating
+            <S.FloatingStyled
               $width={width}
               $height={height}
               $zIndex={zIndex}
@@ -107,7 +54,7 @@ const Floating = ({
               {...getDesignProps(genericsProps)}
             >
               {hasCloseIcon && (
-                <S.FloatingHeader className={cls(handles.header)}>
+                <S.FloatingHeaderStyled className={cls(handles.header)}>
                   {customCloseIcon ?? (
                     <Icon
                       className={cls(handles.icon)}
@@ -117,11 +64,11 @@ const Floating = ({
                       onClick={onClose}
                     />
                   )}
-                </S.FloatingHeader>
+                </S.FloatingHeaderStyled>
               )}
 
               {children}
-            </S.Floating>
+            </S.FloatingStyled>
           </Transition>
         </Portal>
       )}
@@ -143,4 +90,4 @@ type FloatingComponent<P> = React.NamedExoticComponent<P> & {
 export default withDefaults(
   Floating,
   defaultProps
-) as FloatingComponent<IFloating>
+) as FloatingComponent<TFloatingComponent>
