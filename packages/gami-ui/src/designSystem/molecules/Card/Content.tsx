@@ -1,4 +1,3 @@
-import { IGenericEvents } from 'core/domain/interfaces/IGeneralProps'
 import Spacer from 'designSystem/layouts/Spacer'
 import * as React from 'react'
 import {
@@ -6,12 +5,9 @@ import {
   SubtitleContainer,
 } from 'styles/utilities/commonComponent'
 import * as S from './Card.styles'
-
-export interface IContent {
-  title: React.ReactNode
-  description: React.ReactNode
-  className?: string
-}
+import { TContent } from './type'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
 
 export const Content = ({
   title,
@@ -20,15 +16,30 @@ export const Content = ({
   onMouseEnter,
   onMouseLeave,
   className,
-}: IContent & IGenericEvents) => (
-  <S.Content
-    className={className}
-    onClick={onClick}
-    onMouseEnter={onMouseEnter}
-    onMouseLeave={onMouseLeave}
-  >
-    <TitleContainer>{title}</TitleContainer>
-    <Spacer direction="bottom" />
-    <SubtitleContainer>{description}</SubtitleContainer>
-  </S.Content>
-)
+}: TContent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      title: ['title'],
+      spacer: ['spacer'],
+      subtitle: ['subtitle'],
+    },
+    componentPrefixCls: 'cardContent',
+    customPrexiCls: '',
+  })
+
+  return (
+    <S.ContentStyled
+      className={cls(handles.wrapper, className ?? '')}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <TitleContainer className={cls(handles.title)}>{title}</TitleContainer>
+      <Spacer direction="bottom" className={cls(handles.spacer)} />
+      <SubtitleContainer className={cls(handles.subtitle)}>
+        {description}
+      </SubtitleContainer>
+    </S.ContentStyled>
+  )
+}

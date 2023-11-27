@@ -60,7 +60,9 @@ const Portal = forwardRef((props: Props, ref) => {
     return undefined
   }, [ref, mountNode])
 
-  return mountNode ? ReactDOM.createPortal(children, mountNode) : mountNode
+  return mountNode
+    ? (ReactDOM.createPortal(children, mountNode) as any)
+    : mountNode
 })
 
 export default Portal

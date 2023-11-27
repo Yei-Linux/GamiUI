@@ -89,7 +89,10 @@ export { default as Menu } from './designSystem/molecules/Menu'
 export { default as List } from './designSystem/molecules/List'
 export { default as Table } from './designSystem/molecules/Table'
 export { default as Tab } from './designSystem/molecules/Tab'
-export { default as Card } from './designSystem/molecules/Card'
+export {
+  default as Card,
+  argTypes as docsCard,
+} from './designSystem/molecules/Card'
 export { default as Form } from './designSystem//molecules/Form'
 export { default as Modal } from './designSystem//molecules/Modal'
 export { default as Pagination } from './designSystem/molecules/Pagination'

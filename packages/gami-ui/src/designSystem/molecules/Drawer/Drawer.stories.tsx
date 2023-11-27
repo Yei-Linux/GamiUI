@@ -10,12 +10,9 @@ import Row from 'designSystem/layouts/Row'
 import Icon from 'designSystem/atoms/Icon'
 import RichText from 'designSystem/atoms/RichText'
 
-const { mainConfig, stories } = storyConfig
+const { mainConfig } = storyConfig
 
 export default mainConfig as Meta
-
-// eslint-disable-next-line no-empty-pattern
-const [] = stories
 
 const StoryDefault = (args: any) => {
   const [open, setOpen] = useState(false)
@@ -35,7 +32,7 @@ const StoryDefault = (args: any) => {
 }
 export const StoryDefaultTemplate: ComponentStory<TJSXElements> =
   StoryDefault.bind({})
-StoryDefaultTemplate.storyName = 'WithDefault'
+StoryDefaultTemplate.storyName = 'With Default 🙂'
 StoryDefaultTemplate.args = {
   height: 300,
   width: 280,
@@ -77,7 +74,7 @@ const StoryCustomCloseIcon = (args: any) => {
 export const StoryCustomCloseIconTemplate: ComponentStory<TJSXElements> =
   StoryCustomCloseIcon.bind({})
 
-StoryCustomCloseIconTemplate.storyName = 'WithCustomCloseIcon'
+StoryCustomCloseIconTemplate.storyName = 'With CustomCloseIcon 🙂'
 StoryCustomCloseIconTemplate.args = {
   hasCloseIcon: true,
   placement: 'left',
@@ -117,7 +114,7 @@ const StoryCloseIcon = (args: any) => {
 export const StoryCloseIconTemplate: ComponentStory<TJSXElements> =
   StoryCloseIcon.bind({})
 
-StoryCloseIconTemplate.storyName = 'WithCloseIcon'
+StoryCloseIconTemplate.storyName = 'With CloseIcon 🙂'
 StoryCloseIconTemplate.args = {
   placement: 'left',
   height: 300,
@@ -157,7 +154,7 @@ export const StoryMaskTemplate: ComponentStory<TJSXElements> = StoryMask.bind(
   {}
 )
 
-StoryMaskTemplate.storyName = 'WithMask'
+StoryMaskTemplate.storyName = 'With Mask 🙂'
 StoryMaskTemplate.args = {
   height: 300,
   width: 280,
@@ -200,7 +197,7 @@ const StoryDirection = (args: any) => {
 }
 export const StoryDirectionTemplate: ComponentStory<TJSXElements> =
   StoryDirection.bind({})
-StoryDirectionTemplate.storyName = 'WithDirection'
+StoryDirectionTemplate.storyName = 'With Direction 🙂'
 StoryDirectionTemplate.args = {
   height: 300,
   width: 280,
