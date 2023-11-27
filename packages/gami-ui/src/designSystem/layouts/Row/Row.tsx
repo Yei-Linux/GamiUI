@@ -1,63 +1,9 @@
-import {
-  JustifyContentTypes,
-  AlignItemsTypes,
-  DirectionTypes,
-} from 'core/domain/types'
 import { cls } from 'core/utils/cls'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
-import React, { CSSProperties } from 'react'
+import React from 'react'
 import * as S from './Row.styles'
-
-export interface IRow {
-  /**
-   * Gap
-   */
-  gap?: string | null
-  /**
-   * Width Row
-   */
-  width?: string
-
-  /**
-   * Style Custom
-   */
-  style?: CSSProperties
-
-  /**
-   * Children Prop
-   */
-  children: React.ReactNode
-
-  /**
-   * Justify Content
-   */
-  justifyContent?: JustifyContentTypes
-
-  /**
-   * Align Items
-   */
-  alignItems?: AlignItemsTypes
-
-  /**
-   * Height
-   */
-  height?: string
-
-  /**
-   * Is Wrap
-   */
-  isWrap?: boolean
-
-  /**
-   * Flex Direction
-   */
-  flexDirection?: DirectionTypes
-  /**
-   * Classname
-   */
-  className?: string
-}
+import { TRowComponent } from './type'
 
 const Row = ({
   gap = null,
@@ -70,17 +16,17 @@ const Row = ({
   isWrap = true,
   flexDirection = 'row',
   className,
-}: IRow) => {
+}: TRowComponent) => {
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
     },
     componentPrefixCls: 'row',
-    customPrexiCls: className,
+    customPrexiCls: '',
   })
 
   return (
-    <S.Row
+    <S.RowStyled
       $gap={gap}
       $width={width}
       $height={height}
@@ -94,7 +40,7 @@ const Row = ({
       })}
     >
       {children}
-    </S.Row>
+    </S.RowStyled>
   )
 }
 
@@ -106,4 +52,4 @@ type RowComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }
 
-export default withDefaults(Row, defaultProps) as RowComponent<IRow>
+export default withDefaults(Row, defaultProps) as RowComponent<TRowComponent>

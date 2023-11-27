@@ -65,7 +65,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Layout/Layout',
+  title: 'Layout/Layout 🟢',
   component: Layout,
   args: {},
   argTypes: storyArgTypes,
@@ -85,7 +85,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithDefault',
+    storyName: 'WithDefault 🙂',
     self: {
       args: {
         minHeight: '300px',
@@ -123,7 +123,7 @@ const storiesComponent = [
   },
 
   {
-    storyName: 'WithSidebar',
+    storyName: 'WithSidebar 🙂',
     self: {
       args: {
         minHeight: '300px',
@@ -170,7 +170,7 @@ const storiesComponent = [
   },
 
   {
-    storyName: 'WithoutFooter',
+    storyName: 'WithoutFooter 🙂',
     self: {
       args: {
         minHeight: '300px',
@@ -212,7 +212,7 @@ const storiesComponent = [
   },
 
   {
-    storyName: 'WithStyled',
+    storyName: 'WithStyled 🙂',
     self: {
       args: {
         minHeight: '300px',

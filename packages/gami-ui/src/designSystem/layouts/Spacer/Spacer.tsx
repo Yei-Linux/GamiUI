@@ -1,40 +1,31 @@
 import React from 'react'
 import * as S from './Spacer.styles'
+import { TSpacer } from './type'
+import withDefaults from 'hocs/WithDefault'
 
-export type TDirection = 'left' | 'right' | 'top' | 'bottom'
-
-export type TSize = 1 | 2 | 3 | 4 | 5
-
-export interface ISpacer {
-  /**
-   * Spacer Direction
-   */
-  direction: TDirection
-  /**
-   * Size of spacer
-   */
-  size?: TSize
-  /**
-   * Custom Size
-   */
-  customSize?: string
-  /**
-   * Classname
-   */
-  className?: string
-}
-
-const Spacer = ({ direction, size = 1, customSize, className }: ISpacer) => {
+const Spacer = ({
+  direction,
+  size = 1,
+  customSize,
+  className,
+  style,
+}: TSpacer) => {
   return (
-    <S.Spacer
+    <S.SpacerStyled
       $direction={direction}
       $size={size}
       $customSize={customSize}
       className={className}
+      style={style}
     />
   )
 }
+const defaultProps = {}
 
 Spacer.displayName = 'Spacer'
 
-export default Spacer
+type SpacerComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(Spacer, defaultProps) as SpacerComponent<TSpacer>
