@@ -1,18 +1,7 @@
 import { cls } from 'core/utils/cls'
 import * as React from 'react'
 import * as S from './Loader.styles'
-
-export type TBehavior = 'glass' | 'none'
-
-export interface IWrapper {
-  behavior?: 'glass' | 'none'
-  minHeight?: string
-  isLoading: boolean
-  loaderNode: React.ReactNode
-  children?: React.ReactNode
-  className?: string
-  as?: keyof JSX.IntrinsicElements
-}
+import { TBehavior, TWrapper } from './type'
 
 export const Wrapper = ({
   children,
@@ -22,13 +11,13 @@ export const Wrapper = ({
   behavior = 'none',
   minHeight = 'none',
   as = 'div',
-}: IWrapper) => {
+}: TWrapper) => {
   const none = () => (
     <React.Fragment>
       {isLoading ? (
-        <S.Wrapper className={className} $minHeight={minHeight} as={as}>
+        <S.WrapperStyled className={className} $minHeight={minHeight} as={as}>
           {loaderNode}
-        </S.Wrapper>
+        </S.WrapperStyled>
       ) : (
         children
       )}
@@ -37,12 +26,18 @@ export const Wrapper = ({
 
   const glass = () => (
     <React.Fragment>
-      <S.FragmentLoader $minHeight={minHeight} className={className} as={as}>
+      <S.FragmentLoaderStyled
+        $minHeight={minHeight}
+        className={className}
+        as={as}
+      >
         {children}
         {isLoading && (
-          <S.Wrapper className={cls('absolute')}>{loaderNode}</S.Wrapper>
+          <S.WrapperStyled className={cls('absolute')}>
+            {loaderNode}
+          </S.WrapperStyled>
         )}
-      </S.FragmentLoader>
+      </S.FragmentLoaderStyled>
     </React.Fragment>
   )
 

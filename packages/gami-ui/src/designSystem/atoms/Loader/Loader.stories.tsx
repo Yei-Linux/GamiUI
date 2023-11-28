@@ -1,33 +1,29 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 
 import Loader from '.'
 import { useEffect } from '@storybook/addons'
 import Table from 'designSystem/molecules/Table'
 import RichText from '../RichText'
 import Container from 'designSystem/layouts/Container'
+import { storyConfig } from './storyConfig'
+import { TJSXElements } from 'core/domain/interfaces/common'
 
-export default {
-  title: 'Atoms/Loader',
-  component: Loader,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Default = (args: any) => <Loader {...args} />
-Default.args = {}
+export default mainConfig as Meta
 
-export const Points = (args: any) => <Loader {...args} />
-Points.args = {
-  type: 'points',
-}
+const [one] = stories
 
-export const Spinner = (args: any) => <Loader {...args} />
-Spinner.args = {
-  type: 'spinner',
-}
+export { one }
 
-export const WithWrapper = () => {
+/**
+ * Custom Stories
+ * @param args
+ * @returns
+ */
+
+const WithWrapper = () => {
   const columns = [
     {
       title: 'Nombres',
@@ -88,3 +84,7 @@ export const WithWrapper = () => {
     </Container>
   )
 }
+export const StoryWithWrapperTemplate: ComponentStory<TJSXElements> =
+  WithWrapper.bind({})
+StoryWithWrapperTemplate.storyName = 'With Wrapper 🙂'
+StoryWithWrapperTemplate.args = {}

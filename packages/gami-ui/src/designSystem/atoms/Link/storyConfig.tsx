@@ -91,7 +91,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Link',
+  title: 'Atoms/Link 🟢',
   component: Link,
   args: {},
   argTypes: storyArgTypes,
@@ -186,7 +186,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithVariants',
+    storyName: 'WithVariants 🙂',
     self: {
       args: {
         children: 'Gami Link',
@@ -208,7 +208,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithBordered',
+    storyName: 'WithBordered 🙂',
     self: {
       args: {
         children: 'Gami Link',
@@ -228,7 +228,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithGhost',
+    storyName: 'WithGhost 🙂',
     self: {
       args: {
         children: 'Gami Link',
@@ -248,7 +248,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithLight',
+    storyName: 'WithLight 🙂',
     self: {
       args: {
         children: 'Gami Link',
@@ -269,7 +269,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithFlat',
+    storyName: 'WithFlat 🙂',
     self: {
       args: {
         children: 'Gami Link',

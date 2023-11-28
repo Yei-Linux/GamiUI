@@ -5,7 +5,7 @@ import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { validProp } from 'styles/utilities/validatorsCss'
 
 interface IMixinComponentsTheme extends IComponentsVariant {
-  emotionTheme: ICustomTheme
+  emotionTheme?: ICustomTheme
   typeStyle: ComponentThemeType
   element: 'button' | 'link' | 'card' | 'collapse'
 }
@@ -20,6 +20,7 @@ export const mixinComponentsTheme = ({
   light = false,
   flat = false,
 }: IMixinComponentsTheme) => {
+  if (!emotionTheme) return css``
   const { componentsTheme } = emotionTheme
   if (!componentsTheme) return css``
 

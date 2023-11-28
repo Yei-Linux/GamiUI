@@ -2,28 +2,13 @@ import React from 'react'
 import { defaultTheme } from 'styles/tokens'
 import { Points, Default, Spinner } from './types'
 import { Wrapper } from './Wrapper'
-
-export type TLoader = 'default' | 'points' | 'spinner'
-export interface ILoaderType {
-  background: string
-}
-
-export interface ILoader {
-  /**
-   * Prop Of Loader
-   */
-  type: TLoader
-  /**
-   * Background color
-   */
-  background?: string
-}
+import { TLoaderComponent, TLoaderTypes } from './type'
 
 const Loader = ({
   type = 'default',
   background = defaultTheme.light.primary.jordyBlue,
-}: ILoader) => {
-  const loaderTypes: Record<TLoader, React.ElementType> = {
+}: TLoaderComponent) => {
+  const loaderTypes: Record<TLoaderTypes, React.ElementType> = {
     default: Default,
     points: Points,
     spinner: Spinner,
