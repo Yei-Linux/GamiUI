@@ -1,36 +1,13 @@
 import { CSSObject } from '@emotion/serialize'
 import React from 'react'
-import { OptionProps, OptionTypeBase } from 'react-select'
+import { OptionProps } from 'react-select'
 import { lightTheme } from 'styles/tokens/lightTheme'
 
-import { IInput } from '../Input/Input'
 import * as S from './Select.styles'
-
-export interface IOptions {
-  value: string
-  label: string | React.ReactNode
-}
-
-type TSelectValue = OptionTypeBase[] | OptionTypeBase | null | undefined
-
-export interface ISelect extends Omit<IInput, 'value'> {
-  /**
-   * Children Element
-   */
-  options?: IOptions[]
-  /**
-   * Multiple Option
-   */
-  isMultiple?: boolean
-  /**
-   * isClearable Option
-   */
-  isClearable?: boolean
-  /**
-   * isClearable Option
-   */
-  value?: TSelectValue
-}
+import { TSelectComponent } from './type'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
+import withDefaults from 'hocs/WithDefault'
 
 const Select = ({
   options,
@@ -39,7 +16,15 @@ const Select = ({
   value,
   isMultiple = false,
   isClearable = false,
-}: ISelect) => {
+}: TSelectComponent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+    },
+    componentPrefixCls: 'select',
+    customPrexiCls: '',
+  })
+
   const colourStyles = {
     option: (
       styles: CSSObject,
@@ -59,7 +44,8 @@ const Select = ({
   }
 
   return (
-    <S.ReactSelect
+    <S.ReactSelectStyled
+      className={cls(handles.wrapper)}
       isClearable={isClearable}
       isMulti={isMultiple}
       classNamePrefix="Select"
@@ -72,4 +58,15 @@ const Select = ({
   )
 }
 
-export default Select
+const defaultProps = {}
+
+Select.displayName = 'Select'
+
+type SelectComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  Select,
+  defaultProps
+) as SelectComponent<TSelectComponent>

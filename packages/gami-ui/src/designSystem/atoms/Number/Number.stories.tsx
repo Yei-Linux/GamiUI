@@ -1,41 +1,55 @@
 import { Meta } from '@storybook/react'
 
-import Number from '.'
-import React from 'react'
+import { storyConfig } from './storyConfig'
+import React, { useState } from 'react'
+import Number from './Number'
 import Icon from '../Icon'
 
-export default {
-  title: 'Atoms/Number',
-  component: Number,
-  args: {},
-  argTypes: {
-    positionPrefix: {
-      control: 'select',
-      options: ['left', 'right'],
-    },
-    placeholder: { control: 'text' },
-    prefix: {
-      options: ['a', 'b'],
-      mapping: {
-        a: null,
-        b: <Icon color="#374a54" />,
-      },
-      control: {
-        type: 'select',
-        labels: {
-          a: 'withoutIcon',
-          b: 'withIcon',
-        },
-      },
-    },
-  },
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const Basic = (args: any) => <Number {...args} />
-Basic.args = {
-  placeholder: 'Type your phone',
-  width: 'auto',
-  height: 'auto',
-  prefix: <Icon name="phone" />,
-  positionPrefix: 'left',
+export default mainConfig as Meta
+
+const [one, two, three, four, five] = stories
+
+export { one, two, three, four, five }
+
+/**
+ * Custom Stories
+ * @returns
+ */
+export const WithBasicInteraction = () => {
+  const [value, setValue] = useState('test')
+
+  const handleChange = (newValue: string) => setValue(newValue)
+
+  return (
+    <Number
+      placeholder="Type your name"
+      width="auto"
+      height="auto"
+      prefix={null}
+      value={value}
+      onChangeFormItem={handleChange}
+    />
+  )
 }
+WithBasicInteraction.storyName = 'With Basic Interaction 🙂'
+
+export const WithIconNumber = () => {
+  const [value, setValue] = useState('')
+
+  const handleChange = (newValue: string) => setValue(newValue)
+
+  return (
+    <Number
+      placeholder="Type your name"
+      width="auto"
+      height="auto"
+      prefix={<Icon name="user" />}
+      value={value}
+      onChangeFormItem={handleChange}
+      positionPrefix="left"
+    />
+  )
+}
+WithIconNumber.storyName = 'With Basic Interaction 🙂'

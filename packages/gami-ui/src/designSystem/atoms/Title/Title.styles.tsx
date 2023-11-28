@@ -1,4 +1,8 @@
 import styled from '@emotion/styled'
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
+import { PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 
-export const Title = WithDesignStyledComponent(styled.div``, 'text')
+type TTitleStyled = PartialBy<TWithGlobalStylesUI, 'theme'>
+export const TitleStyled = styled('div')((prop: TTitleStyled) =>
+  withGlobalStylesUI(prop)('text')
+)

@@ -1,74 +1,66 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { DirectionMessageType } from 'core/domain/types'
+import { PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 import { flex } from 'styles/mixins/flex'
-import { spacing } from 'styles/tokens'
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-const messageDirectionLeft = (
+const messageDirection = (
   background: string,
-  type: 'before' | 'after'
-) => css`
-  border-top: ${type == 'before' ? '17px' : '15px'} solid ${background};
-  top: ${type == 'before' ? '-1px' : '0'};
-  left: ${type == 'before' ? '-17px' : '-15px'};
-`
+  type: 'before' | 'after',
+  direction: 'left' | 'right'
+) =>
+  css({
+    [direction === 'left' ? 'borderTop' : 'borderBottom']: `${
+      type == 'before' ? '17px' : '15px'
+    } solid ${background}`,
+    [direction === 'left' ? 'top' : 'bottom']: type == 'before' ? '-1px' : '0',
+    [direction]: type == 'before' ? '-17px' : '-15px',
+  })
 
-const messageDirectionRight = (
-  background: string,
-  type: 'before' | 'after'
-) => css`
-  border-bottom: ${type == 'before' ? '17px' : '15px'} solid ${background};
-  bottom: ${type == 'before' ? '-1px' : '0'};
-  right: ${type == 'before' ? '-17px' : '-15px'};
-`
-
-export const Message = WithDesignStyledComponent(styled.div<{
+type TMessageStyled = {
   $direction: DirectionMessageType
   $background: string
   $color?: string
   $maxWidth?: string
-}>`
-  position: relative;
+} & PartialBy<TWithGlobalStylesUI, 'theme'>
+export const MessageStyled = styled('div')(
+  ({ $background, $color, $maxWidth, theme }: TMessageStyled) => ({
+    position: 'relative',
+    color: $color,
+    backgroundColor: $background,
+    border: `1px solid ${$background}`,
+    maxWidth: $maxWidth,
+    minHeight: '50px',
+    padding: theme?.tokens.spacing.padding.md,
+    '&.marker': {
+      '&::after,&::before': {
+        content: '""',
+        position: 'absolute',
+        width: 0,
+        height: 0,
+        borderLeft: '16px solid transparent',
+        borderRight: '16px solid transparent',
+      },
+    },
 
-  color: ${({ $color }) => $color};
-  background-color: ${({ $background }) => $background};
-  border: 1px solid ${({ $background }) => $background};
-
-  max-width: ${({ $maxWidth }) => $maxWidth};
-  min-height: 50px;
-  padding: ${spacing.padding.md};
-
-  ${flex({ alignItems: 'center' })}
-
-  &.marker {
-    &::after,
-    &::before {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-
-      border-left: 16px solid transparent;
-      border-right: 16px solid transparent;
-    }
-  }
-
-  &.directionLeft {
-    &::before {
-      ${({ $background }) => messageDirectionLeft($background, 'before')};
-    }
-    &::after {
-      ${({ $background }) => messageDirectionLeft($background, 'after')};
-    }
-  }
-
-  &.directionRight {
-    &::before {
-      ${({ $background }) => messageDirectionRight($background, 'before')};
-    }
-    &::after {
-      ${({ $background }) => messageDirectionRight($background, 'after')};
-    }
-  }
-`)
+    '&.directionLeft': {
+      '&::before': {
+        ...messageDirection($background, 'before', 'left'),
+      },
+      '&::after': {
+        ...messageDirection($background, 'after', 'left'),
+      },
+    },
+    '&.directionRight': {
+      '&::before': {
+        ...messageDirection($background, 'before', 'right'),
+      },
+      '&::after': {
+        ...messageDirection($background, 'after', 'right'),
+      },
+    },
+  }),
+  () => flex({ alignItems: 'center' }),
+  (prop) => withGlobalStylesUI(prop)()
+)

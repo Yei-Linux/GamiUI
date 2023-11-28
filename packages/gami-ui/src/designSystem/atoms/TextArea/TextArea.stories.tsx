@@ -1,19 +1,11 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import TextArea from '.'
+import { storyConfig } from './storyConfig'
 
-export default {
-  title: 'Atoms/TextArea',
-  component: TextArea,
-  args: {},
-  argTypes: {
-    placeholder: { control: 'text' },
-  },
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const BasicTextArea = (args: any) => <TextArea {...args} />
-BasicTextArea.args = {
-  placeholder: 'Type your text',
-  width: 'full',
-}
+export default mainConfig as Meta
+
+const [one] = stories
+
+export { one }

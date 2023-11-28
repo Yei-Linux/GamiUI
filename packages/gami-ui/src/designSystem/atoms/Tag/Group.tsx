@@ -1,13 +1,8 @@
 import * as React from 'react'
 import * as S from './Tag.styles'
+import { TGroup } from './type'
 
-export interface IGroup {
-  children: React.ReactNode
-  max?: number
-  gap?: string
-}
-
-export const Group = ({ children, gap = '1rem', max }: IGroup) => {
+export const Group = ({ children, gap = '1rem', max }: TGroup) => {
   const tagSize = React.Children.count(children)
   const applyMaxCount = max && max > 0 && max < tagSize
 
@@ -16,9 +11,9 @@ export const Group = ({ children, gap = '1rem', max }: IGroup) => {
     : children
 
   return (
-    <S.TagGroup $gap={gap}>
+    <S.TagGroupStyled $gap={gap}>
       {childrenFiltered}
-      {applyMaxCount && <S.TagSize>+{tagSize - max}</S.TagSize>}
-    </S.TagGroup>
+      {applyMaxCount && <S.TagSizeStyled>+{tagSize - max}</S.TagSizeStyled>}
+    </S.TagGroupStyled>
   )
 }

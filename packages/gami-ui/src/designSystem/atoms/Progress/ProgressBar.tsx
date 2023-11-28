@@ -1,21 +1,21 @@
 import { cls } from 'core/utils/cls'
 import React from 'react'
-import { IProgressTypeContent } from './Progress'
 import * as S from './Progress.styles'
+import { TProgressTypeContent } from './type'
 
 const ProgressBar = ({
   percent,
   backgroundProgress,
   className = [],
-}: IProgressTypeContent) => {
+}: TProgressTypeContent) => {
   return (
-    <S.ProgressPercent
+    <S.ProgressPercentStyled
       className={cls(className)}
       $percent={percent}
       $backgroundProgress={backgroundProgress}
     >
-      <S.ProgressPercentEffect />
-    </S.ProgressPercent>
+      <S.ProgressPercentEffectStyled />
+    </S.ProgressPercentStyled>
   )
 }
 

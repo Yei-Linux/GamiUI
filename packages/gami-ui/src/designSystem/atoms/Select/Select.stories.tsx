@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 
 import Select from '.'
 import Container from 'designSystem/layouts/Container'
 import Icon from '../Icon'
 import { lightTheme } from 'styles/tokens/lightTheme'
+import { storyConfig } from './storyConfig'
+import { TJSXElements } from 'core/domain/interfaces/common'
 
-export default {
-  title: 'Atoms/Select',
-  component: Select,
-  args: {},
-  argTypes: {
-    placeholder: { control: 'text' },
-  },
-} as Meta
+const { mainConfig } = storyConfig
 
-export const Basic = () => {
+export default mainConfig as Meta
+
+/**
+ * Custom Stories
+ * @param args
+ * @returns
+ */
+
+const StoryBasic = () => {
   const options = [
     {
       value: 'hamburger',
@@ -83,8 +86,13 @@ export const Basic = () => {
     />
   )
 }
+export const StoryBasicTemplate: ComponentStory<TJSXElements> = StoryBasic.bind(
+  {}
+)
+StoryBasicTemplate.storyName = 'With Single Select 🙂'
+StoryBasicTemplate.args = {}
 
-export const Multiple = () => {
+const StoryMultiple = () => {
   const [value, setValue] = useState()
 
   const changeValue = (value: any) => {
@@ -105,3 +113,7 @@ export const Multiple = () => {
     />
   )
 }
+export const StoryMultipleTemplate: ComponentStory<TJSXElements> =
+  StoryMultiple.bind({})
+StoryMultipleTemplate.storyName = 'With Multiple Select🙂'
+StoryMultipleTemplate.args = {}

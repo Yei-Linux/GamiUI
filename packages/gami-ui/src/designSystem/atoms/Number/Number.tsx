@@ -1,11 +1,21 @@
 import React from 'react'
 import Input from '../Input'
-import { IInput } from '../Input/Input'
+import { TNumberComponent } from './type'
+import withDefaults from 'hocs/WithDefault'
 
-export type INumber = IInput
-
-const Number = ({ onChangeFormItem, ...args }: INumber) => {
+const Number = ({ onChangeFormItem, ...args }: TNumberComponent) => {
   return <Input type="number" onChangeFormItem={onChangeFormItem} {...args} />
 }
 
-export default Number
+const defaultProps = {}
+
+Number.displayName = 'Number'
+
+type NumberComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  Number,
+  defaultProps
+) as NumberComponent<TNumberComponent>

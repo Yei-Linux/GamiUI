@@ -2,25 +2,10 @@ import { cls } from 'core/utils/cls'
 import useRadioStore from 'hooks/store/useRadioStore'
 import React, { useEffect } from 'react'
 import * as S from './Radio.styles'
+import { TRadioItem } from './type'
 
-export interface IRadioItem {
-  /**
-   * Radio Item content
-   */
-  children: string
-  /**
-   * Radio Value
-   */
-  value: string
-  /**
-   * Is checked prop
-   */
-  isChecked?: boolean
-}
-
-const RadioItem = ({ children, value, isChecked = false }: IRadioItem) => {
+const RadioItem = ({ children, value, isChecked = false }: TRadioItem) => {
   const { radioSelected, setRadioSelected } = useRadioStore()
-
   useEffect(() => {
     isChecked && handleRadioChange()
   }, [])
@@ -28,15 +13,15 @@ const RadioItem = ({ children, value, isChecked = false }: IRadioItem) => {
   const handleRadioChange = () => setRadioSelected({ text: children, value })
 
   return (
-    <S.RadioItem>
-      <S.RadioCheck>
-        <S.RadioInput onClick={handleRadioChange} />
-        <S.RadioInner
+    <S.RadioItemStyled>
+      <S.RadioCheckStyled>
+        <S.RadioInputStyled onClick={handleRadioChange} />
+        <S.RadioInnerStyled
           className={cls({ checked: radioSelected?.value == value })}
         />
-      </S.RadioCheck>
-      <S.RadioText>{children}</S.RadioText>
-    </S.RadioItem>
+      </S.RadioCheckStyled>
+      <S.RadioTextStyled>{children}</S.RadioTextStyled>
+    </S.RadioItemStyled>
   )
 }
 

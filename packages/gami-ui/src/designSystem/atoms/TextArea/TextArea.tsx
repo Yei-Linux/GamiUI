@@ -1,44 +1,10 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { getDesignProps } from 'styles/utilities/genericPropStyles'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
-import { TOnChangeFormItem } from '../Input/Input'
 import * as S from './TextArea.styles'
-
-interface AutoSize {
-  minRows: number
-  maxRows: number
-}
-
-export interface ITextArea extends IGeneralProps {
-  /**
-   * Placeholder TextArea to show
-   */
-  placeholder?: string
-  /**
-   * Identifier TextArea
-   */
-  name?: string
-  /**
-   * Value TextArea
-   */
-  value?: any
-  /**
-   * Cols TextArea
-   */
-  cols?: number
-  /**
-   * Rows TextArea
-   */
-  rows?: number
-  /**
-   * Autosize TextArea
-   */
-  autoSize?: AutoSize
-  /**
-   * Function to detect changes
-   */
-  onChangeFormItem?: TOnChangeFormItem
-}
+import { TTextAreaComponent } from './type'
+import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
 
 const TextArea = ({
   onChangeFormItem,
@@ -48,7 +14,18 @@ const TextArea = ({
   rows = 5,
   value,
   ...genericsProps
-}: ITextArea) => {
+}: TTextAreaComponent) => {
+  const globalStyles = useMemo(
+    () => getDesignProps(genericsProps),
+    [genericsProps]
+  )
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+    },
+    componentPrefixCls: 'textarea',
+    customPrexiCls: '',
+  })
   const handleChangeOnTextArea = (
     e: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
@@ -57,16 +34,32 @@ const TextArea = ({
   }
 
   return (
-    <S.TextArea
+    <S.TextAreaStyled
+      {...globalStyles}
       name={name}
       placeholder={placeholder}
       cols={cols}
       rows={rows}
       value={value}
       onChange={handleChangeOnTextArea}
-      {...getDesignProps(genericsProps)}
+      className={cls(handles.wrapper)}
     />
   )
 }
 
-export default TextArea
+const defaultProps = {
+  shadow: 'none',
+  width: 'auto',
+  height: 'auto',
+}
+
+TextArea.displayName = 'TextArea'
+
+type TextAreaComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  TextArea,
+  defaultProps
+) as TextAreaComponent<TTextAreaComponent>

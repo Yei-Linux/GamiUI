@@ -1,39 +1,55 @@
-import React from 'react'
 import { Meta } from '@storybook/react'
 
-import Password from '.'
+import { storyConfig } from './storyConfig'
+import React, { useState } from 'react'
+import Password from './Password'
 import Icon from '../Icon'
 
-export default {
-  title: 'Atoms/Password',
-  component: Password,
-  args: {},
-  argTypes: {
-    positionPrefix: {
-      control: 'select',
-      options: ['left', 'right'],
-    },
-    placeholder: { control: 'text' },
-    prefix: {
-      options: ['a', 'b'],
-      mapping: {
-        a: null,
-        b: <Icon color="#374a54" />,
-      },
-      control: {
-        type: 'select',
-        labels: {
-          a: 'withoutIcon',
-          b: 'withIcon',
-        },
-      },
-    },
-  },
-} as Meta
+const { mainConfig, stories } = storyConfig
 
-export const BasicPassword = (args: any) => <Password {...args} />
-BasicPassword.args = {
-  placeholder: 'Type your password',
-  width: 'NORMAL',
-  height: 'SMALL',
+export default mainConfig as Meta
+
+const [one, two, three, four, five] = stories
+
+export { one, two, three, four, five }
+
+/**
+ * Custom Stories
+ * @returns
+ */
+export const WithBasicInteraction = () => {
+  const [value, setValue] = useState('test')
+
+  const handleChange = (newValue: string) => setValue(newValue)
+
+  return (
+    <Password
+      placeholder="Type your name"
+      width="auto"
+      height="auto"
+      prefix={null}
+      value={value}
+      onChangeFormItem={handleChange}
+    />
+  )
 }
+WithBasicInteraction.storyName = 'With Basic Interaction 🙂'
+
+export const WithIconPassword = () => {
+  const [value, setValue] = useState('')
+
+  const handleChange = (newValue: string) => setValue(newValue)
+
+  return (
+    <Password
+      placeholder="Type your name"
+      width="auto"
+      height="auto"
+      prefix={<Icon name="user" />}
+      value={value}
+      onChangeFormItem={handleChange}
+      positionPrefix="left"
+    />
+  )
+}
+WithIconPassword.storyName = 'With Basic Interaction 🙂'

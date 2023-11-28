@@ -1,5 +1,8 @@
 import styled from '@emotion/styled'
+import { OnlyTheme } from 'core/domain/types/mixins'
+import { withGlobalStylesUI } from 'core/utils/base'
 
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
-
-export const RichText = WithDesignStyledComponent(styled.div``, 'text')
+type TRichTextStyled = OnlyTheme
+export const RichTextStyled = styled('div')((prop: TRichTextStyled) =>
+  withGlobalStylesUI(prop)('text')
+)

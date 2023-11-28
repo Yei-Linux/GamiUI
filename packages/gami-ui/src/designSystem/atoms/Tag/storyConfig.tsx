@@ -49,7 +49,7 @@ const genericArgTypes = madegenericPropsControl(['size'])
 const argTypes = { ...storyArgTypes, ...docArgTypes, ...genericArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Tag',
+  title: 'Atoms/Tag 🟢',
   component: Tag,
   args: {},
   argTypes: storyArgTypes,
@@ -103,7 +103,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithColorsAndMarker',
+    storyName: 'WithColorsAndMarker 🙂',
     self: {
       args: {
         text: 'Gami Tag',
@@ -125,7 +125,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithGroup',
+    storyName: 'WithGroup 🙂',
     parent: {
       args: {
         max: 2,

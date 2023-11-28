@@ -3,30 +3,9 @@ import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import React from 'react'
 import { getDesignProps } from 'styles/utilities/genericPropStyles'
-import { IGeneralProps } from '../../../core/domain/interfaces/IGeneralProps'
 import { Group } from './Group'
 import * as S from './Tag.styles'
-
-type TGenericStylesTag = Omit<IGeneralProps, 'size'>
-
-export interface ITag extends TGenericStylesTag {
-  /**
-   * Text on tag
-   */
-  text: string
-  /**
-   * Color on tag
-   */
-  color?: string
-  /**
-   * Background on tag
-   */
-  background?: string
-  /**
-   * Ball Marker Color
-   */
-  ballMarkerColor?: string
-}
+import { TTagComponent } from './type'
 
 const Tag = ({
   text,
@@ -34,27 +13,27 @@ const Tag = ({
   background,
   ballMarkerColor,
   ...genericsProps
-}: ITag) => {
+}: TTagComponent) => {
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
     },
     componentPrefixCls: 'tag',
-    customPrexiCls: genericsProps?.className,
+    customPrexiCls: '',
   })
 
   return (
-    <S.Tag
+    <S.TagStyled
       className={cls(handles.wrapper, genericsProps?.className ?? '')}
       $background={background}
       $color={color}
       {...getDesignProps(genericsProps)}
     >
       {ballMarkerColor != '' && ballMarkerColor && (
-        <S.BallMarker $background={ballMarkerColor} />
+        <S.BallMarkerStyled $background={ballMarkerColor} />
       )}
       {text}
-    </S.Tag>
+    </S.TagStyled>
   )
 }
 
@@ -71,4 +50,4 @@ type TagComponent<P> = React.NamedExoticComponent<P> & {
   Group: typeof Group
 }
 
-export default withDefaults(Tag, defaultProps) as TagComponent<ITag>
+export default withDefaults(Tag, defaultProps) as TagComponent<TTagComponent>

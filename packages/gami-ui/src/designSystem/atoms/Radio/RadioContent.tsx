@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react'
 import useRadioStore from 'hooks/store/useRadioStore'
-import { IRadio } from './Radio'
 import * as S from './Radio.styles'
+import { TRadio } from './type'
 
 const RadioContent = ({
   children,
   onChangeFormItem,
   ...generalInputProps
-}: IRadio) => {
+}: TRadio) => {
   const { radioSelected } = useRadioStore()
-
   useEffect(() => {
     onChangeFormItem?.(radioSelected)
   }, [radioSelected])
 
-  return <S.RadioGroup {...generalInputProps}>{children}</S.RadioGroup>
+  return (
+    <S.RadioGroupStyled {...generalInputProps}>{children}</S.RadioGroupStyled>
+  )
 }
 
 export default RadioContent

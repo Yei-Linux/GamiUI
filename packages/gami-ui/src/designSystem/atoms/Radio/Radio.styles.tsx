@@ -1,107 +1,94 @@
 import styled from '@emotion/styled'
-import {
-  RoundedType,
-  HeightType,
-  ShadowType,
-  WidthType,
-} from 'core/domain/types'
-import { opacity, spacing, zIndex } from 'styles/tokens'
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
+import { OnlyTheme } from 'core/domain/types/mixins'
 
-export const RadioGroup = WithDesignStyledComponent(styled.div<{
-  $border?: RoundedType
-  $shadow?: ShadowType
-  $width?: WidthType
-  $height?: HeightType
-}>`
-  margin: ${spacing.margin.none};
-  padding: ${spacing.padding.none};
-  font-size: 14px;
-`)
+export type TRadioGroupsStyled = OnlyTheme
+export const RadioGroupStyled = styled('div')(
+  ({ theme }: TRadioGroupsStyled) => ({
+    margin: theme?.tokens.spacing.margin.none,
+    padding: theme?.tokens.spacing.padding.none,
+    fontSize: '14px',
+  })
+)
 
-export const RadioItem = styled.label`
-  margin: 0 8px 0 0;
-  padding: ${spacing.padding.none};
+export type TRadioItemStyled = OnlyTheme
+export const RadioItemStyled = styled('label')(
+  ({ theme }: TRadioItemStyled) => ({
+    padding: theme?.tokens.spacing.padding.none,
+    margin: '0 8px 0 0',
+    position: 'relative',
+    display: 'inline-flex',
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  })
+)
 
-  position: relative;
-  display: inline-flex;
+type TRadioCheckStyled = OnlyTheme
+export const RadioCheckStyled = styled('span')(
+  ({ theme }: TRadioCheckStyled) => ({
+    margin: theme?.tokens.spacing.margin.none,
+    padding: theme?.tokens.spacing.padding.none,
+    position: 'relative',
+    display: 'inline-block',
+    outline: 'none',
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  })
+)
 
-  &:hover {
-    cursor: pointer;
-  }
-`
+type TRadioInputStyled = OnlyTheme
+export const RadioInputStyled = styled('input')(
+  ({ theme }: TRadioInputStyled) => ({
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    opacity: theme?.tokens.opacity[0],
+    zIndex: theme?.tokens.zIndex[0],
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  })
+)
 
-export const RadioCheck = styled.span`
-  margin: ${spacing.margin.none};
-  padding: ${spacing.padding.none};
+export const RadioInnerStyled = styled('span')(() => ({
+  position: 'relative',
+  top: 0,
+  left: 0,
+  display: 'block',
+  width: '16px',
+  height: '16px',
+  backgroundColor: '#fff',
+  border: '1px solid #d9d9d9',
+  borderRadius: '50%',
+  transition: 'all 0.3s',
+  '&.checked': {
+    borderColor: '#1890ff',
+    '&::after': {
+      transform: 'scale(1)',
+      opacity: '1',
+    },
+  },
+  '&::after': {
+    display: 'table',
+    position: 'absolute',
+    top: '3px',
+    left: '3px',
+    width: '8px',
+    height: '8px',
+    backgroundColor: '#1890ff',
+    borderTop: 0,
+    borderLeft: 0,
+    borderRadius: '8px',
+    opacity: 0,
+    transform: 'scale(0)',
+    transition: 'all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)',
+    content: "''",
+  },
+}))
 
-  position: relative;
-  display: inline-block;
-
-  outline: none;
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-
-export const RadioInput = styled.input`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  opacity: ${opacity[0]};
-  z-index: ${zIndex[0]};
-
-  &:hover {
-    cursor: pointer;
-  }
-`
-
-export const RadioInner = styled.span`
-  position: relative;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
-  border: 1px solid #d9d9d9;
-  border-radius: 50%;
-  transition: all 0.3s;
-
-  &.checked {
-    border-color: #1890ff;
-
-    &::after {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  &::after {
-    display: table;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-
-    width: 8px;
-    height: 8px;
-
-    background-color: #1890ff;
-    border-top: 0;
-    border-left: 0;
-    border-radius: 8px;
-    opacity: 0;
-
-    transform: scale(0);
-    transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-    content: ' ';
-  }
-`
-
-export const RadioText = styled.span`
-  margin: 0 10px;
-`
+export const RadioTextStyled = styled('span')(() => ({
+  margin: '0 10px',
+}))

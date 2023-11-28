@@ -6,14 +6,14 @@ import {
   CIRCLE_SIZE_PROPORTION,
   PROPORTION,
 } from './constants'
-import { IProgressTypeContent } from './Progress'
 import * as S from './Progress.styles'
+import { TProgressTypeContent } from './type'
 
 interface IProgressCircle {
   background?: string
 }
 
-type TProgressCircle = IProgressCircle & IProgressTypeContent
+type TProgressCircle = IProgressCircle & TProgressTypeContent
 
 const ProgressCircle = ({
   percent,
@@ -32,7 +32,7 @@ const ProgressCircle = ({
   }
 
   return (
-    <S.ProgressCircle className={cls(className)}>
+    <S.ProgressCircleStyled className={cls(className)}>
       <svg viewBox="0 0 100 100">
         <path
           d="M 50,50 m 0,-47
@@ -82,14 +82,14 @@ const ProgressCircle = ({
           }}
         ></path>
       </svg>
-      <S.ProgressText>
+      <S.ProgressTextStyled>
         {finalPercent == 100 ? (
           <Icon name="check" size="45%" />
         ) : (
           `${finalPercent}%`
         )}
-      </S.ProgressText>
-    </S.ProgressCircle>
+      </S.ProgressTextStyled>
+    </S.ProgressCircleStyled>
   )
 }
 
