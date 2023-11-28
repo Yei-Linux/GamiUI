@@ -1,9 +1,10 @@
 import useToggle from 'hooks/useToggle'
 import React from 'react'
 import Icon from '../Icon'
-import Input, { IInput } from '../Input/Input'
+import Input from '../Input/Input'
+import { TInput } from '../Input/type'
 
-export interface IPassword extends IInput {
+export interface IPassword extends TInput {
   /**
    * Icon for visible action
    */

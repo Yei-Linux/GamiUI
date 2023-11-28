@@ -1,77 +1,88 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { RoundedType, ShadowType } from 'core/domain/types'
+import { OnlyTheme } from 'core/domain/types/mixins'
+import { withGlobalStylesUI } from 'core/utils/base'
 import { flex } from 'styles/mixins/flex'
-import { spacing, defaultTheme, zIndex } from 'styles/tokens'
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
+import { compose } from 'styles/utilities/tools'
 
-export const Modal = styled.div`
-  display: none;
-  &.visible {
-    display: flex;
-  }
-`
+export const ModalStyled = styled('div')(() => ({
+  display: 'none',
+  '&.visible': {
+    display: 'flex',
+  },
+}))
 
-export const ModalDialog = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
+type TModalDialogStyled = OnlyTheme
+export const ModalDialogStyled = styled('div')(
+  ({ theme }: TModalDialogStyled) => ({
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    top: 0,
 
-  outline: 0;
-  overflow: auto;
-
-  z-index: ${zIndex[5]};
-
-  ${flex({ justifyContent: 'center', alignItems: 'center' })}
-`
-
-export const ModalIconClose = styled.div`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-
-  z-index: ${zIndex[5]};
-`
-
-const ModalLayout = () => css`
-  width: 100%;
-  min-height: 50px;
-  padding: ${spacing.padding.md};
-
-  ${flex({
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  })}
-`
-
-export const ModalContainer = WithDesignStyledComponent(
-  styled.div<{
-    $border?: RoundedType
-    $shadow?: ShadowType
-    $minHegiht?: string
-  }>`
-    position: relative;
-    min-width: 500px;
-    min-height: ${({ $minHegiht }) => $minHegiht};
-    height: fit-content;
-    background-color: ${defaultTheme.light.neutral[800]};
-  `
+    outline: 0,
+    overflow: 'auto',
+    zIndex: theme?.tokens.zIndex[5],
+  }),
+  () => flex({ justifyContent: 'center', alignItems: 'center' })
 )
 
-export const ModalHeader = styled.div`
-  ${ModalLayout()}
-  border-bottom: 1px solid ${defaultTheme.light.neutral[500]};
-`
+type TModalIconCloseStyledStyled = OnlyTheme
+export const ModalIconCloseStyled = styled('div')(
+  ({ theme }: TModalIconCloseStyledStyled) => ({
+    position: 'absolute',
+    right: '10px',
+    top: '10px',
+    zIndex: theme?.tokens.zIndex[5],
+  })
+)
 
-export const ModalFooter = styled.div`
-  ${ModalLayout()}
-  border-top: 1px solid ${defaultTheme.light.neutral[500]};
-`
+const flexBetweenCSS = flex({
+  justifyContent: 'space-between',
+  alignItems: 'center',
+})
 
-export const ModalBody = styled.div`
-  width: 100%;
-  min-height: 50px;
-  padding: ${spacing.padding.md};
-`
+const modalLayoutCSS = (theme: OnlyTheme['theme']) =>
+  css({
+    width: theme?.tokens.sizes.width.full,
+    minHeight: '50px',
+    padding: theme?.tokens.spacing.padding.md,
+  })
+
+type TModalContainerStyled = OnlyTheme & {
+  $minHegiht?: string
+}
+export const ModalContainerStyled = styled('div')(
+  ({ $minHegiht, theme }: TModalContainerStyled) => ({
+    position: 'relative',
+    minWidth: '500px',
+    minHeight: $minHegiht,
+    height: 'fit-content',
+    backgroundColor: theme?.theme.neutral[800],
+  }),
+  (props) => withGlobalStylesUI(props)()
+)
+
+type TModalHeaderStyled = OnlyTheme
+export const ModalHeaderStyled = styled('div')(
+  ({ theme }: TModalHeaderStyled) => ({
+    borderBottom: `1px solid ${theme?.theme.neutral[500]}`,
+  }),
+  ({ theme }) => compose([modalLayoutCSS(theme), flexBetweenCSS])
+)
+
+type TModalFooterStyled = OnlyTheme
+export const ModalFooterStyled = styled('div')(
+  ({ theme }: TModalFooterStyled) => ({
+    borderTop: `1px solid ${theme?.theme.neutral[500]}`,
+  }),
+  ({ theme }) => compose([modalLayoutCSS(theme), flexBetweenCSS])
+)
+
+type TModalBodyStyled = OnlyTheme
+export const ModalBody = styled('div')(({ theme }: TModalBodyStyled) => ({
+  width: theme?.tokens.sizes.width.full,
+  minHeight: '50px',
+  padding: theme?.tokens.spacing.padding.md,
+}))

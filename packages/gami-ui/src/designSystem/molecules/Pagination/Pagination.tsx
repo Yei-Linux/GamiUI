@@ -1,167 +1,79 @@
 import Icon from 'designSystem/atoms/Icon'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import * as S from './Pagination.styles'
-
-export type TOnChange = (page: number) => void
-
-export interface IPagination {
-  numberPages: number
-  initialPage?: number
-  page?: number
-  onChangePage?: TOnChange
-}
+import { getArrayOfPage } from './helper'
+import { TPaginationComponent } from './type'
+import withDefaults from 'hocs/WithDefault'
+import useCssHandle from 'hooks/useCssHandle'
+import { cls } from 'core/utils/cls'
+import { usePagination } from './usePagination'
 
 const Pagination = ({
   numberPages = 3,
   initialPage = 0,
   onChangePage,
   page,
-}: IPagination) => {
-  const [pageIndex, setPageIndex] = useState(initialPage)
+}: TPaginationComponent) => {
+  const { handles } = useCssHandle({
+    classes: {
+      wrapper: ['wrapper'],
+      prev_arrow: ['prev_arrow'],
+      next_arrow: ['next_arrow'],
+      body: ['body'],
+      page_selected: ['page_selected'],
+      page_selected_span: ['page_selected_span'],
+      page_item: ['page_item'],
+      page_item_span: ['page_item_span'],
+    },
+    componentPrefixCls: 'pagination',
+    customPrexiCls: '',
+  })
+  const {
+    prevPage,
+    nextPage,
+    gotoPage,
+    getCurrentPosition,
+    computePageSelected,
+    pageIndex,
+    textPageSelected,
+  } = usePagination({ numberPages, initialPage, onChangePage, page })
 
-  useEffect(() => {
-    if (page === undefined) return
-    if (page < 0) return
-
-    setPageIndex(page)
-  }, [page])
-
-  const [pageSelected, setPageSelected] = useState(initialPage)
-  const [textPageSelected, setTextPageSelected] = useState(initialPage)
-
-  const canPreviousPage = pageIndex > 0
-  const canNextPage = pageIndex + 1 < numberPages
-
-  const nextPage = () => {
-    if (!canNextPage) return
-
-    setPageIndex((prevPageIndex) => {
-      const newPage = prevPageIndex + 1
-      onChangePage?.(newPage)
-
-      return newPage
-    })
-  }
-
-  const prevPage = () => {
-    if (!canPreviousPage) return
-    setPageIndex((prevPageIndex) => {
-      const newPage = prevPageIndex - 1
-      onChangePage?.(newPage)
-
-      return newPage
-    })
-  }
-
-  const gotoPage = (page: number) => {
-    onChangePage?.(page)
-    setPageIndex(page)
-  }
-
-  const getCurrentPosition = () => pageSelected * (39 + 4)
-
-  const computePageSelected = (arrayOfPageComputed: (string | number)[]) => {
-    arrayOfPageComputed.forEach((chunk, index) => {
-      if (chunk == pageIndex && index != pageSelected) {
-        setPageSelected(Number(index))
-      }
-      if (chunk == pageIndex && chunk != textPageSelected) {
-        setTextPageSelected(Number(chunk))
-      }
-    })
-  }
-
-  const getPages = (
-    defaultArrayOfPages: (number | string)[],
-    currentPage: number
-  ): (number | string)[] => {
-    const initialIndex = 3
-    const beforePositionsFromLast = 4
-
-    const arrayWithCuts: (number | string)[] = defaultArrayOfPages.reduce(
-      (acc, page, index) => {
-        if (currentPage < initialIndex - 1) {
-          if (index < initialIndex) {
-            return [...acc, page]
-          }
-          if (index >= defaultArrayOfPages.length - 2) {
-            return [...acc, page]
-          }
-          return acc.includes('middle') ? acc : [...acc, 'middle']
-        }
-
-        if (
-          currentPage >= initialIndex - 1 &&
-          currentPage <= defaultArrayOfPages.length - beforePositionsFromLast
-        ) {
-          if (index === 0) {
-            return [...acc, page]
-          }
-          if (index === defaultArrayOfPages.length - 1) {
-            return [...acc, page]
-          }
-          if (index === currentPage || index === currentPage + 1) {
-            return [...acc, page]
-          }
-          if (index < currentPage || index < currentPage + 1) {
-            return acc.includes('before') ? acc : [...acc, 'before']
-          }
-          return acc.includes('after') ? acc : [...acc, 'after']
-        }
-
-        if (currentPage >= defaultArrayOfPages.length - 3) {
-          if (index === 0 || index === 1) {
-            return [...acc, page]
-          }
-          if (index >= defaultArrayOfPages.length - 3) {
-            return [...acc, page]
-          }
-          return acc.includes('middle') ? acc : [...acc, 'middle']
-        }
-
-        return acc
-      },
-      [] as (number | string)[]
-    )
-
-    computePageSelected(arrayWithCuts)
-
-    return arrayWithCuts
-  }
-
-  const getArrayOfPage = (): (string | number)[] => {
-    const defaultArrayOfPages = Array.from(Array(numberPages).keys())
-
-    if (numberPages <= 5) {
-      computePageSelected(defaultArrayOfPages)
-
-      return defaultArrayOfPages
-    }
-
-    const pagesTransformed = getPages(defaultArrayOfPages, pageIndex)
-
-    return pagesTransformed
-  }
-
-  const arrayPageItems = getArrayOfPage()
+  const arrayPageItems = getArrayOfPage({
+    numberPages,
+    computePageSelected,
+    pageIndex,
+  })
 
   return (
-    <S.Pagination>
-      <S.Arrow variant="primary" light shadow="none" onClick={prevPage}>
+    <S.PaginationStyled className={cls(handles.wrapper)}>
+      <S.ArrowStyled
+        className={cls(handles.prev_arrow)}
+        variant="primary"
+        light
+        shadow="none"
+        onClick={prevPage}
+      >
         <Icon color="#9879e9" name="arrow__left" />
-      </S.Arrow>
+      </S.ArrowStyled>
 
-      <S.PaginationBody>
-        <S.PageSelected
+      <S.PaginationBodyStyled className={cls(handles.body)}>
+        <S.PageSelectedStyled
+          className={cls(handles.page_selected)}
           $left={getCurrentPosition()}
           shadow="secondary"
           variant="secondary"
         >
-          <S.PageSpan $color="white">{textPageSelected + 1}</S.PageSpan>
-        </S.PageSelected>
+          <S.PageSpanStyled
+            className={cls(handles.page_selected_span)}
+            $color="white"
+          >
+            {textPageSelected + 1}
+          </S.PageSpanStyled>
+        </S.PageSelectedStyled>
 
         {arrayPageItems.map((page, index) => (
-          <S.PageItem
+          <S.PageItemStyled
+            className={cls(handles.page_item)}
             variant="secondary"
             flat
             onClick={() =>
@@ -170,20 +82,37 @@ const Pagination = ({
             }
             key={index}
           >
-            <S.PageSpan>
+            <S.PageSpanStyled className={cls(handles.page_item_span)}>
               {['middle', 'before', 'after'].includes(`${page}`)
                 ? '...'
                 : Number(page) + 1}
-            </S.PageSpan>
-          </S.PageItem>
+            </S.PageSpanStyled>
+          </S.PageItemStyled>
         ))}
-      </S.PaginationBody>
+      </S.PaginationBodyStyled>
 
-      <S.Arrow variant="primary" light shadow="none" onClick={nextPage}>
+      <S.ArrowStyled
+        className={cls(handles.next_arrow)}
+        variant="primary"
+        light
+        shadow="none"
+        onClick={nextPage}
+      >
         <Icon color="#9879e9" name="arrow__right" />
-      </S.Arrow>
-    </S.Pagination>
+      </S.ArrowStyled>
+    </S.PaginationStyled>
   )
 }
 
-export default Pagination
+const defaultProps = {}
+
+Pagination.displayName = 'Pagination'
+
+type PaginationComponent<P> = React.NamedExoticComponent<P> & {
+  defaultProps: P
+}
+
+export default withDefaults(
+  Pagination,
+  defaultProps
+) as PaginationComponent<TPaginationComponent>

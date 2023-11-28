@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 
 import Form from '.'
 import React, { useState } from 'react'
@@ -15,17 +15,22 @@ import DatePicker from 'designSystem/atoms/DatePicker'
 import ColorPicker from 'designSystem/atoms/ColorPicker'
 import Row from 'designSystem/layouts/Row'
 import Icon from 'designSystem/atoms/Icon'
+import { storyConfig } from './storyConfig'
+import { TJSXElements } from 'core/domain/interfaces/common'
 
-export default {
-  title: 'Molecules/Form',
-  component: Form,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig } = storyConfig
 
-export const Basic = () => (
+export default mainConfig as Meta
+
+/**
+ * Custom Stories
+ * @param args
+ * @returns
+ */
+
+const StoryBasic = () => (
   <Form
-    onSubmitForm={(values: any) => {
+    onSubmitForm={(values) => {
       console.log(values)
     }}
   >
@@ -92,8 +97,12 @@ export const Basic = () => (
     </Form.Item>
   </Form>
 )
+export const StoryDefaultTemplate: ComponentStory<TJSXElements> =
+  StoryBasic.bind({})
+StoryDefaultTemplate.storyName = 'With Basic 🙂'
+StoryDefaultTemplate.args = {}
 
-export const WithUseForm = () => {
+const StoryWithUseForm = () => {
   const { form } = Form.useForm({
     defaultValue: {
       names: 'test',
@@ -120,7 +129,7 @@ export const WithUseForm = () => {
     <Container>
       <Form
         form={form}
-        onSubmitForm={(values: any) => {
+        onSubmitForm={(values) => {
           console.log(values)
         }}
       >
@@ -213,8 +222,12 @@ export const WithUseForm = () => {
     </Container>
   )
 }
+export const StoryWithUseFormTemplate: ComponentStory<TJSXElements> =
+  StoryWithUseForm.bind({})
+StoryWithUseFormTemplate.storyName = 'With useForm Hook 🙂'
+StoryWithUseFormTemplate.args = {}
 
-export const WithCustomField = () => {
+const StoryWithCustomField = () => {
   const { form } = Form.useForm({
     defaultValue: {
       names: 'test',
@@ -230,7 +243,7 @@ export const WithCustomField = () => {
     <Container>
       <Form
         form={form}
-        onSubmitForm={(values: any) => {
+        onSubmitForm={(values) => {
           console.log(values)
         }}
       >
@@ -273,8 +286,12 @@ export const WithCustomField = () => {
     </Container>
   )
 }
+export const StoryWithCustomFieldTemplate: ComponentStory<TJSXElements> =
+  StoryWithCustomField.bind({})
+StoryWithCustomFieldTemplate.storyName = 'With Custom field 🙂'
+StoryWithCustomFieldTemplate.args = {}
 
-export const WithFormList = () => {
+const StoryWithFormList = () => {
   const options = [
     {
       value: 'tiktok',
@@ -410,7 +427,7 @@ export const WithFormList = () => {
     <Container>
       <Form
         form={form}
-        onSubmitForm={(values: any) => {
+        onSubmitForm={(values) => {
           console.log(values)
         }}
       >
@@ -500,3 +517,7 @@ export const WithFormList = () => {
     </Container>
   )
 }
+export const StoryWithFormListTemplate: ComponentStory<TJSXElements> =
+  StoryWithFormList.bind({})
+StoryWithFormListTemplate.storyName = 'With Form List🙂'
+StoryWithFormListTemplate.args = {}

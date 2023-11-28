@@ -1,55 +1,61 @@
 import styled from '@emotion/styled'
+import { OnlyTheme } from 'core/domain/types/mixins'
 import RichText from 'designSystem/atoms/RichText'
 import Container from 'designSystem/layouts/Container'
 import { flex } from 'styles/mixins/flex'
 
-export const Form = styled.form`
-  ${flex({ justifyContent: 'center', alignItems: 'center' })}
+const flexDirectionCSS = flex({
+  justifyContent: 'center',
+  alignItems: 'center',
+  direction: 'column',
+})
+type TFormStyled = OnlyTheme
+export const FormStyled = styled('form')(
+  ({ theme }: TFormStyled) => ({
+    background: theme?.theme.neutral[800],
+    width: 'auto',
+    padding: '25px',
+    borderRadius: '25px',
+  }),
+  () => flexDirectionCSS
+)
 
-  flex-direction: column;
-  background: 'white';
-  width: auto;
-  padding: 25px;
-  border-radius: 25px;
-`
+type TFormItemStyled = OnlyTheme
+export const FormItemStyled = styled('div')(
+  ({ theme }: TFormItemStyled) => ({
+    width: theme?.tokens.sizes.width.full,
+    position: 'relative',
+    marginBottom: '1rem',
+    paddingBottom: '20px',
+    '&.error': {
+      'input,textarea': {
+        '&:focus': {
+          borderBottom: '1px solid red !important',
+        },
+      },
+    },
+  }),
+  () => flex({ justifyContent: 'center', direction: 'column' })
+)
 
-export const FormItem = styled.div`
-  ${flex({ justifyContent: 'center' })}
+export const FormLabelStyled = styled(RichText)(() => ({
+  marginBottom: '1rem',
+}))
 
-  flex-direction: column;
-  width: 100%;
+export const FormErrorLabelStyled = styled(RichText)(() => ({
+  marginLeft: '1rem',
+}))
 
-  position: relative;
+type TFormErrorStyled = OnlyTheme
+export const FormErrorStyled = styled('div')(
+  ({ theme }: TFormErrorStyled) => ({
+    color: theme?.theme.semantic.danger,
+    position: 'absolute',
+    bottom: '0px',
+    fontSize: '10px',
+    fontWeight: theme?.tokens.font.weight.semibold,
+  }),
+  () => flex({ alignItems: 'center' })
+)
 
-  margin-bottom: 1rem;
-  padding-bottom: 20px;
-
-  &.error {
-    input,
-    textarea {
-      &:focus {
-        border-bottom: 1px solid red !important;
-      }
-    }
-  }
-`
-
-export const FormLabel = styled(RichText)`
-  margin-bottom: 1rem;
-`
-
-export const FormErrorLabel = styled(RichText)`
-  margin-left: 10px;
-`
-
-export const FormError = styled.div`
-  ${flex({ alignItems: 'center' })}
-
-  color: #e32b2b;
-  position: absolute;
-  bottom: 0px;
-  font-size: 10px;
-  font-weight: 600;
-`
-
-export const FormCustomField = styled(Container)``
+export const FormCustomFieldStyled = styled(Container)()

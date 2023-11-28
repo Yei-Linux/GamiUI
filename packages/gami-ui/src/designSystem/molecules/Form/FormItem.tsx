@@ -1,13 +1,9 @@
 import { useFormStore } from 'hooks/index'
 import React from 'react'
-import FormItemTemplate, { IFormItemTemplate } from './FormItemTemplate'
+import FormItemTemplate from './FormItemTemplate'
+import { TFormItem } from './type'
 
-export type IFormItem = Omit<
-  IFormItemTemplate,
-  'fnSetValuesStore' | 'fnGetErrors' | 'fnGetValue'
->
-
-const FormItem = (props: IFormItem) => {
+const FormItem = (props: TFormItem) => {
   const { formValue, setFormValues, yupErrors } = useFormStore()
 
   const fnSetValuesStore = (value: any) => {
@@ -17,9 +13,7 @@ const FormItem = (props: IFormItem) => {
     return valueTransformed
   }
 
-  const fnGetErrors = () => {
-    return yupErrors?.[props.name]
-  }
+  const fnGetErrors = () => yupErrors?.[props.name]
 
   const fnGetValue = () => formValue?.[props.name]
 

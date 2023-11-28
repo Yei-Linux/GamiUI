@@ -1,44 +1,47 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import Button from 'designSystem/atoms/Button'
+import { flex } from 'styles/mixins/flex'
 
-export const Pagination = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-`
+export const PaginationStyled = styled('nav')(
+  () => ({
+    gap: '4px',
+  }),
+  () => flex({ justifyContent: 'center', alignItems: 'center' })
+)
 
-export const PaginationBody = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4px;
+export const PaginationBodyStyled = styled('div')(
+  () => ({
+    gap: '4px',
+    position: 'relative',
+  }),
+  () => flex({ alignItems: 'center' })
+)
 
-  position: relative;
-`
+export const ArrowStyled = styled(Button)()
 
-export const Arrow = styled(Button)``
+export const PageItemStyled = styled(Button)(() => ({
+  maxWidth: '39px',
+}))
 
-export const PageItem = styled(Button)`
-  max-width: 39px;
-`
-
-export const PageSpan = styled.span<{ $color?: string }>`
-  ${({ $color }) =>
+type TPageSpanStyled = { $color?: string }
+export const PageSpanStyled = styled('span')(
+  ({ $color }: TPageSpanStyled) =>
     $color &&
     css({
       color: $color,
-    })}
-`
+    })
+)
 
-export const PageSelected = styled(Button)<{ $left: number }>`
-  width: 39px;
-  height: 34px;
-
-  animation-duration: 350ms;
-  animation-timing-function: ease;
-  transition: left 350ms ease 0s, transform 300ms ease 0s;
-
-  position: absolute;
-  left: ${({ $left }) => `${$left}px`};
-`
+type TPageSelectedStyled = { $left: number }
+export const PageSelectedStyled = styled(Button)(
+  ({ $left }: TPageSelectedStyled) => ({
+    width: '39px',
+    height: '34px',
+    animationDuration: '350ms',
+    animationTimingFunction: 'ease',
+    transition: 'left 350ms ease 0s, transform 300ms ease 0s',
+    position: 'absolute',
+    left: `${$left}px`,
+  })
+)

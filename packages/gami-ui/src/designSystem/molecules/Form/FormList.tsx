@@ -1,21 +1,10 @@
 import { useFormStore } from 'hooks/index'
 import React from 'react'
 import * as S from './Form.styles'
-import { IFormItem } from './FormItem'
 import FormItemList from './FormItemList'
+import { TFieldItem, TFormList } from './type'
 
-export type TFieldItem = { key: number; name: string }
-
-export type IFormList = Omit<IFormItem, 'rules' | 'onChange' | 'children'> & {
-  schema: string[]
-  children: (
-    fields: TFieldItem[],
-    add: () => void,
-    remove: (fieldItemName: string) => void
-  ) => React.ReactNode
-}
-
-const FormList = ({ label, name, children, schema }: IFormList) => {
+const FormList = ({ label, name, children, schema }: TFormList) => {
   const { formValue, setFormValues } = useFormStore()
   const listValue = formValue?.[name]
 
@@ -64,9 +53,9 @@ const FormList = ({ label, name, children, schema }: IFormList) => {
   }
 
   return (
-    <S.FormItem>
+    <S.FormItemStyled>
       {label != '' && (
-        <S.FormLabel
+        <S.FormLabelStyled
           fontWeight="semibold"
           text={label}
           width="auto"
@@ -75,7 +64,7 @@ const FormList = ({ label, name, children, schema }: IFormList) => {
         />
       )}
       {children(fields, add, remove)}
-    </S.FormItem>
+    </S.FormItemStyled>
   )
 }
 

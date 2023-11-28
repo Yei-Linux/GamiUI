@@ -19,34 +19,7 @@ import File from 'designSystem/atoms/File'
 import ColorPicker from 'designSystem/atoms/ColorPicker'
 import DatePicker from 'designSystem/atoms/DatePicker'
 import { FormCustomField } from './FormCustomField'
-
-export type TRulesType =
-  | 'required'
-  | 'email'
-  | 'maxNumber'
-  | 'minNumber'
-  | 'minLength'
-  | 'maxLength'
-  | 'custom'
-
-export interface IRules {
-  fn?: (value: any, formValues: any) => boolean
-  type: TRulesType
-  message: string
-  value?: number
-}
-
-export interface IFormItemTemplate {
-  label?: string
-  name: string
-  children: React.ReactNode
-  rules?: IRules[]
-  onChange?: (value: any) => void
-
-  fnSetValuesStore: (value: any) => any
-  fnGetErrors: () => any
-  fnGetValue: () => string
-}
+import { TFormItemTemplate } from './type'
 
 const FormItemTemplate = ({
   label = '',
@@ -56,10 +29,9 @@ const FormItemTemplate = ({
   fnSetValuesStore,
   fnGetErrors,
   fnGetValue,
-}: IFormItemTemplate) => {
+}: TFormItemTemplate) => {
   const handleChangeValue = (value: any): void => {
     const valueTransformed = fnSetValuesStore(value)
-
     onChange?.(valueTransformed)
   }
 
@@ -96,13 +68,13 @@ const FormItemTemplate = ({
   const hasErrors = fnGetErrors()
 
   return (
-    <S.FormItem
+    <S.FormItemStyled
       className={cls('test', {
         error: !!hasErrors,
       })}
     >
       {label != '' && (
-        <S.FormLabel
+        <S.FormLabelStyled
           fontWeight="semibold"
           text={label}
           width="auto"
@@ -112,7 +84,7 @@ const FormItemTemplate = ({
       )}
       {childrenWithProps}
       <FormError name={name} />
-    </S.FormItem>
+    </S.FormItemStyled>
   )
 }
 

@@ -14,10 +14,10 @@ const FormError = ({ name }: IFormError) => {
   return (
     <Fragment>
       {yupErrors?.[name] && (
-        <S.FormError>
+        <S.FormErrorStyled>
           <Icon name="mark" size="15px" color="red" />
-          <S.FormErrorLabel text={yupErrors?.[name]} />
-        </S.FormError>
+          <S.FormErrorLabelStyled text={yupErrors?.[name]} />
+        </S.FormErrorStyled>
       )}
     </Fragment>
   )

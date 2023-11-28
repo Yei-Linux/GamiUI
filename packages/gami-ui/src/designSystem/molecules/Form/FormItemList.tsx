@@ -1,20 +1,13 @@
 import { useFormStore } from 'hooks/index'
 import React from 'react'
-import FormItemTemplate, { IFormItemTemplate } from './FormItemTemplate'
-
-export type IFormItemList = Omit<
-  IFormItemTemplate,
-  'fnSetValuesStore' | 'fnGetErrors' | 'fnGetValue'
-> & {
-  fieldListName: string
-  fieldItemName: string
-}
+import FormItemTemplate from './FormItemTemplate'
+import { TFormItemList } from './type'
 
 const FormItemList = ({
   fieldListName,
   fieldItemName,
   ...props
-}: IFormItemList) => {
+}: TFormItemList) => {
   const { formValue, setFormValues, yupErrors } = useFormStore()
   const listValue: any[] = formValue[fieldListName] ?? []
 
@@ -31,15 +24,12 @@ const FormItemList = ({
     return valueTransformed
   }
 
-  const fnGetErrors = () => {
-    return yupErrors?.[fieldListName]
-  }
+  const fnGetErrors = () => yupErrors?.[fieldListName]
 
   const fnGetValue = () => {
     const fieldItemFound = listValue.find(
       (_, index) => `${fieldListName}_${index}` === fieldItemName
     )
-
     if (!fieldItemFound) return ''
 
     const fieldItemValueByKey = fieldItemFound[props.name]

@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
-import { Meta } from '@storybook/react'
+import { ComponentStory, Meta } from '@storybook/react'
 
 import Modal from '.'
 import Button from '../../atoms/Button'
+import { storyConfig } from './storyConfig'
+import { TJSXElements } from 'core/domain/interfaces/common'
 
-export default {
-  title: 'Molecules/Modal',
-  component: Modal,
-  args: {},
-  argTypes: {},
-} as Meta
+const { mainConfig } = storyConfig
 
-export const Basic = () => {
+export default mainConfig as Meta
+
+/**
+ * Custom Stories
+ * @param args
+ * @returns
+ */
+
+const StoryBasic = () => {
   const [visible, setVisible] = useState(false)
 
   const onOpen = () => setVisible(true)
@@ -35,8 +40,13 @@ export const Basic = () => {
     </div>
   )
 }
+export const StoryBasicTemplate: ComponentStory<TJSXElements> = StoryBasic.bind(
+  {}
+)
+StoryBasicTemplate.storyName = 'With Default 🙂'
+StoryBasicTemplate.args = {}
 
-export const WithHeader = () => {
+const StoryWithHeader = () => {
   const [visible, setVisible] = useState(false)
 
   const onOpen = () => setVisible(true)
@@ -60,7 +70,12 @@ export const WithHeader = () => {
     </div>
   )
 }
-export const WithFooter = () => {
+export const StoryWithHeaderTemplate: ComponentStory<TJSXElements> =
+  StoryWithHeader.bind({})
+StoryWithHeaderTemplate.storyName = 'With Header 🙂'
+StoryWithHeaderTemplate.args = {}
+
+export const StoryWithFooter = () => {
   const [visible, setVisible] = useState(false)
 
   const onOpen = () => setVisible(true)
@@ -89,3 +104,7 @@ export const WithFooter = () => {
     </div>
   )
 }
+export const StoryWithFooterTemplate: ComponentStory<TJSXElements> =
+  StoryWithFooter.bind({})
+StoryWithFooterTemplate.storyName = 'With Footer 🙂'
+StoryWithFooterTemplate.args = {}
