@@ -1,4 +1,4 @@
-import { TInput, TInputComponent } from '../Input/type'
+import { TInputComponent } from '../Input/type'
 
 export type TPassword = {
   /**

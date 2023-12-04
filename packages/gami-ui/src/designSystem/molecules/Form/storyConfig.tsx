@@ -3,7 +3,7 @@ import {
   getStoryConfigStructure,
   madegenericPropsControl,
 } from 'core/helpers/storybook.helper'
-import Form, { options } from '.'
+import Form from '.'
 import {
   IStoryConfig,
   IStoryMainConfig,

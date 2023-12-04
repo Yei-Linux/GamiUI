@@ -19,7 +19,8 @@ export const Row = ({
   item,
   background = defaultTheme.light.neutral[700],
 }: IRow) => {
-  if (!item) return <S.TableRow $background={background}>{children}</S.TableRow>
+  if (!item)
+    return <S.TableRow $background={background}>{children as any}</S.TableRow>
 
   if (typeof children !== 'function') return null
 

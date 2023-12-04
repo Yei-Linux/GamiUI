@@ -51,6 +51,7 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
+    "@babel/plugin-transform-parameters": "^7.23.3",
     "@types/react-datepicker": "^4.8.0",
     "@types/stylis": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
@@ -73,7 +74,9 @@
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/css": "^11.10.6",
+    "babel-preset-minify": "0.3.0",
     "rc-datepicker": "^5.0.16",
-    "react-datepicker": "^4.8.0"
+    "react-datepicker": "^4.8.0",
+    "tsup": "^8.0.1"
   }
 }

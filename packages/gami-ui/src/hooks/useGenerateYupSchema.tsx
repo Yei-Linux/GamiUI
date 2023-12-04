@@ -9,17 +9,17 @@ import Radio from '../designSystem/atoms/Radio'
 
 import * as Yup from 'yup'
 import { BooleanSchema, NumberSchema, ObjectSchema, StringSchema } from 'yup'
-import { IRules } from '../designSystem/molecules/Form/FormItemTemplate'
 import File from 'designSystem/atoms/File'
 import ColorPicker from 'designSystem/atoms/ColorPicker'
 import DatePicker from 'designSystem/atoms/DatePicker'
 import { OptionalArraySchema } from 'yup/lib/array'
 import { AnyObject } from 'yup/lib/types'
+import { FormCustomField } from 'designSystem/molecules/Form/FormCustomField'
 import {
-  FormCustomField,
-  TFormCustomField,
-} from 'designSystem/molecules/Form/FormCustomField'
-import { IFormItem } from 'designSystem/molecules/Form/FormItem'
+  TFormCustomFieldType,
+  TFormItem,
+  TRules,
+} from 'designSystem/molecules/Form/type'
 
 interface IYupSchema {
   [key: string]: any
@@ -62,13 +62,13 @@ export interface IUseGenerateYupSchema {
 
 const useGenerateYupSchema = ({ children }: IUseGenerateYupSchema) => {
   const checkRules = (
-    rules: IRules[],
+    rules: TRules[],
     ruleInstance: TRulesInstance,
     name: string
   ) => {
     let ruleInstanceToModify = ruleInstance
 
-    rules.forEach(({ type, message, value = 0, fn }: IRules) => {
+    rules.forEach(({ type, message, value = 0, fn }: TRules) => {
       if (type === 'custom' && fn) {
         ruleInstanceToModify = ruleInstanceToModify.test(
           `custom-validation-${name}`,
@@ -125,7 +125,7 @@ const useGenerateYupSchema = ({ children }: IUseGenerateYupSchema) => {
 
       if (!childrenTypeOfChildren) return
 
-      const { rules, name } = childrenCast.props as IFormItem
+      const { rules, name } = childrenCast.props as TFormItem
 
       if (!rules || rules == undefined) return
 
@@ -136,7 +136,7 @@ const useGenerateYupSchema = ({ children }: IUseGenerateYupSchema) => {
         childrenPropsOfChildren
       ) {
         const { type } = childrenPropsOfChildren
-        const typeCasted = type as TFormCustomField
+        const typeCasted = type as TFormCustomFieldType
         rule = Yup[typeCasted]()
       }
 

@@ -22,4 +22,3 @@ export interface IComponentsVariant {
    */
   light?: boolean
 }
-

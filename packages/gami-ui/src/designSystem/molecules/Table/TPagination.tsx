@@ -1,7 +1,7 @@
 import React from 'react'
 import Pagination from '../Pagination'
-import { TOnChange } from '../Pagination/Pagination'
 import { Column } from './Column'
+import { TOnChange } from '../Pagination/type'
 
 export interface ITPagination {
   numberPages: number

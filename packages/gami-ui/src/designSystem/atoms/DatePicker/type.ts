@@ -1,6 +1,6 @@
 import { TPattern } from 'core/helpers'
-import { TOnChangeFormItem } from '../Input/Input'
 import { TDesignUI } from 'core/domain/types/design-system'
+import { TOnChangeFormItem } from '../Input/type'
 
 export type TDatePicker = {
   onChangeFormItem?: TOnChangeFormItem

@@ -1,23 +1,23 @@
 const dayTypes = ['d' as const, 'dd' as const]
-export type TDay = typeof dayTypes[number]
+export type TDay = (typeof dayTypes)[number]
 
 const monthTypes = ['M' as const, 'MM' as const]
-export type TMonth = typeof monthTypes[number]
+export type TMonth = (typeof monthTypes)[number]
 
 const yearTypes = ['yy' as const, 'yyyy' as const]
-export type TYear = typeof yearTypes[number]
+export type TYear = (typeof yearTypes)[number]
 
 const hoursTypes = ['h' as const, 'hh' as const]
-export type THour = typeof hoursTypes[number]
+export type THour = (typeof hoursTypes)[number]
 
 const minutesTypes = ['m' as const, 'mm' as const]
-export type TMinute = typeof minutesTypes[number]
+export type TMinute = (typeof minutesTypes)[number]
 
 const secondTypes = ['s' as const, 'ss' as const]
-export type TSecond = typeof secondTypes[number]
+export type TSecond = (typeof secondTypes)[number]
 
 const modeTypes = ['a' as const, 'A' as const]
-export type TMode = typeof modeTypes[number]
+export type TMode = (typeof modeTypes)[number]
 
 export type TEmpty = ''
 

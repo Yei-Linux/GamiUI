@@ -1,18 +1,13 @@
 /* eslint-disable no-undef */
 module.exports = {
-  presets: [
-    /*'@babel/preset-env',
-    '@babel/preset-react',
-    '@babel/preset-flow',
-    '@babel/preset-typescript',*/
-    '@babel/preset-typescript',
-  ],
+  presets: ['@babel/preset-env', '@babel/preset-typescript'],
   plugins: [
     /* '@babel/plugin-proposal-class-properties',
     '@babel/plugin-transform-react-jsx',
     '@babel/plugin-syntax-jsx',
     'preval',*/
     'tsconfig-paths-module-resolver',
+    '@babel/plugin-transform-parameters',
     [
       'babel-plugin-replace-imports',
       {
@@ -37,4 +32,5 @@ module.exports = {
       },
     ],
   ],
+  ignore: ['**/*.stories.ts', '**/*.test.ts'],
 }

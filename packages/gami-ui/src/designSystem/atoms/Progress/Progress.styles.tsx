@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { OnlyTheme } from 'core/domain/types/mixins'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { flex } from 'styles/mixins/flex'
 
 type TProgressStyled = {

@@ -1,23 +1,24 @@
 {
   "name": "@gamiui/standard",
-  "version": "0.1.0-alpha.104",
+  "version": "0.1.0-alpha.105",
   "description": "GamiUI Library of standard components",
   "source": "src/index.ts",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
-  "types": "lib/types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "scripts": {
     "test": "jest",
     "test:snapshot-update": "jest --u",
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
     "build-storybook": "build-storybook",
-    "build": "node ./scripts/build.js",
-    "build:esm": "tsc -p tsconfig.json --module es2015 --target es5 --outDir ./lib/esm && tscpaths -p tsconfig.json -s ./src -o ./lib/esm",
-    "build:cjs": "tsc -p tsconfig.json --module commonjs --target es5 --outDir ./lib/cjs && tscpaths -p tsconfig.json -s ./src -o ./lib/cjs",
-    "build:types": "tsc -p tsconfig.json -d --emitDeclarationOnly --outDir ./lib/types && tscpaths -p tsconfig.json -s ./src -o ./lib/types",
+    "build:babel": "node ./scripts/build.js",
+    "build": "tsup ./src/index.tsx --format cjs,esm --dts --minify",
+    "build:esm": "tsc -p tsconfig.json --module es2015 --target es5 --outDir ./dist/esm && tscpaths -p tsconfig.json -s ./src -o ./dist/esm",
+    "build:cjs": "tsc -p tsconfig.json --module commonjs --target es5 --outDir ./dist/cjs && tscpaths -p tsconfig.json -s ./src -o ./dist/cjs",
+    "build:types": "tsc -p tsconfig.json -d --emitDeclarationOnly --outDir ./dist/types && tscpaths -p tsconfig.json -s ./src -o ./dist/types",
     "chromatic": "npx chromatic --project-token 7296afeee821",
     "prepare-husky": "husky install",
     "semantic-release": "semantic-release",
@@ -35,7 +36,7 @@
   "author": "Yei Linux",
   "license": "ISC",
   "publishConfig": {
-    "directory": "lib",
+    "directory": "dist",
     "access": "public"
   },
   "peerDependencies": {

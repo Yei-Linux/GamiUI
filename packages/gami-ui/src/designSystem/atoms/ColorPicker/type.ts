@@ -1,5 +1,5 @@
 import { TDesignUI } from 'core/domain/types/design-system'
-import { TOnChangeFormItem } from '../Input/Input'
+import { TOnChangeFormItem } from '../Input/type'
 
 export type TColorPicker = {
   value?: string

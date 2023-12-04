@@ -1,8 +1,6 @@
 import styled from '@emotion/styled'
 import { ComponentThemeType } from 'core/domain/types'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 import { compose } from 'styles/utilities/tools'
 import { hover } from 'styles/mixins/transition'
 import { OnlyTheme } from 'core/domain/types/mixins'

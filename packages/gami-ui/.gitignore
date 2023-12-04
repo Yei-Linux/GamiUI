@@ -3,3 +3,4 @@
 /lib
 build-storybook.log
 .husky
+/dist

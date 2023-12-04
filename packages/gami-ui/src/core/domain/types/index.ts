@@ -17,47 +17,47 @@ import { TTokensKeySizeComponents } from 'providers/ThemeGamification/ThemeGamif
 import { TIconsPack } from 'designSystem/atoms/Icon/constants'
 
 export type DesignTypes = typeof DESIGN_TYPES
-export type DynamicDesignTypes = typeof DYNAMIC_DESIGN_TYPES[number]
+export type DynamicDesignTypes = (typeof DYNAMIC_DESIGN_TYPES)[number]
 
-export type WidthType = typeof DESIGN_TYPES.width[number]
-export type HeightType = typeof DESIGN_TYPES.height[number]
-export type RoundedType = typeof DESIGN_TYPES.rounded[number]
-export type ShadowType = typeof DESIGN_TYPES.shadow[number]
-export type TextAlignType = typeof DESIGN_TYPES.textAlign[number]
-export type FontWeightType = typeof DESIGN_TYPES.fontWeight[number]
-export type SizeType = typeof DESIGN_TYPES.size[number]
+export type WidthType = (typeof DESIGN_TYPES.width)[number]
+export type HeightType = (typeof DESIGN_TYPES.height)[number]
+export type RoundedType = (typeof DESIGN_TYPES.rounded)[number]
+export type ShadowType = (typeof DESIGN_TYPES.shadow)[number]
+export type TextAlignType = (typeof DESIGN_TYPES.textAlign)[number]
+export type FontWeightType = (typeof DESIGN_TYPES.fontWeight)[number]
+export type SizeType = (typeof DESIGN_TYPES.size)[number]
 
-export type EmptyTypes = typeof optionsEmpty.type[number]
+export type EmptyTypes = (typeof optionsEmpty.type)[number]
 
-export type ComponentThemeType = typeof optionsButton.type[number]
+export type ComponentThemeType = (typeof optionsButton.type)[number]
 
-export type ButtonHtmlType = typeof optionsButton.typeHtml[number]
-export type LinkType = typeof options.type[number]
+export type ButtonHtmlType = (typeof optionsButton.typeHtml)[number]
+export type LinkType = (typeof options.type)[number]
 
 export type ImageBackgroundType =
-  typeof optionsImage.typeImageBackground[number]
+  (typeof optionsImage.typeImageBackground)[number]
 
-export type ProgressType = typeof optionsProgress.type[number]
+export type ProgressType = (typeof optionsProgress.type)[number]
 
-export type LevelType = typeof optionsTitle.typeLevel[number]
+export type LevelType = (typeof optionsTitle.typeLevel)[number]
 
-export type ZoomModeType = typeof optionsAvatar.zoomMode[number]
-export type TextModeType = typeof optionsAvatar.textMode[number]
+export type ZoomModeType = (typeof optionsAvatar.zoomMode)[number]
+export type TextModeType = (typeof optionsAvatar.textMode)[number]
 
 export type IconNames = keyof TIconsPack
 
-export type ColTypes = typeof optionsCol.type[number]
-export type ColSpacingTypes = typeof optionsCol.spacingType[number]
+export type ColTypes = (typeof optionsCol.type)[number]
+export type ColSpacingTypes = (typeof optionsCol.spacingType)[number]
 
-export type JustifyContentTypes = typeof optionsRow.justifyContentType[number]
-export type AlignItemsTypes = typeof optionsRow.alignItemsType[number]
-export type DirectionTypes = typeof optionsRow.directionType[number]
+export type JustifyContentTypes = (typeof optionsRow.justifyContentType)[number]
+export type AlignItemsTypes = (typeof optionsRow.alignItemsType)[number]
+export type DirectionTypes = (typeof optionsRow.directionType)[number]
 
-export type DirectionMessageType = typeof optionsMessage.directionType[number]
+export type DirectionMessageType = (typeof optionsMessage.directionType)[number]
 
-export type DrawerPlacementTypes = typeof optionsDrawer.placementType[number]
+export type DrawerPlacementTypes = (typeof optionsDrawer.placementType)[number]
 
-export type FloatingTypes = typeof optionsFloating.type[number]
+export type FloatingTypes = (typeof optionsFloating.type)[number]
 
 export type InputType = 'TEXTFIELD' | 'SELECT'
 export type TextFieldType = 'text' | 'password' | 'number'

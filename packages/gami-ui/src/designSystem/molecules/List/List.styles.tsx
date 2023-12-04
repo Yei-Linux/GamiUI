@@ -59,5 +59,5 @@ export const ListItem = styled.li`
   }
 `
 export const ListItemChild = styled.div`
-  margin-right: ${spacing.margin.md}; ;
+  margin-right: ${spacing.margin.md};
 `

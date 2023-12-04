@@ -1,6 +1,6 @@
 import { TDesignUI } from 'core/domain/types/design-system'
-import { TOnChangeFormItem } from '../Input/Input'
 import { IFileViewItem } from './useFile'
+import { TOnChangeFormItem } from '../Input/type'
 
 export type TFile = {
   /**

@@ -15,7 +15,7 @@ export type TDimensions = {
   height: string
 }
 
-export type TApps = typeof appTypes[number]
+export type TApps = (typeof appTypes)[number]
 export interface ICreateShareButton {
   app: TApps
   link: string
