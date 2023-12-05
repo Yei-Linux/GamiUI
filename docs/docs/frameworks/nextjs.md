@@ -7,7 +7,7 @@ sidebar_position: 1
 To use GamiUI in your Next.js project, you need to follow the steps below, depending on your project structure.
 
 <div align="center">
-<img src="https://media.istockphoto.com/id/1221591976/sv/vektor/rolig-busig-tecknad-hj%C3%A4rnfigur.jpg?s=170667a&w=0&k=20&c=j-SuJ-C9SYpQfykKO7oteWoJpa0IqlFEBotqncaM5k0=" alt="gamiBrain" width="200"/>
+<img src="https://media.istockphoto.com/id/1221591976/sv/vektor/rolig-busig-tecknad-hj%C3%A4rnfigur.jpg?s=170667a&w=0&k=20&c=j-SuJ-C9SYpQfykKO7oteWoJpa0IqlFEBotqncaM5k0=" alt="gamiBrain" width="200" style={{ borderRadius: "50%"}}/>
 </div>
 
 - **1. Add dependencies**:

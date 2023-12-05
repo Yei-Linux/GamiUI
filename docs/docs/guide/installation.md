@@ -7,7 +7,7 @@ sidebar_position: 2
 The easiest way to get started with GamiUI is to use the global installation. Which means that all the components are imported from a single package.
 
 <div align="center">
-<img src="https://i.pinimg.com/550x/1b/31/7c/1b317c42cff3e28a2b5ebc05f1f0daa4.jpg" alt="gamiBrain" width="200"/>
+<img src="https://i.pinimg.com/550x/1b/31/7c/1b317c42cff3e28a2b5ebc05f1f0daa4.jpg" alt="gamiBrain" width="200" style={{ borderRadius: "50%"}}/>
 </div>
 
 Follow the steps below to install all GamiUI components:
@@ -41,5 +41,5 @@ Follow the steps below to install all GamiUI components:
 
 GamiUI is compatible with your preferred framework. We have compiled comprehensive, step-by-step tutorials for the following frameworks:
 
-- **1.** [Nextjs](../frameworks/nextjs.mdx)
-- **2.** [Vite](../frameworks/vite.mdx)
+- **1.** [Nextjs](../frameworks/nextjs)
+- **2.** [Vite](../frameworks/vite)

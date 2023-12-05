@@ -72,19 +72,19 @@ const config: Config = {
           label: "Tutorial",
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/Yei-Linux/GamiUI",
           position: "right",
           className: "header-github-link",
           "aria-label": "GitHub repository",
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/Yei-Linux/GamiUI",
           position: "right",
           className: "header-discord-link",
           "aria-label": "Discord repository",
         },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/Yei-Linux/GamiUI",
           position: "right",
           className: "header-twitter-link",
           "aria-label": "Twitter repository",
@@ -112,6 +112,7 @@ const config: Config = {
       };
     },
   ],
+  themes: ["@docusaurus/theme-live-codeblock"],
 };
 
 export default config;

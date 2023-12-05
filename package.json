@@ -24,19 +24,15 @@
     "version:gami-ui": "npm run version --workspace=@gamiui/standard",
     "postversion:gami-ui": "npm run postversion --workspace=@gamiui/standard",
     "create-component:gami-ui": "npm run create-component --workspace=@gamiui/standard",
+    "format:gami-ui": "npm run format --workspace=@gamiui/standard",
+    "lint:gami-ui": "npm run lint --workspace=@gamiui/standard",
+    "lint-fix:gami-ui": "npm run lint:fix --workspace=@gamiui/standard",
     "develop:gami-docs": "npm run develop --workspace=@gamiui/docs",
     "build-docs:gami-docs": "npm run build --workspace=@gamiui/docs",
     "serve:gami-docs": "npm run serve --workspace=@gamiui/docs",
     "deploy-netlify:gami-docs": "npm run deploy-netlify --workspace=@gamiui/docs",
     "deployprop-netlify:gami-docs": "npm run deployprop-netlify --workspace=@gamiui/docs",
-    "publishfinal:gami-docs": "npm run deploy-netlify --workspace=@gamiui/docs",
-    "clean:gami-docs": "npm run clean --workspace=@gamiui/docs",
-    "format:gami-ui": "npm run format --workspace=@gamiui/standard",
-    "format:gami-docs": "npm run format --workspace=@gamiui/docs",
-    "lint:gami-ui": "npm run lint --workspace=@gamiui/standard",
-    "lint:gami-docs": "npm run lint --workspace=@gamiui/docs",
-    "lint-fix:gami-ui": "npm run lint:fix --workspace=@gamiui/standard",
-    "lint-fix:gami-docs": "npm run lint:fi --workspace=@gamiui/docsx"
+    "publishfinal:gami-docs": "npm run deploy-netlify --workspace=@gamiui/docs"
   },
   "repository": {
     "type": "git",

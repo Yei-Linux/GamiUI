@@ -60,7 +60,7 @@ function Feature({ title, src, description }: FeatureItem) {
 export default function HomepageFeatures(): JSX.Element {
   return (
     <section>
-      <div className="flex flex-wrap justify-between gap-3 w-full px-5 max-w-[1300px] m-auto">
+      <div className="flex flex-wrap justify-center gap-3 w-full px-5 max-w-[1300px] m-auto">
         {FeatureList.map((props, idx) => (
           <Feature key={idx} {...props} />
         ))}

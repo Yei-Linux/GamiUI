@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { Button, Container, Icon, Image, Title } from "@gamiui/standard";
 
@@ -29,21 +30,31 @@ export const Hero = () => {
           className="flex gap-3 max-h-[50px] !bg-primary !text-white"
           height="sm"
         >
-          <span>Gettings Started </span>
-          <span>😎</span>
+          <Link
+            href="/docs/guide/introduction"
+            className="hover:text-white hover:no-underline"
+          >
+            <span>Gettings Started </span>
+            <span>😎</span>
+          </Link>
         </Button>
-        <Button
-          padding="1rem"
-          fontWeight="semibold"
-          rounded="lg"
-          className="flex gap-3 max-h-[50px] !bg-white !text-primary !border-1 !border-primary"
-          height="sm"
+        <Link
+          href="https://github.com/Yei-Linux/GamiUI"
+          className="hover:text-white hover:no-underline"
         >
-          <span>Github</span>
-          <span>
-            <Icon name="github" color="#494AF4" />
-          </span>
-        </Button>
+          <Button
+            padding="1rem"
+            fontWeight="semibold"
+            rounded="lg"
+            className="flex gap-3 max-h-[50px] !bg-white !text-primary !border-1 !border-primary"
+            height="sm"
+          >
+            <span>Github</span>
+            <span>
+              <Icon name="github" color="#494AF4" />
+            </span>
+          </Button>
+        </Link>
       </Container>
     </Container>
   );

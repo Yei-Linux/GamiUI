@@ -7,7 +7,7 @@ sidebar_position: 1
 Welcome to the <span class="font-bold text-primary">GamiUI</span> documentation!
 
 <div align="center">
-<img src="https://i.pinimg.com/originals/02/61/18/0261188a351ebd989dd394761403da28.jpg" alt="gamiBrain" width="200"/>
+<img src="https://i.pinimg.com/originals/02/61/18/0261188a351ebd989dd394761403da28.jpg" alt="gamiBrain" width="200" style={{ borderRadius: "50%"}}/>
 </div>
 
 ## **What is GamiUI?**
