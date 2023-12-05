@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Welcome to the <span class="font-bold text-primary">GamiUI</span> documentation!
 
-<div class="w-full flex justify-center">
+<div align="center">
 <img src="https://i.pinimg.com/originals/02/61/18/0261188a351ebd989dd394761403da28.jpg" alt="gamiBrain" width="200"/>
 </div>
 

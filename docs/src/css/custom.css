@@ -73,3 +73,15 @@ body {
 .footer__copyright {
   font-weight: bold;
 }
+
+code {
+  font-weight: bold !important;
+}
+
+.buttonGroup_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module button {
+  opacity: 1 !important;
+}
+
+.theme-doc-footer-edit-meta-row .col a{
+  display: flex;
+}

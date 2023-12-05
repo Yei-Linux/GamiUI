@@ -95,8 +95,8 @@ const config: Config = {
       copyright: `@2023 GamiUI Inc.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.shadesOfPurple,
+      darkTheme: prismThemes.shadesOfPurple,
     },
   } satisfies Preset.ThemeConfig,
   plugins: [

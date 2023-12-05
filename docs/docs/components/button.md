@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Installation
+# Button
 
 The easiest way to get started with GamiUI is to use the global installation. Which means that all the components are imported from a single package.
 
@@ -36,10 +36,3 @@ Follow the steps below to install all GamiUI components:
     );
   };
   ```
-
-## **Framework Guides**
-
-GamiUI is compatible with your preferred framework. We have compiled comprehensive, step-by-step tutorials for the following frameworks:
-
-- **1.** [Nextjs](../frameworks/nextjs.mdx)
-- **2.** [Vite](../frameworks/vite.mdx)
