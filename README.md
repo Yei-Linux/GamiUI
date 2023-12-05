@@ -47,7 +47,6 @@ const Component = () => <Button>GamiUI</Button>;
 ```
 
 ## Contributing
-
 Contributions are always welcome!
 
 # Execute Project
