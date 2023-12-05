@@ -37,6 +37,23 @@ Follow the steps below to install all GamiUI components:
   };
   ```
 
+- **3. Start using a component**:
+  
+  To install GamiUI, run one of the following commands in your terminal:
+  <br/>
+  ```jsx
+    import React from "react";
+    import { Button } from '@gamiui/standard'
+
+    export const App = () => {
+    return (
+      <Button> 
+        GamiUI
+      </Button>
+    );
+  };
+  ```
+
 ## **Framework Guides**
 
 GamiUI is compatible with your preferred framework. We have compiled comprehensive, step-by-step tutorials for the following frameworks:
