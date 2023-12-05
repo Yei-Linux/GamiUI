@@ -1,9 +1,0 @@
-{
-    "pipeline": {
-        "build": {
-            "outputs": [
-                "lib/**"
-            ]
-        }
-    }
-}
