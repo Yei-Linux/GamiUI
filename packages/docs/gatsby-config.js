@@ -32,7 +32,5 @@ module.exports = {
         icon: `${__dirname}/src/images/icon.svg`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
   ],
 }

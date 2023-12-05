@@ -15,7 +15,8 @@ const DefaultStyles = ({
   disableDefaultNormalize = false,
 }: IDefaultStyles) => {
   const { generateClasses } = useClasses()
-  const { normalizeGamiUI, normalizeGlobal, normalizeFonts } = useNormalize()
+  const { normalizeGamiUI, normalizeGlobal, normalizeFonts } =
+    useNormalize(disableDefaultFonts)
 
   return (
     <Global

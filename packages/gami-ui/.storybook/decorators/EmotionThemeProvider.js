@@ -10,7 +10,9 @@ const EmotionThemeProvider = (storyFn) => {
 
   return (
     <ThemeProvider theme={DEFAULT_THEME_MODES[themeType]}>
-      <ThemeGamification>{storyFn()}</ThemeGamification>
+      <ThemeGamification disableDefaultFonts={false}>
+        {storyFn()}
+      </ThemeGamification>
     </ThemeProvider>
   )
 }

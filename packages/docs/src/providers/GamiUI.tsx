@@ -4,7 +4,7 @@ import React, { Fragment } from "react"
 import SEO from "../layouts/SEO"
 
 export interface IGamiUIProvider {
-  children: React.ReactNode
+  children: any
 }
 
 const normalizeStyles = () => css`
@@ -26,10 +26,7 @@ const GamiUIProvider = ({ children }: IGamiUIProvider) => {
   return (
     <Fragment>
       <SEO title="GamiUI - Nice UI lib" />
-      <ThemeGamification>
-        <Global styles={normalizeStyles()} />
-        {children}
-      </ThemeGamification>
+      <ThemeGamification>{children}</ThemeGamification>
     </Fragment>
   )
 }

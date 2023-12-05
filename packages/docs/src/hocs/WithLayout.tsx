@@ -32,28 +32,33 @@ const WithLayout =
         <Layout>
           {hasHeader && (
             <Layout.Header isSticky>
-              {<HeaderChildren toggle={() => setOpen(!open)} hasSidebar={hasSidebar} />}
+              {
+                <HeaderChildren
+                  toggle={() => setOpen(!open)}
+                  hasSidebar={hasSidebar}
+                />
+              }
             </Layout.Header>
           )}
 
-          {hasSidebar &&
-            (device !== "desktop" ? (
-              <Drawer
-                style={{ padding: "1rem 0" }}
-                onClose={() => setOpen(!open)}
-                open={open}
-              >
-                <Sidebar />
-              </Drawer>
-            ) : (
-              <Layout.Sidebar>
-                <Sidebar />
-              </Layout.Sidebar>
-            ))}
+          {hasSidebar && device !== "desktop" && (
+            <Drawer
+              style={{ padding: "1rem 0" }}
+              onClose={() => setOpen(!open)}
+              open={open}
+            >
+              <Sidebar />
+            </Drawer>
+          )}
 
-          <Layout.Content>
-            <WrappedComponent {...componentProps} />
-          </Layout.Content>
+          <Layout.Wrapper>
+            <Layout.Sidebar>
+              <Sidebar />
+            </Layout.Sidebar>
+            <Layout.Content>
+              <WrappedComponent {...componentProps} />
+            </Layout.Content>
+          </Layout.Wrapper>
           {hasFooter && <Layout.Footer>{<FooterChildren />}</Layout.Footer>}
         </Layout>
       </Fragment>

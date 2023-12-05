@@ -65,7 +65,7 @@ const ThemeGamification = ({
     tokens: defaultTokens,
     themes: defaultTheme,
   },
-  disableDefaultFonts = false,
+  disableDefaultFonts = true,
   disableDefaultClasses = false,
   disableDefaultNormalize = false,
 }: ThemeGamificationProps) => {
