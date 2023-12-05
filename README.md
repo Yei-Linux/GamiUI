@@ -1,70 +1,62 @@
 <p align="center">
   <a href="https://www.gamiui.com">
-    <img style="border-radius:1em;box-shadow: 1px 1px 8px 0px rgba(0,0,0,0.15)" src="https://i.imgur.com/8EkWyHT.png" alt="gamiui" />
+    <img src="https://i.pinimg.com/originals/02/61/18/0261188a351ebd989dd394761403da28.jpg" alt="gamiBrain" width="200"  style="border-radius:50%"/>
     <h1 align="center">GamiUI</h1>
   </a>
 </p>
 </br>
 
-## Getting Started
+# Installation
 
-Visit <a aria-label="gamiui" href="https://www.gamiui.com/">https://www.gamiui.com/</a> to get started with GamiUI.
+The easiest way to get started with GamiUI is to use the global installation. Which means that all the components are imported from a single package.
 
-## Documentation
+Follow the steps below to install all GamiUI components:
 
-Visit [https://www.gamiui.com/docs/atoms/avatar](https://www.gamiui.com/docs) to view the full documentation.
+- **1. Install Packages**:
+  
+  To install GamiUI, run one of the following commands in your terminal:
+  <br/>
+  ```js
+  npm i @gamiui/standard
+  ```
 
-## Quick Start
+- **2. Provider Setup**:
+  
+  It is essential to add the GamiUIProvider at the root of your application:
+  <br/>
+  ```jsx
+  import React from "react";
+  import { ThemeGamification } from "@gamiui/standard";
 
-1. Installation: Inside your React project (CRA,Nextjs,Gatsby) running this following commands:
+  export const App = () => {
+    return (
+      <ThemeGamification> 
+        <YourApplication />
+      </ThemeGamification>
+    );
+  };
+  ```
 
-```bash
-yarn add @gamiui/standard
-# or
-npm i @gamiui/standard
-```
+- **3. Start using a component**:
+  
+  To install GamiUI, run one of the following commands in your terminal:
+  <br/>
+  ```jsx
+    import React from "react";
+    import { Button } from '@gamiui/standard'
 
-2. Setup: Now you need to add gamification provider on root aplication like this:
+    export const App = () => {
+    return (
+      <Button> 
+        GamiUI
+      </Button>
+    );
+  };
+  ```
 
-```jsx
-import { ThemeGamification } from "@gamiui/standard";
+## **Framework Guides**
 
-const App = ({ Component }) => {
-  return (
-    <ThemeGamification>
-      <Component />
-    </ThemeGamification>
-  );
-};
-```
+GamiUI is compatible with your preferred framework. We have compiled comprehensive, step-by-step tutorials for the following frameworks:
 
-3. Using GamiUI components: Once is installed you can use any of the components as follows.
-
-```jsx
-import { Button } from "@gamiui/standard";
-
-const Component = () => <Button>GamiUI</Button>;
-```
-
-## Contributing
-Contributions are always welcome!
-
-# Execute Project
-
-1.  **Version of node and npm.**
-    Node: 15.3.0
-    Npm: 7.0.14
-
-2.  **Install dependencies to execute project.**
-    Execute on root project
-    npm run install-deps
-
-3.  **Publish project to npm of @gamiui/standard.**
-    First login on npm
-    Then change version
-    Finally execute this command script:
-    npm run publishfinal:gami-ui
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+- **1.** Nextjs
+- **2.** Vite

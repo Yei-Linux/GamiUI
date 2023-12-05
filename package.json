@@ -67,6 +67,7 @@
     "@emotion/core": "^11.0.0",
     "@emotion/css": "^11.10.6",
     "babel-preset-minify": "0.3.0",
+    "default-browser-id": "^4.0.0",
     "rc-datepicker": "^5.0.16",
     "react-datepicker": "^4.8.0",
     "tsup": "^8.0.1"
