@@ -26,13 +26,7 @@
     "create-component:gami-ui": "npm run create-component --workspace=@gamiui/standard",
     "format:gami-ui": "npm run format --workspace=@gamiui/standard",
     "lint:gami-ui": "npm run lint --workspace=@gamiui/standard",
-    "lint-fix:gami-ui": "npm run lint:fix --workspace=@gamiui/standard",
-    "develop:gami-docs": "npm run develop --workspace=@gamiui/docs",
-    "build-docs:gami-docs": "npm run build --workspace=@gamiui/docs",
-    "serve:gami-docs": "npm run serve --workspace=@gamiui/docs",
-    "deploy-netlify:gami-docs": "npm run deploy-netlify --workspace=@gamiui/docs",
-    "deployprop-netlify:gami-docs": "npm run deployprop-netlify --workspace=@gamiui/docs",
-    "publishfinal:gami-docs": "npm run deploy-netlify --workspace=@gamiui/docs"
+    "lint-fix:gami-ui": "npm run lint:fix --workspace=@gamiui/standard"
   },
   "repository": {
     "type": "git",
@@ -59,7 +53,9 @@
     "eslint-plugin-react": "^7.23.2",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "author": "Yei Linux",
   "license": "ISC",
