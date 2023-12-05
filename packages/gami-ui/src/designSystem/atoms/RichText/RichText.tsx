@@ -1,26 +1,24 @@
 import React, { useMemo, useRef } from 'react'
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import * as S from './RichText.styles'
 
 import marked, { Renderer } from 'marked'
 import useIsMounted from 'hooks/useIsMounted'
 import { sanitizeLink } from './helper'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
+import {
+  TMarkedRenderRef,
+  TMarkedRenderRefParams,
+  TRichTextComponent,
+} from './type'
 
-export interface IRichText extends IGeneralProps {
-  /**
-   * Text to Show
-   */
-  text: string
-}
-
-export type TMarkedRenderRefParams = Renderer<never> | undefined
-export type TMarkedRenderRef = React.MutableRefObject<TMarkedRenderRefParams>
-
-const RichText = ({ text, ...genericsProps }: IRichText) => {
+const RichText = ({ text, ...genericsProps }: TRichTextComponent) => {
+  const globalStyles = useMemo(
+    () => getDesignProps(genericsProps),
+    [genericsProps]
+  )
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
@@ -48,9 +46,9 @@ const RichText = ({ text, ...genericsProps }: IRichText) => {
   }, [text])
 
   return (
-    <S.RichText
+    <S.RichTextStyled
       className={cls(handles.wrapper, genericsProps?.className ?? '')}
-      {...getGenericPropStyles(genericsProps)}
+      {...globalStyles}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )
@@ -71,4 +69,4 @@ type RichTextComponent<P> = React.NamedExoticComponent<P> & {
 export default withDefaults(
   RichText,
   defaultProps
-) as RichTextComponent<IRichText>
+) as RichTextComponent<TRichTextComponent>

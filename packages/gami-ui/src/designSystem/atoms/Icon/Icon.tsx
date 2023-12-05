@@ -1,42 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { IconNames } from 'core/domain/types'
-import { IconsPack } from './constants'
+import React from 'react'
 import * as S from './Icon.styles'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
-
-export interface IOnlyIcon {
-  /**
-   * Fill Icon
-   */
-  color?: string
-  /**
-   * Name
-   */
-  name?: IconNames
-  /**
-   * Size icon
-   */
-  size?: string
-}
-
-type IGeneralPropsIcon = Omit<
-  IGeneralProps,
-  'size' | 'width' | 'height' | 'textAlign'
->
-
-interface IIcon extends IOnlyIcon, IGeneralPropsIcon {}
+import { TIconComponent } from './type'
+import { useInitializer } from './useInitializer'
 
 const Icon = ({
   color = '#7f9cf5',
   name = 'facebook',
   size = '16px',
   ...genericsProps
-}: IIcon) => {
-  const [icon, setIcon] = useState(IconsPack(color)?.[name])
+}: TIconComponent) => {
+  const { icon } = useInitializer({ color, name })
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
@@ -50,26 +27,27 @@ const Icon = ({
     return null
   }
 
-  useEffect(() => {
-    setIcon(IconsPack(color)?.[name])
-  }, [name])
-
   return (
-    <S.Icon
-      {...getGenericPropStyles(genericsProps)}
+    <S.IconStyled
+      {...getDesignProps(genericsProps)}
       className={cls(handles.wrapper, genericsProps?.className ?? '', {
         hoverIcon: genericsProps?.onClick ? true : false,
       })}
     >
-      <S.Svg fill="none" width={size} height={size} viewBox={icon.viewBox}>
+      <S.SvgStyled
+        className={cls(handles.svg)}
+        fill="none"
+        width={size}
+        height={size}
+        viewBox={icon.viewBox}
+      >
         {icon.svg}
-      </S.Svg>
-    </S.Icon>
+      </S.SvgStyled>
+    </S.IconStyled>
   )
 }
 
 const defaultProps = {
-  rounded: 'none',
   shadow: 'none',
 }
 
@@ -79,4 +57,4 @@ type IconComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }
 
-export default withDefaults(Icon, defaultProps) as IconComponent<IIcon>
+export default withDefaults(Icon, defaultProps) as IconComponent<TIconComponent>

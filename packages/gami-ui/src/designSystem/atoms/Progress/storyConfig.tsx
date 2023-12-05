@@ -73,7 +73,7 @@ const docArgTypes = {}
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Progress',
+  title: 'Atoms/Progress 🟢',
   component: Progress,
   args: {},
   argTypes: storyArgTypes,
@@ -98,7 +98,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithTypes',
+    storyName: 'WithTypes 🙂',
     self: {
       args: { percent: 75, style: { width: '100px' } },
       variants: {
@@ -117,7 +117,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithBackgrounProgressBar',
+    storyName: 'WithBackgrounProgressBar 🙂',
     self: {
       args: { percent: 75, style: { width: '100px' } },
       variants: {
@@ -142,7 +142,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithMaxSizes',
+    storyName: 'WithMaxSizes 🙂',
     self: {
       args: { percent: 75, style: { width: '100px' } },
       variants: {

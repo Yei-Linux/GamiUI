@@ -67,7 +67,7 @@ const docArgTypes = {}
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Message',
+  title: 'Atoms/Message 🟢',
   component: Message,
   args: {},
   argTypes: storyArgTypes,
@@ -117,7 +117,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithDirections',
+    storyName: 'With Directions 🙂',
     self: {
       args: {
         text: 'Gami Message',
@@ -132,7 +132,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithBackground',
+    storyName: 'With Background 🙂',
     self: {
       args: {
         text: 'Gami Message',
@@ -153,7 +153,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithColorAndMarker',
+    storyName: 'With ColorAndMarker 🙂',
     self: {
       args: {
         text: 'Gami Message',

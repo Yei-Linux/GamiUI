@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime'
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useMemo } from 'react'
 
 import { drawerTranstionByStates } from './constants'
 import * as S from './Drawer.styles'
@@ -9,68 +9,12 @@ import useOpen from 'hooks/useOpen'
 import Mask from 'designSystem/atoms/Mask'
 import Transition from 'designSystem/styled/Transition'
 import withDefaults from 'hocs/WithDefault'
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import Portal from 'hooks/Portal'
-import { DrawerPlacementTypes } from 'core/domain/types'
 import Icon from 'designSystem/atoms/Icon'
-
-type TGenericStylesFloating = Omit<
-  IGeneralProps,
-  | 'size'
-  | 'fontWeight'
-  | 'textAlign'
-  | 'margin'
-  | 'padding'
-  | 'rounded'
-  | 'width'
-  | 'height'
->
-
-export interface IDrawer extends TGenericStylesFloating {
-  /**
-   * Children Content
-   */
-  children?: React.ReactNode
-  /**
-   * Open or not of drawer
-   */
-  open?: boolean
-  /**
-   * Has Mask
-   */
-  withMask?: boolean
-  /**
-   * Custom Icon
-   */
-  customCloseIcon?: React.ReactNode | null
-  /**
-   * Has Close Icon
-   */
-  hasCloseIcon?: boolean
-  /**
-   * Height
-   */
-  height?: number
-  /**
-   * Width
-   */
-  width?: number
-  /**
-   * ZIndex
-   */
-  zIndex?: number
-  /**
-   * Placemente Drawer
-   */
-  placement?: DrawerPlacementTypes
-  /**
-   * Action on close drawer
-   */
-  onClose?: () => void
-}
+import { TDrawerComponent } from './type'
 
 const Drawer = ({
   children,
@@ -84,7 +28,7 @@ const Drawer = ({
   customCloseIcon = null,
   hasCloseIcon = false,
   ...genericsProps
-}: IDrawer) => {
+}: TDrawerComponent) => {
   const { handles } = useCssHandle({
     classes: {
       mask__wrapper: ['mask__wrapper'],
@@ -94,8 +38,12 @@ const Drawer = ({
       drawer__icon: ['drawer__icon'],
     },
     componentPrefixCls: 'drawer',
-    customPrexiCls: genericsProps?.className,
+    customPrexiCls: '',
   })
+  const globalStyles = useMemo(
+    () => getDesignProps(genericsProps),
+    [genericsProps]
+  )
   const { isOpen } = useOpen({ open })
 
   return (
@@ -127,7 +75,7 @@ const Drawer = ({
               }
               isReadyToInitAnimation={open}
             >
-              <S.Drawer
+              <S.DrawerStyled
                 $zIndex={zIndex}
                 $width={width}
                 $height={height}
@@ -137,10 +85,12 @@ const Drawer = ({
                   top: placement == 'top',
                   bottom: placement == 'bottom',
                 })}
-                {...getGenericPropStyles(genericsProps)}
+                {...globalStyles}
               >
                 {hasCloseIcon && (
-                  <S.CloseIcon className={cls(handles.drawer__icon__container)}>
+                  <S.CloseIconStyled
+                    className={cls(handles.drawer__icon__container)}
+                  >
                     {customCloseIcon ?? (
                       <Icon
                         className={cls(handles.drawer__icon)}
@@ -150,10 +100,10 @@ const Drawer = ({
                         onClick={onClose}
                       />
                     )}
-                  </S.CloseIcon>
+                  </S.CloseIconStyled>
                 )}
                 {children}
-              </S.Drawer>
+              </S.DrawerStyled>
             </Transition>
           </Portal>
         </Fragment>
@@ -172,4 +122,7 @@ type DrawerComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }
 
-export default withDefaults(Drawer, defaultProps) as DrawerComponent<IDrawer>
+export default withDefaults(
+  Drawer,
+  defaultProps
+) as DrawerComponent<TDrawerComponent>

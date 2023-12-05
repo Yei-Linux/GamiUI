@@ -1,31 +1,10 @@
-import React from 'react'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
+import React, { useMemo } from 'react'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import * as S from './Link.styles'
-import { IComponentsVariant } from 'core/domain/interfaces/IComponentsVariant'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
 import withDefaults from 'hocs/WithDefault'
-
-export interface ILink extends IGeneralProps, IComponentsVariant {
-  /**
-   * Children Content
-   */
-  children?: React.ReactNode
-  /**
-   * Text Link
-   */
-  text?: string | null
-  /**
-   * Url
-   */
-  href: string
-
-  /**
-   * Is External
-   */
-  isExternal?: boolean
-}
+import { TLinkComponent } from './type'
 
 const Link = ({
   children,
@@ -38,16 +17,21 @@ const Link = ({
   flat = false,
   light = false,
   ...genericsProps
-}: ILink) => {
+}: TLinkComponent) => {
+  const globalStyles = useMemo(
+    () => getDesignProps(genericsProps),
+    [genericsProps]
+  )
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
     },
     componentPrefixCls: 'link',
-    customPrexiCls: genericsProps.className,
+    customPrexiCls: '',
   })
+
   return (
-    <S.Link
+    <S.LinkStyled
       className={cls(handles.wrapper, genericsProps?.className ?? '')}
       href={href}
       target={isExternal ? '_blank' : '_self'}
@@ -56,10 +40,10 @@ const Link = ({
       $ghost={ghost}
       $flat={flat}
       $light={light}
-      {...getGenericPropStyles(genericsProps)}
+      {...globalStyles}
     >
       {text ?? children}
-    </S.Link>
+    </S.LinkStyled>
   )
 }
 
@@ -75,4 +59,4 @@ type LinkComponent<P> = React.NamedExoticComponent<P> & {
   defaultProps: P
 }
 
-export default withDefaults(Link, defaultProps) as LinkComponent<ILink>
+export default withDefaults(Link, defaultProps) as LinkComponent<TLinkComponent>

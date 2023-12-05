@@ -1,33 +1,31 @@
 import styled from '@emotion/styled'
-import { JustifyContentTypes, AlignItemsTypes } from 'core/domain/types'
-import { mixinFlexVariants } from 'styles/mixins/flex'
-import { validatorProperty } from 'styles/utilities/validatorsCss'
+import { flex } from 'styles/mixins/flex'
+import { TRowComponent } from './type'
 
-export const Row = styled.div<{
-  $gap?: string | null
-  $width?: string
-  $height: string
-  $justifyContent: JustifyContentTypes
-  $alignItems: AlignItemsTypes
-  $flexDirection?: string
-}>`
-  ${({ $justifyContent, $alignItems }) =>
-    mixinFlexVariants({
+type TRowStyled = {
+  $gap: TRowComponent['gap']
+  $width: TRowComponent['width']
+  $height: TRowComponent['height']
+  $justifyContent: TRowComponent['justifyContent']
+  $alignItems: TRowComponent['alignItems']
+  $flexDirection: TRowComponent['flexDirection']
+}
+export const RowStyled = styled('div')(
+  ({ $gap, $width, $height, $flexDirection }: TRowStyled) => ({
+    '&.wrap': {
+      flexWrap: 'wrap',
+    },
+    '&.nowrap': {
+      flexWrap: 'nowrap',
+    },
+    flexDirection: $flexDirection,
+    width: $width,
+    height: $height,
+    gap: $gap ?? '',
+  }),
+  ({ $justifyContent, $alignItems }) =>
+    flex({
       justifyContent: $justifyContent,
       alignItems: $alignItems,
-    })}
-
-  &.wrap {
-    flex-wrap: wrap;
-  }
-
-  &.nowrap {
-    flex-wrap: nowrap;
-  }
-
-  flex-direction: ${({ $flexDirection }) => $flexDirection};
-
-  ${({ $gap }) => validatorProperty('gap', $gap)}
-  width: ${({ $width }) => $width};
-  height: ${({ $height }) => $height};
-`
+    })
+)

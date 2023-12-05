@@ -1,3 +1,4 @@
+import React from 'react'
 import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
@@ -11,6 +12,7 @@ const genericArgTypes = madegenericPropsControl([
   'width',
   'height',
   'textAlign',
+  'fontWeight',
 ])
 
 const storyArgTypes = {
@@ -46,7 +48,7 @@ const docArgTypes = {}
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Icon',
+  title: 'Atoms/Icon 🟢',
   component: Icon,
   args: {},
   argTypes: storyArgTypes,
@@ -57,15 +59,25 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
     args: {},
   },
   margin: {
-    args: {},
+    args: {
+      shadow: 'info',
+    },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    wrapper: (content: React.ReactNode) => (
+      <div style={{ border: '1px solid #d1d1d1' }}>{content}</div>
+    ),
   },
   padding: {
-    args: {},
+    args: {
+      shadow: 'info',
+    },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
   rounded: {
-    args: {},
+    args: {
+      shadow: 'info',
+      padding: '10px',
+    },
   },
   width: null,
   height: null,
@@ -76,7 +88,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithColors',
+    storyName: 'WithColors 🙂',
     self: {
       args: {
         name: 'check',
@@ -105,7 +117,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithSize',
+    storyName: 'WithSize 🙂',
     self: {
       args: {
         name: 'code',

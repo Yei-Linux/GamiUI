@@ -7,8 +7,8 @@ interface IUseToggle {
 const useToggle = ({ defaultVisible = false }: IUseToggle) => {
   const [isVisible, setIsVisible] = useState(defaultVisible)
 
-  const handleToggle = (optionalVisible: boolean | null = null) =>
-    setIsVisible(optionalVisible ?? !isVisible)
+  const handleToggle = (optionalVisible?: boolean) =>
+    setIsVisible(optionalVisible === undefined ? !isVisible : optionalVisible)
 
   return {
     isVisible,

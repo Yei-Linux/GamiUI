@@ -25,7 +25,7 @@ const docArgTypes = {}
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/RichText',
+  title: 'Atoms/RichText 🟢',
   component: RichText,
   args: {},
   argTypes: storyArgTypes,
@@ -114,7 +114,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithText',
+    storyName: 'WithText 🙂',
     self: {
       args: {},
       variants: {

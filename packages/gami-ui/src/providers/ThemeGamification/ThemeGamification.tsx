@@ -1,5 +1,7 @@
 import React from 'react'
-import { ThemeProvider } from '@emotion/react'
+import { ThemeProvider, CacheProvider } from '@emotion/react'
+import { prefixer } from 'stylis'
+import createCache from '@emotion/cache'
 import DefaultStyles, { IDefaultStyles } from '../../styles/DefaultStyles'
 import { defaultTokens } from 'styles/tokens/tokens'
 import { defaultTheme } from 'styles/tokens'
@@ -47,6 +49,15 @@ export interface ITheme {
   componentsThemes?: IComponentsTheme
 }
 
+const myCache = createCache({
+  key: 'gamiui',
+  stylisPlugins: [
+    // has to be included manually when customizing `stylisPlugins` if you want
+    // to have vendor prefixes added automatically
+    prefixer,
+  ],
+})
+
 const ThemeGamification = ({
   children,
   themeType = 'light',
@@ -54,27 +65,32 @@ const ThemeGamification = ({
     tokens: defaultTokens,
     themes: defaultTheme,
   },
-  disableDefaultFonts = false,
+  disableDefaultFonts = true,
   disableDefaultClasses = false,
   disableDefaultNormalize = false,
 }: ThemeGamificationProps) => {
   return (
-    <ThemeProvider
-      theme={{
-        tokens: themeUI.tokens,
-        theme: themeUI.themes[themeType],
-        componentsTheme: themeUI?.componentsThemes
-          ? themeUI.componentsThemes[themeType]
-          : generatorComponentsTheme(themeUI.tokens, themeUI.themes[themeType]),
-      }}
-    >
-      <DefaultStyles
-        disableDefaultFonts={disableDefaultFonts}
-        disableDefaultClasses={disableDefaultClasses}
-        disableDefaultNormalize={disableDefaultNormalize}
-      />
-      {children}
-    </ThemeProvider>
+    <CacheProvider value={myCache}>
+      <ThemeProvider
+        theme={{
+          tokens: themeUI.tokens,
+          theme: themeUI.themes[themeType],
+          componentsTheme: themeUI?.componentsThemes
+            ? themeUI.componentsThemes[themeType]
+            : generatorComponentsTheme(
+                themeUI.tokens,
+                themeUI.themes[themeType]
+              ),
+        }}
+      >
+        <DefaultStyles
+          disableDefaultFonts={disableDefaultFonts}
+          disableDefaultClasses={disableDefaultClasses}
+          disableDefaultNormalize={disableDefaultNormalize}
+        />
+        {children}
+      </ThemeProvider>
+    </CacheProvider>
   )
 }
 

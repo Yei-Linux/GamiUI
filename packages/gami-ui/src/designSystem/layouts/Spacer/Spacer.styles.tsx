@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import { TSpacer } from './type'
 
-const getDirectionSpace = ({
+const directionSpaceCss = ({
   left = '0px',
   right = '0px',
   top = '0px',
@@ -10,13 +11,14 @@ const getDirectionSpace = ({
   margin: ${`${top} ${right} ${bottom} ${left}`};
 `
 
-export const Spacer = styled.div<{
-  $customSize?: string
-  $direction: 'left' | 'right' | 'top' | 'bottom'
-  $size: 1 | 2 | 3 | 4 | 5
-}>`
-  ${({ $direction, $size, $customSize }) =>
-    getDirectionSpace({
+type TSpacerStyled = {
+  $customSize: TSpacer['customSize']
+  $direction: TSpacer['direction']
+  $size: TSpacer['size']
+}
+export const SpacerStyled = styled('div')(
+  ({ $customSize, $direction, $size }: TSpacerStyled) =>
+    directionSpaceCss({
       [$direction]: `${$customSize || `${$size}rem`}`,
-    })}
-`
+    })
+)

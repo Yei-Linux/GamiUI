@@ -1,23 +1,24 @@
 {
   "name": "@gamiui/standard",
-  "version": "0.1.0-alpha.41",
+  "version": "0.1.0-alpha.107",
   "description": "GamiUI Library of standard components",
   "source": "src/index.ts",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
-  "types": "lib/types/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib/"
+    "dist/"
   ],
   "scripts": {
     "test": "jest",
     "test:snapshot-update": "jest --u",
     "storybook": "start-storybook -p 6006 -c .storybook watch-css -s ./src",
     "build-storybook": "build-storybook",
-    "build": "node ./scripts/build.js",
-    "build:esm": "tsc -p tsconfig.json --module es2015 --target es5 --outDir ./lib/esm && tscpaths -p tsconfig.json -s ./src -o ./lib/esm",
-    "build:cjs": "tsc -p tsconfig.json --module commonjs --target es5 --outDir ./lib/cjs && tscpaths -p tsconfig.json -s ./src -o ./lib/cjs",
-    "build:types": "tsc -p tsconfig.json -d --emitDeclarationOnly --outDir ./lib/types && tscpaths -p tsconfig.json -s ./src -o ./lib/types",
+    "build:babel": "node ./scripts/build.js",
+    "build": "tsup ./src/index.tsx --format cjs,esm --dts --minify",
+    "build:esm": "tsc -p tsconfig.json --module es2015 --target es5 --outDir ./dist/esm && tscpaths -p tsconfig.json -s ./src -o ./dist/esm",
+    "build:cjs": "tsc -p tsconfig.json --module commonjs --target es5 --outDir ./dist/cjs && tscpaths -p tsconfig.json -s ./src -o ./dist/cjs",
+    "build:types": "tsc -p tsconfig.json -d --emitDeclarationOnly --outDir ./dist/types && tscpaths -p tsconfig.json -s ./src -o ./dist/types",
     "chromatic": "npx chromatic --project-token 7296afeee821",
     "prepare-husky": "husky install",
     "semantic-release": "semantic-release",
@@ -34,16 +35,19 @@
   },
   "author": "Yei Linux",
   "license": "ISC",
-  "peerDependencies": {
-    "react": ">=16.13.1",
-    "react-dom": ">=16.13.1"
-  },
   "publishConfig": {
-    "directory": "lib",
+    "directory": "dist",
     "access": "public"
   },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
   "devDependencies": {
+    "react": "~16.13.1",
+    "react-dom": "~16.13.1",
     "babel-plugin-replace-imports": "^1.0.2",
+    "babel-plugin-emotion": "^11.0.0",
     "@emotion/babel-plugin": "^11.7.2",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@babel/cli": "^7.17.6",
@@ -79,6 +83,7 @@
   "dependencies": {
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "@emotion/css": "^11.10.6",
     "@babel/preset-typescript": "^7.12.7",
     "autoprefixer": "^10.0.4",
     "babel-plugin-preval": "^5.0.0",
@@ -92,15 +97,14 @@
     "polished": "^4.1.3",
     "postcss-cli": "^8.3.0",
     "postcss-import": "^13.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "storybook-addon-react-docgen": "^1.2.42",
     "style-loader": "^2.0.0",
     "tsconfig-paths": "^3.11.0",
     "tscpaths": "0.0.9",
     "typescript": "^4.1.2",
     "url-loader": "^4.1.1",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "react-select": "^4.3.1"
   },
   "repository": {
     "type": "git",

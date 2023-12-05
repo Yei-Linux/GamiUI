@@ -3,7 +3,7 @@ import useGamiTheme from 'hooks/useGamiTheme'
 
 import { normalize } from 'polished'
 
-const useNormalize = () => {
+const useNormalize = (disableDefaultFonts = true) => {
   const {
     tokens: { sizes, spacing, font },
   } = useGamiTheme()
@@ -20,7 +20,10 @@ const useNormalize = () => {
     }
 
     body {
-      font-family: ${font.family.mali};
+      ${!disableDefaultFonts &&
+      css`
+        font-family: ${font.family.mali};
+      `}
       min-height: ${sizes.height.full};
 
       transition-duration: 0.2s;

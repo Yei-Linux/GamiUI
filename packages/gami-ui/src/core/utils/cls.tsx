@@ -27,7 +27,7 @@ export const cls = (...args: ArgumentCls[]): string => {
 
   const clsString = clsArray.flat()
 
-  return clsString.join(' ')
+  return clsString.join(' ').trim()
 }
 
 export const prefixCls = (

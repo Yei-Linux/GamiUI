@@ -9,35 +9,27 @@ import { mixinHeight } from 'styles/mixins/height'
 import { mixinShadow } from 'styles/mixins/shadow'
 import { mixinWidth } from 'styles/mixins/width'
 import { builderSpacersByDevice } from './spacersBuilderByDevice'
-export const setGenericPropStyles = (
-  theme: ICustomTheme,
-  {
-    shadow,
-    rounded,
-    width,
-    height,
-    textAlign,
-    fontWeight,
-    padding,
-    margin,
-  }: IGenericPropStyles,
-  component: InheritStyleComponent = null
-) => css`
-  ${shadow && mixinShadow(theme, shadow)}
-  ${rounded && mixinRounded(theme, rounded)}
-    ${width && mixinWidth(theme, width, component)}
-    ${height && mixinHeight(theme, height, component)}
-    ${textAlign && mixinTextAlign(theme, textAlign)}
-    ${fontWeight && mixinFontWeight(theme, fontWeight)}
-    ${padding && builderSpacersByDevice(padding, 'padding')}
-    ${margin && builderSpacersByDevice(margin, 'margin')}
-`
 
-interface IDynamicPropStyles {
+export interface IDynamicPropStyles {
   [key: string]: string | React.CSSProperties | React.MouseEventHandler<unknown>
 }
 
-export const getGenericPropStyles = ({
+export const setDesignCss = (
+  theme: ICustomTheme,
+  design: IGenericPropStyles,
+  component: InheritStyleComponent = null
+) => css`
+  ${design.shadow && mixinShadow(theme, design.shadow)}
+  ${design.rounded && mixinRounded(theme, design.rounded)}
+    ${design.width && mixinWidth(theme, design.width, component)}
+    ${design.height && mixinHeight(theme, design.height, component)}
+    ${design.textAlign && mixinTextAlign(theme, design.textAlign)}
+    ${design.fontWeight && mixinFontWeight(theme, design.fontWeight)}
+    ${design.padding && builderSpacersByDevice(design.padding, 'padding')}
+    ${design.margin && builderSpacersByDevice(design.margin, 'margin')}
+`
+
+export const getDesignProps = ({
   shadow,
   rounded,
   width,
@@ -50,6 +42,8 @@ export const getGenericPropStyles = ({
   style,
   onClick,
   onChange,
+  onMouseEnter,
+  onMouseLeave,
 }: IGeneralProps) => {
   const propStyles: IDynamicPropStyles = {}
 
@@ -68,6 +62,8 @@ export const getGenericPropStyles = ({
 
   if (onClick) propStyles['onClick'] = onClick
   if (onChange) propStyles['onChange'] = onChange
+  if (onMouseEnter) propStyles['onMouseEnter'] = onMouseEnter
+  if (onMouseLeave) propStyles['onMouseLeave'] = onMouseLeave
 
   return propStyles
 }

@@ -1,19 +1,22 @@
 import styled from '@emotion/styled'
 import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
 import { mixinDescription } from 'styles/mixins/fonts'
-import { mixinWidth } from 'styles/mixins/width'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 import RichText from '../RichText'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
+import { PartialBy } from 'core/domain/types/mixins'
 
-export const Empty = InheritGlobalStylesComponent(styled.div<{
-  theme?: ICustomTheme
-}>`
-  ${({ theme }) => mixinWidth(theme, 'full')}
-`)
+type TEmptyStyled = PartialBy<TWithGlobalStylesUI, 'theme'>
+export const EmptyStyled = styled('div')(
+  (props: TEmptyStyled) => ({
+    width: props.theme?.tokens.sizes.width.full,
+  }),
+  (props) => withGlobalStylesUI(props)()
+)
 
-export const Text = styled(RichText)<{
+type TTextStyled = {
   theme?: ICustomTheme
   $color: string | null
-}>`
-  ${({ theme, $color }) => mixinDescription(theme, $color)}
-`
+}
+export const TextStyled = styled(RichText)(({ theme, $color }: TTextStyled) =>
+  mixinDescription(theme, $color)
+)

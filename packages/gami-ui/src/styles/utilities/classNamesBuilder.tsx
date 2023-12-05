@@ -34,7 +34,7 @@ export const globalClassesBuilder = ({
 
   Object.entries(token).map(([key, value]) => {
     if (typeof value == 'object') {
-      Object.entries(value).map((subkey, subvalue) => {
+      Object.entries(value).map(([subkey, subvalue]) => {
         if (['string', 'number'].includes(typeof subvalue)) {
           classes += `
               .${`${tokenName}-${key}__${subkey}`} {

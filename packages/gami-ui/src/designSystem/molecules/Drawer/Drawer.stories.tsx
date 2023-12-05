@@ -10,14 +10,17 @@ import Row from 'designSystem/layouts/Row'
 import Icon from 'designSystem/atoms/Icon'
 import RichText from 'designSystem/atoms/RichText'
 
-const { mainConfig, stories } = storyConfig
+const { mainConfig } = storyConfig
 
 export default mainConfig as Meta
 
-// eslint-disable-next-line no-empty-pattern
-const [] = stories
+/**
+ * Custom Stories
+ * @param args
+ * @returns
+ */
 
-const StoryDefault = (args: unknown) => {
+const StoryDefault = (args: any) => {
   const [open, setOpen] = useState(false)
 
   const toggle = () => setOpen(!open)
@@ -35,14 +38,14 @@ const StoryDefault = (args: unknown) => {
 }
 export const StoryDefaultTemplate: ComponentStory<TJSXElements> =
   StoryDefault.bind({})
-StoryDefaultTemplate.storyName = 'WithDefault'
+StoryDefaultTemplate.storyName = 'With Default 🙂'
 StoryDefaultTemplate.args = {
   height: 300,
   width: 280,
   zIndex: 2,
 }
 
-const StoryCustomCloseIcon = (args: unknown) => {
+const StoryCustomCloseIcon = (args: any) => {
   const [customCloseIcon, setCustomCloseIcon] = useState(true)
   const [open, setOpen] = useState(false)
 
@@ -77,7 +80,7 @@ const StoryCustomCloseIcon = (args: unknown) => {
 export const StoryCustomCloseIconTemplate: ComponentStory<TJSXElements> =
   StoryCustomCloseIcon.bind({})
 
-StoryCustomCloseIconTemplate.storyName = 'WithCustomCloseIcon'
+StoryCustomCloseIconTemplate.storyName = 'With CustomCloseIcon 🙂'
 StoryCustomCloseIconTemplate.args = {
   hasCloseIcon: true,
   placement: 'left',
@@ -86,7 +89,7 @@ StoryCustomCloseIconTemplate.args = {
   zIndex: 2,
 }
 
-const StoryCloseIcon = (args: unknown) => {
+const StoryCloseIcon = (args: any) => {
   const [closeIcon, setCloseIcon] = useState(true)
   const [open, setOpen] = useState(false)
 
@@ -117,7 +120,7 @@ const StoryCloseIcon = (args: unknown) => {
 export const StoryCloseIconTemplate: ComponentStory<TJSXElements> =
   StoryCloseIcon.bind({})
 
-StoryCloseIconTemplate.storyName = 'WithCloseIcon'
+StoryCloseIconTemplate.storyName = 'With CloseIcon 🙂'
 StoryCloseIconTemplate.args = {
   placement: 'left',
   height: 300,
@@ -125,7 +128,7 @@ StoryCloseIconTemplate.args = {
   zIndex: 2,
 }
 
-const StoryMask = (args: unknown) => {
+const StoryMask = (args: any) => {
   const [mask, setMask] = useState(true)
   const [open, setOpen] = useState(false)
 
@@ -157,14 +160,14 @@ export const StoryMaskTemplate: ComponentStory<TJSXElements> = StoryMask.bind(
   {}
 )
 
-StoryMaskTemplate.storyName = 'WithMask'
+StoryMaskTemplate.storyName = 'With Mask 🙂'
 StoryMaskTemplate.args = {
   height: 300,
   width: 280,
   zIndex: 2,
 }
 
-const StoryDirection = (args: unknown) => {
+const StoryDirection = (args: any) => {
   const [placement, setPlacement] = useState<DrawerPlacementTypes>('left')
   const [open, setOpen] = useState(false)
 
@@ -200,7 +203,7 @@ const StoryDirection = (args: unknown) => {
 }
 export const StoryDirectionTemplate: ComponentStory<TJSXElements> =
   StoryDirection.bind({})
-StoryDirectionTemplate.storyName = 'WithDirection'
+StoryDirectionTemplate.storyName = 'With Direction 🙂'
 StoryDirectionTemplate.args = {
   height: 300,
   width: 280,

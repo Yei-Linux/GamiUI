@@ -15,7 +15,6 @@ const genericArgTypes = madegenericPropsControl([
   'textAlign',
   'height',
   'width',
-  'rounded',
 ])
 
 const storyArgTypes = {
@@ -67,7 +66,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Empty',
+  title: 'Atoms/Empty 🟢',
   component: Empty,
   args: {},
   argTypes: storyArgTypes,
@@ -77,21 +76,42 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   shadow: {
     args: {
       text: 'No data',
+      padding: '40px',
+      rounded: 'sm',
     },
   },
   margin: {
     args: {
       text: 'No data',
     },
-    examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    examples: ['10px', '20px', '30px', '40px', '50px', '60px'],
+    wrapper: (content: React.ReactNode) => (
+      <div
+        style={{
+          border: '1px solid #d1d1d1',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        {content}
+      </div>
+    ),
   },
   padding: {
     args: {
       text: 'No data',
+      shadow: 'xs',
     },
-    examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    examples: ['10px', '20px', '30px', '40px', '50px', '60px'],
   },
-  rounded: null,
+  rounded: {
+    args: {
+      text: 'No data',
+      padding: '40px',
+      shadow: 'xs',
+    },
+  },
   width: null,
   height: null,
   size: null,
@@ -101,7 +121,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithIconTypes',
+    storyName: 'WithIconTypes 🙂',
     self: {
       args: {
         size: '200px',
@@ -117,7 +137,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithCustomIcons',
+    storyName: 'WithCustomIcons 🙂',
     self: {
       args: {
         text: 'No data!',
@@ -143,7 +163,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithText',
+    storyName: 'WithText 🙂',
     self: {
       args: {
         size: '200px',
@@ -169,7 +189,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithTextColors',
+    storyName: 'WithTextColors 🙂',
     self: {
       args: {
         text: 'No data!',
@@ -198,7 +218,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithSize',
+    storyName: 'WithCustomSize 🙂',
     self: {
       args: {
         text: 'No data!',

@@ -1,0 +1,463 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Molecules/Form Basic 1`] = `
+<div
+  className="css-pnvx7p-FormWrapper enokt0p0"
+>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-eetcbg-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Nombres</p>
+",
+        }
+      }
+      fontWeight="BOLD"
+      width="NONE"
+    />
+    <input
+      autoComplete="off"
+      className="css-5uckb6-InputContainer e7vlt9n1"
+      fontWeight="BOLD"
+      name="names"
+      onChange={[Function]}
+      placeholder="Ingresa tus nombres"
+      prefix={null}
+      readOnly={false}
+      type="input"
+      value=""
+      width="NORMAL"
+    />
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-eetcbg-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Contraseña</p>
+",
+        }
+      }
+      fontWeight="BOLD"
+      width="NONE"
+    />
+    <div
+      autoComplete="off"
+      className="css-pv4m0o-InputWrapper e7vlt9n0"
+      fontWeight="BOLD"
+      name="password"
+      placeholder="Ingresa tu contraseña"
+      prefix={
+        <div
+          onClick={[Function]}
+        >
+          <Icon
+            fill="blue"
+            name="closeeye"
+            size="30px"
+          />
+        </div>
+      }
+      readOnly={false}
+      type="password"
+      value=""
+      width="NORMAL"
+    >
+      <div
+        onClick={[Function]}
+      >
+        <i
+          className="css-6tw2qr-IconWrapper e1cr9qb30"
+        >
+          <svg
+            fill="blue"
+            height="30px"
+            viewBox="0 0 512.52 512.52"
+            width="30px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g>
+              <g>
+                <path
+                  d="m512.52 187.167-3.34 6.69c-.71 1.45-18.07 35.74-57.99 69.95-23.36 20.02-49.72 35.97-78.35 47.4-35.65 14.24-74.87 21.46-116.58 21.46s-80.93-7.22-116.58-21.46c-28.63-11.43-54.99-27.38-78.35-47.4-39.92-34.21-57.28-68.5-57.99-69.95l-3.34-6.69 3.34-6.69c.71-1.44 18.07-35.74 57.99-69.95 23.36-20.01 49.72-35.96 78.35-47.4 35.65-14.24 74.87-21.46 116.58-21.46s80.93 7.22 116.58 21.46c28.63 11.44 54.99 27.39 78.35 47.4 39.92 34.21 57.28 68.51 57.99 69.95z"
+                  fill="#fbf3f3"
+                />
+                <path
+                  d="m512.52 187.167-3.34 6.69c-.71 1.45-18.07 35.74-57.99 69.95-23.36 20.02-49.72 35.97-78.35 47.4-35.65 14.24-74.87 21.46-116.58 21.46v-291c41.71 0 80.93 7.22 116.58 21.46 28.63 11.44 54.99 27.39 78.35 47.4 39.92 34.21 57.28 68.51 57.99 69.95z"
+                  fill="#e8e3f0"
+                />
+                <ellipse
+                  cx="256.26"
+                  cy="187.167"
+                  fill="#adcfff"
+                  rx="114.12"
+                  ry="114.12"
+                  transform="matrix(.707 -.707 .707 .707 -57.291 236.023)"
+                />
+                <path
+                  d="m370.38 187.167c0 63.03-51.09 114.12-114.12 114.12v-228.24c63.03 0 114.12 51.101 114.12 114.12z"
+                  fill="#6aa8ff"
+                />
+                <ellipse
+                  cx="256.26"
+                  cy="189.437"
+                  fill="#363671"
+                  rx="59.42"
+                  ry="59.42"
+                  transform="matrix(.257 -.967 .967 .257 7.395 388.49)"
+                />
+                <path
+                  d="m315.68 189.437c0 32.82-26.6 59.42-59.42 59.42v-118.84c32.82 0 59.42 26.6 59.42 59.42z"
+                  fill="#16164d"
+                />
+                <circle
+                  cx="298.311"
+                  cy="151.391"
+                  fill="#fbf3f3"
+                  r="28.877"
+                />
+              </g>
+              <ellipse
+                cx="412.11"
+                cy="370.703"
+                fill="#ff7c48"
+                rx="100.15"
+                ry="100.15"
+                transform="matrix(.707 -.707 .707 .707 -141.422 399.982)"
+              />
+              <path
+                d="m512.26 370.703c0 55.22-44.93 100.15-100.15 100.15v-200.3c55.22 0 100.15 44.92 100.15 100.15z"
+                fill="#ff3939"
+              />
+              <path
+                d="m412.11 355.707 10 14.996-10 15.004h-41.48v-30z"
+                fill="#fbf3f3"
+              />
+              <path
+                d="m412.11 355.707h41.48v30h-41.48z"
+                fill="#e8e3f0"
+              />
+            </g>
+          </svg>
+        </i>
+      </div>
+      <input
+        autoComplete="off"
+        className="css-1w4ltwo-InputContainer e7vlt9n1"
+        fontWeight="BOLD"
+        name="password"
+        onChange={[Function]}
+        placeholder="Ingresa tu contraseña"
+        prefix={
+          <div
+            onClick={[Function]}
+          >
+            <Icon
+              fill="blue"
+              name="closeeye"
+              size="30px"
+            />
+          </div>
+        }
+        readOnly={false}
+        type="password"
+        value=""
+        width="NORMAL"
+      />
+    </div>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-eetcbg-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Celular</p>
+",
+        }
+      }
+      fontWeight="BOLD"
+      width="NONE"
+    />
+    <input
+      autoComplete="off"
+      className="css-5uckb6-InputContainer e7vlt9n1"
+      fontWeight="BOLD"
+      name="phone"
+      onChange={[Function]}
+      placeholder="Ingresa tu celular"
+      prefix={null}
+      readOnly={false}
+      type="input"
+      value=""
+      width="NORMAL"
+    />
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-eetcbg-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Comentario</p>
+",
+        }
+      }
+      fontWeight="BOLD"
+      width="NONE"
+    />
+    <textarea
+      className="css-198uahl-TextAreaWrapper eieaaae0"
+      cols={5}
+      fontWeight="BOLD"
+      name="comment"
+      onChange={[Function]}
+      placeholder="Ingresa tu comentario"
+      rows={5}
+      value=""
+      width="NORMAL"
+    />
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-eetcbg-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Activar Notificaciones</p>
+",
+        }
+      }
+      fontWeight="BOLD"
+      width="NONE"
+    />
+    <button
+      className="css-13kjyr7-SwitchWrapper egh0tog0"
+      name="isActive"
+      onClick={[Function]}
+      value=""
+      width="NORMAL"
+    >
+      <div
+        className="css-1lmkk7b-SwitchBall egh0tog1"
+      />
+    </button>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-eetcbg-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Elige un pais</p>
+",
+        }
+      }
+      fontWeight="BOLD"
+      width="NONE"
+    />
+    <div
+      className="css-htg7a1-SelectWrapper ee0eyh30"
+    >
+      <div
+        className="css-1dhedq7-Selectinput ee0eyh31"
+        onClick={[Function]}
+      >
+        <input
+          autoComplete="off"
+          className="css-5uckb6-InputContainer e7vlt9n1"
+          fontWeight="BOLD"
+          name="country"
+          onChange={[Function]}
+          placeholder="Type your option"
+          prefix={null}
+          readOnly={true}
+          type="input"
+          value=""
+          width="NORMAL"
+        />
+      </div>
+      <div
+        className="css-ae753p-SelectOptionsWrapper ee0eyh32"
+      >
+        <div
+          className="css-u0k5sv-OptionWrapper ee0eyh33"
+          onClick={[Function]}
+        >
+          Option1
+        </div>
+        <div
+          className="css-u0k5sv-OptionWrapper ee0eyh33"
+          onClick={[Function]}
+        >
+          Option2
+        </div>
+        <div
+          className="css-u0k5sv-OptionWrapper ee0eyh33"
+          onClick={[Function]}
+        >
+          Option3
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <div
+      className="enokt0p2 css-eetcbg-RichTextWrapper-FormLabel e17e5g740"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Elige tu genero</p>
+",
+        }
+      }
+      fontWeight="BOLD"
+      width="NONE"
+    />
+    <div
+      className="css-7taf9n-RadioGroupWrapper eldjpxi0"
+      fontWeight="BOLD"
+      name="gender"
+      value=""
+      width="NORMAL"
+    >
+      <label
+        className="css-1ur0gxt-RadioContainer eldjpxi1"
+      >
+        <span
+          className="css-1c1trwd-RadioCheck eldjpxi2"
+        >
+          <input
+            className="css-uckndt-RadioInput eldjpxi3"
+            onClick={[Function]}
+          />
+          <span
+            className="css-egwf0x-RadioInner eldjpxi4"
+          />
+        </span>
+        <span
+          className="css-26doda-RadioText eldjpxi5"
+        >
+          A
+        </span>
+      </label>
+      <label
+        className="css-1ur0gxt-RadioContainer eldjpxi1"
+      >
+        <span
+          className="css-1c1trwd-RadioCheck eldjpxi2"
+        >
+          <input
+            className="css-uckndt-RadioInput eldjpxi3"
+            onClick={[Function]}
+          />
+          <span
+            className="css-egwf0x-RadioInner eldjpxi4"
+          />
+        </span>
+        <span
+          className="css-26doda-RadioText eldjpxi5"
+        >
+          B
+        </span>
+      </label>
+      <label
+        className="css-1ur0gxt-RadioContainer eldjpxi1"
+      >
+        <span
+          className="css-1c1trwd-RadioCheck eldjpxi2"
+        >
+          <input
+            className="css-uckndt-RadioInput eldjpxi3"
+            onClick={[Function]}
+          />
+          <span
+            className="css-egwf0x-RadioInner eldjpxi4"
+          />
+        </span>
+        <span
+          className="css-26doda-RadioText eldjpxi5"
+        >
+          C
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    className="css-o5sgrd-FormItemWrapper enokt0p1"
+  >
+    <button
+      className="css-4057eo-ButtonWrapper ekfoxpm0"
+      onClick={[Function]}
+      type="submit"
+      width="SMALL"
+    >
+      <i
+        className="css-6tw2qr-IconWrapper e1cr9qb30"
+      >
+        <svg
+          fill="none"
+          height="16px"
+          viewBox="0 0 497.012 497.012"
+          width="16px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              d="m71.158 468.004c-22.029 0-39.887-17.909-39.887-40v-387.999c0-22.092 17.858-40 39.887-40h170.714c4.844 0 9.567 1.178 13.788 3.376 2.702 1.407 125.455 125.012 126.921 128.24 1.756 3.867 2.69 8.102 2.69 12.432v276.952c0 25.957-21.043 47-47 47h-267.113z"
+              fill="#f9f8f9"
+            />
+            <path
+              d="m101.161 468h-30c-22.03 0-39.89-17.9-39.89-40v-388c0-22.09 17.86-40 39.89-40h30c-22.03 0-39.89 17.91-39.89 40v388c0 22.1 17.86 40 39.89 40z"
+              fill="#e3e0e4"
+            />
+            <g
+              fill="#a29aa5"
+            >
+              <path
+                d="m211.876 149.986h-123.611c-4.142 0-7.5-3.357-7.5-7.5s3.358-7.5 7.5-7.5h123.611c4.142 0 7.5 3.357 7.5 7.5s-3.358 7.5-7.5 7.5z"
+              />
+              <path
+                d="m261.876 330.027h-173.611c-4.142 0-7.5-3.357-7.5-7.5s3.358-7.5 7.5-7.5h173.611c4.142 0 7.5 3.357 7.5 7.5s-3.358 7.5-7.5 7.5z"
+              />
+              <path
+                d="m310.104 209.999h-223.837c-4.142 0-7.5-3.357-7.5-7.5s3.358-7.5 7.5-7.5h223.837c4.142 0 7.5 3.357 7.5 7.5s-3.358 7.5-7.5 7.5z"
+              />
+              <path
+                d="m310.14 270.013h-223.873c-4.142 0-7.5-3.357-7.5-7.5s3.358-7.5 7.5-7.5h223.873c4.142 0 7.5 3.357 7.5 7.5s-3.358 7.5-7.5 7.5z"
+              />
+            </g>
+            <path
+              d="m465.7 396.612c-.318-6.64-3.204-13.105-7.953-17.779l-72.297-71.877c-10.654-10.592-27.923-10.592-38.577 0s-10.654 27.761 0 38.353l25.727 25.577h-145.577c-15.073 0-27.282 12.138-27.282 27.124s12.209 27.124 27.282 27.124h145.577l-25.727 25.578c-10.654 10.592-10.654 27.761 0 38.353 10.639 10.598 27.938 10.598 38.577 0l72.297-71.878c5.427-5.328 8.383-13.002 7.953-20.575z"
+              fill="#80e29e"
+            />
+            <path
+              d="m372.539 370.829h17.991c4.461 0 6.689-5.4 3.526-8.545l-25.054-24.914c-10.45-10.39-11.99-26.29-4.61-38.3-6.38.41-12.64 3.04-17.52 7.89-10.65 10.59-10.65 27.76 0 38.35zm-25.668 79.881c-10.65 10.59-10.65 27.76 0 38.35 4.87 4.85 11.14 7.48 17.52 7.89-7.38-12.02-5.84-27.91 4.61-38.3l23.934-25.064c3.038-3.182.783-8.453-3.616-8.453h-16.719zm-106.33-79.82h-13.52c-15.07 0-27.28 12.13-27.28 27.12s12.21 27.12 27.28 27.12h13.52c-9.46-5.38-15.83-15.51-15.83-27.12s6.37-21.74 15.83-27.12z"
+              fill="#77d192"
+            />
+            <path
+              d="m385.271 144.05v17.57h-103.87c-31.44 0-57.02-25.62-57.02-57.11v-104.51h17.49c4.487 0 8.865 1.01 12.839 2.903 3.067 1.462 126.423 125.514 127.89 128.757 1.744 3.857 2.671 8.076 2.671 12.39z"
+              fill="#e3e0e4"
+            />
+            <path
+              d="m382.571 131.62h-101.17c-14.92 0-27.02-12.13-27.02-27.11v-101.75c3.19 1.47 6.14 3.51 8.67 6.05l113.48 114.05c2.55 2.56 4.59 5.53 6.04 8.76z"
+              fill="#a29aa5"
+            />
+          </g>
+        </svg>
+      </i>
+      Submit
+    </button>
+  </div>
+</div>
+`;

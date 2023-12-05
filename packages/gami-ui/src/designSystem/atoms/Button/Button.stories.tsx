@@ -22,6 +22,8 @@ const [
   thirteen,
   fourteen,
   fifteen,
+  sixteen,
+  seventeen,
 ] = stories
 
 export {
@@ -40,4 +42,6 @@ export {
   thirteen,
   fourteen,
   fifteen,
+  sixteen,
+  seventeen,
 }

@@ -1,60 +1,14 @@
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { ProgressType } from 'core/domain/types'
 import { cls } from 'core/utils/cls'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
-import React, { useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 import { defaultTheme } from 'styles/tokens'
 import * as S from './Progress.styles'
 import ProgressBar from './ProgressBar'
 import ProgressCircle from './ProgressCircle'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
-import { timeout } from 'core/helpers/utilities.helper'
-import { TIMEOUT_PERCENT_RENDER } from './constants'
-
-export interface IProgressTypeContent {
-  className?: string[]
-  percent: number
-  backgroundProgress: string
-}
-
-type IGeneralPropsProgress = Omit<
-  IGeneralProps,
-  | 'height'
-  | 'textAlign'
-  | 'fontWeight'
-  | 'padding'
-  | 'size'
-  | 'onChange'
-  | 'rounded'
->
-
-export interface IProgress extends IGeneralPropsProgress {
-  /**
-   * Background of container
-   */
-  backgroundProgressBar?: string
-  /**
-   * Background of progress
-   */
-  backgroundProgress?: string
-  /**
-   * Percent Number
-   */
-  percent: number
-  /**
-   * Progress Type
-   */
-  type?: ProgressType
-  /**
-   * Max Width
-   */
-  maxWidth?: string
-  /**
-   * Max Height
-   */
-  maxHeight?: string
-}
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
+import { TProgressComponent } from './type'
+import { useProgress } from './useProgress'
 
 const Progress = ({
   backgroundProgressBar,
@@ -64,7 +18,11 @@ const Progress = ({
   maxWidth,
   type = 'bar',
   ...genericsProps
-}: IProgress) => {
+}: TProgressComponent) => {
+  const globalStyled = useMemo(
+    () => getDesignProps(genericsProps),
+    [genericsProps]
+  )
   const { handles } = useCssHandle({
     classes: {
       progress: ['progress'],
@@ -74,19 +32,10 @@ const Progress = ({
     componentPrefixCls: 'progress',
     customPrexiCls: genericsProps?.className,
   })
-  const [percentLocal, setPercentLocal] = useState(0)
-
-  const handlePercent = async () => {
-    await timeout(TIMEOUT_PERCENT_RENDER)
-    setPercentLocal(percent)
-  }
-
-  useEffect(() => {
-    handlePercent()
-  }, [percent])
+  const { percentLocal } = useProgress({ percent })
 
   return (
-    <S.Progress
+    <S.ProgressStyled
       $maxHeight={maxHeight ?? 'none'}
       $maxWidth={maxWidth ?? 'none'}
       $backgroundProgressBar={backgroundProgressBar}
@@ -94,11 +43,11 @@ const Progress = ({
         bar: type == 'bar',
         circle: type == 'circle',
       })}
-      {...getGenericPropStyles(genericsProps)}
+      {...globalStyled}
     >
       {type == 'bar' && (
         <ProgressBar
-          className={handles.progress__bar}
+          className={cls(handles.progress__bar)}
           percent={percentLocal}
           backgroundProgress={
             backgroundProgress ?? defaultTheme.light.primary.jordyBlue
@@ -107,7 +56,7 @@ const Progress = ({
       )}
       {type == 'circle' && (
         <ProgressCircle
-          className={handles.progress__circle}
+          className={cls(handles.progress__circle)}
           percent={percentLocal}
           backgroundProgress={
             backgroundProgress ?? defaultTheme.light.primary.jordyBlue
@@ -115,7 +64,7 @@ const Progress = ({
           background={backgroundProgressBar}
         />
       )}
-    </S.Progress>
+    </S.ProgressStyled>
   )
 }
 
@@ -130,4 +79,4 @@ type ProgressComponent<P> = React.NamedExoticComponent<P> & {
 export default withDefaults(
   Progress,
   defaultProps
-) as ProgressComponent<IProgress>
+) as ProgressComponent<TProgressComponent>

@@ -68,9 +68,10 @@ export const mixinSubtitle = (themeGlobal: ICustomTheme) => {
 }
 
 export const mixinDescription = (
-  themeGlobal: ICustomTheme,
+  themeGlobal: ICustomTheme | undefined,
   color: string | null = null
 ) => {
+  if (!themeGlobal) return css``
   const { theme, tokens } = themeGlobal
 
   if (!theme && !tokens) return css``

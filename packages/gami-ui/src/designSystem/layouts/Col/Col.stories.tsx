@@ -8,14 +8,17 @@ import Row from 'designSystem/layouts/Row'
 import RichText from 'designSystem/atoms/RichText'
 import { defaultTheme } from 'styles/tokens'
 
-const { mainConfig, stories } = storyConfig
+const { mainConfig } = storyConfig
 
 export default mainConfig as Meta
 
-// eslint-disable-next-line no-empty-pattern
-const [] = stories
+/**
+ * Custom Stories
+ * @param args
+ * @returns
+ */
 
-const StorySizes = (args: unknown) => (
+const StorySizes = (args: any) => (
   <Row>
     <Col xs={12} sm={6} md={4} lg={3} spacing="sm" {...args}>
       <RichText
@@ -65,7 +68,7 @@ const StorySizes = (args: unknown) => (
 export const StorySizesTemplate: ComponentStory<TJSXElements> = StorySizes.bind(
   {}
 )
-StorySizesTemplate.storyName = 'WithSizesAndSpacing'
+StorySizesTemplate.storyName = 'With Sizes And Spacing 🙂'
 StorySizesTemplate.args = {
   spacing: 'sm',
 }

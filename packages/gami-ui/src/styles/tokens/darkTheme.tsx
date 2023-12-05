@@ -7,6 +7,8 @@ export const darkTheme = {
     selago: '#EFF1FD',
   },
   secondary: {
+    jordyBlueMedium: '#adc0fa',
+    jordyBlueLight: '#d5def8',
     nepal: '#93B5C6',
     linkWater: '#cdd8f7',
     prim: '#E4D8DC',

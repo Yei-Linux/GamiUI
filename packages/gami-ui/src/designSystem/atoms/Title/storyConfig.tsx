@@ -33,7 +33,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Atoms/Title',
+  title: 'Atoms/Title 🟢',
   component: Title,
   args: {},
   argTypes: storyArgTypes,
@@ -130,7 +130,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithChildren',
+    storyName: 'WithChildren 🙂',
     self: {
       args: {},
       variants: {
@@ -149,7 +149,7 @@ const storiesComponent = [
     },
   },
   {
-    storyName: 'WithLevels',
+    storyName: 'WithLevels 🙂',
     self: {
       args: { children: 'GamiUI Text' },
       variants: {

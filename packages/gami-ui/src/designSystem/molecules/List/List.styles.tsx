@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { mixinFlexVariants } from 'styles/mixins/flex'
+import { flex } from 'styles/mixins/flex'
 import { spacing, defaultTheme } from 'styles/tokens'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { WithDesignStyledComponent } from 'styles/utilities/commonComponent'
 
-export const List = InheritGlobalStylesComponent(styled.ul`
+export const List = WithDesignStyledComponent(styled.ul`
   width: fit-content;
 `)
 
@@ -20,7 +20,7 @@ const selectedItemStyle = () => css`
 `
 
 export const ListItem = styled.li`
-  ${mixinFlexVariants({
+  ${flex({
     justifyContent: 'space-between',
     alignItems: 'center',
   })}
@@ -59,5 +59,5 @@ export const ListItem = styled.li`
   }
 `
 export const ListItemChild = styled.div`
-  margin-right: ${spacing.margin.md}; ;
+  margin-right: ${spacing.margin.md};
 `

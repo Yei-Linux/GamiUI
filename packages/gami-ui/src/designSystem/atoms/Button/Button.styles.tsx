@@ -1,40 +1,42 @@
 import styled from '@emotion/styled'
-import { mixinFlexVariants } from 'styles/mixins/flex'
+import { flex } from 'styles/mixins/flex'
 import { ComponentThemeType } from 'core/domain/types'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import { PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
+import { compose } from 'styles/utilities/tools'
 
-export const Button = InheritGlobalStylesComponent(
-  styled.button<{
-    $variant?: ComponentThemeType
-    $bordered?: boolean
-    $ghost?: boolean
-    $flat?: boolean
-    $light?: boolean
-    theme?: ICustomTheme
-  }>`
-    border: none;
-    outline: none;
-    appearance: none;
+const flexCSS = flex({
+  justifyContent: 'center',
+  alignItems: 'center',
+})
 
-    &.disabled {
-      cursor: not-allowed;
-      pointer-events: auto;
-    }
-
-    &.enabled {
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    ${mixinFlexVariants({ justifyContent: 'center', alignItems: 'center' })};
-
-    padding: ${({ theme }) =>
-      `${theme.tokens.spacing.padding.sm} ${theme.tokens.spacing.padding.md}`};
-
-    ${({ $variant, theme, $bordered, $ghost, $light, $flat }) =>
+export type TButtonStyled = {
+  $variant?: ComponentThemeType
+  $bordered?: boolean
+  $ghost?: boolean
+  $flat?: boolean
+  $light?: boolean
+} & PartialBy<TWithGlobalStylesUI, 'theme'>
+export const ButtonStyled = styled('button')(
+  (props: TButtonStyled) => ({
+    padding: `${props?.theme?.tokens.spacing.padding.sm} ${props?.theme?.tokens.spacing.padding.md}`,
+    border: 'none',
+    outline: 'none',
+    appearance: 'none',
+    '&.disabled': {
+      cursor: 'not-allowed',
+      pointerEvents: 'auto',
+    },
+    '&.enabled': {
+      '&:hover': {
+        cursor: 'pointer',
+      },
+    },
+  }),
+  ({ $variant, theme, $bordered, $ghost, $light, $flat }) =>
+    compose([
+      flexCSS,
       mixinComponentsTheme({
         emotionTheme: theme,
         typeStyle: $variant || 'primary',
@@ -43,7 +45,7 @@ export const Button = InheritGlobalStylesComponent(
         ghost: $ghost,
         light: $light,
         flat: $flat,
-      })};
-  `,
-  'button'
+      }),
+    ]),
+  (props) => withGlobalStylesUI(props)('button')
 )

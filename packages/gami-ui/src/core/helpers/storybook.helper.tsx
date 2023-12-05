@@ -13,6 +13,7 @@ import {
   IStoryInheritGlobalStyles,
   IVariants,
   TMergeAllDesignTypes,
+  TStoryInitiate,
 } from 'core/domain/interfaces/IStorybook'
 import { TDynamicFields, TJSXElements } from 'core/domain/interfaces/common'
 import { ComponentStory } from '@storybook/react'
@@ -33,7 +34,7 @@ const getInheritGlobalStyle = (
     : value
 
   const globalStylesToken = {
-    storyName: `With${capitalize(key)}s`,
+    storyName: `With${capitalize(key)}s 😁`,
     self: {
       args: designValue.args,
       variants: {
@@ -46,6 +47,7 @@ const getInheritGlobalStyle = (
         field: key,
       },
     },
+    wrapper: designValue.wrapper,
   }
 
   return globalStylesToken
@@ -85,7 +87,8 @@ export const getSelftListTemplateTypes =
   (
     Component: TJSXElements,
     { variants: { examples, field } }: IStoryElement<IVariants>,
-    customPropsStoryWrapper?: TDynamicFields
+    customPropsStoryWrapper?: TDynamicFields,
+    wrapper?: (content: React.ReactNode) => React.ReactNode
   ): ComponentStory<typeof Component> =>
   (args: TDynamicFields): JSX.Element =>
     (
@@ -98,9 +101,17 @@ export const getSelftListTemplateTypes =
             labelStory={label}
             {...customPropsStoryWrapper}
           >
-            <Component
-              {...{ ...args, ...customProps, ...{ [field]: value } }}
-            />
+            {wrapper ? (
+              wrapper(
+                <Component
+                  {...{ ...args, ...customProps, ...{ [field]: value } }}
+                />
+              )
+            ) : (
+              <Component
+                {...{ ...args, ...customProps, ...{ [field]: value } }}
+              />
+            )}
           </TableStories>
         ))}
       </Row>
@@ -134,20 +145,34 @@ export const getParentListTemplateTypes =
       </Row>
     )
 
+export const initiateStory = (config: TStoryInitiate) => {
+  const Story = config.storyBuilder.bind({})
+  Story.storyName = config.storyName
+  Story.args = config.args ?? {}
+
+  return Story
+}
+
 export const getStory = (
   Component: TJSXElements,
   storyName: string,
   self?: IStoryElement<IVariants>,
   parent?: IStoryElement<IParentVariant[]>,
   ParenComponent?: TJSXElements,
-  customPropsStoryWrapper?: TDynamicFields
+  customPropsStoryWrapper?: TDynamicFields,
+  wrapper?: (content: React.ReactNode) => React.ReactNode
 ) => {
   if (!self && !parent) {
     return null
   }
 
   const ListTemplateType: ComponentStory<typeof Component> | null = self
-    ? getSelftListTemplateTypes(Component, self, customPropsStoryWrapper)
+    ? getSelftListTemplateTypes(
+        Component,
+        self,
+        customPropsStoryWrapper,
+        wrapper
+      )
     : parent && ParenComponent
     ? getParentListTemplateTypes(
         Component,
@@ -161,10 +186,12 @@ export const getStory = (
     return null
   }
 
-  const Story = ListTemplateType.bind({})
-  Story.storyName = storyName
-  Story.args = self?.args ?? {}
-
+  const config = {
+    storyBuilder: ListTemplateType,
+    storyName,
+    args: self?.args,
+  }
+  const Story = initiateStory(config)
   return Story
 }
 
@@ -174,16 +201,21 @@ export const getStories = (
   ParentComponent?: TJSXElements,
   customPropsStoryWrapper?: TDynamicFields
 ) =>
-  storyConfig.map(({ storyName, parent, self }) =>
+  storyConfig.map(({ storyName, parent, self, wrapper }) =>
     getStory(
       Component,
       storyName,
       self,
       parent,
       ParentComponent,
-      customPropsStoryWrapper
+      customPropsStoryWrapper,
+      wrapper
     )
   )
+
+const buildCustomStories = (customStories: Array<TStoryInitiate>) => {
+  return customStories.map((config) => initiateStory(config))
+}
 
 export const getStoryConfigStructure = ({
   mainConfig,
@@ -202,10 +234,11 @@ export const getStoryConfigStructure = ({
     parentComponent,
     customPropsStoryWrapper
   )
+  const customStoriesBuilt = buildCustomStories(customStories)
 
   const storyConfig = {
     mainConfig,
-    stories: [...stories, ...(customStories ?? [])],
+    stories: [...stories, ...(customStoriesBuilt ?? [])],
   }
 
   return storyConfig
@@ -236,119 +269,122 @@ export const getListTemplate =
 
 export const madegenericPropsControl = (dontInclude: string[]) => {
   const generics: Record<string, unknown> = {}
-
-  if (!dontInclude.includes('className')) {
-    generics['className'] = {
-      control: 'text',
-      description: 'You can set className component',
-      table: {
-        type: { summary: 'string' },
-      },
+  try {
+    if (!dontInclude.includes('className')) {
+      generics['className'] = {
+        control: 'text',
+        description: 'You can set className component',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('style')) {
-    generics['style'] = {
-      control: 'object',
-      description: 'You can set custom styles to component',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('style')) {
+      generics['style'] = {
+        control: 'object',
+        description: 'You can set custom styles to component',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('shadow')) {
-    generics['shadow'] = {
-      control: { type: 'select', options: optionsStyle.shadow },
-      description: 'You can set shadow options from list',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('shadow')) {
+      generics['shadow'] = {
+        control: { type: 'select', options: optionsStyle.shadow },
+        description: 'You can set shadow options from list',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('rounded')) {
-    generics['rounded'] = {
-      control: { type: 'select', options: optionsStyle.rounded },
-      description: 'You can set rounded options from list',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('rounded')) {
+      generics['rounded'] = {
+        control: { type: 'select', options: optionsStyle.rounded },
+        description: 'You can set rounded options from list',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('width')) {
-    generics['width'] = {
-      control: { type: 'select', options: optionsStyle.width },
-      description: 'You can set width options from list',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('width')) {
+      generics['width'] = {
+        control: { type: 'select', options: optionsStyle.width },
+        description: 'You can set width options from list',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('height')) {
-    generics['height'] = {
-      control: { type: 'select', options: optionsStyle.height },
-      description: 'You can set height options from list',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('height')) {
+      generics['height'] = {
+        control: { type: 'select', options: optionsStyle.height },
+        description: 'You can set height options from list',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('textAlign')) {
-    generics['textAlign'] = {
-      control: { type: 'select', options: optionsStyle.textAlign },
-      description: 'You can set textAlign options from list',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('textAlign')) {
+      generics['textAlign'] = {
+        control: { type: 'select', options: optionsStyle.textAlign },
+        description: 'You can set textAlign options from list',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('fontWeight')) {
-    generics['fontWeight'] = {
-      control: { type: 'select', options: optionsStyle.fontWeight },
-      description: 'You can set fontWeight options from list',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('fontWeight')) {
+      generics['fontWeight'] = {
+        control: { type: 'select', options: optionsStyle.fontWeight },
+        description: 'You can set fontWeight options from list',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('padding')) {
-    generics['padding'] = {
-      control: 'text',
-      description:
-        'You can set padding , can be custom or by device(xs:10px,sm:8px,md:5px,lg:0px)',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('padding')) {
+      generics['padding'] = {
+        control: 'text',
+        description:
+          'You can set padding , can be custom or by device(xs:10px,sm:8px,md:5px,lg:0px)',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('margin')) {
-    generics['margin'] = {
-      control: 'text',
-      description:
-        'You can set margin , can be custom or by device(xs:10px,sm:8px,md:5px,lg:0px)',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('margin')) {
+      generics['margin'] = {
+        control: 'text',
+        description:
+          'You can set margin , can be custom or by device(xs:10px,sm:8px,md:5px,lg:0px)',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
-  }
 
-  if (!dontInclude.includes('size')) {
-    generics['size'] = {
-      control: { type: 'select', options: optionsStyle.width },
-      description: 'You can set size options from list',
-      table: {
-        type: { summary: 'string' },
-      },
+    if (!dontInclude.includes('size')) {
+      generics['size'] = {
+        control: { type: 'select', options: optionsStyle.width },
+        description: 'You can set size options from list',
+        table: {
+          type: { summary: 'string' },
+        },
+      }
     }
+    return generics
+  } catch (error) {
+    return {}
   }
-  return generics
 }
 
 export const genericArgTypes = madegenericPropsControl([])

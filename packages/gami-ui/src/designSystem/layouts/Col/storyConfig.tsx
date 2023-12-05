@@ -80,7 +80,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Layout/Col',
+  title: 'Layout/Col 🟢',
   component: Col,
   args: {},
   argTypes: storyArgTypes,

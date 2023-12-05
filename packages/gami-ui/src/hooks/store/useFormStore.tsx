@@ -10,6 +10,7 @@ const useFormStore = () => {
     yupSchema,
     setYupSchema,
     setCallbacks,
+    setInitialFormValues,
     onClickSubmit,
   } = useStore({ context: context })
 
@@ -18,6 +19,7 @@ const useFormStore = () => {
     yupErrors,
     setYupErrors,
     setFormValues,
+    setInitialFormValues,
     yupSchema,
     setYupSchema,
     setCallbacks,

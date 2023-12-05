@@ -91,7 +91,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Molecules/Floating',
+  title: 'Molecules/Floating 🟢',
   component: Floating,
   args: {},
   argTypes: storyArgTypes,

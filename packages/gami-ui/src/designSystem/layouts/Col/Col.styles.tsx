@@ -1,33 +1,37 @@
 import styled from '@emotion/styled'
 import { builderSpacersByDevice } from 'styles/utilities/spacersBuilderByDevice'
 import { mediaQuery } from '../../../styles/utilities/breakpoints'
+import { css } from '@emotion/react'
 
-export const Col = styled.div<{
+type TColStyled = {
   $spacing: string
   $xs: number
   $sm: number
   $md: number
   $lg: number
-}>`
-  flex-basis: ${({ $xs }) => `${($xs / 12) * 100}%`};
+}
 
-  ${mediaQuery('sm')} {
-    flex-basis: ${({ $sm }) => `${($sm / 12) * 100}%`};
-  }
-
-  ${mediaQuery('md')} {
-    flex-basis: ${({ $md }) => `${($md / 12) * 100}%`};
-  }
-
-  ${mediaQuery('lg')} {
-    flex-basis: ${({ $lg }) => `${($lg / 12) * 100}%`};
-  }
-
+const customColCSS = ({ $spacing }: TColStyled) => css`
   &.custom {
-    ${({ $spacing }) => builderSpacersByDevice($spacing, 'padding')}
-  }
-
-  &.nocustom {
-    padding: ${({ $spacing }) => $spacing};
+    ${builderSpacersByDevice($spacing, 'padding')}
   }
 `
+
+export const ColStyled = styled('div')(
+  ({ $xs, $lg, $md, $sm, $spacing }: TColStyled) => ({
+    flexBasis: `${($xs / 12) * 100}%`,
+    [mediaQuery('sm')]: {
+      flexBasis: `${($sm / 12) * 100}%`,
+    },
+    [mediaQuery('md')]: {
+      flexBasis: `${($md / 12) * 100}%`,
+    },
+    [mediaQuery('lg')]: {
+      flexBasis: `${($lg / 12) * 100}%`,
+    },
+    '&.nocustom': {
+      padding: $spacing,
+    },
+  }),
+  customColCSS
+)

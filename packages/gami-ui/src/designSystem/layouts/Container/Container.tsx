@@ -1,39 +1,38 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import * as S from './Container.styles'
-import { IGeneralProps } from 'core/domain/interfaces/IGeneralProps'
-import { getGenericPropStyles } from 'styles/utilities/genericPropStyles'
+import { getDesignProps } from 'styles/utilities/genericPropStyles'
 import withDefaults from 'hocs/WithDefault'
 import useCssHandle from 'hooks/useCssHandle'
 import { cls } from 'core/utils/cls'
+import { TContainerComponent } from './type'
 
-export interface IContainer extends IGeneralProps {
-  /**
-   * Container type
-   */
-  as?: keyof JSX.IntrinsicElements
-  /**
-   * Content
-   */
-  children: React.ReactNode
-}
-
-const Container = ({ children, as, ...genericsProps }: IContainer) => {
+const Container = ({ children, as, ...genericsProps }: TContainerComponent) => {
+  const globalStyles = useMemo(() => getDesignProps(genericsProps), [])
   const { handles } = useCssHandle({
     classes: {
       wrapper: ['wrapper'],
     },
     componentPrefixCls: 'container',
-    customPrexiCls: genericsProps?.className,
+    customPrexiCls: '',
   })
 
+  const dangerousField = genericsProps.dangerouslySetInnerHTML
+    ? {
+        dangerouslySetInnerHTML: {
+          __html: genericsProps.dangerouslySetInnerHTML,
+        },
+      }
+    : {}
+
   return (
-    <S.Container
+    <S.ContainerStyled
+      {...globalStyles}
+      {...dangerousField}
       className={cls(handles.wrapper, genericsProps?.className ?? '')}
       as={as}
-      {...getGenericPropStyles(genericsProps)}
     >
-      {children}
-    </S.Container>
+      {genericsProps.dangerouslySetInnerHTML ? undefined : children}
+    </S.ContainerStyled>
   )
 }
 
@@ -52,4 +51,4 @@ type ContainerComponent<P> = React.NamedExoticComponent<P> & {
 export default withDefaults(
   Container,
   defaultProps
-) as ContainerComponent<IContainer>
+) as ContainerComponent<TContainerComponent>

@@ -1,4 +1,8 @@
 import styled from '@emotion/styled'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 
-export const Container = InheritGlobalStylesComponent(styled.div``)
+type TContainerStyled = PartialBy<TWithGlobalStylesUI, 'theme'>
+export const ContainerStyled = styled('div')((props: TContainerStyled) =>
+  withGlobalStylesUI(props)()
+)

@@ -24,19 +24,9 @@
     "version:gami-ui": "npm run version --workspace=@gamiui/standard",
     "postversion:gami-ui": "npm run postversion --workspace=@gamiui/standard",
     "create-component:gami-ui": "npm run create-component --workspace=@gamiui/standard",
-    "develop:gami-docs": "npm run develop --workspace=@gamiui/docs",
-    "build-docs:gami-docs": "npm run build --workspace=@gamiui/docs",
-    "serve:gami-docs": "npm run serve --workspace=@gamiui/docs",
-    "deploy-netlify:gami-docs": "npm run deploy-netlify --workspace=@gamiui/docs",
-    "deployprop-netlify:gami-docs": "npm run deployprop-netlify --workspace=@gamiui/docs",
-    "publishfinal:gami-docs": "npm run deploy-netlify --workspace=@gamiui/docs",
-    "clean:gami-docs": "npm run clean --workspace=@gamiui/docs",
     "format:gami-ui": "npm run format --workspace=@gamiui/standard",
-    "format:gami-docs": "npm run format --workspace=@gamiui/docs",
     "lint:gami-ui": "npm run lint --workspace=@gamiui/standard",
-    "lint:gami-docs": "npm run lint --workspace=@gamiui/docs",
-    "lint-fix:gami-ui": "npm run lint:fix --workspace=@gamiui/standard",
-    "lint-fix:gami-docs": "npm run lint:fi --workspace=@gamiui/docsx"
+    "lint-fix:gami-ui": "npm run lint:fix --workspace=@gamiui/standard"
   },
   "repository": {
     "type": "git",
@@ -51,6 +41,9 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
+    "@babel/plugin-transform-parameters": "^7.23.3",
+    "@types/react-datepicker": "^4.8.0",
+    "@types/stylis": "^4.0.2",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "babel-plugin-tsconfig-paths-module-resolver": "^1.0.3",
@@ -60,7 +53,9 @@
     "eslint-plugin-react": "^7.23.2",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "author": "Yei Linux",
   "license": "ISC",
@@ -68,5 +63,12 @@
     "url": "https://github.com/Yei-Linux/GamificationStorybook/issues"
   },
   "homepage": "https://github.com/Yei-Linux/GamificationStorybook#readme",
-  "dependencies": {}
+  "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/css": "^11.10.6",
+    "babel-preset-minify": "0.3.0",
+    "rc-datepicker": "^5.0.16",
+    "react-datepicker": "^4.8.0",
+    "tsup": "^8.0.1"
+  }
 }

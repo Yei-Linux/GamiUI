@@ -25,7 +25,7 @@ const buildTypes = step('generating .d.ts', () => shell(`npm run build:types`))
 
 const babel = (outDir, envName) => {
   shell(
-    `npx babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName} && tscpaths -p tsconfig.json -s ./src -o ./lib/${envName}"`
+    `npx babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --ignore "**/*.stories.js" --env-name "${envName} && tscpaths -p tsconfig.json -s ./src -o ./lib/${envName}"`
   )
 }
 

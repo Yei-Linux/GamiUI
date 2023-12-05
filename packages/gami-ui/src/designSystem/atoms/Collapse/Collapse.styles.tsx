@@ -1,43 +1,43 @@
 import styled from '@emotion/styled'
 import { ComponentThemeType } from 'core/domain/types'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
+import { PartialBy } from 'core/domain/types/mixins'
+import { TWithGlobalStylesUI, withGlobalStylesUI } from 'core/utils/base'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
 
-export const Header = styled.div``
+export const Header = styled('div')()
 
-export const Content = styled.div`
-  max-height: 0px;
+export const Content = styled('div')({
+  maxHeight: '0px',
+  overflow: 'hidden',
+  transition: '0.4s max-height',
+})
 
-  overflow: hidden;
-  transition: 0.4s max-height;
-`
+export const Children = styled('div')({
+  padding: '1rem',
+})
 
-export const Children = styled.div`
-  padding: 1rem;
-`
-
-export const Collapse = InheritGlobalStylesComponent(styled.div<{
-  $height: string
+export type TCollapseStyled = PartialBy<TWithGlobalStylesUI, 'theme'> & {
+  $customHeight: string
   $variant?: ComponentThemeType
   $bordered?: boolean
   $divider?: boolean
-  theme?: ICustomTheme
-}>`
-  .open {
-    max-height: ${({ $height }) => $height};
-  }
-
-  ${({ $variant, theme, $bordered }) =>
+}
+export const CollapseStyled = styled('div')(
+  ({ $customHeight }: TCollapseStyled) => ({
+    '.open': {
+      maxHeight: $customHeight,
+    },
+    '&.divider': {
+      borderTop: 'none',
+      borderBottom: '1px solid #eaeaea',
+    },
+  }),
+  ({ $variant, theme, $bordered }) =>
     mixinComponentsTheme({
       emotionTheme: theme,
       typeStyle: $variant || 'primary',
       element: 'collapse',
       bordered: $bordered,
-    })};
-
-  &.divider {
-    border-top: none;
-    border-bottom: 1px solid #eaeaea;
-  }
-`)
+    }),
+  (props) => withGlobalStylesUI(props)()
+)

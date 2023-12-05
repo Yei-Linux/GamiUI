@@ -4,13 +4,12 @@ import { ICollapseCollomsContext } from 'core/domain/interfaces/ICollapseContext
 import useCollapseStore from 'hooks/store/useCollapseStore'
 import useCloneElement from 'hooks/useCloneElements'
 
-export interface ICollapseGroup extends ICollapseCollomsContext {
+export type TCollapseGroup = ICollapseCollomsContext & {
   children: React.ReactNode
 }
 
-const CollapseContent = ({ children, accordion, divider }: ICollapseGroup) => {
+const CollapseContent = ({ children, accordion, divider }: TCollapseGroup) => {
   const store = useCollapseStore()
-
   const { childrenWithProps } = useCloneElement({
     children,
     propsElement: {},
@@ -21,20 +20,18 @@ const CollapseContent = ({ children, accordion, divider }: ICollapseGroup) => {
 
   useEffect(() => {
     if (!store) return
-
     store.setAccordion(accordion)
   }, [accordion])
 
   useEffect(() => {
     if (!store) return
-
     store.setDivider(divider)
   }, [divider])
 
   return <Fragment>{childrenWithProps}</Fragment>
 }
 
-const CollapseGroup = ({ children, ...props }: ICollapseGroup) => {
+const CollapseGroup = ({ children, ...props }: TCollapseGroup) => {
   return (
     <CollapseProvider>
       <CollapseContent {...props}>{children}</CollapseContent>

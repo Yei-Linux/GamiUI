@@ -1,12 +1,12 @@
-import * as React from 'react'
+import React, { Fragment } from 'react'
 
 import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
   getStoryConfigStructure,
 } from 'core/helpers/storybook.helper'
-import Row, { options } from 'designSystem/layouts/Row'
-import { Fragment } from 'react'
+
+import Row, { options } from '.'
 import Container from '../Container'
 
 const storyArgTypes = {
@@ -81,7 +81,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Layout/Row',
+  title: 'Layout/Row 🟢',
   component: Row,
   args: {},
   argTypes: storyArgTypes,
@@ -101,7 +101,7 @@ const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
 
 const storiesComponent = [
   {
-    storyName: 'WithDirection',
+    storyName: 'WithDirection 🙂',
     self: {
       args: {
         children: (
@@ -144,7 +144,7 @@ const storiesComponent = [
   },
 
   {
-    storyName: 'WithGap',
+    storyName: 'WithGap 🙂',
     self: {
       args: {
         children: (

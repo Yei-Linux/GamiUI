@@ -1,26 +1,26 @@
 import styled from '@emotion/styled'
 import { ComponentThemeType } from 'core/domain/types'
 import { mixinComponentsTheme } from 'styles/mixins/componentsTheme'
-import { ICustomTheme } from 'providers/ThemeGamification/ThemeGamification'
-import { InheritGlobalStylesComponent } from 'styles/utilities/commonComponent'
+import { compose } from 'styles/utilities/tools'
+import { hover } from 'styles/mixins/transition'
+import { OnlyTheme } from 'core/domain/types/mixins'
+import { withGlobalStylesUI } from 'core/utils/base'
 
-export const Link = InheritGlobalStylesComponent(
-  styled.a<{
-    theme: ICustomTheme
-    $variant?: ComponentThemeType
-    $bordered?: boolean
-    $ghost?: boolean
-    $flat?: boolean
-    $light?: boolean
-  }>`
-    text-decoration: none;
-    display: inline-block;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    ${({ $variant, theme, $bordered, $ghost, $light, $flat }) =>
+type TLinkStyled = {
+  $variant?: ComponentThemeType
+  $bordered?: boolean
+  $ghost?: boolean
+  $flat?: boolean
+  $light?: boolean
+} & OnlyTheme
+export const LinkStyled = styled('a')(
+  () => ({
+    textDecoration: 'none',
+    display: 'inline-block',
+  }),
+  ({ theme, $variant, $bordered, $ghost, $light, $flat }: TLinkStyled) =>
+    compose([
+      hover,
       mixinComponentsTheme({
         emotionTheme: theme,
         typeStyle: $variant || 'primary',
@@ -29,7 +29,7 @@ export const Link = InheritGlobalStylesComponent(
         ghost: $ghost,
         light: $light,
         flat: $flat,
-      })};
-  `,
-  'text'
+      }),
+    ]),
+  (props) => withGlobalStylesUI(props)('text')
 )

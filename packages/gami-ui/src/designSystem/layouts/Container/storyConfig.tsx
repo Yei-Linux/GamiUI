@@ -1,3 +1,4 @@
+import React from 'react'
 import { IStoryMainConfig } from 'core/domain/interfaces/IStorybook'
 import {
   getInheritGlobalStylesStories,
@@ -6,7 +7,11 @@ import {
 } from 'core/helpers/storybook.helper'
 import Container from 'designSystem/layouts/Container'
 
-const genericArgTypes = madegenericPropsControl([])
+const genericArgTypes = madegenericPropsControl([
+  'size',
+  'fontWeight',
+  'textAlign',
+])
 
 const storyArgTypes = {
   as: {
@@ -33,7 +38,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Layout/Container',
+  title: 'Layout/Container 🟢',
   component: Container,
   args: {},
   argTypes: storyArgTypes,
@@ -42,66 +47,68 @@ const mainConfig: IStoryMainConfig = {
 const storiesInheritGlobalStyles = getInheritGlobalStylesStories({
   shadow: {
     args: {
-      padding: '1rem',
+      shadow: 'sm',
+      padding: '1px',
+      className: 'flex items-center',
       children: 'Gami Container',
     },
   },
   margin: {
     args: {
-      padding: '1rem',
+      shadow: 'sm',
+      padding: '1px',
+      className: 'flex items-center',
       children: 'Gami Container',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
+    wrapper: (content: React.ReactNode) => (
+      <div style={{ border: '1px solid #d1d1d1' }}>{content}</div>
+    ),
   },
   padding: {
     args: {
-      padding: '1rem',
+      shadow: 'sm',
+      padding: '1px',
+      className: 'flex items-center',
       children: 'Gami Container',
     },
     examples: ['0px', '2px', '4px', '6px', '8px', '10px'],
   },
   rounded: {
     args: {
+      shadow: 'sm',
+      padding: '1px',
+      className: 'flex items-center',
       children: 'Gami Container',
     },
   },
   width: {
     args: {
-      padding: '1rem',
+      shadow: 'sm',
+      padding: '1px',
+      className: 'flex items-center',
       children: 'Gami Container',
     },
   },
   height: {
     args: {
-      padding: '1rem',
+      shadow: 'sm',
+      padding: '1px',
+      className: 'flex items-center',
       children: 'Gami Container',
     },
   },
-  size: {
-    args: {
-      padding: '1rem',
-      children: 'Gami Container',
-    },
-  },
-  fontWeight: {
-    args: {
-      padding: '1rem',
-      children: 'Gami Container',
-    },
-  },
-  textAlign: {
-    args: {
-      padding: '1rem',
-      children: 'Gami Container',
-    },
-  },
+  size: null,
+  fontWeight: null,
+  textAlign: null,
 })
 
 const storiesComponent = [
   {
-    storyName: 'WithAs',
+    storyName: 'WithAs 🙂',
     self: {
       args: {
+        shadow: 'sm',
         padding: '1rem',
         children: 'Gami Container',
       },
@@ -117,6 +124,29 @@ const storiesComponent = [
           },
         ],
         field: 'as',
+      },
+    },
+  },
+  {
+    storyName: 'WithDangerousSetInnerHTML 🙂',
+    self: {
+      args: {
+        shadow: 'sm',
+        padding: '1rem',
+        children: 'Gami Container',
+      },
+      variants: {
+        examples: [
+          {
+            label: 'With p element',
+            value: '<p>Example of dangerous html</p>',
+          },
+          {
+            label: 'With div element',
+            value: '<div>Example of dangerous html</div>',
+          },
+        ],
+        field: 'dangerouslySetInnerHTML',
       },
     },
   },

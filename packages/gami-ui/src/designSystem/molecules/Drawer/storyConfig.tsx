@@ -100,7 +100,7 @@ const docArgTypes = {
 const argTypes = { ...storyArgTypes, ...docArgTypes }
 
 const mainConfig: IStoryMainConfig = {
-  title: 'Molecules/Drawer',
+  title: 'Molecules/Drawer 🟢',
   component: Drawer,
   args: {},
   argTypes: storyArgTypes,

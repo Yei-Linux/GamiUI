@@ -6,12 +6,13 @@ interface IClassValueItem {
   name: string
   modifier?: string | null
 }
-type TClasses = Record<string, Array<string | IClassValueItem>>
+type TClassValue = Array<string | IClassValueItem>
+type TClasses<T> = Record<keyof T, TClassValue>
 
-type THandles = Record<string, Array<string>>
+type THandles<T> = Record<keyof T, Array<string>>
 
-export interface IUseCssHandle {
-  classes: TClasses
+export interface IUseCssHandle<T> {
+  classes: TClasses<T>
   componentPrefixCls: string
   customPrexiCls?: string | null
 }
@@ -33,18 +34,20 @@ export interface IUseCssHandle {
  *        customPrexiCls: 'buttonMain'
  *     })
  */
-const useCssHandle = ({
+const useCssHandle = <T,>({
   classes,
   componentPrefixCls,
   customPrexiCls,
-}: IUseCssHandle) => {
-  const [handles, setHandles] = useState<THandles>({})
+}: IUseCssHandle<T>) => {
+  const defaultValue = {} as THandles<T>
+  const [handles, setHandles] = useState<THandles<T>>(defaultValue)
 
   const computedHandles = () => {
-    const handlesProp: THandles = {}
+    const handlesProp: THandles<T> = { ...defaultValue }
     const prefixClass = prefixCls(componentPrefixCls, customPrexiCls)
 
-    Object.entries(classes).map(([key, value]) => {
+    Object.entries(classes).map((item) => {
+      const [key, value] = item as [key: keyof T, value: TClassValue]
       const classesItemsStr: string[] = []
       const classesItemsWithModifiers: IClassValueItem[] = []
 

@@ -7,6 +7,7 @@ import reducer from './reducer'
 import {
   SET_CALLBACKS,
   SET_FORM_VALUES,
+  SET_INITIAL_FORM_VALUE,
   SET_YUP_ERRORS,
   SET_YUP_SCHEMA,
 } from './types'
@@ -20,6 +21,13 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
   } as const
 
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const setInitialFormValues = (data: Record<string, unknown>) => {
+    dispatch({
+      type: SET_INITIAL_FORM_VALUE,
+      payload: data,
+    })
+  }
 
   const setFormValues = (data: IFormValueItem) => {
     dispatch({
@@ -65,6 +73,7 @@ const FormProvider = ({ children }: { children: React.ReactNode }) => {
         setYupSchema,
         setFormValues,
         setCallbacks,
+        setInitialFormValues,
         onClickSubmit,
       }}
     >
